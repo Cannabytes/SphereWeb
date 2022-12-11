@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header text-uppercase">Скрин-галлерея
+			{% if user_info('get_is_auth') %}
+			<div class="card-action">
+			<a href="/gallery/screenshot/my" type="button" class="btn btn-info  btn-sm waves-effect waves-light">Мои скрины</a>
+                {% if get_screen_enable() and allow_load_screenshot %}
+		    	<a href="/gallery/screenshot/add" type="button" class="btn btn-success btn-sm waves-effect waves-light">Добавить</a>
+                {% endif %}
+			</div>
+		    {% endif %}
+			</div>
+			
+            <div class="card-body">
+              <div class="row">
+              
+			  {% for screen in screens %}
+			  {% set fileScreen = "uploads/screenshots/" ~ screen.image %}
+				{% if file_exists(fileScreen) %}
+                <div class="col-md-6 col-lg-3 col-xl-3">
+                  <a href="/uploads/screenshots/{{screen.image}}" data-fancybox="images" data-caption="{{ screen.desciption }}">
+                  <img src="/uploads/screenshots/thumb_{{screen.image}}" alt="lightbox" class="lightbox-thumb img-thumbnail"></a>
+                </div>
+               {% endif %}
+               {% endfor %}
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row-->
+
+{% endblock %}
+
+{% block css %}
+  <link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+  <!--Light-box-->
+  <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+{% endblock %}

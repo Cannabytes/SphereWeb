@@ -1,0 +1,70 @@
+"use strict";function _classCallCheck(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}
+function _defineProperties(t,e){for(var a=0;a<e.length;a++){var o=e[a];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}
+function _createClass(t,e,a){return e&&_defineProperties(t.prototype,e),a&&_defineProperties(t,a),t}var WebFontConfig={google:{families:__config.gFonts.fonts},timeout:__config.gFonts.delay};
+function getRandomInt(t,e){return Math.floor(Math.random()*(e-t))+t}
+function roundingNum(t,e){return parseFloat(Number.parseFloat(t).toFixed(e||2))}
+function fancyCustomOpen(t){$.fancybox.open({src:"#"+t,type:"inline",selectable:!0,opts:{touch:!1,beforeShow:function(t){streamsSlider&&"#modal-streams"==t.current.src&&setTimeout(function(){streamsSlider.update()},0)},btnTpl:{smallBtn:'<div class="gw-modal-close" data-fancybox-close></div>'},beforeClose:function(){history.pushState("",document.title,window.location.pathname)}}})
+}
+function fancyCheckHash(){var t=window.location.hash.substr(1);-1!=t.indexOf("modal-")&&fancyCustomOpen(t)}
+function AnimatingNumbersWatch(){var t=document.querySelectorAll("[data-animating-numbers]"),n=[];t.forEach(function(t,o){var e=new IntersectionObserver(function(t){t.forEach(function(t){var e=t.target,a=e.dataset.animatingNumbers;t.isIntersecting&&(AnimatingNumbers(e,0,a,5e3),n[o].disconnect())})
+})
+;e.observe(t),n.push(e)})
+}
+function AnimatingNumbers(t,e,a,o){anime({targets:t,duration:o||1e3,innerHTML:[e,a],round:1,easing:"easeOutExpo"})
+}
+function scrollGo(t,e,a){$("html, body").animate({scrollTop:$(t||"body").offset().top+parseInt(e)},a)}
+function scrolltoCheckHash(){var t=window.location.hash.substr(1);return-1!=t.indexOf("scrollto:")&&t.split("scrollto:")[1]}
+function gwTabHide(t){for(var e=0;e<t.length;e++)$("[data-tab-group="+t[e]+"]").hide()}
+function gwOpenTab(t){for(var e=0;e<t.length;e++)$("[data-tab="+t[e]+"]").show()}
+function hidePreload(t){$(".preload__progress").animate({width:"100%"},1e3*__config.preload.time),setTimeout(function(){hidePreloadHandler(t)},1e3*__config.preload.time),__config.preload.hideByClick&&$(".preload").on("click",function(){hidePreloadHandler(t)})
+}
+function hidePreloadHandler(t){$(".preload").addClass("preload__fade").fadeOut(400,function(){$(".preload").remove(),"function"==typeof t&&t(),document.querySelector("body").dispatchEvent(new Event("PreloadEnd"))})
+}
+function Copy()
+{
+	//console.log("%c Ах ты жулик, не воруй! ","background: #222; color: red; font-size: 30px"),
+	console.log("%cАх ты жулик, не воруй! ","background: #222; color: red; font-size: 30px"),
+	console.log("Front-end developer: ncs.SpawN | L2Code.ru"),
+	console.log("Designer: ncs.SpawN"),
+	console.log("for l2cw.ru")
+}
+	
+	!function(){
+		var t=document.createElement("script");
+		t.src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",
+		t.type="text/javascript",
+		t.async="true";
+		var e=document.getElementsByTagName("script")[0];
+		e.parentNode.insertBefore(t,e)}(),hidePreload(function(){
+			try{
+				var t;
+				Copy(),
+				AnimatingNumbersWatch(),
+				streamsInit(),
+				fancyCheckHash(),
+				/*insertmedia({
+					delay:null!==(t=__config.insertmedia.delay)&&void 0!==t?t:500
+				}),*/
+				setTimeout(function(){$("body").addClass("body_load")},500)
+			}
+			catch(t)
+			{
+				console.log(t)
+			}
+		})
+
+,$.fancybox.defaults.animationDuration=300,$("body").on("click","[data-open-window]",function(t){t.preventDefault(),$.fancybox.getInstance("close");t=$(this).attr("data-open-window");fancyCustomOpen(window.location.hash=t)})
+,$(function(){$("[data-gw-scrollto]").on("click",function(){var t=$(this);scrollGo(t.attr("data-gw-scrollto"),t.attr("data-gw-scrollto-offset")||0,t.attr("data-gw-scrollto-speed")||300)})
+;var t=scrolltoCheckHash();t&&scrollGo(t,0,0)})
+,$(function(){$("[data-open-tab]").on("click",function(t){var e=$(this);gwTabHide(e.attr("data-open-tab-group").split("|")),gwOpenTab(e.attr("data-open-tab").split("|"))})
+})
+,$("#method").on("change",function(){var t=$(this);console.log(t.val()),t.val(),gwTabHide(["r-type"]),gwOpenTab(["".concat(t.val())])})
+.trigger("change"),$(".gw-burger").on("click",function(){$(".gw-burger").toggleClass("gw-burger_active")})
+,$(".navigation__list").on("click",function(){$(window).width()<=1050&&$(".gw-burger").toggleClass("gw-burger_active")})
+;var streamsSlider=null;function streamsInit(){"undefined"!=typeof __config&&void 0!==__config.sliders&&void 0!==__config.sliders.streams&&__config.sliders.streams.init?(streamsSlider=new Swiper('[data-slider-streams="true"]',{autoplay:!(void 0===__config.sliders.streams.autoplay||!__config.sliders.streams.autoplay||void 0===__config.sliders.streams.autoplayDelay)&&{disableOnInteraction:!0,delay:__config.sliders.streams.autoplayDelay||1e4},pagination:{el:".swiper-pagination",type:"progressbar"},navigation:{nextEl:"[data-streams-next]",prevEl:"[data-streams-prev]"},slidesPerView:3,spaceBetween:30,simulateTouch:!1,onlyExternal:!1,breakpoints:{0:{slidesPerView:1},500:{slidesPerView:2},750:{slidesPerView:3}}})
+,void 0!==__config.sliders.streams.autoplay&&__config.sliders.streams.autoplay&&__config.sliders.streams.pauseOnHover&&$('[data-slider-streams="true"]').hover(function(){streamsSlider.autoplay.stop()},function(){streamsSlider.autoplay.start()})
+):$('[data-slider-streams="true"]').remove()}var servers=document.querySelectorAll("[data-server]");function chartInit(t,e){var a=t.getContext("2d"),t=a.createLinearGradient(0,0,0,100),e=__config.chart.serversData[e];t.addColorStop(0,"rgba(".concat(e.color,", 0.1)")),t.addColorStop(.7,"rgba(".concat(e.color,", 0)")),t.addColorStop(1,"rgba(".concat(e.color,", 0)"));e={labels:__config.chart.labels,datasets:[{data:e.data,fill:!0,backgroundColor:"rgba(".concat(e.color,", 0.99)")}]},new Chart(a,{type:"bar",data:e,options:{responsive:!0,title:{display:!1,position:"right"},tooltips:{enabled:!1,intersect:!1,axis:"x"},hover:{mode:null},scales:{xAxes:[{display:!1,gridLines:{zeroLineColor:"transparent",color:"transparent"}}],yAxes:[{display:!1,position:"right",offset:!1,gridLines:{zeroLineColor:"transparent",color:"transparent"},ticks:{display:!1,beginAtZero:!0,maxTicksLimit:0,stepSize:100,suggestedMax:100,suggestedMin:0}}]},layout:{padding:{left:0,right:0,top:0,bottom:0}},legend:{display:!1}},hidden:!1})
+}[].forEach.call(servers,function(t){var e=t.querySelector("[data-server-chart]"),t=t.getAttribute("data-server");e&&chartInit(e,t)})
+;var gw_timeUpdate=function(){function o(t,e,a){_classCallCheck(this,o),this.el=t,this.startTime=luxon.DateTime.fromSQL(e).setZone(a),this.tz=a}return _createClass(o,[{key:"update",value:function(){var t=luxon.DateTime.now().setZone(this.tz),e=this.startTime<t,a=Math.abs(Math.round(t.diff(this.startTime).as("days"))),o=Math.abs(Math.round(t.diff(this.startTime).as("hours")%24)),n=Math.abs(Math.round(t.diff(this.startTime).as("minutes")%60)),i=Math.abs(Math.round(t.diff(this.startTime).as("seconds")%60)),t="";t+='<div class="life__title">',t+=e?__config.coutndown.startTime.title.lifeTime:__config.coutndown.startTime.title.startIn,t+="</div>",t+='<div class="life__days">'+a+__config.coutndown.startTime.labelDay+"</div>",t+='<div class="life__time">',t+=String(o).padStart(2,"0"),t+=":",t+=String(n).padStart(2,"0"),t+=":",t+=String(i).padStart(2,"0"),t+="</div>",this.el.html(t)}}]),o}();$("[data-start-time]").each(function(t,e){var a=new gw_timeUpdate($(this),$(this).attr("data-start-time"),__config.coutndown.startTime.tz);(function t(){a.update(),setTimeout(function(){t()},1e3)})
+()})
+;

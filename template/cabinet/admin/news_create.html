@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+
+	   <div class="col-lg-12 col-md-12">
+            <div class="card mt-3 shadow-none">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <input name="title" type="text" class="form-control" placeholder="{{ get_phrase(15) }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="icheck-material-primary my-0">
+                                            <input name="comment" id="comment" type="checkbox" checked="checked">
+                                            <label for="comment">{{ get_phrase(16) }}</label>
+                                    </div>
+                                    <div class="icheck-material-primary my-0">
+                                            <input name="is_news" id="news" type="checkbox" checked="checked">
+                                            <label for="news">Опубликовать как новость</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="lang" class="col-sm-3 col-form-label">Язык страницы</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="lang" name="lang">
+                                    {% for lang in lang_list() %}
+                                    <option value="{{lang['lang']}}">{{lang['name']}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="content" class="form-control" id="summernoteEditor" placeholder="" style="height: 200px; display: none;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-floppy-o mr-1"></i> {{ get_phrase("create") }}</button>
+                        </div>
+                    </form>
+                </div>
+             </div>
+           </div>
+	
+        </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{template}}/assets/plugins/summernote/dist/summernote-bs4.css"/>
+  <link href="{{template}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+	<!-- simplebar js -->
+  <script src="{{template}}/assets/plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="{{template}}/assets/js/sidebar-menu.js"></script>
+  
+  <script src="{{template}}/assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+  <script>
+   $('#summernoteEditor').summernote({
+            height: 470,
+            tabsize: 2
+        });
+  </script>
+  <script src="{{template}}/assets/js/admin/admin.js"></script>
+
+{% endblock %}

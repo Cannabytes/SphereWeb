@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if (user_info('get_is_auth')) and (server_list is not empty) %}
+
+<div class="row">
+
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">Мои аккаунты </div>
+                <div class="row">
+                    {% if server_list|length > 1 %}
+                    <div class="col-md-1">
+                        <div class="tabs-vertical tabs-vertical-warning">
+                            <ul class="nav nav-tabs flex-column">
+                                {% for num, server in server_list %}
+                                <li class="nav-item">
+                                    <a class="nav-link py-4 {% if num==0 %}active{% endif %}" data-toggle="tab"
+                                       href="#tabe-{{ server.id }}"><span class="hidden-xs">{{ server.name|e }} x{{ server.rate_exp|e }}</span></a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {%endif%}
+                    <div class="tab-content">
+                        {% for num,server in server_list %}
+                        <div id="tabe-{{ server.id }}"
+                             class="container tab-pane {% if num==0 %}active{% else %}fade{% endif %}">
+                            <div class="btn-group m-10">
+                                <a href="/registration/account/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-user-o"></i> <span>{{ get_phrase(40) }}</span></a>
+                                <a href="/account/comparison/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-refresh"></i> <span>{{ get_phrase(41) }}</span></a>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Login</th>
+                                        <th>Password</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for player in player_accounts %}
+                                    {% if player.server_id == server.id %}
+                                    <tr>
+                                        <td><a href="/account/info/{{ player.login }}/server/{{server.id}}"><i
+                                                aria-hidden="true" class="fa fa-question-circle-o"></i></a> {{
+                                            player.login }}
+                                        </td>
+                                        <td>
+                                            <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
+                                                    aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
+                                            player.password_hide %}<span class="badge badge-success m-1">{{ get_phrase(42) }}</span>{%
+                                            else %}{{ player.password }}{% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">Статус онлайна сервера</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    {% for online in server_online_status() %}
+                        <div class="media align-items-center">
+                            <div class="media-body ml-1">{{online['name']}}</div>
+                            <div class="media-body ml-1">x{{online['rate_exp']}}</div>
+                            <div class="media-body ml-4">
+                                {% if online['connect_login'] %}
+                                <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Login
+                                {% else %}
+                                <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Login
+                                {% endif %}
+                            </div>
+                            <div class="media-body ml-4">
+                                {% if online['connect_game'] %}
+                                <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Game
+                                {% else %}
+                                <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Game
+                                {% endif %}
+                            </div>
+                            <div class="media-body ml-4"> {{online['player_count_online']}}</div>
+                        </div>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">Действующие предложение и акции</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="media align-items-center">
+                        <img src="template/cabinet/assets/images/race/male/none.jpg" alt="user avatar" class="customer-img rounded-circle">
+                        <div class="media-body ml-3">
+                            <h6 class="mb-0">Бонус код : <small class="ml-1">Вводите свой бонус код и получите приз</small></h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+{% endif %}
+
+{% if get_enable_game_chat() %}
+<div class="row" id="game_chat">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header text">Последние сообщения из игрового чата</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="chat_window">
+                        <ul class="messages" id="chat_messages">
+                        </ul>
+                    </div>
+                    <div class="message_template">
+                        <li class="message">
+                            <div class="avatar"></div>
+                            <div class="text_wrapper">
+                                <div class="text"></div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if screenshots %}
+{% set count = screenshots|length %}
+{% set showScreenCount = 8 %}
+{% if count>=8 %}
+{% set showScreenCount = 8 %}
+{% elseif count<=4 %}
+{% set showScreenCount = 0 %}
+{% else %}
+{% set showScreenCount = 4 %}
+{% endif %}
+{% if showScreenCount== 4 or showScreenCount==8 %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header text"><a href="/gallery"> Последние скриншоты пользователей</a></div>
+            <div class="card-body">
+                <div class="row">
+                    {% for i, screen in screenshots|slice(0,showScreenCount) %}
+                    <div class="col-md-6 col-lg-3 col-xl-3">
+                        <a href="uploads/screenshots/{{screen.image}}" data-fancybox="images"
+                           data-caption="This image has a caption">
+                            <img src="uploads/screenshots/{{screen.image}}" alt="lightbox"
+                                 class="lightbox-thumb img-thumbnail">
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endif %}
+
+{% if page %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote">
+                    <p>{{ page.description }}</p>
+                    <footer class="blockquote-footer">{{ get_phrase("data_create") }}: {{ page.date_create }}</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="col-12 col-lg-12 col-xl-12">
+        <section class="cd-timeline js-cd-timeline">
+            <div class="cd-timeline__container">
+                {% for i, news in all_news %}
+                <div class="cd-timeline__block js-cd-block">
+                    <div class="cd-timeline__img cd-timeline__img--picture js-cd-img"></div>
+                    <div class="cd-timeline__content js-cd-content">
+                        <h4><a href="/page/{{news.id}}">{{news.name|striptags}}</a></h4>
+                        <a href="#" class="open_news" data-id="{{news.id}}"><p>{{news.description|raw}}</p></a>
+                        <span class="cd-timeline__date">{{news.date_create|date("d M")}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+
+    <div class="modal fade" id="modal-open">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated flip">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal_content"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+    {% block css_ol_1 %}
+    <link href="{{'assets/plugins/vertical-timeline/css/vertical-timeline.css'|template}}" rel="stylesheet"/>
+    <link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet"/>
+    {% endblock %}
+
+    {% block js %}
+    <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+    <script src="{{'assets/plugins/vertical-timeline/js/vertical-timeline.js'|template}}"></script>
+    <script src="{{'assets/js/news/news.js'|template}}"></script>
+
+    {% if get_enable_game_chat() %}
+    <script src="{{'assets/js/ws/chat.js'|template}}"></script>
+    {% endif %}
+
+    {% endblock %}

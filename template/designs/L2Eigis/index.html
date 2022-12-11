@@ -1,0 +1,667 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L2Eigis - The Road to Crusade</title>
+<link data-react-helmet="true" rel="shortcut icon" type="image/ico" href="img/favicon.ico">
+
+<meta name="description" content="Embark on a journey you've never experienced before.">
+<meta name="keywords" content="lineage, lineage 2, lineage2, lineage ii, classic, l2classic, l2essence, l2 essence, l2 classic, lineage essence, lineage classic, lineage 2 essence, lineage 2 classic, lineage ii classic, lineage ii essence, lineage low rate, lineage server, lineage 2 server, lineage 2 stable, classic 1.5, classic 2.0, classic 2.5, classic 2.0, essence, lineage 2 top">
+<meta name="author" content="L2Eigis">
+<meta name="robots" content="index,follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="L2Eigis - The Road to Crusade">
+<meta property="og:description" content="Embark on a journey you've never experienced before.">
+<meta property="og:author" content="L2Eigis">
+<meta property="og:url" content="https://l2eigis.com">
+<meta property="og:site_name" content="L2Eigis">
+<meta property="og:image" content="./img/facebookog.jpg">
+<meta property="og:image:alt" content="L2Eigis">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>
+        body {
+            overflow: hidden;
+        }
+        .loader {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #010101;
+            z-index: 99999;
+        }
+
+        .loader div {
+            width: 260px;
+            height: 195px;
+            position: relative;
+            background: url('img/ic_loading.svg') top center no-repeat;
+        }
+
+        .loader div span {
+            width: 100%;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url('img/ic_loading_on.svg') top center no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THPXBVZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="loader">
+<div>
+<span></span>
+</div>
+</div>
+<header>
+<div>
+<span class="logo">
+<img src="img/img_logo_min.png" width="35" height="54" alt="L2Eigis Header Logo">
+</span>
+<ul class="onepage-pagination">
+<li>
+<a data-index="1" class="active">
+<span class="trn" data-trn-key="nav_01">Home</span>
+<small class="trn" data-trn-key="nav_01_alt">Main page</small>
+</a>
+</li>
+<li>
+<a data-index="2">
+<span class="trn" data-trn-key="nav_02">About Us</span>
+<small class="trn" data-trn-key="nav_02_alt">Who We Are</small>
+</a>
+</li>
+<li>
+<a data-index="3">
+<span class="trn" data-trn-key="nav_03">Features</span>
+<small class="trn" data-trn-key="nav_03_alt">Our Content</small>
+</a>
+</li>
+<li>
+<a data-index="4">
+<span class="trn" data-trn-key="nav_04">Chronicle</span>
+<small class="trn" data-trn-key="nav_04_alt">The Crusader</small>
+</a>
+</li>
+<li>
+<a>
+<span class="trn" data-trn-key="nav_05">Events</span>
+<small class="trn" data-trn-key="nav_05_alt">(Coming Soon)</small>
+</a>
+</li>
+<li>
+<a data-index="5">
+<span class="trn" data-trn-key="nav_05">Donate</span>
+<small class="trn" data-trn-key="nav_05_alt">Receive gifts</small>
+</a>
+</li>
+<li>
+<a data-index="6">
+<span class="trn" data-trn-key="nav_06">Media</span>
+<small class="trn" data-trn-key="nav_06_alt">Streams/videos</small>
+</a>
+</li>
+</ul>
+</div>
+<a href="https://discord.gg/Q9NXk3Z37P" target="_blank" class="btn">
+<span class="trn" data-trn-key="join_community">Join Community</span>
+</a>
+</header>
+<a class="angle-nav left">
+</a>
+<a class="angle-nav right">
+</a>
+<div class="main">
+<section class="home">
+<a href="https://en.l2oops.com" style="position: absolute;top: 100px;left: 30px;" target="_blank"><img src="../logo/black_l2oops_mini.png" width="122" height="31" alt="New Lineage 2 private servers" title="New Lineage 2 private servers" border="0"></a>
+<div class="logo">
+<img class="logo01" width="254" height="187" src="img/img_logo.png" alt="L2Eigis Logo">
+<img class="logo02" width="254" height="187" src="img/img_logo.png" alt="L2Eigis Logo">
+</div>
+<div class="text">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<p class="trn" data-trn-key="home_title">
+Embark on a journey you've never experienced before.<br>The Road To Crusade.
+</p>
+<h2 class="trn" data-trn-key="home_opening">Opening Oct 21st</h2>
+</div>
+<a href="https://discord.gg/Q9NXk3Z37P" target="_blank" class="btn">
+<span class="trn" data-trn-key="home_button">Join Community</span>
+<i>
+<svg xmlns="http://www.w3.org/2000/svg" width="15.75" height="18" viewbox="0 0 15.75 18"><path d="M10.449-7.2a.959.959,0,0,0-.918-1,.959.959,0,0,0-.918,1,.965.965,0,0,0,.918,1A.959.959,0,0,0,10.449-7.2Zm-4.2-1a.959.959,0,0,0-.918,1,.965.965,0,0,0,.918,1,.959.959,0,0,0,.918-1A.953.953,0,0,0,6.246-8.2Zm9.5-5.7A1.849,1.849,0,0,0,13.9-15.75H1.845A1.849,1.849,0,0,0,0-13.9V-1.728A1.849,1.849,0,0,0,1.845.126H12.051l-.477-1.665C14.208.91,13.483.246,15.75,2.25ZM13.185-5.364A3.29,3.29,0,0,1,10.431-4s-.324-.387-.594-.729A2.84,2.84,0,0,0,11.466-5.8a5.149,5.149,0,0,1-1.035.531A6.561,6.561,0,0,1,4.815-5.58c-.018-.012-.237-.132-.369-.225A2.8,2.8,0,0,0,6.021-4.743c-.27.342-.6.747-.6.747A3.263,3.263,0,0,1,2.673-5.364a12.052,12.052,0,0,1,1.3-5.247A4.451,4.451,0,0,1,6.5-11.556l.09.108a6.071,6.071,0,0,0-2.367,1.179s.2-.108.531-.261a7.647,7.647,0,0,1,6.723.261,5.99,5.99,0,0,0-2.241-1.143l.126-.144a4.451,4.451,0,0,1,2.529.945A12.052,12.052,0,0,1,13.185-5.364Z" transform="translate(0 15.75)"></path></svg>
+</i>
+</a>
+<label class="trailer modal-media" data-video="7_im10lkpHg">
+<div>
+<strong class="trn" data-trn-key="home_trailer">Watch the official trailer</strong>
+<small class="trn" data-trn-key="home_trailer_desc">Feel the experience that we prepared</small>
+</div>
+<span>
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</span>
+</label>
+<div class="video">
+<video src="main.mp4" autoplay="" loop="" muted="" poster="img/bg_home.webp"></video>
+</div>
+</section>
+<section class="about">
+<div class="wrapper">
+<div class="col-6 text-center">
+<div class="section-subtitle">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<span class="trn" data-trn-key="about_title">About Us</span>
+</div>
+<div class="section-title trn" data-trn-key="about_subtitle">Endless Battles That Will<strong>Take Your Breath Away</strong></div>
+<p class="section-paragraph trn" data-trn-key="about_content">
+Thrilling battles to stop forces that threaten the world and battles in which you fight against other Adventurers. Lead winning battles to win your group their fame and get your hands on a great amount of wealth.
+</p>
+<ul>
+<li>
+<div>
+<img src="img/ic_about1.svg" width="44" height="50" alt="Stability and Security">
+</div>
+<div>
+<strong class="trn" data-trn-key="about_point_title1">Stability and Security</strong>
+<span class="trn" data-trn-key="about_point_subtitle1">Play without lag and with complete security</span>
+</div>
+</li>
+<li>
+<div>
+<img src="img/ic_about2.svg" width="38" height="45" alt="Weekly Updates">
+</div>
+<div>
+<strong class="trn" data-trn-key="about_point_title2">Weekly Updates</strong>
+<span class="trn" data-trn-key="about_point_subtitle2">New weekly surprises and updates that awaits you</span>
+</div>
+</li>
+<li>
+<div>
+<img src="img/ic_about3.svg" width="59" height="50" alt="Free Daily Gifts">
+</div>
+<div>
+<strong class="trn" data-trn-key="about_point_title3">Long Term Project</strong>
+<span class="trn" data-trn-key="about_point_subtitle3">We have proved a long-term uptime and will continue to do so</span>
+</div>
+</li>
+</ul>
+<label class="btn modal-media" data-video="7_im10lkpHg">
+<span class="trn" data-trn-key="about_button">Watch our Trailer</span>
+<i>
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</i>
+
+</label></div>
+</div>
+</section>
+<section class="features" rel="1">
+<div class="wrapper">
+<div class="section-subtitle">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<span class="trn" data-trn-key="features_title">Features</span>
+</div>
+<div class="section-title trn" data-trn-key="features_subtitle">Beginning of the Adventure<strong>You've Always Wanted</strong></div>
+<ul class="slider-nav">
+<li data-slide="1" class="active">
+<img src="img/ic_features1.svg" width="56" height="56" alt="Modern x1 Rates">
+<span class="trn" data-trn-key="features_title1">Modern x1 Rates</span>
+</li>
+<li data-slide="2">
+<img src="img/ic_features2.svg" width="56" height="43" alt="In-game Auction House">
+<span class="trn" data-trn-key="features_title2">In-game Auction House</span>
+</li>
+<li data-slide="3">
+<img src="img/ic_features3.svg" width="56" height="50" alt="Modern Epic Raid Bosses">
+<span class="trn" data-trn-key="features_title3">Modern Epic Raid Bosses</span>
+</li>
+<li data-slide="4">
+<img src="img/ic_features4.svg" width="56" height="56" alt="Revamped Leveling Zones">
+<span class="trn" data-trn-key="features_title4">Revamped Leveling Zones</span>
+</li>
+<li data-slide="5">
+<img src="img/ic_features5.svg" width="55" height="56" alt="Dungeons & Instances">
+<span class="trn" data-trn-key="features_title5">Dungeons & Instances</span>
+</li>
+</ul>
+<div class="slider">
+<div class="slider-content data-slide1">
+<div class="slider-text">
+<div>
+<strong class="trn" data-trn-key="features_title1">Modern x1 Rates</strong>
+<p class="trn" data-trn-key="features_content1">
+Modern low-rate experience gameplay. With re-worked experience table at 90+ , to go beyond the unimaginable. Our focus is to take long-term game play to beyond the essence experience.
+</p>
+</div>
+<div class="slider-media">
+<label class="modal-media" data-video="b-_Djpel0tA">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+</div>
+</div>
+</div>
+<div class="slider-content data-slide2">
+<div class="slider-text">
+<div>
+<strong class="trn" data-trn-key="features_title2">In-game Auction House</strong>
+<p class="trn" data-trn-key="features_content2">
+Buy & Sell items within our in-game auction house for game balance currencies (L2Store EUR).
+</p>
+</div>
+<div class="slider-media">
+</div>
+</div>
+</div>
+<div class="slider-content data-slide3">
+<div class="slider-text">
+<div>
+<strong class="trn" data-trn-key="features_title3">Modern Epic Raid Bosses</strong>
+<p class="trn" data-trn-key="features_content3">
+Our raid bosses are designed to be played with teamwork and strong communications. We have incorporated very unique mechanics to our new epic raids to take epic PvPs and raiding to a whole new level of experience. It is no longer just hitting a target and dealing damage. Not only they are equipped with skills, but their minions are also dangerous and vicious that you cannot ignore!
+</p>
+</div>
+<div class="slider-media">
+<label class="modal-media" data-video="6bNfpmRZW3c">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+</div>
+</div>
+</div>
+<div class="slider-content data-slide4">
+<div class="slider-text">
+<div>
+<strong class="trn" data-trn-key="features_title4">Revamped Leveling Zones</strong>
+<p class="trn" data-trn-key="features_content4">
+New unique zones have been added to the game play, due to the vast population of our project, we want to introduce new leveling environments and experiences for our players. Be ready to embark on this journey!
+</p>
+</div>
+<div class="slider-media">
+<label class="modal-media" data-video="SymR3rxduW0">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+</div>
+</div>
+</div>
+<div class="slider-content data-slide5">
+<div class="slider-text">
+<div>
+<strong class="trn" data-trn-key="features_title5">Dungeons & Instances</strong>
+<p class="trn" data-trn-key="features_content5">
+In order to make PVE gameplay more interesting, we are adding a lot of new dungeons. This will help all the players to improve their character by defeating dungeons and the monsters inside it.
+</p>
+</div>
+<div class="slider-media">
+ <label class="modal-media" data-video="fth080RbUpg">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="chronicle">
+<div class="wrapper">
+<div class="section-subtitle">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<span class="trn" data-trn-key="chronicle_title">Chronicle</span>
+</div>
+<div class="section-title trn" data-trn-key="chronicle_subtitle"><strong>All the Crusader</strong> features for you to learn</div>
+<ul class="slider-chronicle">
+<li rel="1">
+<div class="img"></div>
+<strong class="trn" data-trn-key="chronicle_title1">Improved Graphics & New User Interface (UI)</strong>
+<p class="trn" data-trn-key="chronicle_subtitle1">
+Graphics and User Interface have been improved especially with the new Tower of Insolence, and UI is more pleasant to you eyes.
+</p>
+</li>
+<li rel="2">
+<div class="img"></div>
+<strong class="trn" data-trn-key="chronicle_title2">Bigger End-Game (New Items/Locations)</strong>
+<p class="trn" data-trn-key="chronicle_subtitle2">
+A lot of new items have been added, meaning that it will take more time to reach end-game. New High-Level locations added.
+</p>
+</li>
+<li rel="3">
+<div class="img"></div>
+<strong class="trn" data-trn-key="chronicle_title3">Class Balance (new skills)</strong>
+<p class="trn" data-trn-key="chronicle_subtitle3">
+Forgotten classes have been re-worked and received new skills, as well as 4* skills, to make them more interesting and powerful!
+</p>
+</li>
+<li rel="4">
+<div class="img"></div>
+<strong class="trn" data-trn-key="chronicle_title4">Better Optimized Client</strong>
+<p class="trn" data-trn-key="chronicle_subtitle4">
+Crusader client re-worked most of it's code, and has a much better optimized client compared to the previous Client - Vanguard.
+</p>
+</li>
+</ul>
+</div>
+<div class="slider-media-content">
+<div>
+<img src="img/img_chronicle3.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle4.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle1.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle2.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle3.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle4.jpg" width="480" height="270" alt="Chronicle Image">
+ </div>
+<div data-media="1" class="active">
+<img src="img/img_chronicle1.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div data-media="2">
+<img src="img/img_chronicle2.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div data-media="3">
+<img src="img/img_chronicle3.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div data-media="4">
+<img src="img/img_chronicle4.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle1.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle2.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+<div>
+<img src="img/img_chronicle3.jpg" width="480" height="270" alt="Chronicle Image">
+</div>
+</div>
+</section>
+<section class="donate">
+<div class="wrapper row">
+<div class="col-1 float-right"></div>
+<div class="col-6 float-right">
+<div class="section-subtitle">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<span class="trn" data-trn-key="donate_title">Donate</span>
+</div>
+<div class="section-title trn" data-trn-key="donate_subtitle">Donate now and receive<strong>incredible gifts</strong></div>
+<p class="section-paragraph trn" data-trn-key="donate_content">
+All donations are final and not refundable! You are not buying any product, all the benefits received in the game are a way of thanking you for your voluntary donation
+</p>
+
+<div class="donate-box">
+<ul>
+<li data-item="donate-content1">
+<span>
+<img src="img/img_pay_enot.svg" width="122" height="34" alt="Enot">
+</span>
+<span>
+<small>International</small>
+<strong>Euro</strong>
+</span>
+<span>
+<button rel="donate-content1" class="btn btn-select trn" data-trn-key="label_select">Select</button>
+<button rel="close-donate-content" class="btn btn-close trn" data-trn-key="label_changemethod">Change method</button>
+</span>
+</li>
+<li data-item="donate-content2">
+<span>
+<img src="img/img_pay_cp.svg" width="130" height="31" alt="Coinpayments">
+</span>
+<span>
+<small>International</small>
+<strong>Crypto</strong>
+</span>
+<span>
+<button rel="donate-content2" class="btn btn-select trn" data-trn-key="label_select">Select</button>
+<button rel="close-donate-content" class="btn btn-close trn" data-trn-key="label_changemethod">Change method</button>
+</span>
+</li>
+<li data-item="donate-content3">
+<span>
+ <img src="img/img_pay_prime.svg" width="130" height="21" alt="Primepayments">
+</span>
+<span>
+<small>International</small>
+<strong>Euro</strong>
+</span>
+<span>
+<button rel="donate-content3" class="btn btn-select trn" data-trn-key="label_select">Select</button>
+<button rel="close-donate-content" class="btn btn-close trn" data-trn-key="label_changemethod">Change method</button>
+</span>
+</li>
+</ul>
+<div class="donate-content donate-content1">
+<div class="alert trn" data-trn-key="label_donateinfo_euro">
+Amount is in Euro. You will be redirected to the payment page.
+</div>
+
+
+<div class="inputs">
+<div>
+<span class="trn" data-trn-key="label_accountname">Account name</span>
+<input id="account_name_enot_donation" class="acc account_field" data-platform="enot" type="text" maxlength="16">
+</div>
+<div>
+<span class="trn" data-trn-key="label_amount">Amount</span>
+<input id="donation_value_enot_donation" class="euro amount_field" data-platform="enot" type="number" maxlength="6">
+</div>
+</div>
+<a class="btn trn button-enot-donation" data-trn-key="label_paynow">Pay Now</a>
+</div>
+<div class="donate-content donate-content2">
+<div class="alert trn" data-trn-key="label_donateinfo_euro">
+Amount is in Euro. You will be redirected to the payment page.
+</div>
+<div class="inputs">
+<div>
+<span class="trn" data-trn-key="label_accountname">Account name</span>
+<input id="account_name_kassa_donation" class="acc account_field" data-platform="kassa" type="text" maxlength="16">
+</div>
+<div>
+<span class="trn" data-trn-key="label_amount">Amount</span>
+<input id="donation_value_kassa_donation" class="euro amount_field" data-platform="enot" type="kassa" maxlength="6">
+</div>
+</div>
+ <a class="btn trn button-kassa-donation" data-trn-key="label_paynow">Pay Now</a>
+</div>
+<div class="donate-content donate-content3">
+<div class="alert trn" data-trn-key="label_donateinfo_euro">
+Amount is in Euro. You will be redirected to the payment page.
+</div>
+<div class="inputs">
+<div>
+<span class="trn" data-trn-key="label_accountname">Account name</span>
+<input id="account_name_coinpayments_donation" class="acc account_field" data-platform="coinpayments" type="text" maxlength="16">
+</div>
+<div>
+<span class="trn" data-trn-key="label_amount">Amount</span>
+<input id="donation_value_coinpayments_donation" class="euro amount_field" data-platform="enot" type="coinpayments" maxlength="6">
+</div>
+</div>
+<a class="btn trn button-coinpayments-donation" data-trn-key="label_paynow">Pay Now</a>
+</div>
+<div class="donate-content donate-content4">
+<div class="alert trn" data-trn-key="label_donateinfo_euro">
+Amount is in Euro. You will be redirected to the payment page.
+</div>
+<div class="inputs">
+<div>
+<span class="trn" data-trn-key="label_accountname">Account name</span>
+<input id="account_name_primepayments_donation" class="acc account_field" data-platform="primepayments" type="text" maxlength="16">
+</div>
+<div>
+<span class="trn" data-trn-key="label_amount">Amount</span>
+<input id="donation_value_primepayments_donation" class="euro amount_field" data-platform="enot" type="primepayments" maxlength="6">
+</div>
+<div>
+<span class="trn" data-trn-key="label_email">Valid Email</span>
+<input id="email_name_primepayments_donation" class="email email_field" data-platform="primepayments" type="email">
+</div>
+</div>
+<a class="btn trn button-primepayments-donation" data-trn-key="label_paynow">Pay Now</a>
+</div>
+<div class="donate-content donate-content5">
+<div class="alert trn" data-trn-key="label_donateinfo_paygol">
+Not registered for HST in Canada. Amount is in Euro. You will be redirected to the payment page.
+</div>
+<div class="inputs">
+<div>
+<span class="trn" data-trn-key="label_accountname">Account name</span>
+<input id="account_name_primepayments_donation" class="acc account_field" data-platform="primepayments" type="text" maxlength="16">
+</div>
+<div>
+<span class="trn" data-trn-key="label_amount">Amount</span>
+<input id="donation_value_primepayments_donation" class="euro amount_field" data-platform="enot" type="primepayments" maxlength="6">
+</div>
+</div>
+<div class="check">
+<input id="hst" type="checkbox" required="">
+ <label for="hst" class="trn" data-trn-key="label_nohst">I confirm I'm not registered for HST in Canada.</label>
+</div>
+<a class="btn trn button-primepayments-donation" data-trn-key="label_paynow">Pay Now</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="media">
+<div class="section-subtitle">
+<svg>
+<use xlink:href='./img/ic_frame_top.svg#frame'></use>
+</svg>
+<span class="trn" data-trn-key="media_title">Media</span>
+</div>
+<div class="section-title trn" data-trn-key="media_subtitle">Enjoy the exciting world of L2Eigis,<strong>through live streams and videos</strong></div>
+<ul>
+<li>
+<label class="modal-media" data-video="YJev87A5PKc">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+<div>
+<small>Khuylo</small>
+<strong>Epic Mass PVP (Khuylo POV)</strong>
+</div>
+</li>
+<li>
+<label class="modal-media" data-video="qEcQos8BdZI">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+<div>
+<small>TomKoup</small>
+<strong>Perkunas Clan Remedy Group Mass PvP's at Baium-Octavis</strong>
+</div>
+</li>
+<li class="highlight">
+<label class="modal-media" data-video="KVemAIYPaMA">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+<div>
+<small>Jaggermeister</small>
+<strong>Mass PVP (Jaggermeister POV)</strong>
+</div>
+</li>
+<li>
+<label class="modal-media" data-video="z7hQ3Bw4FkI">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+<div>
+<small>Hep3y1</small>
+<strong>Return to bigwar Cardinal \ Bishop Lineage 2 essence part 1</strong>
+</div>
+</li>
+<li>
+<label class="modal-media" data-video="VzUJUBnVt84">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewbox="0 0 25 25">
+<path d="M21.548,2.847h0L12.826,4.683,4.1,2.846,0,0S12.826,18.322,12.826,25.6C12.826,18.324,25.653,0,25.653,0Z" transform="translate(0 25) rotate(-90)"></path>
+</svg>
+</label>
+<div>
+<small>GucciTopPlayer</small>
+<strong>THIS IS MY SPOT | PART 1</strong>
+ </div>
+</li>
+</ul>
+</section>
+</div>
+<footer>
+<span>2022 &copy; L2Eigis -&nbsp;<span class="trn" data-trn-key="label_copy">All rights reserved</span></span>
+<div>
+<div class="copy trn" data-trn-key="label_rights">
+These servers are an emulator of the Lineage 2 game. You can familiarize yourself with the original version of the game Lineage 2 on the official servers of NCSoft.
+</div>
+<div>
+<label class="open-modal modal-terms" class="trn" data-trn-key="label_terms">Terms & Conditions</label>
+<label class="open-modal modal-privacy" class="trn" data-trn-key="label_privacy">Privacy Policy</label>
+<div class="social">
+<a target="_blank" href="https://discord.gg/Q9NXk3Z37P">
+<svg xmlns="http://www.w3.org/2000/svg" width="15.75" height="18" viewbox="0 0 15.75 18"><path d="M10.449-7.2a.959.959,0,0,0-.918-1,.959.959,0,0,0-.918,1,.965.965,0,0,0,.918,1A.959.959,0,0,0,10.449-7.2Zm-4.2-1a.959.959,0,0,0-.918,1,.965.965,0,0,0,.918,1,.959.959,0,0,0,.918-1A.953.953,0,0,0,6.246-8.2Zm9.5-5.7A1.849,1.849,0,0,0,13.9-15.75H1.845A1.849,1.849,0,0,0,0-13.9V-1.728A1.849,1.849,0,0,0,1.845.126H12.051l-.477-1.665C14.208.91,13.483.246,15.75,2.25ZM13.185-5.364A3.29,3.29,0,0,1,10.431-4s-.324-.387-.594-.729A2.84,2.84,0,0,0,11.466-5.8a5.149,5.149,0,0,1-1.035.531A6.561,6.561,0,0,1,4.815-5.58c-.018-.012-.237-.132-.369-.225A2.8,2.8,0,0,0,6.021-4.743c-.27.342-.6.747-.6.747A3.263,3.263,0,0,1,2.673-5.364a12.052,12.052,0,0,1,1.3-5.247A4.451,4.451,0,0,1,6.5-11.556l.09.108a6.071,6.071,0,0,0-2.367,1.179s.2-.108.531-.261a7.647,7.647,0,0,1,6.723.261,5.99,5.99,0,0,0-2.241-1.143l.126-.144a4.451,4.451,0,0,1,2.529.945A12.052,12.052,0,0,1,13.185-5.364Z" transform="translate(0 15.75)"></path></svg>
+</a>
+<a target="_blank" href="https://www.facebook.com/L2Eigiscom-111707594733778">
+<svg xmlns="http://www.w3.org/2000/svg" width="15.75" height="15.75" viewbox="0 0 15.75 15.75"><path d="M14.063-14.625H1.688A1.688,1.688,0,0,0,0-12.937V-.562A1.688,1.688,0,0,0,1.688,1.125H6.513V-4.23H4.3V-6.75H6.513V-8.671a3.076,3.076,0,0,1,3.293-3.392,13.419,13.419,0,0,1,1.952.17v2.145h-1.1A1.26,1.26,0,0,0,9.237-8.387V-6.75h2.418l-.387,2.52H9.237V1.125h4.825A1.688,1.688,0,0,0,15.75-.562V-12.937A1.688,1.688,0,0,0,14.063-14.625Z" transform="translate(0 14.625)"></path></svg>
+</a>
+<a target="_blank" href="https://www.youtube.com/channel/UCqbcC6GcomjtZ0OY31OCVdQ">
+<svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="13.5" viewbox="0 0 19.2 13.5"><path d="M19.324-11.388a2.412,2.412,0,0,0-1.7-1.708c-1.5-.4-7.5-.4-7.5-.4s-6,0-7.5.4a2.412,2.412,0,0,0-1.7,1.708,25.308,25.308,0,0,0-.4,4.651,25.308,25.308,0,0,0,.4,4.651A2.377,2.377,0,0,0,2.624-.4c1.5.4,7.5.4,7.5.4s6,0,7.5-.4a2.377,2.377,0,0,0,1.7-1.681,25.308,25.308,0,0,0,.4-4.651A25.308,25.308,0,0,0,19.324-11.388ZM8.161-3.882v-5.71L13.18-6.736Z" transform="translate(-0.525 13.5)"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+
+<link rel="stylesheet" href="{{template}}/css/style.css">
+
+<script type="text/javascript" src="{{template}}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="{{template}}/js/jquery.onepage-scroll.js?v2"></script>
+<script type="text/javascript" src="{{template}}/js/wow.min.js"></script>
+<script type="text/javascript" src="{{template}}/js/functions.js"></script>
+</body>
+</html>

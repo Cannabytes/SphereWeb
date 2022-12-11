@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<link rel="stylesheet" href="{{ 'style.css'|template }}" type="text/css" media="screen" charset="utf-8">
+	<title>Kronos Portal</title>
+</head>
+<body>
+	<div id='body_top'>
+		<div id='body_bottom'>
+			<div id='wrapper'>
+				<div id='status'>
+					<div class='server'>
+						<a href="#">Server 1</a>
+						<img src="{{'design_img/online.png'|template}}" alt="">
+						1453
+					</div>
+					<div class='server'>
+						<a href="#">Server 2</a>
+						<img src="{{'design_img/online.png'|template}}" alt="">
+						897
+					</div>
+					<div class='server'>
+						<a href="#">Server 3</a>
+						<img src="{{'design_img/offline.png'|template}}" alt="">
+						0
+					</div>
+				</div>
+				<div id='header'>
+					<a href="/"><img src="{{'design_img/logo.jpg'|template}}" alt=""></a>
+				</div>
+				<div id='buttons'>
+					<a href="#" id='reg_button'>Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
+					<a href="#" id='start_button'>Р‘Р«РЎРўР Р«Р™<br>РЎРўРђР Рў</a>
+					<a href="#" id='load_button'>РЎРєР°С‡Р°С‚СЊ РљР»РёРµРЅС‚</a>
+				</div>
+				<div id='menu'>
+					<a href="#"><span>Рќ</span>РћР’РћРЎРўР</a>
+					<a href="#"><span>F</span>AQ</a>
+					<a href="#"><span>Р—</span>РђР“Р РЈР—РљР</a>
+					<a href="#"><span>Р </span>Р•Р“РРЎРўР РђР¦РРЇ</a>
+					<a href="#"><span>Р¤</span>РћР РЈРњ</a>
+					<a href="#"><span>РЎ</span>РўРђРўРРЎРўРРљРђ</a>
+					<a href="#"><span>Рћ</span> РЎР•Р Р’Р•Р Р•</a>
+				</div>
+				<div id='content'>
+					<div id='content_bottom'>
+						<div id='left_block'>
+							<div id='login_block'>
+								<input type="text" onfocus="if(this.value=='Р›РѕРіРёРЅ')this.value=''" onblur="if(this.value=='')this.value='Р›РѕРіРёРЅ'" value="Р›РѕРіРёРЅ">
+								<input type="password" onfocus="if(this.value=='РџР°СЂРѕР»СЊ')this.value=''" onblur="if(this.value=='')this.value='РџР°СЂРѕР»СЊ'" value="РџР°СЂРѕР»СЊ">
+								<a href="#" id='login_button'>Р’РѕР№С‚Рё</a>
+								<div id='login_links'>
+									<a href="#">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a><br>
+									<a href="#">Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ?</a><br>
+								</div>
+							</div>
+							<a href="#" id='donate_button'>РџРѕР¶РµСЂС‚РІРѕРІР°РЅРёРµ</a>
+							<div id='territory_block'>
+								<div class='tr'>
+									<div class='tr_title' style="color: #47ae58">
+										<span>Р›СЋРґРё</span>
+										47%
+									</div>
+									<div class='tr_bar'>
+										<div class='progress_green' style="width: 47%">
+										</div>
+									</div>
+								</div>
+								<div class='tr'>
+									<div class='tr_title' style="color: #dbb054">
+										<span>CE</span>
+										23%
+									</div>
+									<div class='tr_bar'>
+										<div class='progress_yellow' style="width: 23%">
+										</div>
+									</div>
+								</div>
+								<div class='tr'>
+									<div class='tr_title' style="color: #cf4a40">
+										<span>Р”Р•</span>
+										11%
+									</div>
+									<div class='tr_bar'>
+										<div class='progress_red' style="width: 11%">
+										</div>
+									</div>
+								</div>
+								<div class='tr'>
+									<div class='tr_title' style="color: #cf4a40">
+										<span>РћСЂРєРё</span>
+										9%
+									</div>
+									<div class='tr_bar'>
+										<div class='progress_red' style="width: 9%">
+										</div>
+									</div>
+								</div>
+								<div class='tr'>
+									<div class='tr_title' style="color: #cf4a40">
+										<span>Р“РЅРѕРјС‹</span>
+										10%
+									</div>
+									<div class='tr_bar'>
+										<div class='progress_red' style="width: 10%">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id='forum_block'>
+								{% for forum in last_forum_message(10) %}
+								<div class='theme'>
+									<div class='theme_title'>
+										<a href="#" title="{{forum.title}}">{{ forum.message }}</a>
+									</div>
+									<div class='theme_info'>
+										Автор: <a href="#">{{ forum.username}}</a>, {{ timeHasPassed("now"|date("U")-forum.post_date) }}
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div id='right_block'>
+							<div id='page_title'>
+								<span>Новости</span>
+							</div>
+							{% for news in all_news %}
+							<div class='news'>
+								<div class='news_title'>
+									<a href="#">{{ news.name|raw }}</a>
+								</div>
+								<div class='news_text'>{{ news.description|raw }}</div>
+								<div class='news_info'>
+									16.02.14
+									<a href="#" class='author_link'><img src="{{'design_img/author_icon.png'|template}}" alt="">Admin</a>
+									<a href="/page/{{ news.id }}" class='more_link'>Прочитать<img src="{{'design_img/more_icon.png'|template}}" alt=""></a>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+				 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

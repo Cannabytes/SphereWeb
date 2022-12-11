@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if clans is same as(false) %}
+{% include '/statistic/none.html' %}
+{% else %}
+	  <h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
+	  {% include '/statistic/statistic_menu.html' %}
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Статистика кланов</h5>
+			  <div class="table-responsive">
+               <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Клан</th>
+                      <th scope="col">Уровень</th>
+                      <th scope="col">Лидер</th>
+                      <th scope="col">Репутация</th>
+                      <th scope="col">Игроков</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+					{% for i, clan in clans %}
+						{% if clan['clan_name'] %}
+						<tr>
+						  <th scope="row">{{ i+1 }}</th>
+						  <td>{% if clan['alliance_crest']!=null%}<img src="data:image/png;base64, {{ clan['alliance_crest'] }}">{% endif %}{% if clan['clan_crest']!=null%}<img src="data:image/png;base64, {{clan['clan_crest']}}">{% endif %}
+						  {% if clan['castle_id'] != 0 %}
+							<span data-toggle="tooltip" data-placement="top" title="" data-original-title="Владение замка: {{ get_castle_name(clan['castle_id']) }}" class="badge badge-light shadow-light m-1">{{ clan['clan_name'] }}</span>
+						  {% else %}
+							<a href="/statistic/clan/{{ clan['clan_name'] }}">{{ clan['clan_name'] }}</a>
+						  {% endif %}
+						  </td>
+						  <td>{{ clan['clan_level'] }}</td>
+						  <td>{{ clan['player_name'] }}</td>
+						  <td>{{ format_number_fr(clan['reputation_score']) }}</td>
+						  <td>{{ clan['clan_count_members'] }}</td>
+						</tr>
+						{% endif %}
+                     {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+    
+	</div><!--End Row-->
+{% endif %}
+
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

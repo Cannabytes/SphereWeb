@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+           <div class="card-body">
+
+        <div class="row">
+        
+  
+        <!-- Right Sidebar -->
+        <div class="col-lg-12 col-md-8">
+            
+            <div class="card mt-0 shadow-none">
+                <div class="card-body">
+                
+				<div class="form-group row">
+				 <p>HTML страница, которую мы будет отправлять пользователю на почту.<br>
+				 Переменная <strong>%code%</strong> - содержит проверочный код.<br>
+				 Переменная <strong>%link%</strong> - ссылка на страницу сброса пароля.</br>
+				 Месторасположение шаблона: <strong>template/cabinet/email_request/forget.html</strong></p>
+                 <textarea class="form-control" rows="25" id="#">{{ forget }}</textarea>
+                </div>
+
+				</div> <!-- card body -->
+             </div> <!-- card -->
+           </div> <!-- end Col-9 -->
+         </div><!-- End row -->
+      </div>
+    </div>
+  </div>
+ </div>
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+  <script src="{{'assets/js/admin/options/save_new_server.js'|template}}"></script>
+{% endblock %}

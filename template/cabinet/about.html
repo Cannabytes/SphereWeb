@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-12">
+       <div class="card">
+	
+			{% if user_info('get_access_level') == "admin" %}
+				<div class="card-header">
+					 <div class="card-action">
+							<a href="/admin/options/server/description/{{ about_id }}">{{ get_phrase("edit") }}</a>
+					 </div>
+				</div>
+            {% endif %}
+
+
+          <div class="card-body">
+             <blockquote class="blockquote">
+			  {% if desc %}
+				<p>{{ desc.description|html_entity_decode|raw }}</p>
+				 <footer class="blockquote-footer"><em>Создан: {{ desc.date_create }}</em></footer>
+				 {% if desc.date_create != desc.date_update %}
+				 <footer class="blockquote-footer"><em>Изменен: {{ desc.date_update }}</em></footer>
+				 {% endif %}
+			  {% else %}
+			 	 <p>Описания сервера ещё не готово.</p>
+			  {% endif %}
+            </blockquote>
+          </div>
+		  
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

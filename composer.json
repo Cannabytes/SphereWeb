@@ -1,0 +1,25 @@
+{
+    "name": "ofey/logan22",
+    "description": "L2j Free CMS",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ofey\\Logan22\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Logan22",
+            "email": "logan22@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "twig/twig": "^3.0",
+      "ext-json": "*",
+      "ext-pdo": "*",
+        "verot/class.upload.php": "^2.1",
+        "phpmailer/phpmailer": "^6.6",
+        "intervention/image": "^2.7"
+    }
+}

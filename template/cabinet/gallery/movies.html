@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header text-uppercase">Видео галлерея
+			{% if user_info('get_is_auth') %}
+			<div class="card-action">
+			<a href="/gallery/screenshot/add" type="button" class="btn btn-success btn-sm waves-effect waves-light">Добавить</a>
+		   </div>{% endif %}
+			</div>
+			
+            <div class="card-body">
+              <div class="row">
+					{% for movie in movies %}
+						<a data-fancybox="video-gallery" href="{{movie.link}}">
+						  <img src="https://img.youtube.com/vi/{{ get_youtube_id(movie.link) }}/hqdefault.jpg" width="300" height="200" />
+						</a>
+					{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row-->
+
+{% endblock %}
+
+{% block css %}
+  <link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+  <!--Light-box-->
+  <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+{% endblock %}

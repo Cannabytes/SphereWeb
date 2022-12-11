@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if pk is same as(false) %}
+    {% include '/statistic/none.html' %}
+{% else %}
+    <h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
+    {% include '/statistic/statistic_menu.html' %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Статистика Player Kills</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Char</th>
+                                <th scope="col">PvP / PK</th>
+                                <th scope="col">Clan</th>
+                                <th scope="col">Online Time</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for i, player in pk %}
+                            <tr>
+                                <th scope="row">{{ i+1 }}</th>
+                                <td>{% if player['alliance_crest']!=null%}<img
+                                        src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if
+                                    player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{%
+                                    endif %}{{ player['player_name'] }}
+                                </td>
+                                <td>{{ player['pvp'] }} / <strong>{{ player['pk'] }}</strong></td>
+                                <td>{% if player['castle_id'] != 0 %}
+                                    <span data-toggle="tooltip" data-placement="top" title=""
+                                          data-original-title="Владение замка: {{ get_castle_name(player['castle_id']) }}"
+                                          class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
+                                    {% else %}
+                                    {{ player['clan_name'] }}
+                                    {% endif %}
+                                </td>
+                                <td>{{ timeHasPassed(player['time_in_game']) }}</td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--End Row-->
+{% endif %}
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

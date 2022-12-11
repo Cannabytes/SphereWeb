@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if castles is same as(false) %}
+{% include '/statistic/none.html' %}
+{% else %}
+<h3 class="mb-0"></h3>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="row">
+
+
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">Статистика клана {{clan_info.clan_name}}</div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th scope="row">Клан Лидер:</th>
+                                <td>@{{clan_info.player_name_leader_clan}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Репутация:</th>
+                                <td>{{ clan_info.reputation_score }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Количество игроков:</th>
+                                <td>{{ clan_players|length }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Общий онлайн:</th>
+                                <td>{{ timeHasPassed ( array_field_sum( clan_players , 'time_in_game') ) }} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Общий PvP / PK:</th>
+                                <td>{{ array_field_sum( clan_players , 'pvp') }} / {{ array_field_sum( clan_players , 'pk') }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Владение Замком:</th>
+                                <td>{{ clan_info.castle_id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Владение Крепостью:</th>
+                                <td>{{ clan_info.fortress_id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Владение Клан-Холлом:</th>
+                                <td>{{ clan_info.clanhall_id }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Игроки клана</div>
+                    <div class="card-body">
+                        <section class="icon">
+                            <div class="row fontawesome-icon-list">
+                                {% for player in clan_players %}
+                                <div class="fa-hover col-lg-6 col-xl-4">
+                                    <a href="#">@{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill">в игре</small>{% endif %}</a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">Клан скиллы</div>
+
+                    <ul class="list-group list-group-flush">
+
+                        {% for skill in clan_skills %}
+                        <li class="list-group-item">
+                            <div class="media align-items-center">
+                                <img src="/uploads/images/skills/skill10283.png"
+                                     class="customer-img  skill-img">
+                                <div class="media-body ml-3">
+                                    <div class="media-body text-left ml-3">
+                                        <div class="progress-wrapper">
+                                            <p>{{skill.skill_id}} <span class="float-right">{{skill.skill_lvl}} lvl / 5 lvl</span>
+                                            </p>
+                                            <div class="progress" style="height: 5px;">
+                                                <div class="progress-bar gradient-blooker" style="width:65%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

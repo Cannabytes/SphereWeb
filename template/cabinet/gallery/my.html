@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+	     <div class="card-header border-0">Мои скрины
+		 </div>
+	       <div class="table-responsive">
+                 <table class="table align-items-center table-flush">
+				 	 <thead>
+                   <tr>
+                     <th>Скрин</th>
+                     <th>Описание</th>
+                     <th>Статус</th>
+                     <th></th>
+                    </tr>
+                   </thead>
+			   {% for screen in screens %}
+			    {% set fileScreen = "uploads/screenshots/" ~ screen.image %}
+				 {% if file_exists(fileScreen) %}
+				<tr>
+                    <td>
+						<a href="/uploads/screenshots/{{screen.image}}" data-fancybox="images" data-caption="This image has a caption">
+						<img src="/uploads/screenshots/thumb_{{screen.image}}" alt="lightbox" class="lightbox-thumb img-thumbnail"></a>
+                    </td>
+					<td><textarea id="desc_{{screen.id}}" class="form-control" rows="3">{{screen.desciption}}</textarea></td>
+                    <td>
+						{% if screen.enable == 0 %}
+						  <span class="text-danger">На модерации</span>
+						{% else %}
+						  <span class="text-success">Опубликован</span>
+						{% endif %}
+					</td>
+                 
+                    <td>
+				
+				   <div class="btn-group m-1">
+                      <button data-id="{{screen.id}}" type="button" class="save btn btn-info waves-effect waves-light"> <i class="fa fa-save"></i> <span>Сохранить</span> </button>
+                      <button data-id="{{screen.id}}" type="button" class="remove btn btn-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> <span>Удалить</span> </button>
+                    </div>
+					
+                     
+             {% endif %}
+               {% endfor %}
+                     
+                </table>
+               </div>
+	   </div>
+	    
+
+{% endblock %}
+
+{% block css %}
+  <link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+  <!--Light-box-->
+  <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+  <script src="{{'assets/js/gallery/gallery.js'|template}}"></script>
+{% endblock %}

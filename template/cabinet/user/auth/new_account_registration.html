@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header text-uppercase">{{ get_phrase(5) }}</div>
+            <div class="card-body">
+
+                <form>
+				
+					<div class="form-group row">
+					  <label for="basic-select" class="col-sm-2 col-form-label">{{ get_phrase("server") }}</label>
+					  <div class="col-sm-4">
+							<select name="server" class="form-control" id="basic-select">
+							{% if server_id is empty %}
+									{% set server_id = user_info('get_default_server') %}
+							  {% endif %}
+							  {% for server in server_list %}
+								<option {% if server.id == server_id %}selected="selected"{% endif %} value="{{server.id}}">{{server.name}} - {{server.chronicle}} x{{server.rate_exp}} от {{server.date_start_server}}</option>
+							  {% endfor %}
+							</select>
+							
+					  </div>
+					</div>
+
+                    <div class="form-group row">
+                        <label for="login" class="col-sm-2 col-form-label">{{ get_phrase("login") }} <a id="new_account_word" href="#"><i aria-hidden="true" class="fa fa-refresh"></i></a></label>
+                        <div class="col-sm-4">
+                            <input value="{{generation_account}}" name="login" type="text" class="form-control form-control-xl" id="login">
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-left">
+                                  От 4 до 16 символов.</br>
+                                  Формат a-zA-Z0-9
+                            </p>
+                        </div>
+                    </div>
+
+                 
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">{{ get_phrase("password") }} <a id="new_password_word" href="#"><i aria-hidden="true" class="fa fa-refresh"></i></a></label>
+                        <div for="password_hide" class="col-sm-4">
+								<div class="input-group-prepend">
+								  <div data-toggle="tooltip" data-placement="top" title="{{ get_phrase(2) }}" class="input-group-text">
+									<input checked id="password_hide" name="password_hide" type="checkbox"/>
+								  </div>
+								<input name="password" type="text" class="form-control form-control-xl" id="password"/>
+							  </div>
+							</div>
+                        <div class="col-sm-6">
+                            <p class="text-left">
+                                От 4 символов.
+                            </p>
+                        </div>
+                    </div>
+
+					{% if user_info('get_is_auth') == false %}
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+                        <div class="col-sm-4">
+                            <input name="email" type="email" class="form-control form-control-xl" id="email">
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-left">{{ get_phrase(6) }}
+                               
+                            </p>
+                        </div>
+                    </div>
+					{% endif %}
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary px-5"><i class="icon-lock"></i> {{ get_phrase(7) }}</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if user_info('get_is_auth')==false %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header text-uppercase">Вам будет интересно!</div>
+            <div class="card-body">
+                <blockquote class="blockquote">
+                    <p>Регистрация игрового аккаунта и регистрация в личном кабинете произойдет.<br>
+                       После регистрации, Вы можете войти в личный аккаунт и пользоваться всеми доступными возможностями.<br>
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block js %}
+  <script src="{{'assets/js/user/registration_account.js'|template}}"></script>
+{% endblock %}

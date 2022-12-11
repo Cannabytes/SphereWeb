@@ -1,0 +1,155 @@
+  
+   <ul class="sidebar-menu">
+	  <li>
+        <a href="/main" class="waves-effect">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>{{ get_phrase("menu_main") }}</span>
+        </a>
+      </li>
+	  
+      <li>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-address-book-o"></i> <span>{{ get_phrase("menu_registration") }}</span><i class="fa fa-angle-left pull-right"></i>
+        </a>
+		<ul class="sidebar-submenu">
+		   {% if user_info('get_is_auth') == false %}
+			<li><a href="/registration/user"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_private_office") }}</a></li>
+		   {% endif %}
+		  <li><a href="/registration/account"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_game_account") }}</a></li>
+		</ul>
+      </li>
+	  {% if (server_list != null) %}
+		{% for desc in server_list %}
+			{% if desc.description|length >= 1 %}
+				{% set exist_desc = true %}
+			{% endif %}
+		{% endfor %}
+			{% if exist_desc == true %}
+					  <li>
+						<a href="javaScript:void();" class="waves-effect">
+						  <i class="zmdi zmdi-layers"></i>
+						  <span>{{ get_phrase(0) }}</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+						<ul class="sidebar-submenu">
+						 {% for server in server_list %}
+							{% if (server.description != null or user_info('get_access_level')=="admin" ) %}
+								<li><a href="/about/{{ server.id }}"><i class="zmdi zmdi-dot-circle-alt"></i> {{ server.name|e }} x{{ server.rate_exp|e }}</a></li>
+							{% endif %}
+						{% endfor %}
+					  </ul>
+					  </li>
+			{% endif %}
+	   {% endif %}
+      <!--li>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-connectdevelop"></i>
+          <span>{{ get_phrase("menu_connect") }}</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+          <li><a href="components-range-slider.html"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_launcher") }}</a></li>
+          <li><a href="components-range-slider.html"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_patch") }}</a></li>
+          <li><a href="components-image-carousel.html"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_client") }}</a></li>
+          <li><a href="components-grid-layouts.html"><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("menu_instruction") }}</a></li>
+        </ul>
+      </li-->
+      <li>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-university"></i> <span>{{ get_phrase("menu_statistics") }}</span>
+          <i class="fa fa-angle-left float-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+          <li><a href="/statistic/pvp"><i class="zmdi zmdi-dot-circle-alt"></i> PvP</a></li>
+          <li><a href="/statistic/pk"><i class="zmdi zmdi-dot-circle-alt"></i> PK</a></li>
+          <li><a href="/statistic/clan"><i class="zmdi zmdi-dot-circle-alt"></i> Clan</a></li>
+          <li><a href="/statistic/castle"><i class="zmdi zmdi-dot-circle-alt"></i> Замки</a></li>
+          <li><a href="/statistic/heroes"><i class="zmdi zmdi-dot-circle-alt"></i> Герои</a></li>
+          <li><a href="/statistic/online/time"><i class="zmdi zmdi-dot-circle-alt"></i> Время игры</a></li>
+          <li><a href="/statistic/block"><i class="zmdi zmdi-dot-circle-alt"></i> Заблокированные</a></li>
+        </ul>
+       </li>
+ 
+	   <!--li>
+        <a href="/channel" class="waves-effect">
+          <i class="fa fa-comments-o"></i> <span>{{ get_phrase("menu_channel") }}</span>
+        </a>
+       </li-->
+	   
+	   <li>
+        <a href="/donate" class="waves-effect">
+          <i class="fa fa-money"></i> <span>{{ get_phrase("menu_donate") }}</span>
+        </a>
+       </li>
+
+	   <li>
+        <a href="/gallery" class="waves-effect">
+          <i class="fa fa-television"></i> <span>{{ get_phrase("menu_gallery") }}</span>
+        </a>
+       </li>
+
+      
+      <!--li>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-television"></i> <span>{{ get_phrase("menu_gallery") }}</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+		
+          <li><a href="/gallery/movie"><i class="zmdi zmdi-dot-circle-alt"></i> Видео</a></li>
+		  
+          <li><a href="/gallery/screenshot"><i class="zmdi zmdi-dot-circle-alt"></i> Скриншоты</a></li>
+        </ul>
+      </li-->
+
+	{% if user_info('get_access_level') == "admin" %}
+      <li>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="zmdi zmdi-lock"></i> <span>{{ get_phrase("admin_panel") }}</span>
+          <i class="fa fa-angle-left float-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+		
+          <li><a href="#" ><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("server") }} <i class="fa fa-angle-left pull-right"></i></a>
+			<ul class="sidebar-submenu">
+			  <li>
+				<a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Настройки <i class="fa fa-angle-left pull-right"></i></a>
+				<ul class="sidebar-submenu">
+				  <li><a href="/admin/options"><i class="zmdi zmdi-dot-circle-alt"></i> Доставить</a></li>
+				  <li><a href="/admin/options/server/list"><i class="zmdi zmdi-dot-circle-alt"></i> Список</a></li>
+				</ul>
+			  </li>
+			  <li><a href="/admin/options/server/sql/source"><i class="zmdi zmdi-dot-circle-alt"></i> SQL запросы</a></li>
+
+			</ul>
+		  </li>
+		  
+		  
+          <li><a href="javaScript:void();" ><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("template") }} <i class="fa fa-angle-left pull-right"></i></a>
+		  
+			<ul class="sidebar-submenu">
+			  <li><a href="/admin/template"><i class="zmdi zmdi-dot-circle-alt"></i> Демо страница</a></li>
+			  <li>
+				<a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> E-Mail <i class="fa fa-angle-left pull-right"></i></a>
+				<ul class="sidebar-submenu">
+				  <li><a href="/admin/options/email"><i class="zmdi zmdi-dot-circle-alt"></i> Настройка почты</a></li>
+				  <li><a href="/admin/template/email/registration"><i class="zmdi zmdi-dot-circle-alt"></i> Регистрация</a></li>
+				  <li><a href="/admin/template/email/forget"><i class="zmdi zmdi-dot-circle-alt"></i> Восстановление</a></li>
+				  <li><a href="/admin/template/email/password"><i class="zmdi zmdi-dot-circle-alt"></i> Новый пароль</a></li>
+				</ul>
+			  </li>
+			</ul>
+		  
+		  </li>
+          <li><a href="/admin/gallery/screen" ><i class="zmdi zmdi-dot-circle-alt"></i> Галерея</a></li>
+          <li><a href="/admin/forum" ><i class="zmdi zmdi-dot-circle-alt"></i> Форум</a></li>
+          <li><a href="/admin/pages" ><i class="zmdi zmdi-dot-circle-alt"></i> {{ get_phrase("pages") }}</a></li>
+          <li><a href="/admin/donate"><i class="zmdi zmdi-dot-circle-alt"></i> Донат</a></li>
+          <li><a href="/admin/manual"><i class="zmdi zmdi-dot-circle-alt"></i> Справочник</a></li>
+        </ul>
+       </li>
+	   {% endif %}
+          
+
+      <li class="sidebar-header">{{ get_phrase("menu_launcher") }}</li>
+      <li><a href="/launcher" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>{{ get_phrase("menu_loading") }}</span></a></li>
+    </ul>
+	

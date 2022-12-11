@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <div class="card card-authentication1 mx-auto my-4">
+        <div class="card-body">
+            <div class="card-content p-2">
+                <div class="text-center">
+                    <img src="{{ template }}/assets/images/logo-icon.png" alt="logo icon">
+                </div>
+                <div class="card-title text-uppercase text-center py-3">Восстановление пароля</div>
+				<div class="card-footer text-center py-3">
+					<p class="mb-0">На вашу почту будет отправлено письмо, в котором будет указан код для сброса пароля.</p>
+				</div>
+				
+               <div class="input-group">
+                <input type="text" class="form-control" id="email" placeholder="E-mail"> 
+					<div class="input-group-prepend">
+						<button class="btn btn-outline-primary" id="send_email" type="button">Отправить код</button>
+					</div>
+              </div>
+				<hr>
+               <div class="input-group">
+                <input type="text" class="form-control" id="code" placeholder="Код сброса"> 
+					<div class="input-group-prepend">
+						<button class="btn btn-outline-primary" id="send_code" type="button">Сбросить пароль</button>
+					</div>
+               </div>
+				
+				 
+				
+            </div>
+        </div>
+        <div class="card-footer text-center py-3">
+            <p class="mb-0">{{ get_phrase(11) }} <a href="/registration/user"> {{ get_phrase(12) }}</a></p>
+        </div>
+    </div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/auth/forget.js'|template}}"></script>
+{% endblock %}

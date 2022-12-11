@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <div class="card card-authentication1 mx-auto my-4">
+        <div class="card-body">
+            <div class="card-content p-2">
+                <div class="text-center">
+                    <img src="{{ template }}/assets/images/logo-icon.png" alt="logo icon">
+                </div>
+                <div class="card-title text-uppercase text-center py-3">{{ get_phrase(10) }}</div>
+                <form id="authFormPage">
+                    <div class="form-group">
+                        <label for="email" class="sr-only">{{ get_phrase(9) }}</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="email" id="email" name="email" class="form-control input-shadow"
+                                   placeholder="E-mail">
+                            <div class="form-control-position">
+                                <i class="icon-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="sr-only">{{ get_phrase("password") }}</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="password" id="password" name="password" class="form-control input-shadow"
+                                   placeholder="Password">
+                            <div class="form-control-position">
+                                <i class="icon-envelope-open"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ get_phrase("enter") }}</button>
+
+                </form>
+            </div>
+        </div>
+        <div class="card-footer text-center py-3">
+            <p class="mb-0">{{ get_phrase(11) }} <a href="/registration/user"> {{ get_phrase(12) }}</a></p>
+        </div>
+    </div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/auth/auth.js'|template}}"></script>
+{% endblock %}

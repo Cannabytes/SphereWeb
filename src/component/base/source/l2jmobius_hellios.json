@@ -1,0 +1,176 @@
+{
+  "account_is_exist": {
+    "sql": "SELECT `login`, `password` FROM `accounts` WHERE login=?;",
+    "prepare": [
+      "testLogin"
+    ],
+    "call": "login"
+  },
+  "account_registration": {
+    "sql": "INSERT INTO `accounts` (`login`, `password`, `email` ) VALUES (?, ?, ?);",
+    "prepare": [
+      "testLogin",
+      "p@ssW0rd",
+      "admin@vsegointerneta.com"
+    ],
+    "call": "login",
+    "comment": "Тут описание чего-то..."
+  },
+  "account_change_password": {
+    "sql": "UPDATE `accounts` SET `password` = ? WHERE `login` = ?;",
+    "prepare": [
+      "newPass",
+      "testLogin"
+    ],
+    "call": "login"
+  },
+  "accounts_email": {
+    "sql": "SELECT login, password FROM accounts WHERE email = ?",
+    "prepare": [
+      "testLogin"
+    ],
+    "call": "login",
+    "comment": "Получение списка аккаунтов по E-mail"
+  },
+  "account_characters": {
+    "sql": "SELECT characters.account_name, characters.charId, characters.char_name, characters.`level`, characters.sex, characters.x, characters.y, characters.z, characters.pvpkills, characters.pkkills, characters.clanid, characters.race, characters.classid, characters.base_class, characters.`online`, characters.onlinetime, clan_data.clan_name, clan_ally.`data` AS alliance_crest, crests.`data` AS clan_crest FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id WHERE characters.account_name = ?",
+    "prepare": [
+      "testLogin"
+    ],
+    "call": "game",
+    "comment": "Получение списка персонажей аккаунта n, нужно строго соблюдать название колонок"
+  },
+  "is_characters_name": {
+    "sql": "SELECT characters.account_name, characters.charId, characters.char_name, characters.`level`, characters.sex, characters.x, characters.y, characters.z, characters.pvpkills, characters.pkkills, characters.clanid, characters.race, characters.classid, characters.base_class, characters.`online`, characters.onlinetime, clan_data.clan_name, clan_ally.`data` AS alliance_crest, crests.`data` AS clan_crest FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id WHERE characters.char_name = ?",
+    "prepare": [
+      "testLogin"
+    ],
+    "call": "game",
+    "comment": "Получение списка персонажей аккаунта n, нужно строго соблюдать название колонок"
+  },
+  "statistic_top_pvp": {
+    "sql": "SELECT char_name, pvpkills, pkkills, clanid, onlinetime FROM characters ORDER BY pvpkills DESC, onlinetime ASC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_pvp_TRANC": {
+    "sql": "SELECT characters.charId, characters.char_name, characters.`level`, characters.pvpkills, characters.pkkills, characters.clanid, characters.classid, characters.base_class, characters.`online`, characters.onlinetime AS online_time, characters.`sex`, clan_data.clan_name, clan_data.clan_level, clan_data.hasCastle AS `castle_id`, crests.`data` AS clan_crest, clan_data.reputation_score AS clan_reputation_score, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id ORDER BY pvpkills DESC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_pk_TRANC": {
+    "sql": "SELECT characters.charId, characters.char_name, characters.`level`, characters.pvpkills, characters.pkkills, characters.clanid, characters.classid, characters.`online`, characters.onlinetime as online_time, characters.`sex`, clan_data.clan_name, clan_data.clan_level, clan_data.hasCastle AS `castle_id`, crests.`data` AS clan_crest, clan_data.reputation_score AS clan_reputation_score, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id ORDER BY pkkills DESC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PK"
+  },
+  "statistic_top_clan_TRANC": {
+    "sql": "SELECT clan_data.clan_id, clan_data.hasCastle AS castle_id, clan_data.reputation_score, clan_data.leader_id, characters.char_name, characters.`level` AS `char_level`, characters.pvpkills, characters.pkkills, characters.race, characters.base_class, characters.classid, characters.`online`, characters.onlinetime, characters.`sex`, clan_data.clan_name, clan_alliance.`data` AS clan_crest, clan_data.clan_level, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest, ( SELECT COUNT(*) FROM characters WHERE clanid = clan_data.clan_id ) AS clan_count_members FROM clan_data LEFT JOIN crests AS clan_alliance ON clan_data.crest_id = clan_alliance.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id LEFT JOIN characters ON clan_data.leader_id = characters.charId ORDER BY clan_count_members DESC, clan_data.reputation_score DESC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_player_TRANC": {
+    "sql": "SELECT characters.*, clan_data.* FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id ORDER BY onlinetime DESC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_heroes_TRANC": {
+    "sql": "SELECT heroes.class_id, clan_data.clan_name, characters.char_name, characters.`level`, characters.pvpkills, characters.pkkills, characters.classid, characters.base_class, characters.race, characters.onlinetime, characters.`sex`, clan_data.hasCastle AS castle_id, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest, crests.`data` AS clan_crest FROM heroes LEFT JOIN characters ON heroes.charId = characters.charId LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id ORDER BY pvpkills DESC",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_castle_TRANC": {
+    "sql": "SELECT clan_data.clan_name, clan_data.clan_level, clan_data.reputation_score, castle.id AS castle_id, castle.siegeDate, characters.char_name, characters.`level` AS char_level, characters.pvpkills, characters.pkkills, characters.base_class, characters.classid, characters.onlinetime, characters.`sex`, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest, crests.`data` AS clan_crest FROM castle LEFT JOIN clan_data ON castle.id = clan_data.hasCastle LEFT JOIN characters ON clan_data.leader_id = characters.charId LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_block_TRANC": {
+    "sql": "SELECT characters.char_name, characters.`level`, characters.pvpkills, characters.pkkills, characters.classid, characters.base_class, characters.race, characters.onlinetime, characters.`sex`, clan_data.clan_name FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id WHERE characters.accesslevel < 0;",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_onlinetime_TRANC": {
+    "sql": "SELECT characters.charId, characters.char_name, characters.`level`, characters.pvpkills, characters.pkkills, characters.clanid, characters.base_class, characters.classid, characters.`online`, characters.onlinetime AS online_time, characters.`sex`, clan_data.clan_name, clan_data.clan_level, clan_data.hasCastle AS castle_id, crests.`data` AS clan_crest, clan_data.reputation_score AS clan_reputation_score, clan_data.ally_name AS alliance_name, clan_ally.`data` AS alliance_crest FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id LEFT JOIN crests ON clan_data.crest_id = crests.crest_id LEFT JOIN crests AS clan_ally ON clan_data.ally_crest_id = clan_ally.crest_id ORDER BY characters.onlinetime DESC LIMIT 100;",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_counter_TRANC": {
+    "sql": "SELECT SUM( characters.onlinetime ) AS `count_onlinetime`, SUM( characters.pvpkills ) AS `count_pvpkills`, SUM( characters.pkkills ) AS `count_pkkills`, ( SELECT count(*) FROM `clan_data` ) AS `count_clans`, ( SELECT count(*) FROM `clan_data` WHERE hasCastle != 0 ) AS `count_clan_has_castle`, ( SELECT count(*) FROM `castle` ) AS `count_castle`, ( SELECT count(*) FROM `characters` WHERE characters.online = 1 ) AS `player_online`, ( SELECT count(*) FROM `characters` ) AS `player_all` FROM characters;",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_online_count_TRANC": {
+    "sql": "SELECT * FROM characters;",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_clan_count_TRANC": {
+    "sql": "SELECT count(*) AS `count` FROM clan_data;",
+    "call": "game",
+    "comment": "Получение топ PvP"
+  },
+  "statistic_top_pk": {
+    "sql": "SELECT char_name, pvpkills as pvp, pkkills as pk, onlinetime as online_time, clanid as clan_id FROM characters ORDER BY pkkills DESC, onlinetime ASC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ PK"
+  },
+  "statistic_top_onlinetime": {
+    "sql": "SELECT characters.char_name, character_subclasses.`level`, characters.clanid AS clan_id, character_subclasses.class_id, characters.onlinetime AS online_time FROM characters LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id WHERE character_subclasses.isBase = 1 ORDER BY characters.onlinetime DESC LIMIT 100",
+    "call": "game",
+    "comment": "Получение топ времени персонажей в игре"
+  },
+  "statistic_top_clan": {
+    "sql": "SELECT clan_data.clan_id, clan_subpledges.name as clan_name, clan_level, characters.char_name as clan_leader, hasCastle as castle, clan_data.reputation_score as reputation, ally_name, clan_data.crest AS crest_clan, ally_data.crest AS crest_ally, ( SELECT COUNT(*) FROM characters WHERE clanid = clan_data.clan_id ) AS members FROM characters LEFT JOIN clan_subpledges ON characters.obj_Id = clan_subpledges.leader_id LEFT JOIN clan_data ON clan_subpledges.clan_id = clan_data.clan_id LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id GROUP BY hasCastle DESC, clan_data.reputation_score DESC",
+    "call": "game",
+    "comment": "Получение топ кланов"
+  },
+  "statistic_castle": {
+    "sql": "SELECT castle.id as `castle_id`, castle.`name` AS `castle_name`, clan_subpledges.`name` AS `clan_name`, characters.char_name as `leader`, castle.tax_percent AS `tex`, castle.siege_date AS `siege` FROM castle LEFT JOIN clan_data ON castle.id = clan_data.hasCastle LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id WHERE clan_subpledges.type = 0",
+    "call": "game",
+    "comment": "Получение информации о замках"
+  },
+  "statistic_top_count": {
+    "sql": "SELECT SUM(characters.pvpkills) as `all_pvp`, SUM(characters.pkkills) as `all_pk`, SUM(characters.onlinetime) as `all_onlinetime` FROM characters",
+    "call": "game",
+    "comment": "Получение числовых статистических данных"
+  },
+  "is_player": {
+    "sql": "SELECT charId as obj_id, online FROM characters WHERE char_name = ? LIMIT 1",
+    "call": "game",
+    "comment": "Проверка существования персонажа. Возвращаем obj_id персонажа и online перебывает игрок сейчас в игре."
+  },
+  "max_value_item_object": {
+    "sql": "SELECT MAX(object_id) + 1 AS `max_object_id` FROM `items`",
+    "call": "game",
+    "comment": "Получение максимального значения объектов предмета"
+  },
+  "check_item_player": {
+    "sql": "SELECT count, object_id, owner_id, item_id FROM items WHERE item_id = ? AND owner_id = ? LIMIT 1",
+    "call": "game",
+    "comment": "Запрос на проверку существования ID предмета у X персонажа"
+  },
+  "update_item_count_player": {
+    "sql": "UPDATE `items` SET `count` = ? WHERE `object_id` = ?",
+    "call": "game",
+    "comment": "Запрос на проверку существования ID предмета у X персонажа"
+  },
+  "add_item": {
+    "sql": "INSERT INTO `items` (`owner_id`, `object_id`, `item_id`, `count`, `enchant_level`, `loc`) VALUES (?, ?, ?, ?, ?, ?)",
+    "call": "game",
+    "comment": "Выдача нового предмета в инвентарь игроку"
+  },
+  "all_player_items": {
+    "sql": "SELECT items.item_id, items.count, items.enchant_level, items.loc FROM items LEFT JOIN characters ON items.owner_id = characters.charId WHERE characters.charId = ?",
+    "call": "game",
+    "comment": "Все предметы игрока"
+  },
+  "player_subclasses": {
+    "sql": "SELECT class_id, `level` FROM character_subclasses WHERE character_subclasses.charId = ?",
+    "call": "game",
+    "comment": "Саб классы игрока"
+  },
+  "count_online_player": {
+    "sql": "SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 0",
+    "call": "game",
+    "comment": "Кол-во игроков"
+  }
+}

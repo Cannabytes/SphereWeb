@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>Lineage II:Helios- Новая бесплатная версия легенды</title>
+	
+	<!--
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="{{template}}/css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="{{template}}/css/slick.css" rel="stylesheet">
+    <link href="{{template}}/css/style.css@44.css" rel="stylesheet">
+	<link href="{{template}}/css/mobile-style.css@23.css" rel="stylesheet">
+	<link href="{{template}}/css/ladda.min.css" rel="stylesheet">
+	<link href="{{template}}/css/jquery.fancybox.min.css" rel="stylesheet">
+	
+	<!-- fonts -->
+    <link rel="stylesheet" href="{{template}}/css/gwi.css@ver=0.0.3.css">
+    <!-- Main style -->
+    <link rel="stylesheet" href="{{template}}/css/style_timer.css@ver=0.0.1.css">
+	
+	<link href="{{template}}/css/popup.css@2.css" rel="stylesheet">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="{{template}}/favicon.png">
+	
+	
+	<meta name="Description" content="esenn.ru Lineage II:Helios">
+    <meta name="Keywords" content="">
+       
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#0f1019">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<meta name="viewport" content="width=device-width">-->
+    <meta name="author" content="Front-End by ncs.SpawN > esenn.ru">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://esenn.ru/">
+    <meta property="og:title" content="esenn.ru Helios">
+    <meta property="og:image" content="images/logo.png?!">
+    <meta property="og:description" content="esenn.ru Helios Lineage2">
+    <meta property="og:site_name" content="esenn.ru Helios">
+    <meta property="og:locale" content="ru_RU">
+    <!-- Next tags are optional but recommended -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script>
+        const __config = {
+            gFonts: {
+                fonts: [
+                    'Montserrat:400,500,700:latin,cyrillic',
+                ],
+                delay: 500,
+            },
+            preload: {
+                /* Время показа прелоадера в секудах */
+                time: 0.5,
+                /* Разрешить скрыть прелоадер кликнув на него */
+                hideByClick: true,
+            },
+ 
+        };
+    </script>
+
+	
+	
+    <style>
+        body {
+            overflow-x: hidden;
+            /*overflow-y: scroll;*/
+            overflow-y: hidden;
+            margin: 0;
+        }
+
+        /* preload */
+        .preload {
+            background-color: #0f1019;
+            position: fixed;
+            z-index: 500;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+
+    </style>
+	
+</head>
+
+<body class="body">
+	<div id="is_vip" style="display:none">0</div>
+	<div class="preload">
+		<div class="preload__progress" data-preload-progress>
+		</div>
+		<img src="{{template}}/images/preload_logo02.png" alt="logo" class="preload__logo">
+	</div>
+	<div class="smoke"></div>
+	<div class="wrapper">
+				<header>
+			<div class="topPanel">
+				<div class="btn btn-drop" data-class="topPanel-left">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="topPanel-wrapper flex-c">
+					<div class="topPanel-left flex-c">
+						<!-- <a href="/" class="logo-mini bright"><img src="{{template}}/images/logo-mini.png" alt="Logo"></a>-->
+						<a href="https://esenn.ru"><img src="{{template}}/images/logo.png" border="0"></a>
+						<ul class="nav">
+							<li class="menu__item1">
+								<!--<div class="menu__icon">
+									<picture>
+										<source srcset="images/01.webp" type="img/webp">
+										<img src="{{template}}/images/01.webp" alt="Image">
+									</picture>
+								</div>-->
+								<a class="icon_menu icon_menu_1" href="#home" onclick="ScrollToMain($(this))">Главная</a>
+							</li>
+							<li><a class="icon_menu icon_menu_2" href="/registration/account" target="_blank">Регистрация</a></li>
+							<li><a class="icon_menu icon_menu_3" href="#download" onclick="ScrollToMain($(this))">Загрузки</a></li>
+
+							<li class="sub-menu"><a class="icon_menu icon_menu_5" href="javascript:void(0)">Сервер</a>
+								<ul>
+									<li><a href="#server_description" onclick="ScrollToMain($(this))">Описание</a></li>
+									<li><a href="#stream" onclick="ScrollToMain($(this))">Стримы</a></li>
+									<li><a href="#stock" onclick="ScrollToMain($(this))">Акции</a></li>
+									<li><a href="#rules" onclick="ScrollToMain($(this))">Правила</a></li>
+								</ul>
+							</li>
+
+							<li class="sub-menu"><a class="icon_menu icon_menu_5" href="javascript:void(0)">Статистика</a>
+								<ul>
+									<li><a href="#statistic" onclick="ScrollToMain($(this))">Top Time</a></li>
+									<li><a href="#statpvp" onclick="ScrollToMain($(this))">Top PVP</a></li>
+									<li><a href="#statpk" onclick="ScrollToMain($(this))">Top PK</a></li>
+									<li><a href="#statclan" onclick="ScrollToMain($(this))">Top Кланы</a></li>
+									<li><a href="#statheroes" onclick="ScrollToMain($(this))">Герои Олимп</a></li>
+									<li><a href="#statcastle" onclick="ScrollToMain($(this))">Замки</a></li>
+									<li><a href="#statblock" onclick="ScrollToMain($(this))">Заблокированные</a></li>
+								</ul>
+							</li>
+							<li><a class="icon_menu icon_menu_6" href="#events" onclick="ScrollToMain($(this))">Ивенты</a></li>
+							<li><a class="icon_menu icon_menu_7" href="/donate" target="_blank">Пожертвования</a></li>
+
+						</ul>
+					</div>
+					<!--topPanel-left-->
+					<div class="topPanel-right">
+						<a href="index.html#reload" class="reload"></a>
+						
+					</div>
+					<!--topPanel-right-->
+				</div>
+			</div><!--topPanel-->
+			<div class="sparks">
+				<div class="spark_1"></div>
+				<div class="spark_2"></div>
+				<div class="spark_3"></div>
+				<div class="spark_4 spark-big"></div>
+			</div>
+			
+			<!-- <div class="logotype flex-c-c"> -->
+			<div class="logo">
+				<a href="https://esenn.ru" onclick="ScrollToMain($(this))" class="bright">
+					<img src="{{template}}/images/lineage_logo.png" alt="Logo" style="">
+					<br>
+					<!--<img src="{{template}}/images/logo.png" alt="Logo">-->
+				</a>
+			</div>
+				 <div class="timer">
+					<div class="section countdown">
+						<div class="countdown__inner">
+							<div class="countdown__overlay"></div>
+							<!--<h2 class="countdown__title title title_large title_uppercase title_mb_small">
+								Grand Opening
+							</h2>-->
+							<!--<div class="countdown__desc desc desc_mb">
+								Переоткрытие x25 Craft-PvP
+							</div>-->
+					
+							<div class="countdown__counter counter" data-counter-js></div>
+								<div class="countdown__contacting-list">
+											
+								</a>
+								
+							</div>
+					
+						</div>
+					</div>
+				</div>
+			<!--</div>-->
+			
+			<div class="online flex-c-c">
+				<div class="light-animation">
+					<div class="blue-light"></div>
+					<div class="yellow-light"></div>
+				</div>
+				<!--<div class="onlineBlock">
+					В сети <span><font style="font-size: 20px;letter-spacing: 0px;color: #757575;">Загрузка...</font></span>
+				</div>-->
+				<div class="onlineBlock">
+					В сети <span id="server_online"><font style="font-size: 20px;letter-spacing: 0px;color: #757575;">Загрузка...</font></span>
+				</div>
+				<div class="onlineReg flex-c-c">
+					<div class="onlineReg-block onlineReg-block-player" style="padding: 95px 10px 0px 10px;">
+						<span class="honline" id="server_count_player"><font style="font-size: 20px;letter-spacing: 0px;color: #757575;">Загрузка...</font></span>
+						Игроки
+						<span class="stats-bar stat-green" style="margin-top: 14px;width: 100%;background: #ffffff35;">
+							<span class="sonline" style="width: 100%;max-width: 100%;">
+							</span>
+						</span>
+						
+					</div>
+					<div class="onlineReg-block onlineReg-block-clans" style="padding: 95px 10px 0px 10px;">
+						<span class="honline" id="server_count_clan"><font style="font-size: 20px;letter-spacing: 0px;color: #757575;">Загрузка...</font></span>
+						Кланы
+						<span class="stats-bar stat-green" style="margin-top: 14px;width: 100%;background: #ffffff35;">
+							<span class="sonline" style="width: 100%;max-width: 100%;">
+							</span>
+						</span>
+						
+					</div>
+				</div>
+				<div class="onlineReg-block" style="padding: 50px 10px 5px 10px;">
+				<!-- Начало: Монитор - статистика игровых серверов 
+		--><img src="//monitor.zone-game.info/check.php?do=status&ip=46.72.222.42&port=7777&id=32&type=gif" border="0" alt="" /></a>
+		<!-- Конец: Монитор - статистика игровых серверов -->
+		<br><br>
+						<span class="honline">Helios</span>
+						Сервер х10
+						<span class="stats-bar stat-green" style="margin-top: 14px;width: 100%;background: #ffffff35;">
+							<span class="sonline" style="width: 100%;max-width: 70%;">
+							</span>
+						</span>
+						
+					</div>
+			</div><!--online-->
+			<div class="downloads">
+				<a href="https://drive.google.com/file/d/1QOwKp95O6HbEDEkYh7ZGHkCWTWSTFWT4/view?usp=sharing" target="_blank" onclick="ScrollToMain($(this))" class="download-button bright">Download <span>Клиент и Апдейтер</span></a>
+				<div class="more-downloads flex-c-c">
+					<!--<a href="index.html#download" onclick="ScrollToMain($(this))" class="windows">Windows 10</a>--> <!--<span>|</span> <a href="javascript:void(0)" class="mac">Mac OS</a>-->
+				</div>
+			</div>
+		</header>
+				<main>
+			<div class="sliderGalleryVideo">
+				<div class="slider-gallery-Video">
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_01.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_02.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_03.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_04.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_05.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_06.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_07.png" alt="img_1"></a></div>
+					<div class="sliderImgVideo"><a href="javascript:void(0)"><img src="{{template}}/images/slaid_08.png" alt="img_1"></a></div>
+				</div>
+			</div>
+			
+			<!-- <div class="line1"><span class="line"></span></div> -->
+			
+			<div class="topHomeBlocks1">
+				<div class="topHomeBlocks flex-s">
+					<div class="newsSlider block-50">
+						<div class="swiper-container swiper-news">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="index.html#bonus" onclick="">
+										<img src="template/designs/hellios/images/slaid_01.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Начни с друзьями</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_02.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Соло Боссы</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#"  target="_blank">
+										<img src="template/designs/hellios/images/slaid_03.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Играй на равных</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#newsall">
+										<img src="template/designs/hellios/images/slaid_04.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Новые ивенты</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_05.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Стартовый бонус</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_06.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Интересные рейды</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_07.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Премиум аккаунт</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_08.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Уникальные задания</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_09.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Ежедневные ивенты</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="index.html#">
+										<img src="template/designs/hellios/images/slaid_10.png" alt="Slide">
+										<div class="swiper-news_info">
+											<span>Мастер Аккаунт</span>
+											<p></p>
+										</div>
+									</a>
+								</div>
+								
+							</div>
+							<div class="swiper-news-pagination">
+								<!-- Add Pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- Add Arrows -->
+								<div class="swiper-button-next"></div>
+								<div class="swiper-button-prev"></div>
+							</div>
+						</div>
+					</div><!--newsSlider-->
+					<div class="newsBlock block-50">
+						<div class="h2-title flex-s-c">
+							<span>Последние новости</span> <a href="https://vk.com/public214499710" onclick="PageNews($(this),1)">Все новости</a>
+						</div><!--h2-title-->
+											<div class="newsLink flex-s-c">
+						<div class="newsLink-info">
+							<a href="https://vk.com/public214499710" onclick="PageNews($(this),1)">Официальный запуск сервера Helios состоялся!</a>
+							<span><span>05 </span>Мая 2021</span>
+						</div>
+					</div>					<div class="newsLink flex-s-c">
+						<div class="newsLink-info">
+							<a href="https://vk.com/public214499710" onclick="PageNews($(this),2)">При создании аккаунта стартовый бонус</a>
+							<span><span>10 </span>Июня 2021</span>
+						</div>
+						<a href="https://vk.com/public214499710" onclick="PageNews($(this),2)" class="newsLink-more"><span>Подробнее..</span></a>
+					</div>					<div class="newsLink flex-s-c">
+						<div class="newsLink-info">
+							<a href="https://vk.com/public214499710" target="_blank">Все последние новости в группе ВК</a>
+							<span><span>22 </span>Июля 2021</span>
+						</div>
+						<a href="https://vk.com/public214499710" onclick="PageNews($(this),3)" class="newsLink-more"><span>Подробнее..</span></a>
+					</div>
+					</div><!--newsBlock-->
+				</div>
+				<!--topHomeBlocks-->
+			</div>
+			
+			<div class="line1"><span class="line"></span></div>
+			
+			<div class="main mainHomeBlock1">
+				<aside>
+					<!--<div class="mainHomeBlock flex-s">-->
+						
+		
+										<div class="rankings blockHome">
+					<div class="h2-title h2-title-table flex-s-c">
+						<span>Рейтинг</span> 
+						<!--div class="tabTable2">
+							<a class="tabTable2-button active" data-tab="x25">x25</a> <a class="tabTable2-button" data-tab="x1200">x1200</a>
+						</div-->
+						<div class="tabTable tabTable2-block active" id="x25">
+							<a class="x25pvp tabTable-button active" data-tab="x25pvp">PVP</a> <a class="x25pk tabTable-button" data-tab="x25pk">PK</a>
+						</div>
+						<div class="tabTable tabTable2-block" id="x1200">
+							<a class="x1200pvp tabTable-button active" data-tab="x1200pvp">PVP</a> <a class="x1200pk tabTable-button" data-tab="x1200pk">PK</a>
+						</div>
+					</div>
+					<!--h2-title-->
+					
+					<!-- x25 pvp start -->
+					<div class="table tabTable-block active" id="x25pvp">
+						<div class="tableBlock-title">
+								<div class="tableBlock-title_number">№</div>
+								<div class="tableBlock-title_player">Игроки</div>
+								<div class="tableBlock-title_level">LVL</div>
+								<div class="tableBlock-title_score">PVP/PK</div>
+						</div>
+						<div class="tableBlock statshpvp">
+
+						</div>
+						<div class="all-button">
+							<a href="#statpvp" onclick="StatsPKPVP('x25',$(this))" class="button">Подробнее</a>
+						</div>
+					</div>
+					<!-- x25 pvp end -->
+					
+					<!-- x25 pk start -->
+					<div class="table tabTable-block" id="x25pk">
+						<div class="tableBlock-title">
+								<div class="tableBlock-title_number">№</div>
+								<div class="tableBlock-title_player">Игроки</div>
+								<div class="tableBlock-title_level">LVL</div>
+								<div class="tableBlock-title_score">PVP/PK</div>
+						</div>
+						<div class="tableBlock statshpk">
+							
+						</div>
+						<div class="all-button">
+							<a href="#statpk" onclick="StatsPKPVP('x25',$(this))" class="button">Подробнее</a>
+						</div>
+					</div>
+					<!-- x25 pk end -->
+					
+					<!-- x1200 pvp start -->
+					<div class="table tabTable-block" id="x1200pvp">
+						<div class="tableBlock-title">
+								<div class="tableBlock-title_number">№</div>
+								<div class="tableBlock-title_player">Игроки</div>
+								<div class="tableBlock-title_level">LVL</div>
+								<div class="tableBlock-title_score">PVP/PK</div>
+						</div>
+						<div class="tableBlock statsheader2">
+							
+						</div>
+						<div class="all-button">
+							<a href="#statpvp" onclick="StatsPKPVP('x1200',$(this))" class="button">View All x1200 PVP</a>
+						</div>
+					</div>
+					<!-- x1200 pvp end -->
+					
+					<!-- x1200 pk start -->
+					<div class="table tabTable-block" id="x1200pk">
+						<div class="tableBlock-title">
+								<div class="tableBlock-title_number">№</div>
+								<div class="tableBlock-title_player">Игроки</div>
+								<div class="tableBlock-title_level">LVL</div>
+								<div class="tableBlock-title_score">PVP/PK</div>
+						</div>
+						<div class="tableBlock statsheader3">
+							
+						</div>
+						<div class="all-button">
+							<a href="index.html#statpk" onclick="StatsPKPVP('x1200',$(this))" class="button">View All x1200 PK</a>
+						</div>
+					</div>
+					<!-- x1200 pk end -->
+					
+					
+					
+					
+					<div class="table tabTable-block" id="legions">
+						<div class="tableBlock">
+							<div class="tableBlock-title">
+								<div class="tableBlock-title_player">Legions</div>
+								<div class="tableBlock-title_level">Level</div>
+								<div class="tableBlock-title_score">Score</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">1</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_1.png" alt=""> <a href="index.html">Maverick1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-purple">80</span></div>
+								<div class="tableBlock-conten_scr">16 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">2</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_2.png" alt=""><a href="index.html">Very-Long_Nick-Name</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-purple">79</span></div>
+								<div class="tableBlock-conten_scr">15 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">3</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_3.png" alt=""><a href="index.html">Graber1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-purple">74</span></div>
+								<div class="tableBlock-conten_scr">14 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">4</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_4.png" alt=""><a href="index.html">Andy1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-blue">67</span></div>
+								<div class="tableBlock-conten_scr">14 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">5</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_5.png" alt=""><a href="index.html">Richard1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-blue">64</span></div>
+								<div class="tableBlock-conten_scr">13 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">6</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_1.png" alt=""><a href="index.html">Pro-extreme1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-blue">60</span></div>
+								<div class="tableBlock-conten_scr">11 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">7</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_2.png" alt=""><a href="index.html">Fighter1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-green">58</span></div>
+								<div class="tableBlock-conten_scr">9 373</div>
+							</div>
+							<div class="tableBlock-content">
+								<div class="tableBlock-conten_number">8</div>
+								<div class="tableBlock-conten_name"><img src="{{template}}/images/rank-icon_3.png" alt=""><a href="index.html">Gladiator1</a></div>
+								<div class="tableBlock-conten_lvl"><span class="color-green">55</span></div>
+								<div class="tableBlock-conten_scr">8 373</div>
+							</div>
+						</div>
+						<div class="all-button">
+							<a href="index.html" class="button">View All</a>
+						</div>
+					</div>
+				</div>
+						<!--rankings-->
+										<div class="forumHome blockHome">
+					<div class="h2-title h2-title-table flex-s-c">
+						<span>Обсуждения</span> <a class="forumHomeA" href="https://discord.gg/ExMYrKW2kG" target="_blank">Все темы</a>
+					</div>
+					<!--h2-title-->
+					<div class="forumBlock-content statsheader4">
+						
+					<div class="discord">    
+					<iframe src="https://discord.com/widget?id=1009013147211935777&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+					</div>
+						
+					</div><!--forumBlock-content-->
+				</div>
+						<!--forumHome-->
+										<div class="socHome">
+					<a href="https://t.me/off_esenn_ru" target="_blank" class="socButton socYoutube">
+						Telegram
+						<span>Официальный кланал</span>
+					</a>
+					<a href="https://discord.gg/ExMYrKW2kG" target="_blank" class="socButton socDiscord">
+						Discord
+						<span>Дискусионный чат</span>
+					</a>
+					<a href="https://vk.com/public214499710" target="_blank" class="socButton socFacebook">
+						Вконтакте
+						<span>Официальная группа</span>
+					</a>
+					<div class="socBlock flex-c-c">
+						<a href="https://discord.gg/ExMYrKW2kG" target="_blank" class="socBlock-guides socBlock-button">
+							Поддержка
+							<span>Задать вопрос</span>
+						</a>
+						<a href="" onclick="ScrollToMain($(this))" target="_blank" class="socBlock-forum socBlock-button">
+							Стримы
+							<span>Live Stream</span>
+						</a>
+					</div>
+				</div>
+						<!--socBlockHome-->
+					<!--</div>-->
+				</aside>
+			
+				<div class="content" >
+
+
+				<div class="download">
+				<div class="h2-title h2-title-content flex-s-c">
+					<span>Download</span> 
+				</div>
+				<div class="downloadBlock-content">
+					<div class="downloadBlock">
+						<div class="downloadBlock-title">
+							Скачать Патч: <span>205Mb</span>
+						</div>
+						<div class="flex-c-c downloadBlock-buttons">
+							<a href="https://drive.google.com/file/d/1LCBZqE6svZsXKDWZmtpSpVeJFouLFdNO/view?usp=sharing" target="_blank" class="googleButton d-button">Google Drive</a>
+							<!-- <a href="https://mega.nz/file/jmQEhSJQ#3jGhmVSE9j-4aVmYNT4GZQz6QkyzxmGdVuDe2OiEL1k" target="_blank" class="dropboxButton  d-button">MEGA.NZ</a> -->
+						</div>
+					</div><!--downloadBlock-->
+					<div class="downloadBlock">
+						<div class="downloadBlock-title">
+							Апдейтер Клиента
+						</div>
+						<div class="downloadBlock-text">
+							Необходимо скачать в корневую папку с игрой, запустить и нажать кнопку "Проверка"
+						</div>
+						<div class="downloadBlock-button">
+							<a href="files/Updater_Lineage_II_Helios.7z" class="button">Скачать</a>
+						</div>
+					</div><!--downloadBlock-->
+					</div>
+					<div class="drivers">
+						<div class="downloadBlock-title">
+							Драйвера
+						</div>
+						<div class="drivers-img flex-s-c">
+						<a href="http://www.nvidia.ru/Download/index.aspx?lang=ru" target="blank" alt="Nvidia"><img src="{{template}}/images/nvidia.jpg"></a>
+						<a href="https://www.microsoft.com/ru-ru/download/details.aspx?id=35" target="blank" alt="Directx"><img src="{{template}}/images/directx.jpg"></a>
+						<a href="https://www.microsoft.com/ru-ru/download/details.aspx?id=17851" target="blank" alt="Nvidia"><img src="{{template}}/images/framework.jpg"></a>
+					</div>
+				</div><!--drivers-->
+
+			</div>
+
+
+
+
+				<div class="server_description">
+				<div class="h2-title h2-title-content flex-s-c">
+					<span>Описание сервера</span>
+				</div>
+					<div class="tabs-popup__block-descr descr-block">
+						<div class="descr-block__wrapper">
+							<div class="descr-block__title">Основная информация:</div>
+
+							<ul class="descr-block__list">
+								<li class="descr-block__item">
+									Сохранена основная концепция игры Линедж 2, её смысл, жанр, дух.
+									Включены осады, КХ, и прочее. Мы не ломаем традиционных устоев ла2 и не вмешиваемся в классическую механику игры. Концепция нацелена на сервер "для своих".
+									Мы правили неработающие моменты в течение длительного времени, делая сервер работоспособным и он становится с каждым днем лучше и лучше. Не затрагивая механику игры, мы добавили некоторое количество интересных нововведений, делающих игру более азартной и увлекательной, то, что интересно всем, добавили дух соперничества, состязания, фан не только за респ новых РБ, а и в новых азартных пвп ивентах. Нет доната вещей. Каждый игрок получает разочарование, когда приходит на сервер и видит, что ему нечего делать на Олимпиаде или в пвп, т.к. бегает куча продоначенных персонажей. Нравилось ли вам играть на таких серверах, где в продаже донат вещи? Играть там, где над вами господствует задоначенный игрок: на Олимпиаде, на осаде, на ТБ, на фане. Донатер держит респ всех эпик РБ, а его переточенное оружие ни в какое сравнение не идет с вашим оружием и никогда вам донатера не одолеть... Все только обещают, а мы делаем!
+									В игре вас ждет масса всего интересного, от новых умений, до новых рейдовых боссов! Удобный оффтрейд: достаточно просто сесть в торг и закрыть клиент. Бои будут проходить на различных аренах. Теперь более сбалансированный! Добавлены различные призы.
+									Мы поделимся с вами наиболее интересной информацией, а за добавкой поспешите в удивительный мир Эльморадена!
+								</li>
+								<li class="descr-block__item">
+									● Все персонажи появляются в Деревне Говорящего Острова.
+								</li>
+								<li class="descr-block__item">
+									● Мастер аккаунт.
+								</li>
+								<li class="descr-block__item">
+									● Хроники: Helios
+								</li>
+								<li class="descr-block__item">
+									● Во всех местах есть все необходимые NPC.
+								</li>
+								<li class="descr-block__item">
+									● Введена механика Рун увеличивающих отдельные рейты. Руны можно добыть игровым путём.
+								</li>
+								<li class="descr-block__item">
+									● Получение профессий, без квестов в диалоговом окне.
+								</li>
+								<li class="descr-block__item">
+									● Эпик теперь доступен даже соло игрокам!
+								</li>
+								<li class="descr-block__item">
+									● Максимальная заточка Брони - 30, Оружия - 30.
+								</li>
+								<li class="descr-block__item">
+									● Фарм-зоны разделены по уровням.
+								</li>
+								<li class="descr-block__item">
+									● Ивент TeamVsTeam каждые два часа, награда зависит от активности и Вашего класса.
+								</li>
+								<li class="descr-block__item">
+									● Баланс классов реализован максимально приближенно к оригинальному серверу.
+								</li>
+								<li class="descr-block__item">
+									● Максимальный доступный уровень — 105.
+								</li>
+								<li class="descr-block__item">
+									● Добавлена и включена возможность автолута.
+								</li>
+								<li class="descr-block__item">
+									● Осады: длительность осад 2 часа, проводятся каждую неделю по воскресеньям в 20:00 по Мск.
+								</li>
+								<li class="descr-block__item">
+									● Таро: уникальный список Таро, который содержит как вспомогательные предметы так и предметы для буста.
+								</li>
+								<li class="descr-block__item">
+									● На сервере реализована возможность оффлайн торговли.
+								</li>
+								<li class="descr-block__item">
+									● Алтарь Духов: получите Призрачный Камень и отправляйтесь к Алтарю духов, чтобы призвать Рейдового Босса, сразив которого, получите щедрое вознаграждение.
+								</li>
+								<li class="descr-block__item">
+									● Эпические боссы: Хелиос, Рамона, Траскен, Антарас, Линдвиор, Валакас, Анаким, Лилит, Кельбим, Баюм, Орфен, Ядро, Королева Муравьёв.
+								</li>
+								<li class="descr-block__item">
+									● Всем персонажам добавлен небольшой стартовый набор для развития.
+								</li>
+								<li class="descr-block__item">
+									● Респаун обычных боссов - от 12 до 24 часов.
+									В дроп рейд боссам добавлены - Свободная Монета(Hero Coin)
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div class="news">
+				<div class="h2-title h2-title-content flex-s-c">
+					<span>Последние новости</span> <a href="index.html#newsall" onclick="PageNews($(this),1)">Все новости</a>
+				</div>
+				<center><div class="pagenews" style="font-size: 16px;"><a href="javascript:void(0)" onclick="PageNewsPrev()"><<</a>  <span>1</span>  <a href="javascript:void(0)" onclick="PageNewsNext()">>></a></div></center>
+				<br>
+				<div id="newslist" class="statsheader7">
+				
+				</div>
+			    </div>
+			
+			
+			
+			<div class="events">
+			<div class="h2-title h2-title-content flex-s-c">
+			<span>Ивенты</span>
+			</div>
+
+			<html>
+
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			* {box-sizing: border-box;}
+
+			.container {
+			  position: relative;
+			  width: 50%;
+			  max-width: 300px;
+			  margin: 0 auto;
+			}
+
+			.image {
+			  display: block;
+			  width: 100%;
+			  height: auto;
+			}
+
+			.overlay {
+			  position: absolute;
+			  bottom: 0;
+			  background: rgb(0, 0, 0);
+			  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			  color: #f1f1f1;
+			  width: 100%;
+			  transition: .5s ease;
+			  opacity:0;
+			  color: white;
+			  font-size: 20px;
+			  padding: 20px;
+			  text-align: center;
+			}
+
+			.container:hover .overlay {
+			  opacity: 1;
+			}
+			</style>
+			</head>
+			<body>
+				<div class="row">
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_DarEinhasad.png" alt="Snow" style="width:100%">
+						 <div class="overlay"><h2>Дар Эйнхасад</h2>
+						 <p></p>
+						<p><small>Ларцы с актуальными расходниками и горсткой монет Эйнхасад пригодятся в любой ситуации. Пришло время пополнить запасы!</small></p>
+						  <p><h2>Дата: с 26.07 по 12.07</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_DragonHit.png" alt="Forest" style="width:100%">
+						 <div class="overlay"><h2>Сокровища Дракона</h2>
+						 <p></p>
+						<p><small>Легенды гласят, что в местах появления дракона местные жители находили сундуки, полные сокровищ...</small></p>
+						  <p><h2>Дата: с 30.07 по 05.08</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_ElkardiaL.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Лавка Элькардии</h2>
+						 <p></p>
+						<p><small>Торговка Элькардия, заключина договор с существами из иного измерения, на поставку магических предметов.</small></p>
+						  <p><h2>Дата: с 15.08 по 19.09</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_FreiaHappy.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>В гостях у Фреи</h2>
+						 <p></p>
+						<p><small>Снежная Королева Фрея посетила Эльмораден, чтобы испытать отважных воинов и вознаградить самих удачливых особыми дарами.</small></p>
+						  <p><h2>Дата: с 21.12 по 11.01</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_RedLibra.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Гильдия Алых Весов</h2>
+						 <p></p>
+						<p><small>Груженые всевозможным вооружением, повозки двинулись в центр города, прямиком к статуи богини Эйнхасад.</small></p>
+						  <p><h2>Дата: с 02.05 по 11.12</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_Happy_Merry_Cristmas.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Рождественская история</h2>
+						 <p></p>
+						<p><small>Новый Год – это сказочный праздник, в который сбываются надежды и мечты. В Эльморадене предновогодняя суета в самом разгаре!</small></p>
+						  <p><h2>Дата: с 22.12 по 19.01</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_Heart.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Сила Любви</h2>
+						 <p></p>
+						<p><small>Коко, приехала в город, чтобы поделиться с игроками своими сладостями, но и также чтобы попросить их о помощи.</small></p>
+						  <p><h2>Дата: с 12.02 по 04.03</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_Hellowen.png" alt="Mountains" style="width:100%">
+						<div class="overlay"><h2>Halloween</h2>
+						 <p></p>
+						<p><small>День Всех Святых уже на подходе! Поддайтесь духу Хэллоуина, поддайтесь страху и ужасу в Эльморадене.</small></p>
+						  <p><h2>Дата: с 23.10 по 14.11</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_IceLabirint.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Ледяной Лабиринт</h2>
+						 <p></p>
+						<p><small>Рейдовая зона, состоит из множества долин. Долины собраны в сложную структуру в виде лабиринта.</small></p>
+						  <p><h2>Дата: с 20.08 по 11.10</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_PrishrlecInogo.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Мы пришли с миром</h2>
+						 <p></p>
+						<p><small>По сообщениям очевидцев, незваные пришельцы стремительно заполоняют просторы Эльморадена...</small></p>
+						  <p><h2>Дата: с 22.09 по 07.10</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_TeamVsTeam.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>ТвТ Ивент</h2>
+						 <p></p>
+						<p><small>Командное PvP сражение. Эвент проводится несколько раз в сутки, длится 10 минут.</small></p>
+						  <p><h2>Старт с 14:00, каждые 2 часа</h2></p></div>
+					  </div>
+					  <div class="container">
+						<img src="template/designs/hellios/images/event/ivent_letterCole.png" alt="Mountains" style="width:100%">
+						 <div class="overlay"><h2>Коллекционер Букв</h2>
+						 <p></p>
+						<p><small>Помимо обычного лута, собирайте с мобов кубики с буквами и комбинируйте ключевые слова: Lineage 2, Elmore или Aden.</small></p>
+						  <p><h2>Дата: с 02.05 по 31.05</h2></p></div>
+					  </div>
+				</div>
+							<br>
+
+			</div>
+
+
+			<div class="stream">
+			<div class="h2-title h2-title-content flex-s-c">
+			<span>Стримы</span>
+			</div>
+
+			<html>
+
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			* {box-sizing: border-box;}
+
+			.container {
+			  position: relative;
+			  width: 50%;
+			  max-width: 300px;
+			  margin: 0 auto;
+			}
+
+			.image {
+			  display: block;
+			  width: 100%;
+			  height: auto;
+			}
+
+			.overlay {
+			  position: absolute;
+			  bottom: 0;
+			  background: rgb(0, 0, 0);
+			  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			  color: #f1f1f1;
+			  width: 100%;
+			  transition: .5s ease;
+			  opacity:0;
+			  color: white;
+			  font-size: 20px;
+			  padding: 20px;
+			  text-align: center;
+			}
+			</style>
+			</head>
+			<body>
+				<div class="row">
+					<div class="container">
+						<iframe src="https://www.youtube.com/embed/VIDEO_ID?controls=0" frameborder="0" width="290" height="290"></iframe>
+					</div>
+					<div class="container">
+						<iframe src="https://www.youtube.com/embed/VIDEO_ID?controls=0" frameborder="0" width="290" height="290"></iframe>
+					</div>
+					<div class="container">
+						<iframe src="https://www.youtube.com/embed/VIDEO_ID?controls=0" frameborder="0" width="290" height="290"></iframe>
+					</div>
+					<div class="container">
+						<iframe src="https://www.youtube.com/embed/VIDEO_ID?controls=0" frameborder="0" width="290" height="290"></iframe>
+					</div>
+				</div>
+				<br>
+
+			</div>
+
+			<div class="rules">
+			<div class="h2-title h2-title-content flex-s-c">
+			<span>Правила</span>
+			</div>
+
+			<html>
+
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			* {box-sizing: border-box;}
+
+			.container {
+			  position: relative;
+			  width: 50%;
+			  max-width: 300px;
+			  margin: 0 auto;
+			}
+
+			.image {
+			  display: block;
+			  width: 100%;
+			  height: auto;
+			}
+
+			.overlay {
+			  position: absolute;
+			  bottom: 0;
+			  background: rgb(0, 0, 0);
+			  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			  color: #f1f1f1;
+			  width: 100%;
+			  transition: .5s ease;
+			  opacity:0;
+			  color: white;
+			  font-size: 20px;
+			  padding: 20px;
+			  text-align: center;
+			}
+			</style>
+			</head>
+			<body>
+				<div class="row">
+					 Правила... тут много правил и прочего...<br>
+				 	 LoL KeK<br>
+				</div>
+			</div>
+
+
+			<div class="stock">
+			<div class="h2-title h2-title-content flex-s-c">
+			<span>Акции</span>
+			</div>
+
+			<html>
+
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			* {box-sizing: border-box;}
+
+			.container {
+			  position: relative;
+			  width: 50%;
+			  max-width: 300px;
+			  margin: 0 auto;
+			}
+
+			.image {
+			  display: block;
+			  width: 100%;
+			  height: auto;
+			}
+
+			.overlay {
+			  position: absolute;
+			  bottom: 0;
+			  background: rgb(0, 0, 0);
+			  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			  color: #f1f1f1;
+			  width: 100%;
+			  transition: .5s ease;
+			  opacity:0;
+			  color: white;
+			  font-size: 20px;
+			  padding: 20px;
+			  text-align: center;
+			}
+			</style>
+			</head>
+			<body>
+				<div class="row">
+					 Акции... тту уже инфа о правилах...<br>
+				 	 LoL KeK<br>
+				</div>
+			</div>
+
+
+
+			<div class="statistic">
+				<div class="h2-title flex-s-c">
+					<span>Статистика</span>
+					<!--div class="tabTable3">
+						<a class="tabTable3-button active" data-tab="x25">x25</a>
+						<a class="tabTable3-button" data-tab="x1200">x1200</a>
+						<div class="serverstat" style="display:none;"><span>x25</span></div>
+					</div-->
+				</div>
+				<div class="topTitle">
+					
+				</div>
+				<center><div class="pagestat"><span></span></div></center>
+				<br>
+				<div class="table-row table-scroll">
+					<table class="rankingTable statsheader6">
+						<thead> </thead>
+						
+					</table>
+				</div>
+			</div>
+				</div>
+			</div>
+							
+ 	
+			
+			<div class="static_page_1">
+			<div class="h2-title h2-title-content flex-s-c">
+			<span>Ивенты</span> 
+			</div>
+				 
+				
+			<html>
+
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+			* {box-sizing: border-box;}
+
+			.container {
+			  position: relative;
+			  width: 50%;
+			  max-width: 300px;
+			  margin: 0 auto;
+			}
+
+			.image {
+			  display: block;
+			  width: 100%;
+			  height: auto;
+			}
+
+			.overlay {
+			  position: absolute; 
+			  bottom: 0; 
+			  background: rgb(0, 0, 0);
+			  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			  color: #f1f1f1; 
+			  width: 100%;
+			  transition: .5s ease;
+			  opacity:0;
+			  color: white;
+			  font-size: 20px;
+			  padding: 20px;
+			  text-align: center;
+			}
+
+			.container:hover .overlay {
+			  opacity: 1;
+			}
+			</style>
+			</head>
+			<body>
+
+			<div class="row">
+			  <div class="container">
+			  Текст страницы
+			  </div>
+			  </div>
+				<br>
+			</div>
+			
+			<div class="statistic">
+				<div class="h2-title flex-s-c">
+					<span>Статистика</span>
+					<!--div class="tabTable3">
+						<a class="tabTable3-button active" data-tab="x25">x25</a>
+						<a class="tabTable3-button" data-tab="x1200">x1200</a>
+						<div class="serverstat" style="display:none;"><span>x25</span></div>
+					</div-->
+				</div>
+				<div class="topTitle">
+					
+				</div>
+				<center><div class="pagestat"><span></span></div></center>
+				<br>
+				<div class="table-row table-scroll">
+					<table class="rankingTable statsheader6">
+						<thead> </thead>
+						
+					</table>
+				</div>
+			</div>
+				</div>
+			</div>
+							
+ 
+				
+			
+			
+			<div class="bigSlider">
+				<div class="slider slider-for">
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Blade Dancer</li> <li>Shilien Knight</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/bd.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Bladedancer.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Blade Dancer</span>
+									<div class="slideInfo-text">
+										Blade Dancer - незаменимый класс поддержки, первостепенной задачей которого является усиление атакующих характеристик своей группы. Имеет неплохую выживаемость, в редких случаях может выступать в роли танка, однако собственная атака оставляет желать лучшего. Мы перебалансировали умения данного класса таким образом, чтобы он мог достойно выступать на Великой Олимпиаде, и был полезен не только в качестве барда, но и не плохого стоппера на масс замесах.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-red"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-red">50</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/shk.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/ShillienKnight.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Shilien Knight</span>
+									<div class="slideInfo-text">
+										Рыцарь Шилен: один из четырех танков в игре. Изначально задумывался, как самый способный к нанесению урона в своем классе - однако, корейский баланс магических способностей у физ. классов не позволил ему в полной мере раскрыть потенциал и уникальный геймплей. Мы исправили это! Перебалансированы магические способности, такие как атакуюший вампиризм, за счет которого, также повысилась выживаемость, и наносязщие урон, контролирующие умения. 
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 75%;"></span></span>
+											<span class="stats-number stat-green">75</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-yellow">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoShaman-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Overlord</li> <li>Warcryer</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/shaman.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Overlord.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Overlord</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/ower.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/Warcryer.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Warcryer</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">150</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-red">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoRogue-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Hawkey</li> <li>Treasure Hunter</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/Hawk.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Hawkeye.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Hawkeye</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 120%;"></span></span>
+											<span class="stats-number stat-green">120</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 5%;"></span></span>
+											<span class="stats-number stat-red">5</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10%</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 120%;"></span></span>
+											<span class="stats-number stat-green">120</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/hero_2.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/TreasureHunter.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Treasure Hunter</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-red">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 130%;"></span></span>
+											<span class="stats-number stat-green">130</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFo-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">EE</li> <li>SE</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/hero_2.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/ElvenElder.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">EE</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/hero_3.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/ShillienElder.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">SE</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">150</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-red">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoAssasin-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">FR</li> <li>AB</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/fr.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/PhantomRanger.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">FR</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 130%;"></span></span>
+											<span class="stats-number stat-green">130</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 5%;"></span></span>
+											<span class="stats-number stat-red">5</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">50</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-red">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/hero_2.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/AbyssWalker.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">AB</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 130%;"></span></span>
+											<span class="stats-number stat-green">130</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 5%;"></span></span>
+											<span class="stats-number stat-red">5</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">50</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-yellow">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoMage-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">SH</li> <li>SORC</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/pal.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Spellhowler.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">SH</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/hero_3.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/Sorcerer.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">SORC</span>
+									<div class="slideInfo-text">
+										The Chanter can be explained in two words: commandment and conviction. It rigorously trains the body and mind to become skillful in healing, attacking, and enhancement magic. In addition to its magical abilities, it also possesses exceptional skills involving the use of the staff. The chanter uses mantra magic to inspire the morale of allies, and since it can strengthen abilities, it is the gathering center during battle.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">150</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-red">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoKnights-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">DA</li> <li>PALADIN</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/DA.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/DarkAvenger.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">DA</span>
+									<div class="slideInfo-text">
+										Dark Avenger - тёмное отражание паладина, мстительный рыцарь. Обладает уникальным в классе геймлеем, так как DA единственный из четверых танков имеет в своем арсенале суммона Dark Panter, и рефлекты физического урона. Как и в случае с ШК, мы постарались перебалансировать его таким образом, чтобы еще ярче выделить уникальный геймлей. Увеличена жевучесть, за счет улучшения вампириков и снижения время каста Devine Heal, а также усилены рефлекты и значительно уменьшена длительность вызова саммона.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-red">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/pal.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Paladin.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Paladin</span>
+									<div class="slideInfo-text">
+										Паладин не нуждается в представлении, самый живучий среди танков и один из лучших фармеров Олимпа! Данный класс практически не нуждается в балансировке - всё что ему нужно, это правильная механика работы его уменний. И на нашем проекте они работают как положено.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-yellow">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 50%;"></span></span>
+											<span class="stats-number stat-yellow">50</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 130%;"></span></span>
+											<span class="stats-number stat-green">130</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoDwarw-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Bounty Hunter</li> <li>Warsmith</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/gbh.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/BountyHunter.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Bounty Hunter</span>
+									<div class="slideInfo-text">
+										Охотник за наградой - он же в простонародьи спойл или спойлер. Специальный класс, нацеленный на добычу ресурсов с помощью охоты на монстров с использованием умений Spoil и Sweep. Не лучший боец в PvP, однако в некоторых случаях способен помймать неосмотрительного худого остроухого, и не выпустить из стана. На нашем проекте для данной профессии реализован массовый Sweeper, дабы не терять ни капли профита во время геноцида мобов.
+										</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-yellow">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 120%;"></span></span>
+											<span class="stats-number stat-green">120</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-yellow">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/gwh.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/Warsmith.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Warsmith</span>
+									<div class="slideInfo-text">
+										Кузнец - еще один спец.класс обладающий уникальной способностью крафтить вещи. Как и спойлер, умеет навешивать продолжительные звёздочки над головой, а также призывать разнообразных суммонов-големов на помощь. Настоящий царь рынка - Волк с Гиран стрит! Может и не способен выйграть PvP, но наверняка победу купит. Лучше не стоит их обижать, почти всегда за ними гарантировано стоит целая толпа других профессий.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-yellow">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 120%;"></span></span>
+											<span class="stats-number stat-green">120</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 30%;"></span></span>
+											<span class="stats-number stat-yellow">30</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 90%;"></span></span>
+											<span class="stats-number stat-green">90</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoWarrior-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Warlord</li> <li>Gladiator</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/DA.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/Warlord.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Warlord</span>
+									<div class="slideInfo-text">
+										Полководец - один из самых неоднозначных персонажей хроник Interlude. Практически не опасен в дуэлях, и наоборот очень неприятный противник в массовых сражениях. Мы обратили внимание на тот факт, что в зависимости от кулдаунов умений, ВЛ может быть слишком токсичным, или наоборот слишком унылым. Венимание было сосредоточено на балансе скорости использования и отката умений. Часть из них сталоа статичными, т.к. при высокой скорости атаки умения применялись слишком быстро, а на низкой слишком долго. Подробнее... 
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 60%;"></span></span>
+											<span class="stats-number stat-yellow">60</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-red">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 130%;"></span></span>
+											<span class="stats-number stat-green">130</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-green"><span style="max-width: 120%;"></span></span>
+											<span class="stats-number stat-green">120</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/pal.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/Gladiator.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Gladiator</span>
+									<div class="slideInfo-text">
+										Гладиатор - прирожденный дуэлист, обладает природным даром к фарму "нищего" Олимпа. Данная специализация не подвергаласть ребалансу, механика умений соответсвует официальной платформе. Но и его, мы не обделили вниманием! - на нашем проекте Earing of Orfen дополнительно дает бонус к силе умений в PvP, то что нужно настоящему циганскому гладу.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 0%;"></span></span>
+											<span class="stats-number stat-red">0</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-red"><span style="max-width: 10%;"></span></span>
+											<span class="stats-number stat-red">10</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoElven-->
+					<div class="slideFor">
+						<div class="tabs slideTabs">
+							<ul class="tabs-caption slide-tabs-caption">
+								<li class="active">Silver Ranger</li> <li>Sword Singer</li>
+							</ul>
+							<div class="tabs-content slideContent active">
+								<img src="{{template}}/images/sr.png" alt="Hero" class="slide-hero">
+								<img src="{{template}}/images/SilverRanger.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Silver Ranger</span>
+									<div class="slideInfo-text">
+										Silver Ranger - один из трёх классов лучников, который, к сожалению явно уступил по боевой мощи своим собратьям и стал неактуален в Луко-пати. Изначально, имея лучшую выживаемость среди арчеров, был хорош в роли соло-гангера или зачинщика драки, но на кап лвле терял актуальность для пати. Мы усилили данный класс путём увеличения максимального потолка Crit Rate до 650 (65%) и дав ему Passive: Focus 3 lvl. Таким образом, ярко подчеркнув уклон его геймплея - несильные, но частые криты, высокая мобильность и скорость атаки.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-red"><span style="max-width: 15%;"></span></span>
+											<span class="stats-number stat-red">15</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-green">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 20%;"></span></span>
+											<span class="stats-number stat-yellow">20</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 70%;"></span></span>
+											<span class="stats-number stat-green">70</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-content slideContent">
+								<img src="{{template}}/images/sws.png" alt="Hero" class="slide-hero hero_3">
+								<img src="{{template}}/images/SwordSinger.png" alt="Hero Logo" class="hero-logo">
+								<div class="slideInfo">
+									<span class="slideInfo-name">Sword Singer</span>
+									<div class="slideInfo-text">
+										Sword Singer - как и Blade Dancer, является еще одним незаменимый классом поддержки, умения которого сконцентрированы на повышении защиты, мобильности и выживаемости группы. Благодаря ношению щита и тяжелой брони, весьма живуч, не редко выступет в роли танка Маг-пати, атакующие способности весьма скромные. Мы перебалансировали умения данного класса таким образом, чтобы он мог достойно выступать на Великой Олимпиаде, и был полезен не только в качестве барда, но и не плохого стоппера на масс PvP.
+									</div>
+									<div class="slideInfo-stats">
+										<span class="slideInfo-stats_title">Базовые Показатели</span>
+										<div class="stats">
+											<span class="stats-name">Урон</span>
+											<span class="stats-bar stat-red"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-red">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Поддержка</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Здоровье</span>
+											<span class="stats-bar stat-green"><span style="max-width: 80%;"></span></span>
+											<span class="stats-number stat-green">80</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Контроль</span>
+											<span class="stats-bar stat-yellow"><span style="max-width: 40%;"></span></span>
+											<span class="stats-number stat-yellow">40</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Защита</span>
+											<span class="stats-bar stat-green"><span style="max-width: 100%;"></span></span>
+											<span class="stats-number stat-green">100</span>
+										</div>
+										<div class="stats">
+											<span class="stats-name">Скорость</span>
+											<span class="stats-bar stat-green"><span style="max-width: 110%;"></span></span>
+											<span class="stats-number stat-green">110</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--slideFoKONEC-->
+				</div>
+				<div class="slider slider-nav">
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-6.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Palus Knight
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-11.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Shaman
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-3.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Rogue
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-4.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Elder
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-5.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Assasin
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-1.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Mage
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-12.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Knight
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-10.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Dwarf
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-7.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Warrior
+						</div>
+					</div>
+					<div class="slideNav">
+						<div class="slideNav-img">
+							<img src="{{template}}/images/hero-4.png" alt="Hero">
+						</div>
+						<div class="slideNav-text">
+							Elven
+						</div>
+					</div>
+				</div><!--slider-nav-->
+			</div><!--bigSlider-->
+			
+			
+			<div class="line2"><span class="line"></span></div>
+			
+			<div class="sliderGallery">
+				<div class="slider-gallery">
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_1.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_2.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_3.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_4.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_5.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_1.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_2.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_3.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_4.jpg" alt="img_1"></a></div>
+					<div class="sliderImg"><a href="javascript:void(0)"><img src="{{template}}/images/img_5.jpg" alt="img_1"></a></div>
+				</div>
+			</div>
+ <!--Yandex.Metrika counter --> 
+
+<script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46695141 = new Ya.Metrika({ id:46695141, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46695141" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+		</main>
+	</div><!--wrapper-->
+			<footer>
+		<div class="wrapper">
+			<div class="footerMenu flex">
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Информация</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="javascript:void(0)">О игре</a></li>
+						<li><a href="javascript:void(0)">Wiki</a></li>
+						<li><a href="javascript:void(0)">Соглашение</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Как начать</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="/registration/account">Регистрация</a></li>
+						<li><a href="https://esenn.ru/#download">Загрузки</a></li>
+						<li><a href="/auth">Личный Кабинет</a></li>
+						<li><a href="javascript:void(0)">FAQ</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Сообщество</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="https://discord.gg/ExMYrKW2kG" target="_blank">Обсуждения</a></li>
+						<li><a href="javascript:void(0)">Рейтинги</a></li>
+						<li><a href="javascript:void(0)">Администрация</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Поддержка</span>
+					</div>
+					<div class="e-mail">
+						<p>E-mail support:</p>
+						<a href="mailto:techsupport@esenn.ru" class="countdown__contacting contacting">
+						<div class="contacting__content contacting__content_ml">techsupport@esenn.ru</div>
+						
+					</div>
+					<div class="f-soc-icons">
+						<a href="javascript:void(0)" class="twitter"></a>
+						<a href="https://vk.com/public214499710" target="_blank" class="vk"></a>
+						<a href="javascript:void(0)" class="fb"></a>
+						<a href="https://discord.gg/ExMYrKW2kG" target="_blank" class="twitch"></a>
+					</div>
+				</div>
+			</div><!--footerMenu-->
+			<span class="line"></span>
+			<div class="footerInfo">
+			    
+			    <div id="footer">
+<a href="https://l2-top.ru/" target="_blank"><img src="https://l2-top.ru/img/button3.gif" width="88" height="31" alt="" title="" border="0"></a>
+<a href="https://l2-pick.ru/" target="_blank"><img src="https://l2-pick.ru/l2pick2.jpg" width="88" height="31" alt="" title="" border="0"></a>
+<a href="https://new-lineage.ru/" target="_blank"><img src="https://new-lineage.ru/IMG/L2.gif" title="" width="88" height="31" border="0"></a>
+<a href="https://la2.mmotop.ru/servers/36509/votes/new" target="_blank"><img src="http://img.mmotop.ru/mmo_36509.png" title="" width="88" height="31" border="0"></a>
+<a href="https://l2vs.ru" target="_blank"><img src="https://l2vs.ru/l2vs.gif" title="" width="88" height="31" border="0"></a>
+<a href="https://l2anons.info" target="_blank"><img src="https://images.l2anons.info/logo_L2Anons.png" title="" width="88" height="31" border="0"></a>
+<a href="https://top-L2.ru/" target="_blank"><img src="https://top-L2.ru/templates/top_l2_ru/images/top-l2.ru.gif" title="" width="88" height="31" border="0"></a>
+<a href="https://la2gold.club" target="_blank"><img src="https://la2gold.club/bnrs/bnr_4.jpg" title="" width="88" height="31" border="0"></a>
+<a href="https://la2.mmotop.ru/servers/36465/votes/new" target="_blank"><img src="http://img.mmotop.ru/mmo_36465.png" title="" width="88" height="31" border="0"></a>
+<a href="https://mmoanons-top.ru/" target="_blank"><img src="https://mmoanons-top.ru/mmoanons.gif" title="" width="88" height="31" border="0"></a>
+<a href="https://Blayzer.uz/" target="_blank"><img src="https://Blayzer.uz/anons4.png" title="" width="88" height="31" border="0"></a>			    
+<a href="https://l2hop.com/" target="_blank"><img src="https://l2hop.com/assets/l2hop.jpg" title="" width="88" height="31" border="0"></a>			    
+<a href="https://la2-anons.com/" target="_blank"><img src="https://la2-anons.com/la2-anons.png" title="" width="88" height="31" border="0"></a>			    
+<a href="https://l2an.com" target="_blank"><img src="https://l2an.com/bnrs/l2anbn.jpg" title="" width="88" height="31" border="0"></a>			    
+<a href="https://l2new.ru/" target="_blank"><img src="https://l2new.ru/l2/images/promo.gif" title="" width="88" height="31" border="0"></a>			    
+				
+				<div class="footerInfo-block flex-s">
+					<div class="playments"><img src="{{template}}/images/payments-icon.png" alt="Payments"></div>
+					<div class="copy">
+					    
+						<span>Вy Lineage II © 2022</span> 
+						<br>
+						<a href="javascript:void(0)">Project Esenn</a> <span>All rights reserved</span>
+						</div>
+				</div>
+				<div class="f-text">
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+<div class="rights">
+</div>
+</div>
+
+
+	
+	<div class="rightBodyLinks">
+	    <a href="https://la2.mmotop.ru/servers/36509" target="_blank" class="r-shop"><span><img src="{{template}}/images/mmotop.png" alt=""></span>Голосовать</a>
+		<a href="/auth" target="_blank" class="r-shop"><span><img src="{{template}}/images/ticket-icon-locked.png" alt=""></span>Кабинет</a>
+		<a href="/donate" target="_blank" class="r-shop"><span><img src="{{template}}/images/shop-img.png" alt=""></span>Shop</a>
+		<a href="https://discord.gg/ExMYrKW2kG" target="_blank" class="r-forum"><span><img src="{{template}}/images/forum-img.png" alt=""></span>Чат</a>
+		<a href="javascript:void(0)" onclick="MyModalAlert('warning','В РАЗРАБОТКЕ','Скоро здесь будет чудесная энциклопедия, с актуальными гайдами и годным контентом.')" class="r-wiki"><span><img src="{{template}}/images/wiki-img.png" alt=""></span>Wiki</a>
+		<a href="javascript:void(0)" onclick="MyModalAlert('warning','В РАЗРАБОТКЕ','Скоро здесь будет чудесная энциклопедия, с актуальными гайдами и годным контентом.')" class="r-wiki"><span><img src="{{template}}/images/ticket-icon-read.png" alt=""></span>About</a>
+	</div>
+	<div class="toTop">
+		<span>Go to Top</span>
+	</div>
+	<div class="modal_div"> 
+		<span class="modal_close" onclick="CloseModalClick()"></span>
+		<form action="index.html#" method="post" id="SignInForm"> <!-- -form onsubmit="return false;" -->
+			<div class="modalContent">
+				<span class="modalTitle">Авторизация</span>
+				<!--
+				<div class="enterButtons">
+					<a href="" class="facebook-button">Connect with Facebook</a>
+					<a href="" class="google-button">Connect with Google</a>
+				</div>
+				-->
+				
+				<div id="w7-color" class="enterButtons alert-success alert fade in" style="display:none;
+								padding: 5px;
+								margin-bottom: 20px;
+								border: 1px solid transparent;
+								border-radius: 4px;
+								
+								color: #f35f5f;
+								background-color: #ec282821;
+								border-color: #f1262633;
+								
+								">
+								 <!-- data-dismiss="alert" aria-hidden="true" -->
+									<button type="button" class="w7-close"
+									onclick="$('.alert').hide(500)"
+									style="
+	-webkit-appearance: none;
+    padding: 0;
+	margin-top: -5px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 1px 0 #f35f5f59;
+    filter: alpha(opacity=70);
+    opacity: .7;
+	
+	text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=100);
+    opacity: 1;
+	outline: none;
+	width: 20px;
+	box-shadow: none;
+									">×</button>
+									<div id="w7-title" style="padding: 6px;">
+										
+									</div>
+									<div id="w7-text" style="padding: 6px;">
+										
+									</div>
+								</div>
+				
+				<div class="fields">
+					<div class="fieldGroup flogin">
+						<span>Логин</span>
+						<input type="text" name="username" maxlength="12" value="" >
+					</div>
+					<div class="fieldGroup femailorlogin">
+						<span>Email или Логин</span>
+						<input type="text" name="emailorlogin" maxlength="100" value="" autocomplete="new-password">
+					</div>
+					<div class="fieldGroup fpassword">
+						<span>Пароль</span>
+						<input type="password" name="password" maxlength="16" value="" >
+					</div>
+					<div class="fieldGroup fpassword2">
+						<span>Подтверждение пароля</span>
+						<input type="password" name="password2" maxlength="16" value="" autocomplete="new-password">
+					</div>
+					<div class="fieldGroup femail">
+						<span>Email</span>
+						<input type="text" name="email" maxlength="100" value="" autocomplete="new-password">
+					</div>
+					<div class="fieldGroup fcode">
+						<span>Код подтверждения</span>
+						<input type="text" name="code" maxlength="6" value="" autocomplete="new-password">
+					</div>
+                    <div class="recaptcha" >
+                        <center><div data-theme="dark" class="g-recaptcha" style="display: inline-block" data-sitekey="6LdG5JIdAAAAADMMwWLRigVrbXaXS_elFWAnW4Kt"></div></center>
+                    </div>
+				</div><!--fields-->
+				<div class="enter flex-s-c">
+					<div class="enterLinks">
+						<p><a onclick="Forgot();" class="forgot">Забыли пароль?</a></p>
+						<p><a onclick="Registration();" class="registration">Регистрация</a></p>
+						<p><a onclick="SignIn();" class="sign">Авторизация</a></p>
+					</div>
+
+					<button type="button" class="button-blue ladda-button" id="send_email_button" onclick="LogIn();" data-style="zoom-out">Войти</button>
+
+					
+
+				</div>
+			</div><!--modalContent-->
+		</form> <!-- -form -->
+	</div>
+	
+	<div class="modalalert_div"> 
+		<span class="modalalert_close" onclick="CloseModalAlertClick()"></span>
+			<div class="modalalertContent">
+				<span class="modalalertTitle">Сообщение</span>
+				<!--
+				<div class="enterButtons">
+					<a href="" class="facebook-button">Connect with Facebook</a>
+					<a href="" class="google-button">Connect with Google</a>
+				</div>
+				-->
+				
+				<div id="w8-color" class="enterButtons alert-success alertcustom fade in" style="display:none;
+								padding: 5px;
+								margin-bottom: 20px;
+								border: 1px solid transparent;
+								border-radius: 4px;
+								
+								color: #f35f5f;
+								background-color: #ec282821;
+								border-color: #f1262633;
+								
+								">
+								 <!-- data-dismiss="alert" aria-hidden="true" -->
+									<button type="button" class="w8-close"
+									onclick="$('.alertcustom').hide(500)"
+									style="
+	-webkit-appearance: none;
+    padding: 0;
+	margin-top: -5px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 1px 0 #f35f5f59;
+    filter: alpha(opacity=70);
+    opacity: .7;
+	
+	text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=100);
+    opacity: 1;
+	outline: none;
+	width: 20px;
+	box-shadow: none;
+									">×</button>
+									<div id="w8-title" style="padding: 6px;">
+										
+									</div>
+									<div id="w8-text" style="padding: 6px;">
+										
+									</div>
+								</div>
+				
+
+
+			</div>
+	</div>
+	
+	
+	
+	<div class="modalmain_div">
+		<div class="modalmain_content_div"> 
+			<span class="modalmain_close" onclick="CloseModalMainClick()"></span>
+				<div class="modalmainContent">
+					<span class="modalmainPreTitle"></span>
+					<span class="modalmainTitle">О СЕРВЕРЕ</span>
+					
+					<!-- Описание Старт -->
+					
+					<div class="popup__tabs tabs-popup _tabs">
+                  <div class="tabs-popup__nav">
+                    <nav class="tabs-popup__nav-items">
+
+                        
+                            <div class="tabs-popup__nav-items-col">
+                                <div class="tabs-popup__item _tabs-item popup_desc_click _active"  data-class="x25" >
+                                    <div class="tabs-popup__item-icon" style="background: url(images/online-sprite.png) top left -3px no-repeat;">
+                                        <!--<picture>
+                                            <source srcset="img/server/icon_01.png.webp" type="img/webp">
+                                            <img src="/images/online-sprite.png" alt="Image">
+                                        </picture>-->
+                                    </div>
+                                    <span>Helios  x10<span></span></span>
+                                </div>
+                            </div>
+                    </nav>
+                    <nav class="tabs-popup__nav-items">
+                    </nav>
+                </div>
+                <!-- desc1 start -->
+				<div class="tabs-popup__body" >
+
+                    
+                        <div class="tabs-popup__block _tabs-block popup_desc popup_x25 _active">
+                            <div class="tabs-popup__block-row">
+                            <div class="tabs-popup__block-column tabs-popup__block-column_w">
+                                <div class="tabs-popup__title"></div>
+                                <div class="tabs-popup__block-descr descr-block">
+                                    <div class="descr-block__wrapper">
+                                
+						<div class="tabs-popup__block-row">
+                            <div class="tabs-popup__block-column tabs-popup__block-column_w">
+                                <div class="tabs-popup__title"></div>
+
+                                <div class="tabs-popup__block-descr descr-block">
+                                   
+								 <div class="tabs-popup__block-row">
+                            <div class="tabs-popup__block-column tabs-popup__block-column_w">
+                                <div class="tabs-popup__title">Краткое описание</div>
+
+                                <div class="tabs-popup__block-descr descr-block">
+                                    <div class="descr-block__wrapper">
+                                        <div class="descr-block__title">Основная информация:</div>
+
+                                        <ul class="descr-block__list">
+                                            <li class="descr-block__item">
+                                               Сохранена основная концепция игры Линедж 2, её смысл, жанр, дух.
+                                                Включены осады, КХ, и прочее. Мы не ломаем традиционных устоев ла2 и не вмешиваемся в классическую механику игры. Концепция нацелена на сервер "для своих".
+                                                Мы правили неработающие моменты в течение длительного времени, делая сервер работоспособным и он становится с каждым днем лучше и лучше. Не затрагивая механику игры, мы добавили некоторое количество интересных нововведений, делающих игру более азартной и увлекательной, то, что интересно всем, добавили дух соперничества, состязания, фан не только за респ новых РБ, а и в новых азартных пвп ивентах. Нет доната вещей. Каждый игрок получает разочарование, когда приходит на сервер и видит, что ему нечего делать на Олимпиаде или в пвп, т.к. бегает куча продоначенных персонажей. Нравилось ли вам играть на таких серверах, где в продаже донат вещи? Играть там, где над вами господствует задоначенный игрок: на Олимпиаде, на осаде, на ТБ, на фане. Донатер держит респ всех эпик РБ, а его переточенное оружие ни в какое сравнение не идет с вашим оружием и никогда вам донатера не одолеть... Все только обещают, а мы делаем!
+                                                В игре вас ждет масса всего интересного, от новых умений, до новых рейдовых боссов! Удобный оффтрейд: достаточно просто сесть в торг и закрыть клиент. Бои будут проходить на различных аренах. Теперь более сбалансированный! Добавлены различные призы.
+                                                Мы поделимся с вами наиболее интересной информацией, а за добавкой поспешите в удивительный мир Эльморадена!
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Все персонажи появляются в Деревне Говорящего Острова.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Мастер аккаунт.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Хроники: Helios
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Во всех местах есть все необходимые NPC.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Введена механика Рун увеличивающих отдельные рейты. Руны можно добыть игровым путём.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Получение профессий, без квестов в диалоговом окне.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Эпик теперь доступен даже соло игрокам!
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Максимальная заточка Брони - 30, Оружия - 30.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Фарм-зоны разделены по уровням.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Ивент TeamVsTeam каждые два часа, награда зависит от активности и Вашего класса.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Баланс классов реализован максимально приближенно к оригинальному серверу.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Максимальный доступный уровень — 105.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Добавлена и включена возможность автолута.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Осады: длительность осад 2 часа, проводятся каждую неделю по воскресеньям в 20:00 по Мск.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Таро: уникальный список Таро, который содержит как вспомогательные предметы так и предметы для буста.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● На сервере реализована возможность оффлайн торговли.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Алтарь Духов: получите Призрачный Камень и отправляйтесь к Алтарю духов, чтобы призвать Рейдового Босса, сразив которого, получите щедрое вознаграждение.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Эпические боссы: Хелиос, Рамона, Траскен, Антарас, Линдвиор, Валакас, Анаким, Лилит, Кельбим, Баюм, Орфен, Ядро, Королева Муравьёв.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Всем персонажам добавлен небольшой стартовый набор для развития.
+                                            </li>
+                                            <li class="descr-block__item">
+                                               ● Респаун обычных боссов - от 12 до 24 часов.
+                                                В дроп рейд боссам добавлены - Свободная Монета(Hero Coin)
+                                            </li>
+                                        </ul>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+				<!-- desc1 end -->
+				
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="md-overlay"></div>
+
+<!--
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="https://shadowlands.club/js/vendor.min.js"></script>
+<script src="https://shadowlands.club/js/main_home.min.js"></script>
+-->
+</div></div>
+					<!-- Описание Конец -->
+					
+					
+				</div>
+		</div>
+	</div>
+
+	<div id="overlay" onclick="CloseModalClick()"></div>
+	<div id="overlayalert" onclick="CloseModalAlertClick()"></div>
+	<div id="overlaymain" onclick="CloseModalMainClick()"></div>
+	
+	
+	
+	<script src="{{template}}/js/ladda.min.js"></script>
+	<script src="{{template}}/js/jquery-3.5.1.min.js"></script>
+	<script src="{{template}}/js/swiper-bundle.min.js"></script>
+	<script src="{{template}}/js/slick.min.js"></script>
+	<!-- <script src="{{template}}/js/statapi.js@37"></script> -->
+
+	<script src="{{template}}/js/global.js"></script>
+	<script src="{{template}}/js/jquery.fancybox.js"></script>
+	<script src="{{template}}/js/app.js@ver=0.0.3"></script>
+	
+	<!-- countdown -->
+	<script src="{{template}}/js/jquery.plugin.min.js"></script>
+	<script src="{{template}}/js/jquery.countdown.min.js"></script>
+	
+	<!-- Main app -->
+	<script src="{{template}}/js/app2.js@ver=0.0.1"></script>
+
+ 
+</body>
+</html>

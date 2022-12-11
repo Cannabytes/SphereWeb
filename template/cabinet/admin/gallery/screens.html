@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i> Скриншоты</div>
+            <div class="card-body">
+              <div class="table-responsive">
+              <table id="default-datatable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Изображение</th>
+                        <th>Описание</th>
+                        <th>Пользователь</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+				{% for screen in screens %}
+                    <tr>
+                        <td>
+							<a href="/uploads/screenshots/{{screen.image}}" data-fancybox="images" data-caption="{{screen.desciption}}">
+							<img src="/uploads/screenshots/thumb_{{screen.image}}" alt="lightbox" class="lightbox-thumb "></a>
+						</td>
+                        <td>{{screen.desciption}}</td>
+                        <td>{{ get_user_in_list(7)['email'] }}</td>
+                        <td>{{ screen.date|date("H:i\nd.m.Y")|nl2br}}</td>
+                        <td id="screen_status_{{screen.id}}">{% if screen.enable %}<span class="text-success">Опубликовано</span>{% else %}<span class="text-info text-justify">На модерации</span>{% endif %}</td>
+                        <td>
+						{% if screen.enable == false %}
+							<button type="button" data-id="{{screen.id}}" class="save btn btn-success btn-sm btn-block waves-effect waves-light m-1">Разрешить</button>
+							<hr id="screen_hr_{{screen.id}}">{% endif %}
+							<button type="button" data-id="{{screen.id}}" class="remove btn btn-danger btn-sm btn-block waves-effect waves-light m-1">Удалить</button>
+						</td>
+                    </tr>
+				{% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Изображение</th>
+                        <th>Описание</th>
+                        <th>Пользователь</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Row-->
+
+{% endblock %}
+
+{% block css_ol_1 %}
+  <link href="{{'assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css'|template}}" rel="stylesheet" type="text/css">
+  <link href="{{'assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css'|template}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block js %}
+  <!--Data Tables js-->
+  <script src="{{'assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/jszip.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/pdfmake.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/vfs_fonts.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/buttons.html5.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/buttons.print.min.js'|template}}"></script>
+  <script src="{{'assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js'|template}}"></script>
+
+    <script>
+     $(document).ready(function() {
+      //Default data table
+       $('#default-datatable').DataTable();
+
+
+       var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
+      } );
+ 
+     table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+      
+      } );
+
+    </script>
+
+<script src="{{'assets/js/admin/gallery/screens.js'|template}}"></script>
+
+{% endblock %}

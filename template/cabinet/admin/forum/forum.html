@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Настройки форума</div>
+                <hr>
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <div class="icheck-material-primary">
+                                <input type="checkbox" id="forum_enable" name="forum_enable" {% if FORUM_ENABLE %}checked=""{%endif%}/>
+                                <label for="forum_enable">Включить вывод последних сообщений с форума</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="forum_engine" class="col-sm-2 col-form-label">Включить форум</label>
+                        <div class="col-sm-10">
+                            <select class="form-control valid" id="forum_engine" name="forum_engine" required=""
+                                    aria-invalid="false">
+
+                                {% if FORUM_ENGINE == 'xenforo' %}
+                                    <option value="xenforo" selected>xenforo</option>
+                                    <option value="ipb">ipb</option>
+                                {% endif %}
+
+                                {% if FORUM_ENGINE == 'ipb' %}
+                                    <option value="xenforo">xenforo</option>
+                                    <option value="ipb" selected>ipb</option>
+                                {% endif %}
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="forum_url" class="col-sm-2 col-form-label">Ссылка на форум</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{FORUM_URL}}" id="forum_url" name="forum_url" placeholder="https://my-forum.com">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Подключение к БД форума</h5>
+
+                    <div class="form-group row">
+                        <label for="forum_db_host" class="col-sm-2 col-form-label">host</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{FORUM_HOST}}" id="forum_db_host"  name="forum_db_host" placeholder="localhost">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="forum_db_user" class="col-sm-2 col-form-label">user</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{FORUM_USER}}" id="forum_db_user" name="forum_db_user" placeholder="root">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="forum_db_password" class="col-sm-2 col-form-label">password</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{FORUM_PASSWORD}}" id="forum_db_password" name="forum_db_password" placeholder="root">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="forum_db_name" class="col-sm-2 col-form-label">name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="{{FORUM_NAME}}" id="forum_db_name" name="forum_db_name" placeholder="forum">
+                        </div>
+                    </div>
+
+
+                    <button id="check_connect_mysql_forum" type="button" class="btn btn-danger"><i
+                            class="fa fa-check-square-o"></i> Проверка соединения
+                    </button>
+                    <hr>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <button type="submit" id="save_template" class="btn btn-primary px-5"><i
+                                    class="icon-lock"></i> Применить
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/admin/forum/forum.js'|template}}"></script>
+{% endblock %}

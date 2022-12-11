@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+           <div class="card-body">
+
+        <div class="row">
+
+        <!-- Right Sidebar -->
+        <div class="col-lg-12 col-md-12">
+            
+            <div class="card mt-0 shadow-none">
+                <div class="card-body">
+                    <form>
+					<h4>{{ get_phrase(26) }}</h4>
+					<hr>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input name="name"  type="text" maxlength="16" class="form-control" placeholder="{{ get_phrase(27) }}: {{ random(servername_list_default) }}">
+                                </div>
+                          
+                                <div class="col-md-6">
+										<select name="version_client" class="form-control" id="basic-select">
+										{% for name in client_list_default %}
+											<option>{{ name }}</option>
+										{% endfor %}
+										</select>
+                                </div>
+								
+								
+                            </div>
+                        </div>
+						<hr>
+						<h4>Рейты</h4>
+                        <div class="form-group">
+                            <div class="row">
+							
+                                <div class="col-md-3">
+                                    <input name="rate_exp" type="text" maxlength="16" class="form-control" placeholder="EXP">
+                                </div>
+                          
+                                <div class="col-md-3">
+                                    <input name="rate_sp" type="text" maxlength="16" class="form-control" placeholder="SP">
+                                </div>
+                                <div class="col-md-2">
+                                    <input name="rate_adena" type="text" maxlength="16" class="form-control" placeholder="Adena">
+                                </div>
+                                <div class="col-md-2">
+                                    <input name="rate_drop" type="text" maxlength="16" class="form-control" placeholder="Drop">
+                                </div>
+                          
+                                <div class="col-md-2">
+                                    <input name="rate_spoil" type="text" maxlength="16" class="form-control" placeholder="Spoil">
+                                </div>
+								
+                            </div>
+                        </div>
+						<hr>
+						<h4>{{ get_phrase(28) }}</h4>
+                        <div class="form-group">
+							<div class="row">
+								<div class="col-md-3">
+									<label for="inputDate">{{ get_phrase(29) }}:</label>
+									<input name="date_start" type="date" class="form-control" required>
+								</div>
+								<div class="col-md-3">
+									<label for="inputDate">{{ get_phrase(30) }}:</label>
+									<input name="time_start" type="time" class="form-control" required>
+								 </div>
+								<div class="col-md-6">
+									<label for="inputDate">{{ get_phrase(31) }}:</label>
+										<select name="timezone_start" class="form-control" id="basic-select">
+										     {% for key, name in timezone_list_default %}
+												<option value="{{ key }}">{{ name }}</option>
+											{% endfor %}
+										</select>
+								 </div>
+							</div>
+                        </div>
+						<hr>
+						<h4>{{ get_phrase(32) }}</h4>
+						 <div class="form-group row">
+						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_login_host" required>
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="user" class="col-sm-2 col-form-label">DB User</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_login_user" required>
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="password" class="col-sm-2 col-form-label">DB Password</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_login_password" >
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="name" class="col-sm-2 col-form-label">DB Name</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_login_name" required>
+						  </div>
+						</div>
+                
+						<button id="check_connect_mysql_login" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ get_phrase(35) }}</button>
+						
+						<hr>
+						<h4>{{ get_phrase(33) }}</h4>
+						 <div class="form-group row">
+						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_game_host" required>
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="user" class="col-sm-2 col-form-label">DB User</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_game_user" required>
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="password" class="col-sm-2 col-form-label">DB Password</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_game_password" >
+						  </div>
+						</div>
+						<div class="form-group row">
+						  <label for="name" class="col-sm-2 col-form-label">DB Name</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control" name="db_game_name" required>
+						  </div>
+						</div>
+                
+				  <button id="check_connect_mysql_game" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ get_phrase(35) }}</button>
+					<hr>
+
+				<div class="form-group row">
+				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ get_phrase(34) }}</label>
+				  <div class="col-sm-7">
+						<select class="form-control" id="sql_base_source" name="sql_base_source">
+						{% for basename in sql_base_source %}
+                          <option value="{{ basename }}">{{ basename }}</option>
+						{% endfor %}
+                        </select>
+				  </div>
+				</div>
+				<hr>
+				<div class="form-group row">
+				  <label for="password_encrypt" class="col-sm-5 col-form-label">Password Encrypt</label>
+				  <div class="col-sm-7">
+						<select class="form-control" id="password_encrypt" name="password_encrypt">
+                          <option value="sha1">SHA1</option>
+                          <option value="whirlpool">Whirlpool</option>
+                        </select>
+				  </div>
+				</div>
+				<hr>
+
+				  <div class="form-group">
+					<button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fa fa-trash-o mr-1"></i> Создать</button>
+                  </div>
+                 </form>
+                </div> <!-- card body -->
+             </div> <!-- card -->
+           </div> <!-- end Col-9 -->
+         </div><!-- End row -->
+      </div>
+    </div>
+  </div>
+ </div>
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+  <script src="{{'assets/js/admin/options/save_new_server.js'|template}}"></script>
+{% endblock %}

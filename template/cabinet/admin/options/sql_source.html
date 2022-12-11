@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+           <div class="card-body">
+
+        <div class="row">
+
+                    
+        <!-- Right Sidebar -->
+      
+        <div class="col-lg-12">
+          <div class="card">
+		   <div class="col-lg-12">
+	    	  <label for="input-6" class="col-sm-5 col-form-label">{{ get_phrase(37) }}</label>
+	 		    <div class="input-group">
+					<select class="form-control" id="base_source">
+					{% for source in sql_base_source %}
+							 <option value="{{ source }}">{{ source }}</option>
+					  {% endfor %}
+						   </select>
+					<div class="input-group-append">
+					<button class="btn btn-outline-primary" id="loading" type="button">{{ get_phrase(38) }}</button>
+	 			</div>
+	 		    </div>
+			  
+				<hr>
+				  <div class="form-group row">
+					  <label for="db_id" class="col-sm-5 col-form-label">{{ get_phrase(39) }}</label>
+					  <div class="col-sm-7">
+						<select class="form-control" id="db_id">
+							{% for db in db_data_list %}
+								<option value="{{ db.id }}">{{ db.id }} - {{ db.login_host }}@{{ db.login_name }} / {{ db.game_host }}@{{ db.game_name }}</option>
+							{% endfor %}
+						</select>
+					  </div>
+                 </div>
+			 
+				
+				{% for key, sql in source_data %}<hr>
+				<div class="form-group row">
+				  <div class="col-sm-12">
+					{% if sql.comment %}
+					  <div class="alert alert-icon-info alert-dismissible" role="alert">
+						<div class="alert-icon icon-part-info">
+						 <i class="fa fa-bell"></i>
+						</div>
+						<div class="alert-message">
+						  <span><strong>Comment:</strong> {{sql.comment}}</span>
+						</div>
+					  </div>
+					 {% endif %}
+					 
+					<textarea rows="5" class="form-control" id="{{key}}">{{ sql.sql }}</textarea>
+					<input type="text" class="form-control" id="{{key}}_prepare" placeholder="prepare" value="{{source_data['{{key}}']['prepare']|join(', ')}}">
+					
+					<div class="form-group py-0">
+						 <div class="icheck-material-primary">
+						<input type="checkbox" id="{{key}}_request_login" {{ sql.call == "login" ? "Checked" }}>
+						<label for="{{key}}_request_login">Request in login server</label>
+						</div>
+					</div>
+					<button type="button" id="default-header" data-id="{{key}}" class="btn btn-outline-primary sql_request">Проверка запроса</button>
+				  </div>
+				</div>
+				{% endfor %}
+				
+				
+             </div>
+        </div>
+        </div>
+
+	  
+	  
+         </div><!-- End row -->
+      </div>
+    </div>
+  </div>
+ </div>
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/admin/options/sql_request.js'|template}}"></script>
+<script>
+	$("#loading").click(function(e) {
+		window.location.replace("/admin/options/server/sql/source/" + $("#base_source").val());
+	});
+</script>
+{% endblock %}

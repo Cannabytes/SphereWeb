@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>{{ title }}</title>
+    <!--favicon-->
+    <link rel="icon" href="{{'assets/images/favicon.ico'|template}}" type="image/x-icon">
+    {% block css_ol_1 %}{% endblock %}
+    <!-- simplebar CSS-->
+    <link href="{{'assets/plugins/simplebar/css/simplebar.css'|template}}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{{'assets/css/bootstrap.min.css'|template}}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{{'assets/css/animate.css'|template}}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{'assets/css/icons.css'|template}}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{{'assets/css/sidebar-menu.css'|template}}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{{'assets/css/app-style.css'|template}}?1" rel="stylesheet"/>
+    <!-- skins CSS-->
+    <link href="{{'assets/css/skins.css'|template}}" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{{'assets/plugins/notifications/css/lobibox.min.css'|template}}"/>
+    {% if get_enable_game_chat() %}
+    <!-- chat CSS-->
+    <link href="{{'assets/css/chat.css'|template}}" rel="stylesheet"/>
+    {% endif %}
+
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+
+        {% include 'menu/head_menu.html' %}
+        {% include 'menu/sidebar_menu.html' %}
+
+        <hr>
+        {% if forum_enable() %}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Последнее с форума <i aria-hidden="true" class="fa fa-refresh"></i></div>
+                <ul class="list-group list-group-flush">
+
+                    {% for forum in last_forum_message(10) %}
+                    <li class="list-group-item">
+                        <div class="media align-items-left">
+                            <div class="media-body ml-2">
+                                <small>{{forum.username}}: {{forum.message}}</small>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+        <nav id="header-setting" class="navbar navbar-expand fixed-top">
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:void();">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    {% if user_info('get_is_auth') %}
+                    <!--form class="search-bar">
+                        <input type="text" class="form-control col-sm-5" placeholder="Enter keywords">
+                    </form-->
+                    {% else %}
+                    <form id="authForm">
+                        <div class="row">
+                            <div class="col-md-4 pl-md-3 input-group-sm">
+                                <input type="email" name="email" class="form-control" placeholder="E-mail">
+                            </div>
+                            <div class="col-md-4 pl-md-0 input-group-sm">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="col-md-2 pl-md-0 input-group-sm">
+                                <button type="submit" class="btn btn-light btn-sm waves-effect waves-light">Войти
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    {% endif %}
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav align-items-center right-nav-link">
+                {% if (server_list != null) %}
+                <label for="default_server" class=" col-form-label">Сервер</label>
+                <div class="col-sm-6">
+                    <select class="form-control" id="default_server">
+                        {% for server in server_list %}
+                        <option value="{{ server.id }}" {% if user_info('get_default_server') == server.id %}selected{% endif %} >{{ server.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endif %}
+
+                <li class="nav-item dropdown-lg">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+                        <i class="fa fa-bell-o"></i><span class="badge badge-info badge-up">14</span></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Мои уведомления
+                                <span class="badge badge-info">14</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="javaScript:void();">
+                                    <div class="media">
+                                        <i class="zmdi zmdi-accounts fa-2x mr-3 text-info"></i>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 msg-title">Вам пришел бонус</h6>
+                                            <p class="msg-info">Вы можете использовать бонусный код</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="javaScript:void();">
+                                    <div class="media">
+                                        <i class="zmdi zmdi-coffee fa-2x mr-3 text-warning"></i>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 msg-title">New Received Orders</h6>
+                                            <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="javaScript:void();">
+                                    <div class="media">
+                                        <i class="zmdi zmdi-notifications-active fa-2x mr-3 text-danger"></i>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 msg-title">New Updates</h6>
+                                            <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item text-center"><a href="javaScript:void();">See All Notifications</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown-lg">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
+                       href="javascript:void();">
+                        <i class="fa fa-money"></i><span class="badge badge-info badge-up"
+                                                         id="header_donate_point_count">{{ user_info('get_donate_point') }}</span></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Донат Бонусов
+                                <span class="badge badge-info">{{ user_info('get_donate_point') }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/donate">
+                                    <div class="media">
+                                        <i class="zmdi zmdi-accounts fa-2x mr-3 text-info"></i>
+                                        <div class="media-body">
+                                            <h6 class="mt-0 msg-title">Пополнение</h6>
+                                            <p class="msg-info">Поддержите сервер и получите бонус</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item language">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
+                       href="javascript:void();"><i class="flag-icon flag-icon-{{ lang_flag() }}"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item"><a href="/user/change/lang/ru"><i
+                                class="flag-icon flag-icon-ru mr-1"></i> Русский</a></li>
+                        <li class="dropdown-item"><a href="/user/change/lang/en"><i
+                                class="flag-icon flag-icon-gb mr-1"></i> English</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumb-->
+
+            <!-- End Breadcrumb-->
+
+            {% block content %}{% endblock %}
+
+            <!--start overlay-->
+            <div class="overlay toggle-menu"></div>
+            <!--end overlay-->
+        </div>
+        <!-- End container-fluid-->
+
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+               Загружено за {{ pointTime }} сек.
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+
+            <p class="mb-0">Header Colors</p>
+            <hr>
+
+            <div class="mb-3">
+                <button type="button" id="default-header" class="btn btn-outline-primary">Default Header</button>
+            </div>
+
+            <ul class="switcher">
+                <li id="header1"></li>
+                <li id="header2"></li>
+                <li id="header3"></li>
+                <li id="header4"></li>
+                <li id="header5"></li>
+                <li id="header6"></li>
+            </ul>
+
+            <p class="mb-0">Sidebar Colors</p>
+            <hr>
+
+            <div class="mb-3">
+                <button type="button" id="default-sidebar" class="btn btn-outline-primary">Default Sidebar</button>
+            </div>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{'assets/js/jquery.min.js'|template}}"></script>
+<script src="{{'assets/js/popper.min.js'|template}}"></script>
+<script src="{{'assets/js/bootstrap.min.js'|template}}"></script>
+
+<!-- simplebar js -->
+<script src="{{'assets/plugins/simplebar/js/simplebar.js'|template}}"></script>
+
+<!-- sidebar-menu js -->
+<script src="{{'assets/js/sidebar-menu.js'|template}}"></script>
+
+<!-- Custom scripts -->
+<script src="{{'assets/js/app-script.js'|template}}"></script>
+<script src="{{'assets/plugins/notifications/js/lobibox.min.js'|template}}"></script>
+<script src="{{'assets/js/notify.js'|template}}"></script>
+<script src="{{'assets/plugins/notifications/js/notifications.min.js'|template}}"></script>
+
+<script src="{{'assets/js/default-server.js'|template}}"></script>
+
+{% block js %}{% endblock %}
+
+{% if user_info('get_is_auth')==false %}
+<script src="{{'assets/js/auth/auth.js'|template}}"></script>
+{% endif %}
+</body>
+</html>
