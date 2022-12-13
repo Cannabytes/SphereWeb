@@ -4,45 +4,53 @@
 {% if castles is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
-	  <h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
-	  {% include '/statistic/statistic_menu.html' %}
+<h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
+{% include '/statistic/statistic_menu.html' %}
 
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Статистика Замков</h5>
-			  <div class="table-responsive">
-               <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">Замок</th>
-                      <th scope="col">Клан</th>
-                      <th scope="col">Лидер</th>
-                      <th scope="col">Налог</th>
-                      <th scope="col">Осада</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-				  {% for castle in castles %}
-                    <tr>
-                      <td><img class="img-fluid" src="{{template}}/assets/images/castle/{{castle.castle_id}}.jpg"></td>
-                      <td>{{ castle_name(castle.castle_id) }}</td>
-                      <td>{% if castle['alliance_crest']!=null%}<img src="data:image/png;base64, {{castle['alliance_crest']}}">{% endif %}{% if castle['clan_crest']!=null%}<img src="data:image/png;base64, {{castle['clan_crest']}}">{% endif %}{{ castle.clan_name??'NPC' }}</td>
-                      <td>{{ castle.player_name }}</td>
-                      <td>{{ castle.tax??0 }}%</td>
-                      <td>{{ fdate(castle.dataSiege) }}</td>
-                    </tr>
-				  {% endfor %}
-                  </tbody>
-                </table>
+                <h5 class="card-title">Статистика Замков</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Замок</th>
+                            <th scope="col">Клан</th>
+                            <th scope="col">Лидер</th>
+                            <th scope="col">Налог</th>
+                            <th scope="col">Осада</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for castle in castles %}
+                        <tr>
+                            <td><img class="img-fluid" src="{{template}}/assets/images/castle/{{castle.castle_id}}.jpg">
+                            </td>
+                            <td>{{ get_castle(castle.castle_id) }}</td>
+                            <td>{% if castle['alliance_crest']!=null%}<img src="data:image/png;base64, {{castle['alliance_crest']}}">{% endif %}
+                                {% if castle['clan_crest']!=null%}<img src="data:image/png;base64, {{castle['clan_crest']}}">{% endif %}
+                                {% if castle.clan_name  %}
+                                   <a href="/statistic/clan/{{castle.clan_name}}">{{castle.clan_name}}</a>
+                                {% else %}
+                                   NPC
+                                {% endif %}
+                            </td>
+                            <td>{{ castle.player_name }}</td>
+                            <td>{{ castle.tax??0 }}%</td>
+                            <td>{{ fdate(castle.dataSiege) }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            </div>
-          </div>
         </div>
-    
-	</div><!--End Row-->
+    </div>
+
+</div><!--End Row-->
 {% endif %}
 
 

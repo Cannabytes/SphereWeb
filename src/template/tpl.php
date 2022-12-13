@@ -160,10 +160,6 @@ class tpl {
             return lang::get_phrase($key, $values);
         }));
 
-        $twig->addFunction(new TwigFunction('get_castle_name', function($castle_id = null) {
-            echo statistic::get_castle_name($castle_id);
-        }));
-
         $twig->addFunction(new TwigFunction('get_template', function() {
             return config::get_template();
         }));
@@ -226,10 +222,6 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('lang_flag', function() {
             return lang::lang_flag();
-        }));
-
-        $twig->addFunction(new TwigFunction('castle_name', function($id) {
-            return statistic::castle_name($id);
         }));
 
         $twig->addFunction(new TwigFunction('last_forum_message', function($last_message = 10) {

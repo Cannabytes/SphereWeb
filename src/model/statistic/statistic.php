@@ -103,46 +103,6 @@ class statistic {
         return self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter_TRANC', $server_id, false, false);
     }
 
-    static public function castle_name($castle_id): string {
-        $castle_id = intval($castle_id);
-        return match ($castle_id) {
-            1 => 'Gludio',
-            2 => 'Dion',
-            3 => 'Giran',
-            4 => 'Oren',
-            5 => 'Aden',
-            6 => 'Innadril',
-            7 => 'Goddard',
-            8 => 'Rune',
-            9 => 'Schuttgart',
-            default => 'Нет Замка',
-        };
-    }
-
-    public static function get_castle_name($castle_id) {
-        $castle_id = intval($castle_id);
-        switch($castle_id) {
-            case 1:
-                return "Gludio";
-            case 2:
-                return "Dion";
-            case 3:
-                return "Giran";
-            case 4:
-                return "Oren";
-            case 5:
-                return "Aden";
-            case 6:
-                return "Innadril";
-            case 7:
-                return "Goddard";
-            case 8:
-                return "Rune";
-            case 9:
-                return "Schuttgart";
-        }
-    }
-
     public static function timeHasPassed($second): string {
         $times_values = [
             'сек.',

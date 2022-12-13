@@ -19,7 +19,7 @@
                         <table class="table table-striped">
                             <tr>
                                 <th scope="row">Клан Лидер:</th>
-                                <td>@{{clan_info.player_name_leader_clan}}</td>
+                                <td><a href="/statistic/char/{{ clan['player_name'] }}">{{clan_info.player_name_leader_clan}}</a></td>
                             </tr>
                             <tr>
                                 <th scope="row">Репутация:</th>
@@ -60,7 +60,7 @@
                             <div class="row fontawesome-icon-list">
                                 {% for player in clan_players %}
                                 <div class="fa-hover col-lg-6 col-xl-4">
-                                    <a href="#">@{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в игре</small>{% endif %}</a>
+                                    <a href="/statistic/char/{{ player.player_name }}">{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в игре</small>{% endif %}</a>
                                 </div>
                                 {% endfor %}
                             </div>
