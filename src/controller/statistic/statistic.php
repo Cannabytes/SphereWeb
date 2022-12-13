@@ -96,6 +96,7 @@ class statistic {
     static public function clan_info($clan_name) {
         other::current_server();
         $clan = statistic_model::get_clan_all_info($clan_name);
+        tpl::addVar("title", "Информация о клане {$clan['clan_info']['clan_name']}");
         tpl::addVar("clan_info", $clan['clan_info']);
         tpl::addVar("clan_players", $clan['clan_players']);
         tpl::addVar("clan_skills", $clan['clan_skills']);

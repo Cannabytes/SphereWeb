@@ -3,6 +3,9 @@
 namespace Ofey\Logan22\template;
 
 use Ofey\Logan22\component\chronicle\race_class;
+use Ofey\Logan22\component\estate\castle;
+use Ofey\Logan22\component\estate\clanhall;
+use Ofey\Logan22\component\estate\fort;
 use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
@@ -318,6 +321,18 @@ class tpl {
                 }
             }
             return $sum;
+        }));
+
+        $twig->addFunction(new TwigFunction('get_clanhall', function($id){
+            return clanhall::get($id);
+        }));
+
+        $twig->addFunction(new TwigFunction('get_fort', function($id){
+            return fort::get($id);
+        }));
+
+        $twig->addFunction(new TwigFunction('get_castle', function($id){
+            return castle::get($id);
         }));
 
         $template = $twig->load($tplName);

@@ -67,7 +67,7 @@ class sql {
      * @throws Exception
      */
     public static function run($query, $args = []) {
-        if(self::connect() == false) {
+        if(!self::connect()) {
             echo 'Not connect to db';
             exit;
         }
@@ -83,7 +83,6 @@ class sql {
             echo "Запрос: {$query}<br>";
             echo "Параметры: " . implode(", ",$args) . "<br>";
             echo "Ошибка: {$e->getMessage()}<br>";
-
             die();
             throw new Exception($e->getMessage());
         }

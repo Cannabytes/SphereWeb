@@ -10,7 +10,7 @@ namespace Ofey\Logan22\model\statistic;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\image\crest;
-use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 
 class statistic {
@@ -61,9 +61,9 @@ class statistic {
             cache::save($dir->show_dynamic($server_info['id'], $clan_name), $data);
         }
         //Если проблема с загрузкой, нет данных, перенаправляем на главную
-        if(!$data){
-            redirect::location("/statistic");
-        }
+        //        if(!$data){
+        //            redirect::location("/statistic");
+        //        }
         return $data;
     }
 
@@ -194,6 +194,25 @@ class statistic {
         $clan_info = self::get_data_statistic_clan(dir::statistic_clan_data, 'statistic_clan_data', clan_name: $clan_name, server_id: $server_id, acrossAll: false, prepare: [$clan_name]);
         $clan_players = self::get_data_statistic_clan(dir::statistic_clan_players, 'statistic_clan_players', clan_name: $clan_name, server_id: $server_id, acrossAll: true, prepare: [$clan_info["clan_id"]]);
         $clan_skills = self::get_data_statistic_clan(dir::statistic_clan_skills, 'statistic_clan_skills', clan_name: $clan_name, server_id: $server_id, crest_convert: false, prepare: [$clan_info["clan_id"]]);
+
+        if($clan_skills != null) {
+            //Объединяем данные о скиллах клана и название, иконку клана
+            $skill_id_list = [];
+            foreach($clan_skills as $skill) {
+                $skill_id_list[] = $skill['skill_id'];
+            }
+            $list = implode(', ', $skill_id_list);
+            $lex = sql::getRows("SELECT * FROM skills_data WHERE `skill_id` IN ({$list});");
+
+            foreach($clan_skills as &$skill) {
+                $skill_id = $skill['skill_id'];
+                foreach($lex as $row) {
+                    if($skill_id == $row['skill_id']) {
+                        $skill = array_merge($skill, $row);
+                    }
+                }
+            }
+        }
         return [
             'clan_info'    => $clan_info,
             'clan_players' => $clan_players,
