@@ -60,10 +60,30 @@ class statistic {
             }
             cache::save($dir->show_dynamic($server_info['id'], $clan_name), $data);
         }
-        //Если проблема с загрузкой, нет данных, перенаправляем на главную
-        //        if(!$data){
-        //            redirect::location("/statistic");
-        //        }
+        return $data;
+    }
+
+    static private function get_data_statistic_player(dir $dir, string $collection_sql_name, string $player_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = []): ?array {
+        [
+            $server_info,
+            $json,
+        ] = server::preAcross($dir, $server_id, $player_name);
+        if($server_info == null) {
+            return null;
+        }
+        if($json)
+            return $json;
+        if($acrossAll) {
+            $data = server::acrossAll($collection_sql_name, $server_info, $prepare);
+        } else {
+            $data = server::across($collection_sql_name, $server_info, $prepare);
+        }
+        if($data) {
+            if($crest_convert) {
+                crest::conversion($data);
+            }
+            cache::save($dir->show_dynamic($server_info['id'], $player_name), $data);
+        }
         return $data;
     }
 
@@ -97,6 +117,39 @@ class statistic {
 
     public static function get_players_heroes($server_id = 0) {
         return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes_TRANC', $server_id);
+    }
+
+    //Возращает всех персонажей
+    public static function get_player_info($player_name, $server_id = 0): ?array {
+        return self::get_data_statistic_player(dir::statistic_player_info, 'statistic_player_info', player_name: $player_name, server_id: $server_id, acrossAll: false, prepare: [$player_name],);
+    }
+
+    //Возрат всех саб классов персонажа
+    public static function get_player_info_sub_class($player_name, $char_object_id, $server_id = 0): ?array {
+        return self::get_data_statistic_player(dir::statistic_player_info_sub_class, 'statistic_player_info_sub_class', player_name: $player_name, server_id: $server_id, prepare: [$char_object_id]);
+    }
+
+    public static function get_player_inventory_info($player_name, $char_object_id, $server_id = 0): ?array {
+        $inventory = self::get_data_statistic_player(dir::statistic_player_inventory_info, 'statistic_player_inventory_info', player_name: $player_name, server_id: $server_id, prepare: [$char_object_id]);
+        if($inventory != null) {
+            //Объединяем данные о скиллах клана и название, иконку клана
+            $item_id_list = [];
+            foreach($inventory as $item) {
+                $item_id_list[] = $item['item_id'];
+            }
+            $list = implode(', ', $item_id_list);
+            $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
+
+            foreach($inventory as &$item) {
+                $item_id = $item['item_id'];
+                foreach($lex as $row) {
+                    if($item_id == $row['item_id']) {
+                        $item = array_merge($item, $row);
+                    }
+                }
+            }
+        }
+        return $inventory;
     }
 
     public static function top_counter($server_id = 0) {

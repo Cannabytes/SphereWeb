@@ -38,7 +38,7 @@
                                    NPC
                                 {% endif %}
                             </td>
-                            <td>{{ castle.player_name }}</td>
+                            <td><a href="/statistic/char/{{ castle.player_name }}">{{ castle.player_name }}</a></td>
                             <td>{{ castle.tax??0 }}%</td>
                             <td>{{ fdate(castle.dataSiege) }}</td>
                         </tr>

@@ -19,6 +19,9 @@ enum dir {
     case statistic_clan_skills;
     case statistic_clan_players;
     case statistic_heroes;
+    case statistic_player_info;
+    case statistic_player_info_sub_class;
+    case statistic_player_inventory_info;
     case statistic_castle;
     case statistic_block;
     case statistic_counter;
@@ -47,6 +50,9 @@ enum dir {
             dir::statistic_online => "uploads/cache/statistic/{$server_id}/online",
             dir::statistic_clan => "uploads/cache/statistic/{$server_id}/clan",
             dir::statistic_heroes => "uploads/cache/statistic/{$server_id}/heroes",
+            dir::statistic_player_info => "uploads/cache/statistic/{$server_id}/char/{$name}",
+            dir::statistic_player_info_sub_class => "uploads/cache/statistic/{$server_id}/char_sub_class/{$name}",
+            dir::statistic_player_inventory_info => "uploads/cache/statistic/{$server_id}/char_inventory/{$name}",
             dir::statistic_castle => "uploads/cache/statistic/{$server_id}/castle",
             dir::statistic_block => "uploads/cache/statistic/{$server_id}/block",
             dir::statistic_counter => "uploads/cache/statistic/{$server_id}/counter",

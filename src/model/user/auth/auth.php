@@ -42,7 +42,7 @@ class auth {
         if($server == null) {
             $server = sql::run("SELECT id FROM server_list ORDER BY id DESC LIMIT 1")->fetch();
             //Если не найден не один сервер
-            if($server == false) {
+            if(!$server) {
                 return false;
             }
             return session::add('default_server', $server['id']);

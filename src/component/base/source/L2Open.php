@@ -221,7 +221,7 @@ $collection = [
         'call' => 'game',
     ],
 
-    'statistic_clan_data' => [
+    'statistic_clan_data'    => [
         'sql'  => 'SELECT
                     clan_data.clan_id, 
                     clan_data.clan_name, 
@@ -251,7 +251,7 @@ $collection = [
     ],
 
     //Возвращаем клана скиллы и их уровни
-    'statistic_clan_skills' => [
+    'statistic_clan_skills'  => [
         'sql'  => 'SELECT
                         clan_skills.skill_id, 
                         clan_skills.skill_level
@@ -261,7 +261,6 @@ $collection = [
                         clan_skills.clan_id = ?',
         'call' => 'game',
     ],
-
 
     //Возвращаем список игроков клана
     'statistic_clan_players' => [
@@ -278,8 +277,6 @@ $collection = [
                         characters.clanid = ?',
         'call' => 'game',
     ],
-
-
 
     'statistic_top_player_TRANC' => [
         'sql'  => 'SELECT characters.*, clan_data.* FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id ORDER BY onlinetime DESC LIMIT 100',
@@ -379,40 +376,92 @@ $collection = [
 
     'statistic_top_onlinetime_TRANC' => [
         'sql'  => 'SELECT
-	characters.obj_Id AS player_id, 
-	characters.char_name AS player_name, 
-	characters.pvpkills AS pvp, 
-	characters.pkkills AS pk, 
-	characters.clanid, 
-	characters.`online`, 
-	characters.onlinetime AS time_in_game, 
-	clan_data.clan_name, 
-	clan_data.clan_level, 
-	clan_data.hasCastle AS castle_id, 
-	clan_data.crest AS clan_crest, 
-	clan_data.reputation_score AS clan_reputation_score, 
-	ally_data.crest AS alliance_crest, 
-	character_subclasses.class_id, 
-	character_subclasses.`level`
-FROM
-	characters
-	LEFT JOIN
-	clan_data
-	ON 
-		characters.clanid = clan_data.clan_id
-	LEFT JOIN
-	ally_data
-	ON 
-		clan_data.ally_id = ally_data.ally_id
-	LEFT JOIN
-	character_subclasses
-	ON 
-		characters.obj_Id = character_subclasses.char_obj_id
-WHERE
-	character_subclasses.isBase = 1
-ORDER BY
-	characters.onlinetime DESC
-LIMIT 100;',
+                        characters.obj_Id AS player_id, 
+                        characters.char_name AS player_name, 
+                        characters.pvpkills AS pvp, 
+                        characters.pkkills AS pk, 
+                        characters.clanid, 
+                        characters.`online`, 
+                        characters.onlinetime AS time_in_game, 
+                        clan_data.clan_name, 
+                        clan_data.clan_level, 
+                        clan_data.hasCastle AS castle_id, 
+                        clan_data.crest AS clan_crest, 
+                        clan_data.reputation_score AS clan_reputation_score, 
+                        ally_data.crest AS alliance_crest, 
+                        character_subclasses.class_id, 
+                        character_subclasses.`level`
+                    FROM
+                        characters
+                        LEFT JOIN
+                        clan_data
+                        ON 
+                            characters.clanid = clan_data.clan_id
+                        LEFT JOIN
+                        ally_data
+                        ON 
+                            clan_data.ally_id = ally_data.ally_id
+                        LEFT JOIN
+                        character_subclasses
+                        ON 
+                            characters.obj_Id = character_subclasses.char_obj_id
+                    WHERE
+                        character_subclasses.isBase = 1
+                    ORDER BY
+                        characters.onlinetime DESC
+                    LIMIT 100;',
+        'call' => 'game',
+    ],
+
+    'statistic_player_info' => [
+        'sql'  => 'SELECT
+                    characters.obj_id AS player_id,
+                    characters.char_name AS player_name,
+                    characters.karma,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.createtime,
+                    characters.title,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game,
+                    character_subclasses.class_id,
+                    character_subclasses.`level`,
+                    character_subclasses.isBase,
+                    clan_data.clan_name,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest 
+                FROM
+                    characters
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
+                WHERE
+                    characters.char_name = ? AND character_subclasses.isBase = 1',
+        'call' => 'game',
+    ],
+
+    'statistic_player_info_sub_class' => [
+        'sql'  => 'SELECT
+                        character_subclasses.class_id, 
+                        character_subclasses.`level`
+                    FROM
+                        character_subclasses
+                    WHERE
+                        character_subclasses.char_obj_id = ? AND character_subclasses.isBase = 0',
+        'call' => 'game',
+    ],
+
+    'statistic_player_inventory_info' => [
+        'sql'  => 'SELECT
+                        items.item_id,
+                        items.count,
+                        items.loc,
+                        items.enchant_level 
+                    FROM
+                        items 
+                    WHERE
+                        ( items.loc = "PAPERDOLL" OR items.loc = "INVENTORY" ) 
+                        AND items.owner_id = ?',
         'call' => 'game',
     ],
 
@@ -484,5 +533,7 @@ LIMIT 100;',
         'sql'  => 'SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 0',
         'call' => 'game',
     ],
+
+
 
 ];

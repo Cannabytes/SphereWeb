@@ -306,7 +306,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('array_field_sum', function(array $array, string $field) {
             $sum = 0;
             foreach($array as $players) {
-                foreach($players AS $key=>$value){
+                foreach($players as $key => $value) {
                     if($key == $field) {
                         $sum += $value;
                     }
@@ -315,16 +315,23 @@ class tpl {
             return $sum;
         }));
 
-        $twig->addFunction(new TwigFunction('get_clanhall', function($id){
+        $twig->addFunction(new TwigFunction('get_clanhall', function($id) {
             return clanhall::get($id);
         }));
 
-        $twig->addFunction(new TwigFunction('get_fort', function($id){
+        $twig->addFunction(new TwigFunction('get_fort', function($id) {
             return fort::get($id);
         }));
 
-        $twig->addFunction(new TwigFunction('get_castle', function($id){
+        $twig->addFunction(new TwigFunction('get_castle', function($id) {
             return castle::get($id);
+        }));
+
+        $twig->addFunction(new TwigFunction('icon', function($fileIcon = null) {
+            if(file_exists("uploads/images/icon/" . $fileIcon) AND $fileIcon != null) {
+                return "/uploads/images/icon/" . $fileIcon;
+            }
+            return  "/uploads/images/icon/NOIMAGE.png";
         }));
 
         $template = $twig->load($tplName);

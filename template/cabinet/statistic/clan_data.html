@@ -19,7 +19,7 @@
                         <table class="table table-striped">
                             <tr>
                                 <th scope="row">Клан Лидер:</th>
-                                <td><a href="/statistic/char/{{ clan['player_name'] }}">{{clan_info.player_name_leader_clan}}</a></td>
+                                <td><a href="/statistic/char/{{ clan_info.player_name_leader_clan }}">{{clan_info.player_name_leader_clan}}</a></td>
                             </tr>
                             <tr>
                                 <th scope="row">Репутация:</th>
@@ -84,10 +84,10 @@
                                 <div class="media-body ml-3">
                                     <div class="media-body text-left ml-3">
                                         <div class="progress-wrapper">
-                                            <p>{{skill.name_en}} <span class="float-right">{{skill.lvl}} lvl / {{skill.level_max}} lvl</span>
+                                            <p>{{skill.name_en}} <span class="float-right">{{skill.skill_level}} lvl / {{skill.level_max}} lvl</span>
                                             </p>
                                             <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar gradient-blooker" style="width:65%"></div>
+                                                <div class="progress-bar gradient-blooker" style="width:{{ skill.skill_level / skill.level_max * 100 }}%"></div>
                                             </div>
                                         </div>
                                     </div>

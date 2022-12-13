@@ -5,7 +5,7 @@
 	RewriteCond %{REQUEST_FILENAME} -d
 	RewriteRule ^.*$ - [NC,L]
 	
-	RewriteRule ^.*$ index.php [NC,L]
+	RewriteRule .* index.php [NC,L]
     AddDefaultCharset UTF-8
 </IfModule>
 

@@ -79,6 +79,8 @@ $router->post("statistic/block/ajax", 'Ofey\Logan22\controller\statistic\statist
 $router->post("statistic/heroes/ajax", 'Ofey\Logan22\controller\statistic\statistic::heroes_ajax');
 $router->post("statistic/other/ajax", 'Ofey\Logan22\controller\statistic\statistic::other_ajax');
 
+$router->get("statistic/char/{char_name}", 'Ofey\Logan22\controller\statistic\statistic::char_info');
+
 /**
  * Донат
  */
