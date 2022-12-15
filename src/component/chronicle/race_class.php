@@ -166,10 +166,10 @@ class race_class {
     ];
 
     static public function get_class($class_id) {
-        if(self::$class[$class_id]) {
+        if(isset(self::$class[$class_id])) {
             return self::$class[$class_id];
         }
-        return "Not Class Info >{$class_id}<";
+        return "Неизвестный класс: {$class_id}";
     }
 
     static private array $human_id      = [

@@ -11,7 +11,7 @@
 
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header">Информация о персонаже {{player.player_name}} </div>
+                    <div class="card-header">Информация о персонаже {{player.player_name}} {% if player.title %}} <span class="badge badge-pill badge-dark shadow-dark m-1">{{player.title}}</span>{%endif%}</div>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
@@ -19,32 +19,36 @@
                                 <td>{{player.level}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Титул:</th>
-                                <td>{{player.title}}</td>
-                            </tr>
-                            <tr>
                                 <th scope="row">PvP / PK:</th>
                                 <td>{{player.pvp}} / {{player.pk}}</td>
                             </tr>
+                            {% if karma %}
                             <tr>
                                 <th scope="row">Карма:</th>
                                 <td>{{player.karma}}</td>
                             </tr>
+                            {% endif %}
                             <tr>
                                 <th scope="row">Класс:</th>
                                 <td>{{get_class(player.class_id)}}</td>
                             </tr>
+                            {% if createtime %}
                             <tr>
                                 <th scope="row">Дата создания:</th>
                                 <td>{{ fdate(player.createtime) }} </td>
                             </tr>
+                            {% endif %}
                             <tr>
                                 <th scope="row">Время онлайна:</th>
                                 <td>{{ timeHasPassed ( player.time_in_game ) }} </td>
                             </tr>
                             <tr>
                                 <th scope="row">Клан:</th>
+                                {% if player.clan_name %}
                                 <td><a href="/statistic/clan/{{ player.clan_name }}">{{ player.clan_name }}</a></td>
+                                {% else %}
+                                <td><a href="/statistic/clan/{{ player.clan_name }}">{{ player.clan_name }}</a></td>
+                                {% endif %}
                             </tr>
                         </table>
                     </div>

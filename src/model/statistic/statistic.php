@@ -15,6 +15,9 @@ use Ofey\Logan22\model\server\server;
 
 class statistic {
 
+    /**
+     * @throws \Exception
+     */
     static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = []): ?array {
         [
             $server_info,

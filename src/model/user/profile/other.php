@@ -17,8 +17,10 @@ class other {
     /**
      * Добавляет в переменные шаблона список актуальных серверов
      * и добавляет информацию о выбранном сервере
+     *
+     * @throws \Exception
      */
-    static public function current_server() {
+    static public function current_server(): void {
         $server_list_menu = server::get_server_info();
         $server_info = null;
         foreach($server_list_menu as $server) {
@@ -43,7 +45,7 @@ class other {
      * Второй необязательный параметр ID пользователя, о котором нужна информация.
      */
     static public function get_users_scan($users_id = [], $user_id = null) {
-        if(self::$attempt_user == true) {
+        if(self::$attempt_user) {
             if($user_id != null) {
                 return self::get_user_in_list($user_id);
             }

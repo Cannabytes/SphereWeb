@@ -11,7 +11,8 @@ use Ofey\Logan22\template\tpl;
 
 class error {
 
-    static public function show(){
+    static public function show($e){
+        tpl::addVar('message', $e->getMessage());
         tpl::display("/error/404.html");
     }
 

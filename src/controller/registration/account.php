@@ -25,8 +25,8 @@ class account {
 
     public static function requestNewAccount() {
         $server_id = $_POST['server']; // сервер с ID 0 означает что нужно произвести регистрацию на всех серверах
-        $login = $_POST['login'];
-        $password = $_POST['password'];
+        $login = trim($_POST['login']);
+        $password = trim($_POST['password']);
         $password_hide = isset($_POST['password_hide']);
         if(auth::get_is_auth()) {
             player_account::add($server_id, $login, $password, $password_hide);

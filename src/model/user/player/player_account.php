@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\model\user\player;
 
+use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\time\time;
@@ -27,6 +28,8 @@ class player_account {
      * @param $login
      * @param $password
      * @param $password_hide
+     *
+     * @throws Exception
      */
     public static function add($server_id, $login, $password, $password_hide) {
         self::valid_login($login);
@@ -44,7 +47,7 @@ class player_account {
             $login,
             encrypt::server_password($password, $reQuest['password_encrypt']),
             auth::get_email(),
-        ]);
+        ], showErrorPage: false);
         if(is_array($err)) {
             if(!$err['ok']) {
                 exit(json_encode([
@@ -53,7 +56,7 @@ class player_account {
                 ]));
             }
         }
-        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
+        $s = self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         exit(json_encode([
             'ok'      => true,
             'message' => "Вы успешно зарегистрировали новый аккаунт",
@@ -127,26 +130,30 @@ class player_account {
         return self::extracted($base, $info, $prepare);
     }
 
-    public static function account_registration($info, $prepare) {
+    /**
+     * @throws Exception
+     */
+    public static function account_registration($info, $prepare, $showErrorPage = true) {
         $base = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
-        return self::extracted($base, $info, $prepare);
+        return self::extracted($base, $info, $prepare, $showErrorPage);
     }
 
-    public static function extracted($collection, $info, $prepare = []) {
+    /**
+     * @throws Exception
+     */
+    public static function extracted($collection, $info, $prepare = [], $showErrorPage = true) {
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
         $server_id = $info['id'];
+        sdb::set_server_id($server_id);
+        sdb::set_type($collection['call']);
         if($collection['call'] == "login") {
-            sdb::set_server_id($server_id);
-            sdb::set_type($collection['call']);
             sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
         } else {
-            sdb::set_server_id($server_id);
-            sdb::set_type($collection['call']);
             sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
         }
-        return sdb::run($collection['sql'], $prepare);
+        return sdb::run($collection['sql'], $prepare, $showErrorPage);
     }
 
     public static function valid_login($login) {
@@ -179,8 +186,11 @@ class player_account {
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public static function add_inside_account($login, $password, $email, $ip, $server_id, $password_hide) {
-       return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
+        return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
             $login,
             $password,
             $email,

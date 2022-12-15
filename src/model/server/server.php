@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\model\server;
 
+use Exception;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
@@ -22,14 +23,14 @@ class server {
      * @param $id
      *
      * @return array|false
-     * @throws \Exception
+     * @throws Exception
      *
      * Функция возвращаем всю инфу о сервере
      */
     static function get_server_info($id = null): bool|array {
-        if($id!=null and self::$server_info!=null){
-            foreach(self::$server_info as $server){
-                if($id==$server['id']){
+        if($id != null and self::$server_info != null) {
+            foreach(self::$server_info as $server) {
+                if($id == $server['id']) {
                     return $server;
                 }
             }
@@ -57,9 +58,9 @@ class server {
                                     server_list.password_encrypt
                                 FROM
                                     server_list")->fetchAll();
-        if($id!=null){
-            foreach(self::$server_info as $server){
-                if($id==$server['id']){
+        if($id != null) {
+            foreach(self::$server_info as $server) {
+                if($id == $server['id']) {
                     return $server;
                 }
             }
@@ -78,7 +79,7 @@ class server {
                 return false;
             }
         }
-       return self::get_server_info($server_id);
+        return self::get_server_info($server_id);
     }
 
     public static function preAcross(dir $dir, int $server_id = 0, string $name = null): array {
@@ -96,6 +97,10 @@ class server {
     }
 
     //Возвращает экземпляром класса
+
+    /**
+     * @throws Exception
+     */
     public static function acrossBase($collection_name, $server_info, $prepare = []) {
         $collection = base::get_sql_source($server_info['collection_sql_base_name'], $collection_name);
         if(!$collection) {
@@ -104,7 +109,7 @@ class server {
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
-         if($collection['call'] == "login") {
+        if($collection['call'] == "login") {
             sdb::set_type($collection['call']);
             $ok = sdb::set_connect($server_info['login_host'], $server_info['login_user'], $server_info['login_password'], $server_info['login_name']);
         } else {
@@ -126,9 +131,19 @@ class server {
     }
 
     // Запрос с возвращением всего массива
+
+    /**
+     * @throws Exception
+     */
     public static function acrossAll($collection_name, $server_info, $prepare = []) {
         $ok = self::acrossBase($collection_name, $server_info, $prepare);
-        return $ok->fetchAll();
+        try {
+            $s =  $ok->fetchAll();
+            return $s;
+        } catch (Exception $e) {
+            echo "Error.";
+            exit;
+        }
     }
 
     //TODO: Проверка TRUE/FALSE исполнения запроса
