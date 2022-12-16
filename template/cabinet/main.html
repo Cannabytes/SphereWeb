@@ -8,63 +8,76 @@
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">Мои аккаунты </div>
-                <div class="row">
-                    {% if server_list|length > 1 %}
-                    <div class="col-md-1">
-                        <div class="tabs-vertical tabs-vertical-warning">
-                            <ul class="nav nav-tabs flex-column">
+            <div class="card-header">Мои аккаунты</div>
+
+
+
+            <div class="row">
+                {% if server_list|length > 1 %}
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav nav-pills nav-pills-dark nav-justified" role="tablist">
                                 {% for num, server in server_list %}
                                 <li class="nav-item">
-                                    <a class="nav-link py-4 {% if num==0 %}active{% endif %}" data-toggle="tab"
-                                       href="#tabe-{{ server.id }}"><span class="hidden-xs">{{ server.name|e }} x{{ server.rate_exp|e }}</span></a>
+                                    <a class="nav-link {% if num+1==user_info('get_default_server') %}active{% endif %}" data-toggle="pill"
+                                       href="#piil-{{ server.id }}"><span class="hidden-xs">{{ server.name|e }} x{{ server.rate_exp|e }}</span></a>
                                 </li>
                                 {% endfor %}
                             </ul>
-                        </div>
-                    </div>
-                    {%endif%}
-                    <div class="tab-content">
-                        {% for num,server in server_list %}
-                        <div id="tabe-{{ server.id }}"
-                             class="container tab-pane {% if num==0 %}active{% else %}fade{% endif %}">
-                            <div class="btn-group m-10">
-                                <a href="/registration/account/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-user-o"></i> <span>{{ get_phrase(40) }}</span></a>
-                                <a href="/account/comparison/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-refresh"></i> <span>{{ get_phrase(41) }}</span></a>
-                            </div>
 
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Login</th>
-                                        <th>Password</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for player in player_accounts %}
-                                    {% if player.server_id == server.id %}
-                                    <tr>
-                                        <td><a href="/account/info/{{ player.login }}/server/{{server.id}}"><i
-                                                aria-hidden="true" class="fa fa-question-circle-o"></i></a> {{
-                                            player.login }}
-                                        </td>
-                                        <td>
-                                            <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
-                                                    aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
-                                            player.password_hide %}<span class="badge badge-success m-1">{{ get_phrase(42) }}</span>{%
-                                            else %}{{ player.password }}{% endif %}
-                                        </td>
-                                    </tr>
-                                    {% endif %}
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
+
+                            <div class="tab-content">
+                                {% for num,server in server_list %}
+                                    <div id="piil-{{ server.id }}" class="container tab-pane {% if num+1==user_info('get_default_server') %}active{% else %}fade{% endif %}">
+                                        <div class="btn-group m-10">
+                                            <a href="/registration/account/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-user-o"></i> <span>{{ get_phrase(40) }}</span></a>
+                                            <a href="/account/comparison/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-refresh"></i> <span>{{ get_phrase(41) }}</span></a>
+                                        </div>
+
+
+
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Login</th>
+                                                    <th>Password</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for player in player_accounts %}
+                                                {% if player.server_id == server.id %}
+                                                <tr>
+                                                    <td><a href="/account/info/{{ player.login }}/server/{{server.id}}"><i
+                                                            aria-hidden="true" class="fa fa-question-circle-o"></i></a> {{
+                                                        player.login }}
+                                                    </td>
+                                                    <td>
+                                                        <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
+                                                                aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
+                                                        player.password_hide %}<span class="badge badge-success m-1">{{ get_phrase(42) }}</span>{%
+                                                        else %}{{ player.password }}{% endif %}
+                                                    </td>
+                                                </tr>
+                                                {% endif %}
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </div>
+                                {% endfor %}
+
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
+                {%endif%}
+            </div>
+
+
         </div>
     </div>
 
@@ -74,25 +87,25 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     {% for online in server_online_status() %}
-                        <div class="media align-items-center">
-                            <div class="media-body ml-1">{{online['name']}}</div>
-                            <div class="media-body ml-1">x{{online['rate_exp']}}</div>
-                            <div class="media-body ml-4">
-                                {% if online['connect_login'] %}
-                                <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Login
-                                {% else %}
-                                <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Login
-                                {% endif %}
-                            </div>
-                            <div class="media-body ml-4">
-                                {% if online['connect_game'] %}
-                                <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Game
-                                {% else %}
-                                <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Game
-                                {% endif %}
-                            </div>
-                            <div class="media-body ml-4"> {{online['player_count_online']}}</div>
+                    <div class="media align-items-center">
+                        <div class="media-body ml-1">{{online['name']}}</div>
+                        <div class="media-body ml-1">x{{online['rate_exp']}}</div>
+                        <div class="media-body ml-4">
+                            {% if online['connect_login'] %}
+                            <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Login
+                            {% else %}
+                            <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Login
+                            {% endif %}
                         </div>
+                        <div class="media-body ml-4">
+                            {% if online['connect_game'] %}
+                            <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Game
+                            {% else %}
+                            <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Game
+                            {% endif %}
+                        </div>
+                        <div class="media-body ml-4"> {{online['player_count_online']}}</div>
+                    </div>
                     {% endfor %}
                 </li>
             </ul>
@@ -106,9 +119,11 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="media align-items-center">
-                        <img src="template/cabinet/assets/images/race/male/none.jpg" alt="user avatar" class="customer-img rounded-circle">
+                        <img src="template/cabinet/assets/images/race/male/none.jpg" alt="user avatar"
+                             class="customer-img rounded-circle">
                         <div class="media-body ml-3">
-                            <h6 class="mb-0">Бонус код : <small class="ml-1">Вводите свой бонус код и получите приз</small></h6>
+                            <h6 class="mb-0">Бонус код : <small class="ml-1">Вводите свой бонус код и получите
+                                приз</small></h6>
                         </div>
                     </div>
                 </li>

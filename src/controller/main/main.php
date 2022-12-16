@@ -6,9 +6,9 @@
 
 namespace Ofey\Logan22\controller\main;
 
-use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page as page_model;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 

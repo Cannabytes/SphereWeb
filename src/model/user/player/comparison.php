@@ -44,8 +44,8 @@ class comparison {
                 $sA = $serverAccount;
                 if($inside['login'] == $serverAccount['login']) {
                     $found = true;
-                    if($inside['password_hide']==false){
-                        $password = encrypt::server_password($inside['password'], $reQuest['password_encrypt']);
+                    if(!$inside['password_hide']){
+                        $password = encrypt::server_password($inside['password'], $reQuest);
                         if($serverAccount['password'] != $password) {
                             $accountsForUpdate[] = $serverAccount;
                         }

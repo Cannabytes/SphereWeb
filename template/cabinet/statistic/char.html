@@ -45,9 +45,9 @@
                             <tr>
                                 <th scope="row">Клан:</th>
                                 {% if player.clan_name %}
-                                <td><a href="/statistic/clan/{{ player.clan_name }}">{{ player.clan_name }}</a></td>
+                                <td><a href="/statistic/clan/{{ player.clan_name|url_encode }}">{{ player.clan_name }}</a></td>
                                 {% else %}
-                                <td><a href="/statistic/clan/{{ player.clan_name }}">{{ player.clan_name }}</a></td>
+                                <td>Нет клана</td>
                                 {% endif %}
                             </tr>
                         </table>

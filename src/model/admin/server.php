@@ -210,7 +210,7 @@ class server {
 
     public static function db_connect_id($id, $login = true) {
         $db = self::db_info_id($id);
-        if($login == true) {
+        if($login) {
             return new db_server($db['login_host'], $db['login_user'], $db['login_password'], $db['login_name']);
         }
         return new db_server($db['game_host'], $db['game_user'], $db['game_password'], $db['game_name']);

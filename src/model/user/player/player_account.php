@@ -45,7 +45,7 @@ class player_account {
         $reQuest = self::getReQuest($server_id, $login);
         $err = self::account_registration($reQuest, [
             $login,
-            encrypt::server_password($password, $reQuest['password_encrypt']),
+            encrypt::server_password($password, $reQuest),
             auth::get_email(),
         ], showErrorPage: false);
         if(is_array($err)) {
@@ -56,7 +56,7 @@ class player_account {
                 ]));
             }
         }
-        $s = self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
+        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         exit(json_encode([
             'ok'      => true,
             'message' => "Вы успешно зарегистрировали новый аккаунт",
@@ -76,7 +76,7 @@ class player_account {
         $reQuest = self::getReQuest($server_id, $login);
         $err = self::account_registration($reQuest, [
             $login,
-            encrypt::server_password($password, $reQuest['password_encrypt']),
+            encrypt::server_password($password, $reQuest),
             $email,
         ]);
         //TODO: логирование ошибок
@@ -134,27 +134,29 @@ class player_account {
      * @throws Exception
      */
     public static function account_registration($info, $prepare, $showErrorPage = true) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
-        return self::extracted($base, $info, $prepare, $showErrorPage);
+        $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
+        return self::extracted($sqlQuery, $info, $prepare, $showErrorPage, gameServer: false);
     }
 
     /**
      * @throws Exception
      */
-    public static function extracted($collection, $info, $prepare = [], $showErrorPage = true) {
+    public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true)  {
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
         $server_id = $info['id'];
         sdb::set_server_id($server_id);
-        sdb::set_type($collection['call']);
-        if($collection['call'] == "login") {
-            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
-        } else {
+        if($gameServer) {
+            sdb::set_type('game');
             sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
+        } else {
+            sdb::set_type('login');
+            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
         }
-        return sdb::run($collection['sql'], $prepare, $showErrorPage);
+        return sdb::run($sqlQuery, $prepare, $showErrorPage);
     }
+
 
     public static function valid_login($login) {
         if(3 > mb_strlen($login)) {

@@ -21,12 +21,8 @@ class base {
         return $arrFilename;
     }
 
-    //    static public array $base = [];
-
     //Возвращает запрос, и его параметры
-    //TODO: сделать только чтение PHP файлов
-    static public function get_sql_source($filename, $name) {
-        require("src/component/base/source/{$filename}");
-        return $collection[$name] ?? false;
+    static public function get_sql_source($class, $name) {
+        return $class::$name();
     }
 }

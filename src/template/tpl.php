@@ -2,6 +2,7 @@
 
 namespace Ofey\Logan22\template;
 
+use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
@@ -99,6 +100,7 @@ class tpl {
             throw new \RuntimeException(sprintf('Function %s not found', $name));
             //            echo sprintf('Function «%s» not found', $name);exit;
         });
+
 
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
             return array_slice(statistic::get_pvp($server_id), 0, $count);

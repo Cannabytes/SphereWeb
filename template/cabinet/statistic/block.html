@@ -28,13 +28,13 @@
                     <tr>
                       <th scope="row">{{ i+1 }}</th>
                       <td>{% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
-                          <a href="/statistic/char/{{ player['player_name'] }}">{{ player['player_name'] }}</a>
+                          <a href="/statistic/char/{{ player['player_name']|url_encode }}">{{ player['player_name'] }}</a>
                       </td>
                       <td><strong>{{ player['pvp'] }}</strong> / {{ player['pk'] }}</td>
                       <td>{% if player['castle_id'] != 0 %}
 						<span data-toggle="tooltip" data-placement="top" title="" data-original-title="Владение замка: {{ get_castle(player['castle_id']) }}" class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
 					  {% else %}
-                          <a href="/statistic/clan/{{ player['clan_name'] }}">{{ player['clan_name'] }}</a>
+                          <a href="/statistic/clan/{{ player['clan_name']|url_encode }}">{{ player['clan_name'] }}</a>
 					  {% endif %}
 					  </td>
                       <td>{{ timeHasPassed(player['time_in_game']) }}</td>

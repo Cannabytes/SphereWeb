@@ -45,7 +45,7 @@ class change_password {
         }
         $base = base::get_sql_source($server_info['collection_sql_base_name'], "account_change_password");
         $change = player_account::extracted($base, $server_info, [
-            encrypt::server_password($password, $server_info['password_encrypt']),
+            encrypt::server_password($password, $server_info),
             $login,
         ]);
         if($change->rowCount() == 0) {

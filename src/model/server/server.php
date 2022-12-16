@@ -14,6 +14,7 @@ use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
+use ReflectionMethod;
 
 class server {
 
@@ -54,8 +55,7 @@ class server {
                                     server_list.game_user, 
                                     server_list.game_password, 
                                     server_list.game_name, 
-                                    server_list.collection_sql_base_name, 
-                                    server_list.password_encrypt
+                                    server_list.collection_sql_base_name 
                                 FROM
                                     server_list")->fetchAll();
         if($id != null) {
@@ -101,24 +101,31 @@ class server {
     /**
      * @throws Exception
      */
-    public static function acrossBase($collection_name, $server_info, $prepare = []) {
-        $collection = base::get_sql_source($server_info['collection_sql_base_name'], $collection_name);
-        if(!$collection) {
-            die("Нет коллекции: {$collection_name}");
+    private static function acrossBase($collection_name, $server_info, $prepare = []) {
+        $sqlQuery = base::get_sql_source($server_info['collection_sql_base_name'], $collection_name);
+        $reflection = new ReflectionMethod($server_info['collection_sql_base_name'], $collection_name);
+        $attributes = $reflection->getAttributes();
+
+        $inGameDBQuery = "game";
+        foreach($attributes as $attr) {
+            if('db' == basename($attr->getName())) {
+                $inGameDBQuery = $attr->getArguments()[0];
+            }
         }
+
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
-        if($collection['call'] == "login") {
-            sdb::set_type($collection['call']);
+        if($inGameDBQuery == "login") {
+            sdb::set_type('login');
             $ok = sdb::set_connect($server_info['login_host'], $server_info['login_user'], $server_info['login_password'], $server_info['login_name']);
-        } else {
-            sdb::set_type($collection['call']);
+        }else {
+            sdb::set_type('game');
             $ok = sdb::set_connect($server_info['game_host'], $server_info['game_user'], $server_info['game_password'], $server_info['game_name']);
         }
         if(!$ok)
             return $ok;
-        return sdb::run($collection['sql'], $prepare);
+        return sdb::run($sqlQuery, $prepare);
     }
 
     // Запрос с возвращением единственной записи
@@ -130,17 +137,16 @@ class server {
         return $ok->fetch();
     }
 
-    // Запрос с возвращением всего массива
-
     /**
+     * Запрос с возвращением всего массива
      * @throws Exception
      */
     public static function acrossAll($collection_name, $server_info, $prepare = []) {
         $ok = self::acrossBase($collection_name, $server_info, $prepare);
         try {
-            $s =  $ok->fetchAll();
+            $s = $ok->fetchAll();
             return $s;
-        } catch (Exception $e) {
+        } catch(Exception $e) {
             echo "Error.";
             exit;
         }

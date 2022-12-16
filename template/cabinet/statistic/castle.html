@@ -33,12 +33,12 @@
                             <td>{% if castle['alliance_crest']!=null%}<img src="data:image/png;base64, {{castle['alliance_crest']}}">{% endif %}
                                 {% if castle['clan_crest']!=null%}<img src="data:image/png;base64, {{castle['clan_crest']}}">{% endif %}
                                 {% if castle.clan_name  %}
-                                   <a href="/statistic/clan/{{castle.clan_name}}">{{castle.clan_name}}</a>
+                                   <a href="/statistic/clan/{{castle.clan_name|url_encode}}">{{castle.clan_name}}</a>
                                 {% else %}
                                    NPC
                                 {% endif %}
                             </td>
-                            <td><a href="/statistic/char/{{ castle.player_name }}">{{ castle.player_name }}</a></td>
+                            <td><a href="/statistic/char/{{ castle.player_name|url_encode }}">{{ castle.player_name }}</a></td>
                             <td>{{ castle.tax??0 }}%</td>
                             <td>{{ fdate(castle.dataSiege) }}</td>
                         </tr>

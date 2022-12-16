@@ -58,7 +58,6 @@ $router->get("channel", 'Ofey\Logan22\controller\channel\channel::all');
 $router->get("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::read');
 $router->post("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::writePost');
 $router->get("channel/create", 'Ofey\Logan22\controller\channel\channel::create');
-
 /**
  * Статистика
  */
@@ -79,7 +78,7 @@ $router->post("statistic/block/ajax", 'Ofey\Logan22\controller\statistic\statist
 $router->post("statistic/heroes/ajax", 'Ofey\Logan22\controller\statistic\statistic::heroes_ajax');
 $router->post("statistic/other/ajax", 'Ofey\Logan22\controller\statistic\statistic::other_ajax');
 
-$router->get("statistic/char/{char_name}", 'Ofey\Logan22\controller\statistic\statistic::char_info');
+$router->get("/statistic/char/{char_name}", 'Ofey\Logan22\controller\statistic\statistic::char_info');
 
 /**
  * Донат

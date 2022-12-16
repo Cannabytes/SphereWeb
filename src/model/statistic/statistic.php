@@ -66,7 +66,7 @@ class statistic {
         return $data;
     }
 
-    static private function get_data_statistic_player(dir $dir, string $collection_sql_name, string $player_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = []): ?array {
+    static private function get_data_statistic_player(dir $dir, string $collection_sql_name, string $player_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = []) {
         [
             $server_info,
             $json,
@@ -123,7 +123,7 @@ class statistic {
     }
 
     //Возращает всех персонажей
-    public static function get_player_info($player_name, $server_id = 0): ?array {
+    public static function get_player_info($player_name, $server_id = 0) {
         return self::get_data_statistic_player(dir::statistic_player_info, 'statistic_player_info', player_name: $player_name, server_id: $server_id, acrossAll: false, prepare: [$player_name],);
     }
 
