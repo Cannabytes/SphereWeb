@@ -34,10 +34,7 @@ class L2JOpen_HighFive implements structure {
      * @return mixed
      */
     static public function chronicle() {
-        return [
-            'protocol' => 338,
-            'name' => 'Essence',
-        ];
+        return [267, 268, 271, 273];
     }
 
     /**

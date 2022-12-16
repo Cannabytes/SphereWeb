@@ -31,7 +31,7 @@
 						  <th scope="row">{{ i+1 }}</th>
 						  <td>{% if clan['alliance_crest']!=null%}<img src="data:image/png;base64, {{ clan['alliance_crest'] }}">{% endif %}{% if clan['clan_crest']!=null%}<img src="data:image/png;base64, {{clan['clan_crest']}}">{% endif %}
 						  {% if clan['castle_id'] != 0 %}
-							<span data-toggle="tooltip" data-placement="top" title="" data-original-title="Владение замка: {{ get_castle(clan['castle_id']) }}" class="badge badge-light shadow-light m-1">{{ clan['clan_name'] }}</span>
+							<span data-toggle="tooltip" data-placement="top" title="" data-original-title="Владение замка: {{ get_castle(clan['castle_id']) }}" class="badge badge-light shadow-light m-1"><a href="/statistic/clan/{{ clan['clan_name']|url_encode }}">{{ clan['clan_name'] }}</a></span>
 						  {% else %}
 							<a href="/statistic/clan/{{ clan['clan_name']|url_encode }}">{{ clan['clan_name'] }}</a>
 						  {% endif %}

@@ -31,7 +31,7 @@ class L2jMobius_Homunculus implements structure {
      * @return mixed
      */
     static public function chronicle() {
-        return 338;
+        return [338];
     }
 
     /**
