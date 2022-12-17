@@ -75,7 +75,7 @@ class install {
         $name = $_POST['name'];
         $pdo = \Ofey\Logan22\model\install\install::test_connect_mysql($host, $user, $password, $name);
         if($pdo) {
-            self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/install/sql/*.sql");
+            self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/install/sql/struct/*.sql");
             self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/install/sql/data/*.sql");
             \Ofey\Logan22\model\install\install::saveConfig($host, $user, $password, $name);
             board::notice(true, 'Next install');

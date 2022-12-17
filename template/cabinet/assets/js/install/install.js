@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $("form").submit(function (event) {
+        $('#add_db').prop('disabled', true);
+        $('#add_db').text('Loading...');
         $.ajax({
             type: "POST",
             url: "/install/db/connect/test",

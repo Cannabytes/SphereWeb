@@ -222,7 +222,11 @@ class auth {
             return self::$userInfo;
         }
         $sql = 'SELECT * FROM users WHERE email = ?';
-        self::$userInfo = sql::run($sql, [$email])->fetch();
+        $userInfo = sql::run($sql, [$email])->fetch();
+        if(!$userInfo){
+            self::logout();
+        }
+        self::$userInfo = $userInfo;
         return self::$userInfo;
     }
 
@@ -266,6 +270,8 @@ class auth {
 
     static public function logout() {
         session::clear();
+        header("Refresh: 0;");
+        die();
     }
 
     static public function change_user_password($user_email, $password) {

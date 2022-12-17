@@ -29,8 +29,6 @@ class auth {
     public static function logout() {
         if(\Ofey\Logan22\model\user\auth\auth::get_is_auth()) {
             \Ofey\Logan22\model\user\auth\auth::logout();
-            header("Refresh: 0;");
-            die();
         }
         header('Location: /main');
         die();
