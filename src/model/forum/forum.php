@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\forum;
 use Exception;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
+use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\db\fdb;
 
@@ -55,7 +56,7 @@ class forum {
         if(!self::forum_enable()) {
             return false;
         }
-        $actualCache = cache::read(dir::forum->show());
+        $actualCache = cache::read(dir::forum->show(), second: timeout::forum->time());
         if($actualCache)
             return $actualCache;
         if(fdb::$error != null) {
@@ -120,7 +121,7 @@ class forum {
         if(!self::forum_enable()) {
             return false;
         }
-        $actualCache = cache::read(dir::forum->show());
+        $actualCache = cache::read(dir::forum->show(), second: timeout::forum->time());
         if($actualCache)
             return $actualCache;
         if(fdb::$error != null) {

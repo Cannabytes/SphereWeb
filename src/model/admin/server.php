@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\model\db\db_server;
 use Ofey\Logan22\model\db\sql;
 
@@ -41,11 +42,11 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-        $sql_base_source = $_POST['sql_base_source'];
-        $password_encrypt = $_POST['password_encrypt'];
+        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
+
         //TODO: Проверка на соединение с БД
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `password_encrypt`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -64,15 +65,14 @@ class server {
             $db_game_password,
             $db_game_name,
             $sql_base_source,
-            $password_encrypt,
         ]);
         if(!$ok) {
-            board::notice( false, 'Ошибка' );
+            board::notice(false, 'Ошибка');
         }
-        board::notice( true, 'Добавлено' );
+        board::notice(true, 'Добавлено');
     }
 
-    static public function update_server(){
+    static public function update_server() {
         $server_id = $_POST['server_id'];
 
         $name_server = $_POST['name'];
@@ -100,8 +100,8 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-        $sql_base_source = $_POST['sql_base_source'];
-        $password_encrypt = $_POST['password_encrypt'];
+        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
+
         //TODO: Проверка на соединение с БД
 
         $sql = "UPDATE `server_list` SET
@@ -121,9 +121,8 @@ class server {
                         `game_user` = ?,
                         `game_password` = ?,
                         `game_name` = ?,
-                        `collection_sql_base_name` = ?,
-                        `password_encrypt` = ?
-                        WHERE
+                        `collection_sql_base_name` = ? 
+                         WHERE
                             `id` = ?";
         $ok = sql::run($sql, [
             $name_server,
@@ -143,13 +142,12 @@ class server {
             $db_game_password,
             $db_game_name,
             $sql_base_source,
-            $password_encrypt,
-            $server_id
+            $server_id,
         ]);
         if(!$ok) {
             board::notice(false, 'Ошибка');
         }
-        board::notice( true, 'Добавлено' );
+        board::notice(true, 'Добавлено');
     }
 
     //Добавление описания
@@ -170,7 +168,7 @@ class server {
                 $date_create,
             ]);
         }
-        board::alert( true, 'Обновлено' );
+        board::alert(true, 'Обновлено');
     }
 
     private static function exist_description($id) {
@@ -224,8 +222,6 @@ class server {
         return sql::run("SELECT id, login_host, login_name, login_password, login_user, game_host, game_name, game_password, game_user, collection_sql_base_name, password_encrypt FROM server_connect_db")->fetchAll();
     }
 
-
-
     static function get_server_description($server_id) {
         $sqlDescInfo = "SELECT
 	                        server_id, 
@@ -245,6 +241,6 @@ class server {
         sql::run("DELETE FROM `server_list` WHERE `id` = ?", [$server_id]);
         sql::run("DELETE FROM `server_connect_db` WHERE `id` = ?", [$get_server_info['db_id']]);
         sql::run("DELETE FROM `server_description` WHERE `server_id` = ?", [$server_id]);
-        board::notice( true, 'Удалено' );
+        board::notice(true, 'Удалено');
     }
 }

@@ -17,9 +17,9 @@
  */
 
 
-//TODO: Переписать под L2Open
-
 namespace Ofey\Logan22\component\base\source;
+
+use Ofey\Logan22\component\base\structure;
 
 class L2JOpen_HighFive implements structure {
 

@@ -148,6 +148,6 @@ $router->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
 $router->post("/admin/forum", 'Ofey\Logan22\controller\admin\forum::save');
 
 $router->set404(function() {
-    \Ofey\Logan22\controller\page\error::show();
+    \Ofey\Logan22\controller\page\error::error404();
 });
 $router->run();

@@ -25,4 +25,17 @@ class base {
     static public function get_sql_source($class, $name) {
         return $class::$name();
     }
+
+    /**
+     * Возращаем имя класса из файла
+     * @param $file
+     *
+     * @return false|string
+     */
+    static public function get_class_php($file){
+        include($file);
+        $classes = get_declared_classes();
+        $class = end($classes);
+        return $class;
+    }
 }

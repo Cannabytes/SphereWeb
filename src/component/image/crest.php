@@ -17,23 +17,33 @@ class crest {
      * Клан и альянса изображение должны иметь название clan_crest и alliance_crest
      */
     static public function conversion(&$arr_crest) {
-//        var_dump(count($arr_crest) - count($arr_crest, COUNT_RECURSIVE));exit;
-
         if(count($arr_crest) - count($arr_crest, COUNT_RECURSIVE) >= 0){
             if(isset($arr_crest["clan_crest"])) {
                 $arr_crest["clan_crest"] = self::get_clan_crest_base64($arr_crest["clan_crest"]);
+                if($arr_crest["clan_crest"]==null){
+                    unset($arr_crest["clan_crest"]);
+                }
             }
             if(isset($arr_crest["alliance_crest"])) {
                 $arr_crest["alliance_crest"] = self::get_clan_crest_base64($arr_crest["alliance_crest"]);
+                if($arr_crest["alliance_crest"]==null){
+                    unset($arr_crest["alliance_crest"]);
+                }
             }
             return;
         }
         foreach($arr_crest as &$row) {
             if(isset($row["clan_crest"])) {
                 $row["clan_crest"] = self::get_clan_crest_base64($row["clan_crest"]);
+                if($row["clan_crest"]==null){
+                    unset($row["clan_crest"]);
+                }
             }
             if(isset($row["alliance_crest"])) {
                 $row["alliance_crest"] = self::get_clan_crest_base64($row["alliance_crest"]);
+                if($row["alliance_crest"]==null){
+                    unset($row["alliance_crest"]);
+                }
             }
         }
     }
@@ -87,7 +97,8 @@ class crest {
 
         // do not conintue in case of a non DX1 format
         if($dxt1 !== 'DXT1')
-            die("Error: format is not DX1");
+            return '';
+//            die("Error: format is not DX1");
 
         fseek($file, 128);
         $img = imagecreatetruecolor($imgWidth, $imgHeight);
@@ -166,7 +177,8 @@ class crest {
 
         // do not conintue in case of a non DX1 format
         if($dxt1 !== 'DXT1')
-            die("Error: format is not DX1");
+            return null;
+//            die("Error: format is not DX1");
 
         fseek($file, 128);
         $img = imagecreatetruecolor($imgWidth, $imgHeight);

@@ -5,7 +5,7 @@
  * Date: 15.12.2022 / 9:20:25
  */
 
-namespace Ofey\Logan22\component\base\source;
+namespace Ofey\Logan22\component\base;
 
 interface structure {
 

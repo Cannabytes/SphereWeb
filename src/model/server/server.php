@@ -82,7 +82,7 @@ class server {
         return self::get_server_info($server_id);
     }
 
-    public static function preAcross(dir $dir, int $server_id = 0, string $name = null): array {
+    public static function preAcross(dir $dir, int $server_id = 0, string $name = null, $second = 60): array {
         $server_info = server::exist_server_registry($server_id);
         if(!$server_info)
             return [
@@ -92,7 +92,7 @@ class server {
         $server_id = $server_info['id'];
         return [
             $server_info,
-            cache::read($dir->show_dynamic($server_id, $name)),
+            cache::read($dir->show_dynamic($server_id, $name), second: $second),
         ];
     }
 

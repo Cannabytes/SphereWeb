@@ -14,6 +14,7 @@ namespace Ofey\Logan22\model\server;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
+use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\user\player\player_account;
 
@@ -23,7 +24,7 @@ class online {
     static private array $server_status = [];
 
     static public function server_online_status() {
-        $actualCache = cache::read(dir::server_online_status->show(), second: 120);
+        $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
         if($actualCache)
             return $actualCache;
         $data_connect_info = \Ofey\Logan22\model\server\server::get_server_info();

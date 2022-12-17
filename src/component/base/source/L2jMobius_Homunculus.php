@@ -18,6 +18,8 @@
 
 namespace Ofey\Logan22\component\base\source;
 
+use Ofey\Logan22\component\base\structure;
+
 class L2jMobius_Homunculus implements structure {
 
     /**

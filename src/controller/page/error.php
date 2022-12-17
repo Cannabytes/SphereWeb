@@ -16,4 +16,9 @@ class error {
         tpl::display("/error/404.html");
     }
 
+    static public function error404(){
+        tpl::addVar('message', 'Страница не найдена');
+        tpl::display("/error/404.html");
+    }
+
 }
