@@ -8,10 +8,9 @@
            <div class="card-body">
 
         <div class="row">
-        
 
-                    
-        <!-- Right Sidebar -->
+
+		<!-- Right Sidebar -->
         <div class="col-lg-12 col-md-12">
             
             <div class="card mt-0 shadow-none">
@@ -151,21 +150,6 @@
 						{% for basename in sql_base_source %}
                           <option {% if server['collection_sql_base_name']==basename %}selected{% endif %} value="{{ basename }}">{{ basename }}</option>
 						{% endfor %}
-                        </select>
-				  </div>
-				</div>
-				<hr>
-				<div class="form-group row">
-				  <label for="password_encrypt" class="col-sm-5 col-form-label">Password Encrypt</label>
-				  <div class="col-sm-7">
-						<select class="form-control" id="password_encrypt" name="password_encrypt">
-							{% if server['password_encrypt']=="sha1" %}
-								<option selected value="sha1">SHA1</option>
-								<option value="whirlpool">Whirlpool</option>
-								{% else %}
-								<option value="sha1">SHA1</option>
-								<option selected value="whirlpool">Whirlpool</option>
-							{% endif %}
                         </select>
 				  </div>
 				</div>
