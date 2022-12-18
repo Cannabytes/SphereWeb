@@ -92,35 +92,35 @@ class statistic {
     }
 
     static public function get_pvp($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp_TRANC', $server_id, second: timeout::statistic_pvp->time());
+        return self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp', $server_id, second: timeout::statistic_pvp->time());
     }
 
     static public function get_pk($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_pk, 'statistic_top_pk_TRANC', $server_id, second: timeout::statistic_pk->time());
+        return self::get_data_statistic(dir::statistic_pk, 'statistic_top_pk', $server_id, second: timeout::statistic_pk->time());
     }
 
     static public function get_players_online_time($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_online, 'statistic_top_onlinetime_TRANC', $server_id, second: timeout::statistic_online->time());
+        return self::get_data_statistic(dir::statistic_online, 'statistic_top_onlinetime', $server_id, second: timeout::statistic_online->time());
     }
 
     static public function get_clan($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_clan, 'statistic_top_clan_TRANC', $server_id, second: timeout::statistic_clan->time());
+        return self::get_data_statistic(dir::statistic_clan, 'statistic_top_clan', $server_id, second: timeout::statistic_clan->time());
     }
 
     public static function get_heroes($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes_TRANC', $server_id, second: timeout::statistic_heroes->time());
+        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
     }
 
     public static function get_castle($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle_TRANC', $server_id, second: timeout::statistic_castle->time());
+        return self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle', $server_id, second: timeout::statistic_castle->time());
     }
 
     public static function get_players_block($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_block, 'statistic_top_block_TRANC', $server_id, second: timeout::statistic_block->time());
+        return self::get_data_statistic(dir::statistic_block, 'statistic_top_block', $server_id, second: timeout::statistic_block->time());
     }
 
     public static function get_players_heroes($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes_TRANC', $server_id, second: timeout::statistic_heroes->time());
+        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
     }
 
     //Возращает всех персонажей
@@ -157,7 +157,7 @@ class statistic {
     }
 
     public static function top_counter($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter_TRANC', $server_id, false, false, second: timeout::statistic_counter->time());
+        return self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
     }
 
     public static function timeHasPassed($second): string {

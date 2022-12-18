@@ -11,6 +11,6 @@ class microtime {
 
     //Время загрузки страницы на момент вызова метода
     static function pointTime() {
-        return sprintf("%01.3f", microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']);
+        return sprintf("%01.2f", microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']);
     }
 }

@@ -10,12 +10,11 @@
  *
  *
  * ========
- * Чтоб установить указать для логина или геймсервера запрос необходимо установи аннотацию #[db('game')] или #[db('game')]
- * если не указать, запросы по-умолчанию будут для геймсервера.
+ * Чтоб установить указать для логина или геймсервера запрос необходимо установи аннотацию #[db('game')] или
+ * #[db('game')] если не указать, запросы по-умолчанию будут для геймсервера.
  * ========
  *
  */
-
 
 namespace Ofey\Logan22\component\base\source;
 
@@ -23,146 +22,45 @@ use Ofey\Logan22\component\base\structure;
 
 class L2JOpen_HighFive implements structure {
 
-    /**
-     * @return string
-     */
-    static public function hash() {
+    static public function hash(): string {
         return 'sha1';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function chronicle() {
-        return [267, 268, 271, 273];
+    static public function chronicle(): mixed {
+        return [
+            267,
+            268,
+            271,
+            273,
+        ];
     }
 
-    /**
-     * @return mixed
-     */
-    static public function need_logout_player_for_item_add() {
+    static public function need_logout_player_for_item_add(): bool {
         return true;
     }
 
-    /**
-     * @return mixed
-     *
-     */
     #[db("login")]
-    static public function account_is_exist() {
+    static public function account_is_exist(): string {
         return 'SELECT `login`, `password` FROM `accounts` WHERE login=?;';
     }
 
-    /**
-     * @return mixed
-     */
     #[db("login")]
-    static public function account_registration() {
+    static public function account_registration(): string {
         return 'INSERT INTO `accounts` (`login`, `password`, `email` ) VALUES (?, ?, ?);';
     }
 
-    /**
-     * @return mixed
-     */
     #[db("login")]
-    static public function account_change_password() {
+    static public function account_change_password(): string {
         return 'UPDATE `accounts` SET `password` = ? WHERE `login` = ?;';
     }
 
-    /**
-     * @return mixed
-     */
     #[db("login")]
-    static public function accounts_email() {
+    static public function accounts_email(): string {
         return 'SELECT login, password FROM accounts WHERE email = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function account_characters() {
-        return 'SELECT
-                        characters.account_name as login,
-                        characters.obj_Id as player_id,
-                        characters.char_name as player_name,
-                        characters.sex,
-                        characters.x,
-                        characters.y,
-                        characters.z,
-                        characters.pvpkills as pvp,
-                        characters.pkkills as pk,
-                        characters.clanid as clan_id,
-                        characters.`online`,
-                        characters.onlinetime AS time_in_game,
-                        clan_data.clan_name,
-                        clan_data.crest AS clan_crest,
-                        character_subclasses.class_id as player_class_id,
-                        character_subclasses.`level`,
-                        ally_data.crest AS alliance_crest 
-                    FROM
-                        characters
-                        LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                        LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
-                        LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
-                    WHERE
-                        character_subclasses.active = 1 
-                        AND characters.account_name = ?';
-    }
-
-    /**
-     * @return mixed
-     */
-    static public function is_characters_name() {
-        return 'SELECT
-                     characters.account_name as login,
-                     characters.obj_Id as player_id,
-                     characters.char_name as player_name,
-                     characters.sex,
-                     characters.x,
-                     characters.y,
-                     characters.z,
-                     characters.pvpkills as pvp,
-                     characters.pkkills as pk,
-                     characters.clanid as clan_id,
-                     characters.`online`,
-                     characters.onlinetime AS time_in_game,
-                     clan_data.clan_name,
-                     clan_data.crest AS clan_crest,
-                     character_subclasses.class_id as player_class_id,
-                     character_subclasses.`level`,
-                     ally_data.crest AS alliance_crest 
-                   FROM
-                     characters
-                     LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                     LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
-                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
-                   WHERE
-                       characters.char_name = ?';
-    }
-
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_pvp() {
-        return 'SELECT
-                        char_name as player_name,
-                        pvpkills as pvp,
-                        pkkills as pk,
-                        clanid as clan_id,
-                        onlinetime  AS time_in_game
-                    FROM
-                        characters 
-                    ORDER BY
-                        pvpkills DESC,
-                        onlinetime ASC 
-                        LIMIT 100';
-    }
-
-    /**
-     * @return mixed
-     */
     #[db('game')]
-    static public function statistic_top_pvp_TRANC() {
+    static public function statistic_top_pvp(): string {
         return 'SELECT
                         characters.obj_Id AS player_id, 
                         characters.char_name AS player_name, 
@@ -201,10 +99,7 @@ class L2JOpen_HighFive implements structure {
                     LIMIT 100';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_pk_TRANC() {
+    static public function statistic_top_pk(): string {
         return 'SELECT
                         characters.obj_Id AS player_id, 
                         characters.char_name AS player_name, 
@@ -243,10 +138,7 @@ class L2JOpen_HighFive implements structure {
                     LIMIT 100';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_clan_TRANC() {
+    static public function statistic_top_clan(): string {
         return 'SELECT
                         clan_data.clan_id,
                         clan_data.hasCastle AS castle_id,
@@ -273,10 +165,7 @@ class L2JOpen_HighFive implements structure {
                         LIMIT 100';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_clan_data() {
+    static public function statistic_clan_data(): string {
         return 'SELECT
                     clan_data.clan_id, 
                     clan_data.clan_name, 
@@ -304,10 +193,7 @@ class L2JOpen_HighFive implements structure {
                     clan_data.clan_name = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_clan_skills() {
+    static public function statistic_clan_skills(): string {
         return 'SELECT
                         clan_skills.skill_id, 
                         clan_skills.skill_level
@@ -317,10 +203,7 @@ class L2JOpen_HighFive implements structure {
                         clan_skills.clan_id = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_clan_players() {
+    static public function statistic_clan_players(): string {
         return 'SELECT
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
@@ -334,17 +217,11 @@ class L2JOpen_HighFive implements structure {
                         characters.clanid = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_player_TRANC() {
+    static public function statistic_top_player(): string {
         return 'SELECT characters.*, clan_data.* FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id ORDER BY onlinetime DESC LIMIT 100';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_heroes_TRANC() {
+    static public function statistic_top_heroes(): string {
         return 'SELECT
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
@@ -380,10 +257,7 @@ class L2JOpen_HighFive implements structure {
 	                    characters.onlinetime DESC';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_castle_TRANC() {
+    static public function statistic_top_castle(): string {
         return 'SELECT
                         castle.id AS castle_id,
                         castle.`name`,
@@ -411,10 +285,7 @@ class L2JOpen_HighFive implements structure {
                         LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_block_TRANC() {
+    static public function statistic_top_block(): string {
         return 'SELECT
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
@@ -438,10 +309,7 @@ class L2JOpen_HighFive implements structure {
                         characters.accesslevel < 0;';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_onlinetime_TRANC() {
+    static public function statistic_top_onlinetime(): string {
         return 'SELECT
                         characters.obj_Id AS player_id, 
                         characters.char_name AS player_name, 
@@ -479,10 +347,7 @@ class L2JOpen_HighFive implements structure {
                     LIMIT 100;';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_player_info() {
+    static public function statistic_player_info(): string {
         return 'SELECT
                     characters.obj_id AS player_id,
                     characters.char_name AS player_name,
@@ -508,7 +373,7 @@ class L2JOpen_HighFive implements structure {
                     characters.char_name = ? AND character_subclasses.isBase = 1';
     }
 
-    static public function statistic_player_info_sub_class() {
+    static public function statistic_player_info_sub_class(): string {
         return 'SELECT
                         character_subclasses.class_id, 
                         character_subclasses.`level`
@@ -518,7 +383,7 @@ class L2JOpen_HighFive implements structure {
                         character_subclasses.char_obj_id = ? AND character_subclasses.isBase = 0';
     }
 
-    static public function statistic_player_inventory_info() {
+    static public function statistic_player_inventory_info(): string {
         return 'SELECT
                         items.item_id,
                         items.count,
@@ -531,10 +396,7 @@ class L2JOpen_HighFive implements structure {
                         AND items.owner_id = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_counter_TRANC() {
+    static public function statistic_top_counter(): string {
         return 'SELECT
                         SUM( characters.onlinetime ) AS `count_onlinetime`,
                         SUM( characters.pvpkills ) AS `count_pvpkills`,
@@ -548,75 +410,27 @@ class L2JOpen_HighFive implements structure {
                         characters;';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function statistic_top_online_count_TRANC() {
-        return 'SELECT * FROM characters;';
-    }
-
-    /**
-     * @return mixed
-     */
-    static public function is_player() {
+    static public function is_player(): string {
         return 'SELECT charId as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function max_value_item_object() {
+    static public function max_value_item_object(): string {
         return 'SELECT MAX(object_id) + 1 AS `max_object_id` FROM `items`';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function check_item_player() {
+    static public function check_item_player(): string {
         return 'SELECT count, object_id, owner_id, item_id FROM items WHERE item_id = ? AND owner_id = ? LIMIT 1';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function update_item_count_player() {
+    static public function update_item_count_player(): string {
         return 'UPDATE `items` SET `count` = ? WHERE `object_id` = ?';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function add_item() {
+    static public function add_item(): string {
         return 'INSERT INTO `items` (`owner_id`, `object_id`, `item_id`, `count`, `enchant_level`, `loc`) VALUES (?, ?, ?, ?, ?, ?)';
     }
 
-    /**
-     * @return mixed
-     */
-    static public function all_player_items() {
-        return 'SELECT
-                        items.item_id,
-                        items.count,
-                        items.enchant_level,
-                        items.loc 
-                    FROM
-                        items
-                        LEFT JOIN characters ON items.owner_id = characters.charId 
-                    WHERE
-                        characters.charId = ?';
-    }
-
-    /**
-     * @return mixed
-     */
-    static public function player_subclasses() {
-        return 'SELECT class_id, `level` FROM character_subclasses WHERE character_subclasses.charId = ?';
-    }
-
-    /**
-     * @return mixed
-     */
-    static public function count_online_player() {
-        return 'SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 0';
+    static public function count_online_player(): string {
+        return 'SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 1';
     }
 }

@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `date_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `access_level` enum('user','moderator','admin') COLLATE utf8mb4_unicode_ci DEFAULT 'user',
   `donate_point` int(11) DEFAULT 0,
-  `avatar` varchar(62) COLLATE utf8mb4_unicode_ci DEFAULT 'none.png',
-  `avatar_background` varchar(62) COLLATE utf8mb4_unicode_ci DEFAULT 'none.png',
+  `avatar` varchar(62) COLLATE utf8mb4_unicode_ci DEFAULT 'none.jpeg',
+  `avatar_background` varchar(62) COLLATE utf8mb4_unicode_ci DEFAULT 'none.jpeg',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 

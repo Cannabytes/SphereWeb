@@ -25,7 +25,6 @@ $router->get("registration/user", 'Ofey\Logan22\controller\registration\user::sh
 $router->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\controller\account\password\change::show');
 $router->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
-$router->get("account/info/([a-zA-Z0-9]+)/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::account');
 $router->get("account/info/([a-zA-Z0-9]+)/player/{char_name}/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::player');
 $router->get("about/(\d+)", 'Ofey\Logan22\controller\about\about::show');
 
