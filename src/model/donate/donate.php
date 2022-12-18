@@ -21,7 +21,7 @@ class donate {
     /**
      * Список товаров для покупки за донат очки
      *
-     * @return false|\PDOStatement|void
+     * @return false|\PDOStatement
      * @throws Exception
      */
     static public function products() {
@@ -29,9 +29,29 @@ class donate {
         if($server_id == false) {
             tpl::display("error/not_server.html");
         }
-        return sql::run("SELECT * FROM `donate` WHERE server_id = ?", [
+        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ?", [
             $server_id,
-        ]);
+        ])->fetchAll();
+
+        $item_id_list = [];
+        foreach($donate as $item) {
+            $item_id_list[] = $item['item_id'];
+        }
+
+
+        $list = implode(', ', $item_id_list);
+        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
+
+        $items = [];
+        foreach($donate as $item) {
+            $item_id = $item['item_id'];
+            foreach($lex as $row) {
+                if($item_id == $row['item_id']) {
+                    $items[] = array_merge($item, $row);
+                }
+            }
+        }
+         return  $items;
     }
 
     /*
@@ -41,12 +61,12 @@ class donate {
         $id = $_POST['id'];
         $server_id = $_POST['server_id'];
         $user_value = $_POST['user_value'];
-        $char_name = $_POST['char_name'];
+        $char_name = trim($_POST['char_name']);
         if($char_name == "") {
             board::notice(false, 'Имя пользователя не может быть пустым');
         }
         $donat_info = self::donate_item_info($id, $server_id);
-        if($donat_info == false) {
+        if(!$donat_info) {
             board::notice(false, 'Товар не найден');
         }
         //Стоимость товара * на количество
@@ -56,21 +76,17 @@ class donate {
         }
 
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
+        if(!$server_info) {
             board::notice(false, 'Сервер не найден');
         }
 
-        $reQuest = server::db_info_id($server_info['db_id']);
-        if($reQuest == false) {
-            board::notice(false, 'Проблемы чтения данных из БД');
-        }
-
-        $player_info = player_account::is_player($reQuest, [$char_name]);
+        $player_info = player_account::is_player($server_info, [$char_name]);
         $player_info = $player_info->fetch();
-        if($player_info == false) {
+
+        if(!$player_info) {
             board::notice(false, "Персонаж «{$char_name}» не найден");
         }
-        $owner_id = $player_info["obj_id"];
+        $player_id = $player_info["player_id"];
         if($player_info["online"]) {
             board::notice(false, "Персонаж «{$char_name}» не должен быть в игре");
         }
@@ -80,17 +96,17 @@ class donate {
          * Проверим, есть ли на персонаже X предмет N
          * Если есть, добавим к числу N+N предметов
          */
-        $checkPlayerItem = player_account::check_item($reQuest, [$donat_info['item_id'], $owner_id]);
+        $checkPlayerItem = player_account::check_item($server_info, [$donat_info['item_id'], $player_id]);
         $checkPlayerItem = $checkPlayerItem->fetch();
         //Если предмет есть у игрока
         if($checkPlayerItem){
-            player_account::update_item_count_player($reQuest, [$checkPlayerItem['count']+$addToUserItems, $checkPlayerItem['object_id']]);
+            player_account::update_item_count_player($server_info, [($checkPlayerItem['count'] + $addToUserItems), $checkPlayerItem['object_id']]);
         }else{
             //Предмета нет в инвентаре, добавим.
-            $max_obj_id = player_account::max_value_item_object($reQuest)->fetch()['max_object_id'];
-            player_account::add_item($reQuest, [
-                $owner_id,
-                time() - $max_obj_id - $owner_id,
+            $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
+            player_account::add_item($server_info, [
+                $player_id,
+                time() - $max_obj_id - $player_id,
                 $donat_info['item_id'],
                 $addToUserItems,
                 0,
@@ -103,7 +119,7 @@ class donate {
         auth::set_donate_point(auth::get_donate_point() - $cost_product);
         board::alert([
             'ok'           => true,
-            'message'      => "Вы купили " . itemgame::get_item($donat_info['item_id'])['name'] . " {$addToUserItems} шт. ",
+            'message'      => "Вы купили " . $donat_info['item_id'] . " {$addToUserItems} шт. ",
             'donate_bonus' => auth::get_donate_point(),
         ]);
     }

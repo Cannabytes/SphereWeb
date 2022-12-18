@@ -218,10 +218,6 @@ class server {
         return sql::run("SELECT id, login_host, login_name, login_password, login_user, game_host, game_name, game_password, game_user, collection_sql_base_name, password_encrypt FROM server_connect_db WHERE id = ?", [$id])->fetch();
     }
 
-    public static function db_info_all() {
-        return sql::run("SELECT id, login_host, login_name, login_password, login_user, game_host, game_name, game_password, game_user, collection_sql_base_name, password_encrypt FROM server_connect_db")->fetchAll();
-    }
-
     static function get_server_description($server_id) {
         $sqlDescInfo = "SELECT
 	                        server_id, 

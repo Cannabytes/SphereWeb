@@ -40,16 +40,15 @@
 	<hr>
 	              
 	<div class="row" id="products">
-	{% for product in products%}
+	{% for product in products %}
     <div class="col-lg-4">
     <div class="pricing-table">
      <div class="card">
        <div class="card-body text-center">
-     <div class="" data-toggle="tooltip" data-html="true" data-placement="top" title="{{ get_item_info(product.item_id)['description_ru']|nl2br }}" >
-         {{ grade_img(get_item_info(product.item_id)['crystal_type']) }}
-         {{ get_item_info(product.item_id)['name_en'] }}
+     <div class="" data-toggle="tooltip" data-html="true" data-placement="top" title="{{ product['description']|nl2br }}" >
+         {{ grade_img(product['crystal_type']) }}
      </div>
-	   <img src="uploads/images/icon/{{get_item_info(product.item_id)['icon']}}" class="customer-img ">
+	   <img src="uploads/images/icon/{{product['icon']}}" class="customer-img ">
 
        <ul class="list-group list-group-flush">
       <li class="list-group-item"><b>Кол-во:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span></li>
@@ -63,7 +62,7 @@
 	   </li>
       </ul>
 	  
-      <button href="javascript:void();" data-product-name="{{get_item_info(product.item_id)['name_en']}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply" class="btn btn-success my-3 openWindowBuy">Купить</button>
+      <button href="javascript:void();" data-product-name="{{product['name_en']}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply" class="btn btn-success my-3 openWindowBuy">Купить</button>
 		</div>
       </div>
      </div>

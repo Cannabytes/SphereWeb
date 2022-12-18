@@ -2,16 +2,13 @@
 
 namespace Ofey\Logan22\template;
 
-use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
 use Ofey\Logan22\component\estate\fort;
-use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\config\config;
-use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\page\page;
 use Ofey\Logan22\model\server\online;
@@ -19,6 +16,7 @@ use Ofey\Logan22\model\statistic\statistic;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\route\Route;
+use RuntimeException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -44,22 +42,6 @@ class tpl {
         }
     }
 
-    /**
-     * Загрузка языкового пакета шаблона
-     *
-     * @return void
-     */
-    public static function lang_template_load($tpl) {
-        if(!file_exists($tpl)) {
-            return;
-        }
-        lang::load_template_lang_packet($tpl);
-    }
-
-    // Загрузка и отображение шаблона
-    // $tplName - название шаблона
-    // $categoryCabinet - true когда нужно загрузить шаблоны демо страницы,
-    // если false тогда загружается шаблоны из личного кабинета
     /**
      * @throws RuntimeError
      * @throws SyntaxError
@@ -97,10 +79,9 @@ class tpl {
                     return call_user_func_array($name, func_get_args());
                 });
             }
-            throw new \RuntimeException(sprintf('Function %s not found', $name));
+            throw new RuntimeException(sprintf('Function %s not found', $name));
             //            echo sprintf('Function «%s» not found', $name);exit;
         });
-
 
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
             return array_slice(statistic::get_pvp($server_id), 0, $count);
@@ -167,7 +148,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('format_number_fr', function($num) {
-            echo number_format($num, 0, ',', ' ');;
+            echo number_format($num, 0, ',', ' ');
         }));
 
         //Время (в секундах) в часы. минуты, сек.
@@ -218,10 +199,6 @@ class tpl {
             return other::get_user_in_list($user_id);
         }));
 
-        $twig->addFunction(new TwigFunction('get_item', function($id) {
-            return itemgame::get_item($id);
-        }));
-
         $twig->addFunction(new TwigFunction('lang_flag', function() {
             return lang::lang_flag();
         }));
@@ -250,9 +227,6 @@ class tpl {
             return config::get_enable_game_chat();
         }));
 
-        $twig->addFunction(new TwigFunction('get_item_info', function($item_id) {
-            return itemgame::get_item_info($item_id);
-        }));
         $twig->addFunction(new TwigFunction('get_screen_enable', function() {
             return config::get_screen_enable();
         }));
@@ -330,10 +304,10 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('icon', function($fileIcon = null) {
-            if(file_exists("uploads/images/icon/" . $fileIcon) AND $fileIcon != null) {
+            if(file_exists("uploads/images/icon/" . $fileIcon) and $fileIcon != null) {
                 return "/uploads/images/icon/" . $fileIcon;
             }
-            return  "/uploads/images/icon/NOIMAGE.png";
+            return "/uploads/images/icon/NOIMAGE.png";
         }));
 
         $template = $twig->load($tplName);
@@ -343,29 +317,20 @@ class tpl {
         exit();
     }
 
-    static function server_list_menu(): bool|array {
-        return sql::run("SELECT
-                                    server_list.id, 
-                                    server_list.`name`, 
-                                    server_list.description, 
-                                    server_list.rate_exp, 
-                                    server_list.rate_sp, 
-                                    server_list.rate_adena, 
-                                    server_list.rate_drop_item, 
-                                    server_list.rate_spoil, 
-                                    server_list.date_start_server, 
-                                    server_list.chronicle, 
-                                    server_list.login_host, 
-                                    server_list.login_user, 
-                                    server_list.login_password, 
-                                    server_list.login_name, 
-                                    server_list.game_host, 
-                                    server_list.game_user, 
-                                    server_list.game_password, 
-                                    server_list.game_name, 
-                                    server_list.collection_sql_base_name, 
-                                    server_list.password_encrypt
-                                FROM
-                                    server_list")->fetchAll();
+    // Загрузка и отображение шаблона
+    // $tplName - название шаблона
+    // $categoryCabinet - true когда нужно загрузить шаблоны демо страницы,
+    // если false тогда загружается шаблоны из личного кабинета
+
+    /**
+     * Загрузка языкового пакета шаблона
+     *
+     * @return void
+     */
+    public static function lang_template_load($tpl) {
+        if(!file_exists($tpl)) {
+            return;
+        }
+        lang::load_template_lang_packet($tpl);
     }
 }
