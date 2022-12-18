@@ -5933,6 +5933,35 @@ table.grid td {
     font-size: 20px;
 }
 
+.statistic-menu {
+	text-shadow: 1px 1px 2px #000000c2, 0 0 1em #8fb7e1, 0 0 0.2em #412b5b;
+}
+
+.statistic-pvp{
+	background-image: url(../images/statistic/pvp.jpg);
+	background-size: cover;
+}
+
+.statistic-pk{
+	background-image: url(../images/statistic/pk.jpg);
+	background-size: cover;
+}
+
+.statistic-clan{
+	background-image: url(../images/statistic/clan.jpg);
+	background-size: cover;
+}
+
+.statistic-castle{
+	background-image: url(../images/statistic/castle.jpg);
+	background-size: cover;
+}
+
+.statistic-onlinetime{
+	background-image: url(../images/statistic/onlinetime.jpg);
+	background-size: cover;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 1366px) {

@@ -1,10 +1,10 @@
 <div class="row mt-3">
     <div class="col-12 col-lg-6 col-xl-2">
-      <div class="card">
+      <div class="card statistic-pvp">
        <div class="card-body">
 		 <a href="/statistic/pvp">
 			  <div class="media align-items-center">
-				<div class="media-body">
+				<div class="media-body statistic-menu">
 				  <h4 class="mb-0 ml-1 text-white">{{ other_statistic.count_pvpkills }}</h4>
 				  <p class="mb-0 ml-1 extra-small-font text-white">Player vs Player</p>
 				</div>
@@ -15,11 +15,11 @@
      </div>
 
     <div class="col-12 col-lg-6 col-xl-2">
-      <div class="card">
+      <div class="card statistic-pk">
        <div class="card-body">
 	   <a href="/statistic/pk">
           <div class="media align-items-center">
-          <div class="media-body">
+          <div class="media-body statistic-menu">
               <h4 class="mb-0 ml-1 text-white">{{ other_statistic.count_pkkills }}</h4>
               <p class="mb-0 ml-1 extra-small-font text-white">Player Kills</p>
             </div>
@@ -30,11 +30,11 @@
      </div>
 
      <div class="col-12 col-lg-6 col-xl-2">
-      <div class="card">
+      <div class="card statistic-clan">
        <div class="card-body">
 		  <a href="/statistic/clan">
           <div class="media align-items-center">
-             <div class="media-body ">
+             <div class="media-body statistic-menu">
               <h4 class="mb-0 ml-2 text-white">{{ other_statistic.count_clans }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">Clans</p>
             </div>
@@ -45,11 +45,11 @@
      </div>
 	 
  <div class="col-12 col-lg-6 col-xl-2">
-      <div class="card">
+      <div class="card statistic-castle">
        <div class="card-body">
 		  <a href="/statistic/castle">
           <div class="media align-items-center">
-            <div class="media-body">
+            <div class="media-body statistic-menu">
               <h4 class="mb-0 ml-2 text-white">{{ other_statistic.count_clan_has_castle }}/{{ other_statistic.count_castle }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">Замки</p>
             </div>
@@ -60,11 +60,11 @@
      </div>
 	 
      <div class="col-12 col-lg-6 col-xl-4">
-      <div class="card">
+      <div class="card statistic-onlinetime">
        <div class="card-body">
 		  <a href="/statistic/online/time">
           <div class="media align-items-center">
-            <div class="media-body">
+            <div class="media-body statistic-menu">
               <h4 class="mb-0 ml-2 text-white">{{ timeHasPassed(other_statistic.count_onlinetime) }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">Общее время игры</p>
             </div>

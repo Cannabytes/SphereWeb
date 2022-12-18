@@ -26,15 +26,11 @@ class comparison {
     */
     static public function start($server_id) {
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
+        if(!$server_info) {
             board::notice(false, 'Сервер не найден');
         }
-        $reQuest = server::db_info_id($server_info['db_id']);
 
-        if($reQuest == false) {
-            board::notice(false, 'Какая-то ошибка');
-        }
-        $accounts = self::accounts_email($reQuest, auth::get_email())->fetchAll();
+        $accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();
         $accounts_inside = player_account::show_all_account_player();
         $accountsForUpdate = [];
         foreach($accounts as $serverAccount) {
@@ -45,7 +41,7 @@ class comparison {
                 if($inside['login'] == $serverAccount['login']) {
                     $found = true;
                     if(!$inside['password_hide']){
-                        $password = encrypt::server_password($inside['password'], $reQuest);
+                        $password = encrypt::server_password($inside['password'], $server_info);
                         if($serverAccount['password'] != $password) {
                             $accountsForUpdate[] = $serverAccount;
                         }
