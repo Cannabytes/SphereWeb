@@ -60,6 +60,7 @@ $router->get("channel/create", 'Ofey\Logan22\controller\channel\channel::create'
 /**
  * Статистика
  */
+$router->get("/statistic/class/{class_name}", 'Ofey\Logan22\controller\statistic\statistic::class');
 $router->get("statistic/pvp", 'Ofey\Logan22\controller\statistic\statistic::pvp');
 $router->post("statistic/pvp/ajax", 'Ofey\Logan22\controller\statistic\statistic::pvp_ajax');
 $router->get("statistic/pk", 'Ofey\Logan22\controller\statistic\statistic::pk');

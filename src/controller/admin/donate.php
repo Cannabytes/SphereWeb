@@ -21,7 +21,6 @@ class donate {
             'server_list' => server::get_server_info(),
         ]);
         tpl::addVar("products", \Ofey\Logan22\model\donate\donate::products());
-
         tpl::display("/admin/donate/donate.html");
     }
 

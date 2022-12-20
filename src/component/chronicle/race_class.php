@@ -172,6 +172,22 @@ class race_class {
         return "Неизвестный класс: {$class_id}";
     }
 
+    /**
+     * @param $class_name
+     *
+     * @return int|null
+     *
+     * Возвращаем ID класса
+     */
+    static public function get_id_class($class_name): ?int {
+        foreach(self::$class as $class_id => $_class_name) {
+            if(mb_strtolower($_class_name) == mb_strtolower($class_name)) {
+                return $class_id;
+            }
+        }
+        return null;
+    }
+
     static private array $human_id      = [
         1   => 'Warrior',
         2   => 'Gladiator',
@@ -342,42 +358,41 @@ class race_class {
 
     //Раса по классу
     static public function get_class_race($class_id): string {
-        foreach(self::$human_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$human_id as $k => $v) {
+            if($k == $class_id) {
                 return 'human';
             }
         }
-        foreach(self::$elven_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$elven_id as $k => $v) {
+            if($k == $class_id) {
                 return 'elf';
             }
         }
-        foreach(self::$dark_elven_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$dark_elven_id as $k => $v) {
+            if($k == $class_id) {
                 return 'darkelf';
             }
         }
-        foreach(self::$orc_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$orc_id as $k => $v) {
+            if($k == $class_id) {
                 return 'orc';
             }
         }
-        foreach(self::$dwarf_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$dwarf_id as $k => $v) {
+            if($k == $class_id) {
                 return 'dwarf';
             }
         }
-        foreach(self::$kamael_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$kamael_id as $k => $v) {
+            if($k == $class_id) {
                 return 'kamael';
             }
         }
-        foreach(self::$ertheia_id AS $k => $v){
-            if($k==$class_id){
+        foreach(self::$ertheia_id as $k => $v) {
+            if($k == $class_id) {
                 return 'ertheia';
             }
         }
         return 'none';
     }
-
 }

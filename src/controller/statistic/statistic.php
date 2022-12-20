@@ -7,7 +7,9 @@
 
 namespace Ofey\Logan22\controller\statistic;
 
+use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\template\tpl;
@@ -113,6 +115,7 @@ class statistic {
     }
 
     static public function char_info($char_name = null): void {
+        other::current_server();
         $get_player_info = statistic_model::get_player_info($char_name);
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
@@ -122,4 +125,21 @@ class statistic {
         tpl::addVar("sub_class", $sub_class);
         tpl::display("statistic/char.html");
     }
+
+    /**
+     * TODO: Необходимо добавить проверку класса по хроникам.
+     * В данный момент можно прописать класс из "выше хроник" и поиск пройдет.
+     */
+    static public function class($class_name): void {
+        $class_id = race_class::get_id_class($class_name);
+        if($class_id==null) error::error404("Игровой класс не найден");
+        $class_name = race_class::get_class($class_id);
+        other::current_server();
+        tpl::addVar("other_statistic", statistic_model::top_counter());
+        tpl::addVar("title", "Статистика персонажей класса $class_name" );
+        tpl::addVar("class_name", $class_name);
+        tpl::addVar("player_classes", statistic_model::statistic_class($class_name, [$class_id]));
+        tpl::display("statistic/class.html");
+    }
+
 }

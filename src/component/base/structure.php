@@ -169,6 +169,13 @@ interface structure {
     static public function statistic_top_counter(): string;
 
     /**
+     * ТОП персонажей N класса
+     *
+     * @return string
+     */
+    static public function statistic_top_class(): string;
+
+    /**
      * Получение ID персонажа
      *
      * @return mixed

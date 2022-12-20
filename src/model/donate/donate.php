@@ -27,18 +27,17 @@ class donate {
      */
     static public function products() {
         $server_id = auth::get_default_server();
-        if($server_id == false) {
+        if(!$server_id) {
             tpl::display("error/not_server.html");
         }
         $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ?", [
             $server_id,
         ])->fetchAll();
-
         $item_id_list = [];
         foreach($donate as $item) {
             $item_id_list[] = $item['item_id'];
         }
-
+        if(empty($item_id_list)) return $item_id_list;
         $list = implode(', ', $item_id_list);
         $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
 

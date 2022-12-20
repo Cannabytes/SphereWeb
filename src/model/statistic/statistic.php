@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\statistic;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
+use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
@@ -162,7 +163,7 @@ class statistic {
     }
 
     public static function timeHasPassed($second): string {
-        if(lang::lang_flag()=="ru"){
+        if(lang::lang_flag() == "ru") {
             $times_values = [
                 'сек.',
                 'мин.',
@@ -170,7 +171,7 @@ class statistic {
                 'д.',
                 'лет',
             ];
-        }else{
+        } else {
             $times_values = [
                 'sec.',
                 'min.',
@@ -179,7 +180,6 @@ class statistic {
                 'y.',
             ];
         }
-
 
         $times = self::seconds2times($second);
         $line = '';
@@ -247,5 +247,9 @@ class statistic {
             'clan_players' => $clan_players,
             'clan_skills'  => $clan_skills,
         ];
+    }
+
+    static public function statistic_class($class_id, $prepare = [], $server_id = 0) {
+        return self::get_data_statistic_player(dir: dir::statistic_class, collection_sql_name: 'statistic_top_class', player_name: $class_id, server_id: $server_id, acrossAll: true, crest_convert: true, prepare: $prepare, second: timeout::statistic_counter->time());
     }
 }

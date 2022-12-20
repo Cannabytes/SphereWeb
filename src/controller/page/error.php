@@ -12,14 +12,17 @@ use Ofey\Logan22\template\tpl;
 
 class error {
 
-    static public function show($e){
+    static public function show($e) {
         tpl::addVar('message', $e->getMessage());
         tpl::display("/error/404.html");
     }
 
-    static public function error404(){
-        tpl::addVar('message', lang::get_phrase(239));
+    static public function error404($message = null) {
+        if($message == null) {
+            $message = lang::get_phrase(239);
+        }
+        tpl::addVar("title", "Oops...404");
+        tpl::addVar('message', $message);
         tpl::display("/error/404.html");
     }
-
 }

@@ -75,8 +75,8 @@ class L2JOpen_HighFive implements structure {
                         characters.onlinetime AS time_in_game, 
                         clan_data.clan_name, 
                         clan_data.crest AS clan_crest, 
-                        character_subclasses.class_id AS player_class_id, 
-                        character_subclasses.`level`, 
+                        character_subclasses.class_id AS class_id, 
+                        character_subclasses.`level` AS level, 
                         ally_data.crest AS alliance_crest
                     FROM
                         characters
@@ -114,7 +114,7 @@ class L2JOpen_HighFive implements structure {
                         characters.onlinetime AS time_in_game, 
                         clan_data.clan_name, 
                         clan_data.crest AS clan_crest, 
-                        character_subclasses.class_id AS player_class_id, 
+                        character_subclasses.class_id AS class_id, 
                         character_subclasses.`level`, 
                         ally_data.crest AS alliance_crest
                     FROM
@@ -407,6 +407,41 @@ class L2JOpen_HighFive implements structure {
                         ( SELECT count(*) FROM `characters` ) AS `player_all` 
                     FROM
                         characters;';
+    }
+
+    static public function statistic_top_class(): string {
+        return 'SELECT
+                    characters.char_name AS player_name, 
+                    characters.pvpkills AS pvp, 
+                    characters.pkkills AS pk, 
+                    characters.onlinetime AS time_in_game, 
+                    character_subclasses.`level`, 
+                    clan_data.clan_name, 
+                    clan_data.crest AS clan_crest, 
+                    ally_data.crest AS alliance_crest
+                FROM
+                    character_subclasses
+                    LEFT JOIN
+                    characters
+                    ON 
+                        character_subclasses.char_obj_id = characters.obj_Id
+                    LEFT JOIN
+                    clan_data
+                    ON 
+                        characters.clanid = clan_data.clan_id
+                    LEFT JOIN
+                    ally_data
+                    ON 
+                        clan_data.ally_id = ally_data.ally_id
+                WHERE
+                    character_subclasses.class_id = ? AND
+                    character_subclasses.isBase = 1 AND
+                    characters.pvpkills > 0
+                ORDER BY
+                    characters.pvpkills DESC,
+                    character_subclasses.`level` DESC, 
+                    time_in_game DESC
+                LIMIT 100;';
     }
 
     static public function is_player(): string {
