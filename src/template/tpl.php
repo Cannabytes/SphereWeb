@@ -12,6 +12,7 @@ use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\page\page;
 use Ofey\Logan22\model\server\online;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\statistic\statistic;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\profile\other;
@@ -272,6 +273,14 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('server_online_status', function() {
             return online::server_online_status();
+        }));
+
+        $twig->addFunction(new TwigFunction('get_default_page', function($str, $server_id) {
+            $pId = server::get_default_desc_page_id($server_id);
+            if($pId){
+                return "<a href='/page/{$pId}'>$str</a>";
+            }
+            return $str;
         }));
 
         $twig->addFunction(new TwigFunction('http_referer', function() {

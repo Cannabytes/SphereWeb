@@ -11,6 +11,7 @@ use Exception;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -39,7 +40,6 @@ class server {
         self::$server_info = sql::run("SELECT
                                     server_list.id, 
                                     server_list.`name`, 
-                                    server_list.description, 
                                     server_list.rate_exp, 
                                     server_list.rate_sp, 
                                     server_list.rate_adena, 
@@ -58,6 +58,9 @@ class server {
                                     server_list.collection_sql_base_name 
                                 FROM
                                     server_list")->fetchAll();
+        foreach(self::$server_info as &$server) {
+            $server['desc_page_id'] = self::get_default_desc_page_id($server['id']);
+        }
         if($id != null) {
             foreach(self::$server_info as $server) {
                 if($id == $server['id']) {
@@ -67,6 +70,39 @@ class server {
             return false;
         }
         return self::$server_info;
+    }
+
+    //Страница по умолчанию
+    static private array $get_default_desc_page_id = [];
+    //Возращаем ID страницы описания
+    static public function get_default_desc_page_id($server_id) {
+        if(self::$get_default_desc_page_id == []) {
+            self::$get_default_desc_page_id = sql::getRows("SELECT
+                                server_description.server_id, 
+                                server_description.lang, 
+                                server_description.page_id, 
+                                server_description.`default`
+                            FROM
+                                server_description");
+        }
+        //Возращаем ID страницы описания согласно языка пользователя
+        foreach(self::$get_default_desc_page_id as $row) {
+            if($server_id == $row['server_id']) {
+                if($row['lang'] == lang::lang_user_default()) {
+                    return $row['page_id'];
+                }
+            }
+        }
+        //Если нет такой страницы, вернем ID страницы по умолчанию
+        foreach(self::$get_default_desc_page_id as $row) {
+            if($server_id == $row['server_id']) {
+                if($row['default']) {
+                    return $row['page_id'];
+                }
+            }
+        }
+        //Если ничего не найдено, вернем NULL
+        return null;
     }
 
     /*
@@ -119,7 +155,7 @@ class server {
         if($inGameDBQuery == "login") {
             sdb::set_type('login');
             $ok = sdb::set_connect($server_info['login_host'], $server_info['login_user'], $server_info['login_password'], $server_info['login_name']);
-        }else {
+        } else {
             sdb::set_type('game');
             $ok = sdb::set_connect($server_info['game_host'], $server_info['game_user'], $server_info['game_password'], $server_info['game_name']);
         }
@@ -139,6 +175,7 @@ class server {
 
     /**
      * Запрос с возвращением всего массива
+     *
      * @throws Exception
      */
     public static function acrossAll($collection_name, $server_info, $prepare = []) {

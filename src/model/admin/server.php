@@ -9,10 +9,9 @@ namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\db_server;
 use Ofey\Logan22\model\db\sql;
-use Ofey\Logan22\component\lang\lang;
-
 
 class server {
 
@@ -154,31 +153,37 @@ class server {
 
     //Добавление описания
     static public function add_description() {
-        $server_id = $_POST['id'];
-        $description = trim($_POST['description']);
-        $date_create = date('Y-m-d H:i:s');
-        //Проверка существования описания
-        if(self::exist_description($server_id)) {
-            sql::run('UPDATE `server_description` SET `description` = ? WHERE `server_id` = ?', [
-                $description,
-                $server_id,
-            ]);
-        } else {
-            sql::run('INSERT INTO `server_description` (`server_id`, `description`, `date_create`) VALUES (?, ?, ?)', [
-                $server_id,
-                $description,
-                $date_create,
-            ]);
-        }
-        board::alert(true, 'Обновлено');
+        $server_id = (int)$_POST['id'];
+        $lang = ($_POST['lang']);
+        $page_id = (int)($_POST['page_id']);
+        sql::run("DELETE FROM `server_description` WHERE `server_id` = ? AND `lang` = ? ", [
+            $server_id,
+            $lang,
+        ]);
+        sql::run("INSERT INTO `server_description` (`server_id`, `lang`, `page_id`) VALUES (?, ?, ?)", [
+            $server_id,
+            $lang,
+            $page_id,
+        ]);
+        board::notice(true, 'Добавлено');
+    }
+
+    public static function description_default() {
+        $server_id = $_POST['server_id'];
+        $page_id = $_POST['page_id'];
+        $lang = $_POST['lang'];
+        sql::run("UPDATE `server_description` SET `default` = 0 WHERE `server_id` = ?", [
+            $server_id,
+        ]);
+        sql::run("UPDATE `server_description` SET `default` = 1 WHERE `server_id` = ? AND `lang` = ? AND `page_id` = ?", [
+            $server_id,
+            $lang,
+            $page_id,
+        ]);
     }
 
     private static function exist_description($id) {
         return sql::run("SELECT `server_id` FROM `server_description` WHERE server_id=?", [$id])->fetch();
-    }
-
-    public static function description_info($id) {
-        return sql::run("SELECT `description` FROM `server_description` WHERE server_id=?", [$id])->fetch();
     }
 
     public static function db_data_list($server_id = 0) {
@@ -223,7 +228,9 @@ class server {
     static function get_server_description($server_id) {
         $sqlDescInfo = "SELECT
 	                        server_id, 
-	                        description, 
+	                        lang,
+	                        page_id,
+	                        default,
 	                        date_create, 
 	                        date_update
                         FROM

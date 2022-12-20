@@ -88,7 +88,7 @@
                 <li class="list-group-item">
                     {% for online in server_online_status() %}
                     <div class="media align-items-center">
-                        <div class="media-body ml-1">{{online['name']}}</div>
+                        <div class="media-body ml-1">{{get_default_page(online['name'], online['id'])|raw}}</div>
                         <div class="media-body ml-1">x{{online['rate_exp']}}</div>
                         <div class="media-body ml-4">
                             {% if online['connect_login'] %}

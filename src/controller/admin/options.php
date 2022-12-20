@@ -73,9 +73,12 @@ class options {
     public static function description_create($id) {
         validation::user_protection("admin");
         tpl::addVar([
+            'title' => "Описание сервера",
+            'all_page_name' => \Ofey\Logan22\model\page\page::all_page_name(),
             'server_id'   => $id,
-            'server'      => server::description_info($id),
+            'desc_server_list_short' => \Ofey\Logan22\model\page\page::desc_server_list_short($id),
             'server_list' => \Ofey\Logan22\model\server\server::get_server_info(),
+            'server_info' => \Ofey\Logan22\model\server\server::get_server_info($id),
         ]);
         tpl::display("/admin/options/description.html");
     }
@@ -83,6 +86,12 @@ class options {
     public static function description_save() {
         validation::user_protection("admin");
         server::add_description();
+    }
+
+    //Установка дефолтной страницы
+    public static function description_default_page_save() {
+        validation::user_protection("admin");
+        server::description_default();
     }
 
     public static function sql_generator() {
