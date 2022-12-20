@@ -281,7 +281,6 @@ class L2JOpen_HighFive implements structure {
                         castle
                         LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
                         LEFT JOIN characters ON clan_data.leader_id = characters.obj_Id
-                        LEFT JOIN character_subclasses ON clan_data.leader_id = character_subclasses.char_obj_id
                         LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id';
     }
 
