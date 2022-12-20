@@ -70,6 +70,7 @@ class L2jMobius_Homunculus implements structure {
                         characters.onlinetime AS time_in_game,
                         clan_data.clan_name,
                         characters.`level`,
+                        characters.`classid` AS class_id,
                         crests.`data` AS clan_crest,
                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1) AS alliance_crest 
                     FROM
@@ -96,6 +97,7 @@ class L2jMobius_Homunculus implements structure {
                         characters.onlinetime AS time_in_game,
                         clan_data.clan_name,
                         characters.`level`,
+                        characters.`classid` AS class_id,
                         crests.`data` AS clan_crest,
                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1) AS alliance_crest 
                     FROM
@@ -241,19 +243,19 @@ class L2jMobius_Homunculus implements structure {
 
     static public function statistic_top_block(): string {
         return 'SELECT
-	characters.char_name AS player_name,
-	characters.pvpkills AS pvp,
-	characters.pkkills AS pk,
-	characters.onlinetime AS time_in_game,
-	characters.accesslevel,
-	clan_data.clan_name,
-	( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
-	( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
-FROM
-	characters
-	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id 
-WHERE
-	characters.accesslevel < 0;';
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.onlinetime AS time_in_game,
+                    characters.accesslevel,
+                    clan_data.clan_name,
+                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
+                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
+                FROM
+                    characters
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id 
+                WHERE
+                    characters.accesslevel < 0;';
     }
 
     static public function statistic_top_onlinetime(): string {
@@ -337,6 +339,28 @@ character_subclasses.charId = ?';
                         ( SELECT count(*) FROM `characters` ) AS `player_all` 
                     FROM
                         characters;';
+    }
+
+    public static function statistic_top_class(): string {
+        return 'SELECT
+                characters.char_name AS player_name,
+                characters.pvpkills AS pvp,
+                characters.pkkills AS pk,
+                characters.onlinetime AS time_in_game,
+                characters.`level`,
+                ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
+                ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
+            FROM
+                characters,
+                clan_data 
+            WHERE
+                characters.base_class = ? 
+                AND characters.pvpkills > 0 
+            ORDER BY
+                characters.pvpkills DESC,
+                characters.`level` DESC,
+                time_in_game DESC 
+                LIMIT 100;';
     }
 
     static public function is_player(): string {

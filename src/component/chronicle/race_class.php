@@ -169,7 +169,8 @@ class race_class {
         if(isset(self::$class[$class_id])) {
             return self::$class[$class_id];
         }
-        return "Неизвестный класс: {$class_id}";
+        return null;
+//        "Неизвестный класс: {$class_id}";
     }
 
     /**

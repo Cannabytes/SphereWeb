@@ -32,7 +32,7 @@
                           <a href="/statistic/char/{{ player['player_name']|url_encode }}">{{ player['player_name'] }}</a>
                       </td>
                       <td><strong>{{ player['pvp'] }}</strong> / {{ player['pk'] }}</td>
-                      <td>{{ get_class(player.class_id) }}</td>
+                      <td><a href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
                       <td>{% if player['castle_id'] != 0 %}
 						<span data-toggle="tooltip" data-placement="top" title="" data-original-title="{{phrase(96)}}: {{ get_castle(player['castle_id']) }}" class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
 					  {% else %}
