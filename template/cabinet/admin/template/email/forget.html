@@ -17,10 +17,7 @@
                 <div class="card-body">
                 
 				<div class="form-group row">
-				 <p>HTML страница, которую мы будет отправлять пользователю на почту.<br>
-				 Переменная <strong>%code%</strong> - содержит проверочный код.<br>
-				 Переменная <strong>%link%</strong> - ссылка на страницу сброса пароля.</br>
-				 Месторасположение шаблона: <strong>template/cabinet/email_request/forget.html</strong></p>
+				 <p>{{phrase(268)|raw}}</p>
                  <textarea class="form-control" rows="25" id="#">{{ forget }}</textarea>
                 </div>
 

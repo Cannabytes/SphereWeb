@@ -11,11 +11,11 @@
 
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-header">Информация о персонаже {{player.player_name}} {% if player.title %} <span class="badge badge-pill badge-dark shadow-dark m-1">{{player.title}}</span>{%endif%}</div>
+                    <div class="card-header">{{phrase(112)}} {{player.player_name}} {% if player.title %} <span class="badge badge-pill badge-dark shadow-dark m-1">{{player.title}}</span>{%endif%}</div>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th scope="row">Уровень:</th>
+                                <th scope="row">{{phrase(100)}}:</th>
                                 <td>{{player.level}}</td>
                             </tr>
                             <tr>
@@ -24,30 +24,30 @@
                             </tr>
                             {% if karma %}
                             <tr>
-                                <th scope="row">Карма:</th>
+                                <th scope="row">{{phrase(113)}}:</th>
                                 <td>{{player.karma}}</td>
                             </tr>
                             {% endif %}
                             <tr>
-                                <th scope="row">Класс:</th>
+                                <th scope="row">{{phrase(109)}}:</th>
                                 <td>{{get_class(player.class_id)}}</td>
                             </tr>
                             {% if createtime %}
                             <tr>
-                                <th scope="row">Дата создания:</th>
+                                <th scope="row">{{phrase(114)}}:</th>
                                 <td>{{ fdate(player.createtime) }} </td>
                             </tr>
                             {% endif %}
                             <tr>
-                                <th scope="row">Время онлайна:</th>
+                                <th scope="row">{{phrase(115)}}:</th>
                                 <td>{{ timeHasPassed ( player.time_in_game ) }} </td>
                             </tr>
                             <tr>
-                                <th scope="row">Клан:</th>
+                                <th scope="row">{{phrase(94)}}:</th>
                                 {% if player.clan_name %}
                                 <td><a href="/statistic/clan/{{ player.clan_name|url_encode }}">{{ player.clan_name }}</a></td>
                                 {% else %}
-                                <td>Нет клана</td>
+                                <td>{{phrase(116)}}</td>
                                 {% endif %}
                             </tr>
                         </table>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-header">Саб-классы</div>
+                    <div class="card-header">{{phrase(117)}}</div>
                                 <div class="table-responsive">
 								   <table class="table table-sm">
 									<tbody>
@@ -75,7 +75,7 @@
 
             <div class="col-lg-4">
                 <div class="card">
-                    <div class="card-header">Инвентарь</div>
+                    <div class="card-header">{{phrase(111)}}</div>
 
                       <div class="col-lg-12 player-icons">
 						{% for item in inventory %}

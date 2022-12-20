@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\page;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\template\tpl;
 
 class error {
@@ -17,7 +18,7 @@ class error {
     }
 
     static public function error404(){
-        tpl::addVar('message', 'Страница не найдена');
+        tpl::addVar('message', lang::get_phrase(239));
         tpl::display("/error/404.html");
     }
 

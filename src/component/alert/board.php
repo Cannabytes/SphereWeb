@@ -7,6 +7,8 @@
 
 namespace Ofey\Logan22\component\alert;
 
+use Ofey\Logan22\component\lang\lang;
+
 class board {
 
     /**
@@ -16,7 +18,7 @@ class board {
     static public function alert($arr = [], $flags = 0) {
         header('Content-Type: application/json; charset=utf-8');
         if(empty($arr)) {
-            exit(json_encode("Передано пустое значение"));
+            exit(json_encode(lang::get_phrase(255)));
         }
         echo json_encode($arr);
         exit();

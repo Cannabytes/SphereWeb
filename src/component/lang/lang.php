@@ -89,7 +89,7 @@ class lang {
      *
      * Получение языковой фразы
      */
-    static public function get_phrase($key, $values): string {
+    static public function get_phrase($key, mixed ...$values): string {
         if(!array_key_exists($key, self::$lang_array)) {
             return "[Not phrase «{$key}»]";
         }

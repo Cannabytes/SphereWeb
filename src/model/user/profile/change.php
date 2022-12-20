@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\user\profile;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\controller\promo\promo;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -24,13 +25,13 @@ class change {
         $varSQL = [];
         if(!empty($_POST['name'])) {
             if(self::valid_name($_POST['name'])) {
-                array_push($table, "`name` = ?");
+                $table[] = "`name` = ?";
                 $varSQL[] = $_POST['name'];
             }
         }
         if(!empty($_POST['new_password'])) {
             if(self::password_comparison($_POST['new_password'], $_POST['two_password'])) {
-                array_push($table, "`password` = ?");
+                $table[] = "`password` = ?";
                 $varSQL[] = $_POST['new_password'];
             }
         }
@@ -38,7 +39,7 @@ class change {
         if(!empty($_POST['signature'])) {
             if($_POST['signature'] != auth::get_signature()){
                 self::valid_signature($_POST['signature']);
-                array_push($table, "`signature` = ?");
+                $table[] = "`signature` = ?";
                 $varSQL[] = $_POST['signature'];
             }
         }
@@ -56,7 +57,7 @@ class change {
         }
         $varSQL[] = auth::get_email();
         if(sql::run("UPDATE `users` SET {$gen} WHERE `email` = ?", $varSQL)->rowCount() == 0) {
-            board::notice(false, 'Данные не были обновлены');
+            board::notice(false, lang::get_phrase(182));
         }
 
         if(!empty($_POST['new_password'])){
@@ -64,7 +65,7 @@ class change {
             auth::apply_password();
         }
 
-        board::notice(true, 'Данные обновлены');
+        board::notice(true, lang::get_phrase(183));
     }
 
     /**
@@ -72,7 +73,7 @@ class change {
      */
     static private function valid_signature($sign): bool {
         if(400 < mb_strlen($sign)) {
-            self::$error[] = ["Подпись ограничена 400 символами"];
+            self::$error[] = [lang::get_phrase(184)];
             return false;
         }
         return true;
@@ -84,15 +85,15 @@ class change {
     static private function password_comparison($new_password, $two_password): bool {
         $ok = true;
         if($new_password != $two_password) {
-            self::$error[] = ["Пароли не совпали"];
+            self::$error[] = [lang::get_phrase(185)];
             $ok = false;
         }
         if(4 > mb_strlen($new_password)) {
-            self::$error[] = ["Пароль должно быть от 4 символов"];
+            self::$error[] = [lang::get_phrase(186)];
             $ok = false;
         }
         if(32 < mb_strlen($new_password)) {
-            self::$error[] = ["Пароль должен быть до 32 символов"];
+            self::$error[] = [lang::get_phrase(187)];
             $ok = false;
         }
         return $ok;
@@ -104,15 +105,15 @@ class change {
     static private function valid_name($name): bool {
         $ok = true;
         if(2 > mb_strlen($name)) {
-            self::$error[] = ["Имя должно быть от 2 символов"];
+            self::$error[] = [lang::get_phrase(188)];
             $ok = false;
         }
         if(16 < mb_strlen($name)) {
-            self::$error[] = ["Имя до 16 символов"];
+            self::$error[] = [lang::get_phrase(189)];
             $ok = false;
         }
         if(!preg_match("/^[а-яА-ЯёЁa-zA-Z0-9]+$/", $name) == 1) {
-            self::$error[] = ["Имя должен быть формата а-яА-ЯёЁa-zA-Z0-9"];
+            self::$error[] = [lang::get_phrase(190)];
             $ok = false;
         }
         return $ok;

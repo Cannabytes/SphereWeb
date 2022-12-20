@@ -11,14 +11,14 @@
                     <form>
                         <div class="form-group">
 							<input name="id" type="hidden" value="{{ id }}">
-                            <input name="title" type="text" class="form-control" placeholder="{{ get_phrase(15) }}" value="{{ title }}">
+                            <input name="title" type="text" class="form-control" placeholder="{{ phrase(15) }}" value="{{ title }}">
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="icheck-material-primary my-0">
                                     <input name="comment" id="comment" type="checkbox" {% if comment %}checked="checked"{% endif %}>
-                                            <label for="comment">{{ get_phrase(16) }}
+                                            <label for="comment">{{ phrase(16) }}
                                             </label>
                                     </div>
                                     <div class="icheck-material-primary my-0">
@@ -44,7 +44,7 @@
                             <textarea name="content" class="form-control" id="summernoteEditor" placeholder="" style="height: 200px; display: none;">{{ description }}</textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-floppy-o mr-1"></i> {{ get_phrase("refresh") }}</button>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-floppy-o mr-1"></i> {{ phrase("refresh") }}</button>
                         </div>
                     </form>
                 </div> <!-- card body -->

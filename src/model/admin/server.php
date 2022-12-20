@@ -11,6 +11,8 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\model\db\db_server;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\component\lang\lang;
+
 
 class server {
 
@@ -237,6 +239,6 @@ class server {
         sql::run("DELETE FROM `server_list` WHERE `id` = ?", [$server_id]);
         sql::run("DELETE FROM `server_connect_db` WHERE `id` = ?", [$get_server_info['db_id']]);
         sql::run("DELETE FROM `server_description` WHERE `server_id` = ?", [$server_id]);
-        board::notice(true, 'Удалено');
+        board::notice(true, lang::get_phrase(146));
     }
 }

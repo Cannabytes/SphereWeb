@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
@@ -17,7 +18,7 @@ class manual {
     static public function index(){
         validation::user_protection("admin");
         tpl::addVar([
-            'title' => 'Справочник',
+            'title' => lang::get_phrase(220),
         ]);
         tpl::display("/manual/manual.html");
     }

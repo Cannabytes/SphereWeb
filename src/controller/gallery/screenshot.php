@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\gallery;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\admin\validation;
@@ -21,7 +22,7 @@ class screenshot {
     static public function show_page() {
         $screens = screenshot_model::load();
         tpl::addVar("screens", $screens);
-        tpl::addVar("title", "Галерея скриншотов игроков");
+        tpl::addVar("title", lang::get_phrase(236));
         tpl::addVar('server_list', server::get_server_info());
         $allow_load_screenshot = true;
 
@@ -51,7 +52,7 @@ class screenshot {
         $allow_count_user_screenshot =  config::get_max_user_count_screenshots()-screenshot_model::count_user_screenshots(auth::get_id());
         tpl::addVar("allow_count_user_screenshot", $allow_count_user_screenshot);
 
-        tpl::addVar("title", "Загрузка скриншотов");
+        tpl::addVar("title", lang::get_phrase(237));
         tpl::addVar('server_list', server::get_server_info());
 
         tpl::display("/gallery/add.html");

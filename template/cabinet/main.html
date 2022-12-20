@@ -8,7 +8,7 @@
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">Мои аккаунты</div>
+            <div class="card-header">{{ phrase(43) }}</div>
 
 
 
@@ -31,8 +31,8 @@
                                 {% for num,server in server_list %}
                                     <div id="piil-{{ server.id }}" class="container tab-pane {% if num+1==user_info('get_default_server') %}active{% else %}fade{% endif %}">
                                         <div class="btn-group m-10">
-                                            <a href="/registration/account/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-user-o"></i> <span>{{ get_phrase(40) }}</span></a>
-                                            <a href="/account/comparison/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-refresh"></i> <span>{{ get_phrase(41) }}</span></a>
+                                            <a href="/registration/account/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
+                                            <a href="/account/comparison/server/{{ server.id }}" class="btn-social-text btn-github waves-effect waves-light m-1"><i class="fa fa-refresh"></i> <span>{{ phrase(41) }}</span></a>
                                         </div>
 
 
@@ -56,7 +56,7 @@
                                                     <td>
                                                         <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
                                                                 aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
-                                                        player.password_hide %}<span class="badge badge-success m-1">{{ get_phrase(42) }}</span>{%
+                                                        player.password_hide %}<span class="badge badge-success m-1">{{ phrase(42) }}</span>{%
                                                         else %}{{ player.password }}{% endif %}
                                                     </td>
                                                 </tr>
@@ -83,7 +83,7 @@
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">Статус онлайна сервера</div>
+            <div class="card-header">{{ phrase(44) }}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     {% for online in server_online_status() %}
@@ -115,7 +115,7 @@
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">Действующие предложение и акции</div>
+            <div class="card-header">{{ phrase(45) }}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="media align-items-center">
@@ -140,7 +140,7 @@
 <div class="row" id="game_chat">
     <div class="col-12">
         <div class="card">
-            <div class="card-header text">Последние сообщения из игрового чата</div>
+            <div class="card-header text">{{ phrase(46) }}</div>
             <div class="card-body">
                 <div class="row">
                     <div class="chat_window">
@@ -176,7 +176,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header text"><a href="/gallery"> Последние скриншоты пользователей</a></div>
+            <div class="card-header text"><a href="/gallery"> {{ phrase(47) }}</a></div>
             <div class="card-body">
                 <div class="row">
                     {% for i, screen in screenshots|slice(0,showScreenCount) %}
@@ -204,7 +204,7 @@
             <div class="card-body">
                 <blockquote class="blockquote">
                     <p>{{ page.description }}</p>
-                    <footer class="blockquote-footer">{{ get_phrase("data_create") }}: {{ page.date_create }}</footer>
+                    <footer class="blockquote-footer">{{ phrase("data_create") }}: {{ page.date_create }}</footer>
                 </blockquote>
             </div>
         </div>

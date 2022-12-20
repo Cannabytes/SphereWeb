@@ -136,11 +136,11 @@ class tpl {
 
         //Показать слово
         $twig->addFunction(new TwigFunction('get_phrase', function($key, ...$values) {
-            return lang::get_phrase($key, $values);
+            return lang::get_phrase($key, ...$values);
         }));
         //Аналог get_phrase
         $twig->addFunction(new TwigFunction('phrase', function($key, ...$values) {
-            return lang::get_phrase($key, $values);
+            return lang::get_phrase($key, ...$values);
         }));
 
         $twig->addFunction(new TwigFunction('get_template', function() {

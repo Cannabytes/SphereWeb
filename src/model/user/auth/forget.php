@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\auth;
 use DateTime;
 use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\mail\mail;
 use Ofey\Logan22\model\db\sql;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -27,10 +28,10 @@ class forget {
         ]);
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth/forget/code/" . $code;
         $content = file_get_contents("template/cabinet/email_request/forget.html");
-        if($content == false) {
+        if(!$content) {
             return [
                 'ok'      => false,
-                'message' => 'Ошибка',
+                'message' => lang::get_phrase(145),
             ];
         }
         $content = str_replace([
@@ -40,9 +41,9 @@ class forget {
             $code,
             $link,
         ], $content);
-        $isMail = mail::send($email, $content, 'Запрос на сброс пароля');
+        $isMail = mail::send($email, $content, lang::get_phrase(169));
         if($isMail['ok']){
-            board::notice(true, 'Сообщение отправлено на почту');
+            board::notice(true, lang::get_phrase(168));
         }
         board::notice(false, $isMail['message']);
     }
@@ -54,34 +55,34 @@ class forget {
             $code,
             $email,
         ])->fetch();
-        if($ok == false) {
-            board::notice(false, 'Код активации к почте не подошел');
+        if(!$ok) {
+            board::notice(false, lang::get_phrase(170));
         }
-        if($ok['active'] == false) {
-            board::notice(false, 'Код ранее был активирован');
+        if(!$ok['active']) {
+            board::notice(false, lang::get_phrase(171));
         }
         if(date_diff(new DateTime(), new DateTime($ok['date']))->i > 10) {
-            board::notice(false, 'Прошло 10 минут, код не актуален.<br>Вам необходимо снова отправить запрос на сброс пароля.');
+            board::notice(false, lang::get_phrase(172));
         }
 
         $password = generation::password();
         if(auth::change_user_password($email, $password)) {
             sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
-                (int)false,
+                0,
                 $ok['id'],
             ]);
             self::send_new_password($email, $password);
         }
-        board::notice(false, 'Пароль не был сброшен');
+        board::notice(false, lang::get_phrase(173));
     }
 
     public static function send_new_password($email, $password) {
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth";
         $content = file_get_contents("template/cabinet/email_request/new_password.html");
-        if($content == false) {
+        if(!$content) {
             return [
                 'ok'      => false,
-                'message' => 'Ошибка',
+                'message' => lang::get_phrase(174),
             ];
         }
         $content = str_replace([
@@ -92,9 +93,9 @@ class forget {
             $link,
         ], $content);
 
-        $isMail = mail::send($email, $content, 'Ваш новый пароль');
+        $isMail = mail::send($email, $content, lang::get_phrase(176));
         if($isMail['ok']){
-            board::notice(true, 'Новый пароль отправлен на почту');
+            board::notice(true, lang::get_phrase(175));
         }
         board::notice(false, $isMail['message']);
     }

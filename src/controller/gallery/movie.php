@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\gallery;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\template\tpl;
 
@@ -16,7 +17,7 @@ class movie {
         $movies = \Ofey\Logan22\model\gallery\movie::get_movies();
         tpl::addVar("movies", $movies);
         tpl::addVar('server_list',  server::get_server_info());
-        tpl::addVar("title", "Видео игроков");
+        tpl::addVar("title", lang::get_phrase(235));
 
         tpl::display("/gallery/movies.html");
     }

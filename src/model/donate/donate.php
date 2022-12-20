@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\donate;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\itemgame\itemgame;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -38,7 +39,6 @@ class donate {
             $item_id_list[] = $item['item_id'];
         }
 
-
         $list = implode(', ', $item_id_list);
         $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
 
@@ -51,7 +51,7 @@ class donate {
                 }
             }
         }
-         return  $items;
+        return $items;
     }
 
     /*
@@ -63,45 +63,51 @@ class donate {
         $user_value = $_POST['user_value'];
         $char_name = trim($_POST['char_name']);
         if($char_name == "") {
-            board::notice(false, 'Имя пользователя не может быть пустым');
+            board::notice(false, lang::get_phrase(148));
         }
         $donat_info = self::donate_item_info($id, $server_id);
         if(!$donat_info) {
-            board::notice(false, 'Товар не найден');
+            board::notice(false, lang::get_phrase(152));
         }
         //Стоимость товара * на количество
         $cost_product = $donat_info['cost'] * $user_value;
         if($cost_product > auth::get_donate_point()) {
-            board::notice(false, "Не хватает Донат Бонусов для покупки. Стоимость покупки {$cost_product} ДБ, у Вас " . auth::get_donate_point());
+            board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
 
         $server_info = server::server_info($server_id);
         if(!$server_info) {
-            board::notice(false, 'Сервер не найден');
+            board::notice(false, lang::get_phrase(150));
         }
 
         $player_info = player_account::is_player($server_info, [$char_name]);
         $player_info = $player_info->fetch();
 
         if(!$player_info) {
-            board::notice(false, "Персонаж «{$char_name}» не найден");
+            board::notice(false, lang::get_phrase(151, $char_name));
         }
         $player_id = $player_info["player_id"];
         if($player_info["online"]) {
-            board::notice(false, "Персонаж «{$char_name}» не должен быть в игре");
+            board::notice(false, lang::get_phrase(153, $char_name));
         }
-        $addToUserItems = $donat_info['count']*$user_value;
+        $addToUserItems = $donat_info['count'] * $user_value;
 
         /**
          * Проверим, есть ли на персонаже X предмет N
          * Если есть, добавим к числу N+N предметов
          */
-        $checkPlayerItem = player_account::check_item($server_info, [$donat_info['item_id'], $player_id]);
+        $checkPlayerItem = player_account::check_item($server_info, [
+            $donat_info['item_id'],
+            $player_id,
+        ]);
         $checkPlayerItem = $checkPlayerItem->fetch();
         //Если предмет есть у игрока
-        if($checkPlayerItem){
-            player_account::update_item_count_player($server_info, [($checkPlayerItem['count'] + $addToUserItems), $checkPlayerItem['object_id']]);
-        }else{
+        if($checkPlayerItem) {
+            player_account::update_item_count_player($server_info, [
+                ($checkPlayerItem['count'] + $addToUserItems),
+                $checkPlayerItem['object_id'],
+            ]);
+        } else {
             //Предмета нет в инвентаре, добавим.
             $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
             player_account::add_item($server_info, [
@@ -113,7 +119,6 @@ class donate {
                 "INVENTORY",
             ]);
         }
-
 
         self::taking_money($cost_product, auth::get_id());
         auth::set_donate_point(auth::get_donate_point() - $cost_product);

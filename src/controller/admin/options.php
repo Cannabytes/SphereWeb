@@ -10,10 +10,12 @@ namespace Ofey\Logan22\controller\admin;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\chronicle\client;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\servername\servername;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\template\tpl;
 use PDO;
 
@@ -27,7 +29,7 @@ class options {
             'servername_list_default' => servername::all(),
             'client_list_default'     => client::all(),
             'timezone_list_default'   => timezone::all(),
-            "title"                   => "Админ панель",
+            "title"                   => lang::get_phrase(221),
             'server'             => \Ofey\Logan22\model\server\server::get_server_info($server_id),
             'sql_base_source'         => base::sql_base_source(),
             'desc'        => $desc,
@@ -41,7 +43,7 @@ class options {
             'servername_list_default' => servername::all(),
             'client_list_default'     => client::all(),
             'timezone_list_default'   => timezone::all(),
-            "title"                   => "Админ панель",
+            "title"                   => lang::get_phrase(221),
             'server_list'             => \Ofey\Logan22\model\server\server::get_server_info(),
             'sql_base_source'         => base::sql_base_source(),
         ]);
@@ -55,10 +57,10 @@ class options {
 
     public static function test_connect_db() {
         validation::user_protection("admin");
-        if(\Ofey\Logan22\model\install\install::test_connect_mysql($_POST['host'], $_POST['user'], $_POST['password'], $_POST['name'])) {
-            board::notice(true, 'Успешное соединение');
+        if(install::test_connect_mysql($_POST['host'], $_POST['user'], $_POST['password'], $_POST['name'])) {
+            board::notice(true, lang::get_phrase(222));
         } else {
-            board::notice(false, 'Нет соединения с БД');
+            board::notice(false, lang::get_phrase(223));
         }
     }
 

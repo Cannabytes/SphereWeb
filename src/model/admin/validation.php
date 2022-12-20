@@ -45,22 +45,6 @@ class validation {
         return false;
     }
 
-    // Запрет на посещения от НЕ админов.
-    public static function tamper_protection() {
-        if(self::is_admin() == false) {
-            header("Location: /main2");
-            die();
-        }
-    }
-
-    //Проверка пустого запроса
-    public static function request_post(): bool {
-        if(empty($_POST)) {
-            board::notice( false, 'Нельзя передавать пустой запрос' );
-        }
-        return true;
-    }
-
     public static function min_len($string, $n = 4): bool {
         if(mb_strlen($string) >= $n) {
             return true;

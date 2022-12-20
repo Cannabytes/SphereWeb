@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\auth;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\db\sql;
 
@@ -243,29 +244,29 @@ class auth {
 
     static public function user_enter() {
         if(auth::get_is_auth()) {
-            board::notice(false, 'Вы уже авторизован');
+            board::notice(false, lang::get_phrase(160));
         }
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
-            board::notice(false, 'Not auth data');
+            board::notice(false, lang::get_phrase(161));
         }
         $email = $_POST['email'];
         $password = $_POST['password'];
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            board::notice(false, 'Вы не ввели почтовый адрес');
+            board::notice(false, lang::get_phrase(162));
         }
         if(mb_strlen($password) == 0) {
-            board::notice(false, 'Пароль не может быть пустым');
+            board::notice(false, lang::get_phrase(163));
         }
         $user_info = self::exist_user($email);
         if(!$user_info) {
-            board::notice(false, 'Аккаунт не найден');
+            board::notice(false, lang::get_phrase(164));
         }
         if($user_info['password'] == $password) {
             session::add('email', $email);
             session::add('password', $password);
-            board::notice(true, 'Авторизация успешна');
+            board::notice(true, lang::get_phrase(165));
         }
-        board::notice(false, 'Вы введи неверный пароль');
+        board::notice(false, lang::get_phrase(166));
     }
 
     static public function logout() {
@@ -290,7 +291,7 @@ class auth {
     static public function change_donate_point($user_id, $amount) {
         $user = self::exist_user_id($user_id);
         if(!$user) {
-            exit("not find user");
+            exit(lang::get_phrase(167));
         }
         $donate_point = $user['donate_point'] + $amount;
         sql::run("UPDATE `users` SET `donate_point` = ? WHERE `id` = ?", [

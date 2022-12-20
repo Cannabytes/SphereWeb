@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
 
@@ -24,7 +25,7 @@ class mail {
             'EMAIL_PORT' => EMAIL_PORT,
             'EMAIL_SMTP_AUTH' => EMAIL_SMTP_AUTH,
             'EMAIL_ENCRYPT' => EMAIL_ENCRYPT,
-            'title' => 'Настройки почты'
+            'title' => lang::get_phrase(219)
         ]);
         tpl::display("admin/options/email.html");
     }
@@ -46,8 +47,8 @@ const EMAIL_SMTP_AUTH = {$email_smtp_auth};
 const EMAIL_ENCRYPT = '{$encrypt}';
 ";
         if(file_put_contents("src/config/email.php", $saveTXT)) {
-            board::notice(true, 'Сохранено');
+            board::notice(true, lang::get_phrase(217));
         }
-        board::notice(false, 'Ошибка сохранения');
+        board::notice(false, lang::get_phrase(218));
     }
 }

@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\player;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sdb;
@@ -37,7 +38,7 @@ class player_account {
         if(self::count_account($server_id) >= 20) {
             exit(json_encode([
                 'ok'      => false,
-                'message' => "Вы превысили максимальное количество аккаунтов",
+                'message' => lang::get_phrase(206),
                 'getCode' => 0,
             ]));
         }
@@ -59,7 +60,7 @@ class player_account {
         self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         exit(json_encode([
             'ok'      => true,
-            'message' => "Вы успешно зарегистрировали новый аккаунт",
+            'message' => lang::get_phrase(207),
             'getCode' => 0,
         ]));
     }
@@ -91,7 +92,7 @@ class player_account {
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
         exit(json_encode([
             'ok'      => true,
-            'message' => "Вы успешно зарегистрировали новый аккаунт",
+            'message' => lang::get_phrase(207),
             'getCode' => 0,
         ]));
     }
@@ -160,13 +161,13 @@ class player_account {
 
     public static function valid_login($login) {
         if(3 > mb_strlen($login)) {
-            board::notice(false, 'Логин от 3 символов');
+            board::notice(false, lang::get_phrase(208));
         }
         if(16 < mb_strlen($login)) {
-            board::notice(false, 'Логин до 16 символов');
+            board::notice(false, lang::get_phrase(209));
         }
         if(!preg_match("/^[a-zA-Z0-9]+$/", $login) == 1) {
-            board::notice(false, "Логин должен быть формата a-zA-Z0-9");
+            board::notice(false, lang::get_phrase(210));
         }
     }
 
@@ -175,16 +176,16 @@ class player_account {
      */
     public static function valid_password($password) {
         if(4 > mb_strlen($password)) {
-            board::notice(false, "Пароль от 4 символов");
+            board::notice(false, lang::get_phrase(211));
         }
         if(32 < mb_strlen($password)) {
-            board::notice(false, "Логин до 32 символов");
+            board::notice(false, lang::get_phrase(212));
         }
     }
 
     public static function valid_email($email) {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            board::notice(false, "Введите корректный E-mail");
+            board::notice(false, lang::get_phrase(213));
         }
     }
 
@@ -221,12 +222,12 @@ class player_account {
     public static function getReQuest($server_id, $login): mixed {
         $server_info = server::server_info($server_id);
         if(!$server_info) {
-            board::notice(false, "Сервер не найден");
+            board::notice(false, lang::get_phrase(150));
         }
         if(self::exist_account_inside($login, $server_id)) {
             board::alert([
                 'ok'      => false,
-                'message' => "Такой аккаунт уже занят",
+                'message' => lang::get_phrase(214),
                 'getCode' => 0,
             ]);
         }
@@ -243,7 +244,7 @@ class player_account {
         if($account->fetch()) {
             board::alert([
                 'ok'      => false,
-                'message' => "Такой аккаунт уже занят",
+                'message' => lang::get_phrase(214),
                 'getCode' => 0,
             ]);
         }

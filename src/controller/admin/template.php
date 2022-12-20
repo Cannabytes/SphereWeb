@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\admin;
 
 use Ofey\Logan22\component\fileSys\fileSys;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
 
@@ -15,7 +16,7 @@ class template {
 
     public static function show_design() {
         validation::user_protection("admin");
-        tpl::addVar("title", "Установка демо шаблона");
+        tpl::addVar("title", lang::get_phrase(230));
         tpl::addVar('template_list', fileSys::dir_list("template/designs"));
         tpl::display("admin/template/design.html");
     }
@@ -43,9 +44,8 @@ class template {
         $template = $_POST['template'];
         $readmeJson = "template/designs/{$template}/readme.json";
         if(!file_exists($readmeJson)) {
-//            echo "Не найден шаблон: " . "template/designs/{$template}/readme.json";
             $arr['ok'] = false;
-            $arr['message'] = "Не найден шаблон: " . "template/designs/{$template}/readme.json";
+            $arr['message'] = lang::get_phrase(231, "template/designs/{$template}/readme.json");
             die(json_encode($arr));
         }
         echo file_get_contents($readmeJson);

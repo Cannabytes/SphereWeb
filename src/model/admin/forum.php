@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 
 class forum {
@@ -19,7 +20,7 @@ class forum {
         $engine = $_POST['forum_engine'];
         $url = $_POST['forum_url'];
         if(!filter_var($url, FILTER_VALIDATE_URL)) {
-            board::notice(false, "Введите корректный URL форума");
+            board::notice(false, lang::get_phrase(138));
         }
 
         $forum_db_host = $_POST['forum_db_host'];
@@ -29,7 +30,7 @@ class forum {
 
         $ok = self::saveToFile($forum_db_host, $forum_db_user, $forum_db_password, $forum_db_name, $engine, $url);
         if($ok){
-            board::notice(true, "Настройки форума обновлены");
+            board::notice(true, lang::get_phrase(139));
         }
     }
 

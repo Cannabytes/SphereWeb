@@ -16,14 +16,14 @@
             <div class="card mt-0 shadow-none">
                 <div class="card-body">
                     <form>
-					<h4>{{ get_phrase(26) }}</h4>
+					<h4>{{ phrase(26) }}</h4>
 					<hr>
                         <div class="form-group">
 							<input value="{{ server['id'] }}" name="server_id" type="hidden" type="text">
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input value="{{ server['name'] }}" name="name"  type="text" maxlength="16" class="form-control" placeholder="{{ get_phrase(27) }}: {{ random(servername_list_default) }}">
+                                    <input value="{{ server['name'] }}" name="name"  type="text" maxlength="16" class="form-control" placeholder="{{ phrase(27) }}: {{ random(servername_list_default) }}">
                                 </div>
                           
                                 <div class="col-md-6">
@@ -63,19 +63,19 @@
                             </div>
                         </div>
 						<hr>
-						<h4>{{ get_phrase(28) }}</h4>
+						<h4>{{ phrase(28) }}</h4>
                         <div class="form-group">
 							<div class="row">
 								<div class="col-md-3">
-									<label for="inputDate">{{ get_phrase(29) }}:</label>
+									<label for="inputDate">{{ phrase(29) }}:</label>
 									<input value="{{ server['date_start_server']|date('Y-m-d') }}" name="date_start" type="date" class="form-control" required>
 								</div>
 								<div class="col-md-3">
-									<label for="inputDate">{{ get_phrase(30) }}:</label>
+									<label for="inputDate">{{ phrase(30) }}:</label>
 									<input value="{{ server['date_start_server']|date('H:i') }}" name="time_start" type="time" class="form-control" required>
 								 </div>
 								<div class="col-md-6">
-									<label for="inputDate">{{ get_phrase(31) }}:</label>
+									<label for="inputDate">{{ phrase(31) }}:</label>
 										<select name="timezone_start" class="form-control" id="basic-select">
 										     {% for key, name in timezone_list_default %}
 												<option value="{{ key }}">{{ name }}</option>
@@ -85,7 +85,7 @@
 							</div>
                         </div>
 						<hr>
-						<h4>{{ get_phrase(32) }}</h4>
+						<h4>{{ phrase(32) }}</h4>
 						 <div class="form-group row">
 						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
 						  <div class="col-sm-10">
@@ -111,10 +111,10 @@
 						  </div>
 						</div>
                 
-						<button id="check_connect_mysql_login" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ get_phrase(35) }}</button>
+						<button id="check_connect_mysql_login" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
 						
 						<hr>
-						<h4>{{ get_phrase(33) }}</h4>
+						<h4>{{ phrase(33) }}</h4>
 						 <div class="form-group row">
 						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
 						  <div class="col-sm-10">
@@ -140,11 +140,11 @@
 						  </div>
 						</div>
                 
-				  <button id="check_connect_mysql_game" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ get_phrase(35) }}</button>
+				  <button id="check_connect_mysql_game" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
 					<hr>
 
 				<div class="form-group row">
-				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ get_phrase(34) }}</label>
+				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ phrase(34) }}</label>
 				  <div class="col-sm-7">
 						<select class="form-control" id="sql_base_source" name="sql_base_source">
 						{% for basename in sql_base_source %}
@@ -156,8 +156,8 @@
 				<hr>
 
 				  <div class="form-group">
-					<button type="submit" class="btn btn-success waves-effect waves-light m-1"> {{ get_phrase("refresh") }}</button>
-					<button id="remove" type="submit" class="btn btn-danger waves-effect waves-light m-1"> {{ get_phrase("delete") }}</button>
+					<button type="submit" class="btn btn-success waves-effect waves-light m-1"> {{ phrase("refresh") }}</button>
+					<button id="remove" type="submit" class="btn btn-danger waves-effect waves-light m-1"> {{ phrase("delete") }}</button>
                   </div>
                  </form>
                 </div> <!-- card body -->

@@ -3,15 +3,15 @@
 {% block content %}
 
 <div class="card">
-	     <div class="card-header border-0">Мои скрины
+	     <div class="card-header border-0">{{phrase(84)}}
 		 </div>
 	       <div class="table-responsive">
                  <table class="table align-items-center table-flush">
 				 	 <thead>
                    <tr>
-                     <th>Скрин</th>
-                     <th>Описание</th>
-                     <th>Статус</th>
+                     <th>{{phrase(85)}}</th>
+                     <th>{{phrase(0)}}</th>
+                     <th>{{phrase(86)}}</th>
                      <th></th>
                     </tr>
                    </thead>
@@ -26,17 +26,17 @@
 					<td><textarea id="desc_{{screen.id}}" class="form-control" rows="3">{{screen.desciption}}</textarea></td>
                     <td>
 						{% if screen.enable == 0 %}
-						  <span class="text-danger">На модерации</span>
+						  <span class="text-danger">{{phrase(87)}}</span>
 						{% else %}
-						  <span class="text-success">Опубликован</span>
+						  <span class="text-success">{{phrase(88)}}</span>
 						{% endif %}
 					</td>
                  
                     <td>
 				
 				   <div class="btn-group m-1">
-                      <button data-id="{{screen.id}}" type="button" class="save btn btn-info waves-effect waves-light"> <i class="fa fa-save"></i> <span>Сохранить</span> </button>
-                      <button data-id="{{screen.id}}" type="button" class="remove btn btn-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> <span>Удалить</span> </button>
+                      <button data-id="{{screen.id}}" type="button" class="save btn btn-info waves-effect waves-light"> <i class="fa fa-save"></i> <span>{{phrase(89)}}</span> </button>
+                      <button data-id="{{screen.id}}" type="button" class="remove btn btn-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> <span>{{phrase("delete")}}</span> </button>
                     </div>
 					
                      

@@ -11,7 +11,7 @@
 
                 {% if user_info('get_access_level') == "admin" %}
                 <div class="card-action">
-                    <a href="/admin/pages/edit/{{ page.id }}">{{ get_phrase("edit") }}</a>
+                    <a href="/admin/pages/edit/{{ page.id }}">{{ phrase("edit") }}</a>
                 </div>
                 {% endif %}
 
@@ -21,14 +21,14 @@
                 <blockquote class="blockquote">
                     {% if page %}
                     <p>{{ page.description|html_entity_decode|raw }}</p>
-                    <footer class="blockquote-footer"><em>{{ get_phrase("date_create") }}: {{ page.date_create }}</em>
+                    <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ page.date_create }}</em>
                     </footer>
                     {% if page.date_create != page.date_update %}
-                    <footer class="blockquote-footer"><em>{{ get_phrase("date_edit") }}: {{ page.date_update }}</em>
+                    <footer class="blockquote-footer"><em>{{ phrase("date_edit") }}: {{ page.date_update }}</em>
                     </footer>
                     {% endif %}
                     {% else %}
-                    <p>{{ get_phrase(4) }}</p>
+                    <p>{{ phrase(4) }}</p>
                     {% endif %}
                 </blockquote>
             </div>

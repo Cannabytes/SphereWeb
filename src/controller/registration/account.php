@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\controller\registration;
 
 use Ofey\Logan22\component\account\generation;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
@@ -15,7 +16,7 @@ class account {
             tpl::display("error/not_server.html");
 
         tpl::addVar([
-            'title'              => 'Регистрация пользователя',
+            'title'              => lang::get_phrase(131),
             'server_list'        => server::get_server_info(),
             'server_id'          => $server_id,
             'generation_account' => generation::word(),

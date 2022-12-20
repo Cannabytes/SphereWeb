@@ -4,22 +4,22 @@
 {% if pk is same as(false) %}
     {% include '/statistic/none.html' %}
 {% else %}
-    <h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
+    <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
     {% include '/statistic/statistic_menu.html' %}
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Статистика Player Kills</h5>
+                    <h5 class="card-title">{{phrase(92)}}</h5>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Char</th>
+                                <th scope="col">{{phrase(93)}}</th>
                                 <th scope="col">PvP / PK</th>
-                                <th scope="col">Clan</th>
-                                <th scope="col">Online Time</th>
+                                <th scope="col">{{phrase(94)}}</th>
+                                <th scope="col">{{phrase(95)}}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -36,7 +36,7 @@
                                 <td>{{ player['pvp'] }} / <strong>{{ player['pk'] }}</strong></td>
                                 <td>{% if player['castle_id'] != 0 %}
                                     <span data-toggle="tooltip" data-placement="top" title=""
-                                          data-original-title="Владение замка: {{ get_castle(player['castle_id']) }}"
+                                          data-original-title="{{phrase(96)}}: {{ get_castle(player['castle_id']) }}"
                                           class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
                                     {% else %}
                                     <a href="/statistic/clan/{{ player['clan_name']|url_encode }}">{{ player['clan_name'] }}</a>

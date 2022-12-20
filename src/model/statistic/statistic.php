@@ -11,6 +11,7 @@ use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\image\crest;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 
@@ -161,13 +162,24 @@ class statistic {
     }
 
     public static function timeHasPassed($second): string {
-        $times_values = [
-            'сек.',
-            'мин.',
-            'час.',
-            'д.',
-            'лет',
-        ];
+        if(lang::lang_flag()=="ru"){
+            $times_values = [
+                'сек.',
+                'мин.',
+                'час.',
+                'д.',
+                'лет',
+            ];
+        }else{
+            $times_values = [
+                'sec.',
+                'min.',
+                'h.',
+                'd.',
+                'y.',
+            ];
+        }
+
 
         $times = self::seconds2times($second);
         $line = '';

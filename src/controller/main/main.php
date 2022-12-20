@@ -6,6 +6,7 @@
 
 namespace Ofey\Logan22\controller\main;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page as page_model;
 use Ofey\Logan22\model\server\server;
@@ -16,7 +17,7 @@ class main {
 
     static public function index() {
         tpl::addVar([
-            'title'           => 'Главная страница',
+            'title'           => lang::get_phrase(238),
             'all_news'        => page_model::show_news_short(),
             'server_list'     => server::get_server_info(),
             'player_accounts' => player_account::show_all_account_player(),

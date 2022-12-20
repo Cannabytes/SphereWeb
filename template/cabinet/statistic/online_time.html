@@ -4,22 +4,22 @@
 {% if online_times is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
-	  <h3 class="mb-0">Статистика сервера {{ server_info.name }}</h3>
+	  <h3 class="mb-0">{{phrase(96)}} {{ server_info.name }}</h3>
 	  {% include '/statistic/statistic_menu.html' %}
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Статистика времени в игре</h5>
+              <h5 class="card-title">{{phrase(108)}}</h5>
 			  <div class="table-responsive">
                <table class="table table-striped">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Char</th>
-                      <th scope="col">LvL</th>
-                      <th scope="col">Class</th>
-                      <th scope="col">Online Time</th>
+                      <th scope="col">{{phrase(93)}}</th>
+                      <th scope="col">{{phrase(100)}}</th>
+                      <th scope="col">{{phrase(109)}}</th>
+                      <th scope="col">{{phrase(95)}}</th>
                     </tr>
                   </thead>
                   <tbody>

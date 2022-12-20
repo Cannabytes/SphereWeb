@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 
 class donate {
@@ -28,9 +29,9 @@ class donate {
             $description,
             $server_id
         ])){
-            board::notice(true, "Предмет был добавлен в магазин");
+            board::notice(true, lang::get_phrase(138));
         }else{
-            board::notice(false, "Предмет не добавлен");
+            board::notice(false, lang::get_phrase(137));
         }
     }
 

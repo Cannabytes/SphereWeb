@@ -11,6 +11,7 @@ namespace Ofey\Logan22\model\user\player;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
@@ -27,7 +28,7 @@ class comparison {
     static public function start($server_id) {
         $server_info = server::server_info($server_id);
         if(!$server_info) {
-            board::notice(false, 'Сервер не найден');
+            board::notice(false, lang::get_phrase(150));
         }
 
         $accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();

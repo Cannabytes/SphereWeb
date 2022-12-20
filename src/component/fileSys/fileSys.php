@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\component\fileSys;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\config\config;
 
 class fileSys {
@@ -53,7 +54,7 @@ class fileSys {
             'sort' => $options['sort'] ?? false,
             'fetchAll' => (bool)$options['fetchAll'],
         ];
-        if(is_dir($dir) == false) {
+        if(!is_dir($dir)) {
             $dir = dirname($dir);
         }
         $files = [];
@@ -70,7 +71,7 @@ class fileSys {
         if(empty($files)) {
             return false;
         }
-        if($options['basename'] == true) {
+        if($options['basename']) {
             foreach($files as &$file) {
                 $file = basename($file);
             }
@@ -85,7 +86,7 @@ class fileSys {
         } else {
             ksort($files, SORT_NUMERIC);
         }
-        if($options['fetchAll'] == false) {
+        if(!$options['fetchAll']) {
             return array_shift($files);
         }
         return $files;
@@ -123,7 +124,7 @@ class fileSys {
             }
             $jsonFile = file_get_contents($file_path);
             if(!$jsonFile) {
-                echo 'Не удалось загрузить';
+                echo lang::get_phrase(232);
                 return false;
             }
             if($decode) {

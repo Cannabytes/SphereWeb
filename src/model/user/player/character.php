@@ -10,14 +10,15 @@ namespace Ofey\Logan22\model\user\player;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\image\crest;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\server;
 
 class character {
 
     public static function all_characters($login, $server_id) {
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
-            board::notice(false, 'Сервер не найден');
+        if(!$server_info) {
+            board::notice(false, lang::get_phrase(150));
         }
         $reQuest = server::db_info_id($server_info['db_id']);
         $my_chars = self::my_characters($reQuest, [$login]);
@@ -33,8 +34,8 @@ class character {
 
     public static function get_player($char_name, $server_id) {
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
-            board::notice(false, 'Сервер не найден');
+        if(!$server_info) {
+            board::notice(false, lang::get_phrase(150));
         }
         $reQuest = server::db_info_id($server_info['db_id']);
         $my_chars = self::player($reQuest, [$char_name]);
@@ -50,8 +51,8 @@ class character {
 
     public static function get_items($login, $server_id) {
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
-            board::notice(false, 'Сервер не найден');
+        if(!$server_info) {
+            board::notice(false, lang::get_phrase(150));
         }
         $reQuest = server::db_info_id($server_info['db_id']);
         $items = self::items($reQuest, [$login]);
@@ -65,8 +66,8 @@ class character {
 
     public static function get_subclasses($char_id, $server_id) {
         $server_info = server::server_info($server_id);
-        if($server_info == false) {
-            board::notice(false, 'Сервер не найден');
+        if(!$server_info) {
+            board::notice(false, lang::get_phrase(150));
         }
         $reQuest = server::db_info_id($server_info['db_id']);
         $subclasses = self::subclasses($reQuest, [$char_id]);

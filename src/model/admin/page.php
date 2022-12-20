@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 
 class page {
@@ -22,16 +23,16 @@ class page {
 
         //Проверка данных
         if(!validation::min_len($title, $mix_title_len)) {
-            board::notice(false, "Титул новости должен быть от {$mix_title_len} символов");
+            board::notice(false, lang::get_phrase(140, $mix_title_len));
         }
         if(!validation::max_len($title, $max_title_len)) {
-            board::notice(false, "Титул новости должен быть до {$max_title_len} символов");
+            board::notice(false, lang::get_phrase(141,$max_title_len));
         }
         if(!validation::min_len($content, $min_content_len)) {
-            board::notice(false, "Содержание новости должен быть от {$min_content_len} символов");
+            board::notice(false, lang::get_phrase(142,$min_content_len));
         }
         if(!validation::max_len($content, $max_content_len)) {
-            board::notice(false, "Содержание новости должен быть до {$max_content_len} символов");
+            board::notice(false, lang::get_phrase(143,$max_content_len));
         }
     }
 
@@ -90,11 +91,11 @@ class page {
         if($request) {
             board::alert([
                 'ok'       => true,
-                'message'  => 'Новость успешно обновлена',
+                'message'  => self::get_page(144),
                 'redirect' => "/page/" . sql::lastInsertId(),
             ]);
         }
-        board::notice(false, 'Произошла ошибка');
+        board::notice(false, self::get_page(145));
     }
 
     //Отправить в корзину новость

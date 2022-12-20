@@ -2,12 +2,12 @@
 
 {% block content %}
       <div class="card">
-      <div class="card-header text-uppercase">{{ get_phrase("menu_donate") }}</div>
+      <div class="card-header text-uppercase">{{ phrase("menu_donate") }}</div>
       <div class="card-body">
 	  
 	  <div class="row">
                  <div class="col-sm-5">
-                   <label>{{ get_phrase("summa") }}</label><div class="input-group bootstrap-touchspin"><span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span><input id="count" type="text" value="0" name="demo3" class="form-control" style="display: block;"></div>
+                   <label>{{ phrase("summa") }}</label><div class="input-group bootstrap-touchspin"><span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span><input id="count" type="text" value="0" name="demo3" class="form-control" style="display: block;"></div>
                  </div>
             </div>
 			<hr>
@@ -32,7 +32,7 @@
         </div>
 				<hr> 
 				<div class="form-footer">
-                    <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{ get_phrase("next") }}</button>
+                    <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{ phrase("next") }}</button>
                 </div>
 	  </div>
     </div>
@@ -51,10 +51,10 @@
 	   <img src="uploads/images/icon/{{product['icon']}}" class="customer-img ">
 
        <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>Кол-во:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span></li>
-      <li class="list-group-item"><b>Стоимость:</b> <span id="product_cost_{{product.id}}">{{ product.cost }}</span> ДО</li>
+      <li class="list-group-item"><b>{{phrase(71)}}:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span></li>
+      <li class="list-group-item"><b>{{phrase(72)}}:</b> <span id="product_cost_{{product.id}}">{{ product.cost }}</span> ДО</li>
       <li class="list-group-item">
-          <label>Купить шт.</label>
+          <label>{{phrase(73)}}</label>
              <div class="input-group bootstrap-touchspin input-group-sm">
 			  <span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span>
 			  <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}" data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="text" name="demo3" class="count form-control-sm form-control" style="display: block;">
@@ -62,7 +62,8 @@
 	   </li>
       </ul>
 	  
-      <button href="javascript:void();" data-product-name="{{product['name_en']}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply" class="btn btn-success my-3 openWindowBuy">Купить</button>
+      <button href="javascript:void();" data-product-name="{{product['name_en']}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply" class="btn btn-success my-3 openWindowBuy">
+          {{phrase(74)}}</button>
 		</div>
       </div>
      </div>
@@ -76,16 +77,16 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">Подтверждение покупки</h5>
+                        <h5 class="modal-title">{{phrase(75)}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
                         
-						<p>Выберите персонажа на которого следует отправить покупку.</p>
+						<p>{{phrase(76)}}</p>
 						 <div class="form-group row">
-						  <label for="server_donate" class="col-sm-3 col-form-label">Сервер</label>
+						  <label for="server_donate" class="col-sm-3 col-form-label">{{phrase("server")}}</label>
 						  <div class="col-sm-9">
 							<select class="form-control" id="server_donate">
 								{% for server in server_list %}
@@ -97,19 +98,19 @@
 						
                         
                         <div class="form-group row">
-						  <label for="character" class="col-sm-3 col-form-label">Персонаж</label>
+						  <label for="character" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
 						  <div class="col-sm-9">
 							<input type="text" id="char_name" class="form-control">
 						  </div>
 						</div>
 						<hr>
-						<p>Вы покупаете: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
-						У Вас будет списано: <span id="user_worth_buy"></span> Донат Очков</p>
+						<p>{{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
+                            {{phrase(78)}}: <span id="user_worth_buy"></span> {{phrase(79)}}</p>
 						
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fa fa-times"></i> Отмена</button>
-                        <button id="buy" type="button" data-product-id="" data-user_value="" class="btn btn-success"><i class="fa fa-check-square-o"></i> Подтвердить покупку</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fa fa-times"></i> {{phrase(80)}}</button>
+                        <button id="buy" type="button" data-product-id="" data-user_value="" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{phrase(81)}}</button>
                       </div>
                     </div>
                   </div>

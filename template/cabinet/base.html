@@ -95,8 +95,7 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="col-md-2 pl-md-0 input-group-sm">
-                                <button type="submit" class="btn btn-light btn-sm waves-effect waves-light">Войти
-                                </button>
+                                <button type="submit" class="btn btn-light btn-sm waves-effect waves-light">{{phrase(256)}}</button>
                             </div>
                         </div>
                     </form>
@@ -108,7 +107,7 @@
 
             <ul class="navbar-nav align-items-center right-nav-link">
                 {% if (server_list != null) %}
-                <label for="default_server" class=" col-form-label">Сервер</label>
+                <label for="default_server" class=" col-form-label">{{phrase("server")}}</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="default_server">
                         {% for server in server_list %}
@@ -118,6 +117,7 @@
                 </div>
                 {% endif %}
 
+                <!--
                 <li class="nav-item dropdown-lg">
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
                         <i class="fa fa-bell-o"></i><span class="badge badge-info badge-up">14</span></a>
@@ -164,6 +164,7 @@
                         </ul>
                     </div>
                 </li>
+                -->
 
                 <li class="nav-item dropdown-lg">
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
@@ -173,7 +174,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Донат Бонусов
+                                {{phrase(68)}}
                                 <span class="badge badge-info">{{ user_info('get_donate_point') }}</span>
                             </li>
                             <li class="list-group-item">
@@ -181,8 +182,8 @@
                                     <div class="media">
                                         <i class="zmdi zmdi-accounts fa-2x mr-3 text-info"></i>
                                         <div class="media-body">
-                                            <h6 class="mt-0 msg-title">Пополнение</h6>
-                                            <p class="msg-info">Поддержите сервер и получите бонус</p>
+                                            <h6 class="mt-0 msg-title">{{phrase(69)}}</h6>
+                                            <p class="msg-info">{{phrase(70)}}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -230,7 +231,7 @@
     <footer class="footer">
         <div class="container">
             <div class="text-center">
-               Загружено за {{ pointTime }} сек.
+              {{ phrase(48, pointTime) }}.
             </div>
         </div>
     </footer>

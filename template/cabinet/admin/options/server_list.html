@@ -14,7 +14,7 @@
         <div class="col-lg-12 col-md-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">{{ get_phrase(36) }}</h5>
+              <h5 class="card-title">{{ phrase(36) }}</h5>
 			  <div class="table-responsive">
                <table class="table table-striped">
                   <tbody>
@@ -22,8 +22,8 @@
                     <tr>
                       <td><a href="/about/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a></td>
                       <td>{{ server.chronicle }}</td>
-                      <td><a href="/admin/options/server/edit/{{ server.id }}">{{ get_phrase("edit") }}</a></td>
-                      <td><a href="/admin/options/server/description/{{ server.id }}">{{ get_phrase("desc") }}</a></td>
+                      <td><a href="/admin/options/server/edit/{{ server.id }}">{{ phrase("edit") }}</a></td>
+                      <td><a href="/admin/options/server/description/{{ server.id }}">{{ phrase("desc") }}</a></td>
                     </tr>
 				  {% endfor %}
                   </tbody>

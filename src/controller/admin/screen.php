@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\admin\validation;
@@ -26,7 +27,7 @@ class screen {
             $users_id[] = $screen['user_id'];
         }
         other::get_users_scan($users_id);
-        tpl::addVar("title", "Скриншоты пользователей");
+        tpl::addVar("title", lang::get_phrase(224));
         tpl::addVar("screens", $screens);
         if(screenshot_model::count_screenshots() >= config::get_max_count_all_screenshots()) {
             redirect::location('/gallery');
@@ -38,7 +39,7 @@ class screen {
         validation::user_protection("admin");
         $screen_id = $_POST['id'];
         screenshot::admin_screen_enable($screen_id);
-        board::notice(true, 'Скриншот удовлетворен');
+        board::notice(true, lang::get_phrase(225));
     }
 
     public static function remove() {
@@ -46,11 +47,11 @@ class screen {
         $screen_id = $_POST['id'];
         $image = screenshot_model::get_hash_name_gallery_image($screen_id);
         screenshot::screen_remove($screen_id, $image['image']);
-        board::notice(true, 'Скриншот удален');
+        board::notice(true, lang::get_phrase(226));
     }
 
     public static function show_options() {
-        tpl::addVar("title", "Опции галереи");
+        tpl::addVar("title", lang::get_phrase(227));
         tpl::display("admin/gallery/options.html");
     }
 
@@ -59,8 +60,8 @@ class screen {
         $max_user_count_screenshots = (int)$_POST['max_user_count_screenshots'];
         $max_count_all_screenshots = (int)$_POST['max_count_all_screenshots'];
         if(screenshot::options_save($screen_enable, $max_user_count_screenshots, $max_count_all_screenshots)) {
-            board::notice(true, 'Обновлено');
+            board::notice(true, lang::get_phrase(228));
         }
-        board::notice(false, 'Произошла ошибка сохранения');
+        board::notice(false, lang::get_phrase(229));
     }
 }

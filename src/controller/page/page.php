@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\controller\page;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\page\page AS page_model;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\template\tpl;
@@ -19,12 +20,12 @@ class page {
         $page_id = $_POST['id'];
         $comment = $_POST['comment'];
         $page = page_model::get_news($page_id);
-        if(!$page) board::notice(false, 'Ошибка');
-        if(!$page['comment']) board::notice(false, 'Запрещено публиковать комментарии');
-        if(1 > mb_strlen($comment)) board::notice(false, "Введите от 1 символа");
-        if(3000 < mb_strlen($comment)) board::notice(false, "Максимальная длина 3000 тыс. У Вас ".mb_strlen($comment)." символов.");
+        if(!$page) board::notice(false, lang::get_phrase(174));
+        if(!$page['comment']) board::notice(false, lang::get_phrase(240));
+        if(1 > mb_strlen($comment)) board::notice(false, lang::get_phrase(241));
+        if(3000 < mb_strlen($comment)) board::notice(false, lang::get_phrase(242, mb_strlen($comment)));
         page_model::add_comment($page_id, $comment);
-        board::notice(true, 'Добавлено');
+        board::notice(true, lang::get_phrase(243));
     }
 
     public static function show($id) {
@@ -47,7 +48,7 @@ class page {
 
     public static function all_news() {
         tpl::addVar([
-            'title'    => 'Мой титул',
+            'title'    => lang::get_phrase(244),
             'all_news' => page_model::show_news(),
             'server_list' => server::get_server_info(),
         ]);

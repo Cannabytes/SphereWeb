@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\user;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\server\server;
 
@@ -20,9 +21,9 @@ class default_server {
         $server_info = server::get_server_info($_POST['server_id']);
         if($server_info) {
             session::add("default_server", $_POST['server_id']);
-            board::notice(true, "Установлен сервер по умолчанию " . $server_info['name'] . " x" . $server_info['rate_exp']);
+            board::notice(true, lang::get_phrase(254, $server_info['name'], $server_info['rate_exp']));
         } else {
-            board::notice(false, 'Выбранный сервер не найден');
+            board::notice(false, lang::get_phrase(253));
         }
     }
 }

@@ -51,7 +51,7 @@ class other {
             }
             return self::$users_info;
         }
-        if($users_id==false){
+        if(!$users_id){
             return null;
         }
         self::$attempt_user = true;
@@ -64,7 +64,7 @@ class other {
     }
 
     static public function get_user_in_list($user_id) {
-        if(self::$attempt_user == false) {
+        if(!self::$attempt_user) {
             return 'You must specify a list of users';
         }
         foreach(self::$users_info as $user) {

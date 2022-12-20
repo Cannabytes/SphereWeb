@@ -7,11 +7,11 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="card-title">Выбрать демо страницу</div>
+                <div class="card-title">{{phrase(258)}}</div>
                 <hr>
                 <form>
                     <div class="form-group row">
-                        <label for="template" class="col-sm-2 col-form-label">Название шаблона</label>
+                        <label for="template" class="col-sm-2 col-form-label">{{phrase(259)}}</label>
                         <div class="col-sm-10">
                             <select class="form-control valid" id="template" name="intersted" required="" aria-invalid="false">
                                 {% for name in template_list %}
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Скриншот</label>
+                        <label class="col-sm-2 col-form-label">{{phrase(260)}}</label>
                         <div class="col-sm-10">
                             <div class="col-md-6 col-lg-6 col-xl-4">
                                 <a id="screen_href" href="/template/cabinet/assets/images/none.png" data-fancybox="images" data-caption="This image has a caption">
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Версия</label>
+                        <label class="col-sm-2 col-form-label">{{phrase(261)}}</label>
                         <div class="col-sm-10">
                             <p id="version" class="mb-0 small-font">0.1</p>
                         </div>
@@ -41,23 +41,23 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Дата</label>
+                        <label class="col-sm-2 col-form-label">{{phrase(262)}}</label>
                         <div class="col-sm-10">
                             <p id="date" class="mb-0 small-font">14 ноября 2022</p>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Автор</label>
+                        <label class="col-sm-2 col-form-label">{{phrase(263)}}</label>
                         <div class="col-sm-10">
                             <p id="author" class="mb-0 small-font">@Logan22</p>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Описание</label>
+                        <label class="col-sm-2 col-form-label">{{phrase(264)}}</label>
                         <div class="col-sm-10">
-                            <textarea id="description" type="text" class="form-control" placeholder="Отсутствует..."></textarea>
+                            <textarea id="description" type="text" class="form-control" placeholder="{{phrase(265)}}"></textarea>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <button type="submit" id="save_template" class="btn btn-primary px-5"><i class="icon-lock"></i> Применить шаблон</button>
+                            <button type="submit" id="save_template" class="btn btn-primary px-5"><i class="icon-lock"></i> {{phrase(266)}}</button>
                         </div>
                     </div>
                 </form>

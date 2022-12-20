@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\model\install;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\encrypt\encrypt;
 use PDO;
 use PDOException;
@@ -34,11 +35,11 @@ const CHARSET = 'utf8';
 
     static public function add_user_admin() {
         if(!file_exists($_SERVER["DOCUMENT_ROOT"] . '/src/config/db.php')) {
-            board::notice(false, "Сначала необходимо создать подключение к БД.<br><a href='/install/db'>Нажмите для установки подключения</a>");
+            board::notice(false, lang::get_phrase(154));
         }
         if(self::exist_admin()) {
             //Возможно тут стоит просто редирект сделать
-            board::notice(false, "Админ уже существует");
+            board::notice(false, lang::get_phrase(155));
         }
         $name = $_POST['login'];
         $password = $_POST['password'];
@@ -47,7 +48,7 @@ const CHARSET = 'utf8';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
         $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if(!$conn) {
-            board::notice(false, "Нет соединился с бд");
+            board::notice(false, lang::get_phrase(156));
         } else {
             $smt = $conn->prepare("INSERT INTO `users` (`name`, `password`, `email`, `ip`, `access_level`) VALUES (?, ?, ?, ?, ?)",);
             if($smt->execute([
@@ -59,7 +60,7 @@ const CHARSET = 'utf8';
             ])) {
                 self::setting();
                 self::add_first_news();
-                board::notice(true, "Администратора профиль создан");
+                board::notice(true, lang::get_phrase(157));
             }
         }
     }
@@ -91,12 +92,12 @@ const CHARSET = 'utf8';
     }
 
     static private function add_first_news(): void {
-        $txt = '<p><b>Приветствую Вас!</b></p><p>Вы установили ПО для администрирования Java сервера.</p><p>Что дальше? - Дальше авторизуйтесь, и перейдите в админ панель и установите свои параметры к сервера, настройки сайта и прочие.</p><p>Если у Вас есть идеи по улучшению, возможно предложения по разработке, доработка под Ваш сервер - пишите мне <a href="https://t.me/xyuDobra" target="_blank">в телеграмм</a>.<br></p>';
+        $txt = lang::get_phrase(158);
         require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
         $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         $smt = $conn->prepare('INSERT INTO `pages` (`is_news`, `name`, `description`) VALUES (1, ?, ?);');
         $smt->execute([
-            'Успешная установка веб движка завершена!',
+            lang::get_phrase(159),
             $txt,
         ]);
     }

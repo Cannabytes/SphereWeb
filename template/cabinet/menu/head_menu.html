@@ -5,7 +5,7 @@
 	   {% if user_info('get_is_auth') %}
        <h6 class="side-user-name">{{ user_info('get_email') }}</h6>
 	   {% else %}
-       <h6 class="side-user-name">{{ get_phrase("not_authorized") }}</h6>
+       <h6 class="side-user-name">{{ phrase("not_authorized") }}</h6>
 	   {% endif %}
       </div>
        </div>
@@ -15,14 +15,14 @@
 
       <ul class="user-setting-menu">
 			{% if user_info('get_is_auth') %}
-            <li><a href="/user/change"><i class="icon-settings"></i> {{ get_phrase("settings") }}</a></li>
-            <li><a href="/user/change/avatar"><i class="icon-settings"></i> Выбрать аватар</a></li>
-            <li><a href="/user/change/avatar/background"><i class="icon-settings"></i> Выбрать фон аватара</a></li>
- 			<li><a href="/auth/logout"><i class="icon-power"></i> {{ get_phrase("logout") }}</a></li>
+            <li><a href="/user/change"><i class="icon-settings"></i> {{ phrase("settings") }}</a></li>
+            <li><a href="/user/change/avatar"><i class="icon-settings"></i> {{phrase(65)}}</a></li>
+            <li><a href="/user/change/avatar/background"><i class="icon-settings"></i> {{phrase(66)}}</a></li>
+ 			<li><a href="/auth/logout"><i class="icon-power"></i> {{ phrase("logout") }}</a></li>
 			{% else %}
-			<li><a href="/auth"><i class="icon-user"></i> {{ get_phrase("authorization") }}</a></li>
-			<li><a href="/registration/user"><i class="icon-user"></i> {{ get_phrase("menu_registration") }}</a></li>
-			<li><a href="/auth/forget"><i class="icon-user"></i> Восстановление пароля</a></li>
+			<li><a href="/auth"><i class="icon-user"></i> {{ phrase("authorization") }}</a></li>
+			<li><a href="/registration/user"><i class="icon-user"></i> {{ phrase("menu_registration") }}</a></li>
+			<li><a href="/auth/forget"><i class="icon-user"></i> {{phrase(67)}}</a></li>
 			{% endif %}
       </ul>
      </div>

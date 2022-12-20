@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\config\config;
 
 class template {
@@ -16,7 +17,7 @@ class template {
         $template = $_POST['template'];
         config::set_template($template);
         config::save_template();
-        board::notice(true, "Установлен шаблон {$template} по умолчанию");
+        board::notice(true, lang::get_phrase(147, $template));
     }
 
 }

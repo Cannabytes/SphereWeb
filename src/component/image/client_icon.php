@@ -13,7 +13,7 @@ class client_icon {
 
     static public function get_image_item_id($item_id){
         $image = sql::run("SELECT image FROM items_name WHERE id = ? LIMIT 1", [$item_id])->fetch();
-        if($image == false){
+        if(!$image){
             return ['name'=>"NULL", 'image' => 'notFind'];
         }
         return $image;

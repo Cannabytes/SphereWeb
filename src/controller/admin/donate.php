@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
@@ -16,7 +17,7 @@ class donate {
     static public function show() {
         validation::user_protection("admin");
         tpl::addVar([
-            'title'       => 'Магазин',
+            'title'       => lang::get_phrase(215),
             'server_list' => server::get_server_info(),
         ]);
         tpl::addVar("products", \Ofey\Logan22\model\donate\donate::products());
@@ -27,7 +28,7 @@ class donate {
     public static function add() {
         validation::user_protection("admin");
         tpl::addVar([
-            'title'       => 'Добавление предмета',
+            'title'       => lang::get_phrase(216),
             'server_list' => server::get_server_info(),
         ]);
         tpl::display("/admin/donate/add_item.html");

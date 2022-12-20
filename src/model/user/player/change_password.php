@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\player;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
@@ -28,7 +29,7 @@ class change_password {
             ]);
             if($update->rowCount() == 0) {
                 //Произошла ошибка запроса
-                board::notice(false,'Этот пароль не подходит, придумайте новый');
+                board::notice(false, lang::get_phrase(179));
             } else {
                 self::change_password_server($server_id, $login, $password);
             }
@@ -41,7 +42,7 @@ class change_password {
     static public function change_password_server($server_id, $login, $password) {
         $server_info = server::server_info($server_id);
         if(!$server_info) {
-            board::notice(false,'Сервер не найден');
+            board::notice(false, lang::get_phrase(150));
         }
         $base = base::get_sql_source($server_info['collection_sql_base_name'], "account_change_password");
         $change = player_account::extracted($base, $server_info, [
@@ -51,9 +52,9 @@ class change_password {
         if($change->rowCount() == 0) {
             //TODO: добавление в логирование ошибок
             //Возникла ошибка смены пароля
-            board::notice(false,'Возникла ошибка смены пароля');
+            board::notice(false, lang::get_phrase(180));
         } else {
-            board::notice(true,'Пароль успешно изменен');
+            board::notice(true, lang::get_phrase(181));
         }
     }
 }

@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\statistic;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\template\tpl;
@@ -49,7 +50,7 @@ class statistic {
         other::current_server();
         tpl::addVar("blocks", statistic_model::get_players_block());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Заблокированные");
+        tpl::addVar("title", lang::get_phrase(245));
         tpl::display("statistic/block.html");
     }
 
@@ -57,7 +58,7 @@ class statistic {
         other::current_server();
         tpl::addVar("heroes", statistic_model::get_players_heroes());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Герои");
+        tpl::addVar("title", lang::get_phrase(246));
         tpl::display("statistic/heroes.html");
     }
 
@@ -65,7 +66,7 @@ class statistic {
         other::current_server();
         tpl::addVar("pvp", statistic_model::get_pvp());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика PvP");
+        tpl::addVar("title", lang::get_phrase(247));
         tpl::display("statistic/pvp.html");
     }
 
@@ -73,7 +74,7 @@ class statistic {
         other::current_server();
         tpl::addVar("pk", statistic_model::get_pk());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика PK");
+        tpl::addVar("title", lang::get_phrase(248));
         tpl::display("statistic/pk.html");
     }
 
@@ -81,7 +82,7 @@ class statistic {
         other::current_server();
         tpl::addVar("online_times", statistic_model::get_players_online_time());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика времени игры");
+        tpl::addVar("title", lang::get_phrase(249));
         tpl::display("statistic/online_time.html");
     }
 
@@ -89,14 +90,14 @@ class statistic {
         other::current_server();
         tpl::addVar("clans", statistic_model::get_clan());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика кланов");
+        tpl::addVar("title", lang::get_phrase(250));
         tpl::display("statistic/clan.html");
     }
 
     static public function clan_info($clan_name): void {
         other::current_server();
         $clan = statistic_model::get_clan_all_info($clan_name);
-        tpl::addVar("title", "Информация о клане {$clan['clan_info']['clan_name']}");
+        tpl::addVar("title", lang::get_phrase(252, $clan['clan_info']['clan_name']));
         tpl::addVar("clan_info", $clan['clan_info']);
         tpl::addVar("clan_players", $clan['clan_players']);
         tpl::addVar("clan_skills", $clan['clan_skills']);
@@ -107,7 +108,7 @@ class statistic {
         other::current_server();
         tpl::addVar("castles", statistic_model::get_castle());
         tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика замков");
+        tpl::addVar("title", lang::get_phrase(251));
         tpl::display("statistic/castle.html");
     }
 
@@ -115,7 +116,7 @@ class statistic {
         $get_player_info = statistic_model::get_player_info($char_name);
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
-        tpl::addVar("title", "Информация о персонаже {$char_name}");
+        tpl::addVar("title", lang::get_phrase(205, $char_name));
         tpl::addVar("player", $get_player_info);
         tpl::addVar("inventory", $inventory);
         tpl::addVar("sub_class", $sub_class);

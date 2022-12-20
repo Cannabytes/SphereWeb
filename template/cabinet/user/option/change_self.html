@@ -9,37 +9,37 @@
               <form>
                 <h4 class="form-header">
                 <i class="fa fa-file-text-o"></i>
-                  {{ get_phrase(13) }}
+                  {{ phrase(13) }}
                 </h4>
 				<div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ get_phrase(14) }}</label>
+                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase(14) }}</label>
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="input-5" name="name" value="{{ user_info('get_name') }}" >
                   </div>
                 </div>
 				<hr>
                 <div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ get_phrase("new_password") }}</label>
+                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase("new_password") }}</label>
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="input-5" name="new_password" >
                   </div>
                 </div>
                
                 <div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ get_phrase("two_password") }}</label>
+                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase("two_password") }}</label>
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="input-5" name="two_password" >
                   </div>
                 </div>
                <hr>
                 <div class="form-group row">
-                  <label for="input-9" class="col-sm-2 col-form-label">{{ get_phrase("signature") }}</label>
+                  <label for="input-9" class="col-sm-2 col-form-label">{{ phrase("signature") }}</label>
                   <div class="col-sm-5">
                     <textarea class="form-control" rows="3" id="input-9" name="signature" >{{ user_info('get_signature') }}</textarea>
                   </div>
                 </div>
                 <div class="form-footer">
-                    <button id="update" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{ get_phrase("apply") }}</button>
+                    <button id="update" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{ phrase("apply") }}</button>
                 </div>
               </form>
             </div>
