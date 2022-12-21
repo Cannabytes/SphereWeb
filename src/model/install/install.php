@@ -23,6 +23,7 @@ class install {
     }
 
     static public function saveConfig($host, $user, $password, $name) {
+        lang::load_package();
         $phpText = "<?php
 const DB_HOST = '{$host}';
 const DB_USER = '{$user}';
@@ -34,6 +35,7 @@ const CHARSET = 'utf8';
     }
 
     static public function add_user_admin() {
+        lang::load_package();
         if(!file_exists($_SERVER["DOCUMENT_ROOT"] . '/src/config/db.php')) {
             board::notice(false, lang::get_phrase(154));
         }
@@ -92,7 +94,6 @@ const CHARSET = 'utf8';
     }
 
     static private function add_first_news(): void {
-        lang::set_lang("ru");
         $txt = lang::get_phrase(158);
         require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
         $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);

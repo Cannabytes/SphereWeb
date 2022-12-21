@@ -42,8 +42,6 @@ class lang {
         self::$lang_array = $lang_array;
     }
 
-    static public function system_lang() {
-    }
 
     static private function name($lang = 'ru') {
         $filename = "./src/component/lang/package/{$lang}.php";
