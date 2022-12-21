@@ -38,7 +38,7 @@ class lang {
         } else {
             $lang = $_SESSION['lang'];
         }
-        $lang_array = include_once "./src/component/lang/package/{$lang}.php";
+        $lang_array = include_once "src/component/lang/package/{$lang}.php";
         self::$lang_array = $lang_array;
     }
 
@@ -58,7 +58,7 @@ class lang {
      * @return array
      */
     static public function lang_list($remove_lang = null): array {
-        $lngs = fileSys::get_dir_files("./src/component/lang/package/", [
+        $lngs = fileSys::get_dir_files("src/component/lang/package/", [
             'basename' => false,
             'suffix'   => '.php',
             'fetchAll' => true,
