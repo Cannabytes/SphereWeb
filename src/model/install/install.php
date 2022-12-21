@@ -92,6 +92,7 @@ const CHARSET = 'utf8';
     }
 
     static private function add_first_news(): void {
+        lang::set_lang("ru");
         $txt = lang::get_phrase(158);
         require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
         $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
