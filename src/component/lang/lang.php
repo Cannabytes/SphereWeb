@@ -38,13 +38,13 @@ class lang {
         } else {
             $lang = $_SESSION['lang'];
         }
-        $lang_array = include_once "src/component/lang/package/{$lang}.php";
+        $lang_array = include_once $_SERVER['DOCUMENT_ROOT'] . "/src/component/lang/package/{$lang}.php";
         self::$lang_array = $lang_array;
     }
 
 
     static private function name($lang = 'ru') {
-        $filename = "./src/component/lang/package/{$lang}.php";
+        $filename = $_SERVER['DOCUMENT_ROOT'] . "/src/component/lang/package/{$lang}.php";
         if(!file_exists($filename)) {
             echo "Файл НЕ $filename существует";
         }
