@@ -58,9 +58,10 @@ class server {
                                     server_list.collection_sql_base_name 
                                 FROM
                                     server_list")->fetchAll();
-        foreach(self::$server_info as &$server) {
-            $server['desc_page_id'] = self::get_default_desc_page_id($server['id']);
+        foreach(self::$server_info as $k=>$server) {
+            self::$server_info[$k]['desc_page_id'] = self::get_default_desc_page_id($server['id']);
         }
+
         if($id != null) {
             foreach(self::$server_info as $server) {
                 if($id == $server['id']) {
@@ -69,6 +70,7 @@ class server {
             }
             return false;
         }
+
         return self::$server_info;
     }
 

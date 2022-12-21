@@ -23,7 +23,7 @@ use Ofey\Logan22\component\base\structure;
 class L2jMobius_Homunculus implements structure {
 
     static public function hash(): string {
-        return 'whirlpool';
+        return 'sha1';
     }
 
     static public function chronicle(): mixed {

@@ -23,16 +23,13 @@ class options {
 
     static public function edit_server_show($server_id) {
         validation::user_protection("admin");
-        $desc = server::get_server_description($server_id);
-        //        var_dump($server_info);exit;
         tpl::addVar([
             'servername_list_default' => servername::all(),
             'client_list_default'     => client::all(),
             'timezone_list_default'   => timezone::all(),
             "title"                   => lang::get_phrase(221),
-            'server'             => \Ofey\Logan22\model\server\server::get_server_info($server_id),
+            'server'                  => \Ofey\Logan22\model\server\server::get_server_info($server_id),
             'sql_base_source'         => base::sql_base_source(),
-            'desc'        => $desc,
         ]);
         tpl::display("/admin/options/server_edit.html");
     }
@@ -73,12 +70,12 @@ class options {
     public static function description_create($id) {
         validation::user_protection("admin");
         tpl::addVar([
-            'title' => "Описание сервера",
-            'all_page_name' => \Ofey\Logan22\model\page\page::all_page_name(),
-            'server_id'   => $id,
+            'title'                  => "Описание сервера",
+            'all_page_name'          => \Ofey\Logan22\model\page\page::all_page_name(),
+            'server_id'              => $id,
             'desc_server_list_short' => \Ofey\Logan22\model\page\page::desc_server_list_short($id),
-            'server_list' => \Ofey\Logan22\model\server\server::get_server_info(),
-            'server_info' => \Ofey\Logan22\model\server\server::get_server_info($id),
+            'server_list'            => \Ofey\Logan22\model\server\server::get_server_info(),
+            'server_info'            => \Ofey\Logan22\model\server\server::get_server_info($id),
         ]);
         tpl::display("/admin/options/description.html");
     }
@@ -142,18 +139,18 @@ class options {
         }
         if($operator == "SELECT") {
             $server_info = $server->fetchAll(PDO::FETCH_ASSOC);
-            if($server->rowCount()==0) {
+            if($server->rowCount() == 0) {
                 board::notice(true, 'Нет возвращаемых результатов');
-            }else{
+            } else {
                 board::notice(true, implode(" ", $server_info[0]));
             }
         }
 
         if($operator == "UPDATE") {
-            if($server->rowCount()==0) {
+            if($server->rowCount() == 0) {
                 board::notice(true, 'Нет измененных данных');
-            }else{
-                board::notice(true,  "Изменено {$server->rowCount()} строк");
+            } else {
+                board::notice(true, "Изменено {$server->rowCount()} строк");
             }
         }
         board::notice(true, 'OK');
