@@ -1,4 +1,5 @@
 <?php
+
 use Ofey\Logan22\model\user\auth\auth as auth_model;
 auth_model::user_auth();
 

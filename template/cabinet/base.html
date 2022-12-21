@@ -194,13 +194,13 @@
                 </li>
                 <li class="nav-item language">
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
-                       href="javascript:void();"><i class="flag-icon flag-icon-{{ lang_flag() }}"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item"><a href="/user/change/lang/ru"><i
-                                class="flag-icon flag-icon-ru mr-1"></i> Русский</a></li>
-                        <li class="dropdown-item"><a href="/user/change/lang/en"><i
-                                class="flag-icon flag-icon-gb mr-1"></i> English</a></li>
-                    </ul>
+                       href="javascript:void();"><i class="flag-icon flag-icon-{{ lang_user_default() }}"></i></a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							{% for lang in lang_list(lang_user_default()) %}
+							<li class="dropdown-item"><a href="/user/change/lang/{{lang.lang}}"><i
+									class="flag-icon flag-icon-{{lang.lang}} mr-1"></i> {{lang.name}}</a></li>
+							{% endfor %}
+						</ul>
                 </li>
             </ul>
         </nav>

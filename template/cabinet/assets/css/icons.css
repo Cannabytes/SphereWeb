@@ -12652,6 +12652,12 @@ File: app-style
 .flag-icon-us.flag-icon-squared {
   background-image: url(../flags/1x1/us.svg);
 }
+.flag-icon-en {
+  background-image: url(../flags/4x3/en.svg);
+}
+.flag-icon-en.flag-icon-squared {
+  background-image: url(../flags/1x1/en.svg);
+}
 .flag-icon-uy {
   background-image: url(../flags/4x3/uy.svg);
 }

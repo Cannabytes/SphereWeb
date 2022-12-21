@@ -16,16 +16,16 @@ class lang {
     static private array $lang_array = [];
 
     //Загрузка языкового пакета шаблона
-    static public function load_template_lang_packet($tpl){
+    static public function load_template_lang_packet($tpl) {
         $lang_name = self::lang_user_default();
         $langs_array = require_once($tpl);
-        if(array_key_exists($lang_name,$langs_array)) {
+        if(array_key_exists($lang_name, $langs_array)) {
             self::$lang_array = array_merge(self::$lang_array, $langs_array[$lang_name]);
         }
     }
 
     static public function set_lang($lang): void {
-        if(self::name($lang)){
+        if(self::name($lang)) {
             session::add("lang", $lang);
         }
         //TODO: Если языка такого нет, тогда может вывести страницу ошибки?
@@ -42,20 +42,24 @@ class lang {
         self::$lang_array = $lang_array;
     }
 
-    static private function name($lang = 'ru'): bool|string {
-        return match ($lang) {
-            'ru' => 'Русский',
-            'en' => 'English',
-            default => false,
-        };
+    static public function system_lang() {
+    }
+
+    static private function name($lang = 'ru') {
+        $filename = "./src/component/lang/package/{$lang}.php";
+        if(!file_exists($filename)) {
+            echo "Файл НЕ $filename существует";
+        }
+        $lang_array = include $filename;
+        return $lang_array['lang_name'] ?? null;
     }
 
     /**
      * Возвращается массив языков с параметрами
-     *
+     * $remove_lang = название языка, которое удалим из списка
      * @return array
      */
-    static public function lang_list(): array {
+    static public function lang_list($remove_lang = null): array {
         $lngs = fileSys::get_dir_files("./src/component/lang/package/", [
             'basename' => false,
             'suffix'   => '.php',
@@ -66,6 +70,9 @@ class lang {
         $lang_name = self::lang_user_default();
 
         foreach($lngs as $lng) {
+            if($lng == $remove_lang){
+                continue;
+            }
             $isActive = $lng == $lang_name;
             $langs[] = [
                 'lang'     => $lng,
@@ -98,7 +105,7 @@ class lang {
     }
 
     //Язык пользователя по умолчанию
-    static public function lang_user_default(){
+    static public function lang_user_default() {
         if(!isset($_SESSION['lang'])) {
             $lang_name = config::get_language_default();
             $_SESSION['lang'] = $lang_name;
@@ -108,14 +115,4 @@ class lang {
         return $lang_name;
     }
 
-    static public function lang_flag(): string {
-        $lang_name = self::lang_user_default();
-        if($lang_name == 'ru') {
-            return 'ru';
-        }
-        if($lang_name == 'en') {
-            return 'gb';
-        }
-        return 'ru';
-    }
 }

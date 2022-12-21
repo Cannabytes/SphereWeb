@@ -96,8 +96,9 @@ class tpl {
             return Route::get_alias($alias);
         }));
 
-        $twig->addFunction(new TwigFunction('lang_list', function() {
-            return lang::lang_list();
+        //Список языков
+        $twig->addFunction(new TwigFunction('lang_list', function($remove_lang = null) {
+            return lang::lang_list($remove_lang);
         }));
 
         $twig->addFunction(new TwigFunction('user_info', function($type) {
@@ -200,8 +201,8 @@ class tpl {
             return other::get_user_in_list($user_id);
         }));
 
-        $twig->addFunction(new TwigFunction('lang_flag', function() {
-            return lang::lang_flag();
+        $twig->addFunction(new TwigFunction('lang_user_default', function() {
+            return lang::lang_user_default();
         }));
 
         $twig->addFunction(new TwigFunction('last_forum_message', function($last_message = 10) {
@@ -325,11 +326,6 @@ class tpl {
         echo $template->render(self::$allTplVars);
         exit();
     }
-
-    // Загрузка и отображение шаблона
-    // $tplName - название шаблона
-    // $categoryCabinet - true когда нужно загрузить шаблоны демо страницы,
-    // если false тогда загружается шаблоны из личного кабинета
 
     /**
      * Загрузка языкового пакета шаблона
