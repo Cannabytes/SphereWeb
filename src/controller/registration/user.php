@@ -23,7 +23,7 @@ class user {
     static public function add(){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        if(auth::exist_user($email)) {
+        if(auth::exist_user($email, false)) {
             board::notice(false, lang::get_phrase(201, $email));
         }
         player_account::valid_password($password);

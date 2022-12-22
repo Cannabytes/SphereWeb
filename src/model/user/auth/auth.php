@@ -218,12 +218,16 @@ class auth {
     static public array $userInfo = [];
 
     //Проверка существования юзера
-    static public function exist_user($email) {
+    //$nCheck = false вернет в случае неудачи false, если true выйдет в логаут из профиля
+    static public function exist_user($email, $nCheck = true) {
         if(self::$userInfo!=null){
             return self::$userInfo;
         }
         $sql = 'SELECT * FROM users WHERE email = ?';
         $userInfo = sql::run($sql, [$email])->fetch();
+        if(!$nCheck){
+            return false;
+        }
         if(!$userInfo){
             self::logout();
         }
