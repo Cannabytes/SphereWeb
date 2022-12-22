@@ -47,6 +47,16 @@ class auth {
         forget::password();
     }
 
+    //Когда пользователь открывает страницу (с почты) восстановления
+    public static function open_forget_page($code){
+        validation::user_protection("guest");
+        forget::reset_verification($code);
+    }
+
+    /**
+     * Для страницы на которой пользователь вводит вручную код
+     * @return void
+     */
     public static function send_email_verification_forget() {
         validation::user_protection("guest");
         forget::verification();

@@ -13,7 +13,6 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\mail\mail;
 use Ofey\Logan22\model\db\sql;
-use PHPMailer\PHPMailer\PHPMailer;
 
 class forget {
 
@@ -42,7 +41,7 @@ class forget {
             $link,
         ], $content);
         $isMail = mail::send($email, $content, lang::get_phrase(169));
-        if($isMail['ok']){
+        if($isMail['ok']) {
             board::notice(true, lang::get_phrase(168));
         }
         board::notice(false, $isMail['message']);
@@ -61,7 +60,10 @@ class forget {
         if(!$ok['active']) {
             board::notice(false, lang::get_phrase(171));
         }
-        if(date_diff(new DateTime(), new DateTime($ok['date']))->i > 10) {
+        $nowTime = new DateTime();
+        $requestTime = new DateTime($ok['date']);
+
+        if(($requestTime->getTimestamp() - $nowTime->getTimestamp()) > 10 * 60) {
             board::notice(false, lang::get_phrase(172));
         }
 
@@ -94,9 +96,38 @@ class forget {
         ], $content);
 
         $isMail = mail::send($email, $content, lang::get_phrase(176));
-        if($isMail['ok']){
+        if($isMail['ok']) {
             board::notice(true, lang::get_phrase(175));
         }
         board::notice(false, $isMail['message']);
     }
+
+    public static function reset_verification($code): void {
+        $data = sql::run("SELECT `id`, `active`, `date` FROM `users_password_forget` WHERE code=?", [
+            $code,
+        ])->fetch();
+        if(!$data) {
+            board::notice(false, lang::get_phrase(170));
+        }
+        if($data['active']==0) {
+            board::notice(false, lang::get_phrase(171));
+        }
+        $nowTime = new DateTime();
+        $requestTime = new DateTime($data['date']);
+
+        if(($requestTime->getTimestamp() - $nowTime->getTimestamp()) > 10 * 60) {
+            board::notice(false, lang::get_phrase(172));
+        }
+
+        $password = generation::password();
+        if(auth::change_user_password($data['email'], $password)) {
+            sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
+                0,
+                $data['id'],
+            ]);
+            self::send_new_password($data['email'], $password);
+        }
+        board::notice(false, lang::get_phrase(173));
+    }
+
 }
