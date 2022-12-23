@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\model\db;
 
 use Exception;
+use Ofey\Logan22\component\alert\board;
 use PDO;
 use PDOException;
 
@@ -65,8 +66,8 @@ class sql {
 
     /**
      * @throws Exception
-     */
-    public static function run($query, $args = []) {
+      */
+    public static function run($query, $args = [], $showJson = false) {
         if(!self::connect()) {
             echo 'Not connect to db';
             exit;
@@ -79,12 +80,15 @@ class sql {
             $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
+            if($showJson){
+                board::notice(false, $e->getMessage());
+            }
             echo "Ошибка выполнения запроса!<br>";
             echo "Запрос: {$query}<br>";
             echo "Параметры: " . implode(", ",$args) . "<br>";
             echo "Ошибка: {$e->getMessage()}<br>";
             die();
-            throw new Exception($e->getMessage());
+//            throw new Exception($e);
         }
     }
 

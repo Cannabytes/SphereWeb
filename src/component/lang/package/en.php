@@ -338,5 +338,14 @@ return [
              Server registration is located in the menu <b><a href="/admin/options"> Admin Panel -> Settings -> Add</a></b>.<br>
              <hr>
              Server information is needed to inform the user which server he is interacting with.<br>',
+    277 => "A new password will be generated and sent to your email.",
+    278 => "Send password",
+    279 => "Reset code",
+    280 => "File not exist: %s",
 
+    281 => "Address is incorrect",
+    282 => "User not found",
+    283 => "Forbidden to change administrator password",
+    284 => "Reset code",
+    285 => "Reset password",
 ];

@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\component\mail;
 
+use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class mail {

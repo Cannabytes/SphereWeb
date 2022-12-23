@@ -38,7 +38,8 @@ $router->get("auth/logout", 'Ofey\Logan22\controller\user\auth\auth::logout');
 $router->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget');
 $router->post("auth/forget/send/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_forget');
 $router->post("auth/forget/verification/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_verification_forget');
-$router->get("/auth/forget/code/(\d+)", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
+$router->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
+$router->post("/auth/forget/send/password", 'Ofey\Logan22\controller\user\auth\auth::send_password');
 
 /**
  * Пользовательское

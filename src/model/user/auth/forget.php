@@ -16,23 +16,48 @@ use Ofey\Logan22\model\db\sql;
 
 class forget {
 
+    static public function generate_string($count = 12): string {
+        $input = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $input_length = strlen($input);
+        $random_string = '';
+        for($i = 0; $i < $count; $i++) {
+            $random_character = $input[mt_rand(0, $input_length - 1)];
+            $random_string .= $random_character;
+        }
+        return $random_string;
+    }
+
+    /**
+     * @throws \Exception
+     */
     static public function password() {
         $email = $_POST['email'];
-        $code = mt_rand(111, 999999);
-        sql::run("INSERT INTO `users_password_forget` (`code`, `email`, `ip`, `active`) VALUES (?, ?, ?, ?)", [
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            board::notice(false, lang::get_phrase(281));
+        }
+        $userValid = self::userValid($email);
+        if(!$userValid) {
+            board::notice(false, lang::get_phrase(282));
+        }
+        if($userValid['access_level'] == "admin") {
+            board::notice(false, lang::get_phrase(283));
+        }
+        $code = self::generate_string();
+        $date = new DateTime();
+        sql::run("INSERT INTO `users_password_forget` (`code`, `email`, `date`, `ip`, `active`) VALUES (?, ?, ?, ?, ?)", [
             $code,
             $email,
+            $date->format('Y-m-d H:i:s'),
             $_SERVER['REMOTE_ADDR'],
             true,
-        ]);
+        ], true);
+
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth/forget/code/" . $code;
-        $content = file_get_contents("template/cabinet/email_request/forget.html");
-        if(!$content) {
-            return [
-                'ok'      => false,
-                'message' => lang::get_phrase(145),
-            ];
+        $forgetFilename = "template/cabinet/email/" . lang::lang_user_default() . "/forget_link.html";
+        if(!file_exists($forgetFilename)) {
+            board::notice(true, lang::get_phrase(145));
         }
+        $content = file_get_contents($forgetFilename);
         $content = str_replace([
             '%code%',
             '%link%',
@@ -80,13 +105,12 @@ class forget {
 
     public static function send_new_password($email, $password) {
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth";
-        $content = file_get_contents("template/cabinet/email_request/new_password.html");
-        if(!$content) {
-            return [
-                'ok'      => false,
-                'message' => lang::get_phrase(174),
-            ];
+        $lang = lang::lang_user_default();
+        $forgetFilename = "template/cabinet/email/{$lang}/new_password.html";
+        if(!file_exists($forgetFilename)) {
+            board::notice(false, lang::get_phrase(280, $forgetFilename));
         }
+        $content = file_get_contents($forgetFilename);
         $content = str_replace([
             '%password%',
             '%link%',
@@ -94,7 +118,6 @@ class forget {
             $password,
             $link,
         ], $content);
-
         $isMail = mail::send($email, $content, lang::get_phrase(176));
         if($isMail['ok']) {
             board::notice(true, lang::get_phrase(175));
@@ -102,32 +125,57 @@ class forget {
         board::notice(false, $isMail['message']);
     }
 
-    public static function reset_verification($code): void {
-        $data = sql::run("SELECT `id`, `active`, `date` FROM `users_password_forget` WHERE code=?", [
+    /**
+     * @throws \Exception
+     */
+    public static function reset_password(): void {
+        $email = $_POST['email'];
+        $code = $_POST['code'];
+        $userValid = self::userValid($email);
+        if(!$userValid) {
+            board::notice(false, lang::get_phrase(282));
+        }
+        if($userValid['access_level'] == "admin") {
+            board::notice(false, lang::get_phrase(283));
+        }
+        $data = sql::run("SELECT `id`, `active`, `date` FROM `users_password_forget` WHERE code=? AND email=?", [
             $code,
+            $email,
         ])->fetch();
         if(!$data) {
-            board::notice(false, lang::get_phrase(170));
+            board::notice(false, lang::get_phrase(180));
         }
-        if($data['active']==0) {
+        if($data['active'] == 0) {
             board::notice(false, lang::get_phrase(171));
         }
         $nowTime = new DateTime();
         $requestTime = new DateTime($data['date']);
-
-        if(($requestTime->getTimestamp() - $nowTime->getTimestamp()) > 10 * 60) {
+        $second_b = $nowTime->getTimestamp() - $requestTime->getTimestamp();
+        if($second_b >= 60 * 10) {
             board::notice(false, lang::get_phrase(172));
         }
-
         $password = generation::password();
-        if(auth::change_user_password($data['email'], $password)) {
+        if(auth::change_user_password($email, $password)) {
             sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
                 0,
                 $data['id'],
             ]);
-            self::send_new_password($data['email'], $password);
+            self::send_new_password($email, $password);
         }
         board::notice(false, lang::get_phrase(173));
     }
 
+    //Проверка существования юзера
+    public static function userValid($email) {
+        return sql::getRow("SELECT `access_level` FROM `users` WHERE email=? LIMIT 1", [
+            $email,
+        ]);
+    }
+
+    //
+    public static function dataForgetInfo($code) {
+        return sql::getRow("SELECT * FROM `users_password_forget` WHERE code=?", [
+            $code,
+        ]);
+    }
 }

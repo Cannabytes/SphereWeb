@@ -15,6 +15,7 @@ $(document).ready(function () {
                 email: $("#email").val()
             },
             success: function(result) {
+				console.log(result);
                 if (result.ok){
                     notify_success(result.message);
                 }else{
@@ -40,10 +41,11 @@ $(document).ready(function () {
             url: "/auth/forget/verification/code",
             dataType: "json",
             data: {
-                email: $("#email").val(),
-                code: $("#code").val()
+                email: email,
+                code: code,
             },
             success: function(result) {
+                console.log(result);
                 if (result.ok){
                     notify_success(result.message);
                 }else{

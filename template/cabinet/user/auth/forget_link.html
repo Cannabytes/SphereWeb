@@ -17,26 +17,19 @@
 				</div>
 				
                <div class="input-group">
-                <input type="text" class="form-control" id="email" placeholder="E-mail"> 
-					<div class="input-group-prepend">
-						<button class="btn btn-outline-primary" id="send_email" type="button">{{phrase(285)}}</button>
-					</div>
+                <input type="text" class="form-control" value="{{email}}" id="email" placeholder="E-mail" readonly>
               </div>
 				<hr>
                <div class="input-group">
-                <input type="text" class="form-control" id="code" placeholder="{{phrase(284)}}">
-					<div class="input-group-prepend">
-						<button class="btn btn-outline-primary" id="send_code" type="button">{{phrase(278)}}</button>
-					</div>
+                <input type="text" class="form-control" value="{{code}}" id="code" placeholder="{{phrase(284)}}">
                </div>
-				
-				 
-				
+                <hr>
+                <div class="form-footer">
+                    <button class="btn btn-success" id="send_password" type="button">{{phrase(278)}}</button>
+                </div>
             </div>
         </div>
-        <div class="card-footer text-center py-3">
-            <p class="mb-0">{{ phrase(11) }} <a href="/registration/user"> {{ phrase(12) }}</a></p>
-        </div>
+
     </div>
 
     <!--Start Back To Top Button-->
@@ -47,5 +40,5 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{'assets/js/auth/forget.js'|template}}"></script>
+<script src="{{'assets/js/auth/forget_link.js'|template}}"></script>
 {% endblock %}

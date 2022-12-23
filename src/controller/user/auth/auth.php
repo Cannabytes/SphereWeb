@@ -7,12 +7,10 @@
 
 namespace Ofey\Logan22\controller\user\auth;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\validation;
-use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\forget;
 use Ofey\Logan22\template\tpl;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 class auth {
 
@@ -39,6 +37,7 @@ class auth {
      */
     public static function forget() {
         validation::user_protection("guest");
+        tpl::addVar("title", lang::get_phrase(285));
         tpl::display("user/auth/forget.html");
     }
 
@@ -48,13 +47,30 @@ class auth {
     }
 
     //Когда пользователь открывает страницу (с почты) восстановления
-    public static function open_forget_page($code){
+    public static function open_forget_page($code): void {
         validation::user_protection("guest");
-        forget::reset_verification($code);
-    }
+        $data = forget::dataForgetInfo($code);
+        tpl::addVar([
+            'title' => lang::get_phrase(67),
+            'code' => $code,
+            'email' => $data['email'],
+        ]);
+        tpl::display("user/auth/forget_link.html");
+     }
+
+    /**
+     * Отправить пароль на почту
+     * Используется при сбросе пароля
+     * @return void
+     */
+     public static function send_password(): void {
+         validation::user_protection("guest");
+         forget::reset_password();
+     }
 
     /**
      * Для страницы на которой пользователь вводит вручную код
+     *
      * @return void
      */
     public static function send_email_verification_forget() {
