@@ -163,7 +163,7 @@ class statistic {
     }
 
     public static function timeHasPassed($second): string {
-        if(lang::lang_flag() == "ru") {
+        if(lang::lang_user_default() == "ru") {
             $times_values = [
                 'сек.',
                 'мин.',
