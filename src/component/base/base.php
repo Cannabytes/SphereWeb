@@ -28,14 +28,28 @@ class base {
 
     /**
      * Возращаем имя класса из файла
+     *
      * @param $file
      *
      * @return false|string
      */
-    static public function get_class_php($file){
+    static public function get_class_php($file) {
         include($file);
         $classes = get_declared_classes();
         $class = end($classes);
         return $class;
+    }
+
+    /**
+     * Возращает массив с пространсом имен классов коллекции запросов
+     * @return bool|array|string
+     */
+    static public function all_class_base_data(): bool|array|string {
+        $s = self::sql_base_source();
+        $data = [];
+        foreach($s as $r) {
+            $data[] = self::get_class_php("src/component/base/source/" . $r);
+        }
+        return $data;
     }
 }

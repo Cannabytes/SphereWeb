@@ -29,7 +29,7 @@ class options {
             'timezone_list_default'   => timezone::all(),
             "title"                   => lang::get_phrase(221),
             'server'                  => \Ofey\Logan22\model\server\server::get_server_info($server_id),
-            'sql_base_source'         => base::sql_base_source(),
+            'sql_base_source'         => base::all_class_base_data(),
         ]);
         tpl::display("/admin/options/server_edit.html");
     }

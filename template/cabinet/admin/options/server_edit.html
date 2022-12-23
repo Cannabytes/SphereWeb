@@ -147,8 +147,8 @@
 				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ phrase(34) }}</label>
 				  <div class="col-sm-7">
 						<select class="form-control" id="sql_base_source" name="sql_base_source">
-						{% for basename in sql_base_source %}
-                          <option {% if server['collection_sql_base_name']==basename %}selected{% endif %} value="{{ basename }}">{{ basename }}</option>
+						{% for sql_base in sql_base_source %}
+                          <option {% if server['collection_sql_base_name']==sql_base %}selected{% endif %} value="{{ sql_base }}">{{ basename(sql_base) }}</option>
 						{% endfor %}
                         </select>
 				  </div>

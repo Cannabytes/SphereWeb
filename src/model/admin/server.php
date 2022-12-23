@@ -101,7 +101,8 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
+//        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
+        $sql_base_source = $_POST['sql_base_source'];
 
         //TODO: Проверка на соединение с БД
 
