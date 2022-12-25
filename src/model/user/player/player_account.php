@@ -111,7 +111,7 @@ class player_account {
     }
 
     //Имеется ли на персонаже предмет N
-    public static function check_item($info, $prepare = []) {
+    public static function check_item_player($info, $prepare = []) {
         $base = base::get_sql_source($info['collection_sql_base_name'], 'check_item_player');
         return self::extracted($base, $info, $prepare);
     }

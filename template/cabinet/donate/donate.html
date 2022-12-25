@@ -1,166 +1,191 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <div class="card">
-      <div class="card-header text-uppercase">{{ phrase("menu_donate") }}</div>
-      <div class="card-body">
-	  
-	  <div class="row">
-                 <div class="col-sm-5">
-                   <label>{{ phrase("summa") }}</label><div class="input-group bootstrap-touchspin"><span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span><input id="count" type="text" value="0" name="demo3" class="form-control" style="display: block;"></div>
-                 </div>
+<div class="card">
+    <div class="card-header text-uppercase">{{ phrase("menu_donate") }}</div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-sm-5">
+                <label>{{ phrase("summa") }}</label>
+                <div class="input-group bootstrap-touchspin"><span class="input-group-text bootstrap-touchspin-prefix"
+                                                                   style="display: none;"></span><input id="count"
+                                                                                                        type="text"
+                                                                                                        value="0"
+                                                                                                        name="demo3"
+                                                                                                        class="form-control"
+                                                                                                        style="display: block;">
+                </div>
             </div>
-			<hr>
+        </div>
+        <hr>
         <div class="row">
             <div class="col-md-12">
-			  <div class="icheck-material-success">
-                <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked />
-                <label for="freekassa">FREE-KASSA</label>
-              </div>
-           
-              <!--div class="icheck-material-danger">
-                <input type="radio" id="INTERKASSA" name="paysystem" value="interkassa" />
-                <label for="INTERKASSA">INTERKASSA</label>
-              </div>
-            
-              <div class="icheck-material-info">
-                <input type="radio" id="ENOT" name="paysystem" value="enot" />
-                <label for="ENOT">ENOT</label>
-              </div-->
-			  
-             </div>
-        </div>
-				<hr> 
-				<div class="form-footer">
-                    <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{ phrase("next") }}</button>
+                <div class="icheck-material-success">
+                    <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked/>
+                    <label for="freekassa">FREE-KASSA</label>
                 </div>
-	  </div>
+
+                <!--div class="icheck-material-danger">
+                  <input type="radio" id="INTERKASSA" name="paysystem" value="interkassa" />
+                  <label for="INTERKASSA">INTERKASSA</label>
+                </div>
+
+                <div class="icheck-material-info">
+                  <input type="radio" id="ENOT" name="paysystem" value="enot" />
+                  <label for="ENOT">ENOT</label>
+                </div-->
+
+            </div>
+        </div>
+        <hr>
+        <div class="form-footer">
+            <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{
+                phrase("next") }}
+            </button>
+        </div>
     </div>
+</div>
 
-	<hr>
-	              
-	<div class="row" id="products">
-	{% for product in products %}
-    <div class="col-lg-4">
-    <div class="pricing-table">
-     <div class="card">
-       <div class="card-body text-center">
-     <div class="" data-toggle="tooltip" data-html="true" data-placement="top" title="{{ product['description']|nl2br }}" >
-         {{ grade_img(product['crystal_type']) }}
-     </div>
-	   <img src="uploads/images/icon/{{product['icon']}}" class="customer-img ">
+<hr>
 
-       <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>{{phrase(71)}}:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span></li>
-      <li class="list-group-item"><b>{{phrase(72)}}:</b> <span id="product_cost_{{product.id}}">{{ product.cost }}</span> ДО</li>
-      <li class="list-group-item">
-          <label>{{phrase(73)}}</label>
-             <div class="input-group bootstrap-touchspin input-group-sm">
-			  <span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span>
-			  <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}" data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="text" name="demo3" class="count form-control-sm form-control" style="display: block;">
-		  </div>
-	   </li>
-      </ul>
-	  
-      <button href="javascript:void();" data-product-name="{{product['name_en']}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply" class="btn btn-success my-3 openWindowBuy">
-          {{phrase(74)}}</button>
-		</div>
-      </div>
-     </div>
+<div class="row" id="products">
+    {% for product in products %}
+    <div class="col-lg-3">
+        <div class="pricing-table">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
+                         title="{{ product['description']|nl2br }}">
+                        {{ grade_img(product['crystal_type']) }} {{product['name_en']}}
+                    </div>
+                    <img src="uploads/images/icon/{{product['icon']}}" class="customer-img ">
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>{{phrase(71)}}:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span>
+                        </li>
+                        <li class="list-group-item"><b>{{phrase(72)}}:</b> <span id="product_cost_{{product.id}}">{{ product.cost }}</span>
+                            ДО
+                        </li>
+                         <li {% if product['consume_type'] == "consume_type_normal" %}hidden{%endif%} class="list-group-item">
+                            <label>{{phrase(73)}}</label>
+                            <div class="input-group bootstrap-touchspin input-group-sm">
+                                <span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span>
+                                <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                                       data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="text"
+                                       name="demo3" class="count form-control-sm form-control" style="display: block;">
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <button href="javascript:void();" data-product-name="{{product['name_en']}}"
+                            data-product-id="{{product.id}}" data-product-count="{{product.count}}"
+                            data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply"
+                            class="btn btn-success my-3 openWindowBuy">
+                        {{phrase(74)}}
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     {% endfor %}
-     
-   </div>
-   
-    <!-- Modal -->
-                <div class="modal fade" id="modal_panel_apply">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">{{phrase(75)}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        
-						<p>{{phrase(76)}}</p>
-						 <div class="form-group row">
-						  <label for="server_donate" class="col-sm-3 col-form-label">{{phrase("server")}}</label>
-						  <div class="col-sm-9">
-							<select class="form-control" id="server_donate">
-								{% for server in server_list %}
-									<option value="{{ server.id }}">{{ server.name|e }} x{{ server.rate_exp|e }}</option>
-								{% endfor %}
-							</select>
-						  </div>
-						</div>
-						
-                        
-                        <div class="form-group row">
-						  <label for="character" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
-						  <div class="col-sm-9">
-							<input type="text" id="char_name" class="form-control">
-						  </div>
-						</div>
-						<hr>
-						<p>{{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
-                            {{phrase(78)}}: <span id="user_worth_buy"></span> {{phrase(79)}}</p>
-						
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fa fa-times"></i> {{phrase(80)}}</button>
-                        <button id="buy" type="button" data-product-id="" data-user_value="" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{phrase(81)}}</button>
-                      </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_panel_apply">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{phrase(75)}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <p>{{phrase(76)}}</p>
+                <div class="form-group row">
+                    <label for="server_donate" class="col-sm-3 col-form-label">{{phrase("server")}}</label>
+                    <div class="col-sm-9">
+                        <select disabled class="form-control" id="server_donate">
+                            {% for server in server_list %}
+                            <option value="{{ server.id }}">{{ server.name|e }} x{{ server.rate_exp|e }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
-                  </div>
                 </div>
+
+
+                <div class="form-group row">
+                    <label for="character" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="char_name" class="form-control">
+                    </div>
+                </div>
+                <hr>
+                <p>{{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
+                    {{phrase(78)}}: <span id="user_worth_buy"></span> {{phrase(79)}}</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fa fa-times"></i>
+                    {{phrase(80)}}
+                </button>
+                <button id="buy" type="button" data-product-id="" data-user_value="" class="btn btn-success"><i
+                        class="fa fa-check-square-o"></i> {{phrase(81)}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
 
 
-	
 {% block css %}
-  <!--Touchspin-->
-  <link href="{{'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css'|template}}" rel="stylesheet" type="text/css">
-{% endblock %}	
+<!--Touchspin-->
+<link href="{{'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css'|template}}" rel="stylesheet"
+      type="text/css">
+{% endblock %}
 
 {% block js %}
-	<!--Bootstrap Touchspin Js-->
-    <script src="{{'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js'|template}}"></script>
-    <script src="{{'assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js'|template}}"></script>
-	
-	<script>
-	$('#paynext').on('click', function () {
-		paysystem = $('input[name=paysystem]:checked').val();
-		if(paysystem=='freekassa'){
-			return freekassa();
-		}
+<!--Bootstrap Touchspin Js-->
+<script src="{{'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js'|template}}"></script>
+<script src="{{'assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js'|template}}"></script>
 
-	});
+<script>
+    $('#paynext').on('click', function () {
+        paysystem = $('input[name=paysystem]:checked').val();
+        if (paysystem == 'freekassa') {
+            return freekassa();
+        }
 
-	function freekassa(){
-		var count = $( "#count" ).val();
-		$.ajax(
-		{
-			type: "POST",
-			url: "/donate/sign/freekassa",
-			data: ( {"count" : count } ),
-			async: false,
-			dataType: "json",
-			success: function( response ){
- 				if(response['ok']==false){
-					notify_error(response['message'])
-					return;
-				}
-			const redirectLink = new URLSearchParams(response).toString();
-			document.location.href = "https://pay.freekassa.ru/?" + redirectLink;
-			}
-		});
-	}
-		
-		
-	</script>
-	
+    });
+
+    function freekassa() {
+        var count = $("#count").val();
+        $.ajax(
+            {
+                type: "POST",
+                url: "/donate/sign/freekassa",
+                data: ({"count": count}),
+                async: false,
+                dataType: "json",
+                success: function (response) {
+                    if (response['ok'] == false) {
+                        notify_error(response['message'])
+                        return;
+                    }
+                    const redirectLink = new URLSearchParams(response).toString();
+                    document.location.href = "https://pay.freekassa.ru/?" + redirectLink;
+                }
+            });
+    }
+
+
+</script>
+
 {% endblock %}

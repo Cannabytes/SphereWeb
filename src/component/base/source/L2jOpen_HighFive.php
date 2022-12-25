@@ -26,7 +26,7 @@ class L2JOpen_HighFive implements structure {
         return 'sha1';
     }
 
-    static public function chronicle(): mixed {
+    static public function chronicle(): array {
         return [
             267,
             268,
@@ -36,7 +36,7 @@ class L2JOpen_HighFive implements structure {
     }
 
     static public function need_logout_player_for_item_add(): bool {
-        return true;
+        return false;
     }
 
     #[db("login")]
@@ -448,20 +448,28 @@ class L2JOpen_HighFive implements structure {
         return 'SELECT obj_Id as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
+    // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
     static public function max_value_item_object(): string {
         return 'SELECT MAX(object_id) + 1 AS `max_object_id` FROM `items`';
     }
 
+    // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
     static public function check_item_player(): string {
         return 'SELECT count, object_id, owner_id, item_id FROM items WHERE item_id = ? AND owner_id = ? LIMIT 1';
     }
 
+    // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
     static public function update_item_count_player(): string {
         return 'UPDATE `items` SET `count` = ? WHERE `object_id` = ?';
     }
 
+    /**
+     * Если в сборке реализована таблица items_delayed, тогда выдавайте через неё
+     *
+     * @return string
+     */
     static public function add_item(): string {
-        return 'INSERT INTO `items` (`owner_id`, `object_id`, `item_id`, `count`, `enchant_level`, `loc`) VALUES (?, ?, ?, ?, ?, ?)';
+        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 1, 'TrashWeb')";
     }
 
     static public function count_online_player(): string {

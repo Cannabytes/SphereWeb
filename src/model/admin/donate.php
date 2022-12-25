@@ -29,7 +29,7 @@ class donate {
             $description,
             $server_id
         ])){
-            board::notice(true, lang::get_phrase(138));
+            board::notice(true, lang::get_phrase(136));
         }else{
             board::notice(false, lang::get_phrase(137));
         }

@@ -127,9 +127,6 @@ $router->get("/admin/options/server/edit/(\d+)", 'Ofey\Logan22\controller\admin\
 $router->get("/admin/options/server/description/(\d+)", 'Ofey\Logan22\controller\admin\options::description_create');
 $router->post("/admin/options/server/description", 'Ofey\Logan22\controller\admin\options::description_save');
 $router->post("/admin/options/server/description/default", 'Ofey\Logan22\controller\admin\options::description_default_page_save');
-$router->get("/admin/options/server/sql/source", 'Ofey\Logan22\controller\admin\options::sql_generator');
-$router->get('/admin/options/server/sql/source/{filename}', 'Ofey\Logan22\controller\admin\options::sql_generator_load_file');
-$router->post("/admin/options/server/sql/request", 'Ofey\Logan22\controller\admin\options::sql_request_test');
 $router->get("/admin/gallery/screen", 'Ofey\Logan22\controller\admin\screen::all');
 $router->post("/admin/gallery/screen/enable", 'Ofey\Logan22\controller\admin\screen::add_enable');
 $router->post("/admin/gallery/screen/remove", 'Ofey\Logan22\controller\admin\screen::remove');

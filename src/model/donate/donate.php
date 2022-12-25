@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\donate;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\server;
@@ -37,7 +38,8 @@ class donate {
         foreach($donate as $item) {
             $item_id_list[] = $item['item_id'];
         }
-        if(empty($item_id_list)) return $item_id_list;
+        if(empty($item_id_list))
+            return $item_id_list;
         $list = implode(', ', $item_id_list);
         $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
 
@@ -73,6 +75,7 @@ class donate {
         if($cost_product > auth::get_donate_point()) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
+        $addToUserItems = $donat_info['count'] * $user_value;
 
         $server_info = server::server_info($server_id);
         if(!$server_info) {
@@ -81,41 +84,54 @@ class donate {
 
         $player_info = player_account::is_player($server_info, [$char_name]);
         $player_info = $player_info->fetch();
-
-        if(!$player_info) {
+        if(!$player_info)
             board::notice(false, lang::get_phrase(151, $char_name));
-        }
         $player_id = $player_info["player_id"];
-        if($player_info["online"]) {
-            board::notice(false, lang::get_phrase(153, $char_name));
-        }
-        $addToUserItems = $donat_info['count'] * $user_value;
 
-        /**
-         * Проверим, есть ли на персонаже X предмет N
-         * Если есть, добавим к числу N+N предметов
-         */
-        $checkPlayerItem = player_account::check_item($server_info, [
-            $donat_info['item_id'],
-            $player_id,
-        ]);
-        $checkPlayerItem = $checkPlayerItem->fetch();
-        //Если предмет есть у игрока
-        if($checkPlayerItem) {
-            player_account::update_item_count_player($server_info, [
-                ($checkPlayerItem['count'] + $addToUserItems),
-                $checkPlayerItem['object_id'],
-            ]);
-        } else {
-            //Предмета нет в инвентаре, добавим.
-            $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
+        $is_stack = client_icon::is_stack($donat_info['item_id']);
+
+        //Если для выдачи предмета, персонаж должен быть ВНЕ игры
+        if($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
+            /**
+             * Проверка чтоб игрок был оффлайн для выдачи предмета
+             */
+            if($player_info["online"]) {
+                board::notice(false, lang::get_phrase(153, $char_name));
+            }
+
+            /**
+             * Нужно определить, это стыкуемый ли предмет
+             */
+
+            /**
+             * Если предмет стакуем
+             * Есть ли на персонаже X предмет N
+             * Если есть, добавим к числу N+N предметов
+             */
+            if($is_stack) {
+                $checkPlayerItem = player_account::check_item_player($server_info, [
+                    $donat_info['item_id'],
+                    $player_id,
+                ]);
+                $checkPlayerItem = $checkPlayerItem->fetch();
+                //Если предмет есть у игрока
+                if($checkPlayerItem) {
+                    player_account::update_item_count_player($server_info, [
+                        ($checkPlayerItem['count'] + $addToUserItems),
+                        $checkPlayerItem['object_id'],
+                    ]);
+                } else {
+                    self::add_item_max_val_id($server_info, $player_id, $donat_info['item_id'], $addToUserItems);
+                }
+            } else {
+                self::add_item_max_val_id($server_info, $player_id, $donat_info['item_id'], $addToUserItems);
+            }
+        } else { //Если персонаж может быть в игре для выдачи предмета
             player_account::add_item($server_info, [
                 $player_id,
-                time() - $max_obj_id - $player_id,
                 $donat_info['item_id'],
                 $addToUserItems,
                 0,
-                "INVENTORY",
             ]);
         }
 
@@ -142,6 +158,19 @@ class donate {
         sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
             $dp,
             $user_id,
+        ]);
+    }
+
+    //Добавить предмет персонажу, по его максимальному ID
+    static private function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems) {
+        $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
+        player_account::add_item($server_info, [
+            $player_id,
+            time() - $max_obj_id - $player_id,
+            $donat_item_id,
+            $addToUserItems,
+            0,
+            "INVENTORY",
         ]);
     }
 }
