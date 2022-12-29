@@ -147,6 +147,7 @@ $router->get("/admin/manual", '\Ofey\Logan22\controller\admin\manual::index');
 $router->get("/admin/manual/{name}", '\Ofey\Logan22\controller\admin\manual::get');
 $router->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
 $router->post("/admin/forum", 'Ofey\Logan22\controller\admin\forum::save');
+$router->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
 
 $router->set404(function() {
     \Ofey\Logan22\controller\page\error::error404();

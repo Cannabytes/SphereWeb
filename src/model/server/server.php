@@ -38,27 +38,10 @@ class server {
             }
         }
         self::$server_info = sql::run("SELECT
-                                    server_list.id, 
-                                    server_list.`name`, 
-                                    server_list.rate_exp, 
-                                    server_list.rate_sp, 
-                                    server_list.rate_adena, 
-                                    server_list.rate_drop_item, 
-                                    server_list.rate_spoil, 
-                                    server_list.date_start_server, 
-                                    server_list.chronicle, 
-                                    server_list.login_host, 
-                                    server_list.login_user, 
-                                    server_list.login_password, 
-                                    server_list.login_name, 
-                                    server_list.game_host, 
-                                    server_list.game_user, 
-                                    server_list.game_password, 
-                                    server_list.game_name, 
-                                    server_list.collection_sql_base_name 
+                                    *
                                 FROM
                                     server_list")->fetchAll();
-        foreach(self::$server_info as $k=>$server) {
+        foreach(self::$server_info as $k => $server) {
             self::$server_info[$k]['desc_page_id'] = self::get_default_desc_page_id($server['id']);
         }
 
@@ -76,6 +59,7 @@ class server {
 
     //Страница по умолчанию
     static private array $get_default_desc_page_id = [];
+
     //Возращаем ID страницы описания
     static public function get_default_desc_page_id($server_id) {
         if(self::$get_default_desc_page_id == []) {

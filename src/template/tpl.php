@@ -133,6 +133,7 @@ class tpl {
                     return auth::get_avatar();
                 case 'get_avatar_background':
                     return auth::get_avatar_background();
+
             }
         }));
 
@@ -197,6 +198,16 @@ class tpl {
             }
         }));
 
+        //Сервер по умолчанию
+        $twig->addFunction(new TwigFunction("get_server_default", function(){
+           return server::get_server_info(auth::get_default_server());
+        }));
+
+        //Информация о серверах или сервере
+        $twig->addFunction(new TwigFunction('get_server_info', function($server_id = null){
+            return server::get_server_info($server_id);
+        }));
+
         $twig->addFunction(new TwigFunction('get_user_in_list', function($user_id) {
             return other::get_user_in_list($user_id);
         }));
@@ -226,7 +237,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('get_enable_game_chat', function() {
-            return config::get_enable_game_chat();
+            return server::get_server_info(auth::get_default_server())['chat_game_enabled'] ?? false;
         }));
 
         $twig->addFunction(new TwigFunction('get_screen_enable', function() {

@@ -2306,7 +2306,7 @@ $('.statsheader'+blockid+'  tr').detach();
 				}
 				alliance_crest = item.alliance_crest?'<img src="data:image/png;base64, '+item.alliance_crest+'">':'';
 				clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
- 				$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)">  '+alliance_crest+clan_crest+item.char_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.char_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.classid)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.online_time)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.classid)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.online_time)+' </td></tr>');
+ 				$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)">  '+alliance_crest+clan_crest+item.player_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.player_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.class_id)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.class_id)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+' </td></tr>');
 			});
 		}
 	});
@@ -2340,7 +2340,7 @@ $('.statsheader'+blockid+'  tr').detach();
 				}
 				alliance_crest = item.alliance_crest?'<img src="data:image/png;base64, '+item.alliance_crest+'">':'';
 				clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
- 				$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.char_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.char_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.classid)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.classid)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.online_time)+' </td></tr>');
+ 				$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.player_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.player_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.class_id)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.class_id)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+' </td></tr>');
 			});
 		}
 	});
@@ -2371,9 +2371,9 @@ function clanTop(blockid) {
 			clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
  				$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo ">'+
 												'<td>'+i+'</td>'+
-												'<td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.char_name+
+												'<td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.player_name+
 												'<div class="tablePopup1">'+
-													'<span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.char_name+'</b>'+'</span>'+
+													'<span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.player_name+'</b>'+'</span>'+
 													'<div class="tablePopup1-block">'+
 														'<span>Клан:</span> <span>'+item.clan_name+'</span>'+
 													'</div>'+
@@ -2381,12 +2381,9 @@ function clanTop(blockid) {
 														'<span>Уровень:</span> <span>'+(item.char_level)+'</span>'+
 													'</div>'+
 													'<div class="tablePopup-block">'+
-														'<span>Класс:</span> <span>'+getClassName(item.classid)+'</span>'+
+														'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 													'</div>'+
-													((item.base_class != item.classid)?
-													'<div class="tablePopup-block">'+
-														'<span>Сабкласс:</span> <span>'+getClassName(item.base_class)+'</span>'+
-													'</div>':'')+
+											
 													'<div class="tablePopup1-block">'+
 														'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'</span>'+
 													'</div>'+
@@ -2436,7 +2433,7 @@ function playerTop(blockid) {
 			}
 			alliance_crest = item.alliance_crest?'<img src="data:image/png;base64, '+item.alliance_crest+'">':'';
 			clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
-			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.char_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.char_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.base_class)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.online_time)+'.</span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.base_class)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.online_time)+' </td></tr>');
+			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.player_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.player_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+check_null_name(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.class_id)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+'.</span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.class_id)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+' </td></tr>');
 
 			});
 		}
@@ -2472,7 +2469,7 @@ function heroesTop(blockid) {
 			alliance_crest = item.alliance_crest?'<img src="data:image/png;base64, '+item.alliance_crest+'">':'';
 			clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
 			
-			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.char_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.char_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.base_class)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.base_class)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+' </td></tr>');
+			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+alliance_crest+clan_crest+item.player_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+alliance_crest+clan_crest+item.player_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.class_id)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.class_id)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+' </td></tr>');
 
 			});
 		}
@@ -2504,7 +2501,7 @@ function blockTop(blockid) {
 			}else{
 				online = '<font style="color: #ffb23f;text-shadow: 0px 0px 8px #e74b00;">[ offline ]</font>';
 			}
-			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+item.char_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.char_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.base_class)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.base_class)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+' </td></tr>');
+			$("#lastStats"+blockid).append('<tr class="tableBlock-conten_name1 oflo trRowA1 item1" style=""><td>'+i+'</td><td><a href="javascript:void(0)"> '+item.player_name+'<div class="tablePopup1"><span class="tablePopup1-title"><b>'+item.player_name+'</b></span><div class="tablePopup1-ava"></div><div class="tablePopup1-block"><span>Клан:</span> <span>'+(item.clan_name)+'</span></div><div class="tablePopup1-block"><span>Уровень:</span> <span><font class="color-yellow">'+item.level+'</font></span></div><div class="tablePopup-block"><span>Класс:</span> <span>'+getClassName(item.class_id)+'</span></div><div class="tablePopup1-block"><span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'. </span></div><div class="tablePopup1-block"><span>Пол:</span> <span>'+sex+'</span></div></div></a></td><td><font class="color-yellow">'+item.level+'</font></td><td>'+ getClassName(item.class_id)+'</td><td>'+check_null_name(item.clan_name)+'</td><td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td><td>'+online+'</td><td>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+' </td></tr>');
 
 			});
 		}
@@ -2538,7 +2535,7 @@ function castleTop(blockid) {
 												'<td class="l2right" style="text-align: right;">'+
 													'<strong>'+getCastleName(item.castle_id)+'</strong><br>'+
 													'<small>Дата осады: '+siegeDate+'</small><br><br>'+
-													'Владелец: <b>'+alliance_crest+clan_crest+castle_leader(item.char_name)+'</b><br><br>'+
+													'Владелец: <b>'+alliance_crest+clan_crest+castle_leader(item.player_name)+'</b><br><br>'+
 													// 'Владелец: <b>'+allyImg+clanImg+escapeHtml(item.clan_name)+'</b><br><br>'+
 													//'Защитники: '+escapeHtml(Defenders)+'<br>'+
 													//'Атакующие: '+escapeHtml(Attackers)+'<br>'+
@@ -2563,6 +2560,7 @@ function rightPanelPvPTop() {
 		dataType: "json",
 		encode: true,
 		success: function(data) {
+			console.log(data);
 			i = 0;
 			data.forEach(function(item){
 				if(i==10){
@@ -2575,9 +2573,9 @@ function rightPanelPvPTop() {
 				i++;
 				$(".statshpvp").append('<div class="tableBlock-content oflo '+i+'">'+
 										'<div class="tableBlock-conten_number">'+i+'</div>'+
-										'<div class="tableBlock-conten_name"><a href="javascript:void(0)">'+(item.char_name)+''+
+										'<div class="tableBlock-conten_name"><a href="javascript:void(0)">'+(item.player_name)+''+
 											'<div class="tablePopup">'+
-												'<span class="tablePopup-title">'+(item.char_name)+'</b>'+'</span>'+
+												'<span class="tablePopup-title">'+(item.player_name)+'</b>'+'</span>'+
 												'<div class="tablePopup-block">'+
 													'<span>Клан:</span> <span>'+item.clan_name+'</span>'+
 												'</div>'+
@@ -2585,10 +2583,10 @@ function rightPanelPvPTop() {
 													'<span>Уровень:</span> <span>'+(item.level)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
-													'<span>Класс:</span> <span>'+getClassName(item.base_class)+'</span>'+
+													'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
-													'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.online_time)+'</span>'+
+													'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
 													'<span>Пол:</span> <span>'+sex+'</span>'+
@@ -2596,7 +2594,7 @@ function rightPanelPvPTop() {
 											'</div>'+
 										'</a></div>'+
 										'<div class="tableBlock-conten_lvl"><span>'+(item.level)+'</span></div>'+
-										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></div>'+
+										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></div>'+
 									'</div>');
 			});
 		}
@@ -2622,9 +2620,9 @@ function rightPanelPKTop() {
 				i++;
 				$(".statshpk").append('<div class="tableBlock-content oflo '+i+'">'+
 										'<div class="tableBlock-conten_number">'+i+'</div>'+
-										'<div class="tableBlock-conten_name"><a href="javascript:void(0)">'+(item.char_name)+''+
+										'<div class="tableBlock-conten_name"><a href="javascript:void(0)">'+(item.player_name)+''+
 											'<div class="tablePopup">'+
-												'<span class="tablePopup-title">'+(item.char_name)+'</b>'+'</span>'+
+												'<span class="tablePopup-title">'+(item.player_name)+'</b>'+'</span>'+
 												'<div class="tablePopup-block">'+
 													'<span>Клан:</span> <span>'+item.clan_name+'</span>'+
 												'</div>'+
@@ -2632,10 +2630,10 @@ function rightPanelPKTop() {
 													'<span>Уровень:</span> <span>'+(item.level)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
-													'<span>Класс:</span> <span>'+getClassName(item.base_class)+'</span>'+
+													'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
-													'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.online_time)+'</span>'+
+													'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.time_in_game)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
 													'<span>Пол:</span> <span>'+sex+'</span>'+
@@ -2643,7 +2641,7 @@ function rightPanelPKTop() {
 											'</div>'+
 										'</a></div>'+
 										'<div class="tableBlock-conten_lvl"><span>'+(item.level)+'</span></div>'+
-										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></div>'+
+										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></div>'+
 									'</div>');
 			});
 		}
@@ -2967,12 +2965,12 @@ function check_null_name(variable){
 
 									el = $('<div class="tableBlock-content oflo '+trRow+'">'+
 										'<div class="tableBlock-conten_number">'+number+'</div>'+
-										'<div class="tableBlock-conten_name"><img src="'+getRaceImg(item.race,item.sex)+'" alt=""> <a href="javascript:void(0)">'+allyImg+clanImg+''+escapeHtml(item.char_name)+''+
+										'<div class="tableBlock-conten_name"><img src="'+getRaceImg(item.race,item.sex)+'" alt=""> <a href="javascript:void(0)">'+allyImg+clanImg+''+escapeHtml(item.player_name)+''+
 											'<div class="tablePopup">'+
-												'<span class="tablePopup-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.char_name)+'</b>'+'</span>'+
+												'<span class="tablePopup-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.player_name)+'</b>'+'</span>'+
 												'<div class="tablePopup-ava"><img src="'+getRaceImg(item.race,item.sex)+'" alt=""></div>'+
 												//'<div class="tablePopup-block">'+
-													//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.classid)+'.png"></span>'+
+													//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.class_id)+'.png"></span>'+
 												//'</div>'+
 												'<div class="tablePopup-block">'+
 													'<span>Клан:</span> <span>'+allyImg+clanImg+clanname+'</span>'+
@@ -2981,13 +2979,8 @@ function check_null_name(variable){
 													'<span>Уровень:</span> <span>'+GetColorLevel(item.level)+'</span>'+
 												'</div>'+
 												'<div class="tablePopup-block">'+
-													'<span>Класс:</span> <span>'+getClassName(item.base_class)+'</span>'+
+													'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 												'</div>'+
-												((item.base_class != item.classid)?
-													'<div class="tablePopup-block">'+
-														'<span>Сабкласс:</span> <span>'+getClassName(item.classid)+'</span>'+
-													'</div>':'')+
-
 												'<div class="tablePopup-block">'+
 													'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'</span>'+
 												'</div>'+
@@ -2997,7 +2990,7 @@ function check_null_name(variable){
 											'</div>'+
 										'</a></div>'+
 										'<div class="tableBlock-conten_lvl"><span>'+GetColorLevel(item.level)+'</span></div>'+
-										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></div>'+
+										'<div class="tableBlock-conten_scr"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></div>'+
 									'</div>')
 								}
 								else
@@ -3088,12 +3081,12 @@ function check_null_name(variable){
 										
 										el = $('<tr class="tableBlock-conten_name1 oflo '+trRow+'">'+
 												'<td>'+item.number+'</td>'+
-												'<td><a href="javascript:void(0)">'+allyImg+clanImg+' '+escapeHtml(item.char_name)+
+												'<td><a href="javascript:void(0)">'+allyImg+clanImg+' '+escapeHtml(item.player_name)+
 												'<div class="tablePopup1">'+
-													'<span class="tablePopup1-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.char_name)+'</b>'+'</span>'+
+													'<span class="tablePopup1-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.player_name)+'</b>'+'</span>'+
 													'<div class="tablePopup1-ava"><img src="'+getRaceImg(item.race,item.sex)+'" alt=""></div>'+
 													//'<div class="tablePopup-block">'+
-														//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.classid)+'.png"></span>'+
+														//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.class_id)+'.png"></span>'+
 													//'</div>'+
 													'<div class="tablePopup1-block">'+
 														'<span>Клан:</span> <span>'+allyImg+clanImg+clanname+'</span>'+
@@ -3102,12 +3095,9 @@ function check_null_name(variable){
 														'<span>Уровень:</span> <span>'+GetColorLevel(item.level)+'</span>'+
 													'</div>'+
 													'<div class="tablePopup-block">'+
-														'<span>Класс:</span> <span>'+getClassName(item.base_class)+'</span>'+
+														'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 													'</div>'+
-													((item.base_class != item.classid)?
-													'<div class="tablePopup-block">'+
-														'<span>Сабкласс:</span> <span>'+getClassName(item.classid)+'</span>'+
-													'</div>':'')+
+												
 													'<div class="tablePopup1-block">'+
 														'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'</span>'+
 													'</div>'+
@@ -3199,13 +3189,13 @@ function check_null_name(variable){
 										
 										el = $("#lastStats"+blockid).html('<tr class="tableBlock-conten_name1 oflo '+trRow+'">'+
 												'<td>'+item.number+'</td>'+
-												'<td><a href="javascript:void(0)">'+allyImg+clanImg+' '+escapeHtml(item.char_name)+
+												'<td><a href="javascript:void(0)">'+allyImg+clanImg+' '+escapeHtml(item.player_name)+
 												
 												'<div class="tablePopup1">'+
-													'<span class="tablePopup1-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.char_name)+'</b>'+'</span>'+
+													'<span class="tablePopup1-title">'+allyImg+clanImg+'<b>'+escapeHtml(item.player_name)+'</b>'+'</span>'+
 													'<div class="tablePopup1-ava"><img src="'+getRaceImg(item.race,item.sex)+'" alt=""></div>'+
 													//'<div class="tablePopup-block">'+
-														//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.classid)+'.png"></span>'+
+														//'<span>Иконка класса:</span> <span><img class="classicon" src="images/'+getClassNameImg(item.class_id)+'.png"></span>'+
 													//'</div>'+
 													'<div class="tablePopup1-block">'+
 														'<span>Клан:</span> <span>'+allyImg+clanImg+clanname+'</span>'+
@@ -3214,12 +3204,9 @@ function check_null_name(variable){
 														'<span>Уровень:</span> <span>'+GetColorLevel(item.level)+'</span>'+
 													'</div>'+
 													'<div class="tablePopup-block">'+
-														'<span>Класс:</span> <span>'+getClassName(item.base_class)+'</span>'+
+														'<span>Класс:</span> <span>'+getClassName(item.class_id)+'</span>'+
 													'</div>'+
-													((item.base_class != item.classid)?
-													'<div class="tablePopup-block">'+
-														'<span>Сабкласс:</span> <span>'+getClassName(item.classid)+'</span>'+
-													'</div>':'')+
+											
 													'<div class="tablePopup1-block">'+
 														'<span>В игре:</span> <span>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'</span>'+
 													'</div>'+
@@ -3229,9 +3216,9 @@ function check_null_name(variable){
 												'</div>'+
 												'</a></td>'+
 												'<td>'+GetColorLevel(item.level)+'</td>'+
-												'<td><img src="'+getRaceImg(item.race,item.sex)+'" alt="">'+getClassName(item.classid)+'</td>'+
+												'<td><img src="'+getRaceImg(item.race,item.sex)+'" alt="">'+getClassName(item.class_id)+'</td>'+
 												'<td>'+allyImg+clanImg+clanname+'</td>'+
-												'<td style="text-align: right;"><span class="pvp color-purple">'+item.pvpkills+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pkkills+'</span></td>'+
+												'<td style="text-align: right;"><span class="pvp color-purple">'+item.pvp+'</span><font color="#696868">/</font><span class="pk color-red">'+item.pk+'</span></td>'+
 												'<td>'+online+'</td>'+
 												'<td>'+seconds_to_days_hours_mins_secs_str(item.onlinetime)+'</td>'+
 											'</tr>');

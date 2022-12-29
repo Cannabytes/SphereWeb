@@ -3,7 +3,7 @@
     width: calc(100%);
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 3px 5px 45px rgba(13, 12, 12, 0.79);
+    /* box-shadow: 3px 5px 45px rgba(13, 12, 12, 0.79); */
     background-color: #232425;
     overflow: hidden;
 }
@@ -49,10 +49,11 @@
     height: 347px;
     overflow: auto;
 }
+
 .messages .message {
     clear: both;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     transition: all 0.5s linear;
     opacity: 0;
 }
@@ -62,15 +63,41 @@
 }
 .messages .message.left .text_wrapper {
     background-color: #18191a;
-    margin-left: 20px;
+    margin-left: 8px;
 }
 .messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
     right: 100%;
     border-right-color: #18191a;
 }
+
 .messages .message.left .text {
+    color: #fff;
+}
+.messages .message.left .tell {
+    color: #b00c86;
+}
+.messages .message.left .trade {
+    color: #d3b647;
+}
+.messages .message.left .shout {
     color: #c48843;
 }
+.messages .message.left .party {
+    color: #207900;
+}
+.messages .message.left .clan {
+    color: #0d886b;
+}
+.messages .message.left .other {
+    color: #023dec;
+}
+.messages .message.left .hero_voice {
+    color: #023dec;
+}
+.messages .message.left .priv_msg {
+    color: #fffc5f;
+}
+
 .messages .message.right .avatar {
     background-color: #fdbf68;
     float: right;
@@ -91,8 +118,8 @@
     opacity: 1;
 }
 .messages .message .avatar {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: inline-block;
 }
@@ -102,16 +129,16 @@
 
 .messages .message .text_wrapper {
     display: inline-block;
-    padding: 12px;
+    padding: 5px;
     border-radius: 6px;
-    width: calc(100% - 85px);
+    width: calc(100% - 15px);
     min-width: 100px;
     position: relative;
 }
 .messages .message .text_wrapper::after, .messages .message .text_wrapper:before {
-    top: 18px;
+    top: 5px;
     border: solid transparent;
-    content: " ";
+    /* content: " "; */
     height: 0;
     width: 0;
     position: absolute;
@@ -126,7 +153,7 @@
     margin-top: -1px;
 }
 .messages .message .text_wrapper .text {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
 }
 

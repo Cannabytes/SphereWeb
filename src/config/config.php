@@ -12,11 +12,10 @@ class config {
     private static int    $timeout_statistic          = 10;
     private static string $language_default           = 'ru';
     static public string  $key_user_pass_encrypt      = "@!@*jwnsaNsZZ";
-    static private bool   $enable_game_chat           = false;
     static private bool   $screen_enable              = false;
     static private int    $max_user_count_screenshots = 0;
     static private int    $max_count_all_screenshots  = 0;
-    static private bool   $forum_enable                      = false;
+    static private bool   $forum_enable               = false;
 
     static public function open() {
         self::$config = sql::run('SELECT * FROM `config`')->fetch(PDO::FETCH_OBJ);
@@ -29,7 +28,6 @@ class config {
         self::$template = self::$config->template;
         self::$timeout_statistic = self::$config->timeout_statistic;
         self::$language_default = self::$config->language_default;
-        self::$enable_game_chat = self::$config->enable_game_chat;
 
         self::$screen_enable = self::$config->screen_enable;
         self::$max_user_count_screenshots = self::$config->max_user_count_screenshots;
@@ -64,17 +62,6 @@ class config {
         return self::$config->max_count_all_screenshots;
     }
 
-    static public function get_enable_game_chat(): bool {
-        if(!self::$enable_game_chat) {
-            self::check_open_config();
-        }
-        return self::$enable_game_chat;
-    }
-
-    static public function set_enable_game_chat(bool $en_chat) {
-        self::$enable_game_chat = $en_chat;
-    }
-
     static public function get_template(): string {
         if(self::$template == "") {
             self::check_open_config();
@@ -89,13 +76,6 @@ class config {
         return self::$language_default;
     }
 
-    static public function get_timeout_statistic(): int {
-        if(self::$timeout_statistic == "") {
-            self::check_open_config();
-        }
-        return self::$timeout_statistic;
-    }
-
     static public function get_forum_enable(): bool {
         if(self::$forum_enable == "") {
             self::check_open_config();
@@ -105,10 +85,6 @@ class config {
 
     static public function set_template($template_name) {
         self::$template = $template_name;
-    }
-
-    static public function set_timeout_statistic($second = 60) {
-        self::$timeout_statistic = $second;
     }
 
     static public function save_template() {

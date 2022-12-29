@@ -163,7 +163,7 @@ class auth {
     }
 
     static public function set_avatar($avatar = null): void {
-        if($avatar == null){
+        if($avatar == null) {
             self::$avatar = 'none.jpeg';
             return;
         }
@@ -216,19 +216,18 @@ class auth {
 
     //TODO:Добавить в массив всех пользователей которых мы проверяем
     static public array $userInfo = [];
-
     //Проверка существования юзера
     //$nCheck = false вернет в случае неудачи false, если true выйдет в логаут из профиля
     static public function exist_user($email, $nCheck = true) {
-        if(self::$userInfo!=null){
+        if(self::$userInfo != null) {
             return self::$userInfo;
         }
-        $sql = 'SELECT * FROM users WHERE email = ?';
+        $sql = 'SELECT * FROM `users` WHERE `email` = ?;';
         $userInfo = sql::run($sql, [$email])->fetch();
-        if(!$nCheck){
+        if(!$nCheck) {
             return false;
         }
-        if(!$userInfo){
+        if(!$userInfo) {
             self::logout();
         }
         self::$userInfo = $userInfo;
@@ -303,4 +302,5 @@ class auth {
             $user_id,
         ]);
     }
+
 }

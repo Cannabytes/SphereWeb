@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row" id="game_chat">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header text">{{ phrase(46) }}</div>
+            <div class="card-body">
+                <div class="row">
+                    {% if get_enable_game_chat() %}
+                    <div class="chat_window">
+                        <ul style="height: 550px" class="messages" id="chat_messages"></ul>
+                    </div>
+                    <div class="message_template">
+                        <li class="message">
+                            <div class="text_wrapper">
+                                <div class="text"></div>
+                            </div>
+                        </li>
+                    </div>
+                    {% else %}
+                    <div class="media-body ml-3">Чата игры отключен</div>
+                    {% endif %}
+                </div>
+<hr>
+                                <div class="input-group">
+                                    <input id="player" type="text" class="form-control" placeholder="Player nickname">
+                                    <div class="input-group-append">
+                                        <button id="search_message_player" class="btn btn-outline-primary" type="button">Search</button>
+                                </div>
+                        </div>
+              <br>
+                                <div class="input-group">
+                                    <input type="text" id="text_message" class="form-control" placeholder="Find message">
+                                    <div class="input-group-append">
+                                        <button id="search_message_text" class="btn btn-outline-primary" type="button">Search</button>
+                                </div>
+                        </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+{% if get_enable_game_chat() %}
+<script>
+    {% if user_info('get_access_level')=="admin" %}
+    var chat_admin_password = "{{get_server_default()['chat_admin_password']}}";
+    var web_socket_c = "{{ get_server_default()['chat_websocket_host'] }}/?password={{get_server_default()['chat_admin_password']}}";
+    {%else%}
+    var chat_admin_password = "";
+    var web_socket_c = "{{ get_server_default()['chat_websocket_host'] }}";
+    {% endif %}
+</script>
+<script src="{{'assets/js/ws/chat.js'|template}}"></script>
+<script src="{{'assets/js/ws/chat_find.js'|template}}"></script>
+{% endif %}
+{% endblock %}
+
+

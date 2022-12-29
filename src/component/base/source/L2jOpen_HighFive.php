@@ -35,6 +35,7 @@ class L2JOpen_HighFive implements structure {
         ];
     }
 
+
     static public function need_logout_player_for_item_add(): bool {
         return false;
     }
