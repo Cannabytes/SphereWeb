@@ -2523,7 +2523,7 @@ function castleTop(blockid) {
 			thead_html.html(thead);	
 			i = 0;
 			data.forEach(function(item){
-				siegeDate = new Date(parseInt(item.siegeDate)).toLocaleString(); 
+				dataSiege = new Date(parseInt(item.dataSiege)).toLocaleString(); 
 				i++;
 				alliance_crest = item.alliance_crest?'<img src="data:image/png;base64, '+item.alliance_crest+'">':'';
 				clan_crest = item.clan_crest?'<img src="data:image/png;base64, '+item.clan_crest+'">':'';
@@ -2534,7 +2534,7 @@ function castleTop(blockid) {
 												'</td>'+
 												'<td class="l2right" style="text-align: right;">'+
 													'<strong>'+getCastleName(item.castle_id)+'</strong><br>'+
-													'<small>Дата осады: '+siegeDate+'</small><br><br>'+
+													'<small>Дата осады: '+dataSiege+'</small><br><br>'+
 													'Владелец: <b>'+alliance_crest+clan_crest+castle_leader(item.player_name)+'</b><br><br>'+
 													// 'Владелец: <b>'+allyImg+clanImg+escapeHtml(item.clan_name)+'</b><br><br>'+
 													//'Защитники: '+escapeHtml(Defenders)+'<br>'+
@@ -3124,7 +3124,7 @@ function check_null_name(variable){
 									if(toptitle.length != 0 && toptitle.html() == 'Замки')
 									{
 										
-										var siegeDate = formatDateAll(new Date(parseInt(item.siegeDate)));
+										var dataSiege = formatDateAll(new Date(parseInt(item.dataSiege)));
 										var lider = escapeHtml(item.clan_name)
 										
 										if(item.id == undefined)
@@ -3139,7 +3139,7 @@ function check_null_name(variable){
 												'</td>'+
 												'<td class="l2right" style="text-align: right;">'+
 													'<strong>'+escapeHtml(item.name)+' Castle</strong><br>'+
-													'<small>Налог: '+item.taxPercent+'%, '+siegeDate+'</small><br><br>'+
+													'<small>Налог: '+item.taxPercent+'%, '+dataSiege+'</small><br><br>'+
 													((lider.length != 0)?'Владелец: <b>'+lider+'</b><br><br>':'Владельца нету')+
 									
 													//'Владелец: <b>'+allyImg+clanImg+escapeHtml(item.clan_name)+'</b><br><br>'+

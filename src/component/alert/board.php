@@ -20,7 +20,7 @@ class board {
         if(empty($arr)) {
             exit(json_encode(lang::get_phrase(255)));
         }
-        echo json_encode($arr);
+        echo json_encode($arr, $flags );
         exit();
     }
 

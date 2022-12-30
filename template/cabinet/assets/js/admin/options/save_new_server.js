@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    get_collection();
+
     $("form").submit(function (event) {
         $.ajax({
             type: "POST",
@@ -66,7 +68,48 @@ $(document).ready(function () {
             }
         });
     });
-	
+
+    $('#open_protocol_class_collection').on('change', function () {
+        get_collection();
+    });
+
+    function get_collection(){
+        let chronicle_name = $('#open_protocol_class_collection').val();
+        $.ajax({
+            type: "POST",
+            url: "/admin/options/server/client/protocol",
+            dataType: "json",
+            data: {
+                chronicle_name: chronicle_name,
+            },
+            success: function (result) {
+                if (result.ok) {
+                    $('#sql_base_source').empty();
+                    if (result.collections.length === 0){
+                        $('#sql_base_source').append(`<option value="" disabled selected>Not your chronicle SQL base</option>`);
+                        return;
+                    }
+                    result.collections.forEach(function (collection, index) {
+                        collection_class = collection.replace("\\\\", "\\");
+                        collection = basename(collection);
+                        $('#sql_base_source').append(`<option value="${collection_class}">${collection}</option>`);
+                    });
+                } else {
+                    notify_error(result.message);
+                }
+            },
+            error: function (result) {
+                notify_error(result.message);
+            }
+        });
+    }
+
+    function basename(str) {
+        var base = new String(str).substring(str.lastIndexOf('\\') + 1);
+        if (base.lastIndexOf("\\") != -1)
+            base = base.substring(0, base.lastIndexOf("\\"));
+        return base;
+    }
 	
 });
 

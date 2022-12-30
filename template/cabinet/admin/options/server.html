@@ -24,11 +24,11 @@
                                 </div>
                           
                                 <div class="col-md-6">
-										<select name="version_client" class="form-control" id="basic-select">
-										{% for name in client_list_default %}
-											<option>{{ name }}</option>
+									<select name="version_client" class="form-control" id="open_protocol_class_collection">
+										{% for client in client_list_default %}
+										<option {% if client['name'] == server['chronicle'] %}selected{% endif %}>{{ client['name'] }}</option>
 										{% endfor %}
-										</select>
+									</select>
                                 </div>
 								
 								

@@ -171,8 +171,10 @@ class tpl {
             return file_exists($file);
         }));
 
-        $twig->addFunction(new TwigFunction('fdate', function($var) {
-            return date("H:i d.m.Y", (int)$var);
+        //Обрезаем число до 10 символов (на некоторых сборках в микротайме хранится время) и выводим в формате времени
+        $twig->addFunction(new TwigFunction('castleDate', function($var) {
+            $date = mb_strimwidth($var, 0, 10);
+            return date("H:i d.m.Y", (int)$date);
         }));
 
         $twig->addFunction(new TwigFunction('sex', function($v) {

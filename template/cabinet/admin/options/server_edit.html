@@ -12,7 +12,7 @@
 
 		<!-- Right Sidebar -->
         <div class="col-lg-12 col-md-12">
-            
+
             <div class="card mt-0 shadow-none">
                 <div class="card-body">
                     <form>
@@ -25,27 +25,27 @@
                                 <div class="col-md-6">
                                     <input value="{{ server['name'] }}" name="name"  type="text" maxlength="16" class="form-control" placeholder="{{ phrase(27) }}: {{ random(servername_list_default) }}">
                                 </div>
-                          
+
                                 <div class="col-md-6">
-										<select name="version_client" class="form-control" id="basic-select">
-										{% for name in client_list_default %}
-											<option {% if server['chronicle']==name %}selected{% endif %}>{{ name }}</option>
-										{% endfor %}
+										<select name="version_client" class="form-control" id="open_protocol_class_collection">
+										{% for client in client_list_default %}
+											<option {% if client['name'] == server['chronicle'] %}selected{% endif %}>{{ client['name'] }}</option>
+ 										{% endfor %}
 										</select>
                                 </div>
-								
-								
+
+
                             </div>
                         </div>
 						<hr>
 						<h4>Рейты</h4>
                         <div class="form-group">
                             <div class="row">
-							
+
                                 <div class="col-md-3">
                                     <input value="{{ server['rate_exp'] }}" name="rate_exp" type="text" maxlength="16" class="form-control" placeholder="EXP">
                                 </div>
-                          
+
                                 <div class="col-md-3">
                                     <input value="{{ server['rate_sp'] }}" name="rate_sp" type="text" maxlength="16" class="form-control" placeholder="SP">
                                 </div>
@@ -55,11 +55,11 @@
                                 <div class="col-md-2">
                                     <input value="{{ server['rate_drop_item'] }}" name="rate_drop" type="text" maxlength="16" class="form-control" placeholder="Drop">
                                 </div>
-                          
+
                                 <div class="col-md-2">
                                     <input value="{{ server['rate_spoil'] }}" name="rate_spoil" type="text" maxlength="16" class="form-control" placeholder="Spoil">
                                 </div>
-								
+
                             </div>
                         </div>
 						<hr>
@@ -110,9 +110,9 @@
 							<input value="{{ server['login_name'] }}" type="text" class="form-control" name="db_login_name" required>
 						  </div>
 						</div>
-                
+
 						<button id="check_connect_mysql_login" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
-						
+
 						<hr>
 						<h4>{{ phrase(33) }}</h4>
 						 <div class="form-group row">
@@ -139,7 +139,7 @@
 							<input value="{{ server['game_name'] }}" type="text" class="form-control" name="db_game_name" required>
 						  </div>
 						</div>
-                
+
 				  <button id="check_connect_mysql_game" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
 					<hr>
 
@@ -147,9 +147,6 @@
 				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ phrase(34) }}</label>
 				  <div class="col-sm-7">
 						<select class="form-control" id="sql_base_source" name="sql_base_source">
-						{% for sql_base in sql_base_source %}
-                          <option {% if server['collection_sql_base_name']==sql_base %}selected{% endif %} value="{{ sql_base }}">{{ basename(sql_base) }}</option>
-						{% endfor %}
                         </select>
 				  </div>
 				</div>

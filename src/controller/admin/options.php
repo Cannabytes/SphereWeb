@@ -17,11 +17,10 @@ use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\template\tpl;
-use PDO;
 
 class options {
 
-    static public function edit_server_show($server_id) {
+    static public function edit_server_show($server_id): void {
         validation::user_protection("admin");
         tpl::addVar([
             'servername_list_default' => servername::all(),
@@ -42,7 +41,7 @@ class options {
             'timezone_list_default'   => timezone::all(),
             "title"                   => lang::get_phrase(221),
             'server_list'             => \Ofey\Logan22\model\server\server::get_server_info(),
-            'sql_base_source'         => base::sql_base_source(),
+//            'sql_base_source'         => base::sql_base_source(),
         ]);
         tpl::display("/admin/options/server.html");
     }

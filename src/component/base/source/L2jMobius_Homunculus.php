@@ -218,7 +218,7 @@ class L2jMobius_Homunculus implements structure {
         return 'SELECT
                         castle.id as castle_id,
                         castle.treasury,
-                        cast(castle.siegeDate / 1000 as int) AS dataSiege,
+                        castle.siegeDate AS dataSiege,
                         clan_data.clan_name,
                         clan_data.clan_level,
                         clan_data.reputation_score,

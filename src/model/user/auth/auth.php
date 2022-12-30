@@ -46,7 +46,8 @@ class auth {
             if(!$server) {
                 return false;
             }
-            return session::add('default_server', $server['id']);
+            session::add('default_server', $server['id']);
+            return $server['id'];
         }
         return $server;
     }
