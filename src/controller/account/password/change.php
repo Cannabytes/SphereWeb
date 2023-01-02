@@ -23,6 +23,7 @@ class change {
             die();
         }
         tpl::addVar([
+            'title' => 'Смена пароля',
             'login'         => $login,
             'server_id'     => $server_id,
             'password_hide' => $exist_account_inside['password_hide'],

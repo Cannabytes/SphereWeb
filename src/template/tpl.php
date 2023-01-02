@@ -66,7 +66,9 @@ class tpl {
             'debug'       => true,
         ]);
         $twig->addExtension(new DebugExtension());
+
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));
+
         $twig->addFilter(new TwigFilter('template', function($string) use ($categoryDesign) {
             return str_replace([
                 "//",
@@ -81,7 +83,6 @@ class tpl {
                 });
             }
             throw new RuntimeException(sprintf('Function %s not found', $name));
-            //            echo sprintf('Function «%s» not found', $name);exit;
         });
 
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
@@ -172,7 +173,7 @@ class tpl {
         }));
 
         //Обрезаем число до 10 символов (на некоторых сборках в микротайме хранится время) и выводим в формате времени
-        $twig->addFunction(new TwigFunction('castleDate', function($var) {
+        $twig->addFunction(new TwigFunction('unitToDate', function($var) {
             $date = mb_strimwidth($var, 0, 10);
             return date("H:i d.m.Y", (int)$date);
         }));

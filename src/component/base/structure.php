@@ -216,4 +216,6 @@ interface structure {
      * @return mixed
      */
     static public function count_online_player(): string;
+
+    static public function account_players(): string;
 }

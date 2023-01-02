@@ -20,14 +20,14 @@ namespace Ofey\Logan22\component\base\source;
 
 use Ofey\Logan22\component\base\structure;
 
-class L2jMobius_Homunculus implements structure {
+class L2jMobius implements structure {
 
     static public function hash(): string {
         return 'sha1';
     }
 
     static public function chronicle(): mixed {
-        return [338];
+        return [338, 362, 388];
     }
 
     static public function need_logout_player_for_item_add(): bool {
@@ -293,7 +293,9 @@ class L2jMobius_Homunculus implements structure {
                         characters.onlinetime AS time_in_game, 
                         clan_data.clan_name, 
                         characters.base_class AS class_id, 
-                        characters.`level`
+                        characters.`level`, 
+                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
+                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
                     FROM
                         characters
                         LEFT JOIN
@@ -385,5 +387,26 @@ character_subclasses.charId = ?';
 
     static public function count_online_player(): string {
         return 'SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 1';
+    }
+
+    static public function account_players(): string {
+        return 'SELECT
+                    characters.charId AS player_id,
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.title,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game,
+                    clan_data.clan_name,
+                    characters.base_class AS class_id,
+                    characters.`level`,
+                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
+                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
+                FROM
+                    characters
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id 
+                WHERE
+                    characters.account_name = ?;';
     }
 }

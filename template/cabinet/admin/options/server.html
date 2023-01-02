@@ -11,7 +11,7 @@
 
         <!-- Right Sidebar -->
         <div class="col-lg-12 col-md-12">
-            
+
             <div class="card mt-0 shadow-none">
                 <div class="card-body">
                     <form>
@@ -22,7 +22,7 @@
                                 <div class="col-md-6">
                                     <input name="name"  type="text" maxlength="16" class="form-control" placeholder="{{ phrase(27) }}: {{ random(servername_list_default) }}">
                                 </div>
-                          
+
                                 <div class="col-md-6">
 									<select name="version_client" class="form-control" id="open_protocol_class_collection">
 										{% for client in client_list_default %}
@@ -30,19 +30,19 @@
 										{% endfor %}
 									</select>
                                 </div>
-								
-								
+
+
                             </div>
                         </div>
 						<hr>
 						<h4>Рейты</h4>
                         <div class="form-group">
                             <div class="row">
-							
+
                                 <div class="col-md-3">
                                     <input name="rate_exp" type="text" maxlength="16" class="form-control" placeholder="EXP">
                                 </div>
-                          
+
                                 <div class="col-md-3">
                                     <input name="rate_sp" type="text" maxlength="16" class="form-control" placeholder="SP">
                                 </div>
@@ -52,11 +52,11 @@
                                 <div class="col-md-2">
                                     <input name="rate_drop" type="text" maxlength="16" class="form-control" placeholder="Drop">
                                 </div>
-                          
+
                                 <div class="col-md-2">
                                     <input name="rate_spoil" type="text" maxlength="16" class="form-control" placeholder="Spoil">
                                 </div>
-								
+
                             </div>
                         </div>
 						<hr>
@@ -64,15 +64,15 @@
                         <div class="form-group">
 							<div class="row">
 								<div class="col-md-3">
-									<label for="inputDate">{{ phrase(29) }}:</label>
+									<label for="date_start">{{ phrase(29) }}:</label>
 									<input name="date_start" type="date" class="form-control" required>
 								</div>
 								<div class="col-md-3">
-									<label for="inputDate">{{ phrase(30) }}:</label>
+									<label for="time_start">{{ phrase(30) }}:</label>
 									<input name="time_start" type="time" class="form-control" required>
 								 </div>
 								<div class="col-md-6">
-									<label for="inputDate">{{ phrase(31) }}:</label>
+									<label for="timezone_start">{{ phrase(31) }}:</label>
 										<select name="timezone_start" class="form-control" id="basic-select">
 										     {% for key, name in timezone_list_default %}
 												<option value="{{ key }}">{{ name }}</option>
@@ -84,61 +84,63 @@
 						<hr>
 						<h4>{{ phrase(32) }}</h4>
 						 <div class="form-group row">
-						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
+						  <label for="db_login_host" class="col-sm-2 col-form-label">DB Host</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_login_host" required>
+							<input type="text" class="form-control" name="db_login_host" id="db_login_host" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="user" class="col-sm-2 col-form-label">DB User</label>
+						  <label for="db_login_user" class="col-sm-2 col-form-label">DB User</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_login_user" required>
+							<input type="text" class="form-control" name="db_login_user"  id="db_login_user" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="password" class="col-sm-2 col-form-label">DB Password</label>
+						  <label for="db_login_password" class="col-sm-2 col-form-label">DB Password</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_login_password" >
+							<input type="text" class="form-control" name="db_login_password"  id="db_login_password" >
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="name" class="col-sm-2 col-form-label">DB Name</label>
+						  <label for="db_login_name" class="col-sm-2 col-form-label">DB Name</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_login_name" required>
+							<input type="text" class="form-control" name="db_login_name"  id="db_login_name" required>
 						  </div>
 						</div>
-                
+
 						<button id="check_connect_mysql_login" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
-						
+
 						<hr>
 						<h4>{{ phrase(33) }}</h4>
 						 <div class="form-group row">
-						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
+						  <label for="db_game_host" class="col-sm-2 col-form-label">DB Host</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_game_host" required>
+							<input type="text" class="form-control" name="db_game_host"  id="db_game_host" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="user" class="col-sm-2 col-form-label">DB User</label>
+						  <label for="db_game_user" class="col-sm-2 col-form-label">DB User</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_game_user" required>
+							<input type="text" class="form-control" name="db_game_user"  id="db_game_user" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="password" class="col-sm-2 col-form-label">DB Password</label>
+						  <label for="db_game_password" class="col-sm-2 col-form-label">DB Password</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_game_password" >
+							<input type="text" class="form-control" name="db_game_password"  id="db_game_password" >
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="name" class="col-sm-2 col-form-label">DB Name</label>
+						  <label for="db_game_name" class="col-sm-2 col-form-label">DB Name</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" name="db_game_name" required>
+							<input type="text" class="form-control" name="db_game_name"  id="db_game_name" required>
 						  </div>
 						</div>
-                
+
 				  <button id="check_connect_mysql_game" type="button" class="btn btn-danger"><i class="fa fa-check-square-o"></i> {{ phrase(35) }}</button>
-					<hr>
+
+
+						<hr>
 
 				<div class="form-group row">
 				  <label for="sql_base_source" class="col-sm-5 col-form-label">{{ phrase(34) }}</label>
@@ -150,9 +152,77 @@
                         </select>
 				  </div>
 				</div>
-				<hr>
 
-				  <div class="form-group">
+
+						<hr>
+						<h4>Порты сервера</h4>
+						Для вывода информации о работоспособности сервера
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label"></label>
+							<div class="col-sm-10">
+								<div class="icheck-material-primary">
+									<input name="check_server_online" type="checkbox" id="check_server_online" checked=""/>
+									<label for="check_server_online">Включить отображение работы сервера</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label for="check_loginserver_online_host" class="col-sm-2 col-form-label">IP логин сервера</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="check_loginserver_online_host" id="check_loginserver_online_host" value="localhost">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="check_loginserver_online_port" class="col-sm-2 col-form-label">Порт логин сервера</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="check_loginserver_online_port" id="check_loginserver_online_port" value="2106" >
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="check_gameserver_online_host" class="col-sm-2 col-form-label">IP гейм сервера</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="check_gameserver_online_host" id="check_gameserver_online_host" value="localhost">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="check_gameserver_online_port" class="col-sm-2 col-form-label">Порт гейм сервера</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="check_gameserver_online_port" id="check_gameserver_online_port" value="7777" >
+							</div>
+						</div>
+						<hr>
+
+						<h4>Для вывода игрового чата</h4>
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label"></label>
+							<div class="col-sm-10">
+								<div class="icheck-material-primary">
+									<input name="chat_game_enabled" type="checkbox" id="chat_game_enabled" checked=""/>
+									<label for="chat_game_enabled">Включить вывод игрового чата</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">IP чат-сервера</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="chat_websocket_host" id="chat_websocket_host" value="localhost:17859">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Админ пароль чата</label>
+							<div class="col-sm-10">
+								<input type="text" minlength="32" maxlength="200" class="form-control" name="chat_admin_password" id="chat_admin_password" value="0192kKS8/!@&J@HnmxzZ*jkw!ы(xLjsaIawdj">
+							</div>
+						</div>
+
+                        <hr>
+
+						<div class="form-group">
 					<button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fa fa-trash-o mr-1"></i> Создать</button>
                   </div>
                  </form>

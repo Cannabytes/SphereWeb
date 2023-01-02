@@ -43,12 +43,24 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-//        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
+        if(!isset($_POST['sql_base_source'])){
+            board::notice(false, "Need select sql database server collection");
+        }
         $sql_base_source = $_POST['sql_base_source'];
+
+        $check_server_online = isset($_POST['check_server_online']);
+        $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
+        $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
+        $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
+        $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
+
+        $ws_chat_enable = isset($_POST['chat_game_enabled']);
+        $ws_ip_host = $_POST['chat_websocket_host'];
+        $ws_admin_password = $_POST['chat_admin_password'];
 
         //TODO: Проверка на соединение с БД
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -67,7 +79,17 @@ class server {
             $db_game_password,
             $db_game_name,
             $sql_base_source,
-        ]);
+
+            $check_server_online,
+            $check_loginserver_online_host,
+            $check_loginserver_online_port,
+            $check_gameserver_online_host,
+            $check_gameserver_online_port,
+
+            $ws_chat_enable,
+            $ws_ip_host,
+            $ws_admin_password,
+        ], true);
         if(!$ok) {
             board::notice(false, 'Ошибка');
         }
@@ -102,8 +124,17 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-//        $sql_base_source = base::get_class_php("./src/component/base/source/" . $_POST['sql_base_source']);
         $sql_base_source = $_POST['sql_base_source'];
+
+        $check_server_online = isset($_POST['check_server_online']) ?: 0;
+        $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
+        $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
+        $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
+        $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
+
+        $ws_chat_enable = isset($_POST['chat_game_enabled']) ?: 0;
+        $ws_ip_host = $_POST['chat_websocket_host'];
+        $ws_admin_password = $_POST['chat_admin_password'];
 
         //TODO: Проверка на соединение с БД
 
@@ -124,7 +155,15 @@ class server {
                         `game_user` = ?,
                         `game_password` = ?,
                         `game_name` = ?,
-                        `collection_sql_base_name` = ? 
+                        `collection_sql_base_name` = ?,
+                        `check_server_online` = ?,
+                        `check_loginserver_online_host` = ?,
+                        `check_loginserver_online_port` = ?,
+                        `check_gameserver_online_host` = ?,
+                        `check_gameserver_online_port` = ?,
+                        `chat_game_enabled` = ?,
+                        `chat_websocket_host` = ?,
+                        `chat_admin_password` = ?
                          WHERE
                             `id` = ?";
         $ok = sql::run($sql, [
@@ -145,6 +184,17 @@ class server {
             $db_game_password,
             $db_game_name,
             $sql_base_source,
+
+            $check_server_online,
+            $check_loginserver_online_host,
+            $check_loginserver_online_port,
+            $check_gameserver_online_host,
+            $check_gameserver_online_port,
+
+            $ws_chat_enable,
+            $ws_ip_host,
+            $ws_admin_password,
+
             $server_id,
         ]);
         if(!$ok) {
@@ -184,43 +234,9 @@ class server {
         ]);
     }
 
-    private static function exist_description($id) {
-        return sql::run("SELECT `server_id` FROM `server_description` WHERE server_id=?", [$id])->fetch();
-    }
-
-    public static function db_data_list($server_id = 0) {
-        if(self::$data_list_server == null) {
-            self::$data_list_server = sql::run("SELECT
-	                id, 
-	                login_host, 
-	                login_name, 
-	                login_user,
-	                game_host, 
-	                game_name, 
-	                game_user
-            FROM server_connect_db")->fetchAll();
-        }
-        if($server_id == 0) {
-            return self::$data_list_server;
-        }
-        foreach(self::$data_list_server as $server) {
-            if($server['id'] == $server_id) {
-                return $server;
-            }
-        }
-        return false;
-    }
 
     public static function server_info($id) {
         return sql::run("SELECT * FROM `server_list` WHERE id=?;", [$id])->fetch();
-    }
-
-    public static function db_connect_id($id, $login = true) {
-        $db = self::db_info_id($id);
-        if($login) {
-            return new db_server($db['login_host'], $db['login_user'], $db['login_password'], $db['login_name']);
-        }
-        return new db_server($db['game_host'], $db['game_user'], $db['game_password'], $db['game_name']);
     }
 
     public static function db_info_id($id) {

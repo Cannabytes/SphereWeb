@@ -5775,8 +5775,13 @@ class generation {
     }
 
     //Генератор пароля
-    public static function password(): string{
-        return substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789"),0,6);
+    public static function password($default = 16, $special = true): string{
+        $characters = 'abcdefghijklmnopqrstuvwxyz';
+        if($special){
+            $characters = mb_strtoupper($characters) . $characters;
+            $special = '!@#$%^&*()_+-;:?~|<>,.';
+        }
+        return substr(str_shuffle("{$characters}0123456789".$special),0, $default);
     }
 
 

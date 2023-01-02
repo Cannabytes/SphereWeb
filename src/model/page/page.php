@@ -77,9 +77,9 @@ class page {
     public static function show_news_short($max_desc_len = 300, $limit = 10, $trash = false) {
         $lang = lang::lang_user_default();
         if($trash) {
-            return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `trash`, `date_create` FROM `pages` WHERE trash = 1 LIMIT ?;", [$limit])->fetchAll();
+            return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `trash`, `date_create` FROM `pages` WHERE trash = 1 ORDER BY `id` DESC LIMIT ?;", [$limit])->fetchAll();
         }
-        return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `trash`, `date_create` FROM `pages` WHERE lang=? LIMIT ?;", [
+        return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `trash`, `date_create` FROM `pages` WHERE lang=? ORDER BY `id` DESC LIMIT ?;", [
             $lang,
             $limit,
         ])->fetchAll();

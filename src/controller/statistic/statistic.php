@@ -9,6 +9,7 @@ namespace Ofey\Logan22\controller\statistic;
 
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\profile\other;
@@ -117,6 +118,10 @@ class statistic {
     static public function char_info($char_name = null): void {
         other::current_server();
         $get_player_info = statistic_model::get_player_info($char_name);
+        if(!$get_player_info){
+            //todo: если нет персонажа, выведем страницу ошибки, что отсутствует такой персонаж
+            redirect::location("/main");
+        }
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
         tpl::addVar("title", lang::get_phrase(205, $char_name));

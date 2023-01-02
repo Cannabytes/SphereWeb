@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+	<div class="col-12 col-lg-6 col-xl-6">
+		<div class="card">
+			<div class="card-body">
+				<a target="_blank" href="#" type="button" class="btn btn-outline-danger btn-lg btn-round btn-block waves-effect waves-light m-1">Скачать патч (с сайта)</a>
+				<a target="_blank" href="#" type="button" class="btn btn-outline-danger btn-lg btn-round btn-block waves-effect waves-light m-1">Скачать патч (google)</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-12 col-lg-6 col-xl-6">
+		<div class="card">
+			<div class="card-body">
+				Как установить патч?<br>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-12 col-lg-6 col-xl-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="text-uppercase mb-3">Goal Completion by channel</h6>
+				<div class="mt-1">
+					<div id="direct"></div>
+				</div>
+				<div class="mt-1">
+					<div id="organic-search"></div>
+				</div>
+				<div class="mt-1">
+					<div id="referral"></div>
+				</div>
+				<div class="mt-1">
+					<div id="social"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div><!--end row-->
+
+
+
+{% endblock %}
+
+
+
+{% block css %}
+<!-- animate CSS-->
+<link href="{{'assets/css/animate.css'|template}}" rel="stylesheet" type="text/css"/>
+<!-- Icons CSS-->
+<link href="{{'assets/css/icons.css'|template}}" rel="stylesheet" type="text/css"/>
+<!-- Sidebar CSS-->
+<link href="{{'assets/css/sidebar-menu.css'|template}}" rel="stylesheet"/>
+<!-- Custom Style-->
+<link href="{{'assets/css/app-style.css'|template}}" rel="stylesheet"/>
+<!-- skins CSS-->
+<link href="{{'assets/css/skins.css'|template}}" rel="stylesheet"/>
+<!-- skins CSS-->
+<link href="{{'assets/css/skins.css'|template}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+
+<!-- simplebar js -->
+<script src="{{'assets/plugins/simplebar/js/simplebar.js'|template}}"></script>
+<!-- sidebar-menu js -->
+<script src="{{'assets/js/sidebar-menu.js'|template}}"></script>
+<!-- Apex Chart JS -->
+<script src="{{'assets/plugins/apexcharts/apexcharts.js'|template}}"></script>
+<script src="{{'assets/js/dashboard-digital-marketing.js'|template}}"></script>
+<!-- Custom scripts -->
+<script src="{{'assets/js/app-script.js'|template}}"></script>
+
+
+{% endblock %}
+

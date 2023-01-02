@@ -53,9 +53,9 @@
                                             {% for player in player_accounts %}
                                             {% if player.server_id == server.id %}
                                             <tr>
-                                                <td><a href="/account/info/{{ player.login }}/server/{{server.id}}"><i
-                                                        aria-hidden="true" class="fa fa-question-circle-o"></i></a> {{
-                                                    player.login }}
+                                                <td>
+												<a href="account/info/{{ player.login }}"><i aria-hidden="true" class="fa fa-question-circle-o"></i></a> 
+													{{ player.login }}
                                                 </td>
                                                 <td>
                                                     <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
@@ -319,23 +319,30 @@
 </div>
 {% endif %}
 
+
 <div class="row">
-    <div class="col-12 col-lg-12 col-xl-12">
-        <section class="cd-timeline js-cd-timeline">
-            <div class="cd-timeline__container">
-                {% for i, news in all_news %}
-                <div class="cd-timeline__block js-cd-block">
-                    <div class="cd-timeline__img cd-timeline__img--picture js-cd-img"></div>
-                    <div class="cd-timeline__content js-cd-content">
-                        <h4><a href="/page/{{news.id}}">{{news.name|striptags}}</a></h4>
-                        <a href="#" class="open_news" data-id="{{news.id}}"><p>{{news.description|raw}}</p></a>
-                        <span class="cd-timeline__date">{{news.date_create|date("d M")}}</span>
-                    </div>
+
+    {% for i, news in all_news %}
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-uppercase"><a href="/page/{{news.id}}">{{news.name|striptags}}</a></div>
+                <div class="card-body">
+                    <a href="/page/{{news.id}}">
+                        <blockquote class="blockquote">
+                            {{news.description|raw}}
+                        </blockquote>
+                    </a>
+                    <footer class="blockquote-footer">{{news.date_create|date("d M Y")}}</footer>
                 </div>
-                {% endfor %}
             </div>
-        </section>
-    </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+
+<div class="row">
+
 
 
     <div class="modal fade" id="modal-open">

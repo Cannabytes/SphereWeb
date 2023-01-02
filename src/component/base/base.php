@@ -7,6 +7,8 @@
 
 namespace Ofey\Logan22\component\base;
 
+use Ofey\Logan22\template\tpl;
+
 class base {
 
     /**
@@ -23,7 +25,13 @@ class base {
 
     //Возвращает запрос, и его параметры
     static public function get_sql_source($class, $name) {
-        return $class::$name();
+        try {
+            return $class::$name();
+        } catch (\Error $e) {
+            echo "Error caught: " . $e->getMessage();
+            exit;
+        }
+//        return $class::$name();
     }
 
     /**

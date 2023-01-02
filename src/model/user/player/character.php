@@ -11,20 +11,29 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\admin\server;
 
 class character {
 
     public static function all_characters($login, $server_id) {
-        $server_info = server::server_info($server_id);
-        if(!$server_info) {
-            board::notice(false, lang::get_phrase(150));
+        //список моих аккаунтов
+        $account_players = player_account::show_all_account_player(true);
+        $isAccountUser = false;
+        foreach($account_players AS $player){
+            if($player['login'] == $login){
+                $isAccountUser = true;
+                break;
+            }
         }
-        $reQuest = server::db_info_id($server_info['db_id']);
-        $my_chars = self::my_characters($reQuest, [$login]);
-        $user_characters = $my_chars->fetchAll();
-        crest::conversion($user_characters);
-        return $user_characters;
+        if(!$isAccountUser){
+            redirect::location("/main");
+        }
+        $info = server::server_info($server_id);
+        $base = base::get_sql_source($info['collection_sql_base_name'], "account_players");
+        $players = player_account::extracted($base, $info, [$login])->fetchAll();
+        crest::conversion($players);
+        return $players;
     }
 
     public static function my_characters($info, $prepare) {

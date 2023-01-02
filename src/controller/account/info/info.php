@@ -21,10 +21,10 @@ class info {
             'title'      => lang::get_phrase(203),
             'account'      => $account,
             'server_id'  => $server_id,
-            'characters' => character::all_characters($account, $server_id),
+            'players' => character::all_characters($account, $server_id),
         ]);
         tpl::addVar('server_list', server::get_server_info());
-        tpl::display("/account/accounts.html");
+        tpl::display("/account/players_list.html");
     }
 
     public static function player($account, $player_name, $server_id) {
@@ -47,5 +47,10 @@ class info {
         ]);
         tpl::addVar('server_list', server::get_server_info());
         tpl::display("/account/player/player.html");
+    }
+
+    //Список игровых персонажей
+    public static function player_list($player_name){
+        self::account($player_name, 1);
     }
 }

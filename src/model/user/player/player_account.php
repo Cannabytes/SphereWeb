@@ -252,12 +252,20 @@ class player_account {
     }
 
     //Возвращаем список всех аккаунтов пользователя
-    static function show_all_account_player() {
+    //$default_server - вернуть данные своих аккаунтов только сервера который по умолчанию
+    static function show_all_account_player($default_server = false) {
         if(!auth::get_is_auth())
             return;
-        return sql::run("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? ORDER BY date_create", [
+
+        if($default_server){
+            return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
+                auth::get_email(),
+                auth::get_default_server(),
+            ]);
+        }
+        return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? ORDER BY date_create", [
             auth::get_email(),
-        ])->fetchAll();
+        ]);
     }
 
     //Кол-во имеющихся аккаунтов

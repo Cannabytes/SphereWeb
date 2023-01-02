@@ -31,7 +31,7 @@ class online {
             $connect_game = false;
             $player_count_online = 0;
 
-            if(@fsockopen($info['login_host'], 9014, $errno, $errstr, 1)) {
+            if(@fsockopen($info['login_host'], 2106, $errno, $errstr, 1)) {
                 $connect_login = true;
             }
 

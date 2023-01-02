@@ -269,6 +269,14 @@ class client {
                 'protocol' => [338],
                 'name'     => "Master Class",
             ],
+            [
+                'protocol' => [362],
+                'name'     => "Master Class Ch. 2",
+            ],
+            [
+                'protocol' => [388],
+                'name'     => "Master Class Ch. 3",
+            ],
         ];
     }
 }

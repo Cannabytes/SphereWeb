@@ -27,6 +27,7 @@ $router->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\contr
 $router->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
 $router->get("account/info/([a-zA-Z0-9]+)/player/{char_name}/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::player');
+$router->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
 $router->get("about/(\d+)", 'Ofey\Logan22\controller\about\about::show');
 
 /**
@@ -102,6 +103,11 @@ $router->get("gallery/screenshot/add", 'Ofey\Logan22\controller\gallery\screensh
 $router->post("gallery/screenshot/load", 'Ofey\Logan22\controller\gallery\screenshot::load_screen');
 $router->get("gallery/movie", 'Ofey\Logan22\controller\gallery\movie::show_page');
 $router->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_description');
+
+//лаунчер
+$router->get("/launcher", function(){
+    \Ofey\Logan22\template\tpl::display("launcher/launcher.html");
+});
 
 /**
  * ===========================================
