@@ -7,6 +7,10 @@
 
 namespace Ofey\Logan22\component\cache;
 
+use Ofey\Logan22\component\time\time;
+/*
+ * При добавлении ещё кэшика, нужно не забыть добавить дефолтные значения Ofey\Logan22\component\time
+ */
 enum timeout {
 
     case forum;
@@ -28,23 +32,23 @@ enum timeout {
 
     public function time(): int {
         return match ($this) {
-            timeout::forum => 60,
-            timeout::server_online_status => 120,
-            timeout::statistic_pvp => 60,
-            timeout::statistic_pk => 60,
-            timeout::statistic_online => 60,
-            timeout::statistic_clan => 60,
-            timeout::statistic_clan_data => 60,
-            timeout::statistic_clan_skills => 60,
-            timeout::statistic_clan_players => 60,
-            timeout::statistic_heroes => 60,
-            timeout::statistic_player_info => 60,
-            timeout::statistic_player_info_sub_class => 60,
-            timeout::statistic_player_inventory_info => 60,
-            timeout::statistic_castle => 60,
-            timeout::statistic_block => 60,
-            timeout::statistic_counter => 60,
-         };
+            timeout::forum => time::cache_timeout("forum"),
+            timeout::server_online_status => time::cache_timeout("server_online_status"),
+            timeout::statistic_pvp => time::cache_timeout("statistic_pvp"),
+            timeout::statistic_pk => time::cache_timeout("statistic_pk"),
+            timeout::statistic_online => time::cache_timeout("statistic_online"),
+            timeout::statistic_clan => time::cache_timeout("statistic_clan"),
+            timeout::statistic_clan_data => time::cache_timeout("statistic_clan_data"),
+            timeout::statistic_clan_skills => time::cache_timeout("statistic_clan_skills"),
+            timeout::statistic_clan_players => time::cache_timeout("statistic_clan_players"),
+            timeout::statistic_heroes => time::cache_timeout("statistic_heroes"),
+            timeout::statistic_player_info => time::cache_timeout("statistic_player_info"),
+            timeout::statistic_player_info_sub_class => time::cache_timeout("statistic_player_info_sub_class"),
+            timeout::statistic_player_inventory_info => time::cache_timeout("statistic_player_inventory_info"),
+            timeout::statistic_castle => time::cache_timeout("statistic_castle"),
+            timeout::statistic_block => time::cache_timeout("statistic_block"),
+            timeout::statistic_counter => time::cache_timeout("statistic_counter"),
+        };
     }
 
 }

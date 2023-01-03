@@ -129,6 +129,10 @@ $router->post("/admin/option/server/update", 'Ofey\Logan22\controller\admin\opti
 $router->post("/admin/option/server/remove", 'Ofey\Logan22\controller\admin\options::remove_server');
 $router->post("/admin/option/server/db/connect", 'Ofey\Logan22\controller\admin\options::test_connect_db');
 $router->post("/admin/options/server/client/protocol", '\Ofey\Logan22\component\chronicle\client::get_base_collection_class');
+
+$router->get("/admin/options/server/cache", 'Ofey\Logan22\controller\admin\options::cache_page');
+$router->post("/admin/options/server/cache", 'Ofey\Logan22\controller\admin\options::cache_save');
+
 $router->get("/admin/options/server/list", 'Ofey\Logan22\controller\admin\options::server_list');
 $router->get("/admin/options/server/edit/(\d+)", 'Ofey\Logan22\controller\admin\options::edit_server_show');
 $router->get("/admin/options/server/description/(\d+)", 'Ofey\Logan22\controller\admin\options::description_create');

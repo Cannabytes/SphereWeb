@@ -14,6 +14,7 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\servername\servername;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\update_cache;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\template\tpl;
@@ -102,6 +103,19 @@ class options {
     public static function remove_server() {
         validation::user_protection("admin");
         server::remove_server();
+    }
+
+    /**
+     * страница с настройками времени кэширования
+     */
+    public static function cache_page(){
+        validation::user_protection("admin");
+        tpl::display("/admin/options/cache.html");
+    }
+
+    public static function cache_save(){
+        validation::user_protection("admin");
+        update_cache::save();
     }
 }
 

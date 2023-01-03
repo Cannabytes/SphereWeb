@@ -2,12 +2,14 @@
 
 namespace Ofey\Logan22\template;
 
+use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
 use Ofey\Logan22\component\estate\fort;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\page\page;
@@ -84,6 +86,10 @@ class tpl {
             }
             throw new RuntimeException(sprintf('Function %s not found', $name));
         });
+
+        $twig->addFunction(new TwigFunction('cache_timeout', function($var = null){
+            return time::cache_timeout($var);
+        }));
 
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
             return array_slice(statistic::get_pvp($server_id), 0, $count);

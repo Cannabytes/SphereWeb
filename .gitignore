@@ -5,3 +5,4 @@ uploads/screenshots
 uploads/cache
 uploads/user
 src/config/db.php
+src/config/cache.php

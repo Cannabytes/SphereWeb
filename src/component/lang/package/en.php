@@ -355,6 +355,8 @@ return [
     289 => "%s must be of the format %s",
     290 => "%s from %s characters.",
     291 => "You entered an invalid E-Mail",
+    292 => "Field %s must contain a number",
+    293 => "Minimum value %s for field %s",
 
 
 ];

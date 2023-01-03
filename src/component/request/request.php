@@ -66,14 +66,17 @@ class request {
             board::notice(false, lang::get_phrase(291));
         }
     }
+
     private static function maxValue($name, $value): void {
         if(!self::request()->isNumber())
             return;
         if(is_numeric($value)) {
-            if(self::request()->getMaxValue() < $value) {
+             if(self::request()->getMaxValue() < $value) {
                 board::notice(false, lang::get_phrase(287, $name, self::request()->getMaxValue()));
             }
             $value = settype($value, 'int');
+        }else{
+            board::notice(false, lang::get_phrase(292, $name));
         }
     }
 
@@ -82,8 +85,11 @@ class request {
             return;
         if(is_numeric($value)) {
             if(self::request()->getMinValue() > $value) {
-                board::notice(false, lang::get_phrase(287, $name, self::request()->getMinValue()));
+                board::notice(false, lang::get_phrase(293, self::request()->getMinValue(), $name));
             }
+            $value = settype($value, 'int');
+        }else{
+            board::notice(false, lang::get_phrase(292, $name));
         }
     }
 
