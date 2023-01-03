@@ -19,7 +19,7 @@ $router->post("generation/account", function() {
     echo \Ofey\Logan22\component\account\generation::word();
 });
 $router->post("generation/password", function() {
-    echo \Ofey\Logan22\component\account\generation::password();
+    echo \Ofey\Logan22\component\account\generation::password(mt_rand(4,6), special: false);
 });
 
 $router->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");

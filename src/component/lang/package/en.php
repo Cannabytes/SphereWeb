@@ -185,7 +185,7 @@ return [
     129 => "Heroes",
     130 => "No connection to statistics",
     131 => "User registration",
-    132 => "From 4 to 16 characters.</br>Format a-zA-Z0-9",
+    132 => "From %s to %s characters.</br>Format a-zA-Z0-9",
     133 => "From 4 characters.",
     134 => "You will be interested!",
     135 => "Registration of a game account and registration in your personal account will take place.<br>After registering, you can enter your personal account and use all available features.<br>",
@@ -348,4 +348,13 @@ return [
     283 => "Forbidden to change administrator password",
     284 => "Reset code",
     285 => "Reset password",
+
+    286 => "Max value allowed is %s",
+    287 => "%s up to %s characters.",
+    288 => "Field %s is required",
+    289 => "%s must be of the format %s",
+    290 => "%s from %s characters.",
+    291 => "You entered an invalid E-Mail",
+
+
 ];
