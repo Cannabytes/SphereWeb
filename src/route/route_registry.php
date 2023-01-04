@@ -1,6 +1,11 @@
 <?php
 
+use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\user\auth\auth as auth_model;
+
+session::init();
+lang::load_package();
 auth_model::user_auth();
 
 $router = new Ofey\Logan22\route\Route();
@@ -13,6 +18,8 @@ $router->get("main", 'Ofey\Logan22\controller\main\main::index')->alias("home")-
 $router->get("registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");
 $router->get("registration/account/server/(\d+)", 'Ofey\Logan22\controller\registration\account::newAccount');
 $router->post("registration/account", 'Ofey\Logan22\controller\registration\account::requestNewAccount');
+
+$router->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
 $router->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
 
 $router->post("generation/account", function() {
@@ -22,7 +29,6 @@ $router->post("generation/password", function() {
     echo \Ofey\Logan22\component\account\generation::password(mt_rand(4,6), special: false);
 });
 
-$router->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
 $router->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\controller\account\password\change::show');
 $router->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');

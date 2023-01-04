@@ -1,51 +1,31 @@
 $(document).ready(function () {
- 
-	var authFormPage = $('#authFormPage');
-    authFormPage.submit(function (e) {
+    $("#auth").click(function (e) {
         e.preventDefault();
+        authorization($("#email").val(), $("#password").val())
+    });
+
+    $("#authmain").click(function (e) {
+        e.preventDefault();
+        authorization($("#emailmain").val(), $("#passwordmain").val())
+    });
+
+    function authorization(email, password) {
         $.ajax({
             type: "POST",
             url: "/auth",
-			dataType: "json",
+            data: {
+                email: email,
+                password: password,
+            },
+            dataType: "json",
             encode: true,
-            data: authFormPage.serialize(),
-            success: function (data) {
-				console.log(data, data.message);
-				if(data.ok){
-					notify_success(data.message)
-					location.reload()
-				}else{
-					notify_warning(data.message)
-				}            },
-            error: function (data) {
-                notify_warning(data.message);
-            },
+        }).success(function (data) {
+            console.log(data);
+            if (data.ok) {
+                location.reload()
+            } else {
+                notify_error(data.message)
+            }
         });
-    });
-	
-	
-	var authForm = $('#authForm');
-    authForm.submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "/auth",
-			dataType: "json",
-            encode: true,
-            data: authForm.serialize(),
-            success: function (data) {
-				if(data.ok){
-					notify_success(data.message)
-					location.reload()
-				}else{
-					notify_warning(data.message)
-				}
-            },
-            error: function (data) {
-                notify_warning(data.message);
-            },
-        });
-    });
-	
-	
+    }
 });

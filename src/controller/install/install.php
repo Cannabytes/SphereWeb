@@ -6,50 +6,40 @@
 namespace Ofey\Logan22\controller\install;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\version\version;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
 class install {
 
-    //Min version PHP
-    private static float $need_min_version_php = 8.1;
-
-    //Разрешение на установку
-//    private static function __installation_permission(): bool {
-//        if(self::$need_min_version_php >= PHP_VERSION){
-//            return true;
-//        }
-//        return false;
-//    }
 
     /**
      * Установка, вывод правил, соглашения
      */
     public static function rules() {
+        version::check_version_php();
         if(\Ofey\Logan22\model\install\install::exist_admin() and file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
             header("Location: /");
             die();
         }
         tpl::display("install/install_rules.html", [
             "php_version" => PHP_VERSION,
-            "need_min_version_php" => self::$need_min_version_php,
-//            "installation_permission" => self::__installation_permission(),
+            "need_min_version_php" => version::MIN_PHP_VERSION(),
         ]);
     }
 
     public static function db() {
+        version::check_version_php();
         if(file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
             header("Location: /install/admin");
             die();
         }
-//        if(!self::__installation_permission()) header("Location: /install/rules");
         tpl::display("install/install_db.html");
     }
 
     //Проверка соединения с базой данных
     public static function db_connect() {
-//        if(!self::__installation_permission()) return;
-
+        version::check_version_php();
         if(file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
             header("Location: /");
             die();

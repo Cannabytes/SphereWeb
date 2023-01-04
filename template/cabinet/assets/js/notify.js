@@ -38,7 +38,7 @@ function notify_error(message) {
         showClass: 'bounceIn',
         hideClass: 'bounceOut',
         size: 'mini',
-        width: 350,
+        width: 450,
         msg: message
     });
 }
@@ -53,7 +53,7 @@ function notify_success(message) {
         hideClass: 'bounceOut',
         icon: 'icon-check',
         size: 'mini',
-        width: 350,
+        width: 450,
         msg: message
     });
 }

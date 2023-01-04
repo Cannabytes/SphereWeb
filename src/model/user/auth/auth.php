@@ -10,6 +10,8 @@ namespace Ofey\Logan22\model\user\auth;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\request;
+use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\db\sql;
 
@@ -235,6 +237,21 @@ class auth {
         return self::$userInfo;
     }
 
+    /**
+     * @param $email
+     *
+     * @return array|mixed
+     * @throws Exception
+     * Проверка существования пользователя по E-Mail
+     */
+    static public function is_user($email) {
+        if(self::$userInfo != null) {
+            return self::$userInfo;
+        }
+        $sql = 'SELECT 1 FROM `users` WHERE `email` = ?;';
+        return sql::run($sql, [$email])->fetch();
+    }
+
     //Проверка существования юзера
     static public function exist_user_id($id) {
         self::$userInfo['id'] ??= '';
@@ -253,14 +270,9 @@ class auth {
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
         }
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            board::notice(false, lang::get_phrase(162));
-        }
-        if(mb_strlen($password) == 0) {
-            board::notice(false, lang::get_phrase(163));
-        }
+        $email = request::setting('email', new request_config(isEmail: true));
+        $password = request::setting('password', new request_config(max: 32));
+
         $user_info = self::exist_user($email);
         if(!$user_info) {
             board::notice(false, lang::get_phrase(164));

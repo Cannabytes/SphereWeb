@@ -2,6 +2,7 @@
 
 namespace Ofey\Logan22\template;
 
+use ArgumentCountError;
 use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
@@ -150,7 +151,11 @@ class tpl {
         }));
         //Аналог get_phrase
         $twig->addFunction(new TwigFunction('phrase', function($key, ...$values) {
-            return lang::get_phrase($key, ...$values);
+            try {
+                return lang::get_phrase($key, ...$values);
+            }catch(ArgumentCountError $e){
+                return "[lang code: ($key) - " . $e->getMessage() . "]";
+            }
         }));
 
         $twig->addFunction(new TwigFunction('get_template', function() {

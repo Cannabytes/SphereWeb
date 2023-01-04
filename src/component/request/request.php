@@ -41,6 +41,7 @@ class request {
             self::isEmail($name, $value);
             return $value;
         }
+        board::notice(false, "Не найдено значение реквеста : " . $key);
     }
 
     public static function checkbox($key): bool {
@@ -62,12 +63,14 @@ class request {
     private static function isEmail($name, $value): void {
         if(!self::request()->isEmail())
             return;
-        if(filter_var($value, FILTER_VALIDATE_EMAIL)) {
+        if(!filter_var($value, FILTER_VALIDATE_EMAIL)) {
             board::notice(false, lang::get_phrase(291));
         }
     }
 
     private static function maxValue($name, $value): void {
+        if(self::request()->isEmail())
+            return;
         if(!self::request()->isNumber())
             return;
         if(is_numeric($value)) {
@@ -81,6 +84,8 @@ class request {
     }
 
     private static function minValue($name, $value): void {
+        if(self::request()->isEmail())
+            return;
         if(!self::request()->isNumber())
             return;
         if(is_numeric($value)) {
@@ -94,14 +99,18 @@ class request {
     }
 
     private static function max($name, $value): void {
+        if(self::request()->isEmail())
+            return;
         if(self::request()->isNumber())
             return;
         if(self::request()->getMax() < mb_strlen($value)) {
-            board::notice(false, lang::get_phrase(286, self::request()->getMax()));
+            board::notice(false, lang::get_phrase(286, $name, self::request()->getMax()));
         }
     }
 
     private static function min($name, $value): void {
+        if(self::request()->isEmail())
+            return;
         if(self::request()->isNumber())
             return;
         if(self::request()->getMin() > mb_strlen($value)) {
@@ -118,6 +127,8 @@ class request {
     }
 
     private static function rules($name, $value): void {
+        if(self::request()->isEmail())
+            return;
         if(self::request()->isNumber())
             return;
         if(self::request()->getRules() != "") {

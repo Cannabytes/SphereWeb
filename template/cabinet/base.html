@@ -86,16 +86,16 @@
                         <input type="text" class="form-control col-sm-5" placeholder="Enter keywords">
                     </form-->
                     {% else %}
-                    <form id="authForm">
+                    <form>
                         <div class="row">
                             <div class="col-md-4 pl-md-3 input-group-sm">
-                                <input type="email" name="email" class="form-control" placeholder="E-mail">
+                                <input type="email" name="email" id="emailmain" class="form-control" placeholder="E-mail">
                             </div>
                             <div class="col-md-4 pl-md-0 input-group-sm">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" id="passwordmain" class="form-control" placeholder="Password">
                             </div>
                             <div class="col-md-2 pl-md-0 input-group-sm">
-                                <button type="submit" class="btn btn-light btn-sm waves-effect waves-light">{{phrase(256)}}</button>
+                                <button id="authmain" type="submit" class="btn btn-light btn-sm waves-effect waves-light">{{phrase(256)}}</button>
                             </div>
                         </div>
                     </form>

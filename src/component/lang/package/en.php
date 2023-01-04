@@ -349,7 +349,7 @@ return [
     284 => "Reset code",
     285 => "Reset password",
 
-    286 => "Max value allowed is %s",
+    286 => "Maximum allowed value for field %s is %s characters",
     287 => "%s up to %s characters.",
     288 => "Field %s is required",
     289 => "%s must be of the format %s",

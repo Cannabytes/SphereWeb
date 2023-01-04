@@ -26,7 +26,7 @@ class pay {
 
     public static function transaction() {
         if(!auth::get_is_auth()) {
-            return board::notice(false, 'Вы должны авторизоваться');
+            return board::notice(false, lang::get_phrase(234));
         }
         donate::transaction();
     }

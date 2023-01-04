@@ -13,7 +13,7 @@
                     <img src="{{ template }}/assets/images/logo-icon.png" alt="logo icon">
                 </div>
                 <div class="card-title text-uppercase text-center py-3">{{ phrase(10) }}</div>
-                <form id="authFormPage">
+                <div>
                     <div class="form-group">
                         <label for="email" class="sr-only">{{ phrase(9) }}</label>
                         <div class="position-relative has-icon-right">
@@ -35,9 +35,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
+                    <button id="auth" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
 
-                </form>
+                </div>
             </div>
         </div>
         <div class="card-footer text-center py-3">

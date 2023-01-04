@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("form").submit(function (event) {
+    $("form").submit(function (e) {
         $.ajax({
             type: "POST",
             url: "/admin/options/server/cache",
@@ -14,7 +14,7 @@ $(document).ready(function () {
                 notify_error(data.message)
             }
         });
-        event.preventDefault();
+        e.preventDefault();
     });
 });
  

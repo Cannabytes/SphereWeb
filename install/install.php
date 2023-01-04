@@ -32,7 +32,7 @@ $router->post("db/connect/test", function() {
 });
 
 $router->set404(function() {
-    echo 'Страница не найдена :(';
+    echo 'Not find page';
 });
 
 $router->run();
