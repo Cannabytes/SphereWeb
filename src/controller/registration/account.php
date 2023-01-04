@@ -14,14 +14,12 @@ use Ofey\Logan22\template\tpl;
 class account {
 
     public static function newAccount($server_id = null) {
-        if(!server::get_server_info())
+        if(!server::get_server_info()){
+            tpl::addVar("title", lang::get_phrase(131));
             tpl::display("error/not_server.html");
-
+        }
         tpl::addVar([
-            'title'              => lang::get_phrase(131),
-            'server_list'        => server::get_server_info(),
             'server_id'          => $server_id,
-            'generation_account' => generation::word(),
         ]);
         tpl::display("/user/auth/new_account_registration.html");
     }

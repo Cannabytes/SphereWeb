@@ -12,7 +12,6 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
-use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\template\tpl;
 
 class statistic {
@@ -50,57 +49,31 @@ class statistic {
     }
 
     static public function block(): void {
-        other::current_server();
-        tpl::addVar("blocks", statistic_model::get_players_block());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(245));
         tpl::display("statistic/block.html");
     }
 
     static public function heroes(): void {
-        other::current_server();
-        tpl::addVar("heroes", statistic_model::get_players_heroes());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(246));
         tpl::display("statistic/heroes.html");
     }
 
     static public function pvp(): void {
-        other::current_server();
-        tpl::addVar("pvp", statistic_model::get_pvp());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(247));
         tpl::display("statistic/pvp.html");
     }
 
     static public function pk(): void {
-        other::current_server();
-        tpl::addVar("pk", statistic_model::get_pk());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(248));
         tpl::display("statistic/pk.html");
     }
 
     static public function online_time(): void {
-        other::current_server();
-        tpl::addVar("online_times", statistic_model::get_players_online_time());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(249));
         tpl::display("statistic/online_time.html");
     }
 
     static public function clan(): void {
-        other::current_server();
-        tpl::addVar("clans", statistic_model::get_clan());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(250));
         tpl::display("statistic/clan.html");
     }
 
     static public function clan_info($clan_name): void {
-        other::current_server();
         $clan = statistic_model::get_clan_all_info($clan_name);
-        tpl::addVar("title", lang::get_phrase(252, $clan['clan_info']['clan_name']));
         tpl::addVar("clan_info", $clan['clan_info']);
         tpl::addVar("clan_players", $clan['clan_players']);
         tpl::addVar("clan_skills", $clan['clan_skills']);
@@ -108,23 +81,17 @@ class statistic {
     }
 
     static public function castle(): void {
-        other::current_server();
-        tpl::addVar("castles", statistic_model::get_castle());
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", lang::get_phrase(251));
         tpl::display("statistic/castle.html");
     }
 
     static public function char_info($char_name = null): void {
-        other::current_server();
         $get_player_info = statistic_model::get_player_info($char_name);
-        if(!$get_player_info){
+        if(!$get_player_info) {
             //todo: если нет персонажа, выведем страницу ошибки, что отсутствует такой персонаж
             redirect::location("/main");
         }
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
-        tpl::addVar("title", lang::get_phrase(205, $char_name));
         tpl::addVar("player", $get_player_info);
         tpl::addVar("inventory", $inventory);
         tpl::addVar("sub_class", $sub_class);
@@ -137,14 +104,11 @@ class statistic {
      */
     static public function class($class_name): void {
         $class_id = race_class::get_id_class($class_name);
-        if($class_id==null) error::error404("Игровой класс не найден");
+        if($class_id == null)
+            error::error404("Игровой класс не найден");
         $class_name = race_class::get_class($class_id);
-        other::current_server();
-        tpl::addVar("other_statistic", statistic_model::top_counter());
-        tpl::addVar("title", "Статистика персонажей класса $class_name" );
         tpl::addVar("class_name", $class_name);
         tpl::addVar("player_classes", statistic_model::statistic_class($class_name, [$class_id]));
         tpl::display("statistic/class.html");
     }
-
 }

@@ -5,7 +5,7 @@
 		 <a href="/statistic/pvp">
 			  <div class="media align-items-center">
 				<div class="media-body statistic-menu">
-				  <h4 class="mb-0 ml-1 text-white">{{ other_statistic.count_pvpkills }}</h4>
+				  <h4 class="mb-0 ml-1 text-white">{{ statistic_top_counter().count_pvpkills }}</h4>
 				  <p class="mb-0 ml-1 extra-small-font text-white">Player vs Player</p>
 				</div>
 			  </div>
@@ -20,7 +20,7 @@
 	   <a href="/statistic/pk">
           <div class="media align-items-center">
           <div class="media-body statistic-menu">
-              <h4 class="mb-0 ml-1 text-white">{{ other_statistic.count_pkkills }}</h4>
+              <h4 class="mb-0 ml-1 text-white">{{ statistic_top_counter().count_pkkills }}</h4>
               <p class="mb-0 ml-1 extra-small-font text-white">Player Kills</p>
             </div>
           </div>
@@ -35,7 +35,7 @@
 		  <a href="/statistic/clan">
           <div class="media align-items-center">
              <div class="media-body statistic-menu">
-              <h4 class="mb-0 ml-2 text-white">{{ other_statistic.count_clans }}</h4>
+              <h4 class="mb-0 ml-2 text-white">{{ statistic_top_counter().count_clans }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">{{phrase(126)}}</p>
             </div>
           </div>
@@ -50,7 +50,7 @@
 		  <a href="/statistic/castle">
           <div class="media align-items-center">
             <div class="media-body statistic-menu">
-              <h4 class="mb-0 ml-2 text-white">{{ other_statistic.count_clan_has_castle }}/{{ other_statistic.count_castle }}</h4>
+              <h4 class="mb-0 ml-2 text-white">{{ statistic_top_counter().count_clan_has_castle }}/{{ statistic_top_counter().count_castle }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">{{phrase(127)}}</p>
             </div>
           </div>
@@ -65,7 +65,7 @@
 		  <a href="/statistic/online/time">
           <div class="media align-items-center">
             <div class="media-body statistic-menu">
-              <h4 class="mb-0 ml-2 text-white">{{ timeHasPassed(other_statistic.count_onlinetime) }}</h4>
+              <h4 class="mb-0 ml-2 text-white">{{ timeHasPassed(statistic_top_counter().count_onlinetime) }}</h4>
               <p class="mb-0 ml-2 extra-small-font text-white">{{phrase(128)}}</p>
             </div>
           </div>

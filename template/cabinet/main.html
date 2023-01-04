@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
+{% set title = phrase(238) %}
+
 {% block content %}
 
 {% if (user_info('get_is_auth')) and (server_list is not empty) %}
-
 <div class="row">
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
             <div class="card-header">{{ phrase(43) }}</div>
-
 
             <div class="row">
                 {% if server_list|length >= 1 %}
@@ -50,7 +50,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for player in player_accounts %}
+                                            {% for player in show_all_account_player() %}
                                             {% if player.server_id == server.id %}
                                             <tr>
                                                 <td>
@@ -238,37 +238,10 @@
 
 </div>
 
-
-{% block chat %}{% endblock %}
-
-
 {% endif %}
 
-{% if get_enable_game_chat() %}
-<!--<div class="row" id="game_chat">-->
-<!--    <div class="col-12">-->
-<!--        <div class="card">-->
-<!--            <div class="card-header text">{{ phrase(46) }}</div>-->
-<!--            <div class="card-body">-->
-<!--                <div class="row">-->
-<!--                    <div class="chat_window">-->
-<!--                        <ul class="messages" id="chat_messages"></ul>-->
-<!--                    </div>-->
-<!--                    <div class="message_template">-->
-<!--                        <li class="message">-->
-<!--                            <div class="avatar"></div>-->
-<!--                            <div class="text_wrapper">-->
-<!--                                <div class="text"></div>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-{% endif %}
 
+{% set screenshots = screenshots() %}
 {% if screenshots %}
 {% set count = screenshots|length %}
 {% set showScreenCount = 8 %}
@@ -304,25 +277,9 @@
 {% endif %}
 {% endif %}
 
-{% if page %}
+
+{% for i, news in last_news(10) %}
 <div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote">
-                    <p>{{ page.description }}</p>
-                    <footer class="blockquote-footer">{{ phrase("data_create") }}: {{ page.date_create }}</footer>
-                </blockquote>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-
-
-<div class="row">
-
-    {% for i, news in all_news %}
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-uppercase"><a href="/page/{{news.id}}">{{news.name|striptags}}</a></div>
@@ -336,15 +293,11 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
-
 </div>
+{% endfor %}
 
 
 <div class="row">
-
-
-
     <div class="modal fade" id="modal-open">
         <div class="modal-dialog modal-lg">
             <div class="modal-content animated flip">
@@ -362,7 +315,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
     {% endblock %}

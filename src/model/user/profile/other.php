@@ -14,29 +14,6 @@ use Ofey\Logan22\template\tpl;
 
 class other {
 
-    /**
-     * Добавляет в переменные шаблона список актуальных серверов
-     * и добавляет информацию о выбранном сервере
-     *
-     * @throws \Exception
-     */
-    static public function current_server(): void {
-        $server_list_menu = server::get_server_info();
-        $server_info = null;
-        foreach($server_list_menu as $server) {
-            if(auth::get_default_server() == $server['id']) {
-                $server_info = $server;
-            }
-        }
-        if($server_info == null) {
-            if(count($server_list_menu) >= 1) {
-                $server_info = $server_list_menu[0];
-            }
-        }
-        tpl::addVar('server_list', $server_list_menu);
-        tpl::addVar('server_info', $server_info);
-    }
-
     static private array $users_info   = [];
     static private bool  $attempt_user = false;
 

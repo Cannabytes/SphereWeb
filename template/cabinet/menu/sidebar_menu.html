@@ -17,6 +17,9 @@
 		  <li><a href="/registration/account"><i class="zmdi zmdi-dot-circle-alt"></i> {{ phrase("menu_game_account") }}</a></li>
 		</ul>
       </li>
+
+
+	 {% set server_list = server_list %}
 	  {% if (server_list != null) %}
 		{% for desc in server_list %}
 			{% if desc.description|length >= 1 %}

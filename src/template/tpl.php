@@ -3,7 +3,7 @@
 namespace Ofey\Logan22\template;
 
 use ArgumentCountError;
-use Ofey\Logan22\component\cache\timeout;
+use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
@@ -13,11 +13,14 @@ use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\forum\forum;
+use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page;
 use Ofey\Logan22\model\server\online;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\statistic\statistic;
+use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\auth\auth;
+use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\route\Route;
 use RuntimeException;
@@ -88,10 +91,11 @@ class tpl {
             throw new RuntimeException(sprintf('Function %s not found', $name));
         });
 
-        $twig->addFunction(new TwigFunction('cache_timeout', function($var = null){
+        $twig->addFunction(new TwigFunction('cache_timeout', function($var = null) {
             return time::cache_timeout($var);
         }));
 
+        //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
             return array_slice(statistic::get_pvp($server_id), 0, $count);
         }));
@@ -109,6 +113,8 @@ class tpl {
             return lang::lang_list($remove_lang);
         }));
 
+        //TODO: Наверное лучшее все эти функции сделать отдельно
+        // и функцию общего возрата {{ user_info().get_id() }} типо такого пробовать
         $twig->addFunction(new TwigFunction('user_info', function($type) {
             switch($type) {
                 case 'get_default_server':
@@ -141,7 +147,6 @@ class tpl {
                     return auth::get_avatar();
                 case 'get_avatar_background':
                     return auth::get_avatar_background();
-
             }
         }));
 
@@ -153,7 +158,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('phrase', function($key, ...$values) {
             try {
                 return lang::get_phrase($key, ...$values);
-            }catch(ArgumentCountError $e){
+            } catch(ArgumentCountError $e) {
                 return "[lang code: ($key) - " . $e->getMessage() . "]";
             }
         }));
@@ -213,12 +218,12 @@ class tpl {
         }));
 
         //Сервер по умолчанию
-        $twig->addFunction(new TwigFunction("get_server_default", function(){
-           return server::get_server_info(auth::get_default_server());
+        $twig->addFunction(new TwigFunction("get_server_default", function() {
+            return server::get_server_info(auth::get_default_server());
         }));
 
         //Информация о серверах или сервере
-        $twig->addFunction(new TwigFunction('get_server_info', function($server_id = null){
+        $twig->addFunction(new TwigFunction('get_server_info', function($server_id = null) {
             return server::get_server_info($server_id);
         }));
 
@@ -292,6 +297,60 @@ class tpl {
             }
         }));
 
+        //Сгенерировать рандомный аккаунт
+        $twig->addFunction(new TwigFunction('generation_account', function() {
+            return generation::word();
+        }));
+
+        //Последние скриншоты
+        $twig->addFunction(new TwigFunction('screenshots', function($limit = 8) {
+            return screenshot::load($limit);
+        }));
+
+        //Список аккаунтов пользователя
+        $twig->addFunction(new TwigFunction('show_all_account_player', function() {
+            return player_account::show_all_account_player();
+        }));
+
+        /**
+         * Вывод статиститки сервера
+         */
+        $twig->addFunction(new TwigFunction('statistic_top_counter', function($server_id = 0) {
+            return statistic_model::top_counter($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0) {
+            return statistic_model::get_pvp($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0) {
+            return statistic_model::get_pk($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_players_online_time', function($server_id = 0) {
+            return statistic_model::get_players_online_time($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0) {
+            return statistic_model::get_clan($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_castle', function($server_id = 0) {
+            return statistic_model::get_castle($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_players_heroes', function($server_id = 0) {
+            return statistic_model::get_players_heroes($server_id);
+        }));
+
+        $twig->addFunction(new TwigFunction('statistic_get_players_block', function($server_id = 0) {
+            return statistic_model::get_players_block($server_id);
+        }));
+
+
+
+
+
         //Список последних новостей
         $twig->addFunction(new TwigFunction('last_news', function($last_thread = 10) {
             return page::show_news_short(300, $last_thread, false);
@@ -303,7 +362,7 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('get_default_page', function($str, $server_id) {
             $pId = server::get_default_desc_page_id($server_id);
-            if($pId){
+            if($pId) {
                 return "<a href='/page/{$pId}'>$str</a>";
             }
             return $str;
@@ -348,6 +407,7 @@ class tpl {
         $template = $twig->load($tplName);
         self::$allTplVars['template'] = "/template/{$categoryDesign}";
         self::$allTplVars['pointTime'] = microtime::pointTime();
+        self::$allTplVars['server_list'] = server::get_server_info();
         echo $template->render(self::$allTplVars);
         exit();
     }

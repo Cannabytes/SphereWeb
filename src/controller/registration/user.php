@@ -17,8 +17,6 @@ class user {
 
     static public function show() {
         validation::user_protection("guest");
-        tpl::addVar("title", lang::get_phrase(200));
-        tpl::addVar('server_list',  server::get_server_info());
         tpl::display("/user/auth/new_user_registration.html");
     }
 

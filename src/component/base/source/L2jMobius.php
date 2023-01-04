@@ -211,7 +211,7 @@ class L2jMobius implements structure {
                         ON 
                             characters.clanid = clan_data.clan_id
                     ORDER BY
-                        characters.onlinetime DESC';
+                        characters.onlinetime DESC LIMIT 100';
     }
 
     static public function statistic_top_castle(): string {

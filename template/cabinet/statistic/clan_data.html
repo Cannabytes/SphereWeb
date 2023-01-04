@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+{% set title = phrase(252, clan_info.clan_name) %}
+
 {% block content %}
-{% if castles is same as(false) %}
+{% if clan_info is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
 <h3 class="mb-0"></h3>

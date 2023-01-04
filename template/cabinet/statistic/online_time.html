@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% set title = phrase(249) %}
 
 {% block content %}
-{% if online_times is same as(false) %}
+{% if statistic_players_online_time() is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
 	  <h3 class="mb-0">{{phrase(96)}} {{ server_info.name }}</h3>
@@ -23,8 +24,7 @@
                     </tr>
                   </thead>
                   <tbody>
-					{% for i, player in online_times %}
-				
+					{% for i, player in statistic_players_online_time() %}
 						<tr>
 						  <th scope="row">{{ i+1 }}</th>
 						  <td>{% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{ player['clan_crest'] }}">{% endif %}

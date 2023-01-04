@@ -357,6 +357,6 @@ return [
     291 => "You entered an invalid E-Mail",
     292 => "Field %s must contain a number",
     293 => "Minimum value %s for field %s",
-
+    294 => "Class stats %s",
 
 ];

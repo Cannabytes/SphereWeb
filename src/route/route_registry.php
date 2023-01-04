@@ -10,7 +10,6 @@ auth_model::user_auth();
 
 $router = new Ofey\Logan22\route\Route();
 $router->get("/", 'Ofey\Logan22\controller\promo\promo::index');
-$router->get("page", 'Ofey\Logan22\controller\page\page::all_news');
 $router->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");
 $router->post("page/comment/add", '\Ofey\Logan22\controller\page\page::add_comment');
 $router->post("ajax/get/news", '\Ofey\Logan22\controller\page\page::get_news_ajax');
@@ -30,11 +29,11 @@ $router->post("generation/password", function() {
 });
 
 $router->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\controller\account\password\change::show');
+//TODO:Реквесты
+//TODO:Пересмотреть логику смены пароля игровому аккаунту
 $router->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
-$router->get("account/info/([a-zA-Z0-9]+)/player/{char_name}/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::player');
 $router->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
-$router->get("about/(\d+)", 'Ofey\Logan22\controller\about\about::show');
 
 /**
  * Авторизация

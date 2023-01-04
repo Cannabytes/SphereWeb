@@ -2,7 +2,7 @@
 
 $cache_timeout = array (
   'forum' => '60',
-  'server_online_status' => '120',
+  'server_online_status' => '600',
   'statistic_pvp' => '60',
   'statistic_pk' => '60',
   'statistic_online' => '60',

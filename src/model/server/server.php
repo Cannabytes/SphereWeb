@@ -37,10 +37,7 @@ class server {
                 }
             }
         }
-        self::$server_info = sql::run("SELECT
-                                    *
-                                FROM
-                                    server_list")->fetchAll();
+        self::$server_info = sql::run("SELECT * FROM server_list")->fetchAll();
         foreach(self::$server_info as $k => $server) {
             self::$server_info[$k]['desc_page_id'] = self::get_default_desc_page_id($server['id']);
         }

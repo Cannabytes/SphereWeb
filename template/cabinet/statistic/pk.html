@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% set title = phrase(248) %}
 
 {% block content %}
-{% if pk is same as(false) %}
+{% if statistic_get_pk() is same as(false) %}
     {% include '/statistic/none.html' %}
 {% else %}
     <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
@@ -26,7 +27,7 @@
                             </thead>
                             <tbody>
 
-                            {% for i, player in pk %}
+                            {% for i, player in statistic_get_pk() %}
                             <tr>
                                 <th scope="row">{{ i+1 }}</th>
                                 <td>{% if player['alliance_crest']!=null%}<img

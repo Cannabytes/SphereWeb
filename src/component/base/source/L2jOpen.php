@@ -255,7 +255,7 @@ class L2JOpen implements structure {
                     WHERE
                         character_subclasses.isBase = 1
                     ORDER BY
-	                    characters.onlinetime DESC';
+	                    characters.onlinetime DESC LIMIT 100';
     }
 
     static public function statistic_top_castle(): string {

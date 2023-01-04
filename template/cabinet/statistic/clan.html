@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% set title = phrase(250) %}
 
 {% block content %}
-{% if clans is same as(false) %}
+{% if statistic_get_clans() is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
 	  <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
@@ -25,7 +26,7 @@
                     </tr>
                   </thead>
                   <tbody>
-					{% for i, clan in clans %}
+					{% for i, clan in statistic_get_clans() %}
 						{% if clan['clan_name'] %}
 						<tr>
 						  <th scope="row">{{ i+1 }}</th>

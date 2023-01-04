@@ -46,13 +46,4 @@ class page {
         board::alert(array_merge($content, ['ok'=>true]) );
     }
 
-    public static function all_news() {
-        tpl::addVar([
-            'title'    => lang::get_phrase(244),
-            'all_news' => page_model::show_news(),
-            'server_list' => server::get_server_info(),
-        ]);
-        tpl::display("all_news.html");
-    }
-
 }

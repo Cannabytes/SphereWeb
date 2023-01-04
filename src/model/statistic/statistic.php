@@ -13,6 +13,7 @@ use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 
@@ -65,6 +66,8 @@ class statistic {
                 crest::conversion($data);
             }
             cache::save($dir->show_dynamic($server_info['id'], $clan_name), $data);
+        }else{
+            return null;
         }
         return $data;
     }
@@ -93,41 +96,86 @@ class statistic {
         return $data;
     }
 
+    static private ?array $pvp = null;
+
     static public function get_pvp($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp', $server_id, second: timeout::statistic_pvp->time());
+        if(self::$pvp) {
+            return self::$pvp;
+        }
+        return self::$pvp = self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp', $server_id, second: timeout::statistic_pvp->time());
     }
+
+    static private ?array $pk = null;
 
     static public function get_pk($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_pk, 'statistic_top_pk', $server_id, second: timeout::statistic_pk->time());
+        if(self::$pk) {
+            return self::$pk;
+        }
+        return self::$pk = self::get_data_statistic(dir::statistic_pk, 'statistic_top_pk', $server_id, second: timeout::statistic_pk->time());
     }
+
+    static private ?array $players_online_time = null;
 
     static public function get_players_online_time($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_online, 'statistic_top_onlinetime', $server_id, second: timeout::statistic_online->time());
+        if(self::$players_online_time) {
+            return self::$players_online_time;
+        }
+        return self::$players_online_time = self::get_data_statistic(dir::statistic_online, 'statistic_top_onlinetime', $server_id, second: timeout::statistic_online->time());
     }
+
+    static private ?array $clan = null;
 
     static public function get_clan($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_clan, 'statistic_top_clan', $server_id, second: timeout::statistic_clan->time());
+        if(self::$clan) {
+            return self::$clan;
+        }
+        return self::$clan = self::get_data_statistic(dir::statistic_clan, 'statistic_top_clan', $server_id, second: timeout::statistic_clan->time());
     }
+
+    static private ?array $heroes = null;
 
     public static function get_heroes($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
+        if(self::$heroes) {
+            return self::$heroes;
+        }
+        return self::$heroes = self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
     }
+
+    static private ?array $castle = null;
 
     public static function get_castle($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle', $server_id, second: timeout::statistic_castle->time());
+        if(self::$castle) {
+            return self::$castle;
+        }
+        return self::$castle = self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle', $server_id, second: timeout::statistic_castle->time());
     }
+
+    static private ?array $players_block = null;
 
     public static function get_players_block($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_block, 'statistic_top_block', $server_id, second: timeout::statistic_block->time());
+        if(self::$players_block) {
+            return self::$players_block;
+        }
+        return self::$players_block = self::get_data_statistic(dir::statistic_block, 'statistic_top_block', $server_id, second: timeout::statistic_block->time());
     }
 
+    static private ?array $players_heroes = null;
+
     public static function get_players_heroes($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
+        if(self::$players_heroes) {
+            return self::$players_heroes;
+        }
+        return self::$players_heroes = self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
     }
+
+    static private ?array $get_player_info = null;
 
     //Возращает всех персонажей
     public static function get_player_info($player_name, $server_id = 0) {
-        return self::get_data_statistic_player(dir::statistic_player_info, 'statistic_player_info', player_name: $player_name, server_id: $server_id, acrossAll: false, prepare: [$player_name], second: timeout::statistic_player_info->time());
+        if(self::$get_player_info) {
+            return self::$get_player_info;
+        }
+        return self::$get_player_info = self::get_data_statistic_player(dir::statistic_player_info, 'statistic_player_info', player_name: $player_name, server_id: $server_id, acrossAll: false, prepare: [$player_name], second: timeout::statistic_player_info->time());
     }
 
     //Возрат всех саб классов персонажа
@@ -158,8 +206,13 @@ class statistic {
         return $inventory;
     }
 
+    static private ?array $top_counter = null;
+
     public static function top_counter($server_id = 0) {
-        return self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
+        if(self::$top_counter) {
+            return self::$top_counter;
+        }
+        return self::$top_counter = self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
     }
 
     public static function timeHasPassed($second): string {
@@ -221,6 +274,9 @@ class statistic {
 
     static public function get_clan_all_info($clan_name, $server_id = 0) {
         $clan_info = self::get_data_statistic_clan(dir::statistic_clan_data, 'statistic_clan_data', clan_name: $clan_name, server_id: $server_id, acrossAll: false, prepare: [$clan_name], second: timeout::statistic_clan_data->time());
+        if(!$clan_info){
+            redirect::location("/statistic/clan");
+        }
         $clan_players = self::get_data_statistic_clan(dir::statistic_clan_players, 'statistic_clan_players', clan_name: $clan_name, server_id: $server_id, acrossAll: true, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_players->time());
         $clan_skills = self::get_data_statistic_clan(dir::statistic_clan_skills, 'statistic_clan_skills', clan_name: $clan_name, server_id: $server_id, crest_convert: false, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_skills->time());
 
@@ -249,7 +305,12 @@ class statistic {
         ];
     }
 
+    static private ?array $class = null;
+
     static public function statistic_class($class_id, $prepare = [], $server_id = 0) {
-        return self::get_data_statistic_player(dir: dir::statistic_class, collection_sql_name: 'statistic_top_class', player_name: $class_id, server_id: $server_id, acrossAll: true, crest_convert: true, prepare: $prepare, second: timeout::statistic_counter->time());
+        if(self::$class) {
+            return self::$class;
+        }
+        return self::$class = self::get_data_statistic_player(dir: dir::statistic_class, collection_sql_name: 'statistic_top_class', player_name: $class_id, server_id: $server_id, acrossAll: true, crest_convert: true, prepare: $prepare, second: timeout::statistic_counter->time());
     }
 }

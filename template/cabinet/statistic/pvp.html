@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% set title = phrase(247) %}
 
 {% block content %}
 
-{% if pvp is same as(false) %}
+{% if statistic_get_pvp() is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
 	  <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
@@ -26,7 +27,7 @@
                     </tr>
                   </thead>
                   <tbody>
-				  {% for i, player in pvp %}
+				  {% for i, player in statistic_get_pvp() %}
                     <tr>
                       <th scope="row">{{ i+1 }}</th>
                       <td>{% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}

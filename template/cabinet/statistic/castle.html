@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% set title = phrase(251) %}
 
 {% block content %}
-{% if castles is same as(false) %}
+{% if statistic_get_castle() is same as(false) %}
 {% include '/statistic/none.html' %}
 {% else %}
 <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
@@ -25,7 +26,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for castle in castles %}
+                        {% for castle in statistic_get_castle() %}
                         <tr>
                             <td><img class="img-fluid" src="{{template}}/assets/images/castle/{{castle.castle_id}}.jpg">
                             </td>

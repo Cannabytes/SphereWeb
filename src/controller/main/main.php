@@ -17,11 +17,8 @@ class main {
 
     static public function index() {
         tpl::addVar([
-            'title'           => lang::get_phrase(238),
-            'all_news'        => page_model::show_news_short(),
-            'server_list'     => server::get_server_info(),
-            'player_accounts' => player_account::show_all_account_player(),
-            'screenshots'     => screenshot::load(8),
+//            'player_accounts' => player_account::show_all_account_player(),
+//            'screenshots'     => screenshot::load(8),
         ]);
         tpl::display("main.html");
     }
