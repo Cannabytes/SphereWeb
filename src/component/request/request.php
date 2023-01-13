@@ -27,7 +27,7 @@ class request {
      * Добавляет настройки
      * Ключ -> конфиг (селф класс)
      */
-    public static function setting($key, request_config $config = new request_config()) {
+    public static function setting($key, request_config $config = new request_config()): mixed {
         self::$config = $config;
         foreach($_POST as $name => &$value) {
             if($name != $key)
@@ -39,6 +39,7 @@ class request {
             self::maxValue($name, $value);
             self::rules($name, $value);
             self::isEmail($name, $value);
+            self::isURL($name, $value);
             return $value;
         }
         board::notice(false, "Не найдено значение реквеста : " . $key);
@@ -52,6 +53,20 @@ class request {
     }
 
     /**
+     * @param $key
+     * @param array $array
+     *
+     */
+    public static function compare($key, array $array = []) {
+        if(in_array($_POST[$key], $array)) {
+            return $_POST[$key];
+        }
+        board::notice(false, "Вы не выбрали допустимое значение в поле $key");
+    }
+
+
+
+    /**
      * Принимает название настройки (импута) и возращает его настройки
      *
      * @return request_config
@@ -63,8 +78,22 @@ class request {
     private static function isEmail($name, $value): void {
         if(!self::request()->isEmail())
             return;
+        if(self::request()->isURL())
+            return;
         if(!filter_var($value, FILTER_VALIDATE_EMAIL)) {
             board::notice(false, lang::get_phrase(291));
+        }
+    }
+
+    private static function isURL($name, $value): void {
+        if(!self::request()->isURL())
+            return;
+        if(self::request()->isEmail())
+            return;
+        if(self::request()->isNumber())
+            return;
+        if(!filter_var($value, FILTER_VALIDATE_URL)) {
+            board::notice(false,"Адрес ссылки указан неверно");
         }
     }
 
@@ -72,6 +101,8 @@ class request {
         if(self::request()->isEmail())
             return;
         if(!self::request()->isNumber())
+            return;
+        if(self::request()->isURL())
             return;
         if(is_numeric($value)) {
              if(self::request()->getMaxValue() < $value) {
@@ -88,6 +119,8 @@ class request {
             return;
         if(!self::request()->isNumber())
             return;
+        if(self::request()->isURL())
+            return;
         if(is_numeric($value)) {
             if(self::request()->getMinValue() > $value) {
                 board::notice(false, lang::get_phrase(293, self::request()->getMinValue(), $name));
@@ -103,6 +136,8 @@ class request {
             return;
         if(self::request()->isNumber())
             return;
+        if(self::request()->isURL())
+            return;
         if(self::request()->getMax() < mb_strlen($value)) {
             board::notice(false, lang::get_phrase(286, $name, self::request()->getMax()));
         }
@@ -112,6 +147,8 @@ class request {
         if(self::request()->isEmail())
             return;
         if(self::request()->isNumber())
+            return;
+        if(self::request()->isURL())
             return;
         if(self::request()->getMin() > mb_strlen($value)) {
             board::notice(false, lang::get_phrase(290, $name, self::request()->getMin(), self::request()->getMax()));
@@ -130,6 +167,8 @@ class request {
         if(self::request()->isEmail())
             return;
         if(self::request()->isNumber())
+            return;
+        if(self::request()->isURL())
             return;
         if(self::request()->getRules() != "") {
             if(!preg_match(self::request()->getRules(), $value)) {

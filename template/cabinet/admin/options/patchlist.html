@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Добавить ссылку на подключение к серверу</div>
+                <hr>
+                <form>
+                    <div class="form-group row">
+                        <label for="link" class="col-sm-2 col-form-label">Ссылка</label>
+                        <div class="col-sm-10">
+                            <input value="https://" type="text" class="form-control" id="link" placeholder="https://">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="type" class="col-sm-2 col-form-label">Тип</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="type">
+                                <option value="patch">Патч</option>
+                                <option value="client">Клиент</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="lang" class="col-sm-2 col-form-label">Язык патча</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="lang">
+                                {% for lang in lang_list() %}
+                                    <option value="{{lang.lang}}">{{lang.name}}</option>
+                                {% endfor %}
+                             </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <button type="submit" id="add_patch_list" class="btn btn-danger px-5">
+                                {{phrase(271)}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Ссылка</th>
+                            <th scope="col">Язык патча</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for patch in patch_list_server %}
+                        <tr>
+                            <td>{{patch.link}}</td>
+                            <td>{{patch.lang}}</td>
+                            <td>{{patch.date}}</td>
+                            <td>Удалить</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block css %}
+    {% endblock %}
+
+    {% block js %}
+    <script src="{{'assets/js/admin/options/patchlist.js'|template}}"></script>
+    {% endblock %}

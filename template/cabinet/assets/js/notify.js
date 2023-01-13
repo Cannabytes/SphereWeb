@@ -29,6 +29,9 @@ function notify_warning(message) {
 }
 
 function notify_error(message) {
+    if(message==undefined){
+        return
+    }
     Lobibox.notify('error', {
         sound: false,
         pauseDelayOnHover: true,
@@ -44,6 +47,9 @@ function notify_error(message) {
 }
 
 function notify_success(message) {
+    if(message==undefined){
+        return
+    }
     Lobibox.notify('success', {
         sound: false,
         pauseDelayOnHover: true,

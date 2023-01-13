@@ -13,6 +13,7 @@ use Ofey\Logan22\component\chronicle\client;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\servername\servername;
 use Ofey\Logan22\component\time\timezone;
+use Ofey\Logan22\model\admin\patchlist;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\update_cache;
 use Ofey\Logan22\model\admin\validation;
@@ -61,7 +62,6 @@ class options {
 
     public static function server_list() {
         validation::user_protection("admin");
-        tpl::addVar('server_list', \Ofey\Logan22\model\server\server::get_server_info());
         tpl::display("/admin/options/server_list.html");
     }
 
@@ -117,6 +117,20 @@ class options {
         validation::user_protection("admin");
         update_cache::save();
     }
+
+    //Подключение к серверу
+    public static function patch_list($id): void {
+        validation::user_protection("admin");
+        tpl::addVar("patch_list_server", patchlist::patch_list_server($id) );
+        tpl::display("/admin/options/patchlist.html");
+    }
+
+    //Подключение к серверу
+    public static function patch_list_add(): void {
+        validation::user_protection("admin");
+        patchlist::add();
+    }
+
 }
 
 

@@ -57,14 +57,16 @@ class lang {
      * $remove_lang = название языка, которое удалим из списка
      * @return array
      */
-    static public function lang_list($remove_lang = null): array {
+    static public function lang_list($remove_lang = null, $onlyLang = false): array {
         $lngs = fileSys::get_dir_files("src/component/lang/package/", [
             'basename' => false,
             'suffix'   => '.php',
             'fetchAll' => true,
         ]);
+        if($onlyLang){
+            return $lngs;
+        }
         $langs = [];
-
         $lang_name = self::lang_user_default();
 
         foreach($lngs as $lng) {

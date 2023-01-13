@@ -14,6 +14,7 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\server\server;
 
 class auth {
 
@@ -36,22 +37,21 @@ class auth {
      * @return false|mixed|void|null
      * @throws Exception
      *
-     * Возвращаем сервер по умолчанию пользователя
-     * Если сервера вообще нет, тогда вернется FALSE, в этом случае продолжение скрипта невозможно,
-     * пользователю прерываем любую операцию.
+     * Сервер по умолчанию (если нет, то последний)
+     * иначе false
      */
     static public function get_default_server() {
-        $server = session::get('default_server');
-        if($server == null) {
-            $server = sql::run("SELECT id FROM server_list ORDER BY id DESC LIMIT 1")->fetch();
-            //Если не найден не один сервер
-            if(!$server) {
-                return false;
-            }
-            session::add('default_server', $server['id']);
-            return $server['id'];
+        $server_id = session::get('default_server');
+        $get_server_info = server::get_server_info();
+        if(!$get_server_info) {
+            return false;
         }
-        return $server;
+        if(!array_search($server_id, array_column($get_server_info, 'id'))) {
+            $get_server_info = end($get_server_info);
+            session::add('default_server', $get_server_info['id']);
+            return $get_server_info['id'];
+        }
+        return $server_id;
     }
 
     static public function get_is_auth(): bool {
@@ -315,5 +315,4 @@ class auth {
             $user_id,
         ]);
     }
-
 }

@@ -9,7 +9,7 @@ namespace Ofey\Logan22\component\request;
 
 class request_config {
 
-
+    public bool $isURL;
     /**
      * @var bool
      * True - проверяем на верность электронную почту
@@ -55,7 +55,7 @@ class request_config {
     private int $max;
 
 
-    public function __construct(int $min = 4, int $max = 16, int $minValue = -2 ** 31 + 1, int $maxValue = 2 ** 31 - 1, bool $isNumber = false, bool $required = true, bool $isEmail = false, string $rules = "",) {
+    public function __construct(int $min = 4, int $max = 16, int $minValue = -2 ** 31 + 1, int $maxValue = 2 ** 31 - 1, bool $isNumber = false, bool $required = true, bool $isEmail = false, bool $isURL = false, string $rules = "",) {
         $this->min = trim($min);
         $this->max = trim($max);
         $this->minValue = $minValue;
@@ -63,6 +63,7 @@ class request_config {
         $this->isNumber = $isNumber;
         $this->required = $required;
         $this->isEmail = $isEmail;
+        $this->isURL = $isURL;
         $this->rules = $rules;
     }
 
@@ -176,5 +177,19 @@ class request_config {
      */
     public function setIsEmail(bool $isEmail): void {
         $this->isEmail = $isEmail;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isURL(): bool {
+        return $this->isURL;
+    }
+
+    /**
+     * @param bool $isURL
+     */
+    public function setIsURL(bool $isURL): void {
+        $this->isURL = $isURL;
     }
 }

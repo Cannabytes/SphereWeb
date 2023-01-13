@@ -71,9 +71,7 @@ class screenshot {
             $handle->webp_quality = 95;
             $handle->process('./uploads/screenshots');
             if(!$handle->processed) {
-                board::alert([
-                    'error' => $handle->error . "(" . $handle->file_src_name . ")",
-                ]);
+                board::notice(false, $handle->error);
             }
 
             $handle->file_new_name_body = $filename;
@@ -86,9 +84,7 @@ class screenshot {
             if($handle->processed) {
                 $handle->clean();
             } else {
-                exit(json_encode([
-                    'error' => $handle->error . " (" . $handle->file_src_name . ")",
-                ]));
+                board::notice(false, $handle->error);
             }
             if(auth::get_access_level() == "admin" or auth::get_access_level() == "moderator") {
                 sql::run("INSERT INTO `gallery_screenshot` (`user_id`, `image`, `enable`) VALUES (?, ?, ?)", [
@@ -102,13 +98,8 @@ class screenshot {
                     $filename . ".webp",
                 ]);
             }
-            exit(json_encode([
-                'error' => null,
-            ]));
         } else {
-            exit(json_encode([
-                'error' => '$handle->uploaded',
-            ]));
+            board::notice(false, $handle->error);
         }
     }
 
