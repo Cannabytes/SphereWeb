@@ -16,7 +16,7 @@
 			  <div class="table-responsive">
                <table class="table table-striped">
                   <tbody>
-				  {% for server in server_list %}
+				  {% for server in get_server_info() %}
                     <tr>
                       <td><a href="/about/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a></td>
                       <td>{{ server.chronicle }}</td>

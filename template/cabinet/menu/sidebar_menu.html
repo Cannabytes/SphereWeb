@@ -19,7 +19,7 @@
       </li>
 
 
-	 {% set server_list = server_list %}
+	 {% set server_list = get_server_info() %}
 	  {% if (server_list != null) %}
 		{% for desc in server_list %}
 			{% if desc.description|length >= 1 %}

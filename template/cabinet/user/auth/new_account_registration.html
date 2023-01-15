@@ -17,7 +17,7 @@
                                 {% if server_id is empty %}
                                 {% set server_id = user_info('get_default_server') %}
                                 {% endif %}
-                                {% for server in server_list %}
+                                {% for server in get_server_info() %}
                                 <option {% if server.id== server_id %}selected="selected" {% endif %}
                                         value="{{server.id}}">{{server.name}} - {{server.chronicle}}
                                     x{{server.rate_exp}} от {{server.date_start_server}}

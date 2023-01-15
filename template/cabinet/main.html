@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% if (user_info('get_is_auth')) and (server_list is not empty) %}
+{% if (user_info('get_is_auth')) and (get_server_info() is not empty) %}
 <div class="row">
 
     <div class="col-12 col-lg-4 col-xl-4">
@@ -12,12 +12,12 @@
             <div class="card-header">{{ phrase(43) }}</div>
 
             <div class="row">
-                {% if server_list|length >= 1 %}
+                {% if get_server_info()|length >= 1 %}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <ul class="nav nav-pills nav-pills-dark nav-justified" role="tablist">
-                                {% for num, server in server_list %}
+                                {% for num, server in get_server_info() %}
                                 <li class="nav-item">
                                      <a class="nav-link {% if server.id==user_info('get_default_server') %}active{% endif %}"
                                        data-toggle="pill"
@@ -28,7 +28,7 @@
 
 
                             <div class="tab-content">
-                                {% for num,server in server_list %}
+                                {% for num,server in get_server_info() %}
                                 <div id="piil-{{ server.id }}"
                                      class="container tab-pane {% if server.id==user_info('get_default_server') %}active{% else %}fade{% endif %}">
                                     <div class="btn-group m-10">
@@ -139,7 +139,7 @@
                                         {% if server_id is empty %}
                                         {% set server_id = user_info('get_default_server') %}
                                         {% endif %}
-                                        {% for server in server_list %}
+                                        {% for server in get_server_info() %}
                                         <option {% if server.id== server_id %}selected="selected" {% endif %}
                                                 value="{{server.id}}">{{server.name}} - {{server.chronicle}}
                                             x{{server.rate_exp}} от {{server.date_start_server}}

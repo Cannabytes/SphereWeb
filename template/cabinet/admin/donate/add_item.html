@@ -10,7 +10,7 @@
 					  <label for="server_id" class="col-sm-2 col-form-label">Server</label>
 					  <div class="col-sm-10">
 						  <select class="form-control" name="server_id" id="server_id">
-							 {% for server in server_list %}
+							 {% for server in get_server_info() %}
 							<option value="{{ server.id }}" {% if user_info('get_default_server') == server.id %}selected{% endif %} >{{ server.name }}</option>
 							 {% endfor %}
 						  </select>

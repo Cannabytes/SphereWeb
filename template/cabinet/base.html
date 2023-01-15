@@ -107,11 +107,11 @@
             </ul>
 
             <ul class="navbar-nav align-items-center right-nav-link">
-                {% if (server_list != null) %}
+                {% if (get_server_info() != null) %}
                 <label for="default_server" class=" col-form-label">{{phrase("server")}}</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="default_server">
-                        {% for server in server_list %}
+                        {% for server in get_server_info() %}
                         <option value="{{ server.id }}" {% if user_info('get_default_server') == server.id %}selected{% endif %} >{{ server.name }}</option>
                         {% endfor %}
                     </select>

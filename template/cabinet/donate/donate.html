@@ -110,7 +110,7 @@
                     <label for="server_donate" class="col-sm-3 col-form-label">{{phrase("server")}}</label>
                     <div class="col-sm-9">
                         <select disabled class="form-control" id="server_donate">
-                            {% for server in server_list %}
+                            {% for server in get_server_info() %}
                             <option value="{{ server.id }}">{{ server.name|e }} x{{ server.rate_exp|e }}</option>
                             {% endfor %}
                         </select>

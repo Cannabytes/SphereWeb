@@ -407,7 +407,6 @@ class tpl {
         $template = $twig->load($tplName);
         self::$allTplVars['template'] = "/template/{$categoryDesign}";
         self::$allTplVars['pointTime'] = microtime::pointTime();
-        self::$allTplVars['server_list'] = server::get_server_info();
         echo $template->render(self::$allTplVars);
         exit();
     }
