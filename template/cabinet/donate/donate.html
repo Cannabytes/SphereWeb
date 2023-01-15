@@ -59,7 +59,7 @@
                          title="{{ product['description']|nl2br }}">
                         {{ grade_img(product['crystal_type']) }} {{product['name_en']}}
                     </div>
-                    <img src="uploads/images/icon/{{product['icon']}}" class="customer-img ">
+                    <img src="{{ icon( product.icon ) }}" class="customer-img ">
 
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b>{{phrase(71)}}:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span>
