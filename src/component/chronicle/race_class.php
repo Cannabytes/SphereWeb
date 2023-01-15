@@ -163,6 +163,13 @@ class race_class {
         187 => 'Stratomancer',
         188 => 'Eviscerator',
         189 => 'Sayha\'s Seer',
+
+        212 => 'Death Soldier',
+        213 => 'Death Warrior',
+        214 => 'Death Berserker',
+        215 => 'Death Knight',
+        216 => 'Sigel Death Knight',
+
     ];
 
     static public function get_class($class_id) {
@@ -170,7 +177,7 @@ class race_class {
             return self::$class[$class_id];
         }
         return null;
-//        "Неизвестный класс: {$class_id}";
+        //        "Неизвестный класс: {$class_id}";
     }
 
     /**
@@ -232,6 +239,12 @@ class race_class {
         179 => 'Aeore Cardinal',
         167 => 'Feoh Soultaker',
         171 => 'Iss Hierophant',
+
+        212 => 'Death Soldier',
+        213 => 'Death Warrior',
+        214 => 'Death Berserker',
+        215 => 'Death Knight',
+        216 => 'Sigel Death Knight',
     ];
     static private array $elven_id      = [
         18  => 'Elven Fighter',
@@ -359,40 +372,26 @@ class race_class {
 
     //Раса по классу
     static public function get_class_race($class_id): string {
-        foreach(self::$human_id as $k => $v) {
-            if($k == $class_id) {
-                return 'human';
-            }
+        if(array_key_exists($class_id, self::$human_id)) {
+            return 'human';
         }
-        foreach(self::$elven_id as $k => $v) {
-            if($k == $class_id) {
-                return 'elf';
-            }
+        if(array_key_exists($class_id, self::$elven_id)) {
+            return 'elf';
         }
-        foreach(self::$dark_elven_id as $k => $v) {
-            if($k == $class_id) {
-                return 'darkelf';
-            }
+        if(array_key_exists($class_id, self::$dark_elven_id)) {
+            return 'darkelf';
         }
-        foreach(self::$orc_id as $k => $v) {
-            if($k == $class_id) {
-                return 'orc';
-            }
+        if(array_key_exists($class_id, self::$orc_id)) {
+            return 'orc';
         }
-        foreach(self::$dwarf_id as $k => $v) {
-            if($k == $class_id) {
-                return 'dwarf';
-            }
+        if(array_key_exists($class_id, self::$dwarf_id)) {
+            return 'dwarf';
         }
-        foreach(self::$kamael_id as $k => $v) {
-            if($k == $class_id) {
-                return 'kamael';
-            }
+        if(array_key_exists($class_id, self::$kamael_id)) {
+            return 'kamael';
         }
-        foreach(self::$ertheia_id as $k => $v) {
-            if($k == $class_id) {
-                return 'ertheia';
-            }
+        if(array_key_exists($class_id, self::$ertheia_id)) {
+            return 'ertheia';
         }
         return 'none';
     }

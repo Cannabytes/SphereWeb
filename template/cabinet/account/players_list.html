@@ -22,7 +22,7 @@
                                     <td style="width: 30%">Class: {{ get_class( player.class_id ) }}</td>
                                     <td style="width: 15%">PvP: {{ player.pvp }}</td>
                                     <td style="width: 15%">PK: {{ player.pk }}</td>
-                                    <td style="width: 15%">Clan: {% if player.clan_name != "" %}<a href="/statistic/clan/{{ player.clan_name|url_encode }}">{{ player.clan_name|url_encode }}</a>{% else %}-{%endif%}</td>
+                                    <td style="width: 15%">Clan: {% if player.clan_name != "" %}<a href="/statistic/clan/{{ player.clan_name|url_encode }}">{{ player.clan_name }}</a>{% else %}-{%endif%}</td>
                                 </tr>
                                 </tbody>
                             </table>
