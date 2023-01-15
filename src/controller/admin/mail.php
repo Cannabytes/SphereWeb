@@ -35,7 +35,7 @@ class mail {
         $host = $_POST['host'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $port = $_POST['port'];
+        $port = $_POST['port'] ?: '';
         $encrypt = $_POST['encrypt'];
         $email_smtp_auth = $_POST['email_smtp_auth'] ? 'true' : 'false';;
         $saveTXT = "<?php
