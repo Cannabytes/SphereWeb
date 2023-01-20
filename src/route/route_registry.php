@@ -144,9 +144,6 @@ $router->get("/admin/options/server/description/(\d+)", 'Ofey\Logan22\controller
 $router->post("/admin/options/server/description", 'Ofey\Logan22\controller\admin\options::description_save');
 $router->post("/admin/options/server/description/default", 'Ofey\Logan22\controller\admin\options::description_default_page_save');
 
-$router->get("/admin/options/server/patch/(\d+)", 'Ofey\Logan22\controller\admin\options::patch_list');
-$router->post("/admin/options/server/patch/add", 'Ofey\Logan22\controller\admin\options::patch_list_add');
-
 $router->get("/admin/gallery/screen", 'Ofey\Logan22\controller\admin\screen::all');
 $router->post("/admin/gallery/screen/enable", 'Ofey\Logan22\controller\admin\screen::add_enable');
 $router->post("/admin/gallery/screen/remove", 'Ofey\Logan22\controller\admin\screen::remove');

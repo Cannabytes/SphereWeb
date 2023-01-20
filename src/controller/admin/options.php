@@ -118,18 +118,7 @@ class options {
         update_cache::save();
     }
 
-    //Подключение к серверу
-    public static function patch_list($id): void {
-        validation::user_protection("admin");
-        tpl::addVar("patch_list_server", patchlist::patch_list_server($id) );
-        tpl::display("/admin/options/patchlist.html");
-    }
 
-    //Подключение к серверу
-    public static function patch_list_add(): void {
-        validation::user_protection("admin");
-        patchlist::add();
-    }
 
 }
 
