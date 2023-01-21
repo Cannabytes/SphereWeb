@@ -499,6 +499,7 @@ class L2jOpen implements structure {
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
                 WHERE
-                    characters.account_name = ?';
+                    characters.account_name = ? AND
+	                character_subclasses.isBase = 1';
     }
 }
