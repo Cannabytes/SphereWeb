@@ -20,7 +20,7 @@ namespace Ofey\Logan22\component\base\source;
 
 use Ofey\Logan22\component\base\structure;
 
-class L2JOpen implements structure {
+class L2jOpen implements structure {
 
     static public function hash(): string {
         return 'sha1';
@@ -34,7 +34,6 @@ class L2JOpen implements structure {
             273,
         ];
     }
-
 
     static public function need_logout_player_for_item_add(): bool {
         return false;
@@ -502,5 +501,4 @@ class L2JOpen implements structure {
                 WHERE
                     characters.account_name = ?';
     }
-
 }
