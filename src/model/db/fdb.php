@@ -37,7 +37,7 @@ class fdb {
                     PDO::ATTR_EMULATE_PREPARES   => false,
                     // turn off emulation mode for "real" prepared statements
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . FORUM_CHARSET,
+                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
                 ]);
                 return self::$db;
             } catch(PDOException $e) {

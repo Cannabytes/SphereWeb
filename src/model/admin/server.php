@@ -43,18 +43,18 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = $_POST['db_game_name'];
 
-        if(!isset($_POST['sql_base_source'])){
+        if(!isset($_POST['sql_base_source'])) {
             board::notice(false, "Need select sql database server collection");
         }
         $sql_base_source = $_POST['sql_base_source'];
 
-        $check_server_online = isset($_POST['check_server_online']);
+        $check_server_online = (bool)$_POST['check_server_online'];
         $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
         $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
         $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
         $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
 
-        $ws_chat_enable = isset($_POST['chat_game_enabled']);
+        $ws_chat_enable = (bool)$_POST['chat_game_enabled'];
         $ws_ip_host = $_POST['chat_websocket_host'];
         $ws_admin_password = $_POST['chat_admin_password'];
 
@@ -233,7 +233,6 @@ class server {
             $page_id,
         ]);
     }
-
 
     public static function server_info($id) {
         return sql::run("SELECT * FROM `server_list` WHERE id=?;", [$id])->fetch();
