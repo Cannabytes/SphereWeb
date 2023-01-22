@@ -18,7 +18,7 @@ class page {
     public static function add_comment(){
         //TODO: Проверочка не заблокирована ли возможность юзеру писать сообщения
         $page_id = $_POST['id'];
-        $comment = $_POST['comment'];
+        $comment =  htmlentities($_POST['comment']);
         $page = page_model::get_news($page_id);
         if(!$page) board::notice(false, lang::get_phrase(174));
         if(!$page['comment']) board::notice(false, lang::get_phrase(240));
