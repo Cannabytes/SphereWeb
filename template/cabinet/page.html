@@ -20,7 +20,7 @@
             <div class="card-body">
                 <blockquote class="blockquote">
                     {% if page %}
-                    <p>{{ page.description|raw|nl2br }}</p>
+                    <p>{{ page.description|raw }}</p>
                     <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ page.date_create }}</em>
                     </footer>
                     {% if page.date_create != page.date_update %}
