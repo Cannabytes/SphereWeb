@@ -20,7 +20,7 @@
 				 {% if file_exists(fileScreen) %}
 				<tr>
                     <td>
-						<a href="/uploads/screenshots/{{screen.image}}" data-fancybox="images" data-caption="This image has a caption">
+						<a href="/uploads/screenshots/{{screen.image}}" data-fancybox="images" data-caption="{{screen.description}}">
 						<img src="/uploads/screenshots/thumb_{{screen.image}}" alt="lightbox" class="lightbox-thumb img-thumbnail"></a>
                     </td>
 					<td><textarea id="desc_{{screen.id}}" class="form-control" rows="3">{{screen.desciption}}</textarea></td>

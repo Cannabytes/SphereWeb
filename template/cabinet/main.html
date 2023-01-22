@@ -262,7 +262,7 @@
                     {% for i, screen in screenshots|slice(0,showScreenCount) %}
                     <div class="col-md-6 col-lg-3 col-xl-3">
                         <a href="uploads/screenshots/{{screen.image}}" data-fancybox="images"
-                           data-caption="This image has a caption">
+                           data-caption="{{screen.image}}">
                             <img src="uploads/screenshots/{{screen.image}}" alt="lightbox"
                                  class="lightbox-thumb img-thumbnail">
                         </a>

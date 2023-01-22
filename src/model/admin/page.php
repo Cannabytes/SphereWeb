@@ -9,10 +9,10 @@ namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 
 class page {
-
 
     static private function check_data($title, $content) {
         //Предельные символы
@@ -26,23 +26,22 @@ class page {
             board::notice(false, lang::get_phrase(140, $mix_title_len));
         }
         if(!validation::max_len($title, $max_title_len)) {
-            board::notice(false, lang::get_phrase(141,$max_title_len));
+            board::notice(false, lang::get_phrase(141, $max_title_len));
         }
         if(!validation::min_len($content, $min_content_len)) {
-            board::notice(false, lang::get_phrase(142,$min_content_len));
+            board::notice(false, lang::get_phrase(142, $min_content_len));
         }
         if(!validation::max_len($content, $max_content_len)) {
-            board::notice(false, lang::get_phrase(143,$max_content_len));
+            board::notice(false, lang::get_phrase(143, $max_content_len));
         }
     }
 
     static public function create() {
         //Получение данных запроса
         $title = $_POST['title'];
-        $enable_comment = isset($_POST['comment']) == 'on';
-        $is_news = isset($_POST['is_news']) == 'on';
+        $is_news = (int)filter_var(isset($_POST['is_news']), FILTER_VALIDATE_BOOLEAN);
+        $enable_comment = (int)filter_var(isset($_POST['comment']), FILTER_VALIDATE_BOOLEAN);
         $content = $_POST['content'];
-        $date_creat = date('Y-m-d H:i:s');
         $lang = $_POST['lang'];
 
         //Проверка данных
@@ -54,7 +53,7 @@ class page {
             $title,
             $content,
             $enable_comment,
-            $date_creat,
+            time::mysql(),
             $lang,
         ]);
         //Проверка результата вставки
@@ -70,20 +69,20 @@ class page {
 
     //Обновление данных
     public static function update() {
-        $is_news = isset($_POST['is_news']) == 'on';
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
-        $enable_comment = isset($_POST['comment']) == 'on';
+        $is_news = (int)filter_var(isset($_POST['is_news']), FILTER_VALIDATE_BOOLEAN);
+        $enable_comment = (int)filter_var(isset($_POST['comment']), FILTER_VALIDATE_BOOLEAN);
         $id = $_POST['id'];
         $lang = $_POST['lang'];
         //Проверка данных
         self::check_data($title, $content);
         //Запись в базу
         $request = sql::run('UPDATE `pages` SET `is_news` = ?, `name` = ?, `description` = ?, `comment` = ?, `lang` = ?  WHERE `id` = ?', [
-            (int)$is_news,
+            $is_news,
             $title,
             $content,
-            (int)$enable_comment,
+            $enable_comment,
             $lang,
             $id,
         ]);
@@ -127,20 +126,18 @@ class page {
         die();
     }
 
-
-    public static function get_page($id){
+    public static function get_page($id) {
         return sql::run("SELECT * FROM `pages` WHERE id=?", [$id])->fetch();
     }
 
-    public static function show_page(){
+    public static function show_page() {
         return sql::run("SELECT * FROM `pages` ORDER by id DESC")->fetchAll();
     }
 
-    public static function show_pages_short($max_desc_len = 300, $trash = false){
-        if ($trash==true){
+    public static function show_pages_short($max_desc_len = 300, $trash = false) {
+        if($trash == true) {
             return sql::run("SELECT `id`, `name`, LEFT(content, $max_desc_len) AS `content`, `trash`, `date_create` FROM `pages` WHERE trash = 1;")->fetchAll();
         }
         return sql::run("SELECT `id`, `name`, LEFT(content, $max_desc_len) AS `content`, `trash`, `date_create` FROM `pages`;")->fetchAll();
     }
-
 }

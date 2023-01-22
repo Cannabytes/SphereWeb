@@ -24,7 +24,7 @@
                     <tr>
                       <th scope="row">{{ i+1 }}</th>
                       <td>{{product.item_id}}</td>
-                      <td><img src="/uploads/images/icon/{{product.icon}}" class="customer-img "> {{product.name_en}}</td>
+                      <td><img src="{{ icon( product.icon ) }}" class="customer-img "> {{product.name_en}}</td>
                       <td>{{ product.count|number_format }}</td>
                       <td>{{product.cost}}</td>
                       <td><a href="/admin/donate/remove/{{product.id}}" class="btn btn-danger btn-sm waves-effect waves-light m-1">Удалить</a></td>

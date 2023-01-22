@@ -70,7 +70,6 @@ class screenshot {
         $screens = screenshot_model::load_my_screen();
         tpl::addVar("screens", $screens);
         tpl::addVar("title", "Галерея моих скриншотов");
-        tpl::addVar('server_list', server::get_server_info());
 
         tpl::display("/gallery/my.html");
     }
