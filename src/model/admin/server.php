@@ -8,9 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
-use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\model\db\db_server;
 use Ofey\Logan22\model\db\sql;
 
 class server {

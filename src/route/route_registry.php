@@ -159,6 +159,7 @@ $router->post("/admin/options/email", 'Ofey\Logan22\controller\admin\mail::setti
 $router->get("/admin/donate", 'Ofey\Logan22\controller\admin\donate::show');
 $router->get("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add');
 $router->post("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add_item');
+//TODO: Переписать под AJAX запрос
 $router->get("/admin/donate/remove/(\d+)", 'Ofey\Logan22\controller\admin\donate::remove_item');
 $router->get("/admin/manual", '\Ofey\Logan22\controller\admin\manual::index');
 $router->get("/admin/manual/{name}", '\Ofey\Logan22\controller\admin\manual::get');

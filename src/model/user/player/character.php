@@ -31,7 +31,11 @@ class character {
         }
         $info = server::server_info($server_id);
         $base = base::get_sql_source($info['collection_sql_base_name'], "account_players");
-        $players = player_account::extracted($base, $info, [$login])->fetchAll();
+        $players = player_account::extracted($base, $info, [$login]);
+        if(isset($players['error'])){
+            return false;
+        }
+        $players = $players->fetchAll();
         crest::conversion($players);
         return $players;
     }

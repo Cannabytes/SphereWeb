@@ -28,6 +28,4 @@ class info {
         tpl::display("/account/players_list.html");
     }
 
-
-
 }

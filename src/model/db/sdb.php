@@ -4,6 +4,7 @@ namespace Ofey\Logan22\model\db;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\template\tpl;
 use PDO;
 use PDOException;
@@ -23,7 +24,6 @@ class sdb {
      * @var null
      */
     protected static      $instance  = null;
-    static public bool    $error     = false;
     static private int    $server_id = 0;
     static private string $type;
 
@@ -64,11 +64,12 @@ class sdb {
                 self::$db[self::get_server_id()][self::get_type()] = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$name, self::$user, self::$pass, $options = [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
+                    //Not change charset - need for l2j only utf8
+                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
                 ]);
                 return self::$db[self::get_server_id()][self::get_type()];
             } catch(PDOException $e) {
-                //                echo "Ошибка соединения с БД - " . $e->getMessage();
+//                echo "Ошибка соединения с БД - " . $e->getMessage();
                 return false;
             }
         }
@@ -87,6 +88,19 @@ class sdb {
         return self::$db[self::get_server_id()][self::get_type()]->lastInsertId();
     }
 
+    private static bool $error = false;
+    private static string $errorMessage;
+
+    //Произошла ли ошибка
+    public static function is_error() {
+        return self::$error;
+    }
+
+    //Сообщение ошибки
+    public static function errorMessage() {
+        return self::$errorMessage;
+    }
+
     /**
      * $showErrorPage - Если false в случае ошибки вернет JSON ответ ошибки с текстом,
      *                  Если true в случае ошибки будет загружена страница ошибки.
@@ -94,10 +108,13 @@ class sdb {
      * @throws Exception
      */
     public static function run($query, $args = [], $showErrorPage = true) {
+        self::$error = false;
+        self::$errorMessage = "";
         if(!self::connect()) {
+            self::$error = true;
+            self::$errorMessage = "Not connect to db";
             return [
-                'ok'      => false,
-                'message' => 'Not connect to db',
+                'error' => 'Not connect to db',
             ];
         }
         try {
@@ -109,11 +126,11 @@ class sdb {
             $results = $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
-            if($showErrorPage){
+            if($showErrorPage) {
                 tpl::addVar("title", "Ошибка");
-                \Ofey\Logan22\controller\page\error::show($e);
+                error::show($e);
             }
-            board::notice(false, "Error: ". $e->getMessage());
+            board::notice(false, "Error: " . $e->getMessage());
             //            echo "Ошибка @:". $e->getMessage();
             //            echo "<br>";
             //            echo "Файл: ".  $e->getFile();

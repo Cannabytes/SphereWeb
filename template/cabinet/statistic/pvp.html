@@ -3,7 +3,7 @@
 
 {% block content %}
 
-{% if statistic_get_pvp() is same as(false) %}
+{% if statistic_get_pvp() is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}
 	  <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>
@@ -45,10 +45,9 @@
                         <td>{{ timeHasPassed(player['time_in_game']) }}</td>
                     </tr>
 				  {% endfor %}
-                     
                   </tbody>
                 </table>
-            </div>
+              </div>
             </div>
           </div>
         </div>

@@ -6,6 +6,10 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">Персонажи аккаунта {{ account }}</div>
+            {% if players is same as(false) %}
+            <div class="card-header text-uppercase">Нет персонажей</div>
+            {% else %}
+
             <ul class="list-group list-group-flush shadow-none">
                 {% for player in players %}
                 <li class="list-group-item">
@@ -31,6 +35,8 @@
                 </li>
                 {% endfor %}
             </ul>
+            {% endif %}
+
         </div>
     </div>
 </div>

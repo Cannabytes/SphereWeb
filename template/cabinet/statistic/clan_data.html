@@ -3,7 +3,7 @@
 {% set title = phrase(252, clan_info.clan_name) %}
 
 {% block content %}
-{% if clan_info is same as(false) %}
+{% if clan_info is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}
 <h3 class="mb-0"></h3>

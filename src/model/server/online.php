@@ -15,6 +15,7 @@ use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
+use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\user\player\player_account;
 
 class online {
@@ -31,15 +32,17 @@ class online {
             $connect_game = false;
             $player_count_online = 0;
 
-            if(@fsockopen($info['login_host'], 2106, $errno, $errstr, 1)) {
+            if(@fsockopen($info['check_loginserver_online_host'], $info['check_loginserver_online_port'], $errno, $errstr, 1)) {
                 $connect_login = true;
             }
 
-            if(@fsockopen($info['game_host'], 7777, $errno, $errstr, 1)) {
+            if(@fsockopen($info['check_gameserver_online_host'], $info['check_gameserver_online_port'], $errno, $errstr, 1)) {
                 $connect_game = true;
                 $base = base::get_sql_source($info['collection_sql_base_name'], "count_online_player");
-                $player_count_online = player_account::extracted($base, $info)->fetch();
-                $player_count_online = $player_count_online["count_online_player"];
+                $player_count_online = player_account::extracted($base, $info);
+                if(!sdb::is_error()) {
+                    $player_count_online = $player_count_online->fetch()["count_online_player"];
+                }
             }
 
             self::$server_status[] = [

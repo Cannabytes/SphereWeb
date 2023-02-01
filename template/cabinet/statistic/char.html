@@ -2,7 +2,9 @@
 {% set title = phrase(205, player.player_name) %}
 
 {% block content %}
-
+{% if player is same as(false) %}
+{% include '/statistic/none.html' %}
+{% else %}
 <h3 class="mb-0"></h3>
 
 <div class="row">
@@ -119,6 +121,7 @@
     </div>
 
 </div>
+{% endif %}
 
 
 {% endblock %}

@@ -163,12 +163,14 @@ class server {
      */
     public static function acrossAll($collection_name, $server_info, $prepare = []) {
         $ok = self::acrossBase($collection_name, $server_info, $prepare);
+        if(!$ok){
+            return false;
+        }
         try {
-            $s = $ok->fetchAll();
-            return $s;
-        } catch(Exception $e) {
-            echo "Error.";
-            exit;
+            return $ok->fetchAll();
+        } catch(\Error $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
         }
     }
 

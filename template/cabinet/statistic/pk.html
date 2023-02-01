@@ -2,7 +2,7 @@
 {% set title = phrase(248) %}
 
 {% block content %}
-{% if statistic_get_pk() is same as(false) %}
+{% if statistic_get_pk() is same as(null) %}
     {% include '/statistic/none.html' %}
 {% else %}
     <h3 class="mb-0">{{phrase(98)}} {{ server_info.name }}</h3>

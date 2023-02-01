@@ -2,7 +2,7 @@
 {% set title = phrase(249) %}
 
 {% block content %}
-{% if statistic_players_online_time() is same as(false) %}
+{% if statistic_players_online_time() is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}
 	  <h3 class="mb-0">{{phrase(96)}} {{ server_info.name }}</h3>

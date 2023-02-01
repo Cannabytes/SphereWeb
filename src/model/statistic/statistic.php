@@ -42,6 +42,8 @@ class statistic {
                 crest::conversion($data);
             }
             cache::save($dir->show_dynamic($server_info['id']), $data);
+        }else{
+            return null;
         }
         return $data;
     }
@@ -86,6 +88,9 @@ class statistic {
             $data = server::acrossAll($collection_sql_name, $server_info, $prepare);
         } else {
             $data = server::across($collection_sql_name, $server_info, $prepare);
+        }
+        if($data===false){
+            return null;
         }
         if($data) {
             if($crest_convert) {
