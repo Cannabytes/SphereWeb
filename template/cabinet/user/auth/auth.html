@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="password" class="sr-only">{{ phrase("password") }}</label>
                         <div class="position-relative has-icon-right">
@@ -32,6 +33,16 @@
                             <div class="form-control-position">
                                 <i class="icon-envelope-open"></i>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="sr-only">{{ phrase("password") }}</label>
+                        <div class="position-relative has-icon-right">
+                            <img id='getcaptchaauth' src="" class="form-control form-control-xl captcha" />
+                            <input type="text" id="captcha" class="form-control form-control-xl" placeholder="Captcha">
+
+                            <div class="form-control-position"></div>
                         </div>
                     </div>
 
@@ -52,6 +63,3 @@
 
 {% endblock %}
 
-{% block js %}
-<script src="{{'assets/js/auth/auth.js'|template}}"></script>
-{% endblock %}

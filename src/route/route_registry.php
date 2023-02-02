@@ -3,26 +3,14 @@
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\user\auth\auth as auth_model;
-use SimpleCaptcha\Builder;
-use SimpleCaptcha\Helpers\Mime;
+
 session::init();
 lang::load_package();
 auth_model::user_auth();
 
 $router = new Ofey\Logan22\route\Route();
-$router->post("/captcha", function(){
-    $builder = new Builder();
-    $builder->bgColor = "#18191a";
-    $builder->applyEffects = false;
-    $builder->textColor  = "#FFF";
-    $builder->build(250, 60);
-//    header('Content-type: ' . Mime::fromExtension('jpg'));
-//    $builder->output(95, "png");
-    $_SESSION['phrase'] = $builder->phrase;
-    echo $builder->inline();
-//    var_dump($_SESSION);exit;
-});
 $router->get("/", 'Ofey\Logan22\controller\promo\promo::index');
+
 $router->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");
 $router->post("page/comment/add", '\Ofey\Logan22\controller\page\page::add_comment');
 $router->post("ajax/get/news", '\Ofey\Logan22\controller\page\page::get_news_ajax');
@@ -178,6 +166,9 @@ $router->get("/admin/manual/{name}", '\Ofey\Logan22\controller\admin\manual::get
 $router->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
 $router->post("/admin/forum", 'Ofey\Logan22\controller\admin\forum::save');
 $router->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
+
+
+$router->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 
 
 $router->set404(function() {
