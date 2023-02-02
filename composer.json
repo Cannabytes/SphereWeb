@@ -20,6 +20,7 @@
       "ext-pdo": "*",
         "verot/class.upload.php": "^2.1",
         "phpmailer/phpmailer": "^6.6",
-        "intervention/image": "^2.7"
+        "intervention/image": "^2.7",
+        "s1syphos/php-simple-captcha": "^2.2"
     }
 }

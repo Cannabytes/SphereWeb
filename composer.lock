@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a81a213bfe98fbee4043963a9d26e03a",
+    "content-hash": "35d803fa58c63c180876dbb1bafa007e",
     "packages": [
         {
             "name": "bramus/router",
@@ -491,6 +491,81 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "s1syphos/php-simple-captcha",
+            "version": "2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/S1SYPHOS/php-simple-captcha.git",
+                "reference": "281272a0ed604e97df9842091fdd99d11060417d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/S1SYPHOS/php-simple-captcha/zipball/281272a0ed604e97df9842091fdd99d11060417d",
+                "reference": "281272a0ed604e97df9842091fdd99d11060417d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^8.5|^9.0"
+            },
+            "suggest": {
+                "thiagoalessio/tesseract_ocr": "Provides better results when building against OCR. Requires 'tesseract-ocr' to be installed."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SimpleCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com",
+                    "role": "Founder"
+                },
+                {
+                    "name": "Jeremy Livingston",
+                    "email": "jeremy.j.livingston@gmail.com",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Martin Folkers",
+                    "email": "hello@twobrain.io",
+                    "homepage": "https://twobrain.io",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Simple captcha generator",
+            "homepage": "https://codeberg.org/S1SYPHOS/php-simple-captcha",
+            "keywords": [
+                "anti-bot",
+                "anti-spam",
+                "bot-protection",
+                "captcha",
+                "no-bot",
+                "obfuscation",
+                "security",
+                "spam",
+                "spam-protection"
+            ],
+            "support": {
+                "issues": "https://github.com/S1SYPHOS/php-simple-captcha/issues",
+                "source": "https://github.com/S1SYPHOS/php-simple-captcha/tree/2.2.2"
+            },
+            "time": "2022-10-05T07:05:12+00:00"
+        },
+        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.26.0",
             "source": {
@@ -789,5 +864,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

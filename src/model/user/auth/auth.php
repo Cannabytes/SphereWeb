@@ -15,6 +15,7 @@ use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
+use SimpleCaptcha\Builder;
 
 class auth {
 
@@ -267,6 +268,10 @@ class auth {
         if(auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
+        $builder = new Builder;
+        if (!$builder->compare(trim($_POST['captcha']), $_SESSION['phrase'])) {
+            board::alert(['ok' => false, "message" => "Капча не подошла: " . $_POST['captcha'] . ' - ' . $_SESSION['phrase'], "code" => 1]);
+        }
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
         }
@@ -281,6 +286,8 @@ class auth {
             session::add('email', $email);
             session::add('password', $password);
             board::notice(true, lang::get_phrase(165));
+        }else{
+            board::alert(['ok' => false, "message" => lang::get_phrase(185) , "code" => 2]);
         }
         board::notice(false, lang::get_phrase(166));
     }
