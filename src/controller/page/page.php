@@ -6,6 +6,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\page\page AS page_model;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
 class page {
@@ -16,7 +17,9 @@ class page {
      * Комментарий добавляется только в разрешенные страницы
      */
     public static function add_comment(){
-        //TODO: Проверочка не заблокирована ли возможность юзеру писать сообщения
+        if(!auth::get_is_auth()){
+            board::notice(false, "Only auth user");
+        }
         $page_id = $_POST['id'];
         $comment =  htmlentities($_POST['comment']);
         $page = page_model::get_news($page_id);
