@@ -27,7 +27,9 @@
                       <td><img src="{{ icon( product.icon ) }}" class="customer-img "> {{product.name_en}}</td>
                       <td>{{ product.count|number_format }}</td>
                       <td>{{product.cost}}</td>
-                      <td><a href="/admin/donate/remove/{{product.id}}" class="btn btn-danger btn-sm waves-effect waves-light m-1">Удалить</a></td>
+                      <td>
+                          <button data-product-id="{{product.id}}" class="btn btn-danger btn-sm waves-effect waves-light m-1 removeDonate">Удалить</button>
+                      </td>
                     </tr>
                   {% endfor %}
                     
@@ -41,4 +43,8 @@
        
       </div><!--End Row-->
 
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/donate/remove.js'|template}}"></script>
 {% endblock %}

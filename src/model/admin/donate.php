@@ -40,6 +40,6 @@ class donate {
      * @param $id
      */
     public static function remove_item($id) {
-        sql::run("DELETE FROM `donate` WHERE `id` = ?", [$id]);
+        return sql::run("DELETE FROM `donate` WHERE `id` = ?", [$id]);
     }
 }

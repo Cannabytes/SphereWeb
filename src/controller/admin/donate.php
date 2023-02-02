@@ -7,7 +7,10 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\request;
+use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
@@ -38,10 +41,12 @@ class donate {
         \Ofey\Logan22\model\admin\donate::add_item();
     }
 
-    public static function remove_item($id) {
+    public static function remove_item() {
         validation::user_protection("admin");
-        \Ofey\Logan22\model\admin\donate::remove_item($id);
-        header("Location: /admin/donate");
-        die();
+        $id = request::setting("productId", new request_config(isNumber: true));
+        if(\Ofey\Logan22\model\admin\donate::remove_item($id)){
+            board::notice(true);
+        }
+        board::notice(false, "error");
     }
 }

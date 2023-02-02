@@ -27,7 +27,7 @@ class board {
     /**
      *  Использовать для аякс уведомлений, когда нужно вернуть результат и сообщение
      */
-    static public function notice(bool $ok, string $message, int $flags = 0) {
+    static public function notice(bool $ok, string $message = "", int $flags = 0) {
         self::alert([
             'ok'      => $ok,
             'message' => $message,
