@@ -31,33 +31,21 @@ class comparison {
             board::notice(false, lang::get_phrase(150));
         }
 
-        $accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();
-        $accounts_inside = player_account::show_all_account_player();
-        $accountsForUpdate = [];
-        foreach($accounts as $serverAccount) {
-            $found = false;
-            $sA = [];
-            foreach($accounts_inside as $inside) {
-                $sA = $serverAccount;
-                if($inside['login'] == $serverAccount['login']) {
-                    $found = true;
-                    if(!$inside['password_hide']){
-                        $password = encrypt::server_password($inside['password'], $server_info);
-                        if($serverAccount['password'] != $password) {
-                            $accountsForUpdate[] = $serverAccount;
-                        }
-                    }
+        $game_accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();
+        $show_all_account_player_site = player_account::show_all_account_player();
+
+        foreach($show_all_account_player_site AS $k=>&$user_player_site){
+            foreach($game_accounts AS $game_account){
+                if($user_player_site['login']==$game_account['login']){
+                    unset($show_all_account_player_site[$k]);
+                    break;
                 }
-            }
-            if($found == false) {
-                $accountsForUpdate[] = $sA;
             }
         }
 
-        foreach($accountsForUpdate as $account) {
+        foreach($show_all_account_player_site as $account) {
             //Если такой аккаунт у нас есть зарегистрированным во внутреннем реестре
-            //тогда просто обновим данные
-            if(self::exist_account($account['login'], $accounts_inside)) {
+            if(self::exist_account($account['login'], $show_all_account_player_site)) {
                 sql::run("UPDATE `player_accounts` SET `password` = '', `password_hide` = 1 WHERE `login` = ? AND `server_id` = ?", [
                     $account['login'],
                     $server_id,
