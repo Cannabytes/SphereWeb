@@ -48,7 +48,7 @@ class change_password {
         $change = player_account::extracted($base, $server_info, [
             encrypt::server_password($password, $server_info),
             $login,
-        ]);
+        ], gameServer: false);
         if($change->rowCount() == 0) {
             //TODO: добавление в логирование ошибок
             //Возникла ошибка смены пароля
