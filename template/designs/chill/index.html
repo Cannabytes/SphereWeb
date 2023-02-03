@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{phrase('title_home_page')}}</title>
+  <meta name="description" content="L2CHILL - Lineage 2 Classic Improved x5 on Essence Client. Take a step back in time and relive the original Lineage II experience as it was in the beginning.">
+  <meta name="keywords" content="lineage, lineage 2, lineage2, lineage ii, classic, l2classic, l2 classic, lineage classic, л2, л2 чил l2cil, л2 chill, la2chill, l2 chill, x3, x2, lineage 2 classic, lineage ii classic, lineage low rate, lineage server, lineage 2 server, lineage 2 stable, classic 1.5, classic 2.0, classic 2.5, classic 2.0, lineage 2 top, l2 legacy, classic 2.9, classic 2.9.5, secret of empire, x5, l2crystal, lineage 2 classic 2.9.5, autofarm, freeshard, private server, classic private, l2 essence, essence, lineage 2 essence, lineage 2 remastered, reworked, improved, l2, la2, l2 classic, linege 2 legacy, l2 legacy, lineage 2 top, l2chill">
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width" >
+  <link rel="shortcut icon" href="{{template}}/images/favicon.ico" >
+  <link rel="stylesheet" href="{{template}}/css/main.css" >
+  <link rel="stylesheet" href="{{template}}/libs/swiper/swiper.css" >
+</head>
+
+<body class="body">
+	<div class="wrapper">
+		<header class="header">
+			<nav class="nav">
+    <div class="content-area flex-sc">
+        <a href="/" class="nav__logo flex-cc"><img src="{{template}}/images/logos/min_logo.png" alt=""></a>
+        <div class="nav__links flex-sc">
+            <div class="nav__links-item flex-cc"><a href="/">Главная</a></div>
+            <div class="nav__links-item flex-cc"><a href="/">О сервере</a></div>
+            <div class="nav__links-item flex-cc"><a href="/download">Файлы</a></div>
+            <div class="nav__links-item flex-cc"><a href="/download">Пожертвования</a></div>
+            <div class="nav__links-item flex-cc"><a href="/download">Форум</a></div>
+        </div>
+		
+    <div class="nav__langs">
+			{% for lang in lang_list() %}
+				{% if lang['isActive']==true %}
+				<div class="nav__langs-current flex-sc">
+					<div class="nav__langs-current-icon flex-cc"><img src="{{template}}/images/langs/{{lang['lang'] }}.png" alt=""></div>
+					<div class="nav__langs-current-name">{{ lang['name'] }}</div>
+					<div class="nav__langs-current-arrow flex-cc"><img src="{{template}}/images/langs/arrow.png" alt=""></div>
+				</div>
+				 {% endif %} 
+           {% endfor %}
+		 
+			{% for lang in lang_list() %}
+				{% if lang['isActive']==false %}
+					 <div class="nav__langs-items flex-ss">
+						<a href="/user/change/lang/{{lang['lang']}}" class="flex-sc">
+							<div class="nav__langs-items-icon flex-cc"><img src="{{template}}/images/langs/{{ lang['lang'] }}.png" alt=""></div>
+							<div class="nav__langs-items-name">{{ lang['name'] }}</div>
+						</a>
+					</div>
+				 {% endif %} 
+         {% endfor %}
+	</div>
+	
+	
+        <a href="/main" class="button flex-cc"><img src="{{template}}/images/icons/sign_in_icon.png" alt=""><span>АККАУНТ</span></a>
+        <div class="nav__open-links">
+            <div class="nav__open-links-item"></div>
+        </div>
+    </div>
+    <div class="banners"  style="position: z-index:99999; float:right">
+        <!-- <a href="https://en.l2oops.com" target="_blank"><img src="https://l2oops.com/logo/black_l2oops_mini.png" width="122" height="31" alt="New Lineage 2 private servers" title="New Lineage 2 private servers" border="0"></a> -->
+        <!-- <a href="https://l2topzone.com/vote/id/18142" target="_blank" title="l2topzone" ><img src="https://l2topzone.com/vb/l2topzone-Lineage2-vote-banner-small-1.png"  alt="l2topzone.com" border="0"></a> -->
+    </div>
+
+</nav>
+			<div class="header__box flex-cc">
+				<div class="header__content">
+					<div class="header__content-logo flex-cc">
+						<div class="header__content-logo-left"></div>
+						<a href="/" class="header__content-logo-center flex-cc">
+							<img src="{{template}}/images/logos/logo.png" alt="">
+						</a>
+						<div class="header__content-logo-right"></div>
+					</div>
+					<div class="header__content-promo">
+						<div class="header__content-promo-title">ОТКРЫТИЕ НОВОГО СЕРВЕРА!</div>
+						<div class="header__content-promo-text">Сервер твоей мечты! Обновленная lineage 2, которую ты так долго ждал. Открытие 26 Августа в 20:00!</div>
+						<div class="header__content-promo-text">Сервер открытого бета-тестирования будет доступен 22 Августа в 20:00!</div>
+					</div>
+					<div class="header__content-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+					<div class="header__content-timer">
+						<div class="header__content-timer-title">ОТКРЫТИЕ ЧЕРЕЗ:</div>
+						<div class="header__content-timer-time flex-cs timer1" data-time="1661544000" data-lang="ru" data-end-msg="<div class='header__content-timer-time-end flex-cc'>SUCCESSFULLY STARTED!</div>">
+							<div class="header__content-timer-time-box">
+								<div class="header__content-timer-time-num flex-cc">&nbsp;</div>
+								<div class="header__content-timer-time-desc">ДНЕЙ</div>
+							</div>
+							<div class="header__content-timer-time-box">
+								<div class="header__content-timer-time-num flex-cc">&nbsp;</div>
+								<div class="header__content-timer-time-desc">ЧАСОВ</div>
+							</div>
+							<div class="header__content-timer-time-box">
+								<div class="header__content-timer-time-num flex-cc">&nbsp;</div>
+								<div class="header__content-timer-time-desc">МИНУТ</div>
+							</div>
+							<div class="header__content-timer-time-box">
+								<div class="header__content-timer-time-num flex-cc">&nbsp;</div>
+								<div class="header__content-timer-time-desc">СЕКУНД</div>
+							</div>
+						</div>
+					</div>
+					<a href="/download" class="button big flex-cc"><span>НАЧАТЬ ИГРУ</span></a>
+				</div>
+			</div>
+
+			<!-- VIDEO -->
+			<div class="header__video">
+				<video autoplay="" loop="" muted="" class="header__video-player">
+					<source src="{{template}}/videos/bg.mp4" type="video/mp4"></source>
+					<source src="{{template}}/videos/bg.webm" type="video/webm"></source>
+				</video>
+			</div>
+			<!-- END VIDEO -->
+			
+		</header>
+
+    <section class="section features">
+			<div class="section__title flex-cc">
+				<div class="section__title-left"></div>
+				<div class="section__title-center">
+					<div class="section__title-center-big">ПОЧЕМУ СТОИТ ИГРАТЬ НА L2CHILL?</div>
+				</div>
+				<div class="section__title-right"></div>
+				<div class="section__title-small">МЫ СТРЕМИМСЯ ОБЕСПЕЧИТЬ КАЧЕСТВЕННЫЙ ПРОДУКТ!</div>
+			</div>
+			<div class="content-area">
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/1.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title"><span>ТОЛЬКО ЧЕСТНАЯ ИГРА </span></div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									Без читеров, ботов и RMT. У нас нет милосердия к людям, которые нарушают наши правила. 
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/3.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title">СТАДИЙНАЯ ИГРА</div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									Плавное развитие игрового процесса позволит избежать раннего достижения пика силы игроков с высоким онлайном.								</div>
+							</div>
+						</div>
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/2.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title">СБАЛАНСИРОВАННЫЙ ДОНАТ</div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									В магазине только премиум аккаунт и шапки. Никаких бустов опыта, расходников и PAY2WIN предметов за донат. Надо все получать самому.								</div>
+							</div>
+						</div>
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/4.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title">ДОЛГОСРОЧНЫЙ ПРОЕКТ</div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									Игровой контент будет наполняться постепенно по мере развития сервера, что позволит продлить срок его службы и поддерживать длительный интерес игроков.								</div>
+							</div>
+						</div>
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/5.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title">СЕРВЕР БЕЗ ВАЙПОВ</div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									Все новые сервера будут вливаться со временем в основной сервер для поддержания высокого онлайна.								</div>
+							</div>
+						</div>
+						<div class="swiper-slide flex-cc">
+							<img src="{{template}}/images/slides/6.png" alt="" class="swiper-slide-bg">
+							<div class="swiper-slide-content flex-cc">
+								<div class="swiper-slide-title">СОВРЕМЕННЫЙ ИНТЕРФЕЙС </div>
+								<div class="swiper-slide-sep flex-cc"><img src="{{template}}/images/bg/sep.png" alt=""></div>
+								<div class="swiper-slide-text">
+									Стабильный клиент с интерфейсом новых хроник. Добавлена система ACP.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-navigation flex-cc">
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</section>
+		<section class="section information">
+			<div class="section__title flex-cc">
+				<div class="section__title-left"></div>
+				<div class="section__title-center">
+					<div class="section__title-center-big">ОСНОВНЫЕ ОСОБЕННОСТИ СЕРВЕРА</div>
+				</div>
+				<div class="section__title-right"></div>
+				<div class="section__title-small">Посетите нашу страницу Wiki, чтобы узнать больше о функциях</div>
+			</div>
+			<div class="content-area flex-ss">
+				<div class="col-1-4">
+					<div class="information__box">
+						<img src="{{template}}/images/features/1.png" alt="" class="information__box-bg">
+						<div class="information__box-content">
+							<div class="information__box-icon flex-cc">
+								<img src="{{template}}/images/features/icon_1.png" alt="">
+							</div>
+							<div class="information__box-title">Игра в одно окно</div>
+							<div class="information__box-text">
+								<p>Мы хотим по максимуму побудить людей создавай группы и объединяться.  Только так создаются лучшие кланы, группы и друзья.Для этого мы создали условия, для которых дополнительные окна просто не нужны.</p>
+							</div>
+						</div>
+						<div class="information__box-button flex-cc">ПОДРОБНЕЕ</div>
+					</div>
+				</div>
+				<div class="col-1-4">
+					<div class="information__box">
+						<img src="{{template}}/images/features/2.png" alt="" class="information__box-bg">
+						<div class="information__box-content">
+							<div class="information__box-icon flex-cc">
+								<img src="{{template}}/images/features/icon_2.png" alt="">
+							</div>
+							<div class="information__box-title">Нет необходимости в дополнительных окнах</div>
+							<div class="information__box-text">
+								<p>Весь основной баф есть в Alt+b. Кристаллизация и крафт доступен всем. Весь спойл лист перенесн в дроп лист. Добавлены новые питомцы, которые восполняют хп и ману.</p>
+							</div>
+						</div>
+						<div class="information__box-button flex-cc">ПОДРОБНЕЕ</div>
+					</div>
+				</div>
+				<div class="col-1-4">
+					<div class="information__box">
+						<img src="{{template}}/images/features/3.png" alt="" class="information__box-bg">
+						<div class="information__box-content">
+							<div class="information__box-icon flex-cc">
+								<img src="{{template}}/images/features/icon_3.png" alt="">
+							</div>
+							<div class="information__box-title">Актуализированные<br> саб классы</div>
+							<div class="information__box-text">
+								<p>Скилы, которые берутся от саб класса, действуют не только на основном классе, но и на подклассе. Максимальный уровень подкаласа увеличен до 85 уровня.Все сабы при взятии сразу 75 уровня.</p>
+							</div>
+						</div>
+						<div class="information__box-button flex-cc">ПОДРОБНЕЕ</div>
+					</div>
+				</div>
+				<div class="col-1-4">
+					<div class="information__box">
+						<img src="{{template}}/images/features/4.png" alt="" class="information__box-bg">
+						<div class="information__box-content">
+							<div class="information__box-icon flex-cc">
+								<img src="{{template}}/images/features/icon_4.png" alt="">
+							</div>
+							<div class="information__box-title">Ребаланс классов</div>
+							<div class="information__box-text">
+								<p>Каждый класс максимально сбалансирован на уровне механики и навыков. Почувствуй себя нужным, даже на саппорте или танке. Сильно переработаны сапорты, танки и гномы. </p>
+							</div>
+						</div>
+						<div class="information__box-button flex-cc">ПОДРОБНЕЕ</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section join">
+			<div class="section__title flex-cc">
+				<div class="section__title-left"></div>
+				<div class="section__title-center">
+					<div class="section__title-center-big">ЧТО ТАКОЕ HF REBALANS?</div>
+				</div>
+				<div class="section__title-right"></div>
+			</div>
+			<div class="content-area">
+				<div class="join__text">                    
+					<p>За основу взяты хроники High Five и переработаны до идеала. (Ничего не вырезано, ничего не добавлено. Нету новых локаций, оружия, вещей, квестов и т.д.)</p>
+                    <p>Основное внимание уделили балансу классов, питомцам, добыче игровых предметов и экономике. Добавлен шанс выпадения вещи при смерти.</p>
+					<p>Переработана система саб классов, олимпиада, улучшена эпик бижутерия, небольшие изменения в клановой системе.</p>
+					<p>В целом, игра стала намного дружественнее к соло игрокам, у которых нет времени на долгую игру, и при этом не обделила группы игроков и кланы.</p>
+				</div>
+				<a href="https://forum.l2chill.fun/" class="button big flex-cc" target="_blank"><span>ПОДРОБНЕЕ НА ФОРУМЕ</span></a>
+			</div>
+		</section>
+    <section class="section streams">
+    <div class="section__title flex-cc">
+        <div class="section__title-left"></div>
+        <div class="section__title-center">
+            <div class="section__title-center-big">ТРАНСЛЯЦИИ</div>
+        </div>
+        <div class="section__title-right"></div>
+        <div class="section__title-small">Получайте награды за стрим нашего сервера!</div>
+    </div>
+    <div class="content-area flex-cc">
+            <div class="col-1-4">
+                <div class="streams__item" data-autoplay="true">
+                    <div class="streams__item-preview flex-cc">
+                        <img src="{{template}}/images/streams/preview_1.png" alt="">
+                        <div class="streams__item-play"></div>
+                    </div>
+                    <div class="streams__item-player"></div>
+                </div>
+            </div>
+            <div class="col-1-4">
+                <div class="streams__item" data-autoplay="true">
+                    <div class="streams__item-preview flex-cc">
+                        <img src="{{template}}/images/streams/preview_1.png" alt="">
+                        <div class="streams__item-play"></div>
+                    </div>
+                    <div class="streams__item-player"></div>
+                </div>
+            </div>
+            <div class="col-1-4">
+                <div class="streams__item" data-autoplay="true">
+                    <div class="streams__item-preview flex-cc">
+                        <img src="{{template}}/images/streams/preview_1.png" alt="">
+                        <div class="streams__item-play"></div>
+                    </div>
+                    <div class="streams__item-player"></div>
+                </div>
+            </div>
+    </div>
+</section>    
+<footer class="footer">
+    <div class="footer__logo flex-cc">
+        <div class="footer__logo-left"></div>
+        <div class="footer__logo-center flex-cc">
+            <img src="{{template}}/images/logos/footer_logo.png" alt="">
+        </div>
+        <div class="footer__logo-right"></div>
+    </div>
+    <div class="content-area flex-ss">
+        <div class="col-1-2">
+            <div class="footer__cpr">
+                <div class="footer__cpr-title">© 2023 L2CHILL.FUN</div>
+                <div class="footer__cpr-text">Сервер l2chill.fun является любительской модификацией игры Lineage 2.</div>
+                <div class="footer__cpr-links flex-sc">
+                    <div class="footer__cpr-links-item"><a href="/">Политика</a></div>
+                    <div class="footer__cpr-links-item"><a href="/">Cоглашение</a></div>
+                    <div class="footer__cpr-links-item"><a href="/">Условия</a></div>
+                </div>
+            </div>
+            <div class="footer__info flex-sc">
+                <div class="footer__social flex-sc">
+                    <div class="footer__social-item"><a href="https://discord.gg/" class="circle-button flex-cc" target="_blank"><span><i class="fab fa-discord"></i></span></a></div>
+                    <div class="footer__social-item"><a href="https://vk.com/" class="circle-button flex-cc" target="_blank"><span><i class="fab fa-vk"></i></span></a></div>
+                    <div class="footer__social-item"><a href="https://t.me/" class="circle-button flex-cc" target="_blank"><span><i class="fab fa-telegram"></i></span></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1-2 flex-es">
+            <div class="footer__discord">
+                <iframe src="https://discordapp.com/widget?id=830717389259276299&amp;theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<link rel="stylesheet" href="{{template}}/libs/FontAwesome/css/fontawesome.css" >
+<script src="{{template}}/js/jquery.min.js" ></script>
+<script src="{{template}}/js/navigation.js" ></script>
+<script src="{{template}}/js/timers.js" ></script>
+<script src="{{template}}/libs/swiper/swiper.js" ></script>
+<script src="{{template}}/js/script1.js" ></script>
+<script src="{{template}}/js/streams.js"></script>
+</body>
+</html>

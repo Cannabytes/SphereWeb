@@ -197,6 +197,7 @@ class race_class {
     }
 
     static private array $human_id      = [
+        0   => 'Human Fighter',
         1   => 'Warrior',
         2   => 'Gladiator',
         3   => 'Warlord',

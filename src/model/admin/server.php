@@ -126,14 +126,13 @@ class server {
 
         $check_server_online = isset($_POST['check_server_online']) ?: 0;
         $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
-        $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
+        $check_loginserver_online_port = $_POST['check_loginserver_online_port'] ?: null;
         $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
-        $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
+        $check_gameserver_online_port = $_POST['check_gameserver_online_port'] ?: null;
 
         $ws_chat_enable = isset($_POST['chat_game_enabled']) ?: 0;
         $ws_ip_host = $_POST['chat_websocket_host'];
         $ws_admin_password = $_POST['chat_admin_password'];
-
         //TODO: Проверка на соединение с БД
 
         $sql = "UPDATE `server_list` SET

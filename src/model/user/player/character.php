@@ -20,21 +20,18 @@ class character {
         //список моих аккаунтов
         $account_players = player_account::show_all_account_player(true);
         $isAccountUser = false;
-        foreach($account_players AS $player){
-            if($player['login'] == $login){
+        foreach($account_players as $player) {
+            if($player['login'] == $login) {
                 $isAccountUser = true;
                 break;
             }
         }
-        if(!$isAccountUser){
+        if(!$isAccountUser) {
             redirect::location("/main");
         }
         $info = server::server_info($server_id);
         $base = base::get_sql_source($info['collection_sql_base_name'], "account_players");
         $players = player_account::extracted($base, $info, [$login]);
-        if(isset($players['error'])){
-            return false;
-        }
         $players = $players->fetchAll();
         crest::conversion($players);
         return $players;
@@ -91,6 +88,4 @@ class character {
         $base = base::get_sql_source($info['collection_sql_base_name'], "player_subclasses");
         return player_account::extracted($base, $info, $prepare);
     }
-
-
 }
