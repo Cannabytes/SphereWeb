@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\component\lang;
 
 use Ofey\Logan22\component\fileSys\fileSys;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\config\config;
 
@@ -28,8 +29,11 @@ class lang {
         if(self::name($lang)) {
             session::add("lang", $lang);
         }
-        //TODO: Если языка такого нет, тогда может вывести страницу ошибки?
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        if(isset($_SERVER['HTTP_REFERER'])){
+            redirect::location($_SERVER['HTTP_REFERER']);
+        }else{
+            redirect::location("/main");
+        }
     }
 
     static public function load_package(): void {

@@ -256,7 +256,7 @@ class server {
 
     public static function remove_server() {
         $server_id = $_POST['server_id'];
-        $get_server_info = self::get_server_info($server_id);
+        $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
         sql::run("DELETE FROM `server_list` WHERE `id` = ?", [$server_id]);
         sql::run("DELETE FROM `server_connect_db` WHERE `id` = ?", [$get_server_info['db_id']]);
         sql::run("DELETE FROM `server_description` WHERE `server_id` = ?", [$server_id]);
