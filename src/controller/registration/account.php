@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\controller\registration;
 
 use Ofey\Logan22\component\account\generation;
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
@@ -10,6 +11,7 @@ use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
+use SimpleCaptcha\Builder;
 
 class account {
 
@@ -32,6 +34,10 @@ class account {
         if(auth::get_is_auth()) {
             player_account::add($server_id, $login, $password, $password_hide);
         } else {
+            $builder = new Builder;
+            if (!$builder->compare(trim($_POST['captcha']) ?: "", $_SESSION['phrase'])) {
+                board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+            }
             $email = request::setting("email", new request_config(isEmail: true));
             player_account::add_account_not_user($server_id, $login, $password, $password_hide, $email);
         }

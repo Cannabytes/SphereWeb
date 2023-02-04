@@ -99,30 +99,8 @@ class page {
 
     //Отправить в корзину новость
     public static function trash_send($id) {
-        sql::run('UPDATE `pages` SET `trash` = 1  WHERE `id` = ?', [$id]);
-        header("Location: /admin/news");
-        die();
-    }
-
-    //Отправить восстановить из корзины
-    public static function trash_reestablish($id) {
-        sql::run('UPDATE `pages` SET `trash` = 0  WHERE `id` = ?', [$id]);
-    }
-
-    public static function remove($id) {
         sql::run('DELETE FROM `pages` WHERE `id` = ?', [$id]);
-        $data = sql::run('SELECT Count(trash) as `count` from pages WHERE trash = 1;')->fetch();
-        if($data['count'] == 0) {
-            header("Location: /admin/news");
-            die();
-        }
-        header("Location: /admin/news/trash");
-        die();
-    }
-
-    public static function remove_all() {
-        sql::run('DELETE FROM `news` WHERE `trash` = 1');
-        header("Location: /admin/news");
+        header("Location: /admin/pages");
         die();
     }
 

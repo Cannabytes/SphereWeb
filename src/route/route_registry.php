@@ -125,10 +125,7 @@ $router->get("/admin/pages/create", 'Ofey\Logan22\controller\admin\page::create'
 $router->post("/admin/pages/create", 'Ofey\Logan22\controller\admin\page::create_news');
 $router->get("/admin/pages/edit/(\d+)", 'Ofey\Logan22\controller\admin\page::edit_news');
 $router->post("/admin/pages/edit", 'Ofey\Logan22\controller\admin\page::update_news');
-$router->get("/admin/pages/trash", 'Ofey\Logan22\controller\admin\page::trash');
 $router->get("/admin/pages/trash/(\d+)", 'Ofey\Logan22\controller\admin\page::trash_send');
-$router->get("/admin/pages/remove/(\d+)", 'Ofey\Logan22\controller\admin\page::remove');
-$router->get("/admin/pages/remove/all", 'Ofey\Logan22\controller\admin\page::remove_all');
 $router->get("/admin/options", 'Ofey\Logan22\controller\admin\options::server_show');
 $router->post("/admin/option/server/save", 'Ofey\Logan22\controller\admin\options::new_server_save');
 $router->post("/admin/option/server/update", 'Ofey\Logan22\controller\admin\options::update_server_save');

@@ -1,6 +1,22 @@
 $(document).ready(function () {
+
+    get_captcha();
+    $("#refreshCaptcha").on('click', function (e) {
+        get_captcha();
+    });
+
+    function get_captcha() {
+        $.ajax({
+            type: "POST",
+            url: "/captcha",
+            async: true,
+        }).success(function (data) {
+            $(".captcha_img").attr("src", data);
+        });
+    }
+
     $("form").submit(function (event) {
-		event.preventDefault();
+        event.preventDefault();
         $.ajax({
             type: "POST",
             url: "/registration/account",
@@ -8,9 +24,9 @@ $(document).ready(function () {
             dataType: "json",
             encode: true,
         }).success(function (data) {
-            if (data.ok){
+            if (data.ok) {
                 notify_success(data.message);
-            }else {
+            } else {
                 notify_error(data.message)
             }
         });
@@ -23,7 +39,7 @@ $('#new_account_word').on('click', function () {
         url: "/generation/account",
         encode: true,
     }).success(function (data) {
-        $( "input[name*='login']" ).val(data);
+        $("input[name*='login']").val(data);
     });
 });
 
@@ -33,7 +49,7 @@ $('#new_password_word').on('click', function () {
         url: "/generation/password",
         encode: true,
     }).success(function (data) {
-        $( "input[name*='password']" ).val(data);
+        $("input[name*='password']").val(data);
     });
 });
  

@@ -270,7 +270,7 @@ class auth {
         }
         $builder = new Builder;
         if (!$builder->compare(trim($_POST['captcha']), $_SESSION['phrase'])) {
-            board::alert(['ok' => false, "message" => "Капча не подошла: " . $_POST['captcha'] . ' - ' . $_SESSION['phrase'], "code" => 1]);
+            board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
         }
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));

@@ -13,6 +13,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\mail\mail;
 use Ofey\Logan22\model\db\sql;
+use SimpleCaptcha\Builder;
 
 class forget {
 
@@ -35,6 +36,11 @@ class forget {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             board::notice(false, lang::get_phrase(281));
         }
+        $builder = new Builder;
+        if (!$builder->compare(trim($_POST['captcha']) ?: "", $_SESSION['phrase'])) {
+            board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+        }
+
         $userValid = self::userValid($email);
         if(!$userValid) {
             board::notice(false, lang::get_phrase(282));

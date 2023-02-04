@@ -10,7 +10,7 @@ $(document).ready(function () {
             data: add_item_form.serialize(),
             success: function (data) {
 				if(data.ok){
-					notify_success(data.message)
+                    document.location.href = '/admin/donate'
 				}else{
 					notify_warning(data.message)
 				}            

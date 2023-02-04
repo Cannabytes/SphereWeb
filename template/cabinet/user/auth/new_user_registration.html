@@ -35,7 +35,19 @@
                         </div>
                     </div>
 
-                 
+
+
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Анти-Бот</label>
+                        <div class="col-sm-2">
+                            <a href="#"> <img id='refreshCaptcha' src="" class="lightbox-thumb img-thumbnail captcha" /> </a>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control form-control-xl" name="captcha" id="captcha" >
+                        </div>
+                    </div>
+
+
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"></label>
@@ -53,5 +65,5 @@
 {% endblock %}
 
 {% block js %}
-  <script src="{{'assets/js/user/registration_user.js'|template}}"></script>
+<script src="{{'assets/js/user/registration_user.js'|template}}"></script>
 {% endblock %}

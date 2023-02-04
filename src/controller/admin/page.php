@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\template\tpl;
@@ -18,6 +19,7 @@ class page {
         tpl::addVar([
             'show_news'   => \Ofey\Logan22\model\page\page::show_news_short(),
             'server_list' => server::get_server_info(),
+            "title" => lang::get_phrase("pages"),
         ]);
         tpl::display("admin/news_list.html");
     }
@@ -30,6 +32,9 @@ class page {
     public static function create() {
         validation::user_protection("admin");
         tpl::addVar('server_list', server::get_server_info());
+        tpl::addVar([
+            "title" => lang::get_phrase("create"),
+        ]);
         tpl::display("admin/news_create.html");
     }
 
@@ -63,8 +68,8 @@ class page {
         validation::user_protection("admin");
         tpl::addVar([
             'show_news' => \Ofey\Logan22\model\page\page::show_news_short(300, 1000, true),
+            'server_list' => server::get_server_info(),
         ]);
-        tpl::addVar('server_list', server::get_server_info());
 
         tpl::display("admin/news_list_trash.html");
     }

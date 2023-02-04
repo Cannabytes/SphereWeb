@@ -358,5 +358,6 @@ return [
     292 => "Field %s must contain a number",
     293 => "Minimum value %s for field %s",
     294 => "Class stats %s",
+    295 => "Invalid security code",
 
 ];

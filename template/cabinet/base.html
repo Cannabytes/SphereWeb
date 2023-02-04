@@ -87,29 +87,7 @@
                         <input type="text" class="form-control col-sm-5" placeholder="Enter keywords">
                     </form-->
                     {% else %}
-                    <div>
-                        <div class="row">
-                            <div class="col-md-4 pl-md-4 input-group-sm" id="headerInput1">
-                                <input type="email" name="email" id="emailmain" class="form-control form-control-xl" placeholder="E-mail">
-                            </div>
-                            <div class="col-md-4 pl-md-0 input-group-sm" id="headerInput2">
-                                <input type="password" name="password" id="passwordmain" class="form-control form-control-xl" placeholder="Password">
-                            </div>
-                            <div class="col-md-2 pl-md-0 input-group-sm">
-                                <button id="authmain" type="submit" class="btn btn-social-text btn-github   btn-sm waves-effect waves-light form-control form-control-xl">{{phrase(256)}}</button>
-                            </div>
-<!--                            <div class="col-md-4 pl-md-3 input-group-sm">-->
-<!--                                <input type="email" name="email" id="emailmain" class="form-control" placeholder="E-mail">-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4 pl-md-0 input-group-sm">-->
-<!--                                <input type="password" name="password" id="passwordmain" class="form-control" placeholder="Password">-->
-<!--                            </div>-->
-<!--                            <div class="col-md-2 pl-md-0 input-group-sm">-->
-<!--                                <button id="authmain" type="submit" class="btn btn-light btn-sm waves-effect waves-light">{{phrase(256)}}</button>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-
+                 
                     {% endif %}
                 </li>
 
@@ -314,8 +292,7 @@
 
 {% block js %}{% endblock %}
 
-{% if user_info('get_is_auth')==false %}
-<script src="{{'assets/js/auth/auth.js'|template}}"></script>
-{% endif %}
+
+
 </body>
 </html>

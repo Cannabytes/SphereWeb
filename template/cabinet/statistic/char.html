@@ -88,7 +88,7 @@
                     <div class="col-lg-12 player-icons">
                         {% for item in inventory %}
                         {% if item.loc == "PAPERDOLL" %}
-                        <img {% if item.enchant_level> 0 %} class="player-inventory-enchant" {% else %}
+                        <img item-id="{{item.item_id}}" {% if item.enchant_level> 0 %} class="player-inventory-enchant" {% else %}
                         class="player-inventory-enchant-null" {% endif %}
                         data-toggle="tooltip" data-placement="top"
                         title="{% if item.enchant_level > 0 %}+{{item.enchant_level}} {% endif %} {% if item.count > 1
@@ -100,7 +100,7 @@
                         <hr>
                         {% for item in inventory %}
                         {% if item.loc == "INVENTORY" %}
-                        <img item-id="{{item.icon}}" {% if item.enchant_level> 0 %} class="player-inventory-enchant" {%
+                        <img item-id="{{item.item_id}}" {% if item.enchant_level> 0 %} class="player-inventory-enchant" {%
                         else %} class="player-inventory-enchant-null" {% endif %}
                         data-toggle="tooltip" data-placement="top"
                         title="{% if item.enchant_level > 0 %}+{{item.enchant_level}}{% endif %} {% if item.count > 1

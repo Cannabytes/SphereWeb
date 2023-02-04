@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    get_captcha();
+    $("#refreshCaptcha").on('click', function (e) {
+        get_captcha();
+    });
+    function get_captcha() {
+        $.ajax({
+            type: "POST",
+            url: "/captcha",
+            async: true,
+        }).success(function (data) {
+            $(".captcha_img").attr("src", data);
+        });
+    }
+
     $("#send_email").click(function(e) {
         e.preventDefault();
 		let email = $("#email").val().trim();
@@ -12,7 +26,8 @@ $(document).ready(function () {
             url: "/auth/forget/send/code",
             dataType: "json",
             data: {
-                email: $("#email").val()
+                email: $("#email").val(),
+                captcha: $("#captcha").val()
             },
             success: function(result) {
 				console.log(result);
@@ -66,5 +81,9 @@ $(document).ready(function () {
 	if (!isEmail(email)){
 	  return false;
 	}
+
+
+
+
 
 });
