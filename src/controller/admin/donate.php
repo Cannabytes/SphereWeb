@@ -17,6 +17,18 @@ use Ofey\Logan22\template\tpl;
 
 class donate {
 
+    static public function config() {
+        validation::user_protection("admin");
+        include_once ('src/config/donate.php');
+        tpl::addVar([
+            'title'       => lang::get_phrase(215),
+            'server_list' => server::get_server_info(),
+            ''
+        ]);
+        tpl::addVar("products", \Ofey\Logan22\model\donate\donate::products());
+        tpl::display("/admin/donate/config.html");
+    }
+
     static public function show() {
         validation::user_protection("admin");
         tpl::addVar([

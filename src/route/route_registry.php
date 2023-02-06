@@ -154,6 +154,7 @@ $router->get("/admin/template/email/forget", '\Ofey\Logan22\controller\admin\tem
 $router->get("/admin/template/email/password", '\Ofey\Logan22\controller\admin\template::new_password');
 $router->get("/admin/options/email", 'Ofey\Logan22\controller\admin\mail::setting');
 $router->post("/admin/options/email", 'Ofey\Logan22\controller\admin\mail::setting_save');
+$router->get("/admin/donate/config", 'Ofey\Logan22\controller\admin\donate::config');
 $router->get("/admin/donate", 'Ofey\Logan22\controller\admin\donate::show');
 $router->get("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add');
 $router->post("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add_item');

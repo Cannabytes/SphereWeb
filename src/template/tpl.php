@@ -401,7 +401,7 @@ class tpl {
             if(file_exists("uploads/images/icon/" . $fileIcon) and $fileIcon != null) {
                 return "/uploads/images/icon/" . $fileIcon;
             }
-            return "/uploads/images/icon/NOIMAGE.png";
+            return "/uploads/images/icon/NOIMAGE.webp";
         }));
 
         $template = $twig->load($tplName);
