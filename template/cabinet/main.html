@@ -54,8 +54,7 @@
                                             {% if player.server_id == server.id %}
                                             <tr>
                                                 <td>
-												<a href="account/info/{{ player.login }}"><i aria-hidden="true" class="fa fa-question-circle-o"></i></a> 
-													{{ player.login }}
+												<a href="account/info/{{ player.login }}"><b>{{ player.login }}</b></a>
                                                 </td>
                                                 <td>
                                                     <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
