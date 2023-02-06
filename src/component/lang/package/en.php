@@ -47,6 +47,8 @@ return [
     "create" => "Create",
     "refresh" => "Refresh",
     "delete" => "Delete",
+    "other" => "Other",
+    "return_demo_page" => "Return to site",
     0 => "Description",
     1 => "Change game account password",
     2 => "Hide account password in account list?",
