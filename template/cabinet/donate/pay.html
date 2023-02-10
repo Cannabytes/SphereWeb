@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header text-uppercase">{{ phrase("menu_donate") }}</div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>{{ phrase("summa") }}</label>
+
+                        <input type="text" id="count" value="" name="range" />
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="icheck-material-success">
+                            <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked/>
+                            <label for="freekassa">FREE-KASSA</label>
+                        </div>
+<!--                        <div class="icheck-material-success">-->
+<!--                            <input type="radio" id="primepayments" name="paysystem" value="primepayments"/>-->
+<!--                            <label for="primepayments">PrimePayments</label>-->
+<!--                        </div>-->
+
+
+                    </div>
+                </div>
+                <hr>
+                <div class="form-footer">
+                    <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{
+                        phrase("next") }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-body">
+                    {{phrase(296)|raw}}
+                </div>
+            </div>
+    </div>
+</div><!--End Row-->
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i> {{phrase(303)}}</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="default-datatable" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{phrase("summa")}}</th>
+                            <th>{{phrase(29)}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for history in donate_history_pay_self %}
+                        <tr>
+                            <td>{{history.pay_system}}</td>
+                            <td>{{history.point}}</td>
+                            <td>{{history.date}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+{% block css %}
+<!--Touchspin-->
+<link href="{{'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css'|template}}" rel="stylesheet"
+      type="text/css">
+<link href="{{'assets/plugins/ion-rangeslider/css/ion.rangeSlider.css'|template}}" rel="stylesheet" type="text/css"/>
+<link href="{{'assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinNice.css'|template}}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+<!--Bootstrap Touchspin Js-->
+<script src="{{'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js'|template}}"></script>
+<script src="{{'assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js'|template}}"></script>
+
+<script src="{{'assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js'|template}}"></script>
+<script>
+
+    $("#count").ionRangeSlider({
+        min: 100,
+        max: 10000,
+        from: 1000
+    });
+
+     const obj = JSON.parse('{{bonus_list|raw}}');
+     $("#count").change(function () {
+         $('#bonus_list_table').empty();
+         Object.entries(obj).forEach(([key, bonus]) => {
+             if($(this).val()>=bonus.min_initial_amount && $(this).val()<=bonus.max_initial_amount){
+                 $("#bonus_list_table").append('<tr>\n' +
+                     '<td class="col-md-1"><img src="/uploads/images/icon/'+bonus.icon+'" ></td>\n' +
+                     '<td>'+bonus.name_en+'</td>\n' +
+                     '<td class="col-md-1">'+bonus.count+'</td>\n' +
+                     '</tr>');
+             }
+         })
+     });
+
+
+     $('#paynext').on('click', function () {
+        paysystem = $('input[name=paysystem]:checked').val();
+        if (paysystem == 'freekassa') {
+            return freekassa();
+        }
+        if (paysystem == 'primepayments') {
+            return primepayments();
+        }
+    });
+
+
+    function freekassa() {
+        var count = $("#count").val();
+        $.ajax(
+            {
+                type: "POST",
+                url: "/donate/sign/freekassa",
+                data: ({"count": count}),
+                async: false,
+                dataType: "json",
+                success: function (response) {
+                    if (response['ok'] == false) {
+                        notify_error(response['message'])
+                        return;
+                    }
+                    const redirectLink = new URLSearchParams(response).toString();
+                    document.location.href = "https://pay.freekassa.ru/?" + redirectLink;
+                }
+            });
+    }
+
+    function primepayments() {
+        var count = $("#count").val();
+        $.ajax(
+            {
+                type: "POST",
+                url: "/donate/sign/primepayments",
+                data: ({"count": count}),
+                async: false,
+                dataType: "json",
+                success: function (response) {
+                    if (response['ok'] == false) {
+                        notify_error(response['message'])
+                        return;
+                    }
+                    const redirectLink = new URLSearchParams(response).toString();
+                    document.location.href = "https://pay.primepayments.io/API/v2" + redirectLink;
+                }
+            });
+    }
+
+
+</script>
+
+{% endblock %}

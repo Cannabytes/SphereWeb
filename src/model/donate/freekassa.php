@@ -7,6 +7,9 @@
 
 namespace Ofey\Logan22\model\donate;
 
+use Ofey\Logan22\component\time\time;
+use Ofey\Logan22\config\config;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 
 class freekassa {
@@ -62,6 +65,26 @@ class freekassa {
 
         if($genSign == $SIGN) {
             auth::change_donate_point($user_id, $amount);
+
+            //Запись логов
+            sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+                $user_id,
+                $amount,
+                'Пожертвование через Free-Kassa',
+                time::mysql(),
+            ]);
+
+            if(config::getDonationBonusPayout() > 0) {
+                $bonus = $amount * (100 + config::getDonationBonusPayout()) * 0.01 - $amount;
+                auth::change_donate_point($user_id, $bonus);
+                sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+                    $user_id,
+                    $bonus,
+                    'Бонус за пожертвование',
+                    time::mysql(),
+                ]);
+            }
+
             echo 'YES';
         }
     }

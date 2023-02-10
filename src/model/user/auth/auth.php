@@ -321,5 +321,6 @@ class auth {
             $donate_point,
             $user_id,
         ]);
+
     }
 }

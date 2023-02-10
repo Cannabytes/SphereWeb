@@ -361,5 +361,17 @@ return [
     293 => "Minimum value %s for field %s",
     294 => "Class stats %s",
     295 => "Invalid security code",
+    296 => "<p>All money you transfer to this project through the donation page is considered a voluntary donation to the development of the project.</p>
+             <p>You don't buy anything and we don't sell anything. You help the project to the extent that it can help you. The exchange is recognized as equivalent and is considered charity. </p>
+             <p>The administration does not accept claims regarding the services provided and does not refund funds transferred by you as a voluntary donation</p>
+             <hr>
+             <p>After charitable assistance, you will receive points - Donat Bonus, with their help you can choose the item you need in the shop section.</p>",
+    297 => "You have",
+    299 => "piece",
+    300 => "Purchase history",
+    301 => "Item",
+    302 => "Purchased pieces",
+    303 => "History of donations",
+    304 => "You bought",
 
 ];

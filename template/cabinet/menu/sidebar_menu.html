@@ -76,12 +76,17 @@
           <i class="fa fa-comments-o"></i> <span>{{ phrase("menu_channel") }}</span>
         </a>
        </li-->
-	   
+
 	   <li>
-        <a href="/donate" class="waves-effect">
-          <i class="fa fa-money"></i> <span>{{ phrase("menu_donate") }}</span>
-        </a>
-       </li>
+		   <a href="javaScript:void();" class="waves-effect">
+			   <i class="fa fa fa-money"></i> <span>Донат</span>
+			   <i class="fa fa-angle-left float-right"></i>
+		   </a>
+		   <ul class="sidebar-submenu">
+			   <li><a href="/donate/pay"><i class="zmdi zmdi-dot-circle-alt"></i> {{ phrase("menu_donate") }}</a></li>
+			   <li><a href="/donate"><i class="zmdi zmdi-dot-circle-alt"></i> Магазин</a></li>
+		   </ul>
+	   </li>
 
 	   <li>
         <a href="/gallery" class="waves-effect">

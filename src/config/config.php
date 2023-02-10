@@ -16,6 +16,11 @@ class config {
     static private int    $max_user_count_screenshots = 0;
     static private int    $max_count_all_screenshots  = 0;
     static private bool   $forum_enable               = false;
+    /*
+     * Бонусная выплата доната
+     * Процент от суммы пополнения доната, который будет зачислен игроку
+     */
+    static private float $donation_bonus_payout = 10;
 
     static public function open() {
         self::$config = sql::run('SELECT * FROM `config`')->fetch(PDO::FETCH_OBJ);
@@ -89,5 +94,19 @@ class config {
 
     static public function save_template() {
         sql::run("UPDATE `config` SET `template` = ? LIMIT 1", [self::get_template()]);
+    }
+
+    /**
+     * @return float
+     */
+    public static function getDonationBonusPayout(): float {
+        return self::$donation_bonus_payout;
+    }
+
+    /**
+     * @param float $donation_bonus_payout
+     */
+    public static function setDonationBonusPayout(float $donation_bonus_payout): void {
+        self::$donation_bonus_payout = $donation_bonus_payout;
     }
 }

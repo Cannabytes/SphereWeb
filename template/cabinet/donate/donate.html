@@ -1,97 +1,115 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <div class="card-header text-uppercase">{{ phrase("menu_donate") }}</div>
-    <div class="card-body">
+<div class="row">
 
-        <div class="row">
-            <div class="col-sm-5">
-                <label>{{ phrase("summa") }}</label>
-                <div class="input-group bootstrap-touchspin"><span class="input-group-text bootstrap-touchspin-prefix"
-                                                                   style="display: none;"></span><input id="count"
-                                                                                                        type="text"
-                                                                                                        value="0"
-                                                                                                        name="demo3"
-                                                                                                        class="form-control"
-                                                                                                        style="display: block;">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="icheck-material-success">
-                    <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked/>
-                    <label for="freekassa">FREE-KASSA</label>
-                </div>
-
-                <!--div class="icheck-material-danger">
-                  <input type="radio" id="INTERKASSA" name="paysystem" value="interkassa" />
-                  <label for="INTERKASSA">INTERKASSA</label>
-                </div>
-
-                <div class="icheck-material-info">
-                  <input type="radio" id="ENOT" name="paysystem" value="enot" />
-                  <label for="ENOT">ENOT</label>
-                </div-->
-
-            </div>
-        </div>
-        <hr>
-        <div class="form-footer">
-            <button id="paynext" type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> {{
-                phrase("next") }}
-            </button>
-        </div>
-    </div>
-</div>
-
-<hr>
-
-<div class="row" id="products">
-    {% for product in products %}
-    <div class="col-lg-3">
-        <div class="pricing-table">
+        <div class="col-lg-12">
             <div class="card">
-                <div class="card-body text-center">
-                    <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
-                         title="{{ product['description']|nl2br }}">
-                        {{ grade_img(product['crystal_type']) }} {{product['name_en']}}
+                <div class="card-body">
+                    <h5 class="card-title">{{phrase(215)}} - {{phrase(297)}} <span class="header_donate_point_count">{{user_info('get_donate_point')}}</span>
+                        {{phrase(68)}}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col">{{phrase(71)}}</th>
+                                <th scope="col">{{phrase(299)}}</th>
+                                <th scope="col">{{phrase(72)}}</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in products %}
+                            <tr>
+                                <th scope="row" style="width: 32px"><img src="{{ icon( product.icon ) }}" class="customer-img"></th>
+                                <td>
+                                    <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
+                                         title="{{ product['description_en']|nl2br }}">
+                                    {{ grade_img(product['crystal_type']) }} {{product['name_en']}}
+                                    </div>
+                                </td>
+                                <td style="width: 210px">
+                                    {% if product['consume_type'] == "consume_type_normal" %}
+                                    <span id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                                          data-default_cost="{{product.cost}}" data-id="{{product.id}}">{{product.count}}</span>
+                                    {%else%}
+                                    <div class="input-group bootstrap-touchspin input-group-sm">
+                                        <span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span>
+                                        <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                                               data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="text"
+                                               name="demo3" class="count form-control-sm form-control" style="display: block;">
+                                    </div>
+                                    {% endif%}
+
+                                </td>
+                                <td><span id="product_count_{{product.id}}">{{ product.count|number_format(0, ',', '.')  }}</span></td>
+                                <td><span id="product_cost_{{product.id}}">{{ product.cost }}</span></td>
+                                <td>
+
+                                    <button href="javascript:void();" data-product-name="{{product['name_en']}}"
+                                            data-product-id="{{product.id}}" data-product-count="{{product.count}}"
+                                            data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply"
+                                            class="btn btn-success btn-sm openWindowBuy">
+                                        {{phrase(74)}}
+                                    </button>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
                     </div>
-                    <img src="{{ icon( product.icon ) }}" class="customer-img ">
+                </div>
+            </div>
+        </div>
+</div>
 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>{{phrase(71)}}:</b> <span id="product_count_{{product.id}}">{{ product.count|number_format }}</span>
-                        </li>
-                        <li class="list-group-item"><b>{{phrase(72)}}:</b> <span id="product_cost_{{product.id}}">{{ product.cost }}</span>
-                            ДО
-                        </li>
-                         <li {% if product['consume_type'] == "consume_type_normal" %}hidden{%endif%} class="list-group-item">
-                            <label>{{phrase(73)}}</label>
-                            <div class="input-group bootstrap-touchspin input-group-sm">
-                                <span class="input-group-text bootstrap-touchspin-prefix" style="display: none;"></span>
-                                <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
-                                       data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="text"
-                                       name="demo3" class="count form-control-sm form-control" style="display: block;">
-                            </div>
-                        </li>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i> {{phrase(300)}}</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="default-datatable" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{phrase(301)}}</th>
+                            <th>{{phrase(302)}}</th>
+                            <th>{{phrase(72)}}</th>
+                            <th>{{phrase(77)}}</th>
+                            <th>{{phrase(29)}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for history in donate_history %}
+                        <tr>
+                            <td><img src="{{ icon( history.icon ) }}" class="customer-img"></td>
+                            <td>
+                                <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
+                                     title="{{ history['description_en']|nl2br }}">
+                                    {{ grade_img(history['crystal_type']) }} {{history['name_en']}}
+                                </div>
+                            </td>
+                            <td>{{history.amount}}</td>
+                            <td>{{history.cost}}</td>
+                            <td>{{history.char_name}}</td>
+                            <td>{{history.date}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
 
-                    </ul>
-
-                    <button href="javascript:void();" data-product-name="{{product['name_en']}}"
-                            data-product-id="{{product.id}}" data-product-count="{{product.count}}"
-                            data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply"
-                            class="btn btn-success my-3 openWindowBuy">
-                        {{phrase(74)}}
-                    </button>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
-
 </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="modal_panel_apply">
@@ -119,14 +137,16 @@
 
 
                 <div class="form-group row">
-                    <label for="character" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
+                    <label for="char_name" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
                     <div class="col-sm-9">
                         <input type="text" id="char_name" class="form-control">
                     </div>
                 </div>
                 <hr>
-                <p>{{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
-                    {{phrase(78)}}: <span id="user_worth_buy"></span> {{phrase(79)}}</p>
+                <p>
+                   {{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
+                   {{phrase(72)}}: <span id="user_worth_buy"></span> {{phrase(68)}}
+                </p>
 
             </div>
             <div class="modal-footer">
@@ -156,36 +176,5 @@
 <script src="{{'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js'|template}}"></script>
 <script src="{{'assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js'|template}}"></script>
 
-<script>
-    $('#paynext').on('click', function () {
-        paysystem = $('input[name=paysystem]:checked').val();
-        if (paysystem == 'freekassa') {
-            return freekassa();
-        }
-
-    });
-
-    function freekassa() {
-        var count = $("#count").val();
-        $.ajax(
-            {
-                type: "POST",
-                url: "/donate/sign/freekassa",
-                data: ({"count": count}),
-                async: false,
-                dataType: "json",
-                success: function (response) {
-                    if (response['ok'] == false) {
-                        notify_error(response['message'])
-                        return;
-                    }
-                    const redirectLink = new URLSearchParams(response).toString();
-                    document.location.href = "https://pay.freekassa.ru/?" + redirectLink;
-                }
-            });
-    }
-
-
-</script>
 
 {% endblock %}

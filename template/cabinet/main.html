@@ -31,14 +31,6 @@
                                 {% for num,server in get_server_info() %}
                                 <div id="piil-{{ server.id }}"
                                      class="container tab-pane {% if server.id==user_info('get_default_server') %}active{% else %}fade{% endif %}">
-                                    <div class="btn-group m-10">
-                                        <a href="/registration/account/server/{{ server.id }}"
-                                           class="btn-social-text btn-github waves-effect waves-light m-1"><i
-                                                class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
-                                        <a href="/account/comparison/server/{{ server.id }}"
-                                           class="btn-social-text btn-github waves-effect waves-light m-1"><i
-                                                class="fa fa-refresh"></i> <span>{{ phrase(41) }}</span></a>
-                                    </div>
 
 
                                     <div class="table-responsive">
@@ -67,6 +59,11 @@
                                             {% endfor %}
                                             </tbody>
                                         </table>
+                                    </div>
+
+                                    <div class="btn-group m-10">
+                                        <a href="/registration/account/server/{{ server.id }}"  class="btn-social-text btn-github waves-effect waves-light m-1">
+                                            <i class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
                                     </div>
 
 

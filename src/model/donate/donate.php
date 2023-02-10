@@ -12,6 +12,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -19,6 +20,37 @@ use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 
 class donate {
+
+    /**
+     * @return false|\PDOStatement|null
+     * @throws Exception
+     * История платежей пользователя
+     */
+    static public function donate_history(){
+        $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC",[
+            auth::get_id(), auth::get_default_server()
+        ]);
+        $item_id_list = [];
+        foreach($donate as $item) {
+            $item_id_list[] = $item['item_id'];
+        }
+        if(empty($item_id_list))
+            return $item_id_list;
+        $list = implode(', ', $item_id_list);
+        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
+
+        $items = [];
+        foreach($donate as $item) {
+            $item_id = $item['item_id'];
+            foreach($lex as $row) {
+                if($item_id == $row['item_id']) {
+                    $items[] = array_merge($item, $row);
+                }
+            }
+        }
+        return $items;
+    }
+
 
     /**
      * Список товаров для покупки за донат очки
@@ -137,9 +169,20 @@ class donate {
 
         self::taking_money($cost_product, auth::get_id());
         auth::set_donate_point(auth::get_donate_point() - $cost_product);
+
+        sql::run("INSERT INTO `donate_history` (`user_id`, `item_id`, `amount`, `cost`, `char_name`, `server_id`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?)", [
+            auth::get_id(),
+            $donat_info['item_id'],
+            $donat_info['count'],
+            $donat_info['cost'],
+            $char_name,
+            $server_id,
+            time::mysql(),
+        ]);
+
         board::alert([
             'ok'           => true,
-            'message'      => "Вы купили " . $donat_info['item_id'] . " {$addToUserItems} шт. ",
+            'message'      => lang::get_phrase(304),
             'donate_bonus' => auth::get_donate_point(),
         ]);
     }
@@ -171,6 +214,21 @@ class donate {
             $addToUserItems,
             0,
             "INVENTORY",
+        ]);
+    }
+
+    static public function donate_history_pay_self() {
+        return sql::getRows("SELECT
+                                donate_history_pay.point, 
+                                donate_history_pay.pay_system, 
+                                donate_history_pay.date
+                            FROM
+                                donate_history_pay
+                            WHERE
+                                donate_history_pay.user_id = ?
+                            ORDER BY
+                                donate_history_pay.id DESC", [
+            auth::get_id(),
         ]);
     }
 }

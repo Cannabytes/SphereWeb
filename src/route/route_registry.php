@@ -93,10 +93,15 @@ $router->get("/statistic/char/{char_name}", 'Ofey\Logan22\controller\statistic\s
 /**
  * Донат
  */
-$router->get("donate", '\Ofey\Logan22\controller\donate\pay::show')->alias('donate');
+$router->get("donate/pay", '\Ofey\Logan22\controller\donate\pay::pay')->alias('donate_pay');
+$router->get("donate", '\Ofey\Logan22\controller\donate\pay::shop')->alias('donate');
+
 $router->post("donate/sign/freekassa", '\Ofey\Logan22\controller\donate\pay::sign_freekassa');
 $router->post("donate/transaction", 'Ofey\Logan22\controller\donate\pay::transaction');
 $router->post("donate/pay/success/freekassa", '\Ofey\Logan22\model\donate\freekassa::transaction');
+
+$router->post("donate/sign/primepayments", '\Ofey\Logan22\controller\donate\pay::sign_primepayments');
+
 
 /**
  * Галерея
