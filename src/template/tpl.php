@@ -398,8 +398,8 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('icon', function($fileIcon = null) {
-            if(file_exists("uploads/images/icon/" . $fileIcon) and $fileIcon != null) {
-                return "/uploads/images/icon/" . $fileIcon;
+            if(file_exists("uploads/images/icon/" . $fileIcon . ".webp") and $fileIcon != null) {
+                return "/uploads/images/icon/" . $fileIcon . ".webp";
             }
             return "/uploads/images/icon/NOIMAGE.webp";
         }));
