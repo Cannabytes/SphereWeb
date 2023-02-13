@@ -391,5 +391,6 @@ return [
     316 => "Invited User Characters",
     317 => "PvP",
     318 => "PK",
-
+    319 => "Game chats",
+    320 => "Caching",
 ];

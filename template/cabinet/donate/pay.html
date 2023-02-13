@@ -103,25 +103,10 @@
 <script>
 
     $("#count").ionRangeSlider({
-        min: 100,
+        min: 10,
         max: 10000,
         from: 1000
     });
-
-     const obj = JSON.parse('{{bonus_list|raw}}');
-     $("#count").change(function () {
-         $('#bonus_list_table').empty();
-         Object.entries(obj).forEach(([key, bonus]) => {
-             if($(this).val()>=bonus.min_initial_amount && $(this).val()<=bonus.max_initial_amount){
-                 $("#bonus_list_table").append('<tr>\n' +
-                     '<td class="col-md-1"><img src="/uploads/images/icon/'+bonus.icon+'" ></td>\n' +
-                     '<td>'+bonus.name_en+'</td>\n' +
-                     '<td class="col-md-1">'+bonus.count+'</td>\n' +
-                     '</tr>');
-             }
-         })
-     });
-
 
      $('#paynext').on('click', function () {
         paysystem = $('input[name=paysystem]:checked').val();

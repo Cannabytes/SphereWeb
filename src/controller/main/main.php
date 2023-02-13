@@ -17,9 +17,6 @@ use Ofey\Logan22\template\tpl;
 class main {
 
     static public function index() {
-//        session::clear();
-//        var_dump($_SESSION);
-//        exit;
         tpl::display("main.html");
     }
 }

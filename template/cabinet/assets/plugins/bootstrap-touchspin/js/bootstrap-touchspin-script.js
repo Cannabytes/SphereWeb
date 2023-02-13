@@ -51,7 +51,7 @@ $(document).ready(function () {
             type: "POST",
             url: "/donate/transaction",
             data: {
-                server_id: $("#server_donate").val(),
+                server_id: $(this).attr("data-server_id"),
                 id: $(this).attr("data-product-id"),
                 user_value: $("#buy").attr("data-user_value"),
                 char_name: $("#char_name").val(),

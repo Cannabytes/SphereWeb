@@ -12,6 +12,8 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\request;
+use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
@@ -93,7 +95,7 @@ class donate {
     static public function transaction() {
         $id = $_POST['id'];
         $server_id = $_POST['server_id'];
-        $user_value = $_POST['user_value'];
+        $user_value = request::setting('user_value', new request_config(min: 1));
         $char_name = trim($_POST['char_name']);
         if($char_name == "") {
             board::notice(false, lang::get_phrase(148));
@@ -102,6 +104,8 @@ class donate {
         if(!$donat_info) {
             board::notice(false, lang::get_phrase(152));
         }
+
+
         //Стоимость товара * на количество
         $cost_product = $donat_info['cost'] * $user_value;
         if($cost_product > auth::get_donate_point()) {
