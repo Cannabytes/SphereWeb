@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% set title = phrase("menu_referrals") %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header text-uppercase">{{phrase(306)}}</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        {{phrase(307, timeHasPassed(GAME_TIME, "true"), LEVEL, PVP, PK)|raw}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+{% set referral_count = referral_count(referrals) %}
+{% set is_player_bonus = is_referral_bonus(referrals) %}
+<div class="row">
+            <div class="col-12 col-lg-12 col-xl-12">
+              <div class="card ">
+                <div class="card-body">
+                  <div class="row row-group align-items-center">
+                    <div class="col-12 col-lg-3 text-center p-1 border-white-2">
+                      <div class="fleet-status fleet-chart" data-percent="{{referral_count.made}}">
+                       <span class="fleet-status-percent"></span>
+                    <canvas width="110" height="110"></canvas></div>
+                    </div>
+                    <div class="col-12 col-lg-5 text-center p-1  border-white-2">
+                        {% if is_player_bonus %}
+                            <span class=""><button type="button" class="btn btn-success btn-lg waves-effect waves-light referral" > <i class="fa fa-money"></i> <span>{{phrase(309)}}</span> </button>
+                        {% else %}
+                            <span class=""><button data-toggle="tooltip" data-placement="top"
+                                                   title="{{phrase(308)}}" type="button" disabled="disabled" class="btn btn-dark btn-lg waves-effect waves-light referral" > <i class="fa fa-money"></i> <span>{{phrase(309)}}</span> </button>
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-lg-4 p-1">
+                      <ul>
+                        <li class="text-white">{{phrase(310)}} : {{referral_count.completed+referral_count.continues}}</li>
+                        <li class="text-white">{{phrase(311)}} : {{referral_count.completed}}</li>
+                        <li class="text-white">{{phrase(312)}} : {{referral_count.continues}}</li>
+                        <li class="text-white">{{phrase(313)}} :
+                            {% if user_info('get_name') %}
+                             <a data-toggle="tooltip" data-placement="top"
+                                title="{{phrase(314)}}" class="copy" onclick="return false;" href="{{referral_link()}}">{{referral_link()}}</a>
+                            {% else %}
+                            <a href="/user/change">{{phrase(315)}}</a>
+                            {% endif %}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<div class="row">
+
+    {% for referral in referrals %}
+    {%if referral.done == false %}
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <h5 class="card-title">{{phrase(316)}} - #{{i+1}}
+                        </h5>
+                        <thead>
+                        <tr>
+                            <th scope="col">{{phrase(93)}}</th>
+                            <th scope="col">{{phrase(100)}}</th>
+                            <th scope="col">{{phrase(317)}}</th>
+                            <th scope="col">{{phrase(318)}}</th>
+                            <th scope="col">{{phrase(115)}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for character in referral.characters %}
+                        <tr>
+                            <td style="width: 10%">{{character.player_name}}</td>
+                            <td style="width: 10%">{{character.level}} {%if character.level >= LEVEL %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                            <td style="width: 10%">{{character.pvp}} {%if character.pvp >= PVP %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                            <td style="width: 10%">{{character.pk}} {%if character.pk >= PK %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                            <td style="width: 10%">{{timeHasPassed(character.time_in_game)}} {%if character.time_in_game >= GAME_TIME %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   {% endif %}
+   {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/js/referral/referral.js'|template}}"></script>
+
+  <script src="{{'assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js'|template}}"></script>
+    <script>
+        $('.fleet-chart').easyPieChart({
+            easing: 'easeOutBounce',
+            barColor : '#ffffff',
+            lineWidth: 15,
+            trackColor : 'rgba(255, 255, 255, 0.05)',
+            scaleColor: false,
+            onStep: function(from, to, percent) {
+                $(this.el).find('.fleet-status-percent').text(Math.round(percent));
+            }
+        });
+    </script>
+{% endblock %}

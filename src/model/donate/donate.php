@@ -197,7 +197,7 @@ class donate {
         ])->fetch();
     }
 
-    static private function taking_money($dp, $user_id) {
+    static public function taking_money($dp, $user_id) {
         sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
             $dp,
             $user_id,

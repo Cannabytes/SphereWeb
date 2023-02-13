@@ -172,8 +172,8 @@ class tpl {
         }));
 
         //Время (в секундах) в часы. минуты, сек.
-        $twig->addFunction(new TwigFunction('timeHasPassed', function($num) {
-            return statistic::timeHasPassed($num);
+        $twig->addFunction(new TwigFunction('timeHasPassed', function($num, $onlyHour = false) {
+            return statistic::timeHasPassed($num, $onlyHour);
         }));
         $twig->addFunction(new TwigFunction('get_class', function($class_id) {
             return race_class::get_class($class_id);
@@ -347,10 +347,6 @@ class tpl {
             return statistic_model::get_players_block($server_id);
         }));
 
-
-
-
-
         //Список последних новостей
         $twig->addFunction(new TwigFunction('last_news', function($last_thread = 10) {
             return page::show_news_short(300, $last_thread, false);
@@ -402,6 +398,51 @@ class tpl {
                 return "/uploads/images/icon/" . $fileIcon . ".webp";
             }
             return "/uploads/images/icon/NOIMAGE.webp";
+        }));
+
+        //Есть ли бонус для персонажа за привлеченного пользователя
+        $twig->addFunction(new TwigFunction('is_referral_bonus', function($referralls) {
+            require_once 'src/config/referral.php';
+            foreach($referralls as $accounts) {
+                if($accounts['done']) {
+                    continue;
+                }
+                foreach($accounts['characters'] as $character) {
+                    if($character['level'] >= LEVEL and $character['pvp'] >= PVP and $character['pk'] >= PK and $character['time_in_game'] >= GAME_TIME) {
+                        return $character['player_name'];
+                    }
+                }
+            }
+            return false;
+        }));
+        //Кол-во завершенных и не завершенных рефералов
+        $twig->addFunction(new TwigFunction('referral_count', function($referralls) {
+            $count['completed'] = 0;
+            $count['continues'] = 0;
+            $count['made'] = 0;
+            if(!$referralls) {
+                return $count;
+            }
+            foreach($referralls as $referrall) {
+                if($referrall['done']) {
+                    $count['completed']++;
+                    continue;
+                }
+                $count['continues']++;
+            }
+            $count['made'] = $count['completed'] / count($referralls) * 100;
+            return $count;
+        }));
+
+        $twig->addFunction(new TwigFunction('referral_link', function() {
+            if(isset($_SERVER['HTTPS']))
+                $scheme = $_SERVER['HTTPS']; else $scheme = '';
+            if(($scheme) && ($scheme != 'off'))
+                $scheme = 'https://'; else $scheme = "http://";
+            if(auth::get_name() == "") {
+                return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . auth::get_id();
+            }
+            return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . mb_strtolower(auth::get_name());
         }));
 
         $template = $twig->load($tplName);

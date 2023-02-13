@@ -94,6 +94,14 @@
         </a>
        </li>
 
+	   {% if user_info('get_is_auth') %}
+	   <li>
+        <a href="/referral" class="waves-effect">
+          <i class="fa fa-users"></i> <span>{{phrase("menu_referrals")}}</span>
+        </a>
+       </li>
+	   {% endif %}
+
       
       <!--li>
         <a href="javaScript:void();" class="waves-effect">

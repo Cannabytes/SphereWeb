@@ -44,9 +44,26 @@ class auth {
     static public function get_default_server() {
         $server_id = session::get('default_server');
         $get_server_info = server::get_server_info();
+        /*
+         * Если нет никакого сервера, ставим последний сервер
+         * Однако...если сервера больше больше чем 2, тогда последний сервер проверяем на дату запуска, если она
+         * прошла, тогда выставляем последний, иначе предпоследний.
+         */
+        //TODO: Потом сделать в настройках - сервер по умолчанию (для новых пользователей без выбранного сервера и
+        //для тех у кого есть сервер, который не актуален/удален/выключен).
+        if($server_id){
+            foreach($get_server_info AS $row){
+                if($row['id']==$server_id){
+                    return $server_id;
+                }
+            }
+        }
+
+        //Если нет вообще серверов...
         if(!$get_server_info) {
             return false;
         }
+        //Дадим пользователю сервер по умолчанию
         if(!array_search($server_id, array_column($get_server_info, 'id'))) {
             $get_server_info = end($get_server_info);
             session::add('default_server', $get_server_info['id']);
@@ -238,6 +255,11 @@ class auth {
         return self::$userInfo;
     }
 
+    //Проверка существования пользователя по его никнейму
+    static public function exist_user_nickname($nickname, $nCheck = true) {
+        return sql::run('SELECT * FROM `users` WHERE `name` = ?;', [$nickname])->fetch();
+    }
+
     /**
      * @param $email
      *
@@ -321,6 +343,13 @@ class auth {
             $donate_point,
             $user_id,
         ]);
+    }
+
+    static public function add_donate_self($amount) {
+        sql::run("UPDATE `users` SET `donate_point` = `donate_point`+? WHERE `id` = ?", [
+            $amount,
+            auth::get_id(),
+        ]);
+    }
 
     }
-}

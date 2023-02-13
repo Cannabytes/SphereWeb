@@ -21,6 +21,8 @@ $router->post("registration/account", 'Ofey\Logan22\controller\registration\acco
 
 $router->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
 $router->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
+$router->get("registration/user/ref/{username}", 'Ofey\Logan22\controller\registration\user::show');
+
 
 $router->post("generation/account", function() {
     echo \Ofey\Logan22\component\account\generation::word();
@@ -47,6 +49,12 @@ $router->post("auth/forget/send/code", 'Ofey\Logan22\controller\user\auth\auth::
 $router->post("auth/forget/verification/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_verification_forget');
 $router->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
 $router->post("/auth/forget/send/password", 'Ofey\Logan22\controller\user\auth\auth::send_password');
+
+/**
+ * Реферальная система
+ */
+$router->get("/referral", 'Ofey\Logan22\controller\referral\referral::show');
+$router->post("/referral", 'Ofey\Logan22\controller\referral\referral::my_bonus');
 
 /**
  * Пользовательское

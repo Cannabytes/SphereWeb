@@ -38,7 +38,7 @@
 
 
                     <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Анти-Бот</label>
+                        <label for="captcha" class="col-sm-2 col-form-label">Анти-Бот</label>
                         <div class="col-sm-2">
                             <a href="#"> <img id='refreshCaptcha' src="" class="lightbox-thumb img-thumbnail captcha" /> </a>
                         </div>
@@ -46,6 +46,23 @@
                             <input type="text" class="form-control form-control-xl" name="captcha" id="captcha" >
                         </div>
                     </div>
+
+                    {% if referral_name %}
+                    <hr>
+                    <div class="form-group row">
+                        <label for="referral_name" class="col-sm-2 col-form-label">Кто Вас пригласил</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control form-control-xl" name="referral_name" id="referral_name" value="{{referral_name}}">
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="text-left">
+                                Укажите ID или ник пользователя,<br>
+                                который вас позвал.
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endif %}
 
 
 

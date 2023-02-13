@@ -220,7 +220,7 @@ class statistic {
         return self::$top_counter = self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
     }
 
-    public static function timeHasPassed($second): string {
+    public static function timeHasPassed($second, $onlyHour = false): string {
         if(lang::lang_user_default() == "ru") {
             $times_values = [
                 'сек.',
@@ -240,6 +240,9 @@ class statistic {
         }
 
         $times = self::seconds2times($second);
+        if($onlyHour){
+            return $times[2] . ' ' . $times_values[2] . ' ';
+        }
         $line = '';
         for($i = count($times) - 1; $i >= 0; $i--) {
             $line .= $times[$i] . ' ' . $times_values[$i] . ' ';
@@ -268,7 +271,6 @@ class statistic {
             if(($period > 0) || ($period == 0 && $count_zero)) {
                 $times[$i + 1] = $period;
                 $seconds -= $period * $periods[$i];
-
                 $count_zero = true;
             }
         }

@@ -37,9 +37,17 @@ class character {
         return $players;
     }
 
-    public static function my_characters($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "account_characters");
-        return player_account::extracted($base, $info, $prepare);
+
+    public static function get_characters($login, $server_id) {
+        $info = server::server_info($server_id);
+        if(!$info){
+            return false;
+        }
+        $base = base::get_sql_source($info['collection_sql_base_name'], "account_players");
+        $players = player_account::extracted($base, $info, [$login]);
+        $players = $players->fetchAll();
+        crest::conversion($players);
+        return $players;
     }
 
     public static function get_player($char_name, $server_id) {

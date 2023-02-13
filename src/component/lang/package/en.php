@@ -21,6 +21,7 @@ return [
     "menu_donate" => "Donation",
     "menu_gallery" => "Gallery",
     "menu_loading" => "Load",
+    "menu_referrals" => "Referrals",
     "not_authorized" => "Not authorized",
     "authorization" => "Authorization",
     "logout" => "Logout",
@@ -373,5 +374,22 @@ return [
     302 => "Purchased pieces",
     303 => "History of donations",
     304 => "You bought",
+
+    305 => "Success",
+    306 => "Referral system",
+    307 => "<p class='text-left'>Invite users and get bonuses for players.</p>
+             <p class='text-left'>You can get Donat Bonuses when one of the characters has %s
+             games, %d level, %d PvP, %d PK.</p>",
+    308 => "No referral bonus available",
+    309 => "Get Donat Bonus",
+    310 => "Total referrals",
+    311 => "Completed",
+    312 => "Remaining",
+    313 => "Referral link",
+    314 => "Copy",
+    315 => "Create a nickname for yourself first",
+    316 => "Invited User Characters",
+    317 => "PvP",
+    318 => "PK",
 
 ];

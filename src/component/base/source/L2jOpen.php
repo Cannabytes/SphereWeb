@@ -478,6 +478,7 @@ class L2jOpen implements structure {
 
     static public function account_players(): string {
         return 'SELECT
+                    characters.account_name,
                     characters.obj_id AS player_id,
                     characters.char_name AS player_name,
                     characters.karma,

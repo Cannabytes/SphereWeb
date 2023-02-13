@@ -16,8 +16,11 @@ use SimpleCaptcha\Builder;
 
 class user {
 
-    static public function show() {
+    static public function show($ref_name = null) {
         validation::user_protection("guest");
+        tpl::addVar([
+            'referral_name' => $ref_name,
+        ]);
         tpl::display("/user/auth/new_user_registration.html");
     }
 
