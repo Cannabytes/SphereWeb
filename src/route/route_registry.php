@@ -23,7 +23,6 @@ $router->get("registration/user", 'Ofey\Logan22\controller\registration\user::sh
 $router->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
 $router->get("registration/user/ref/{username}", 'Ofey\Logan22\controller\registration\user::show');
 
-
 $router->post("generation/account", function() {
     echo \Ofey\Logan22\component\account\generation::word();
 });
