@@ -22,7 +22,7 @@ class statistic {
     /**
      * @throws \Exception
      */
-    static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60): ?array {
+    static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60): null|array|bool {
         [
             $server_info,
             $json,
@@ -43,7 +43,7 @@ class statistic {
             }
             cache::save($dir->show_dynamic($server_info['id']), $data);
         }else{
-            return null;
+            return false;
         }
         return $data;
     }
@@ -155,7 +155,7 @@ class statistic {
         return self::$castle = self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle', $server_id, second: timeout::statistic_castle->time());
     }
 
-    static private ?array $players_block = null;
+    static private null|array|false $players_block = null;
 
     public static function get_players_block($server_id = 0) {
         if(self::$players_block) {
@@ -164,7 +164,7 @@ class statistic {
         return self::$players_block = self::get_data_statistic(dir::statistic_block, 'statistic_top_block', $server_id, second: timeout::statistic_block->time());
     }
 
-    static private ?array $players_heroes = null;
+    static private null|array|false $players_heroes = null;
 
     public static function get_players_heroes($server_id = 0) {
         if(self::$players_heroes) {

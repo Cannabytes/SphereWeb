@@ -2,7 +2,6 @@
 {% set title = phrase(246) %}
 
 {% block content %}
-
 {% if statistic_get_players_heroes() is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}

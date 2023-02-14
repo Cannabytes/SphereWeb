@@ -20,18 +20,15 @@ namespace Ofey\Logan22\component\base\source;
 
 use Ofey\Logan22\component\base\structure;
 
-class L2jOpen implements structure {
+class L2jLucera3 implements structure {
 
     static public function hash(): string {
-        return 'sha1';
+        return 'whirlpool';
     }
 
     static public function chronicle(): array {
         return [
-            267,
-            268,
-            271,
-            273,
+            746,
         ];
     }
 
@@ -46,7 +43,7 @@ class L2jOpen implements structure {
 
     #[db("login")]
     static public function account_registration(): string {
-        return 'INSERT INTO `accounts` (`login`, `password`, `email` ) VALUES (?, ?, ?);';
+        return 'INSERT INTO `accounts` (`login`, `password`, `accessLevel`, `l2email` ) VALUES (?, ?, 0, ?);';
     }
 
     #[db("login")]
@@ -56,7 +53,7 @@ class L2jOpen implements structure {
 
     #[db("login")]
     static public function accounts_email(): string {
-        return 'SELECT login, password FROM accounts WHERE email = ?';
+        return 'SELECT login, password FROM accounts WHERE l2email = ?';
     }
 
     #[db('game')]
@@ -73,11 +70,11 @@ class L2jOpen implements structure {
                         characters.clanid AS clan_id, 
                         characters.`online`, 
                         characters.onlinetime AS time_in_game, 
-                        clan_data.clan_name, 
                         clan_data.crest AS clan_crest, 
                         character_subclasses.class_id AS class_id, 
                         character_subclasses.`level` AS level, 
-                        ally_data.crest AS alliance_crest
+                        ally_data.crest AS alliance_crest,
+                        clan_subpledges.name AS clan_name
                     FROM
                         characters
                         LEFT JOIN
@@ -92,6 +89,10 @@ class L2jOpen implements structure {
                         ally_data
                         ON 
                             clan_data.ally_id = ally_data.ally_id
+                        LEFT JOIN
+                        clan_subpledges
+                        ON 
+                            characters.clanid = clan_subpledges.clan_id
                     WHERE
                         character_subclasses.active = 1
                     ORDER BY
@@ -112,7 +113,7 @@ class L2jOpen implements structure {
                         characters.clanid AS clan_id, 
                         characters.`online`, 
                         characters.onlinetime AS time_in_game, 
-                        clan_data.clan_name, 
+                        clan_subpledges.name AS clan_name, 
                         clan_data.crest AS clan_crest, 
                         character_subclasses.class_id AS class_id, 
                         character_subclasses.`level`, 
@@ -131,6 +132,10 @@ class L2jOpen implements structure {
                         ally_data
                         ON 
                             clan_data.ally_id = ally_data.ally_id
+                        LEFT JOIN
+                            clan_subpledges
+                            ON 
+                                characters.clanid = clan_subpledges.clan_id
                     WHERE
                         character_subclasses.active = 1
                     ORDER BY
@@ -140,57 +145,53 @@ class L2jOpen implements structure {
 
     static public function statistic_top_clan(): string {
         return 'SELECT
-                        clan_data.clan_id,
-                        clan_data.hasCastle AS castle_id,
-                        clan_data.reputation_score,
-                        clan_data.leader_id,
-                        characters.char_name AS player_name,
-                        characters.pvpkills AS pvp,
-                        characters.pkkills AS pk,
-                        characters.`online`,
-                        characters.onlinetime AS time_in_game,
-                        characters.`sex`,
-                        clan_data.clan_name,
-                        clan_data.clan_level,
-                        clan_data.crest AS clan_crest,
-                        ally_data.crest AS alliance_crest,
-                        ( SELECT COUNT(*) FROM characters WHERE clanid = clan_data.clan_id ) AS clan_count_members 
-                    FROM
-                        clan_data
-                        LEFT JOIN characters ON clan_data.leader_id = characters.obj_Id
-                        LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
-                    ORDER BY
-                        clan_count_members DESC,
-                        clan_data.reputation_score DESC 
-                        LIMIT 100';
+                    clan_data.clan_id,
+                    clan_data.clan_level,
+                    clan_data.reputation_score,
+                    clan_data.hasCastle AS castle_id,
+                    clan_subpledges.`name` AS clan_name,
+                    clan_subpledges.leader_id,
+                    clan_data.crest AS clan_crest,
+                    characters.char_name AS `player_name`,
+                    characters.pvpkills AS `pvp`,
+                    characters.pkkills AS `pk`,
+                    characters.`online`,
+                    characters.onlinetime AS `time_in_game`,
+                    ally_data.crest AS alliance_crest,
+                    ( SELECT COUNT(*) FROM characters WHERE clanid = clan_data.clan_id ) AS clan_count_members 
+                FROM
+                    clan_data
+                    INNER JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
+                    INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
+                ORDER BY
+                    clan_count_members DESC,
+                    clan_data.reputation_score DESC 
+                    LIMIT 100';
     }
 
     static public function statistic_clan_data(): string {
         return 'SELECT
-                    clan_data.clan_id, 
-                    clan_data.clan_name, 
-                    clan_data.clan_level, 
-                    clan_data.hasCastle AS castle_id, 
-                    clan_data.hasFortress AS fortress_id, 
-                    clan_data.hasHideout AS hideout_id, 
-                    clan_data.ally_id, 
-                    clan_data.leader_id, 
-                    clan_data.crest as `clan_crest`, 
-                    clan_data.reputation_score, 
+                    clan_data.clan_id,
+                    clan_data.clan_level,
+                    clan_data.hasCastle AS castle_id,
+                    clan_data.hasFortress AS fortress_id,
+                    clan_data.hasHideout AS hideout_id,
+                    clan_data.crest AS clan_crest,
+                    clan_data.reputation_score,
+                    clanhall.id AS clanhall_id,
+                    clan_subpledges.`name` AS `clan_name`,
+                    clan_subpledges.leader_id,
                     characters.char_name AS `player_name_leader_clan`,
-                    clanhall.id AS clanhall_id
-                    FROM
-                        clan_data
-                        LEFT JOIN
-                        characters
-                        ON 
-                            clan_data.leader_id = characters.obj_Id
-                        LEFT JOIN
-                        clanhall
-                        ON 
-                            clan_data.clan_id = clanhall.ownerId
+                    ally_data.crest AS `alliance_crest` 
+                FROM
+                    clan_data
+                    LEFT JOIN clanhall ON clan_data.clan_id = clanhall.ownerId
+                    INNER JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
+                    INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
+                    INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
                 WHERE
-                    clan_data.clan_name = ?';
+                    clan_subpledges.name = ?';
     }
 
     static public function statistic_clan_skills(): string {
@@ -223,153 +224,131 @@ class L2jOpen implements structure {
 
     static public function statistic_top_heroes(): string {
         return 'SELECT
-                        characters.char_name AS player_name, 
-                        characters.pvpkills AS pvp, 
-                        characters.pkkills AS pk, 
-                        characters.`online`, 
-                        characters.onlinetime AS time_in_game, 
-                        clan_data.clan_name, 
-                        clan_data.crest AS clan_crest, 
-                        ally_data.crest AS alliance_crest, 
-                        character_subclasses.class_id, 
-                        character_subclasses.`level`
-                    FROM
-                        heroes
-                        LEFT JOIN
-                        characters
-                        ON 
-                            heroes.char_id = characters.obj_Id
-                        LEFT JOIN
-                        clan_data
-                        ON 
-                            characters.clanid = clan_data.clan_id
-                        LEFT JOIN
-                        ally_data
-                        ON 
-                            clan_data.ally_id = ally_data.ally_id
-                        INNER JOIN
-                        character_subclasses
-                        ON 
-                            heroes.char_id = character_subclasses.char_obj_id
-                    WHERE
-                        character_subclasses.isBase = 1
-                    ORDER BY
-	                    characters.onlinetime DESC LIMIT 100';
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest,
+                    character_subclasses.class_id,
+                    character_subclasses.`level`,
+                    clan_subpledges.`name` AS clan_name 
+                FROM
+                    heroes
+                    LEFT JOIN characters ON heroes.char_id = characters.obj_Id
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN character_subclasses ON heroes.char_id = character_subclasses.char_obj_id
+                    LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+                WHERE
+                    character_subclasses.isBase = 1 
+                ORDER BY
+                    characters.onlinetime DESC 
+                    LIMIT 100';
     }
 
     static public function statistic_top_castle(): string {
         return 'SELECT
-                        castle.id AS castle_id,
-                        castle.`name`,
-                        castle.taxPercent as tax,
-                        castle.treasury,
-                        castle.siegeDate as dataSiege,
-                        clan_data.clan_name,
-                        clan_data.clan_level,
-                        clan_data.ally_id,
-                        clan_data.leader_id,
-                        clan_data.crest AS clan_crest,
-                        clan_data.reputation_score,
-                        characters.char_name AS player_name,
-                        characters.pvpkills AS pvp,
-                        characters.pkkills AS pk,
-                        clan_data.clan_id,
-                        characters.`online`,
-                        characters.onlinetime AS time_in_game,
-                        ally_data.crest AS alliance_crest 
-                    FROM
-                        castle
-                        LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
-                        LEFT JOIN characters ON clan_data.leader_id = characters.obj_Id
-                        LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id';
+                    castle.id AS castle_id,
+                    castle.`name`,
+                    castle.tax_percent AS tax,
+                    castle.treasury,
+                    castle.siege_date AS dataSiege,
+                    clan_data.clan_level,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest,
+                    clan_subpledges.`name` AS `clan_name`,
+                    clan_subpledges.leader_id,
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game 
+                FROM
+                    castle
+                    LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
+                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id';
     }
 
     static public function statistic_top_block(): string {
         return 'SELECT
-                        characters.char_name AS player_name, 
-                        characters.pvpkills AS pvp, 
-                        characters.pkkills AS pk, 
-                        characters.onlinetime AS time_in_game, 
-                        characters.accesslevel, 
-                        clan_data.clan_name, 
-                        clan_data.crest AS clan_crest, 
-                        ally_data.crest AS alliance_crest
-                    FROM
-                        characters
-                        LEFT JOIN
-                        clan_data
-                        ON 
-                            characters.clanid = clan_data.clan_id
-                        INNER JOIN
-                        ally_data
-                        ON 
-                            clan_data.ally_id = ally_data.ally_id
-                    WHERE
-                        characters.accesslevel < 0;';
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.onlinetime AS time_in_game,
+                    characters.accesslevel,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest,
+                    clan_subpledges.`name` AS `clan_name` 
+                FROM
+                    characters
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+                    INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
+                WHERE
+                    characters.accesslevel < 0;';
     }
 
     static public function statistic_top_onlinetime(): string {
         return 'SELECT
-                        characters.obj_Id AS player_id, 
-                        characters.char_name AS player_name, 
-                        characters.pvpkills AS pvp, 
-                        characters.pkkills AS pk, 
-                        characters.clanid, 
-                        characters.`online`, 
-                        characters.onlinetime AS time_in_game, 
-                        clan_data.clan_name, 
-                        clan_data.clan_level, 
-                        clan_data.hasCastle AS castle_id, 
-                        clan_data.crest AS clan_crest, 
-                        clan_data.reputation_score AS clan_reputation_score, 
-                        ally_data.crest AS alliance_crest, 
-                        character_subclasses.class_id, 
-                        character_subclasses.`level`
-                    FROM
-                        characters
-                        LEFT JOIN
-                        clan_data
-                        ON 
-                            characters.clanid = clan_data.clan_id
-                        LEFT JOIN
-                        ally_data
-                        ON 
-                            clan_data.ally_id = ally_data.ally_id
-                        LEFT JOIN
-                        character_subclasses
-                        ON 
-                            characters.obj_Id = character_subclasses.char_obj_id
-                    WHERE
-                        character_subclasses.isBase = 1
-                    ORDER BY
-                        characters.onlinetime DESC
-                    LIMIT 100;';
+	characters.obj_Id AS player_id,
+	characters.char_name AS player_name,
+	characters.pvpkills AS pvp,
+	characters.pkkills AS pk,
+	characters.clanid,
+	characters.`online`,
+	characters.onlinetime AS time_in_game,
+	clan_data.crest AS clan_crest,
+	ally_data.crest AS alliance_crest,
+	clan_data.reputation_score,
+	clan_data.clan_level,
+	clan_data.hasCastle AS castle_id,
+	clan_subpledges.`name` AS clan_name,
+	character_subclasses.class_id,
+	character_subclasses.`level`,
+	character_subclasses.isBase 
+FROM
+	characters
+	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
+	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
+WHERE
+	character_subclasses.isBase = 1 
+ORDER BY
+	characters.onlinetime DESC 
+	LIMIT 100;';
     }
 
     static public function statistic_player_info(): string {
         return 'SELECT
-                    characters.obj_id AS player_id,
-                    characters.char_name AS player_name,
-                    characters.karma,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    characters.createtime,
-                    characters.title,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    character_subclasses.class_id,
-                    character_subclasses.`level`,
-                    character_subclasses.isBase,
-                    clan_data.clan_name,
-                    clan_data.crest AS clan_crest,
-                    ally_data.crest AS alliance_crest 
-                FROM
-                    characters
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                    LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
-                WHERE
-                    characters.char_name = ? AND character_subclasses.isBase = 1';
+	characters.obj_Id AS player_id,
+	characters.char_name AS player_name,
+	characters.pvpkills AS pvp,
+	characters.pkkills AS pk,
+	characters.clanid,
+	characters.`online`,
+	characters.onlinetime AS time_in_game,
+	clan_data.crest AS clan_crest,
+	ally_data.crest AS alliance_crest,
+	clan_data.reputation_score,
+	clan_data.clan_level,
+	clan_data.hasCastle AS castle_id,
+	clan_subpledges.`name` AS clan_name,
+	character_subclasses.class_id,
+	character_subclasses.`level`,
+	character_subclasses.isBase 
+FROM
+	characters
+	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
+	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
+WHERE
+  characters.char_name = ? AND character_subclasses.isBase = 1;';
     }
 
     static public function statistic_player_info_sub_class(): string {
@@ -384,15 +363,15 @@ class L2jOpen implements structure {
 
     static public function statistic_player_inventory_info(): string {
         return 'SELECT
-                        items.item_id,
-                        items.count,
-                        items.loc,
-                        items.enchant_level 
-                    FROM
-                        items 
-                    WHERE
-                        ( items.loc = "PAPERDOLL" OR items.loc = "INVENTORY" ) 
-                        AND items.owner_id = ?';
+                    items.item_type AS `item_id`,
+                    items.amount as `count`,
+                    items.location as `loc`,
+                    items.enchant as `enchant_level` 
+                FROM
+                    items 
+                WHERE
+                    ( items.location = "PAPERDOLL" OR items.location = "INVENTORY" ) 
+                    AND items.owner_id = ?';
     }
 
     static public function statistic_top_counter(): string {
@@ -416,9 +395,9 @@ class L2jOpen implements structure {
                     characters.pkkills AS pk, 
                     characters.onlinetime AS time_in_game, 
                     character_subclasses.`level`, 
-                    clan_data.clan_name, 
                     clan_data.crest AS clan_crest, 
-                    ally_data.crest AS alliance_crest
+                    ally_data.crest AS alliance_crest, 
+                    clan_subpledges.`name` AS `clan_name`
                 FROM
                     character_subclasses
                     LEFT JOIN
@@ -433,12 +412,16 @@ class L2jOpen implements structure {
                     ally_data
                     ON 
                         clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN
+                    clan_subpledges
+                    ON 
+                        characters.clanid = clan_subpledges.clan_id
                 WHERE
                     character_subclasses.class_id = ? AND
                     character_subclasses.isBase = 1 AND
                     characters.pvpkills > 0
                 ORDER BY
-                    characters.pvpkills DESC,
+                    characters.pvpkills DESC, 
                     character_subclasses.`level` DESC, 
                     time_in_game DESC
                 LIMIT 100;';
@@ -491,16 +474,17 @@ class L2jOpen implements structure {
                     character_subclasses.class_id,
                     character_subclasses.`level`,
                     character_subclasses.isBase,
-                    clan_data.clan_name,
                     clan_data.crest AS clan_crest,
-                    ally_data.crest AS alliance_crest 
+                    ally_data.crest AS alliance_crest,
+                    clan_subpledges.`name` AS `clan_name` 
                 FROM
                     characters
                     LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                    LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
+                    LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
+                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
                 WHERE
-                    characters.account_name = ? AND
-	                character_subclasses.isBase = 1';
+                    characters.account_name = ? 
+                    AND character_subclasses.isBase = 1';
     }
 }

@@ -6,8 +6,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{phrase(215)}} - {{phrase(297)}} <span class="header_donate_point_count">{{user_info('get_donate_point')}}</span>
-                        {{phrase(68)}}</h5>
+                    <h5 class="card-title">{{phrase(215)}} для сервера <span class="text-success">{{get_server_default().name}} x{{get_server_default().rate_exp}}</span>
+                        <span class="float-right">{{phrase(297)}} <span class="header_donate_point_count">{{user_info('get_donate_point')}}</span> {{phrase(68)}}</span>
+                        </h5>
                     <div class="table-responsive">
                         <table class="table table-sm">
                             <thead>
