@@ -177,8 +177,8 @@ class donate {
         sql::run("INSERT INTO `donate_history` (`user_id`, `item_id`, `amount`, `cost`, `char_name`, `server_id`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?)", [
             auth::get_id(),
             $donat_info['item_id'],
-            $donat_info['count'],
-            $donat_info['cost'],
+            $addToUserItems,
+            $cost_product,
             $char_name,
             $server_id,
             time::mysql(),
