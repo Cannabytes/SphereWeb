@@ -95,7 +95,7 @@ class statistic {
         $player_account = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE player_accounts.login = ?", [$get_player_info['account_name'] ])->fetch();
         if($player_account){
             if(!$player_account['show_characters_info'] AND
-                !\Ofey\Logan22\model\user\auth\auth::get_email()==$player_account['email'] AND
+                \Ofey\Logan22\model\user\auth\auth::get_email()!=$player_account['email'] AND
                 \Ofey\Logan22\model\user\auth\auth::get_access_level()!="admin"
             ) {
                 tpl::addVar("player", $get_player_info);
