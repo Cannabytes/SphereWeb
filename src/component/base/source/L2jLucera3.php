@@ -325,6 +325,7 @@ ORDER BY
 
     static public function statistic_player_info(): string {
         return 'SELECT
+	characters.account_name,
 	characters.obj_Id AS player_id,
 	characters.char_name AS player_name,
 	characters.pvpkills AS pvp,
@@ -452,7 +453,7 @@ WHERE
      * @return string
      */
     static public function add_item(): string {
-        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 1, 'TrashWeb')";
+        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'TrashWeb')";
     }
 
     static public function count_online_player(): string {

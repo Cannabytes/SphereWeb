@@ -393,4 +393,7 @@ return [
     318 => "PK",
     319 => "Game chats",
     320 => "Caching",
+    321 => "Access to view character data is denied by owner.",
+    323 => "Character view allowed",
+    324 => "Prohibited from viewing characters",
 ];

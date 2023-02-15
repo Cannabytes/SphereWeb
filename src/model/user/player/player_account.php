@@ -7,12 +7,13 @@
 
 namespace Ofey\Logan22\model\user\player;
 
-use Exception;
+use Exception as ExceptionAlias;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
@@ -20,6 +21,38 @@ use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\auth\registration;
 
 class player_account {
+
+    /**
+     * Разрешать/запрещать просмотр другим своимх предметов/характеристик персонажа
+     */
+    public static function show_characters_info(){
+        validation::user_protection();
+        $account = trim($_POST['account']);
+        $show_characters_info = (int)filter_var(    $_POST['show_characters_info'], FILTER_VALIDATE_BOOLEAN);;
+        $s = sql::run("UPDATE `player_accounts` SET `show_characters_info` = ? WHERE `login` = ? AND `email` = ?",[
+            $show_characters_info,
+            $account,
+            auth::get_email(),
+        ]);
+    }
+
+    /**
+     * @param      $account_name название аккаунта
+     * @param bool $iemail возвращать информацию вместе с пользовательской э.почтой
+     *
+     * @return mixed
+     * @throws ExceptionAlias
+     */
+    public static function get_show_characters_info($account_name, bool $iemail = true){
+        $info = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE login = ?", [$account_name])->fetch();
+        if($info==null){
+            return null;
+        }
+        if($iemail){
+            return $info;
+        }
+        return $info['show_characters_info'];
+    }
 
     /**
      * TODO: На будущее переделать, сначала проверить что N аккаунт пуст во внутренне БД и в БД сервера,
@@ -30,7 +63,7 @@ class player_account {
      * @param $password
      * @param $password_hide
      *
-     * @throws Exception
+     * @throws ExceptionAlias
      */
     public static function add($server_id, $login, $password, $password_hide) {
         self::valid_login($login);
@@ -132,7 +165,7 @@ class player_account {
     }
 
     /**
-     * @throws Exception
+     * @throws ExceptionAlias
      */
     public static function account_registration($info, $prepare, $showErrorPage = true) {
         $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
@@ -140,7 +173,7 @@ class player_account {
     }
 
     /**
-     * @throws Exception
+     * @throws ExceptionAlias
      */
     public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true)  {
         if(gettype($prepare) == "string") {
@@ -190,7 +223,7 @@ class player_account {
     }
 
     /**
-     * @throws Exception
+     * @throws ExceptionAlias
      */
     public static function add_inside_account($login, $password, $email, $ip, $server_id, $password_hide) {
         return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [

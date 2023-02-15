@@ -11,6 +11,8 @@ use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
+use Ofey\Logan22\controller\user\auth\auth;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\template\tpl;
 
@@ -90,6 +92,17 @@ class statistic {
             //todo: если нет персонажа, выведем страницу ошибки, что отсутствует такой персонаж
             redirect::location("/main");
         }
+        $player_account = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE player_accounts.login = ?", [$get_player_info['account_name'] ])->fetch();
+        if($player_account){
+            if(!$player_account['show_characters_info'] AND
+                !\Ofey\Logan22\model\user\auth\auth::get_email()==$player_account['email'] AND
+                \Ofey\Logan22\model\user\auth\auth::get_access_level()!="admin"
+            ) {
+                tpl::addVar("player", $get_player_info);
+                tpl::display("statistic/char_denied_access.html");
+            }
+        }
+
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
         tpl::addVar("player", $get_player_info);

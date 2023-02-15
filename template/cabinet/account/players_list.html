@@ -7,11 +7,9 @@
         <div class="card">
             <div class="card-header">Персонажи аккаунта {{ account }}
                 <div class="card-action">
-                    <div class="dropdown">
-                        <a href="/account/password/change/{{account}}/server/{{server_id}}" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-                            Смена пароль аккаунта
-                        </a>
-                    </div>
+                        <div class="bt-switch">
+                           <input {% if show_characters_info %}checked{% endif %} id="show_characters_info" type="checkbox" data-size="large"  data-on-color="success" data-off-color="danger" data-on-text="{{phrase(323)}}" data-off-text="{{phrase(324)}}">
+                        </div>
                 </div>
             </div>
             {% if players is same as(false) %}
@@ -47,4 +45,49 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+
+{% block css %}
+<link href="{{template}}/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" />
+    <link href="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block js %}
+
+
+<!--Switchery Js-->
+<script src="{{template}}/assets/plugins/switchery/js/switchery.min.js"></script>
+
+
+<!--Bootstrap Switch Buttons-->
+<script src="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script>
+    $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
+
+    $("#show_characters_info").on('switchChange.bootstrapSwitch',function(e) {
+        $.ajax({
+            type: "POST",
+            url: "/account/info/change/characters/info",
+            dataType: "json",
+            data: {
+                account: "{{ account }}",
+                show_characters_info: $("#show_characters_info").is(":checked")
+            },
+            success: function(result) {
+                console.log(result);
+                if (result.ok){
+                    notify_success(result.message);
+                }else{
+                    notify_error(result.message);
+                }
+            },
+            error: function(result) {
+                notify_error(result.message);
+            }
+        });
+    });
+</script>
+
 {% endblock %}

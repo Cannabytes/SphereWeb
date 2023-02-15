@@ -36,6 +36,7 @@ $router->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\contr
 $router->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
 $router->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
+$router->post("account/info/change/characters/info", 'Ofey\Logan22\model\user\player\player_account::show_characters_info');
 
 /**
  * Авторизация

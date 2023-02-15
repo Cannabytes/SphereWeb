@@ -43,7 +43,6 @@ class registration {
                 }
             }
         }
-        $timezone = null;
 
         $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`) VALUES (?, ?, ?, ?)";
         $insertArrays = [

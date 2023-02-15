@@ -11,21 +11,22 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\character;
+use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 
 class info {
 
     public static function player_list($account, $server_id = null) {
         validation::user_protection();
-        if($server_id==null){
+        if($server_id == null) {
             $server_id = auth::get_default_server();
         }
         tpl::addVar([
-            'account'      => $account,
-            'server_id'  => $server_id,
-            'players' => character::all_characters($account, $server_id),
+            'show_characters_info' => player_account::get_show_characters_info($account, false),
+            'account'              => $account,
+            'server_id'            => $server_id,
+            'players'              => character::all_characters($account, $server_id),
         ]);
         tpl::display("/account/players_list.html");
     }
-
 }
