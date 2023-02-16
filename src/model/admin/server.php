@@ -46,19 +46,21 @@ class server {
         }
         $sql_base_source = $_POST['sql_base_source'];
 
-        $check_server_online = (bool)$_POST['check_server_online'];
+        $check_server_online = isset($_POST['check_server_online']) ?: 0;
+
         $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
         $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
         $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
         $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
 
-        $ws_chat_enable = (bool)$_POST['chat_game_enabled'];
+        $ws_chat_enable = isset($_POST['chat_game_enabled']) ?: 0;
+
         $ws_ip_host = $_POST['chat_websocket_host'];
         $ws_admin_password = $_POST['chat_admin_password'];
 
         //TODO: Проверка на соединение с БД
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`, `timezone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -87,6 +89,7 @@ class server {
             $ws_chat_enable,
             $ws_ip_host,
             $ws_admin_password,
+            $timezone_start,
         ], true);
         if(!$ok) {
             board::notice(false, 'Ошибка');
@@ -160,7 +163,8 @@ class server {
                         `check_gameserver_online_port` = ?,
                         `chat_game_enabled` = ?,
                         `chat_websocket_host` = ?,
-                        `chat_admin_password` = ?
+                        `chat_admin_password` = ?,
+                        `timezone` = ?
                          WHERE
                             `id` = ?";
         $ok = sql::run($sql, [
@@ -191,6 +195,7 @@ class server {
             $ws_chat_enable,
             $ws_ip_host,
             $ws_admin_password,
+            $timezone_start,
 
             $server_id,
         ]);
