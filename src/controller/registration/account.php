@@ -7,8 +7,10 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
+use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
+use Ofey\Logan22\model\user\player\comparison;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 use SimpleCaptcha\Builder;
@@ -23,7 +25,7 @@ class account {
         tpl::addVar([
             'server_id'          => $server_id,
         ]);
-        tpl::display("/user/auth/new_account_registration.html");
+        tpl::display("/account/registration.html");
     }
 
     public static function requestNewAccount() {
@@ -42,4 +44,15 @@ class account {
             player_account::add_account_not_user($server_id, $login, $password, $password_hide, $email);
         }
     }
+
+    public static function sync($server_id = null){
+        validation::user_protection();
+        tpl::display("account/sync.html");
+    }
+
+    public static function sync_add(){
+        validation::user_protection();
+        comparison::sync();
+    }
+
 }

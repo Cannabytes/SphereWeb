@@ -11,14 +11,89 @@ namespace Ofey\Logan22\model\user\player;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\user\auth\auth;
+use SimpleCaptcha\Builder;
 
 class comparison {
+
+    /**
+     * @return void
+     * Процесс синхронизации или подвязки игрового аккаунта к ЛК.
+     * Пользователь передает ID сервера, аккаунт и пароль от игры.
+     * Проверяем существование такого аккаунта во внутренней БД, если такого нет, тогда
+     * проверяем существование такого аккаунта, его пароль, если всё сходится, добавляем пользователя
+     * в во внутренний реестр аккаунтов профиля.
+     */
+    static public function sync() {
+        $server_id = $_POST['server'] ?? null;
+        $account_name = $_POST['login'] ?? null;
+        $password = $_POST['password'] ?? null;
+        $password_hide = isset($_POST['password_hide']) ?? false;
+        $captcha = $_POST['captcha'] ?? null;
+
+        if($server_id == null) {
+            board::notice(false, "Не выбран сервер");
+        }
+        if($account_name == null) {
+            board::notice(false, "Не указан аккаунт");
+        }
+        if($password == null) {
+            board::notice(false, "Не указан пароль");
+        }
+        if($captcha == null){
+            board::notice(false, "Введите защитный код");
+        }
+
+        $builder = new Builder;
+        if (!$builder->compare($captcha, $_SESSION['phrase'])) {
+            board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+        }
+        //Перегенерация капчи
+        captcha::generation();
+
+
+        $player_info = sql::getRow("SELECT id,login,password,email,server_id FROM `player_accounts` WHERE login=?", [
+            $account_name,
+        ]);
+        //Если находим такой же аккаунт во внутреннем реестре, тогда уходим...
+        if($player_info) {
+            board::notice(false, "Такой аккаунт уже есть в реестре");
+        }
+
+        //Теперь необходимо проверить аккаунт на сервере
+        $server_info = server::server_info($server_id);
+        if(!$server_info) {
+            board::notice(false, lang::get_phrase(150));
+        }
+        $account = player_account::account_is_exist($server_info, $account_name);
+        if(gettype($account) != "object") {
+            if(!$account['ok']) {
+                board::notice(false, $account['message']);
+            }
+        }
+        $account_server_info = $account->fetch();
+        if(!$account_server_info) {
+            board::notice(false, "Такого аккаунта в БД сервера не существует",);
+        }
+
+        //Проверка пароля
+        if(encrypt::server_password($password, $server_info) != $account_server_info['password']){
+            board::notice(false, "Пароль неправильный");
+        }
+
+        //Добавление аккаунта во внутренюю БД
+        $ok = player_account::add_inside_account($account_name, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
+        if($ok){
+            board::notice(true, "Аккаунт синхронизирован");
+        }
+        board::notice(false, "Error");
+    }
 
     /*
     *  Сделать сверку аккаунтов, между внутренней БД аккаунтов, и внешней (сервера).
@@ -34,9 +109,9 @@ class comparison {
         $game_accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();
         $show_all_account_player_site = player_account::show_all_account_player();
 
-        foreach($show_all_account_player_site AS $k=>&$user_player_site){
-            foreach($game_accounts AS $game_account){
-                if($user_player_site['login']==$game_account['login']){
+        foreach($show_all_account_player_site as $k => &$user_player_site) {
+            foreach($game_accounts as $game_account) {
+                if($user_player_site['login'] == $game_account['login']) {
                     unset($show_all_account_player_site[$k]);
                     break;
                 }

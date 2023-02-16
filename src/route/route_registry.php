@@ -37,7 +37,8 @@ $router->post("account/password/change", 'Ofey\Logan22\controller\account\passwo
 $router->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
 $router->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
 $router->post("account/info/change/characters/info", 'Ofey\Logan22\model\user\player\player_account::show_characters_info');
-
+$router->get("registration/account/sync/server/(\d+)", 'Ofey\Logan22\controller\registration\account::sync');
+$router->post("registration/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
 /**
  * Авторизация
  */
