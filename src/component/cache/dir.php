@@ -26,6 +26,7 @@ enum dir {
     case statistic_block;
     case statistic_counter;
     case statistic_class;
+    case referral;
 
     /**
      * Для статических адресов
@@ -34,7 +35,7 @@ enum dir {
     public function show(): string {
         return match ($this) {
             dir::forum => 'uploads/cache/forum/',
-            dir::server_online_status => 'uploads/cache/status',
+            dir::server_online_status => 'uploads/cache/status/',
         };
     }
 
@@ -44,7 +45,7 @@ enum dir {
      *
      * @return string
      */
-    public function show_dynamic(int $server_id, string $name = null): string {
+    public function show_dynamic(int $server_id = 0, string $name = null): string {
         return match ($this) {
             dir::statistic_pvp => "uploads/cache/statistic/{$server_id}/pvp",
             dir::statistic_pk => "uploads/cache/statistic/{$server_id}/pk",
@@ -61,6 +62,7 @@ enum dir {
             dir::statistic_clan_skills => "uploads/cache/statistic/{$server_id}/clan_skills/{$name}",
             dir::statistic_clan_players => "uploads/cache/statistic/{$server_id}/clan_players/{$name}",
             dir::statistic_class => "uploads/cache/statistic/{$server_id}/{$name}",
+            dir::referral => "uploads/cache/referral/{$name}",
         };
     }
 }

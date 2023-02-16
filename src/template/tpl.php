@@ -407,6 +407,9 @@ class tpl {
                 if($accounts['done']) {
                     continue;
                 }
+                if(!isset($accounts['characters'])){
+                    return false;
+                }
                 foreach($accounts['characters'] as $character) {
                     if($character['level'] >= LEVEL and $character['pvp'] >= PVP and $character['pk'] >= PK and $character['time_in_game'] >= GAME_TIME) {
                         return $character['player_name'];

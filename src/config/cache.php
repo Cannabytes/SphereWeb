@@ -17,4 +17,5 @@ $cache_timeout = array (
   'statistic_castle' => 60,
   'statistic_block' => 60,
   'statistic_counter' => 60,
+  'referral' => 67,
 );

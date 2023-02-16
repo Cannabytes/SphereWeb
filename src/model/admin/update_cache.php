@@ -32,6 +32,7 @@ class update_cache {
         $cache['statistic_castle'] = (int)request::setting('statistic_castle', new request_config(minValue: 30, isNumber: true));
         $cache['statistic_block'] = (int)request::setting('statistic_block', new request_config(minValue: 30, isNumber: true));
         $cache['statistic_counter'] = (int)request::setting('statistic_counter', new request_config(minValue: 30, isNumber: true));
+        $cache['referral'] = (int)request::setting('referral', new request_config(minValue: 30, isNumber: true));
 
         $file = "<?php\n\n\$cache_timeout = " . var_export($cache, true) . ';';
         file_put_contents('src/config/cache.php', $file);

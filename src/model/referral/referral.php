@@ -8,15 +8,24 @@
 namespace Ofey\Logan22\model\referral;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\cache\cache;
+use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\character;
 
+
 class referral {
 
     //true - вернет только незавершенные рефералы
-    static public function player_list($unfinished = false) {
+    static public function player_list($unfinished = false, $readCache = true) {
+        if($readCache){
+            $json = cache::read(dir::referral->show_dynamic(name: auth::get_id()), second: 60);
+            if($json){
+                return $json;
+            }
+        }
         $unfinishedSql = "";
         if($unfinished){
             $unfinishedSql = " referrals.done = 0 AND ";
@@ -57,11 +66,14 @@ class referral {
             $characters[$user['email']]['done'] = $user['done'];
             $characters[$user['email']]['referral_id'] = $user['id'];
         }
+
+        cache::save(dir::referral->show_dynamic(name: auth::get_id()), $characters);
+
         return $characters;
     }
 
     static public function add_new_bonus() {
-        $players_list = self::player_list(true);
+        $players_list = self::player_list(true, false);
         if(!$players_list) {
             board::notice(false, "Error");
         }
