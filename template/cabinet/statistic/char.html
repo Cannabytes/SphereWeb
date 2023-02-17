@@ -92,7 +92,7 @@
                         class="player-inventory-enchant-null" {% endif %}
                         data-toggle="tooltip" data-placement="top"
                         title="{% if item.enchant_level > 0 %}+{{item.enchant_level}} {% endif %} {% if item.count > 1
-                        %}[{{format_number_fr(item.count)}}] {% endif %} {% if item.name_en %}{{item.name_en}}{% else
+                        %}[{{format_number_fr(item.count)}}] {% endif %} {% if item.name %}{{item.name}}{% else
                         %}No Item Name{%endif%}"
                         src="{{ icon( item.icon ) }}" >
                         {% endif %}
@@ -104,7 +104,7 @@
                         else %} class="player-inventory-enchant-null" {% endif %}
                         data-toggle="tooltip" data-placement="top"
                         title="{% if item.enchant_level > 0 %}+{{item.enchant_level}}{% endif %} {% if item.count > 1
-                        %}[{{format_number_fr(item.count)}}] {% endif %} {% if item.name_en %}{{item.name_en}}{% else
+                        %}[{{format_number_fr(item.count)}}] {% endif %} {% if item.name %}{{item.name}}{% else
                         %}No Item Name{%endif%}"
                         src="{{ icon( item.icon ) }}" >
                         {% endif %}

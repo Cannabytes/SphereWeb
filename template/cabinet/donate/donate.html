@@ -27,8 +27,8 @@
                                 <th scope="row" style="width: 32px"><img src="{{ icon( product.icon ) }}" class="customer-img"></th>
                                 <td>
                                     <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
-                                         title="{{ product['description_en']|nl2br }}">
-                                    {{ grade_img(product['crystal_type']) }} {{product['name_en']}}
+                                         title="{{ product['description']|nl2br|escape}}">
+                                    {{ grade_img(product['crystal_type']) }} {{product['name']}}
                                     </div>
                                 </td>
                                 <td style="width: 210px">
@@ -49,7 +49,7 @@
                                 <td><span id="product_cost_{{product.id}}">{{ product.cost }}</span></td>
                                 <td>
 
-                                    <button href="javascript:void();" data-product-name="{{product['name_en']}}"
+                                    <button href="javascript:void();" data-product-name="{{product['name']}}"
                                             data-product-id="{{product.id}}" data-product-count="{{product.count}}"
                                             data-product-cost="{{product.cost}}" data-toggle="modal" data-target="#modal_panel_apply"
                                             class="btn btn-success btn-sm openWindowBuy">
@@ -91,8 +91,8 @@
                             <td><img src="{{ icon( history.icon ) }}" class="customer-img"></td>
                             <td>
                                 <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
-                                     title="{{ history['description_en']|nl2br }}">
-                                    {{ grade_img(history['crystal_type']) }} {{history['name_en']}}
+                                     title="{{ history['description']|nl2br|escape }}">
+                                    {{ grade_img(history['crystal_type']) }} {{history['name']}}
                                 </div>
                             </td>
                             <td>{{history.amount}}</td>
