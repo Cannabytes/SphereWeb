@@ -397,4 +397,16 @@ return [
     323 => "Character view allowed",
     324 => "Prohibited from viewing characters",
     325 => "Referral page",
+
+    326 => "Invalid time zone",
+    327 => "No server selected",
+    328 => "No account specified",
+    329 => "Password not provided",
+    330 => "Enter security code",
+    331 => "This account already exists in the registry",
+    332 => "This account does not exist in the server database",
+    333 => "Password is wrong",
+    334 => "Account synced",
+    335 => "Synchronize",
+
 ];

@@ -147,6 +147,8 @@ class tpl {
                     return auth::get_avatar();
                 case 'get_avatar_background':
                     return auth::get_avatar_background();
+                case 'get_timezone':
+                    return auth::get_timezone();
             }
         }));
 

@@ -12,23 +12,23 @@
                   {{ phrase(13) }}
                 </h4>
 				<div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase(14) }}</label>
+                  <label for="name" class="col-sm-2 col-form-label">{{ phrase(14) }}</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" id="input-5" name="name" value="{{ user_info('get_name') }}" >
+                    <input type="text" class="form-control" id="name" name="name" value="{{ user_info('get_name') }}" >
                   </div>
                 </div>
 				<hr>
                 <div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase("new_password") }}</label>
+                  <label for="new_password" class="col-sm-2 col-form-label">{{ phrase("new_password") }}</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" id="input-5" name="new_password" >
+                    <input type="text" class="form-control" id="new_password" name="new_password" >
                   </div>
                 </div>
                
                 <div class="form-group row">
-                  <label for="input-5" class="col-sm-2 col-form-label">{{ phrase("two_password") }}</label>
+                  <label for="two_password" class="col-sm-2 col-form-label">{{ phrase("two_password") }}</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" id="input-5" name="two_password" >
+                    <input type="text" class="form-control" id="two_password" name="two_password" >
                   </div>
                 </div>
                <hr>
@@ -36,6 +36,19 @@
                   <label for="input-9" class="col-sm-2 col-form-label">{{ phrase("signature") }}</label>
                   <div class="col-sm-5">
                     <textarea class="form-control" rows="3" id="input-9" name="signature" >{{ user_info('get_signature') }}</textarea>
+                  </div>
+                </div>
+                  <hr>
+
+                  <div class="form-group row">
+                  <label for="timezone" class="col-sm-2 col-form-label">{{ phrase(31) }}</label>
+                  <div class="col-sm-5">
+                      {% set timezone = user_info('get_timezone') %}
+                      <select name="timezone" class="form-control" id="timezone">
+                          {% for key, name in timezone_list_default %}
+                              <option {% if name == timezone %}selected{% endif %} value="{{ name }}">{{ name }}</option>
+                          {% endfor %}
+                      </select>
                   </div>
                 </div>
                 <div class="form-footer">

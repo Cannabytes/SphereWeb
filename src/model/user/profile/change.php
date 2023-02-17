@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\profile;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\controller\promo\promo;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -37,15 +38,28 @@ class change {
         }
 
         if(!empty($_POST['signature'])) {
-            if($_POST['signature'] != auth::get_signature()){
+            if($_POST['signature'] != auth::get_signature()) {
                 self::valid_signature($_POST['signature']);
                 $table[] = "`signature` = ?";
                 $varSQL[] = $_POST['signature'];
             }
         }
 
+        if(!empty($_POST['timezone'])) {
+            $ok = array_search(timezone::replace_old_timezone($_POST['timezone']), timezone::all());
+            if($ok) {
+                $table[] = "`timezone` = ?";
+                $varSQL[] = $_POST['timezone'];
+            } else {
+                self::$error[] = [lang::get_phrase(326)];
+            }
+        }
+
         if(!empty(self::$error)) {
-            board::notice(false, self::$error);
+            board::alert([
+                'ok'      => false,
+                'message' => self::$error,
+            ]);
         }
 
         $gen = "";
@@ -55,12 +69,13 @@ class change {
                 $gen .= ", ";
             }
         }
+
         $varSQL[] = auth::get_email();
         if(sql::run("UPDATE `users` SET {$gen} WHERE `email` = ?", $varSQL)->rowCount() == 0) {
             board::notice(false, lang::get_phrase(182));
         }
 
-        if(!empty($_POST['new_password'])){
+        if(!empty($_POST['new_password'])) {
             auth::set_password($_POST['new_password']);
             auth::apply_password();
         }
@@ -122,11 +137,17 @@ class change {
     /**
      * Записываем аватар пользователя
      */
-    static public function set_avatar($avatar){
-       return sql::run('UPDATE `users` SET `avatar` = ? WHERE `id` = ?', [$avatar, auth::get_id()]);
-    }
-    static public function set_avatar_background($avatar){
-       return sql::run('UPDATE `users` SET `avatar_background` = ? WHERE `id` = ?', [$avatar, auth::get_id()]);
+    static public function set_avatar($avatar) {
+        return sql::run('UPDATE `users` SET `avatar` = ? WHERE `id` = ?', [
+            $avatar,
+            auth::get_id(),
+        ]);
     }
 
+    static public function set_avatar_background($avatar) {
+        return sql::run('UPDATE `users` SET `avatar_background` = ? WHERE `id` = ?', [
+            $avatar,
+            auth::get_id(),
+        ]);
+    }
 }

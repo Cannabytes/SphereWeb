@@ -67,16 +67,16 @@
                         <div class="form-group">
 							<div class="row">
 								<div class="col-md-3">
-									<label for="inputDate">{{ phrase(29) }}:</label>
-									<input value="{{ server['date_start_server']|date('Y-m-d') }}" name="date_start" type="date" class="form-control" required>
+									<label for="date_start">{{ phrase(29) }}:</label>
+									<input value="{{ server['date_start_server']|date('Y-m-d') }}" name="date_start" id="date_start" type="date" class="form-control" required>
 								</div>
 								<div class="col-md-3">
-									<label for="inputDate">{{ phrase(30) }}:</label>
-									<input value="{{ server['date_start_server']|date('H:i') }}" name="time_start" type="time" class="form-control" required>
+									<label for="time_start">{{ phrase(30) }}:</label>
+									<input value="{{ server['date_start_server']|date('H:i') }}" name="time_start" id="time_start" type="time" class="form-control" required>
 								 </div>
 								<div class="col-md-6">
-									<label for="inputDate">{{ phrase(31) }}:</label>
-										<select name="timezone_start" class="form-control" id="basic-select">
+									<label for="timezone_start">{{ phrase(31) }}:</label>
+										<select name="timezone_start" class="form-control" id="timezone_start">
 										     {% for key, name in timezone_list_default %}
 												<option value="{{ key }}">{{ name }}</option>
 											{% endfor %}

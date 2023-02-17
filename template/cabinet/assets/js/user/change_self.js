@@ -8,6 +8,7 @@ $(document).ready(function () {
             dataType: "json",
             encode: true,
         }).success(function (data) {
+            console.log(data)
             if (data.ok){
                 notify_success(data.message);
             }else {

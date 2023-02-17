@@ -10,6 +10,7 @@ namespace Ofey\Logan22\controller\user\profile;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
@@ -22,6 +23,7 @@ class change {
         tpl::addVar([
             "title" => lang::get_phrase(191),
             "name"  => auth::get_name(),
+            'timezone_list_default'   => timezone::all(),
         ]);
         tpl::addVar('server_list', server::get_server_info());
         tpl::display("user/option/change_self.html");

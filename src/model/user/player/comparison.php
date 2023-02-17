@@ -38,16 +38,16 @@ class comparison {
         $captcha = $_POST['captcha'] ?? null;
 
         if($server_id == null) {
-            board::notice(false, "Не выбран сервер");
+            board::notice(false, lang::get_phrase(327));
         }
         if($account_name == null) {
-            board::notice(false, "Не указан аккаунт");
+            board::notice(false, lang::get_phrase(328));
         }
         if($password == null) {
-            board::notice(false, "Не указан пароль");
+            board::notice(false, lang::get_phrase(329));
         }
         if($captcha == null){
-            board::notice(false, "Введите защитный код");
+            board::notice(false, lang::get_phrase(330));
         }
 
         $builder = new Builder;
@@ -63,7 +63,7 @@ class comparison {
         ]);
         //Если находим такой же аккаунт во внутреннем реестре, тогда уходим...
         if($player_info) {
-            board::notice(false, "Такой аккаунт уже есть в реестре");
+            board::notice(false, lang::get_phrase(331));
         }
 
         //Теперь необходимо проверить аккаунт на сервере
@@ -79,18 +79,18 @@ class comparison {
         }
         $account_server_info = $account->fetch();
         if(!$account_server_info) {
-            board::notice(false, "Такого аккаунта в БД сервера не существует",);
+            board::notice(false, lang::get_phrase(332));
         }
 
         //Проверка пароля
         if(encrypt::server_password($password, $server_info) != $account_server_info['password']){
-            board::notice(false, "Пароль неправильный");
+            board::notice(false, lang::get_phrase(333));
         }
 
         //Добавление аккаунта во внутренюю БД
         $ok = player_account::add_inside_account($account_name, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         if($ok){
-            board::notice(true, "Аккаунт синхронизирован");
+            board::notice(true, lang::get_phrase(334));
         }
         board::notice(false, "Error");
     }

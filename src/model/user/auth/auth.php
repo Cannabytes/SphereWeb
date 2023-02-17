@@ -33,6 +33,7 @@ class auth {
     static private int    $donate_point = 0;
     static private string $avatar;
     static private string $avatar_background;
+    static private string $timezone;
 
     /**
      * @return false|mixed|void|null
@@ -215,6 +216,7 @@ class auth {
                     self::set_donate_point($auth['donate_point']);
                     self::set_avatar($auth['avatar']);
                     self::set_avatar_background($auth['avatar_background']);
+                    self::set_timezone($auth['timezone']??"America/Los_Angeles");
                     return;
                 }
             }
@@ -233,6 +235,7 @@ class auth {
         self::set_donate_point(0);
         self::set_avatar("none.jpeg");
         self::set_avatar_background("none.jpeg");
+        self::set_timezone("America/Los_Angeles");
     }
 
     //TODO:Добавить в массив всех пользователей которых мы проверяем
@@ -352,4 +355,18 @@ class auth {
         ]);
     }
 
+    /**
+     * @return string
+     */
+    public static function get_timezone(): string {
+        return self::$timezone;
     }
+
+    /**
+     * @param string $timezone
+     */
+    public static function set_timezone(string $timezone) {
+        date_default_timezone_set($timezone);
+        self::$timezone = $timezone;
+    }
+}
