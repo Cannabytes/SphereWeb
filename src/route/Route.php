@@ -13,8 +13,19 @@
 namespace Ofey\Logan22\route;
 
 use Bramus\Router\Router;
+use Ofey\Logan22\template\tpl;
 
 class Route extends Router {
+
+    public function __construct() {
+        //Загрузка из шаблона указанных файлов
+        foreach(tpl::template_design_route() AS $page => $template){
+            parent::get($page, function() use ($template){
+                tpl::display($template, true);
+            });
+        }
+
+    }
 
     private static array  $aliases = [];
     private static string $pattern;

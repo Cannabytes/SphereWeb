@@ -34,7 +34,7 @@ class comparison {
         $server_id = $_POST['server'] ?? null;
         $account_name = $_POST['login'] ?? null;
         $password = $_POST['password'] ?? null;
-        $password_hide = isset($_POST['password_hide']) ?? false;
+        $password_hide = $_POST['password_hide'] ?? false;
         $captcha = $_POST['captcha'] ?? null;
 
         if($server_id == null) {
