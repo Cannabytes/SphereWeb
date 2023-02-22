@@ -28,7 +28,6 @@ class server {
 
         $date_start = $_POST['date_start'];
         $time_start = $_POST['time_start'];
-        $timezone_start = $_POST['timezone_start'];
 
         //Данные БД для логина
         $db_login_host = $_POST['db_login_host'];
@@ -60,7 +59,7 @@ class server {
 
         //TODO: Проверка на соединение с БД
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`, `timezone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -88,8 +87,7 @@ class server {
 
             $ws_chat_enable,
             $ws_ip_host,
-            $ws_admin_password,
-            $timezone_start,
+            $ws_admin_password
         ], true);
         if(!$ok) {
             board::notice(false, 'Ошибка');
@@ -112,7 +110,6 @@ class server {
 
         $date_start = $_POST['date_start'];
         $time_start = $_POST['time_start'];
-        $timezone_start = $_POST['timezone_start'];
 
         //Данные БД для логина
         $db_login_host = $_POST['db_login_host'];
@@ -163,8 +160,7 @@ class server {
                         `check_gameserver_online_port` = ?,
                         `chat_game_enabled` = ?,
                         `chat_websocket_host` = ?,
-                        `chat_admin_password` = ?,
-                        `timezone` = ?
+                        `chat_admin_password` = ?
                          WHERE
                             `id` = ?";
         $ok = sql::run($sql, [
@@ -195,7 +191,6 @@ class server {
             $ws_chat_enable,
             $ws_ip_host,
             $ws_admin_password,
-            $timezone_start,
 
             $server_id,
         ]);

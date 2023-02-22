@@ -27,7 +27,6 @@ class options {
         tpl::addVar([
             'servername_list_default' => servername::all(),
             'client_list_default'     => client::all(),
-            'timezone_list_default'   => timezone::all(),
             "title"                   => lang::get_phrase(221),
             'server'                  => \Ofey\Logan22\model\server\server::get_server_info($server_id),
         ]);

@@ -65,20 +65,13 @@
 							<div class="row">
 								<div class="col-md-3">
 									<label for="date_start">{{ phrase(29) }}:</label>
-									<input name="date_start" type="date" class="form-control" required>
+									<input name="date_start" id="date_start" type="date" class="form-control" required>
 								</div>
 								<div class="col-md-3">
 									<label for="time_start">{{ phrase(30) }}:</label>
-									<input name="time_start" type="time" class="form-control" required>
+									<input name="time_start" id="time_start" type="time" class="form-control" required>
 								 </div>
-								<div class="col-md-6">
-									<label for="timezone_start">{{ phrase(31) }}:</label>
-										<select name="timezone_start" class="form-control" id="basic-select">
-										     {% for key, name in timezone_list_default %}
-												<option value="{{ key }}">{{ name }}</option>
-											{% endfor %}
-										</select>
-								 </div>
+
 							</div>
                         </div>
 						<hr>

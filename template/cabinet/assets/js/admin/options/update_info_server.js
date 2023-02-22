@@ -98,6 +98,7 @@ $(document).ready(function () {
 
     function get_collection(){
         let chronicle_name = $('#open_protocol_class_collection').val();
+        let base_source = $("#sql_base_source").data("base_source");
         $.ajax({
             type: "POST",
             url: "/admin/options/server/client/protocol",
@@ -115,7 +116,11 @@ $(document).ready(function () {
                     result.collections.forEach(function (collection, index) {
                         collection_class = collection.replace("\\\\", "\\");
                         collection = basename(collection);
-                        $('#sql_base_source').append(`<option value="${collection_class}">${collection}</option>`);
+                        if(base_source==collection_class){
+                            $('#sql_base_source').append(`<option selected value="${collection_class}">${collection}</option>`);
+                        }else{
+                            $('#sql_base_source').append(`<option value="${collection_class}">${collection}</option>`);
+                        }
                     });
                 } else {
                     notify_error(result.message);
