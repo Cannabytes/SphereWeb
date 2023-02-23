@@ -22,6 +22,9 @@ class donate {
         $count = $_POST['count'];
         $cost = $_POST['cost'];
         $server_id = $_POST['server_id'];
+        if($count<=0){
+            board::notice(false, "Не может быть меньше чем 0");
+        }
         if(sql::run("INSERT INTO `donate` (`item_id`, `count`, `cost`, `server_id`) VALUES (?, ?, ?, ?)",[
             $itemid,
             $count,

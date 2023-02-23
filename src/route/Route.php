@@ -19,12 +19,13 @@ class Route extends Router {
 
     public function __construct() {
         //Загрузка из шаблона указанных файлов
-        foreach(tpl::template_design_route() AS $page => $template){
-            parent::get($page, function() use ($template){
-                tpl::display($template, true);
-            });
+        if($pages = tpl::template_design_route()) {
+            foreach($pages as $page => $template) {
+                parent::get($page, function() use ($template) {
+                    tpl::display($template, true);
+                });
+            }
         }
-
     }
 
     private static array  $aliases = [];

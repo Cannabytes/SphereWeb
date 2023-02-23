@@ -49,7 +49,7 @@ class tpl {
         }
     }
 
-    public static function template_design_route(){
+    public static function template_design_route():?array{
         $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/designs/" . config::get_template() . "/route.php";
         if(file_exists($fileRoute)) {
             require_once $fileRoute;
@@ -57,6 +57,7 @@ class tpl {
                 return $pages;
             }
         }
+        return null;
     }
 
 
