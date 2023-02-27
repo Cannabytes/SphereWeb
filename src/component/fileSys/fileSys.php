@@ -45,51 +45,40 @@ class fileSys {
      * @return array Вернет массив путей до файлов/папок.
      */
     public static function get_dir_files(string $dir, array $options = []): array|string|int|false {
-        //TODO: fetchAll переделать
-        $options = [
-            'basename' => $options['basename'] ?? false,
-            'suffix' => $options['suffix'] ?? '',
-            'include_folders' => $options['include_folders'] ?? false,
-            'recursive' => $options['recursive'] ?? false,
-            'sort' => $options['sort'] ?? false,
-            'fetchAll' => (bool)$options['fetchAll'],
+        $options += [
+            'basename'        => false,
+            'suffix'          => '',
+            'include_folders' => false,
+            'recursive'       => false,
+            'sort'            => false,
+            'fetchAll'        => false,
         ];
-        if(!is_dir($dir)) {
-            $dir = dirname($dir);
+
+        $files = glob("$dir/{,.}[!.,!..]*", GLOB_BRACE);
+
+        if($options['recursive']) {
+            $files = array_reduce($files, function($acc, $file) use ($options) {
+                return is_dir($file) && $options['include_folders'] ? array_merge($acc, static::get_dir_files($file, $options)) : array_merge($acc, [$file]);
+            }, []);
         }
-        $files = [];
-        $dir = rtrim($dir, '/\\'); // удалим слэш на конце
-        foreach(glob("$dir/{,.}[!.,!..]*", GLOB_BRACE) as $file) {
-            if(is_dir($file)) {
-                if($options['include_folders'])
-                    $files[] = $file;
-                if($options['recursive'])
-                    $files = array_merge($files, call_user_func(__FUNCTION__, $file, $options['recursive'], $options['include_folders']));
-            } else
-                $files[] = $file;
-        }
-        if(empty($files)) {
-            return false;
-        }
+
         if($options['basename']) {
-            foreach($files as &$file) {
-                $file = basename($file);
-            }
+            $files = array_map('basename', $files);
         }
-        if($options['suffix'] != null) {
-            foreach($files as &$file) {
-                $file = basename($file, $options['suffix']);
-            }
+
+        if($options['suffix'] !== '') {
+            $files = array_map(function($file) use ($options) {
+                return basename($file, $options['suffix']);
+            }, $files);
         }
-        if($options['sort'] == 'ASC') {
+
+        if($options['sort'] === 'ASC') {
             krsort($files, SORT_NUMERIC);
         } else {
             ksort($files, SORT_NUMERIC);
         }
-        if(!$options['fetchAll']) {
-            return array_shift($files);
-        }
-        return $files;
+
+        return $options['fetchAll'] ? $files : reset($files);
     }
 
     /**
@@ -170,10 +159,8 @@ class fileSys {
         $arr = [];
         foreach($files as $file) {
             if(!in_array($file, $skip))
-                $arr[] =  $file;
+                $arr[] = $file;
         }
         return $arr;
     }
-
-
 }

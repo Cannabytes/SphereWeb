@@ -266,33 +266,28 @@
 
 
 {% set screenshots = screenshots(12) %}
-{% if screenshots %}
-{% set count = screenshots|length %}
-{% set showScreenCount = 12 %}
-{% if count>=8 %}
-{% set showScreenCount = 12 %}
-{% elseif count<=4 %}
-{% set showScreenCount = 0 %}
-{% else %}
-{% set showScreenCount = 6 %}
-{% endif %}
-{% if showScreenCount== 6 or showScreenCount== 12 %}
+{% if screenshots|length %}
+{% set showScreenCount = (screenshots|length >= 8) ? 12 : (screenshots|length <= 4) ? 0 : 6 %}
+{% if showScreenCount == 6 or showScreenCount == 12 %}
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header text"><a href="/gallery"> {{ phrase(47) }}</a></div>
+            <div class="card-header text">
+                <a href="/gallery">{{ phrase(47) }}</a>
+            </div>
             <div class="card-body">
                 <div class="row">
-                    {% for i, screen in screenshots|slice(0,showScreenCount) %}
+                    {% for screen in screenshots|slice(0, showScreenCount) %}
                     <div class="col-md-6 col-lg-2 col-xl-2">
-                        <a href="uploads/screenshots/{{screen.image}}" data-fancybox="images"
-                           data-caption="{{screen.image}}">
-                            <img src="uploads/screenshots/{{screen.image}}" alt="lightbox"
+                        <a href="uploads/screenshots/{{ screen.image }}"
+                           data-fancybox="images"
+                           data-caption="{{ screen.image }}">
+                            <img src="uploads/screenshots/{{ screen.image }}"
+                                 alt="lightbox"
                                  class="lightbox-thumb img-thumbnail rounded">
                         </a>
                     </div>
                     {% endfor %}
-
                 </div>
             </div>
         </div>
