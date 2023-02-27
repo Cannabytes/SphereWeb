@@ -25,13 +25,11 @@ class base {
 
     //Возвращает запрос, и его параметры
     static public function get_sql_source($class, $name) {
-        try {
+        if (method_exists($class, $name)) {
             return $class::$name();
-        } catch (Error $e) {
-            echo "Error caught: " . $e->getMessage();
-            exit;
+        } else {
+            return "Error: Method not found in class.";
         }
-//        return $class::$name();
     }
 
     /**
@@ -52,12 +50,12 @@ class base {
      * Возращает массив с пространсом имен классов коллекции запросов
      * @return bool|array|string
      */
-    static public function all_class_base_data(): bool|array|string {
+    static public function all_class_base_data(): array {
         $s = self::sql_base_source();
-        $data = [];
-        foreach($s as $r) {
-            $data[] = self::get_class_php("src/component/base/source/" . $r);
-        }
-        return $data;
+        array_walk($s, function (&$r) {
+            $r = self::get_class_php("src/component/base/source/" . $r);
+        });
+        return $s;
     }
+
 }

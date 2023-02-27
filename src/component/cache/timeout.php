@@ -29,6 +29,7 @@ enum timeout {
     case statistic_castle;
     case statistic_block;
     case statistic_counter;
+    case referral;
 
     public function time(): int {
         return match ($this) {
@@ -48,6 +49,7 @@ enum timeout {
             timeout::statistic_castle => time::cache_timeout("statistic_castle"),
             timeout::statistic_block => time::cache_timeout("statistic_block"),
             timeout::statistic_counter => time::cache_timeout("statistic_counter"),
+            timeout::referral => time::cache_timeout("referral"),
         };
     }
 

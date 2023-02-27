@@ -36,13 +36,10 @@ class client {
     }
 
     static public function get_protocol($chronicle_name) {
-        foreach(self::all() as $client) {
-            if($client['name'] == $chronicle_name) {
-                return $client['protocol'];
-            }
-        }
-        return null;
+        $client = array_search($chronicle_name, array_column(self::all(), 'name'));
+        return $client !== false ? self::all()[$client]['protocol'] : null;
     }
+
 
     static public function all() {
         return [

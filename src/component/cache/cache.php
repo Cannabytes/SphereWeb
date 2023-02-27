@@ -29,8 +29,9 @@ class cache {
      * @param bool|array $last_message
      */
     static public function save(string $dir, bool|array $last_message = []) {
-        if(!$last_message)
-            return;
-        fileSys::put($dir, $last_message);
+        if($last_message && fileSys::put($dir, $last_message)) {
+            return true;
+        }
+        return false;
     }
 }

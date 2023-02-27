@@ -28,7 +28,7 @@
                                 <td>
                                     <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
                                          title="{{ product['description']|nl2br|escape}}">
-                                    {{ grade_img(product['crystal_type']) }} {{product['name']}}
+                                    {{ grade_img(product['crystal_type'])|raw }} {{product['name']}}
                                     </div>
                                 </td>
                                 <td style="width: 210px">
@@ -92,7 +92,7 @@
                             <td>
                                 <div class="" data-toggle="tooltip" data-html="true" data-placement="top"
                                      title="{{ history['description']|nl2br|escape }}">
-                                    {{ grade_img(history['crystal_type']) }} {{history['name']}}
+                                    {{ grade_img(history['crystal_type'])|raw }} {{history['name']}}
                                 </div>
                             </td>
                             <td>{{history.amount}}</td>

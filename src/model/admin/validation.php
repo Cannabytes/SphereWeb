@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\user\auth\auth;
 
 class validation {
@@ -17,45 +18,26 @@ class validation {
      * user, admin
      * default: all
      */
-    public static function user_protection($var = [
-        "user",
-        "admin",
-    ]) {
+    public static function user_protection($var = ["user", "admin"]) {
         $user_privilege = auth::get_access_level();
-        if(is_array($var)) {
-            foreach($var as $group) {
-                if($group == $user_privilege) {
-                    return true;
-                }
-            }
-        } else {
-            if($var == $user_privilege) {
-                return true;
-            }
+        if(in_array($user_privilege, (array)$var)) {
+            return true;
         }
-        header("Location: /main");
-        die();
+        redirect::location("/main");
     }
+
 
     //Проверка, является ли пользователь админом
     public static function is_admin(): bool {
-        if(auth::get_access_level() == "admin") {
-            return true;
-        }
-        return false;
+        return auth::get_access_level() == "admin";
     }
 
     public static function min_len($string, $n = 4): bool {
-        if(mb_strlen($string) >= $n) {
-            return true;
-        }
-        return false;
+        return (mb_strlen($string) >= $n);
     }
 
     public static function max_len($string, $n = 140): bool {
-        if(mb_strlen($string) <= $n) {
-            return true;
-        }
-        return false;
+        return (mb_strlen($string) <= $n);
     }
+
 }

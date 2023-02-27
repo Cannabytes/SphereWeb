@@ -32,14 +32,12 @@ class donate {
         $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC",[
             auth::get_id(), auth::get_default_server()
         ]);
-        $item_id_list = [];
-        foreach($donate as $item) {
-            $item_id_list[] = $item['item_id'];
-        }
-        if(empty($item_id_list))
-            return $item_id_list;
-        $list = implode(', ', $item_id_list);
-        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
+
+        if(empty($donate))
+            return [];
+
+        $item_id_list = array_column($donate, 'item_id');
+        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN (" . implode(',', $item_id_list) . ");");
 
         $items = [];
         foreach($donate as $item) {
@@ -52,6 +50,7 @@ class donate {
         }
         return $items;
     }
+
 
 
     /**

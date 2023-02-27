@@ -17,19 +17,11 @@ class client_icon {
      * @throws \Exception
      */
     static public function is_stack($item_id): bool {
-        $stack = sql::run("SELECT `consume_type` FROM items_data WHERE item_id = ? LIMIT 1", [$item_id], true)->fetch();
-        if($stack) {
-            switch($stack['consume_type']) {
-                case "consume_type_asset":
-                case "consume_type_stackable" :
-                {
-                    return true;
-                }
-                case "consume_type_normal": {
-                    return false;
-                }
-            }
+        $consume_type = sql::run("SELECT `consume_type` FROM items_data WHERE item_id = ? LIMIT 1", [$item_id], true)->fetchColumn();
+        if ($consume_type === "consume_type_asset" || $consume_type === "consume_type_stackable") {
+            return true;
         }
         return false;
     }
+
 }

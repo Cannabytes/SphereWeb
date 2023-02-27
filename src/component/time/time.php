@@ -24,20 +24,14 @@ class time {
         if(self::$timeoutCache == null) {
             if(file_exists('src/config/cache.php')) {
                 require_once('src/config/cache.php');
-                if(isset($cache_timeout)) {
-                    self::$timeoutCache = $cache_timeout;
-                } else {
-                    self::$timeoutCache = self::defaultTimeout();
-                }
+                self::$timeoutCache = $cache_timeout ?? self::defaultTimeout();
             } else {
                 self::$timeoutCache = self::defaultTimeout();
             }
         }
-        if($value == null) {
-            return self::$timeoutCache;
-        }
-        return self::$timeoutCache[$value] ?? 60 * 10;
+        return $value === null ? self::$timeoutCache : (self::$timeoutCache[$value] ?? 60 * 10);
     }
+
 
     private static function defaultTimeout(): array {
         return [

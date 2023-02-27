@@ -15,19 +15,19 @@ class board {
      * В функцию передаем массив данных, которые мы будем возвращать JSON хэдэром
      * используется для аякс ответов.
      */
-    static public function alert($arr = [], $flags = 0) {
+    static public function alert(array $arr = [], int $flags = 0) {
         header('Content-Type: application/json; charset=utf-8');
-        if(empty($arr)) {
+        if (!$arr) {
             exit(json_encode(lang::get_phrase(255)));
         }
-        echo json_encode($arr, $flags );
+        echo json_encode($arr, $flags);
         exit();
     }
 
     /**
-     *  Использовать для аякс уведомлений, когда нужно вернуть результат и сообщение
+     * Использовать для аякс уведомлений, когда нужно вернуть результат и сообщение
      */
-    static public function notice(bool $ok, string $message = "", int $flags = 0) {
+    static public function notice(bool $ok, string $message = null, int $flags = 0) {
         self::alert([
             'ok'      => $ok,
             'message' => $message,

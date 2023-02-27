@@ -173,11 +173,7 @@ class race_class {
     ];
 
     static public function get_class($class_id) {
-        if(isset(self::$class[$class_id])) {
-            return self::$class[$class_id];
-        }
-        return null;
-        //        "Неизвестный класс: {$class_id}";
+        return self::$class[$class_id] ?? null;
     }
 
     /**
@@ -188,12 +184,8 @@ class race_class {
      * Возвращаем ID класса
      */
     static public function get_id_class($class_name): ?int {
-        foreach(self::$class as $class_id => $_class_name) {
-            if(mb_strtolower($_class_name) == mb_strtolower($class_name)) {
-                return $class_id;
-            }
-        }
-        return null;
+        $key = array_search(mb_strtolower($class_name), array_map('mb_strtolower', self::$class), true);
+        return $key !== false ? $key : null;
     }
 
     static private array $human_id      = [
@@ -396,4 +388,6 @@ class race_class {
         }
         return 'none';
     }
+
+
 }

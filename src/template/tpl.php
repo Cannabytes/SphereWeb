@@ -34,15 +34,18 @@ use Twig\TwigFunction;
 
 class tpl {
 
-    //
     static private array $allTplVars = [];
 
-    //
-    public static function addVar($var, $value = '') {
+    /**
+     * @param $var
+     * @param string $value
+     *
+     * @return void
+     * Добавление переменной к выводу шаблона
+     */
+    public static function addVar($var, mixed $value = 'None') {
         if(is_array($var)) {
-            foreach($var as $key => $row) {
-                self::$allTplVars[$key] = $row;
-            }
+            self::$allTplVars = array_merge(self::$allTplVars, $var);
         } else {
             self::$allTplVars[$var] = $value;
         }
@@ -167,13 +170,10 @@ class tpl {
         $twig->addFunction(new TwigFunction('get_phrase', function($key, ...$values) {
             return lang::get_phrase($key, ...$values);
         }));
+
         //Аналог get_phrase
-        $twig->addFunction(new TwigFunction('phrase', function($key, ...$values) {
-            try {
-                return lang::get_phrase($key, ...$values);
-            } catch(ArgumentCountError $e) {
-                return "[lang code: ($key) - " . $e->getMessage() . "]";
-            }
+        $twig->addFunction(new TwigFunction('phrase', function($phraseKey, ...$values) {
+            return lang::get_phrase($phraseKey, ...$values);
         }));
 
         $twig->addFunction(new TwigFunction('get_template', function() {
@@ -203,15 +203,11 @@ class tpl {
 
         //Обрезаем число до 10 символов (на некоторых сборках в микротайме хранится время) и выводим в формате времени
         $twig->addFunction(new TwigFunction('unitToDate', function($var) {
-            $date = mb_strimwidth($var, 0, 10);
-            return date("H:i d.m.Y", (int)$date);
+            return date("H:i d.m.Y", (int)substr($var, 0, 10));
         }));
 
         $twig->addFunction(new TwigFunction('sex', function($v) {
-            if($v == 0) {
-                return 'male';
-            }
-            return 'female';
+            return $v == 0 ? 'male' : 'female';
         }));
 
         $twig->addFunction(new TwigFunction('get_youtube_id', function($link) {
@@ -219,15 +215,15 @@ class tpl {
             if(!isset($video_id[1])) {
                 $video_id = explode("youtu.be/", $link);
             }
-            if(empty($video_id[1]))
+            if(empty($video_id[1])) {
                 $video_id = explode("/v/", $link);
+            }
             $video_id = explode("&", $video_id[1]);
             $youtubeVideoID = $video_id[0];
             if($youtubeVideoID) {
                 return $youtubeVideoID;
-            } else {
-                return false;
             }
+            return null;
         }));
 
         //Сервер по умолчанию
@@ -276,38 +272,38 @@ class tpl {
             return config::get_screen_enable();
         }));
 
-        $twig->addFunction(new TwigFunction('grade_img', function($crystal_type) {
+        $twig->addFunction(new TwigFunction('grade_img', function($crystal_type) : string {
+            $grade_img = '';
             switch($crystal_type) {
-                case 'none':
-                    echo '';
-                    break;
                 case 'd':
-                    echo '<img src="/uploads/images/grade/d.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/d.png" style="width:20px">';
                     break;
                 case 'c':
-                    echo '<img src="/uploads/images/grade/c.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/c.png" style="width:20px">';
                     break;
                 case 'b':
-                    echo '<img src="/uploads/images/grade/b.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/b.png" style="width:20px">';
                     break;
                 case 'a':
-                    echo '<img src="/uploads/images/grade/a.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/a.png" style="width:20px">';
                     break;
                 case 's':
-                    echo '<img src="/uploads/images/grade/s.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/s.png" style="width:20px">';
                     break;
                 case 'r':
-                    echo '<img src="/uploads/images/grade/r.png" style="width:20px">';
+                    $grade_img = '<img src="/uploads/images/grade/r.png" style="width:20px">';
                     break;
                 case 'r95':
-                    echo '<img src="/uploads/images/grade/r95.png" style="width:35px">';
+                    $grade_img = '<img src="/uploads/images/grade/r95.png" style="width:35px">';
                     break;
                 case 'r99':
-                    echo '<img src="/uploads/images/grade/r99.png" style="width:35px">';
+                    $grade_img = '<img src="/uploads/images/grade/r99.png" style="width:35px">';
                     break;
                 case 'r110':
-                    echo '<img src="/uploads/images/grade/r110.png" style="width:40px">';
+                    $grade_img = '<img src="/uploads/images/grade/r110.png" style="width:40px">';
+                    break;
             }
+            return $grade_img;
         }));
 
         //Сгенерировать рандомный аккаунт
@@ -333,17 +329,19 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0, $limit = 0) {
-            if($limit == 0) {
-                return statistic_model::get_pvp($server_id);
+            $results = statistic_model::get_pvp($server_id);
+            if($limit > 0) {
+                $results = array_slice($results, 0, $limit);
             }
-            return array_slice(statistic_model::get_pvp($server_id), 0, $limit);
+            return $results;
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0) {
+            $stats = statistic_model::get_pk($server_id);
             if($limit == 0) {
-                return statistic_model::get_pk($server_id);
+                return $stats;
             }
-            return array_slice(statistic_model::get_pk($server_id), 0, $limit);
+            return array_slice($stats, 0, $limit);
         }));
 
         $twig->addFunction(new TwigFunction('statistic_players_online_time', function($server_id = 0) {
@@ -351,10 +349,11 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0, $limit = 0) {
-            if($limit == 0) {
-                return statistic_model::get_clan($server_id);
+            $clans = statistic_model::get_clan($server_id);
+            if($limit > 0) {
+                $clans = array_slice($clans, 0, $limit);
             }
-            return array_slice(statistic_model::get_clan($server_id), 0, $limit);
+            return $clans;
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_castle', function($server_id = 0) {
@@ -380,10 +379,7 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('get_default_page', function($str, $server_id) {
             $pId = server::get_default_desc_page_id($server_id);
-            if($pId) {
-                return "<a href='/page/{$pId}'>$str</a>";
-            }
-            return $str;
+            return $pId ? "<a href='/page/{$pId}'>$str</a>" : $str;
         }));
 
         $twig->addFunction(new TwigFunction('http_referer', function() {
@@ -392,15 +388,9 @@ class tpl {
 
         //Возвращает сумму чисел в массиве по конкретному полю
         $twig->addFunction(new TwigFunction('array_field_sum', function(array $array, string $field) {
-            $sum = 0;
-            foreach($array as $players) {
-                foreach($players as $key => $value) {
-                    if($key == $field) {
-                        $sum += $value;
-                    }
-                }
-            }
-            return $sum;
+            return array_reduce($array, function($sum, $players) use ($field) {
+                return $sum + ($players[$field] ?? 0);
+            }, 0);
         }));
 
         $twig->addFunction(new TwigFunction('get_clanhall', function($id) {
@@ -416,58 +406,43 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('icon', function($fileIcon = null) {
-            if(file_exists("uploads/images/icon/" . $fileIcon . ".webp") and $fileIcon != null) {
-                return "/uploads/images/icon/" . $fileIcon . ".webp";
-            }
-            return "/uploads/images/icon/NOIMAGE.webp";
+            return file_exists("uploads/images/icon/" . $fileIcon . ".webp") && $fileIcon != null ? "/uploads/images/icon/" . $fileIcon . ".webp" : "/uploads/images/icon/NOIMAGE.webp";
         }));
 
         //Есть ли бонус для персонажа за привлеченного пользователя
-        $twig->addFunction(new TwigFunction('is_referral_bonus', function($referralls) {
+        $twig->addFunction(new TwigFunction('is_referral_bonus', function($referrals) {
             require_once 'src/config/referral.php';
-            foreach($referralls as $accounts) {
-                if($accounts['done']) {
+            foreach($referrals as $account) {
+                if($account['done'] || !isset($account['characters'])) {
                     continue;
                 }
-                if(!isset($accounts['characters'])) {
-                    return false;
-                }
-                foreach($accounts['characters'] as $character) {
-                    if($character['level'] >= LEVEL and $character['pvp'] >= PVP and $character['pk'] >= PK and $character['time_in_game'] >= GAME_TIME) {
-                        return $character['player_name'];
+                foreach($account['characters'] as $character) {
+                    if($character['level'] < LEVEL || $character['pvp'] < PVP || $character['pk'] < PK || $character['time_in_game'] < GAME_TIME) {
+                        continue;
                     }
+
+                    return $character['player_name'];
                 }
             }
             return false;
         }));
+
         //Кол-во завершенных и не завершенных рефералов
-        $twig->addFunction(new TwigFunction('referral_count', function($referralls) {
-            $count['completed'] = 0;
-            $count['continues'] = 0;
-            $count['made'] = 0;
-            if(!$referralls) {
-                return $count;
-            }
-            foreach($referralls as $referrall) {
-                if($referrall['done']) {
-                    $count['completed']++;
-                    continue;
-                }
-                $count['continues']++;
-            }
-            $count['made'] = $count['completed'] / count($referralls) * 100;
-            return $count;
+        $twig->addFunction(new TwigFunction('referral_count', function($referrals) {
+            $completedCount = array_reduce($referrals, function($count, $referral) {
+                return $count + ($referral['done'] ? 1 : 0);
+            }, 0);
+            return [
+                'completed' => $completedCount,
+                'continues' => count($referrals) - $completedCount,
+                'made'      => $completedCount / count($referrals) * 100,
+            ];
         }));
 
         $twig->addFunction(new TwigFunction('referral_link', function() {
-            if(isset($_SERVER['HTTPS']))
-                $scheme = $_SERVER['HTTPS']; else $scheme = '';
-            if(($scheme) && ($scheme != 'off'))
-                $scheme = 'https://'; else $scheme = "http://";
-            if(auth::get_name() == "") {
-                return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . auth::get_id();
-            }
-            return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . mb_strtolower(auth::get_name());
+            $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https://' : 'http://';
+            $name = auth::get_name() ?: auth::get_id();
+            return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . mb_strtolower($name);
         }));
 
         $template = $twig->load($tplName);
@@ -475,23 +450,23 @@ class tpl {
         self::$allTplVars['pointTime'] = microtime::pointTime();
         try {
             echo $template->render(self::$allTplVars);
-        }catch(\Exception  $e){
+        } catch(\Exception  $e) {
             echo "<h4>TEMPLATE ERROR</h4>";
-            echo "Message: " . $e->getMessage()."<br>";
-            echo "File: " . $e->getFile()."<br>";
+            echo "Message: " . $e->getMessage() . "<br>";
+            echo "File: " . $e->getFile() . "<br>";
             echo "Line: " . $e->getLine();
             echo "<BR>";
             echo "Code: ";
             $file = fopen($e->getFile(), "r");
-            if ($file) {
-                for ($i = 1; $i < $e->getLine(); ++$i) {
-                    if (fgets($file) === false) {
+            if($file) {
+                for($i = 1; $i < $e->getLine(); ++$i) {
+                    if(fgets($file) === false) {
                         break;
                     }
                 }
                 $line = fgets($file);
                 fclose($file);
-                echo htmlspecialchars($line) ;
+                echo htmlspecialchars($line);
             }
         }
         exit();

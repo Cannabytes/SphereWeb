@@ -16,15 +16,12 @@ class timezone {
      */
     static public function all(): array {
         $listIdentifiers = DateTimeZone::listIdentifiers();
-        foreach($listIdentifiers AS &$identifier){
-            $identifier = str_replace( [
-                "Europe/Kiev"
-            ], [
-                "Europe/Kyiv",
-            ], $identifier);
-        }
-       return $listIdentifiers;
+        $listIdentifiers = array_map(function ($identifier) {
+            return str_replace("Europe/Kiev", "Europe/Kyiv", $identifier);
+        }, $listIdentifiers);
+        return $listIdentifiers;
     }
+
 
     /**
      * @param $ip

@@ -128,22 +128,17 @@ class fileSys {
      * Список папок
      */
     static public function dir_list($dir = null): array|false {
-        if($dir == null) {
+        if($dir == null || !is_dir($dir)) {
             return false;
         }
-        $dirList = [];
-        if(is_dir($dir)) {
-            if($dh = opendir($dir)) {
-                while($dirName = readdir($dh)) {
-                    if($dirName == '.' or $dirName == '..')
-                        continue;
-                    $dirList[] = $dirName;
-                }
-                closedir($dh);
-            }
+        $dirList = scandir($dir);
+        if($dirList === false) {
+            return false;
         }
-        return $dirList;
+        $dirList = array_filter($dirList, fn($name) => $name !== '.' && $name !== '..');
+        return array_values($dirList);
     }
+
 
     /**
      * Список файлов в папке
@@ -151,16 +146,7 @@ class fileSys {
     static public function file_list($dir) {
         if($dir == null)
             return false;
-        $skip = [
-            '.',
-            '..',
-        ];
-        $files = scandir($dir);
-        $arr = [];
-        foreach($files as $file) {
-            if(!in_array($file, $skip))
-                $arr[] = $file;
-        }
-        return $arr;
+        return array_values(array_diff(scandir($dir), ['.', '..']));
     }
+
 }
