@@ -49,6 +49,7 @@ class online {
                 'id'                  => $info['id'],
                 'name'                => $info['name'],
                 'rate_exp'            => $info['rate_exp'],
+                'chronicle'           => $info['chronicle'],
                 'connect_login'       => $connect_login,
                 'connect_game'        => $connect_game,
                 'player_count_online' => $player_count_online,

@@ -409,4 +409,10 @@ return [
     334 => "Account synced",
     335 => "Synchronize",
 
+    336 => "Familiarize yourself with the server",
+    337 => "Login server available",
+    338 => "Login server unavailable",
+    339 => "Game server available",
+    340 => "Game server unavailable",
+
 ];

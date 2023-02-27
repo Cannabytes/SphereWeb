@@ -48,26 +48,50 @@
         {% include 'menu/sidebar_menu.html' %}
 
         <hr>
-        {% if forum_enable() %}
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">Последнее с форума <i aria-hidden="true" class="fa fa-refresh"></i></div>
-                <ul class="list-group list-group-flush">
 
-                    {% for forum in last_forum_message(10) %}
-                    <li class="list-group-item">
-                        <div class="media align-items-left">
-                            <div class="media-body ml-2">
-                                <small>{{forum.username}}: {{forum.message}}</small>
+
+        {% for online in server_online_status() %}
+        <div class="col-lg-12">
+            <div class="pricing-table">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <strong data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}">{{get_default_page(online['name'], online['id'])|raw}} x{{online['rate_exp']}}</strong>
+
+                        <div class="card-footer">
+                            <div class="row align-items-center text-center">
+                                <div class="col border-right border-light">
+                                    <h4 class="mb-0">
+                                        {% if online['connect_login'] %}
+                                        <i class="fa fa-circle mr-1" style="color: #02ba5a" data-toggle="tooltip" data-placement="bottom" data-original-title="{{phrase(337)}}"></i>
+                                        {% else %}
+                                        <i class="fa fa-circle mr-1" style="color: #8a1f11" data-toggle="tooltip" data-placement="bottom" data-original-title="{{phrase(338)}}"></i>
+                                        {% endif %}
+                                    </h4>
+                                </div>
+                                <div class="col">
+                                    <h4 class="mb-0">
+                                        {% if online['connect_game'] %}
+                                        <i class="fa fa-circle mr-1" style="color: #02ba5a" data-toggle="tooltip" data-placement="bottom" data-original-title="{{phrase(339)}}"></i>
+                                        {% else %}
+                                        <i class="fa fa-circle mr-1" style="color: #8a1f11" data-toggle="tooltip" data-placement="bottom" data-original-title="{{phrase(340)}}"></i>
+                                        {% endif %}
+                                    </h4>
+                                </div>
                             </div>
+                            <br>
+                            <div class=""><b>Online</b>  {{online['player_count_online']}}</div>
+                            <div class=""><b>{{online['chronicle']}}</b></div>
                         </div>
-                    </li>
-                    {% endfor %}
 
-                </ul>
-            </div>
+                    </div>
+                </div>
+           </div>
         </div>
-        {% endif %}
+        {% endfor %}
+
+
+
+
     </div>
     <!--End sidebar-wrapper-->
 

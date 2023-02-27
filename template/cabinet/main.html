@@ -9,71 +9,71 @@
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">{{ phrase(43) }}</div>
+            <div class="card-header">{{ phrase(43) }}
+            </div>
 
             <div class="row">
                 {% if get_server_info()|length >= 1 %}
                 <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <ul class="nav nav-pills nav-pills-dark nav-justified" role="tablist">
-                                {% for num, server in get_server_info() %}
-                                <li class="nav-item">
-                                     <a class="nav-link {% if server.id==user_info('get_default_server') %}active{% endif %}"
-                                       data-toggle="pill"
-                                       href="#piil-{{ server.id }}"><span class="hidden-xs">{{ server.name|e }} x{{ server.rate_exp|e }}</span></a>
-                                </li>
-                                {% endfor %}
-                            </ul>
+                    <ul class="nav nav-pills nav-pills-dark nav-justified" role="tablist">
+                        {% for num, server in get_server_info() %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if server.id==user_info('get_default_server') %}active{% endif %}"
+                               data-toggle="pill"
+                               href="#piil-{{ server.id }}"><span class="hidden-xs">{{ server.name|e }} x{{ server.rate_exp|e }}</span></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
 
 
-                            <div class="tab-content">
-                                {% for num,server in get_server_info() %}
-                                <div id="piil-{{ server.id }}"
-                                     class="container tab-pane {% if server.id==user_info('get_default_server') %}active{% else %}fade{% endif %}">
+                    <div class="tab-content">
+                        {% for num,server in get_server_info() %}
+                        <div id="piil-{{ server.id }}"
+                             class="container tab-pane {% if server.id==user_info('get_default_server') %}active{% else %}fade{% endif %}">
 
 
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>Login</th>
-                                                <th>Password</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for player in show_all_account_player() %}
-                                            {% if player.server_id == server.id %}
-                                            <tr>
-                                                <td>
-												<a href="account/info/{{ player.login }}"><b>{{ player.login }}</b></a>
-                                                </td>
-                                                <td>
-                                                    <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
-                                                            aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
-                                                    player.password_hide %}<span class="badge badge-success m-1">{{ phrase(42) }}</span>{%
-                                                    else %}{{ player.password }}{% endif %}
-                                                </td>
-                                            </tr>
-                                            {% endif %}
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="btn-group m-10">
-                                        <a href="/registration/account/server/{{ server.id }}"  class="btn-social-text btn-github waves-effect waves-light m-1">
-                                            <i class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
-                                        <a href="/registration/account/sync/server/{{ server.id }}"  class="btn-social-text btn-github waves-effect waves-light m-1">
-                                            <i class="fa fa-superpowers"></i> <span>{{ phrase(335) }}</span></a>
-                                    </div>
-
-
-                                </div>
-                                {% endfor %}
-
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Login</th>
+                                        <th>Password</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for player in show_all_account_player() %}
+                                    {% if player.server_id == server.id %}
+                                    <tr>
+                                        <td>
+                                            <a href="account/info/{{ player.login }}"><b>{{ player.login }}</b></a>
+                                        </td>
+                                        <td>
+                                            <a href="/account/password/change/{{ player.login }}/server/{{server.id}}"><i
+                                                    aria-hidden="true" class="fa fa-sun-o"></i></a> {% if
+                                            player.password_hide %}<span class="badge badge-success m-1">{{ phrase(42) }}</span>{%
+                                            else %}{{ player.password }}{% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
+
+                            <div class="btn-group m-1">
+                                <a href="/registration/account/server/{{ server.id }}" data-toggle="modal"
+                                   data-target="#registration"
+                                   class="btn-social-text btn-github waves-effect waves-light m-1">
+                                    <i class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
+
+                                <a href="/registration/account/sync/server/{{ server.id }}"
+                                   class="btn-social-text btn-github waves-effect waves-light m-1">
+                                    <i class="fa fa-superpowers"></i> <span>{{ phrase(335) }}</span></a>
+                            </div>
+
                         </div>
+                        {% endfor %}
+
                     </div>
                 </div>
                 {%endif%}
@@ -83,41 +83,51 @@
         </div>
     </div>
 
+    {% include ('chat/panel.html') %}
+
+
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">{{ phrase(44) }}</div>
+            <div class="card-header">Последние новости проекта</div>
             <ul class="list-group list-group-flush">
+                {% for i, news in last_news(4) %}
                 <li class="list-group-item">
-                    {% for online in server_online_status() %}
                     <div class="media align-items-center">
-                        <div class="media-body ml-1">{{get_default_page(online['name'], online['id'])|raw}}</div>
-                        <div class="media-body ml-1">x{{online['rate_exp']}}</div>
-                        <div class="media-body ml-4" >
-                            {% if online['connect_login'] %}
-                            <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Login
-                            {% else %}
-                            <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Login
-                            {% endif %}
+                        <div class="media-body ml-1">
+                            <a href="/page/{{news.id}}"><p class="mb-0 small-font">{{news.name|striptags}}</p></a>
                         </div>
-                        <div class="media-body ml-4">
-                            {% if online['connect_game'] %}
-                            <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Game
-                            {% else %}
-                            <i class="fa fa-circle mr-1" style="color: #8a1f11"></i>Game
-                            {% endif %}
-                        </div>
-                        <div class="media-body ml-4"> {{online['player_count_online']}}</div>
                     </div>
-                    {% endfor %}
                 </li>
+                {% endfor %}
+
             </ul>
         </div>
     </div>
 
-    {% include ('chat/panel.html') %}
-
 </div>
 {% else %}
+
+
+<!--    {% if forum_enable() %}-->
+<!--    <div class="col-12">-->
+<!--        <div class="card">-->
+<!--            <div class="card-header">Последнее с форума <i aria-hidden="true" class="fa fa-refresh"></i></div>-->
+<!--            <ul class="list-group list-group-flush">-->
+
+<!--                {% for forum in last_forum_message(10) %}-->
+<!--                <li class="list-group-item">-->
+<!--                    <div class="media align-items-left">-->
+<!--                        <div class="media-body ml-2">-->
+<!--                            <small>{{forum.username}}: {{forum.message}}</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                {% endfor %}-->
+
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    {% endif %}-->
 
 <div class="row">
 
@@ -125,7 +135,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header text-uppercase">{{ phrase(5) }}</div>
+                    <div class="card-header ">{{ phrase(5) }}</div>
                     <div class="card-body">
 
                         <form>
@@ -139,8 +149,8 @@
                                         {% endif %}
                                         {% for server in get_server_info() %}
                                         <option {% if server.id== server_id %}selected="selected" {% endif %}
-                                                value="{{server.id}}">{{server.name}} - {{server.chronicle}}
-                                            x{{server.rate_exp}} от {{server.date_start_server}}
+                                                value="{{server.id}}">{{server.name}} x{{server.rate_exp}} -
+                                            {{server.chronicle}}
                                         </option>
                                         {% endfor %}
                                     </select>
@@ -154,7 +164,7 @@
                                                                           class="fa fa-refresh"></i></a></label>
                                 <div class="col-sm-9">
                                     <input value="{{generation_account}}" name="login" type="text"
-                                           class="form-control form-control-xl" id="login">
+                                           class="form-control form-control" id="login">
                                 </div>
                             </div>
 
@@ -169,7 +179,8 @@
                                              class="input-group-text">
                                             <input checked id="password_hide" name="password_hide" type="checkbox"/>
                                         </div>
-                                        <input name="password" type="text" class="form-control form-control-xl" id="password"/>
+                                        <input name="password" type="text" class="form-control form-control"
+                                               id="password"/>
                                     </div>
                                 </div>
                             </div>
@@ -178,9 +189,24 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-3 col-form-label">E-Mail</label>
                                 <div class="col-sm-9">
-                                    <input name="email" type="email" class="form-control form-control-xl" id="email">
+                                    <input name="email" type="email" class="form-control form-control" id="email">
                                 </div>
                             </div>
+
+
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Капча</label>
+
+                                <div class="col-sm-5">
+                                    <a href="#"> <img id='refreshCaptcha' src=""
+                                                      class="lightbox-thumb img-thumbnail captcha_img"/> </a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control form-control-lg" name="captcha" id="captcha">
+                                </div>
+                            </div>
+
+
                             {% endif %}
 
                             <div class="form-group row">
@@ -210,7 +236,7 @@
                     <div class="media align-items-center">
                         <div class="media-body ml-1">{{get_default_page(online['name'], online['id'])|raw}}</div>
                         <div class="media-body ml-1">x{{online['rate_exp']}}</div>
-                        <div class="media-body ml-4" >
+                        <div class="media-body ml-4">
                             {% if online['connect_login'] %}
                             <i class="fa fa-circle mr-1" style="color: #02ba5a"></i>Login
                             {% else %}
@@ -239,18 +265,18 @@
 {% endif %}
 
 
-{% set screenshots = screenshots() %}
+{% set screenshots = screenshots(12) %}
 {% if screenshots %}
 {% set count = screenshots|length %}
-{% set showScreenCount = 8 %}
+{% set showScreenCount = 12 %}
 {% if count>=8 %}
-{% set showScreenCount = 8 %}
+{% set showScreenCount = 12 %}
 {% elseif count<=4 %}
 {% set showScreenCount = 0 %}
 {% else %}
-{% set showScreenCount = 4 %}
+{% set showScreenCount = 6 %}
 {% endif %}
-{% if showScreenCount== 4 or showScreenCount==8 %}
+{% if showScreenCount== 6 or showScreenCount== 12 %}
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -258,11 +284,11 @@
             <div class="card-body">
                 <div class="row">
                     {% for i, screen in screenshots|slice(0,showScreenCount) %}
-                    <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="col-md-6 col-lg-2 col-xl-2">
                         <a href="uploads/screenshots/{{screen.image}}" data-fancybox="images"
                            data-caption="{{screen.image}}">
                             <img src="uploads/screenshots/{{screen.image}}" alt="lightbox"
-                                 class="lightbox-thumb img-thumbnail">
+                                 class="lightbox-thumb img-thumbnail rounded">
                         </a>
                     </div>
                     {% endfor %}
@@ -275,37 +301,109 @@
 {% endif %}
 {% endif %}
 
-
-{% for i, news in last_news(10) %}
 <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header text-uppercase"><a href="/page/{{news.id}}">{{news.name|striptags}}</a></div>
-                <div class="card-body">
-                    <a href="/page/{{news.id}}">
-                        <blockquote class="blockquote">
-                            {{news.description|raw}}
-                        </blockquote>
-                    </a>
-                    <footer class="blockquote-footer">{{news.date_create|date("d M Y")}}</footer>
-                </div>
-            </div>
-        </div>
-</div>
-{% endfor %}
-
-
-<div class="row">
-    <div class="modal fade" id="modal-open">
+    <div class="modal fade" id="registration">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content animated flip">
+            <div class="modal-content animated flipInX">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal_title"></h5>
+                    <h5 class="modal-title" id="modal_title">Регистрация</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="modal_content"></div>
+                <div class="modal-body" id="modal_content">
+                    <form>
+                        <div class="form-group row">
+                            <label for="basic-select" class="col-sm-2 col-form-label">{{ phrase("server") }}</label>
+                            <div class="col-sm-6">
+                                <select name="server" class="form-control" id="basic-select">
+                                    {% if server_id is empty %}
+                                    {% set server_id = user_info('get_default_server') %}
+                                    {% endif %}
+                                    {% for server in get_server_info() %}
+                                    <option {% if server.id== server_id %}selected="selected" {% endif %}
+                                            value="{{server.id}}">{{server.name}} - {{server.chronicle}}
+                                        x{{server.rate_exp}} от {{server.date_start_server}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="login" class="col-sm-2 col-form-label">{{ phrase("login") }} <a
+                                    id="new_account_word" href="#"><i aria-hidden="true"
+                                                                      class="fa fa-refresh"></i></a></label>
+                            <div class="col-sm-6">
+                                <input value="{{generation_account()}}" name="login" type="text"
+                                       class="form-control form-control-xl" id="login">
+                            </div>
+                            <div class="col-sm-4">
+                                <p class="text-left">
+                                    {{phrase(132, 4, 16)|raw}}
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 col-form-label">{{ phrase("password") }} <a
+                                    id="new_password_word" href="#"><i aria-hidden="true"
+                                                                       class="fa fa-refresh"></i></a></label>
+                            <div for="password_hide" class="col-sm-6">
+                                <div class="input-group-prepend">
+                                    <div data-toggle="tooltip" data-placement="top" title="{{ phrase(2) }}"
+                                         class="input-group-text">
+                                        <input checked id="password_hide" name="password_hide" type="checkbox"/>
+                                    </div>
+                                    <input name="password" type="text" class="form-control form-control-xl"
+                                           id="password"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <p class="text-left">
+                                    {{phrase(133, 4)}}
+                                </p>
+                            </div>
+                        </div>
+
+                        {% if user_info('get_is_auth') == false %}
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+                            <div class="col-sm-4">
+                                <input name="email" type="email" class="form-control form-control-xl" id="email">
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="text-left">{{ phrase(6) }}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">Анти-Бот</label>
+
+                            <div class="col-sm-2">
+                                <a href="#"> <img id='refreshCaptcha' src=""
+                                                  class="lightbox-thumb img-thumbnail captcha_img"/> </a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control form-control-xl" name="captcha" id="captcha">
+                            </div>
+                        </div>
+
+
+                        {% endif %}
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary px-5"> {{ phrase(7) }}</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close
                     </button>
@@ -315,31 +413,32 @@
     </div>
 </div>
 
-    {% endblock %}
+{% endblock %}
 
 
+{% block css_ol_1 %}
+<link href="{{'assets/plugins/vertical-timeline/css/vertical-timeline.css'|template}}" rel="stylesheet"/>
+<link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet"/>
+{% endblock %}
 
-    {% block css_ol_1 %}
-    <link href="{{'assets/plugins/vertical-timeline/css/vertical-timeline.css'|template}}" rel="stylesheet"/>
-    <link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet"/>
-    {% endblock %}
-
-    {% block js %}
-
-
-    <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
-    <script src="{{'assets/plugins/vertical-timeline/js/vertical-timeline.js'|template}}"></script>
-    <script src="{{'assets/js/news/news.js'|template}}"></script>
+{% block js %}
 
 
-    {% if get_enable_game_chat() %}
-    <script>
+<script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+<script src="{{'assets/plugins/vertical-timeline/js/vertical-timeline.js'|template}}"></script>
+<script src="{{'assets/js/news/news.js'|template}}"></script>
+
+
+{% if get_enable_game_chat() %}
+<script>
         {% if user_info('get_access_level')=="admin" %}
         var chat_admin_password = "{{get_server_default()['chat_admin_password']}}";
         {% endif %}
         var web_socket_c = "{{ get_server_default()['chat_websocket_host'] }}";
-    </script>
-    <script src="{{'assets/js/ws/chat.js'|template}}"></script>
-    {% endif %}
 
-    {% endblock %}
+</script>
+<script src="{{'assets/js/ws/chat.js'|template}}"></script>
+{% endif %}
+<script src="{{'assets/js/user/registration_account.js'|template}}"></script>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>PlayOrbis.Pro - Interlude Project</title>
+    <title>{{title}}</title>
     <meta name="keywords" content="l2, l2 c6, l2 Interlude, l2 c6 Interlude, la2, la2 c6, la2 Interlude, la2 c6 Interlude, Lineage, Lineage 2, Lineage 2 C4, Lineage Interlude, Lineage 2 Interlude, Lineage 2 C4 Interlude, LineageClassic, LineageClassic 2, LineageClassic C4, PlayOrbis 2 C4, PlayOrbis 2 Interlude, PlayOrbis 2 C4 Interlude, Lineage Classic, Lineage Classic 2, Lineage Classic C4, Lineage Classic 2 C4, Lineage Classic 2 Interlude, Lineage Classic 2 C4 Interlude, Классический сервер, Классический сервер Lineage, Классический сервер Lineage 2, Классический сервер Lineage 2 C4, Классический сервер Lineage 2 Interlude, Классический сервер Lineage 2 C4 Scions of Destony, Lineage PTS, Lineage 2 PTS, Lineage 2 C4 PTS, Lineage 2 C4 Interlude PTS, Лучший Lineage, Лучший Lineage 2, Лучший Lineage 2 C4, Лучший Lineage Interlude, Лучший Lineage 2 C4 Interlude, PTS сервер Lineage , PTS сервер Lineage 2, PTS сервер Lineage 2 C4, PTS сервер Lineage Interlude, PTS сервер Lineage 2 C4 Scions of Desiny, PVP сервер Lineage, PVP сервер Lineage 2, PVP сервер Lineage 2 C4, PVP сервер Lineage 2 Interlude, PVP сервер Lineage 2 C4 Interlude, lineage 2 pvp server c6, lineage 2 pvp server scions of destiny, lineage 2 pvp server interlude, il, ил, интерлюд, lineage 2 pvp server gracia, lineage 2 pvp server gracia final, lineage 2 pvp server epilogue, lineage 2 pvp server freya, lineage 2 pvp server high five, lineage 2 pvp server goodes of destruction, lineage 2 pvp server lindvior, сервер pvp, l2 пвп сервер, l2 классик сервер, сервер для l2, lineage2 pvp server, lineage2 classic server, tera сервер, скачать линейка, скачать линейка 2, скачать линягу, скачать линягу 2, скачать lineage, скачать lineage 2, download lineage, download lineage 2, aion server top, diablo 2 lord of destruction скачать, бесплатный wow сервер, goha forums, aion скачать, aion top, top pvp server lineage 2, top classic server lineage 2, top l2, top lineage, top lineage 2, дата выхода blade and soul, MMORPG, RPG, TOPMMORPG, lineage MMO, MMO">
     <meta name="description" content="PlayOrbis.pro - Элитный комплекс серверов Lineage 2 C6 Interlude в рунете!">
     <link rel="shortcut icon" href="{{template}}//favicon.ico">
@@ -25,7 +25,8 @@
 		var minute_l2b = 00; /* минуты */ 
 		var second_l2b = 00; /* секунды */ 
 		var timezone_l2b = +3; /* Часовой пояс Москва: +3, Киев: +2 и т.д.. */ 
-		var text_l2b = '<span class="over">Сервер Multicraft x100 успешно открыт!</span>'; /* Текст который будет отображаться, когда таймер досчитает до нуля */ 
+		{% set server = get_server_default() %}
+		var text_l2b = '<span class="over">{{phrase("server_open", server["name"], server["rate_exp"])}}</span>'; /* Текст который будет отображаться, когда таймер досчитает до нуля */ 
 		/* Корректировка для первого сервера */ var server_1_cor = -200; 
 		/* Корректировка для второго сервера */ var server_2_cor = -1; 
 		/* Корректировка для третьего сервера */ var server_3_cor = -200; 
@@ -36,6 +37,7 @@
 </head>
 
 <body>
+
     <!--[if lt IE 10]><p class="old_ie">Ваш браузер сильно устарел. Пожалуйста, <a href="{{template}}/https://www.mozilla.org/ru/firefox/new/">обновите ваш браузер</a> до новой версии.</p><![endif]-->
     <!-- Прелоадер НАЧАЛО -->
     <style>
@@ -48,18 +50,19 @@
     <!-- Прелоадер КОНЕЦ -->
     <div class="main">
         <div class="nav main__nav">
-            <div class="lang"><a href="{{template}}/javascript:;" lang="eng" id="lang_eng" class="lang__link" title="Включить английский язык"><img src="{{template}}//images/lang__en.png" alt="en"></a></div>
+            <div class="lang"><a href="/user/change/lang/en" lang="eng" id="lang_eng" class="lang__link" title="Включить английский язык"><img src="{{template}}//images/lang__en.png" alt="en"></a></div>
             <!-- Конец lang -->
-            <div class="nav-container nav-container_pos"><a href="{{template}}//" class="nav__link" data-title="Главная">Главная</a><a href="{{template}}//login" class="nav__link" data-title="Регистрация">Регистрация</a>
-                <div class="nav__link" id="play_link" data-title="Файлы">Файлы</div>
+            <div class="nav-container nav-container_pos"><a href="/main" class="nav__link" data-title="{{phrase('home')}}">{{phrase('home')}}</a>
+			<a href="{{alias('registration_account')}}" class="nav__link" data-title="{{phrase('registration')}}">{{phrase('registration')}}</a>
+                <div class="nav__link" id="play_link" data-title="{{phrase('files')}}">{{phrase('files')}}</div>
             </div>
-            <!-- Конец nav-container" --><a href="{{template}}//login" class="btn big-btn"><span>Авторизоваться</span></a>
-            <div class="nav-container nav-container_pos"><a href="{{template}}/http://forum.playorbis.pro/" target="_blank" class="nav__link" data-title="Форум">Форум</a>
-                <div class="nav__link" id="about_link" data-title="О серверах">О серверах</div>
-                <div class="nav__link" id="donate_link" data-title="Пожертвования">Пожертвования</div>
+            <!-- Конец nav-container" --><a href="/auth" class="btn big-btn"><span>{{phrase('auth')}}</span></a>
+            <div class="nav-container nav-container_pos"><a href="#" target="_blank" class="nav__link" data-title="{{phrase('forum')}}">{{phrase('forum')}}</a>
+                <div class="nav__link" id="about_link" data-title="{{phrase('about server')}}">{{phrase('about server')}}</div>
+                <div class="nav__link" id="donate_link" data-title="{{phrase('donation')}}">{{phrase('donation')}}</div>
             </div>
             <!-- Конец nav-container" -->
-            <div class="lang"><a href="{{template}}/javascript:;" lang="rus" id="lang_rus" class="lang__link" title="Включить русский язык"><img src="{{template}}//images/lang__ru.png" alt="ru"></a></div>
+            <div class="lang"><a href="/user/change/lang/ru" lang="rus" id="lang_rus" class="lang__link" title="Включить русский язык"><img src="{{template}}//images/lang__ru.png" alt="ru"></a></div>
             <!-- Конец lang -->
         </div>
         <!-- Конец main__nav -->
@@ -309,10 +312,11 @@
             <!-- Конец server -->
         </div>
         <!-- Конец main__servers -->
+		
         <div class="mid main__mid">
             <div class="block mid__block block_left">
-                <div class="scl scl_left"><a class="scl__link scl__link_telegram" target="_blank"></a><a href="{{template}}/https://vk.com/orbis_x100" class="scl__link scl__link_vk" target="_blank"></a></div>
-                <div class="block-title block-title_left-pos"> СТАТИСТИКА СЕРВЕРОВ </div>
+                <div class="scl scl_left"><a class="scl__link scl__link_telegram" target="_blank"></a><a href="#" class="scl__link scl__link_vk" target="_blank"></a></div>
+                <div class="block-title block-title_left-pos"> {{phrase('statistic_server')}} </div>
                 <div class="top top_pos">
                     <div id="top_player">
                         <!--1 server-->
@@ -326,56 +330,13 @@
                                             <td class="td-header">Char Name</td>
                                             <td class="td-header">PvP</td>
                                         </tr>
+										{% for i, char in statistic_get_pvp(0, 10) %}
                                         <tr>
-                                            <td>1</td>
-                                            <td>Ayko</td>
-                                            <td>2290</td>
+                                            <td>{{i+1}}</td>
+                                            <td>{% if char.alliance_crest %}<img src="data:image/jpeg;base64,{{char.alliance_crest}}">{% endif %}{% if char.clan_crest %}<img src="data:image/jpeg;base64,{{char.clan_crest}}">{% endif %}{{ char.player_name }}</td>
+                                            <td>{{ char.pvp }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Venceslav</td>
-                                            <td>1844</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Brains</td>
-                                            <td>1817</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Cherry</td>
-                                            <td>1727</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Banana</td>
-                                            <td>1698</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>SpicePineapple</td>
-                                            <td>1678</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>OlegMayami</td>
-                                            <td>1678</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>oMo</td>
-                                            <td>1594</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>lockdown</td>
-                                            <td>1546</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>kiwi</td>
-                                            <td>1414</td>
-                                        </tr>
+										{% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -388,56 +349,13 @@
                                             <td class="td-header">Char Name</td>
                                             <td class="td-header">PK</td>
                                         </tr>
+                                        {% for i, char in statistic_get_pk(0, 10) %}
                                         <tr>
-                                            <td>1</td>
-                                            <td>Shiuparini</td>
-                                            <td>1892</td>
+                                            <td>{{i+1}}</td>
+                                            <td>{% if char.alliance_crest %}<img src="data:image/jpeg;base64,{{char.alliance_crest}}">{% endif %}{% if char.clan_crest %}<img src="data:image/jpeg;base64,{{char.clan_crest}}">{% endif %}{{ char.player_name }}</td>
+                                            <td>{{ char.pk }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>HollyWooD</td>
-                                            <td>879</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Bybyka</td>
-                                            <td>844</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>G0pN1k</td>
-                                            <td>603</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Forgott3n</td>
-                                            <td>585</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Overkalix</td>
-                                            <td>434</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>ShowTime</td>
-                                            <td>431</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>ImUnderHairDryer</td>
-                                            <td>430</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Vessel</td>
-                                            <td>388</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>SWx</td>
-                                            <td>381</td>
-                                        </tr>
+										{% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -447,660 +365,31 @@
                                     <tbody>
                                         <tr>
                                             <td>&nbsp;</td>
-                                            <td class="td-header">Clan Name</td>
+                                            <td class="td-header">Clan 1 Name</td>
                                             <td class="td-header">PvP</td>
                                         </tr>
+										{% for i, char in statistic_get_clans(0, 10) %}
                                         <tr>
-                                            <td>1</td>
-                                            <td>WildHeart</td>
-                                            <td>19746</td>
+                                            <td>{{i+1}}</td>
+                                            <td>{% if char.alliance_crest %}<img src="data:image/jpeg;base64,{{char.alliance_crest}}">{% endif %}{% if char.clan_crest %}<img src="data:image/jpeg;base64,{{char.clan_crest}}">{% endif %}{{ char.clan_name }}</td>
+                                            <td>{{ char.pk }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>drakazarespect</td>
-                                            <td>15284</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>SkillAndExp</td>
-                                            <td>11351</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>PomoikaComm</td>
-                                            <td>10992</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>KaMeJIoT</td>
-                                            <td>9474</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>playhardgroup</td>
-                                            <td>9131</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TheChaos</td>
-                                            <td>6984</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>AstroBase</td>
-                                            <td>5234</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>GoodGame</td>
-                                            <td>4716</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>TSAcarparation</td>
-                                            <td>4273</td>
-                                        </tr>
+										{% endfor %} 
                                     </tbody>
                                 </table>
                             </div>
                             <ul id="top_tabs_server1">
-                                <li class="active"><a href="{{template}}/#pvp_block_server1">Top PvP</a></li>
-                                <li class=""><a href="{{template}}/#pk_block_server1">Top PK</a></li>
-                                <li class=""><a href="{{template}}/#clan_block_server1">Top Clan</a></li>
+                                <li class="active"><a href="#pvp_block_server1">Top PvP</a></li>
+                                <li class=""><a href="#pk_block_server1">Top PK</a></li>
+                                <li class=""><a href="#clan_block_server1">Top Clan</a></li>
                             </ul>
                         </div>
                         <!-- Конец 1-го сервера -->
-                        <!--1 server-->
-                        <div id="top_content_server_2" class="top_content_server ">
-                            <div id="pvp_block_server2" class="top_player_block_server_2 ">
-                                <!-- Модуль PvP Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>FrozY</td>
-                                            <td>2776</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>tempkill</td>
-                                            <td>2527</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Ferd</td>
-                                            <td>2178</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>CHuKepC</td>
-                                            <td>2026</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Sonic</td>
-                                            <td>2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>ATOMHUe4ACu</td>
-                                            <td>2020</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Syndra</td>
-                                            <td>1994</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Yuichi</td>
-                                            <td>1975</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>woo</td>
-                                            <td>1867</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Stree-T^_^</td>
-                                            <td>1828</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="pk_block_server2" class="top_player_block_server_2">
-                                <!-- Модуль PK Top -->
-                                <table class="top_pk top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PK</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>wantSex</td>
-                                            <td>727</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>BuTaIIvIIuHka</td>
-                                            <td>636</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>tempkill</td>
-                                            <td>629</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Hulk</td>
-                                            <td>607</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>MrHeisenberg</td>
-                                            <td>591</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Drabs</td>
-                                            <td>572</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>PyaniyFilosof</td>
-                                            <td>563</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Kappa</td>
-                                            <td>502</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>KamaZ1K</td>
-                                            <td>489</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Born2Win</td>
-                                            <td>438</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="clan_block_server2" class="top_player_block_server_2">
-                                <!-- Модуль Clan Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Clan Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TOPHACHSIDE</td>
-                                            <td>22798</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>drakazarespect</td>
-                                            <td>16534</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>NobodyIsPerfect</td>
-                                            <td>9140</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>MirageSide</td>
-                                            <td>7841</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>3nf</td>
-                                            <td>6593</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>AnotherWorld</td>
-                                            <td>6193</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>SoftDrive</td>
-                                            <td>6125</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>pvp</td>
-                                            <td>5409</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>BomjeBrothers</td>
-                                            <td>5300</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>FathersSide</td>
-                                            <td>5196</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <ul id="top_tabs_server2">
-                                <li class="active"><a href="{{template}}/#pvp_block_server2">Top PvP</a></li>
-                                <li class=""><a href="{{template}}/#pk_block_server2">Top PK</a></li>
-                                <li class=""><a href="{{template}}/#clan_block_server2">Top Clan</a></li>
-                            </ul>
-                        </div>
-                        <!-- Конец 1-го сервера -->
-                        <!--3 server-->
-                        <div id="top_content_server_3" class="top_content_server">
-                            <div id="pvp_block_server3" class="top_player_block_server_3 top_active_block">
-                                <!-- Модуль PvP Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Player1</td>
-                                            <td>555</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Player2</td>
-                                            <td>554</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Player3</td>
-                                            <td>553</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Player4</td>
-                                            <td>552</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Player5</td>
-                                            <td>551</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Player6</td>
-                                            <td>550</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Player7</td>
-                                            <td>449</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Player8</td>
-                                            <td>448</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Player9</td>
-                                            <td>447</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Player10</td>
-                                            <td>446</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="pk_block_server3" class="top_player_block_server_3">
-                                <!-- Модуль PK Top -->
-                                <table class="top_pk top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PK</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Player11</td>
-                                            <td>111</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Player12</td>
-                                            <td>110</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Player13</td>
-                                            <td>109</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Player14</td>
-                                            <td>108</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Player15</td>
-                                            <td>107</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Player16</td>
-                                            <td>106</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Player17</td>
-                                            <td>105</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Player18</td>
-                                            <td>104</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Player19</td>
-                                            <td>103</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Player20</td>
-                                            <td>102</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="clan_block_server3" class="top_player_block_server_3">
-                                <!-- Модуль Clan Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Clan Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>ClanName1</td>
-                                            <td>5555</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>ClanName2</td>
-                                            <td>5554</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>ClanName3</td>
-                                            <td>5553</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>ClanName4</td>
-                                            <td>5552</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>ClanName5</td>
-                                            <td>5551</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>ClanName6</td>
-                                            <td>5550</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>ClanName7</td>
-                                            <td>5549</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>ClanName8</td>
-                                            <td>5548</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>ClanName9</td>
-                                            <td>5547</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>ClanName10</td>
-                                            <td>5546</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <ul id="top_tabs_server3">
-                                <li class="active"><a href="{{template}}/#pvp_block_server3">Top PvP</a></li>
-                                <li><a href="{{template}}/#pk_block_server3">Top PK</a></li>
-                                <li class=""><a href="{{template}}/#clan_block_server3">Top Clan</a></li>
-                            </ul>
-                        </div>
-                        <!-- Конец 3-го сервера -->
-                        <!--4 server-->
-                        <div id="top_content_server_4" class="top_content_server">
-                            <div id="pvp_block_server4" class="top_player_block_server_4 top_active_block">
-                                <!-- Модуль PvP Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Player1</td>
-                                            <td>555</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Player2</td>
-                                            <td>554</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Player3</td>
-                                            <td>553</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Player4</td>
-                                            <td>552</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Player5</td>
-                                            <td>551</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Player6</td>
-                                            <td>550</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Player7</td>
-                                            <td>449</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Player8</td>
-                                            <td>448</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Player9</td>
-                                            <td>447</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Player10</td>
-                                            <td>446</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="pk_block_server4" class="top_player_block_server_4">
-                                <!-- Модуль PK Top -->
-                                <table class="top_pk top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Char Name</td>
-                                            <td class="td-header">PK</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Player11</td>
-                                            <td>111</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Player12</td>
-                                            <td>110</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Player13</td>
-                                            <td>109</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Player14</td>
-                                            <td>108</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Player15</td>
-                                            <td>107</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Player16</td>
-                                            <td>106</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Player17</td>
-                                            <td>105</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Player18</td>
-                                            <td>104</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Player19</td>
-                                            <td>103</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Player20</td>
-                                            <td>102</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="clan_block_server4" class="top_player_block_server_4">
-                                <!-- Модуль Clan Top -->
-                                <table class="top_pvp top_block">
-                                    <tbody>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="td-header">Clan Name</td>
-                                            <td class="td-header">PvP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>ClanName1</td>
-                                            <td>5555</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>ClanName2</td>
-                                            <td>5554</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>ClanName3</td>
-                                            <td>5553</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>ClanName4</td>
-                                            <td>5552</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>ClanName5</td>
-                                            <td>5551</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>ClanName6</td>
-                                            <td>5550</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>ClanName7</td>
-                                            <td>5549</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>ClanName8</td>
-                                            <td>5548</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>ClanName9</td>
-                                            <td>5547</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>ClanName10</td>
-                                            <td>5546</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <ul id="top_tabs_server4">
-                                <li class="active"><a href="{{template}}/#pvp_block_server4">Top PvP</a></li>
-                                <li class=""><a href="{{template}}/#pk_block_server4">Top PK</a></li>
-                                <li class=""><a href="{{template}}/#clan_block_server4">Top Clan</a></li>
-                            </ul>
-                        </div>
-                        <!-- Конец 4-го сервера -->
+                  
+                       
                         <!-- Кнопк переключения серверов -->
                         <ul id="top_tabs_server">
-                            <li class="active"><a href="{{template}}/#top_content_server_1"> x100</a></li>
-                            <li><a href="{{template}}/#top_content_server_2"> x1200</a></li>
-                            <li><a href="{{template}}/#top_content_server_3">x20</a></li>
-                            <li><a href="{{template}}/#top_content_server_4">x100</a></li>
+                            <li class="active"><a href="#top_content_server_1"> x100</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1137,7 +426,7 @@
             <!-- Конец block -->
             <div class="block mid__block block_right">
                 <div class="scl scl_right"><a class="scl__link scl__link_facebook" target="_blank"></a><a class="scl__link scl__link_youtube" target="_blank"></a></div>
-                <div class="block-title block-title_right-pos"> ПОСЛЕДНЕЕ С ФОРУМА </div>
+                <div class="block-title block-title_right-pos"> {{phrase('messages_forum')}} </div>
                 <div class="forum forum_pos">
                     <a href="{{template}}/http://forum.playorbis.pro/index.php?showtopic=7577" target="_blank" class="theme">
                         <div class="theme__img" style="background-image: url(http://forum.playorbis.pro/images/favatar.png);"></div>
@@ -1187,7 +476,7 @@
                             <div class="theme__date"> 13/03/18 </div>
                         </div>
                     </a>
-                    <div><a href="{{template}}/http://forum.playorbis.pro/" target="_blank" class="button forum__button button_long"><span>Перейти на форум</span></a></div>
+                    <div><a href="#" target="_blank" class="button forum__button button_long"><span>{{phrase('redirect_forum')}}</span></a></div>
                 </div>
                 <!-- Конец forum -->
                 <div class="orc"></div>
@@ -1211,7 +500,7 @@
                                 <div class="article__date"> 09/03/18 </div>
                                 <div class="article__author"><img src="{{template}}//images/icon__person.png" alt="Author"> [adm]Gatsby' </div>
                             </div>
-                            <div class="article__btn"><a href="{{template}}/http://forum.playorbis.pro/index.php?/topic/1217-otkrytie-servera-«multicraft-x100»-23-marta-v-2000-gmt-3/?p=28209" class="button button-article" target="_blank"><span>Подробнее</span></a></div>
+                            <div class="article__btn"><a href="#" class="button button-article" target="_blank"><span>Подробнее</span></a></div>
                         </div>
                     </div>
                     <div class="slider-container">
@@ -1322,7 +611,7 @@
             <!-- Конец tab-block -->
             <div class="tab-block l2b_tabs_block" id="about_tab">
                 <div class="pop-close tab-close"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <h4 class="header-title header-title_news">О серверах</h4>
+                <h4 class="header-title header-title_news">{{phrase('about server')}}</h4>
                 <div class="about-container">
                     <div class="about-container__article-wrp">
                         <div class="article article_about">
@@ -1370,17 +659,17 @@
             <!-- Конец tab-block -->
             <div class="tab-block l2b_tabs_block" id="play_tab">
                 <div class="pop-close tab-close"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <h4 class="header-title header-title_news">Начать игру</h4>
+                <h4 class="header-title header-title_news">{{phrase('start_game')}}</h4>
                 <div class="files-container files-container_pos">
                     <div class="files-block">
                         <div class="step-header step-header_pos">
                             <div class="step-header__num step-header__num_1"></div>
-                            <div class="step-header__title">Клиент и регистрация</div>
+                            <div class="step-header__title">{{phrase('client and registration')}}</div>
                             <div class="step-header__img step-header__img_chek-ball"></div>
                         </div>
-                        <div class="block-list"><a href="{{template}}/http://playorbis.pro/login" class="btn-files btn-files_active" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Зарегистрироваться</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать клиент (Yandex)</span></a>
+                        <div class="block-list"><a href="{{template}}/http://playorbis.pro/login" class="btn-files btn-files_active" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Зарегистрироваться</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_client')}} (Yandex)</span></a>
                             <a
-                                class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать клиент (1 источник)</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать клиент (2 источник)</span></a>
+                                class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_client')}} (1 источник)</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_client')}} (2 источник)</span></a>
                                 <a
                                     class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать апдейтер (1 источник)</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать апдейтер (2 источник)</span></a></div>
                         <!-- Конец block-list -->
@@ -1389,21 +678,21 @@
                     <div class="files-block files-block_center">
                         <div class="step-header step-header_pos">
                             <div class="step-header__num step-header__num_2"></div>
-                            <div class="step-header__title">СКАЧАТЬ ПАТЧ СЕРВЕРА</div>
+                            <div class="step-header__title">{{phrase('download server patch')}}</div>
                             <div class="step-header__img step-header__img_download"></div>
                         </div>
-                        <div class="block-list"><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c VK.COm</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c gOOgle</span></a>
+                        <div class="block-list"><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c VK.COm</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c gOOgle</span></a>
                             <a
-                                class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c Mail.ru</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c Yandex</span></a>
+                                class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c Mail.ru</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c Yandex</span></a>
                                 <a
-                                    class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c MegaNZ</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">Скачать патч v8.5 c Сайта</span></a></div>
+                                    class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c MegaNZ</span></a><a class="btn-files" target="_blank"><span class="square square_mr"></span><span class="btn-files__txt">{{phrase('download_patch')}} v8.5 c Сайта</span></a></div>
                         <!-- Конец block-list -->
                     </div>
                     <!-- Конец files-block -->
                     <div class="files-block">
                         <div class="step-header step-header_pos">
                             <div class="step-header__num step-header__num_3"></div>
-                            <div class="step-header__title">FAQ РЕШЕНИЕ ПРОБЛЕМ</div>
+                            <div class="step-header__title">{{phrase('faq troubleshooting')}}</div>
                             <div class="step-header__img step-header__img_question"></div>
                         </div>
                         <div class="block-list"><a class="btn-files" target="_blank"><span class="square"></span><span class="btn-files__txt btn-files__txt_faq">[FAQ] Проблемы с игровой зищитой</span></a><a class="btn-files" target="_blank"><span class="square"></span><span class="btn-files__txt btn-files__txt_faq">[FAQ] Разрыв соединения при входе...</span></a>
@@ -1416,7 +705,7 @@
                     <!-- Конец files-block -->
                 </div>
                 <!-- Конец files-container -->
-                <p class="files-info"> Советуем отключить Антивирус перед установкой всех файлов. т.к файлы защиты клиента могут определятся как вирус. </p>
+                <p class="files-info"> {{phrase('recommend')}} </p>
                 <div class="corner_left-top"></div>
                 <div class="corner_right-top"></div>
                 <div class="corner_left-bottom"></div>
@@ -1559,11 +848,11 @@
         <!-- Конец tab-block -->
     </div>
     <div class="content-btn-wrp content-btn-wrp_pos" id="l2b_tabs_toggle_btn">
-        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="news_btn"><span>Последние новости</span></div>
-        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="about_btn"><span>О серверах</span></div>
-        <div class="btn content-btn-wrp__btn btn_green l2b_toggle_btn" id="play_btn"><span>Начать играть</span></div>
-        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="donate_btn"><span>Пожертвования</span></div>
-        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="stream_btn"><span>Стрим трансляции</span></div>
+        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="news_btn"><span>{{phrase('last_news')}}</span></div>
+        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="about_btn"><span>{{phrase('about server')}}</span></div>
+        <div class="btn content-btn-wrp__btn btn_green l2b_toggle_btn" id="play_btn"><span>{{phrase('start_game')}}</span></div>
+        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="donate_btn"><span>{{phrase('donation')}}</span></div>
+        <div class="btn content-btn-wrp__btn l2b_toggle_btn" id="stream_btn"><span>{{phrase('stream')}}</span></div>
     </div>
     <footer class="main__footer">
         <div class="footer wrapper">
@@ -1573,7 +862,7 @@
                         target="_blank" href="{{template}}/https://webmoney.ru/"><img src="{{template}}//images/bnr__webmoney.png" alt="webmoney"></a>
                 </div>
                 <div class="footer__copy-desc"> COPYRIGHT 2018 © Playorbis.pro <br>
-                    <p class="copy-about">Данный сервер является тестовым вариантом игры и предназначен только для ознакомления игроков. Все права принадлежат компании NCSOFT.</p>
+                    <p class="copy-about">{{phrase('bayka')}}</p>
                 </div>
                 <div class="footer-nav "><a target="_blank" href="{{template}}/https://qiwi.com/"><img src="{{template}}//images/bnr__qiwi.png" alt="qiwi"></a><a target="_blank" href="{{template}}/https://money.yandex.ru/"><img src="{{template}}//images/bnr__ya.png" alt="yandex"></a>
                     <a

@@ -5,18 +5,18 @@
           <i class="zmdi zmdi-view-dashboard"></i> <span>{{ phrase("menu_main") }}</span>
         </a>
       </li>
-	  
-      <li>
+
+	   {% if user_info('get_is_auth') == false %}
+	   <li>
         <a href="javaScript:void();" class="waves-effect">
           <i class="fa fa-address-book-o"></i> <span>{{ phrase("menu_registration") }}</span><i class="fa fa-angle-left pull-right"></i>
         </a>
-		<ul class="sidebar-submenu">
-		   {% if user_info('get_is_auth') == false %}
-			<li><a href="/registration/user"><i class="zmdi zmdi-dot-circle-alt"></i> {{ phrase("menu_private_office") }}</a></li>
-		   {% endif %}
-		  <li><a href="/registration/account"><i class="zmdi zmdi-dot-circle-alt"></i> {{ phrase("menu_game_account") }}</a></li>
-		</ul>
+		  <ul class="sidebar-submenu">
+	  	    <li><a href="/registration/user"><i class="zmdi zmdi-dot-circle-alt"></i> {{ phrase("menu_private_office") }}</a></li>
+		  </ul>
+
       </li>
+	   {% endif %}
 
 
 	 {% set server_list = get_server_info() %}
@@ -166,4 +166,3 @@
       <li class="sidebar-header">{{ phrase("other") }}</li>
       <li><a href="/" class="waves-effect"><i class=" ti-back-left text-success"></i> <span>{{ phrase("return_demo_page") }}</span></a></li>
     </ul>
-	

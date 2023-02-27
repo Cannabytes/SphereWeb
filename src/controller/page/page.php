@@ -4,6 +4,7 @@ namespace Ofey\Logan22\controller\page;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\page\page AS page_model;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
@@ -32,12 +33,15 @@ class page {
     }
 
     public static function show($id) {
-         tpl::addVar([
-            'page' => page_model::get_news($id),
-            'comments' => page_model::get_comments($id),
-            'server_list' => server::get_server_info(),
-        ]);
-        tpl::display("page.html");
+        if($page = page_model::get_news($id)){
+            tpl::addVar([
+                'page' => $page,
+                'comments' => page_model::get_comments($id),
+                'server_list' => server::get_server_info(),
+            ]);
+            tpl::display("page.html");
+        }
+        redirect::location("/main");
     }
 
     public static function get_news_ajax(){

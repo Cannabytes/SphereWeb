@@ -2,7 +2,6 @@
 {% set title = phrase(247) %}
 
 {% block content %}
-
 {% if statistic_get_pvp() is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}

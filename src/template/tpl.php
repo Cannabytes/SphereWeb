@@ -17,7 +17,6 @@ use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page;
 use Ofey\Logan22\model\server\online;
 use Ofey\Logan22\model\server\server;
-use Ofey\Logan22\model\statistic\statistic;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
@@ -49,17 +48,16 @@ class tpl {
         }
     }
 
-    public static function template_design_route():?array{
+    public static function template_design_route(): ?array {
         $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/designs/" . config::get_template() . "/route.php";
         if(file_exists($fileRoute)) {
             require_once $fileRoute;
-            if(isset($pages)){
+            if(isset($pages)) {
                 return $pages;
             }
         }
         return null;
     }
-
 
     /**
      * @throws RuntimeError
@@ -78,6 +76,7 @@ class tpl {
             die();
         }
         $loader = new FilesystemLoader($__ROOT__ . "/template/$categoryDesign");
+
         $twig = new Environment($loader, [
             'cache'       => $__ROOT__ . "/uploads/cache",
             'auto_reload' => true,
@@ -109,11 +108,11 @@ class tpl {
 
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function($count = 10, $server_id = 0) {
-            return array_slice(statistic::get_pvp($server_id), 0, $count);
+            return array_slice(statistic_model::get_pvp($server_id), 0, $count);
         }));
 
         $twig->addFunction(new TwigFunction('get_pk', function($count = 10, $server_id = 0) {
-            return array_slice(statistic::get_pk($server_id), 0, $count);
+            return array_slice(statistic_model::get_pk($server_id), 0, $count);
         }));
 
         $twig->addFunction(new TwigFunction('alias', function($alias) {
@@ -187,7 +186,7 @@ class tpl {
 
         //Время (в секундах) в часы. минуты, сек.
         $twig->addFunction(new TwigFunction('timeHasPassed', function($num, $onlyHour = false) {
-            return statistic::timeHasPassed($num, $onlyHour);
+            return statistic_model::timeHasPassed($num, $onlyHour);
         }));
         $twig->addFunction(new TwigFunction('get_class', function($class_id) {
             return race_class::get_class($class_id);
@@ -333,20 +332,29 @@ class tpl {
             return statistic_model::top_counter($server_id);
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0) {
-            return statistic_model::get_pvp($server_id);
+        $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0, $limit = 0) {
+            if($limit == 0) {
+                return statistic_model::get_pvp($server_id);
+            }
+            return array_slice(statistic_model::get_pvp($server_id), 0, $limit);
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0) {
-            return statistic_model::get_pk($server_id);
+        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0) {
+            if($limit == 0) {
+                return statistic_model::get_pk($server_id);
+            }
+            return array_slice(statistic_model::get_pk($server_id), 0, $limit);
         }));
 
         $twig->addFunction(new TwigFunction('statistic_players_online_time', function($server_id = 0) {
             return statistic_model::get_players_online_time($server_id);
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0) {
-            return statistic_model::get_clan($server_id);
+        $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0, $limit = 0) {
+            if($limit == 0) {
+                return statistic_model::get_clan($server_id);
+            }
+            return array_slice(statistic_model::get_clan($server_id), 0, $limit);
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_castle', function($server_id = 0) {
@@ -465,7 +473,27 @@ class tpl {
         $template = $twig->load($tplName);
         self::$allTplVars['template'] = "/template/{$categoryDesign}";
         self::$allTplVars['pointTime'] = microtime::pointTime();
-        echo $template->render(self::$allTplVars);
+        try {
+            echo $template->render(self::$allTplVars);
+        }catch(\Exception  $e){
+            echo "<h4>TEMPLATE ERROR</h4>";
+            echo "Message: " . $e->getMessage()."<br>";
+            echo "File: " . $e->getFile()."<br>";
+            echo "Line: " . $e->getLine();
+            echo "<BR>";
+            echo "Code: ";
+            $file = fopen($e->getFile(), "r");
+            if ($file) {
+                for ($i = 1; $i < $e->getLine(); ++$i) {
+                    if (fgets($file) === false) {
+                        break;
+                    }
+                }
+                $line = fgets($file);
+                fclose($file);
+                echo htmlspecialchars($line) ;
+            }
+        }
         exit();
     }
 

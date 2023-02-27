@@ -18,12 +18,12 @@ use SimpleCaptcha\Builder;
 class account {
 
     public static function newAccount($server_id = null) {
-        if(!server::get_server_info()){
+        if(!server::get_server_info()) {
             tpl::addVar("title", lang::get_phrase(131));
             tpl::display("error/not_server.html");
         }
         tpl::addVar([
-            'server_id'          => $server_id,
+            'server_id' => $server_id,
         ]);
         tpl::display("/account/registration.html");
     }
@@ -36,23 +36,28 @@ class account {
         if(auth::get_is_auth()) {
             player_account::add($server_id, $login, $password, $password_hide);
         } else {
+            if($captcha = $_POST['captcha'] ?? false){
+                board::notice(false, "not captcha");
+            }
             $builder = new Builder;
-            if (!$builder->compare(trim($_POST['captcha']) ?: "", $_SESSION['phrase'])) {
-                board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+            if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
+                board::alert(['ok'      => false,
+                              "message" => lang::get_phrase(295),
+                              "code"    => 1,
+                ]);
             }
             $email = request::setting("email", new request_config(isEmail: true));
             player_account::add_account_not_user($server_id, $login, $password, $password_hide, $email);
         }
     }
 
-    public static function sync($server_id = null){
+    public static function sync($server_id = null) {
         validation::user_protection();
         tpl::display("account/sync.html");
     }
 
-    public static function sync_add(){
+    public static function sync_add() {
         validation::user_protection();
         comparison::sync();
     }
-
 }
