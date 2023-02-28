@@ -107,7 +107,7 @@ class comparison {
         }
 
         $game_accounts = self::accounts_email($server_info, auth::get_email())->fetchAll();
-        $show_all_account_player_site = player_account::show_all_account_player();
+        $show_all_account_player_site = player_account::show_all_account_player($server_id);
 
         foreach($show_all_account_player_site as $k => &$user_player_site) {
             foreach($game_accounts as $game_account) {

@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\player;
 use Exception as ExceptionAlias;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
@@ -25,11 +26,11 @@ class player_account {
     /**
      * Разрешать/запрещать просмотр другим своимх предметов/характеристик персонажа
      */
-    public static function show_characters_info(){
+    public static function show_characters_info() {
         validation::user_protection();
         $account = trim($_POST['account']);
-        $show_characters_info = (int)filter_var(    $_POST['show_characters_info'], FILTER_VALIDATE_BOOLEAN);;
-        $s = sql::run("UPDATE `player_accounts` SET `show_characters_info` = ? WHERE `login` = ? AND `email` = ?",[
+        $show_characters_info = (int)filter_var($_POST['show_characters_info'], FILTER_VALIDATE_BOOLEAN);;
+        $s = sql::run("UPDATE `player_accounts` SET `show_characters_info` = ? WHERE `login` = ? AND `email` = ?", [
             $show_characters_info,
             $account,
             auth::get_email(),
@@ -43,12 +44,12 @@ class player_account {
      * @return mixed
      * @throws ExceptionAlias
      */
-    public static function get_show_characters_info($account_name, bool $iemail = true){
+    public static function get_show_characters_info($account_name, bool $iemail = true) {
         $info = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE login = ?", [$account_name])->fetch();
-        if($info==null){
+        if($info == null) {
             return null;
         }
-        if($iemail){
+        if($iemail) {
             return $info;
         }
         return $info['show_characters_info'];
@@ -175,7 +176,7 @@ class player_account {
     /**
      * @throws ExceptionAlias
      */
-    public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true)  {
+    public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true) {
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
@@ -190,7 +191,6 @@ class player_account {
         }
         return sdb::run($sqlQuery, $prepare, $showErrorPage);
     }
-
 
     public static function valid_login($login) {
         if(3 > mb_strlen($login)) {
@@ -265,9 +265,9 @@ class player_account {
             ]);
         }
         $account = self::account_is_exist($server_info, $login);
-//        if(isset($account['error'])){
-//            board::notice(false, $account['error']);
-//        }
+        //        if(isset($account['error'])){
+        //            board::notice(false, $account['error']);
+        //        }
         if(gettype($account) != "object") {
             if(!$account['ok']) {
                 board::alert([
@@ -289,18 +289,26 @@ class player_account {
 
     //Возвращаем список всех аккаунтов пользователя
     //$default_server - вернуть данные своих аккаунтов только сервера который по умолчанию
-    static function show_all_account_player($default_server = false) {
+    static function show_all_account_player($server_id = null) {
         if(!auth::get_is_auth())
             return;
 
-        if($default_server){
-            return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
+        if($server_id === null) {
+            return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? ORDER BY date_create", [
                 auth::get_email(),
-                auth::get_default_server(),
             ]);
         }
-        return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? ORDER BY date_create", [
+
+        if(is_int((int)$server_id)) {
+            return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
+                auth::get_email(),
+                $server_id,
+            ]);
+        }
+
+        return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
             auth::get_email(),
+            auth::get_default_server(),
         ]);
     }
 
