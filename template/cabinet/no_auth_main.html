@@ -1,0 +1,138 @@
+<!--    {% if forum_enable() %}-->
+<!--    <div class="col-12">-->
+<!--        <div class="card">-->
+<!--            <div class="card-header">Последнее с форума <i aria-hidden="true" class="fa fa-refresh"></i></div>-->
+<!--            <ul class="list-group list-group-flush">-->
+
+<!--                {% for forum in last_forum_message(10) %}-->
+<!--                <li class="list-group-item">-->
+<!--                    <div class="media align-items-left">-->
+<!--                        <div class="media-body ml-2">-->
+<!--                            <small>{{forum.username}}: {{forum.message}}</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                {% endfor %}-->
+
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    {% endif %}-->
+
+<div class="row">
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header ">{{ phrase(5) }}</div>
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="form-group row">
+                                <label for="basic-select" class="col-sm-3 col-form-label">{{ phrase("server") }}</label>
+                                <div class="col-sm-9">
+                                    <select name="server" class="form-control" id="basic-select">
+                                        {% if server_id is empty %}
+                                        {% set server_id = user_info('get_default_server') %}
+                                        {% endif %}
+                                        {% for server in get_server_info() %}
+                                        <option {% if server.id== server_id %}selected="selected" {% endif %}
+                                                value="{{server.id}}">{{server.name}} x{{server.rate_exp}} -
+                                            {{server.chronicle}}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="login" class="col-sm-3 col-form-label">{{ phrase("login") }} <a
+                                        id="new_account_word" href="#"><i aria-hidden="true"
+                                                                          class="fa fa-refresh"></i></a></label>
+                                <div class="col-sm-9">
+                                    <input value="{{generation_account}}" name="login" type="text"
+                                           class="form-control form-control" id="login">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-3 col-form-label">{{ phrase("password") }} <a
+                                        id="new_password_word" href="#"><i aria-hidden="true"
+                                                                           class="fa fa-refresh"></i></a></label>
+                                <div for="password_hide" class="col-sm-9">
+                                    <div class="input-group-prepend">
+                                        <div data-toggle="tooltip" data-placement="top" title="{{ phrase(2) }}"
+                                             class="input-group-text">
+                                            <input checked id="password_hide" name="password_hide" type="checkbox"/>
+                                        </div>
+                                        <input name="password" type="text" class="form-control form-control"
+                                               id="password"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if user_info('get_is_auth') == false %}
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">E-Mail</label>
+                                <div class="col-sm-9">
+                                    <input name="email" type="email" class="form-control form-control" id="email">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Капча</label>
+
+                                <div class="col-sm-5">
+                                    <a href="#"> <img id='refreshCaptcha' src=""
+                                                      class="lightbox-thumb img-thumbnail captcha_img"/> </a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control form-control-lg" name="captcha" id="captcha">
+                                </div>
+                            </div>
+
+
+                            {% endif %}
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary px-5"><i class="icon-lock"></i> {{
+                                        phrase(7) }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include ('chat/panel.html') %}
+
+
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">Последние новости проекта</div>
+            <ul class="list-group list-group-flush">
+                {% for i, news in last_news(4) %}
+                <li class="list-group-item">
+                    <div class="media align-items-center">
+                        <div class="media-body ml-1">
+                            <a href="/page/{{news.id}}"><p class="mb-0 small-font">{{news.name|striptags}}</p></a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</div>

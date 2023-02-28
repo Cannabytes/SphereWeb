@@ -21,7 +21,8 @@
                         <table class="table table-striped">
                             <tr>
                                 <th scope="row">{{phrase(101)}}:</th>
-                                <td><a href="/statistic/char/{{ clan_info.player_name_leader_clan|url_encode }}">{{clan_info.player_name_leader_clan}}</a></td>
+                                <td><a href="/statistic/char/{{ clan_info.player_name_leader_clan|url_encode }}">{{clan_info.player_name_leader_clan}}</a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">{{phrase(102)}}:</th>
@@ -33,11 +34,13 @@
                             </tr>
                             <tr>
                                 <th scope="row">{{phrase(119)}}:</th>
-                                <td>{{ timeHasPassed ( array_field_sum( clan_players , 'time_in_game') ) }} </td>
+                                <td>{{ timeHasPassed ( array_field_sum( clan_players , 'time_in_game') ) }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">{{phrase(120)}} PvP / PK:</th>
-                                <td>{{ array_field_sum( clan_players , 'pvp') }} / {{ array_field_sum( clan_players , 'pk') }}</td>
+                                <td>{{ array_field_sum( clan_players , 'pvp') }} / {{ array_field_sum( clan_players ,
+                                    'pk') }}
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">{{phrase(121)}}:</th>
@@ -62,7 +65,9 @@
                             <div class="row fontawesome-icon-list">
                                 {% for player in clan_players %}
                                 <div class="fa-hover col-lg-6 col-xl-4">
-                                    <a href="/statistic/char/{{ player.player_name|url_encode }}">{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в игре</small>{% endif %}</a>
+                                    <a href="/statistic/char/{{ player.player_name|url_encode }}">{{player.player_name}}
+                                        {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в
+                                            игре</small>{% endif %}</a>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -76,28 +81,15 @@
                 <div class="card">
                     <div class="card-header">{{phrase(125)}}</div>
 
-                    <ul class="list-group list-group-flush">
+                    <div class="col-lg-12 player-icons">
 
                         {% for skill in clan_skills %}
-                        <li class="list-group-item">
-                            <div class="media align-items-center">
-                                <img src="/uploads/images/skills/{{skill.icon}}.webp"
-                                     class="customer-img  skill-img">
-                                <div class="media-body ml-3">
-                                    <div class="media-body text-left ml-3">
-                                        <div class="progress-wrapper">
-                                            <p>{{skill.name}} <span class="float-right">{{skill.skill_level}} lvl / {{skill.level_max}} lvl</span>
-                                            </p>
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar gradient-blooker" style="width:{{ skill.skill_level / skill.level_max * 100 }}%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <img src="/uploads/images/skills/{{skill.icon}}.webp" class="customer-img"
+                             data-toggle="tooltip" data-html="true" data-placement="top" title=""
+                             data-original-title="{{skill.name}} {{skill.skill_level}} lvl">
                         {% endfor %}
-                    </ul>
+
+                    </div>
                 </div>
 
 

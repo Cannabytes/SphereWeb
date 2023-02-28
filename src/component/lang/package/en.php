@@ -50,6 +50,12 @@ return [
     "delete" => "Delete",
     "other" => "Other",
     "return_demo_page" => "Return to site",
+
+    "admin" => "Administrator",
+    "moderator" => "Moderator",
+    "user" => "User",
+    "guest" => "Guest",
+
     0 => "Description",
     1 => "Change game account password",
     2 => "Hide account password in account list?",

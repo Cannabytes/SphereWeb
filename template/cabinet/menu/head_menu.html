@@ -4,9 +4,11 @@
        <div class="media-body">
 	   {% if user_info('get_is_auth') %}
        <h6 class="side-user-name">{{ user_info('get_email') }}</h6>
+           <small class="">{{phrase(user_info('get_access_level'))}}</small>
 	   {% else %}
        <h6 class="side-user-name">{{ phrase("not_authorized") }}</h6>
-	   {% endif %}
+           <small class="">{{phrase(user_info('get_access_level'))}}</small>
+           {% endif %}
       </div>
        </div>
       <div id="user-dropdown" class="collapse">
