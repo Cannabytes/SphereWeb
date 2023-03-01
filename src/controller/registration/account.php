@@ -36,10 +36,9 @@ class account {
         if(auth::get_is_auth()) {
             player_account::add($server_id, $login, $password, $password_hide);
         } else {
-            if($captcha = $_POST['captcha'] ?? false){
-                board::notice(false, "not captcha");
-            }
+
             $builder = new Builder;
+            $captcha = $_POST['captcha'] ?? false;
             if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
                 board::alert(['ok'      => false,
                               "message" => lang::get_phrase(295),

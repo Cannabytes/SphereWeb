@@ -37,7 +37,8 @@ class forget {
             board::notice(false, lang::get_phrase(281));
         }
         $builder = new Builder;
-        if (!$builder->compare(trim($_POST['captcha']) ?: "", $_SESSION['phrase'])) {
+        $captcha = $_POST['captcha'] ?? false;
+        if (!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
             board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
         }
 

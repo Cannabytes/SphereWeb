@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\auth;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\db\sql;
@@ -81,6 +82,8 @@ class registration {
                     $user_referral['id'],
                 ]);
             }
+            session::add('email', $email);
+            session::add('password', $password);
             board::notice(true, lang::get_phrase(177));
         } else {
             board::notice(false, lang::get_phrase(178));

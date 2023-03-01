@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     get_captcha();
-    $("#refreshCaptcha").on('click', function (e) {
+    $(".captcha_img").on('click', function (e) {
         get_captcha();
     });
 

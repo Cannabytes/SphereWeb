@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     $("#timezone").val(Intl.DateTimeFormat().resolvedOptions().timeZone)
 
     $("form").submit(function (event) {

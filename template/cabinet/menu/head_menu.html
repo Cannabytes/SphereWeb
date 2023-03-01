@@ -22,8 +22,8 @@
             <li><a href="/user/change/avatar/background"><i class="icon-settings"></i> {{phrase(66)}}</a></li>
  			<li><a href="/auth/logout"><i class="icon-power"></i> {{ phrase("logout") }}</a></li>
 			{% else %}
-			<li><a href="/auth"><i class="icon-user"></i> {{ phrase("authorization") }}</a></li>
-			<li><a href="/registration/user"><i class="icon-user"></i> {{ phrase("menu_registration") }}</a></li>
+			<li><a data-toggle="modal" data-target="#model_auth" href="/auth"><i class="icon-user"></i> {{ phrase("authorization") }}</a></li>
+			<li><a data-toggle="modal" data-target="#model_registration" href="/registration/user"><i class="icon-user"></i> {{ phrase("menu_registration") }}</a></li>
 			<li><a href="/auth/forget"><i class="icon-user"></i> {{phrase(67)}}</a></li>
 			{% endif %}
       </ul>

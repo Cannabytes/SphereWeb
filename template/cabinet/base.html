@@ -313,6 +313,11 @@
 
 <script src="{{'assets/js/default-server.js'|template}}"></script>
 
+{% if user_info('get_is_auth') == false %}
+<script src="{{'assets/js/auth/auth.js'|template}}"></script>
+{% endif %}
+
+
 {% block js %}{% endblock %}
 
 

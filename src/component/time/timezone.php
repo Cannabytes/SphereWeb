@@ -37,7 +37,7 @@ class timezone {
      * https://www.geoplugin.com/
      */
     static public function get_timezone_ip($ip) {
-        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+        if (!filter_var($ip, FILTER_VALIDATE_IP) OR $ip=='127.0.0.1') {
             return null;
         }
         $geo = self::get_ip_info_geoplugin($ip);
@@ -69,7 +69,11 @@ class timezone {
     }
 
     private static function get_ip_info_ipApi($ip): array|bool {
-        $json = json_decode(file_get_contents("https://ip-api.com/json/{$ip}?fields=status,message,countryCode,city,timezone"), true);
+        $json = file_get_contents("https://ip-api.com/json/{$ip}?fields=status,message,countryCode,city,timezone");
+        if(!$json){
+            return false;
+        }
+        $json = json_decode($json, true);
         if(!$json['success']){
             return false;
         }

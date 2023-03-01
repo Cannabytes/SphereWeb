@@ -49,12 +49,11 @@ class auth {
          * Если нет никакого сервера, ставим последний сервер
          * Однако...если сервера больше больше чем 2, тогда последний сервер проверяем на дату запуска, если она
          * прошла, тогда выставляем последний, иначе предпоследний.
-         */
-        //TODO: Потом сделать в настройках - сервер по умолчанию (для новых пользователей без выбранного сервера и
+         */ //TODO: Потом сделать в настройках - сервер по умолчанию (для новых пользователей без выбранного сервера и
         //для тех у кого есть сервер, который не актуален/удален/выключен).
-        if($server_id){
-            foreach($get_server_info AS $row){
-                if($row['id']==$server_id){
+        if($server_id) {
+            foreach($get_server_info as $row) {
+                if($row['id'] == $server_id) {
                     return $server_id;
                 }
             }
@@ -216,7 +215,7 @@ class auth {
                     self::set_donate_point($auth['donate_point']);
                     self::set_avatar($auth['avatar']);
                     self::set_avatar_background($auth['avatar_background']);
-                    self::set_timezone($auth['timezone']??"America/Los_Angeles");
+                    self::set_timezone($auth['timezone'] ?? "America/Los_Angeles");
                     return;
                 }
             }
@@ -294,8 +293,13 @@ class auth {
             board::notice(false, lang::get_phrase(160));
         }
         $builder = new Builder;
-        if (!$builder->compare(trim($_POST['captcha']), $_SESSION['phrase'])) {
-            board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+
+        $captcha = $_POST['captcha'] ?? false;
+        if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
+            board::alert(['ok'      => false,
+                          "message" => lang::get_phrase(295),
+                          "code"    => 1,
+            ]);
         }
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
@@ -311,8 +315,11 @@ class auth {
             session::add('email', $email);
             session::add('password', $password);
             board::notice(true, lang::get_phrase(165));
-        }else{
-            board::alert(['ok' => false, "message" => lang::get_phrase(185) , "code" => 2]);
+        } else {
+            board::alert(['ok'      => false,
+                          "message" => lang::get_phrase(185),
+                          "code"    => 2,
+            ]);
         }
         board::notice(false, lang::get_phrase(166));
     }
