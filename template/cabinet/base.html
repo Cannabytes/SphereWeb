@@ -292,6 +292,11 @@
     </div>
     <!--end color switcher-->
 
+
+    {% if user_info('get_is_auth') == false %}
+        {% include ('modal_auth.html') %}
+    {% endif %}
+
 </div><!--End wrapper-->
 
 <!-- Bootstrap core JavaScript-->

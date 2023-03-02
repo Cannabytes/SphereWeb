@@ -4484,5 +4484,4 @@ Can be crafted.',1,1,1,'r','consume_type_normal'),
 (37042,'etc_recipe_gold_i00','Recipe: Divine Protection Elixir','','For Tyrr Maestros only. Recipe for making Divine Protection Elixir. Requires Create Item (Lv. 12). Success rate is 100%.',1,1,1,'none','consume_type_stackable'),
 (37043,'etc_recipe_gold_i00','Recipe: Divine Protection Elixir','','For those who have completed the fourth class transfer only. Recipe for making Divine Protection Elixir. Requires Create Common Item (Lv. 10). Success rate is 100%.',1,1,1,'none','consume_type_stackable'),
 (37044,'esagira_telepo_01','Immortal Scroll','','Enchants a skill +1~+10 to the next grade with a success rate of 100% without consuming extra materials.',0,0,0,'none','consume_type_stackable'),
-(37045,'etc_coins_gold_i00','Steel Door Guild Coin','','Coin provided to true adventurers of Aden. Can be exchanged for other items through Adventurers\' Guide in each village.',0,0,1,'none','consume_type_stackable');
 
