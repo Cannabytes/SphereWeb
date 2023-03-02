@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (14000,'etc_shirts_a_i04','Dion Supply Box - Hair Accessory','','Pouch bearing the unique pattern of Dion. Can be attached additionally to the hair accessory.',1,1,1,'none','consume_type_stackable'),
+INSERT INTO `items_data` VALUES
 (14001,'etc_shirts_a_i04','Giran Supply Box - Hair Accessory','','Pouch bearing the unique pattern of Giran. Can be attached additionally to the hair accessory.',1,1,1,'none','consume_type_stackable'),
 (14002,'etc_shirts_a_i04','Oren Supply Box - Hair Accessory','','Pouch bearing the unique pattern of Oren. Can be attached additionally to the hair accessory.',1,1,1,'none','consume_type_stackable'),
 (14003,'etc_shirts_a_i04','Aden Supply Box - Hair Accessory','','Pouch bearing the unique pattern of Aden. Can be attached additionally to the hair accessory.',1,1,1,'none','consume_type_stackable'),

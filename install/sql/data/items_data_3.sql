@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (7000,'etc_recipe_green_i00','Recipe: Greater WIT Dye <Wit + 3 Int - 3>','','This recipe for Greater WIT Dye <Wit + 3 Int - 3> can be used by all races. Requires Create Common Item Skill Lv. 5.',1,1,1,'none','consume_type_stackable'),
+INSERT INTO `items_data` VALUES 
 (7001,'etc_recipe_green_i00','Recipe: Greater WIT Dye <Wit + 3 Men - 3>','','This recipe for Greater WIT Dye <Wit + 3 Men - 3> can be used by all races. Requires Create Common Item Skill Lv. 5.',1,1,1,'none','consume_type_stackable'),
 (7002,'etc_recipe_green_i00','Recipe: Greater STR Dye <STR + 4 CON - 4>','','This recipe for Greater STR Dye <Str + 4 Con - 4> can be used by all races. Requires Create Common Item Skill Lv. 6.',1,1,1,'none','consume_type_stackable'),
 (7003,'etc_recipe_green_i00','Recipe: Greater STR Dye <STR + 4 DEX - 4>','','This recipe for Greater STR Dye <Str + 4 Dex - 4> can be used by all races. Requires Create Common Item Skill Lv. 6.',1,1,1,'none','consume_type_stackable'),

@@ -1,4 +1,4 @@
-(45550,'etc_exchange_box_i00','Agathion - Taurus Pack','15-day','Wrapped Pack containing Agathion - Taurus (15-day).',1,1,1,'none','consume_type_stackable'),
+INSERT INTO `items_data` VALUES
 (45551,'etc_exchange_box_i00','Agathion - Twinkling Leo Pack','30-day','Wrapped Pack containing Agathion - Twinkling Leo (30-day).',1,1,1,'none','consume_type_stackable'),
 (45552,'etc_exchange_box_i00','Agathion - Radiant Leo Pack','30-day','Wrapped Pack containing Agathion - Radiant Leo (30-day).',1,1,1,'none','consume_type_stackable'),
 (45553,'etc_exchange_box_i00','Agathion - Leo Pack','15-day','Wrapped Pack containing Agathion - Leo (15-day).',1,1,1,'none','consume_type_stackable'),
@@ -2916,4 +2916,4 @@ Will be deleted after the event.',0,0,1,'none','consume_type_stackable'),
 Will be deleted after the event.',0,0,1,'none','consume_type_stackable'),
 (49783,'ev_balthus_coin','Sibis Coin Box','','Top-grade Balthus Knight Supply Item. Use to obtain Sibis Coin x1500. Will be deleted at the time of the scheduled server check on Wednesday, November 18, 2015.',1,0,1,'none','consume_type_stackable'),
 (49798,'ev_12th_weapon','Cheer Stamen','Event','A cheering tool issued to commemorate the 12th anniversary of Lineage II. Hold on to your dreams, as the day will come when they are realized. Equip to enable the Firecracker skill.',0,0,1,'none','consume_type_normal'),
-(53170,'etc_powder_gray_i00','','','',0,0,1,'none','consume_type_stackable'),
+(53170,'etc_powder_gray_i00','','','',0,0,1,'none','consume_type_stackable');

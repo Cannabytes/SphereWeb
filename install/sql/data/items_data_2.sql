@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (3500,'etc_flute_i00','Dragonflute of Wind','','Flute used to call up a Hatchling of the Wind. Takes a part of the XP gained by the Pet master.',1,1,1,'none','consume_type_normal'),
+INSERT INTO `items_data` VALUES 
 (3501,'etc_flute_i00','Star Dragon Flute','','Flute used to call up a Hatchling of Star. Takes a part of the XP gained by the Pet master.',1,1,1,'none','consume_type_normal'),
 (3502,'etc_flute_i00','Dragonflute of Twilight','','Flute used to call up a Hatchling of Twilight. Takes a part of the XP gained by the Pet master.',1,1,1,'none','consume_type_normal'),
 (3503,'etc_paper_white_i00','Deliverymen Certificate','','Official certification for making deliveries. Issued by the Iron Gate Guild. Seal of Lockirin of the Iron Gate is affixed.',0,0,1,'none','consume_type_stackable'),

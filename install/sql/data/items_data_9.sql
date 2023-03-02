@@ -1,5 +1,4 @@
-INSERT INTO `items_data` VALUES (30021,'weapon_r_dualblunt_i21','Blessed Requiem Dual Blunt Weapon','Damage Up + Focus ','<Soul Crystal Enhancement>
-P. Atk. + 288. Increases Critical by 79.5. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',1,1,1,'r','consume_type_normal'),
+INSERT INTO `items_data` VALUES
 (30022,'weapon_phasian_i01','Apocalypse Shaper','Guidance + Haste','<Soul Crystal Enhancement>
 Increases Accuracy by 7.9 and Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',1,1,1,'r','consume_type_normal'),
 (30023,'weapon_phasian_i01','Apocalypse Shaper','Haste + Focus','<Soul Crystal Enhancement>

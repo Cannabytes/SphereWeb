@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (21440,'br_four_leaf_clover_box_i00','Chicken Hat Pack','Event','Wrapped Pack containing chicken hat.',0,0,1,'none','consume_type_stackable'),
+INSERT INTO `items_data` VALUES
 (21441,'accessory_chicken_cap_i00','Chicken Hat','7-day','Hat that looks like a chicken. Uses 2 hair accessory slots.',0,0,0,'none','consume_type_normal'),
 (21442,'accessory_chicken_cap_i00','Chicken Hat','7-day (Event)','Hat that looks like a chicken. 7-day. Uses 2 hair accessory slots.',0,0,0,'none','consume_type_normal'),
 (21443,'accessory_chicken_cap_i00','Chicken Hat','30-day','Hat that looks like a chicken. 30-day. Uses 2 hair accessory slots.',0,0,0,'none','consume_type_normal'),

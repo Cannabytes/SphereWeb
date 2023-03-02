@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (17928,'armor_t403_b_i00','Bound Seraph Shoes','Robe','Bestows a magic or recovery type set option. Can use an Unbind Scroll to change this item into a Standard item.',0,0,1,'r95','consume_type_normal'),
+INSERT INTO `items_data` VALUES 
 (17929,'airtoil_i00','Bound Seraph Sigil','Robe','Can use an Unbind Scroll to change this item into a Standard item.',0,0,1,'r95','consume_type_normal'),
 (17930,'r95_necklace_i00','Bound Seraph Necklace','','MP + 62. Use an Unbind Scroll to change to a Standard item.',0,0,1,'r95','consume_type_normal'),
 (17931,'r95_earring_i00','Bound Seraph Earring','','MP + 46. Use an Unbind Scroll to change to a Standard item.',0,0,1,'r95','consume_type_normal'),

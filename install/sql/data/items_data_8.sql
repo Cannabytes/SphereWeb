@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (25029,'g_co_cutie_maid','Maid Costume','Mid-grade / Max CP Increase','Maid costume. Female only. When modified, Max. CP + 7%.',0,0,1,'none','consume_type_normal'),
+INSERT INTO `items_data` VALUES 
 (25030,'g_co_cutie_maid','Maid Costume','Mid-grade / Speed Increase','Maid costume. Female only. When modified, Speed + 7.',0,0,1,'none','consume_type_normal'),
 (25031,'g_co_cutie_maid','Maid Costume','Mid-grade / HP Recovery Bonus Increase','Maid costume. Female only. When modified, HP Recovery Bonus + 8.',0,0,1,'none','consume_type_normal'),
 (25032,'g_co_cutie_maid','Maid Costume','Mid-grade / MP Recovery Bonus Increase','Maid costume. Female only. When modified, MP Recovery Bonus + 4.',0,0,1,'none','consume_type_normal'),

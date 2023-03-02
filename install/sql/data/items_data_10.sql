@@ -1,5 +1,4 @@
-INSERT INTO `items_data` VALUES (33521,'event_hero_treasure_box_i00','Wig Box','Campaign','Box containing various wigs.',1,1,1,'none','consume_type_normal'),
-(33522,'event_hero_treasure_box_i00','Attribute Pack','Campaign','Box containing attribute stones, attribute crystals, and attribute changing crystals.',1,1,1,'none','consume_type_normal'),
+INSERT INTO `items_data` VALUES   
 (33523,'r_talisman_mc_up_passive','Talisman - M. Critical (Passive)','Campaign','M. Critical Rate + 2% when equipped. Shadow weapon.',0,0,1,'none','consume_type_normal'),
 (33524,'r_talisman_ph_up_passive','Talisman - P. Accuracy (Passive)','Campaign','Accuracy + 2 when equipped. Shadow weapon.',0,0,1,'none','consume_type_normal'),
 (33525,'r_talisman_mh_up_passive','Talisman - M. Accuracy (Passive)','Campaign','M. Accuracy + 2 when equipped. Shadow weapon.',0,0,1,'none','consume_type_normal'),

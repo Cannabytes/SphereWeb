@@ -1,4 +1,4 @@
-INSERT INTO `items_data` VALUES (10500,'etc_shirts_s_i05','Mithril Shirt','HP','Increases Max HP by 224 when enchanted to + 4 or higher.',1,1,1,'s','consume_type_normal'),
+INSERT INTO `items_data` VALUES 
 (10501,'etc_shirts_s_i05','Mithril Shirt','MP','Increases Max MP by 111 when enchanted to + 4 or higher.',1,1,1,'s','consume_type_normal'),
 (10502,'etc_shirts_s_i05','Mithril Shirt','CP','Increases Max CP by 672 when enchanted to + 4 or higher.',1,1,1,'s','consume_type_normal'),
 (10503,'etc_stripe_shirts_c_i02','Striped Silk Shirt','HP','Increases Max HP by 135 when enchanted to + 4 or higher.',1,1,1,'c','consume_type_normal'),
