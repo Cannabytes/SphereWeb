@@ -445,6 +445,10 @@ class tpl {
             return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . mb_strtolower($name);
         }));
 
+        $twig->addFunction(new TwigFunction('currency_exchange_info', function() {
+            return json_encode(require 'src/config/donate.php');
+        }));
+
         $template = $twig->load($tplName);
         self::$allTplVars['template'] = "/template/{$categoryDesign}";
         self::$allTplVars['pointTime'] = microtime::pointTime();

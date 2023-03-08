@@ -12,21 +12,56 @@
                     <div class="col-sm-12">
                         <label>{{ phrase("summa") }}</label>
 
-                        <input type="text" id="count" value="" name="range" />
+                        <input type="text" id="count" value="" name="range"/>
                     </div>
                 </div>
-                <hr>
+                <br>
+
+
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="row m-0 row-group text-center border-top border-bottom border-light-3">
+                            <div class="col-12 col-lg-3">
+                                <div class="p-2">
+                                    <h5 class="mb-0" id="count_rub">0</h5>
+                                    <small class="mb-0">RUB</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="p-2">
+                                    <h5 class="mb-0" id="count_uah">0</h5>
+                                    <small class="mb-0">UAH</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="p-2">
+                                    <h5 class="mb-0" id="count_usd">0</h5>
+                                    <small class="mb-0">USD</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="p-2">
+                                    <h5 class="mb-0" id="count_eur">0</h5>
+                                    <small class="mb-0">EUR</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
                     <div class="col-md-12">
                         <div class="icheck-material-success">
                             <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked/>
                             <label for="freekassa">FREE-KASSA</label>
-                        </div>
-<!--                        <div class="icheck-material-success">-->
-<!--                            <input type="radio" id="primepayments" name="paysystem" value="primepayments"/>-->
-<!--                            <label for="primepayments">PrimePayments</label>-->
-<!--                        </div>-->
 
+                        </div>
+
+                        <div class="icheck-material-success">
+                            <input type="radio" id="primepayments" name="paysystem" value="primepayments"/>
+                            <label for="primepayments">PrimePayments</label>
+                        </div>
 
                     </div>
                 </div>
@@ -41,14 +76,13 @@
     </div>
 
     <div class="col-12 col-lg-8 col-xl-8">
-            <div class="card">
-                <div class="card-body">
-                    {{phrase(296)|raw}}
-                </div>
+        <div class="card">
+            <div class="card-body">
+                {{phrase(296)|raw}}
             </div>
+        </div>
     </div>
 </div><!--End Row-->
-
 
 
 <div class="row">
@@ -82,7 +116,6 @@
 </div>
 
 
-
 {% endblock %}
 
 
@@ -91,7 +124,8 @@
 <link href="{{'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css'|template}}" rel="stylesheet"
       type="text/css">
 <link href="{{'assets/plugins/ion-rangeslider/css/ion.rangeSlider.css'|template}}" rel="stylesheet" type="text/css"/>
-<link href="{{'assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinNice.css'|template}}" rel="stylesheet" type="text/css"/>
+<link href="{{'assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinNice.css'|template}}" rel="stylesheet"
+      type="text/css"/>
 {% endblock %}
 
 {% block js %}
@@ -102,11 +136,30 @@
 <script src="{{'assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js'|template}}"></script>
 <script>
 
+    const [currency_exchange] = JSON.parse('[{{currency_exchange_info()|raw}}]');
+
     $("#count").ionRangeSlider({
-        min: 10,
-        max: 10000,
-        from: 1000
+        min: currency_exchange.min_donate_bonus_coin,
+        max: currency_exchange.max_donate_bonus_coin,
+        from: 10
     });
+
+    function currency(val){
+        let rub = val*currency_exchange.coefficient['RUB'];
+        let uah = val*currency_exchange.coefficient['UAH'];
+        let usd = val*currency_exchange.coefficient['USD'];
+        let eur = val*currency_exchange.coefficient['EUR'];
+        $("#count_rub").text(rub.toFixed(1));
+        $("#count_uah").text(uah.toFixed(1));
+        $("#count_usd").text(usd.toFixed(1));
+        $("#count_eur").text(eur.toFixed(1));
+    }
+    currency($("#count").val())
+
+    $("#count").on("change", function(){
+        currency($(this).val())
+    });
+
 
      $('#paynext').on('click', function () {
         paysystem = $('input[name=paysystem]:checked').val();
@@ -124,17 +177,16 @@
         $.ajax(
             {
                 type: "POST",
-                url: "/donate/sign/freekassa",
+                url: "/donate/transfer/freekassa/createlink",
                 data: ({"count": count}),
                 async: false,
-                dataType: "json",
-                success: function (response) {
-                    if (response['ok'] == false) {
-                        notify_error(response['message'])
+                success: function (redirectLink) {
+                    console.log(redirectLink)
+                    if (redirectLink['ok'] == false) {
+                        notify_error(redirectLink['message'])
                         return;
                     }
-                    const redirectLink = new URLSearchParams(response).toString();
-                    document.location.href = "https://pay.freekassa.ru/?" + redirectLink;
+                    window.open(redirectLink, '_blank');
                 }
             });
     }
@@ -144,7 +196,7 @@
         $.ajax(
             {
                 type: "POST",
-                url: "/donate/sign/primepayments",
+                url: "/donate/transfer/primepayments/createlink",
                 data: ({"count": count}),
                 async: false,
                 dataType: "json",
@@ -153,11 +205,16 @@
                         notify_error(response['message'])
                         return;
                     }
-                    const redirectLink = new URLSearchParams(response).toString();
-                    document.location.href = "https://pay.primepayments.io/API/v2" + redirectLink;
+                    window.open(redirectLink, '_blank');
                 }
             });
     }
+
+
+
+
+
+
 
 
 </script>

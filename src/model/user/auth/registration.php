@@ -75,13 +75,15 @@ class registration {
         if($ret) {
             return $insert;
         }
+        $userID = sql::lastInsertId();
         if($insert) {
             if($user_referral) {
                 sql::run("INSERT INTO `referrals` (`user_id`, `leader_id`) VALUES (?, ?)", [
-                    sql::lastInsertId(),
+                    $userID,
                     $user_referral['id'],
                 ]);
             }
+            session::add('id', $userID);
             session::add('email', $email);
             session::add('password', $password);
             board::notice(true, lang::get_phrase(177));

@@ -107,11 +107,9 @@ $route->get("/statistic/char/{char_name}", 'Ofey\Logan22\controller\statistic\st
 $route->get("donate/pay", '\Ofey\Logan22\controller\donate\pay::pay')->alias('donate_pay');
 $route->get("donate", '\Ofey\Logan22\controller\donate\pay::shop')->alias('donate');
 
-$route->post("donate/sign/freekassa", '\Ofey\Logan22\controller\donate\pay::sign_freekassa');
 $route->post("donate/transaction", 'Ofey\Logan22\controller\donate\pay::transaction');
 $route->post("donate/pay/success/freekassa", '\Ofey\Logan22\model\donate\freekassa::transaction');
 
-$route->post("donate/sign/primepayments", '\Ofey\Logan22\controller\donate\pay::sign_primepayments');
 
 /**
  * Галерея

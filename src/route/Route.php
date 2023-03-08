@@ -13,11 +13,35 @@
 namespace Ofey\Logan22\route;
 
 use Bramus\Router\Router;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\template\tpl;
+use ReflectionMethod;
 
 class Route extends Router {
 
+    function __addingPlugin() {
+        $dir = "src/component/donate/";
+        $payments = fileSys::file_list($dir);
+        foreach($payments as $payment) {
+            if(file_exists($dir . $payment . "/route.php")) {
+                include_once $dir . $payment . "/route.php";
+                foreach($routes as $route) {
+                    include_once $dir . $payment . "/" . $route['file'];
+                    $method = "POST";
+                    if($route['method'] == "GET") {
+                        $method = "GET";
+                    }
+                    $this->$method($route['pattern'], function() use ($route) {
+                        $route['call']();
+                    });
+                }
+            }
+        }
+    }
+
     public function __construct() {
+        $this->__addingPlugin();
+
         //Загрузка из шаблона указанных файлов
         if($pages = tpl::template_design_route()) {
             foreach($pages as $page => $template) {

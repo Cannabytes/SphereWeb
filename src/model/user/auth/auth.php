@@ -13,6 +13,8 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
+use Ofey\Logan22\component\time\time;
+use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 use SimpleCaptcha\Builder;
@@ -30,7 +32,7 @@ class auth {
     static private string $date_create;
     static private string $date_update;
     static private string $access_level = 'guest';
-    static private int    $donate_point = 0;
+    static private float  $donate_point = 0;
     static private string $avatar;
     static private string $avatar_background;
     static private string $timezone;
@@ -116,7 +118,7 @@ class auth {
         return self::$access_level;
     }
 
-    static public function get_donate_point(): int {
+    static public function get_donate_point(): float {
         return self::$donate_point;
     }
 
@@ -296,9 +298,10 @@ class auth {
 
         $captcha = $_POST['captcha'] ?? false;
         if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
-            board::alert(['ok'      => false,
-                          "message" => lang::get_phrase(295),
-                          "code"    => 1,
+            board::alert([
+                'ok'      => false,
+                "message" => lang::get_phrase(295),
+                "code"    => 1,
             ]);
         }
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
@@ -312,13 +315,15 @@ class auth {
             board::notice(false, lang::get_phrase(164));
         }
         if($user_info['password'] == $password) {
+            session::add('id', $user_info['id']);
             session::add('email', $email);
             session::add('password', $password);
             board::notice(true, lang::get_phrase(165));
         } else {
-            board::alert(['ok'      => false,
-                          "message" => lang::get_phrase(185),
-                          "code"    => 2,
+            board::alert([
+                'ok'      => false,
+                "message" => lang::get_phrase(185),
+                "code"    => 2,
             ]);
         }
         board::notice(false, lang::get_phrase(166));
@@ -343,16 +348,37 @@ class auth {
     }
 
     //Зачисление пользователю денег
-    static public function change_donate_point($user_id, $amount) {
+    static public function change_donate_point(int $user_id, float|int $amount) {
         $user = self::exist_user_id($user_id);
         if(!$user) {
+            //TODO: Тут возможно сделать ошибку с записью в файл
             exit(lang::get_phrase(167));
         }
-        $donate_point = $user['donate_point'] + $amount;
+
+        $donate_point = (float)$user['donate_point'] + $amount;
         sql::run("UPDATE `users` SET `donate_point` = ? WHERE `id` = ?", [
             $donate_point,
             $user_id,
         ]);
+
+        //Запись логов
+        sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+            $user_id,
+            $amount,
+            lang::get_phrase(233),
+            time::mysql(),
+        ]);
+
+        if(config::getDonationBonusPayout() > 0) {
+            $bonus = $amount * (100 + config::getDonationBonusPayout()) * 0.01 - $amount;
+            auth::change_donate_point($user_id, $bonus);
+            sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+                $user_id,
+                $bonus,
+                'Бонус за пожертвование',
+                time::mysql(),
+            ]);
+        }
     }
 
     static public function add_donate_self($amount) {

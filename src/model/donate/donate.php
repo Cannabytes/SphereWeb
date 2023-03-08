@@ -10,7 +10,6 @@ namespace Ofey\Logan22\model\donate;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
-use Ofey\Logan22\component\itemgame\itemgame;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
@@ -24,13 +23,14 @@ use Ofey\Logan22\template\tpl;
 class donate {
 
     /**
-     * @return false|\PDOStatement|null
+     * @return array
      * @throws Exception
      * История платежей пользователя
      */
-    static public function donate_history(){
-        $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC",[
-            auth::get_id(), auth::get_default_server()
+    static public function donate_history() {
+        $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC", [
+            auth::get_id(),
+            auth::get_default_server(),
         ]);
 
         if(empty($donate))
@@ -51,12 +51,10 @@ class donate {
         return $items;
     }
 
-
-
     /**
      * Список товаров для покупки за донат очки
      *
-     * @return false|\PDOStatement
+     * @return array
      * @throws Exception
      */
     static public function products() {
@@ -103,7 +101,6 @@ class donate {
         if(!$donat_info) {
             board::notice(false, lang::get_phrase(152));
         }
-
 
         //Стоимость товара * на количество
         $cost_product = $donat_info['cost'] * $user_value;
