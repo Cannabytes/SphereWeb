@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\template;
 
 use ArgumentCountError;
+use InvalidArgumentException;
 use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\estate\castle;
@@ -328,20 +329,16 @@ class tpl {
             return statistic_model::top_counter($server_id);
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0, $limit = 0) {
-            $results = statistic_model::get_pvp($server_id);
-            if($limit > 0) {
-                $results = array_slice($results, 0, $limit);
-            }
-            return $results;
+        $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0, $limit = 0): ?array {
+            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+            $pvpStats = statistic_model::get_pvp($server_id);
+            return $pvpStats ? ($limit > 0 ? array_slice($pvpStats, 0, $limit) : $pvpStats) : null;
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0) {
-            $stats = statistic_model::get_pk($server_id);
-            if($limit == 0) {
-                return $stats;
-            }
-            return array_slice($stats, 0, $limit);
+        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0) : ?array {
+            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+            $pkStats = statistic_model::get_pk($server_id);
+            return $pkStats ? ($limit <= 0 ? $pkStats : array_slice($pkStats, 0, $limit)) : null;
         }));
 
         $twig->addFunction(new TwigFunction('statistic_players_online_time', function($server_id = 0) {
@@ -349,11 +346,9 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0, $limit = 0) {
-            $clans = statistic_model::get_clan($server_id);
-            if($limit > 0) {
-                $clans = array_slice($clans, 0, $limit);
-            }
-            return $clans;
+            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+            $clanStats = statistic_model::get_clan($server_id);
+            return $clanStats ? ($limit >= 1 ? array_slice($clanStats, 0, $limit) : $clanStats) : null;
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_castle', function($server_id = 0) {
