@@ -17,3 +17,23 @@ $(document).ready(function () {
         });
     });
 });
+
+$('#new_account_word').on('click', function () {
+    $.ajax({
+        type: "POST",
+        url: "/generation/account",
+        encode: true,
+    }).success(function (data) {
+        $("input[name*='login']").val(data);
+    });
+});
+
+$('#new_password_word').on('click', function () {
+    $.ajax({
+        type: "POST",
+        url: "/generation/password",
+        encode: true,
+    }).success(function (data) {
+        $("input[name*='password']").val(data);
+    });
+});

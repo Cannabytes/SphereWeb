@@ -37,7 +37,7 @@ class tpl {
     static private array $allTplVars = [];
 
     /**
-     * @param $var
+     * @param        $var
      * @param string $value
      *
      * @return void
@@ -272,7 +272,7 @@ class tpl {
             return config::get_screen_enable();
         }));
 
-        $twig->addFunction(new TwigFunction('grade_img', function($crystal_type) : string {
+        $twig->addFunction(new TwigFunction('grade_img', function($crystal_type): string {
             $grade_img = '';
             switch($crystal_type) {
                 case 'd':
@@ -429,13 +429,34 @@ class tpl {
 
         //Кол-во завершенных и не завершенных рефералов
         $twig->addFunction(new TwigFunction('referral_count', function($referrals) {
+            if(!is_array($referrals)) {
+                throw new InvalidArgumentException('Argument must be an array.');
+            }
+
+            function isReferralDone($referral) {
+                return isset($referral['done']) && $referral['done'];
+            }
+
             $completedCount = array_reduce($referrals, function($count, $referral) {
-                return $count + ($referral['done'] ? 1 : 0);
+                if(isReferralDone($referral)) {
+                    $count++;
+                }
+                return $count;
             }, 0);
+
+            $totalCount = count($referrals);
+            if($totalCount === 0) {
+                return [
+                    'completed' => 0,
+                    'continues' => 0,
+                    'made'      => 0,
+                ];
+            }
+
             return [
                 'completed' => $completedCount,
-                'continues' => count($referrals) - $completedCount,
-                'made'      => $completedCount / count($referrals) * 100,
+                'continues' => $totalCount - $completedCount,
+                'made'      => $completedCount / $totalCount * 100,
             ];
         }));
 

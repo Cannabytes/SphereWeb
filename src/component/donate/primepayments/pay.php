@@ -80,4 +80,5 @@ class primepayments {
         auth::change_donate_point($user_id, $_POST['sum']);
         echo 'YES';
     }
+
 }
