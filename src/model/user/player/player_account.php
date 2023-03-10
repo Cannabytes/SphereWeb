@@ -70,11 +70,7 @@ class player_account {
         self::valid_login($login);
         self::valid_password($password);
         if(self::count_account($server_id) >= 20) {
-            exit(json_encode([
-                'ok'      => false,
-                'message' => lang::get_phrase(206),
-                'getCode' => 0,
-            ]));
+            board::notice(false, lang::get_phrase(206));
         }
 
         $reQuest = self::getReQuest($server_id, $login);
@@ -85,18 +81,11 @@ class player_account {
         ], showErrorPage: false);
         if(is_array($err)) {
             if(!$err['ok']) {
-                exit(json_encode([
-                    'ok'      => false,
-                    'message' => $err['message'],
-                ]));
+                board::notice(false, $err['message']);
             }
         }
         self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
-        exit(json_encode([
-            'ok'      => true,
-            'message' => lang::get_phrase(207),
-            'getCode' => 0,
-        ]));
+        board::notice(true, lang::get_phrase(207));
     }
 
     public static function add_account_not_user($server_id, $login, $password, $password_hide, $email) {
@@ -117,18 +106,11 @@ class player_account {
         //TODO: логирование ошибок
         if(is_array($err)) {
             if(!$err['ok']) {
-                exit(json_encode([
-                    'ok'      => false,
-                    'message' => $err['message'],
-                ]));
+                board::notice(false, $err['message']);
             }
         }
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
-        exit(json_encode([
-            'ok'      => true,
-            'message' => lang::get_phrase(207),
-            'getCode' => 0,
-        ]));
+        board::notice(true, lang::get_phrase(207));
     }
 
     /*

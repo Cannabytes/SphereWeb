@@ -15,15 +15,16 @@ $(document).ready(function () {
         });
     }
 
-    $("form").submit(function (event) {
+    $("#registration_game_account").on("click", function (event) {
         event.preventDefault();
+        var form_data = $('#panel_registration_account').find('input, select').filter(':visible').serialize();
         $.ajax({
             type: "POST",
             url: "/registration/account",
-            data: $(this).serialize(),
-            dataType: "json",
+            data: form_data,
             encode: true,
         }).success(function (data) {
+            console.log(data)
             if (data.ok) {
                 notify_success(data.message);
             } else {

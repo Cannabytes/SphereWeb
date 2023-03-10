@@ -141,7 +141,7 @@ class timezone {
      * Есть старые timezone базы даже в PHP 8.1
      * нужно всё таки применять старые названия таймзон для таких случаев
      */
-    public static function git checkUserTimeZoneOld($userTimezone) {
+    public static function checkUserTimeZoneOld($userTimezone) {
         if($userTimezone == "Europe/Kyiv" or $userTimezone == 'Europe/Kiev') {
             foreach(timezone_identifiers_list() as $row) {
                 if('Europe/Kiev' == $row) {

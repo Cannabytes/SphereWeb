@@ -42,7 +42,6 @@ class account {
             if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
                 board::alert(['ok'      => false,
                               "message" => lang::get_phrase(295),
-                              "code"    => 1,
                 ]);
             }
             $email = request::setting("email", new request_config(isEmail: true));

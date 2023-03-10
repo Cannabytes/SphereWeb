@@ -151,8 +151,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="modal_content">
-                    <form>
+                <div class="modal-body" id="panel_registration_account">
+                    <div>
                         <div class="form-group row">
                             <label for="basic-select" class="col-sm-2 col-form-label">{{ phrase("server") }}</label>
                             <div class="col-sm-6">
@@ -237,11 +237,11 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary px-5"> {{ phrase(7) }}</button>
+                                <button id="registration_game_account" type="submit" class="btn btn-primary px-5"> {{ phrase(7) }}</button>
                             </div>
                         </div>
 
-                    </form>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -267,7 +267,34 @@
 <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
 <script src="{{'assets/plugins/vertical-timeline/js/vertical-timeline.js'|template}}"></script>
 <script src="{{'assets/js/news/news.js'|template}}"></script>
+<script src="{{'assets/js/user/registration_account.js'|template}}"></script>
 
+<script>
+        $("#registration_main_registration").click(function (e) {
+            e.preventDefault();
+              $.ajax({
+                      type: "POST",
+                      url: "/registration/account",
+                      data: {
+                          server: $("#server_main_registration").val(),
+                          login: $("#login_main_registration").val(),
+                          email: $("#email_main_registration").val(),
+                          password: $("#password_main_registration").val(),
+                          password_hide: $("#password_hide_registration").val(),
+                          captcha: $("#captcha_main_registration").val(),
+                      },
+                      dataType: "json",
+                      encode: true,
+                  }).success(function (data) {
+                      if (data.ok) {
+                          location.reload()
+                      } else {
+                          notify_error(data.message)
+                          get_captcha()
+                      }
+                  });
+    });
+</script>
 
 {% if get_enable_game_chat() %}
 <script>
