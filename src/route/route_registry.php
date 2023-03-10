@@ -10,7 +10,7 @@ lang::load_package();
 auth_model::user_auth();
 
 $route = new Ofey\Logan22\route\Route();
-
+//var_dump($_SESSION);exit;
 $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
 $route->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");

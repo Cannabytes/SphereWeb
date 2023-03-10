@@ -14,6 +14,7 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
+use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
@@ -399,6 +400,7 @@ class auth {
      * @param string $timezone
      */
     public static function set_timezone(string $timezone) {
+        $timezone = timezone::checkUserTimeZoneOld($timezone);
         date_default_timezone_set($timezone);
         self::$timezone = $timezone;
     }

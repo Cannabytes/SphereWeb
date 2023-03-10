@@ -2,6 +2,7 @@
 
 namespace Ofey\Logan22\controller\registration;
 
+use Exception;
 use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
