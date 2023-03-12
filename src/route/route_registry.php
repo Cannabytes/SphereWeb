@@ -10,11 +10,14 @@ lang::load_package();
 auth_model::user_auth();
 
 $route = new Ofey\Logan22\route\Route();
-//var_dump($_SESSION);exit;
+
 $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
 $route->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");
-$route->post("page/comment/add", '\Ofey\Logan22\controller\page\page::add_comment');
+$route->post("page/comment/add", '\Ofey\Logan22\controller\page\page::addComment');
+$route->post("page/comment/delete", '\Ofey\Logan22\controller\admin\page::deleteComment');
+$route->post("page/comment/edit", '\Ofey\Logan22\controller\admin\page::editComment');
+
 $route->post("ajax/get/news", '\Ofey\Logan22\controller\page\page::get_news_ajax');
 $route->get("main", 'Ofey\Logan22\controller\main\main::index')->alias("home")->alias("main");
 $route->get("registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");

@@ -487,6 +487,7 @@ class L2jOpen implements structure {
                     characters.pkkills AS pk,
                     characters.createtime,
                     characters.title,
+                    characters.sex,
                     characters.`online`,
                     characters.onlinetime AS time_in_game,
                     character_subclasses.class_id,

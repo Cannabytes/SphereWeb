@@ -289,6 +289,7 @@ class L2jMobius implements structure {
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
                         characters.pkkills AS pk, 
+                        characters.sex, 
                         characters.title, 
                         characters.`online`, 
                         characters.onlinetime AS time_in_game, 

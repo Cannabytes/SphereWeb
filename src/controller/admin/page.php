@@ -7,12 +7,40 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\request;
+use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\template\tpl;
 
 class page {
+
+    //Изменение комментария
+    public static function editComment(){
+        validation::user_protection("admin");
+        $comment_id = request::setting('comment_id', new request_config(isNumber: true));
+        $comment_msg = request::setting('comment_message', new request_config(required: true));
+        if (\Ofey\Logan22\model\page\page::edit($comment_msg, $comment_id)){
+            board::notice(true, "Обновлено");
+        }else{
+            board::notice(true, "Ошибка редактирования");
+        }
+    }
+
+
+    //Удаление комментария из страницы
+    public static function deleteComment(){
+        validation::user_protection("admin");
+        $comment_id = request::setting('comment_id', new request_config(isNumber: true));
+        if (\Ofey\Logan22\model\page\page::delete($comment_id)){
+            board::notice(true, "Удалено");
+        }else{
+            board::notice(true, "Ошибка удаления");
+        }
+    }
+
 
     static public function list() {
         validation::user_protection("admin");
@@ -74,13 +102,4 @@ class page {
         tpl::display("admin/news_list_trash.html");
     }
 
-    public static function remove($id) {
-        validation::user_protection("admin");
-        \Ofey\Logan22\model\admin\page::remove($id);
-    }
-
-    public static function remove_all() {
-        validation::user_protection("admin");
-        \Ofey\Logan22\model\admin\page::remove_all();
-    }
 }

@@ -84,4 +84,13 @@ class page {
             $limit,
         ])->fetchAll();
     }
+
+    //Удаление комментария
+    public static function delete($comment_id) {
+        return sql::sql("DELETE FROM `page_comments` WHERE `id` = ?", [$comment_id]);
+    }
+
+    public static function edit($comment_message, $comment_id) {
+        return sql::sql("UPDATE `page_comments` SET `message` = ? WHERE `id` = ?", [$comment_message, $comment_id]);
+    }
 }

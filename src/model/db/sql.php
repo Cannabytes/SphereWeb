@@ -137,6 +137,6 @@ class sql {
     }
 
     public static function sql($query, array $args = []) {
-        self::run($query, $args);
+       return self::run($query, $args);
     }
 }

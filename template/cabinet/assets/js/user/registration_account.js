@@ -27,6 +27,9 @@ $(document).ready(function () {
             console.log(data)
             if (data.ok) {
                 notify_success(data.message);
+                setTimeout(function(){
+                  location.reload();
+                }, 2000);
             } else {
                 notify_error(data.message)
             }
