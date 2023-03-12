@@ -21,7 +21,7 @@ class page {
     public static function editComment(){
         validation::user_protection("admin");
         $comment_id = request::setting('comment_id', new request_config(isNumber: true));
-        $comment_msg = request::setting('comment_message', new request_config(required: true));
+        $comment_msg = request::setting('comment_message', new request_config(max: 2000, required: true));
         if (\Ofey\Logan22\model\page\page::edit($comment_msg, $comment_id)){
             board::notice(true, "Обновлено");
         }else{
