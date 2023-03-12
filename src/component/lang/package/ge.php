@@ -335,11 +335,11 @@ return [
     268 => "HTML გვერდი, რომელსაც ჩვენ გავაგზავნით მომხმარებელთან ფოსტაზე.<br>
 				 ცვლადი <strong>%code%</strong> - შეიცავს შესამოწმებელ კოდს.<br>
 				 ცვლადი <strong>%link%</strong> - პაროლის ჩამოყრის გვერდის მისამართი.</br>
-				 შაბლონის ადგილმდებარეობა: <strong>template/cabinet/email_request/forget.html</strong>",
+				 შაბლონის ადგილმდებარეობა: <strong>src/template/cabinet/email_request/forget.html</strong>",
     269 => "HTML გვერდი, რომელსაც ჩვენ გავაგზავნით მომხმარებელთან ფოსტაზე.<br>
 				 ცვლადი <strong>%password%</strong> - ახალი პაროლი.<br>
 				 ცვლადი <strong>%link%</strong> - ავტორიზაციის გვერდის მისამართი.</br>
-				 შაბლონის ადგილმდებარეობა: <strong>template/cabinet/email_request/new_password.html</strong>",
+				 შაბლონის ადგილმდებარეობა: <strong>src/template/cabinet/email_request/new_password.html</strong>",
     270 => "ელფოსტის პარამეტრები",
     271 => "დამახსოვრება",
     272 => "აირჩიეთ ავატარი",

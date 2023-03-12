@@ -38,7 +38,7 @@ class change {
         validation::user_protection();
         tpl::addVar([
             "title"   => lang::get_phrase(192),
-            "avatars" => fileSys::file_list('template/cabinet/assets/images/navatar'),
+            "avatars" => fileSys::file_list('src/template/cabinet/assets/images/navatar'),
         ]);
         tpl::addVar('server_list', server::get_server_info());
         tpl::display("user/option/select_avatar.html");
@@ -48,7 +48,7 @@ class change {
         validation::user_protection();
         tpl::addVar([
             "title"   => lang::get_phrase(193),
-            "avatars" => fileSys::file_list('template/cabinet/assets/images/navatarback'),
+            "avatars" => fileSys::file_list('src/template/cabinet/assets/images/navatarback'),
         ]);
         tpl::addVar('server_list', server::get_server_info());
         tpl::display("user/option/select_background_avatar.html");
@@ -62,13 +62,13 @@ class change {
         }
         if(62 < mb_strlen($avatar))
             board::notice(false, lang::get_phrase(195));
-        if(!file_exists("template/cabinet/assets/images/navatar/" . $avatar))
+        if(!file_exists("src/template/cabinet/assets/images/navatar/" . $avatar))
             board::notice(false, lang::get_phrase(196));
         \Ofey\Logan22\model\user\profile\change::set_avatar($avatar);
         board::alert([
             'ok'      => true,
             'message' => lang::get_phrase(197),
-            'src'     => "/template/cabinet/assets/images/navatar/" . $avatar,
+            'src'     => "/src/template/cabinet/assets/images/navatar/" . $avatar,
         ]);
     }
 
@@ -77,7 +77,7 @@ class change {
         $avatar = $_POST['avatar'];
         if(62 < mb_strlen($avatar))
             board::notice(false, lang::get_phrase(198));
-        if(!file_exists("template/cabinet/assets/images/navatarback/" . $avatar))
+        if(!file_exists("src/template/cabinet/assets/images/navatarback/" . $avatar))
             board::notice(false, lang::get_phrase(199));
         \Ofey\Logan22\model\user\profile\change::set_avatar_background($avatar);
         board::notice(true, lang::get_phrase(197));

@@ -60,7 +60,7 @@ class forget {
         ], true);
 
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth/forget/code/" . $code;
-        $forgetFilename = "template/cabinet/email/" . lang::lang_user_default() . "/forget_link.html";
+        $forgetFilename = "src/template/cabinet/email/" . lang::lang_user_default() . "/forget_link.html";
         if(!file_exists($forgetFilename)) {
             board::notice(true, lang::get_phrase(145));
         }
@@ -113,7 +113,7 @@ class forget {
     public static function send_new_password($email, $password) {
         $link = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/auth";
         $lang = lang::lang_user_default();
-        $forgetFilename = "template/cabinet/email/{$lang}/new_password.html";
+        $forgetFilename = "src/template/cabinet/email/{$lang}/new_password.html";
         if(!file_exists($forgetFilename)) {
             board::notice(false, lang::get_phrase(280, $forgetFilename));
         }

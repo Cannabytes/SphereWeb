@@ -24,13 +24,13 @@ class template {
     public static function email_forget() {
         validation::user_protection("admin");
 
-        tpl::addVar('forget', file_get_contents('template/cabinet/email_request/forget.html'));
+        tpl::addVar('forget', file_get_contents('src/template/cabinet/email_request/forget.html'));
         tpl::display("admin/template/email/forget.html");
     }
 
     public static function new_password() {
         validation::user_protection("admin");
-        tpl::addVar('new_password', file_get_contents('template/cabinet/email_request/new_password.html'));
+        tpl::addVar('new_password', file_get_contents('src/template/cabinet/email_request/new_password.html'));
         tpl::display("admin/template/email/new_password.html");
     }
 
