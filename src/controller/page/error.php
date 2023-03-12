@@ -13,7 +13,7 @@ use Ofey\Logan22\template\tpl;
 
 class error {
 
-    static public function request_off(){
+    static public function request_off() {
         board::notice(false, "Все запросы отключены. Сайт только для чтения, ознакомления.");
     }
 
@@ -23,6 +23,9 @@ class error {
     }
 
     static public function error404($message = null) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            board::notice(false, "POST REQUEST NOT FOUND");
+        }
         if($message == null) {
             $message = lang::get_phrase(239);
         }

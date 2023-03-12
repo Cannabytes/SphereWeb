@@ -187,4 +187,5 @@ $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 $route->set404(function() {
     \Ofey\Logan22\controller\page\error::error404();
 });
+
 $route->run();

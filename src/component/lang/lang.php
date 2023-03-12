@@ -25,9 +25,13 @@ class lang {
         }
     }
 
+    //Смена языка
     static public function set_lang($lang): void {
-        if (self::name($lang)) {
-            session::add("lang", $lang);
+        $allowLang = include 'src/config/lang.php';
+        if (in_array($lang, $allowLang)) {
+            if (self::name($lang)) {
+                session::add("lang", $lang);
+            }
         }
         redirect::location($_SERVER['HTTP_REFERER'] ?? "/main");
     }
@@ -68,8 +72,8 @@ class lang {
         }
         $lang_name = self::lang_user_default();
         $langs = [];
-
-        foreach($lngs as $lng) {
+        $allowLang = include 'src/config/lang.php';
+        foreach(array_intersect($lngs, $allowLang) as $lng) {
             if($lng == $remove_lang) {
                 continue;
             }
