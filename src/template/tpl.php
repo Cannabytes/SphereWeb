@@ -53,7 +53,7 @@ class tpl {
     }
 
     public static function template_design_route(): ?array {
-        $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/designs/" . config::get_template() . "/route.php";
+        $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/" . config::get_template() . "/route.php";
         if(file_exists($fileRoute)) {
             require_once $fileRoute;
             if(isset($pages)) {
@@ -69,17 +69,19 @@ class tpl {
      * @throws LoaderError
      */
     public static function display($tplName, $categoryCabinet = false) {
-        $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
-        $categoryDesign = "cabinet";
+        $__ROOT__ = $_SERVER['DOCUMENT_ROOT'] ;
+        //        $categoryDesign = "cabinet";
+        //        Если вызывается личный кабинет
+        $templatePath = "/src/template/cabinet/";
         if($categoryCabinet) {
-            $categoryDesign = "designs/" . config::get_template();
-            self::lang_template_load($__ROOT__ . "/template/{$categoryDesign}/lang.php");
+            $templatePath = "/template/" . config::get_template() ;
+            self::lang_template_load($__ROOT__ . $templatePath . "/lang.php");
         }
-        if(!file_exists($__ROOT__ . "/template/$categoryDesign/$tplName")) {
-            echo "Не найден шаблон: " . $__ROOT__ . "/template/$categoryDesign/$tplName";
+        if(!file_exists($__ROOT__.$templatePath . "/". $tplName)) {
+            echo "Не найден шаблон: " .  $__ROOT__.$templatePath . "/". $tplName;
             die();
         }
-        $loader = new FilesystemLoader($__ROOT__ . "/template/$categoryDesign");
+        $loader = new FilesystemLoader($__ROOT__ . $templatePath);
 
         $twig = new Environment($loader, [
             'cache'       => $__ROOT__ . "/uploads/cache",
@@ -90,11 +92,11 @@ class tpl {
 
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));
 
-        $twig->addFilter(new TwigFilter('template', function($string) use ($categoryDesign) {
+        $twig->addFilter(new TwigFilter('template', function($string) use ($templatePath) {
             return str_replace([
                 "//",
                 "\\",
-            ], "/", "/template/{$categoryDesign}/{$string}");
+            ], "/", $templatePath . $string);
         }));
 
         $twig->registerUndefinedFunctionCallback(function($name) {
@@ -330,13 +332,15 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_pvp', function($server_id = 0, $limit = 0): ?array {
-            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+            if($server_id < 0 || $limit < 0)
+                throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
             $pvpStats = statistic_model::get_pvp($server_id);
             return $pvpStats ? ($limit > 0 ? array_slice($pvpStats, 0, $limit) : $pvpStats) : null;
         }));
 
-        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0) : ?array {
-            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+        $twig->addFunction(new TwigFunction('statistic_get_pk', function($server_id = 0, $limit = 0): ?array {
+            if($server_id < 0 || $limit < 0)
+                throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
             $pkStats = statistic_model::get_pk($server_id);
             return $pkStats ? ($limit <= 0 ? $pkStats : array_slice($pkStats, 0, $limit)) : null;
         }));
@@ -346,7 +350,8 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('statistic_get_clans', function($server_id = 0, $limit = 0) {
-            if ($server_id < 0 || $limit < 0) throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
+            if($server_id < 0 || $limit < 0)
+                throw new InvalidArgumentException('Server ID and limit must be non-negative integers');
             $clanStats = statistic_model::get_clan($server_id);
             return $clanStats ? ($limit >= 1 ? array_slice($clanStats, 0, $limit) : $clanStats) : null;
         }));
@@ -466,7 +471,7 @@ class tpl {
         }));
 
         $template = $twig->load($tplName);
-        self::$allTplVars['template'] = "/template/{$categoryDesign}";
+        self::$allTplVars['template'] = $templatePath;
         self::$allTplVars['pointTime'] = microtime::pointTime();
         try {
             echo $template->render(self::$allTplVars);

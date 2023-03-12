@@ -46,11 +46,11 @@ function readme() {
             },
             success: function(result) {
                 if (result.screen){
-                    $("#screen").attr("src", "/template/designs/"+ $("#template").val() + "/" + result.screen);
-                    $("#screen_href").attr("href", "/template/designs/"+ $("#template").val() + "/" + result.screen);
+                    $("#screen").attr("src", "/template/"+ $("#template").val() + "/" + result.screen);
+                    $("#screen_href").attr("href", "/template/"+ $("#template").val() + "/" + result.screen);
                 }else{
-                    $("#screen").attr("src", "/template/cabinet/assets/images/none.png");
-                    $("#screen_href").attr("href", "/template/cabinet/assets/images/none.png");
+                    $("#screen").attr("src", "/src/template/cabinet/assets/images/none.png");
+                    $("#screen_href").attr("href", "/src/template/cabinet/assets/images/none.png");
                 }
                 $("#version").text(result.version);
                 $("#author").text(result.author);

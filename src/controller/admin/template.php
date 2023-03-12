@@ -17,7 +17,7 @@ class template {
     public static function show_design() {
         validation::user_protection("admin");
         tpl::addVar("title", lang::get_phrase(230));
-        tpl::addVar('template_list', fileSys::dir_list("template/designs"));
+        tpl::addVar('template_list', fileSys::dir_list("template"));
         tpl::display("admin/template/design.html");
     }
 
@@ -39,13 +39,14 @@ class template {
         \Ofey\Logan22\model\admin\template::save();
     }
 
+    //Информация о шаблоне
     public static function get_readme(){
         validation::user_protection("admin");
         $template = $_POST['template'];
-        $readmeJson = "template/designs/{$template}/readme.json";
+        $readmeJson = "template/{$template}/readme.json";
         if(!file_exists($readmeJson)) {
             $arr['ok'] = false;
-            $arr['message'] = lang::get_phrase(231, "template/designs/{$template}/readme.json");
+            $arr['message'] = lang::get_phrase(231, "template/{$template}/readme.json");
             die(json_encode($arr));
         }
         echo file_get_contents($readmeJson);
