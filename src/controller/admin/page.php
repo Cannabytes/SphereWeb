@@ -45,7 +45,7 @@ class page {
     static public function list() {
         validation::user_protection("admin");
         tpl::addVar([
-            'show_news'   => \Ofey\Logan22\model\page\page::show_news_short(),
+            'show_news'   => \Ofey\Logan22\model\page\page::show_all_pages_short(),
             'server_list' => server::get_server_info(),
             "title" => lang::get_phrase("pages"),
         ]);
