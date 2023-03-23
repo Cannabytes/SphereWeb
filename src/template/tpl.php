@@ -255,8 +255,8 @@ class tpl {
             return forum::get_last_thread($last_thread);
         }));
 
-        $twig->addFunction(new TwigFunction('get_forum_link', function($thread_id = 0, $post_id = 0) {
-            return forum::get_link($thread_id, $post_id);
+        $twig->addFunction(new TwigFunction('get_forum_link', function($thread) {
+            return forum::get_link($thread);
         }));
 
         $twig->addFunction(new TwigFunction('forum_enable', function() {

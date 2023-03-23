@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SimpleCaptcha;
 
 use Exception;
-
 
 /**
  * Class Toolkit
@@ -18,8 +19,8 @@ class Toolkit
      * See https://stackoverflow.com/a/31934345
      *
      * @param string $color HEX color
-     * @return array
-     * @throws \Exception
+     * @return array RGB values
+     * @throws \Exception Invalid HEX color provided
      */
     public static function hex2rgb(string $color): array
     {

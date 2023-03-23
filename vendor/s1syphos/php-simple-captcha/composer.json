@@ -3,12 +3,11 @@
     "description": "Simple captcha generator",
     "type": "library",
     "license": "MIT",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "keywords": ["captcha", "anti-spam", "spam-protection", "spam", "obfuscation", "security", "anti-bot", "no-bot", "bot-protection"],
     "homepage": "https://codeberg.org/S1SYPHOS/php-simple-captcha",
     "scripts": {
-        "cs-dry": "php-cs-fixer fix --dry-run --diff",
-        "cs-fix": "php-cs-fixer fix",
+        "lint": "pint --verbose",
         "test": "phpunit"
     },
     "authors": [
@@ -31,7 +30,7 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "ext-gd": "*",
         "ext-mbstring": "*"
     },
@@ -39,9 +38,10 @@
         "thiagoalessio/tesseract_ocr": "Provides better results when building against OCR. Requires 'tesseract-ocr' to be installed."
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.4",
-        "phpunit/phpunit": "^8.5|^9.0",
-        "mikey179/vfsstream": "^1.6"
+        "laravel/pint": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "mikey179/vfsstream": "^1.6",
+        "vimeo/psalm": "^5.6"
     },
     "autoload": {
         "psr-4": {

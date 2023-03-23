@@ -197,10 +197,14 @@ class forum {
     }
 
     static public function user_avatar($user_id): string {
-        return match (self::get_engine()) {
+        $image = match (self::get_engine()) {
             'xenforo' => sprintf("%s/data/avatars/m/0/%d.jpg", self::get_url(), $user_id),
-            'ipb' => 'template/cabinet/assets/images/navatar/none.jpeg',
+            'ipb' => 'src/template/cabinet/assets/images/navatar/none.jpeg',
             default => 'No Link',
         };
+		if (!file_exists($image)) {
+			return 'src/template/cabinet/assets/images/navatar/none.jpeg';
+		}
+		return $image;
      }
 }

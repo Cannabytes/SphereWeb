@@ -51,8 +51,8 @@ class freekassa {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
-
-        $order_amount = $_POST['count'];
+        $donate = include 'src/config/donate.php';
+        $order_amount = $_POST['count'] * $donate['coefficient']['RUB'];
         $merchant_id = $this->merchant_id;
         $order_id = auth::get_id();
         $secret_word = $this->secret_key_1;

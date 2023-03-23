@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SimpleCaptcha;
 
 use SimpleCaptcha\Helpers\Str;
-
 
 /**
  * Class BuilderAbstract
@@ -43,7 +44,7 @@ abstract class BuilderAbstract
      * @param int $height Captcha image height
      * @return self
      */
-    public abstract function build(int $width, int $height): self;
+    abstract public function build(int $width, int $height): self;
 
 
     /**
@@ -53,7 +54,7 @@ abstract class BuilderAbstract
      * @param int $quality Captcha image quality
      * @return void
      */
-    public abstract function save(string $filename, int $quality = 90): void;
+    abstract public function save(string $filename, int $quality = 90): void;
 
 
     /**
@@ -63,7 +64,7 @@ abstract class BuilderAbstract
      * @param string $type Captcha image output format
      * @return void
      */
-    public abstract function output(int $quality = 90, string $type = 'jpg'): void;
+    abstract public function output(int $quality = 90, string $type = 'jpg'): void;
 
 
     /**
@@ -73,7 +74,7 @@ abstract class BuilderAbstract
      * @param string $type Captcha image output format
      * @return string
      */
-    public abstract function fetch(int $quality = 90, string $type = 'jpg'): string;
+    abstract public function fetch(int $quality = 90, string $type = 'jpg'): string;
 
 
     /**
@@ -83,7 +84,7 @@ abstract class BuilderAbstract
      * @param string $type Captcha image output format
      * @return string
      */
-    public abstract function inline(int $quality = 90, string $type = 'jpg'): string;
+    abstract public function inline(int $quality = 90, string $type = 'jpg'): string;
 
 
     /**
@@ -93,7 +94,7 @@ abstract class BuilderAbstract
     /**
      * Picks random character
      *
-     * @param string $charset Characters to choose from
+     * @param string|null $charset Characters to choose from
      * @return string
      */
     public static function randomCharacter(?string $charset = null): string
@@ -121,7 +122,7 @@ abstract class BuilderAbstract
      * Builds random phrase
      *
      * @param int $length Number of characters
-     * @param string $charset Characters to choose from
+     * @param string|null $charset Characters to choose from
      * @return string
      */
     public static function buildPhrase(int $length = 5, ?string $charset = null): string
@@ -153,7 +154,7 @@ abstract class BuilderAbstract
      * Checks whether captcha was solved correctly
      *
      * @param string $phrase Phrase to be tested
-     * @param string $string Phrase to be tested against (optional)
+     * @param string|null $string Phrase to be tested against (optional)
      * @return bool
      */
     public function compare(string $phrase, ?string $string = null): bool

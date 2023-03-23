@@ -3,45 +3,258 @@
 {% block content %}
 <div class="row">
 
-	<div class="col-12 col-lg-6 col-xl-6">
-		<div class="card">
-			<div class="card-body">
-				<a target="_blank" href="#" type="button" class="btn btn-outline-danger btn-lg btn-round btn-block waves-effect waves-light m-1">Скачать патч (с сайта)</a>
-				<a target="_blank" href="#" type="button" class="btn btn-outline-danger btn-lg btn-round btn-block waves-effect waves-light m-1">Скачать патч (google)</a>
-			</div>
-		</div>
-	</div>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#profile" data-toggle="pill"
+                           class="nav-link active"><span class="hidden-xs">Лаунчер</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><span
+                                class="hidden-xs">Messages</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><span
+                                class="hidden-xs">Настройки</span></a>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane active" id="profile">
+                        <div class="row">
+                            <div class="col-md-3">
 
-	<div class="col-12 col-lg-6 col-xl-6">
-		<div class="card">
-			<div class="card-body">
-				Как установить патч?<br>
-			</div>
-		</div>
-	</div>
+                                <div class="card">
+                                    <div class="card-body text-center">
 
-</div>
+                                        <div class="card-body">
+                                            <div class="chart easy-pie-chart-4" data-percent="65">
+                                                <span class="percent"></span>
+                                            </div>
+                                            <hr>
+                                            <button
+                                               id="client_update"
+                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
+                                                    class="fa fa-refresh"></i> <span>Обновить клиент</span></button>
+                                            <button
+                                               id="update"
+                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
+                                                    class="fa fa-refresh"></i> <span>Статус</span></button>
+                                            <button
+                                               id="client_update_cancel"
+                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
+                                                    class="fa fa-refresh"></i> <span>Отмена</span></button>
+                                        </div>
 
-<div class="row">
-	<div class="col-12 col-lg-6 col-xl-6">
-		<div class="card">
-			<div class="card-body">
-				<h6 class="text-uppercase mb-3">Goal Completion by channel</h6>
-				<div class="mt-1">
-					<div id="direct"></div>
-				</div>
-				<div class="mt-1">
-					<div id="organic-search"></div>
-				</div>
-				<div class="mt-1">
-					<div id="referral"></div>
-				</div>
-				<div class="mt-1">
-					<div id="social"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-9">
+
+
+                                <div class="progress-wrapper mb-4">
+                                    <p>Загружается: system/l2.exe<span class="float-right">80%</span></p>
+                                    <div class="progress" style="height:7px;">
+                                        <div class="progress-bar gradient-ibiza" style="width:70%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress-wrapper mb-4">
+                                    <p>1-2 Hours<span class="float-right">60%</span></p>
+                                    <div class="progress" style="height:7px;">
+                                        <div class="progress-bar gradient-quepal" style="width:60%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress-wrapper mb-4">
+                                    <p>More Then 2 Hours <span class="float-right">40%</span></p>
+                                    <div class="progress" style="height:7px;">
+                                        <div class="progress-bar gradient-blooker" style="width:40%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress-wrapper mb-4">
+                                    <p>More Then 2 Hours <span class="float-right">40%</span></p>
+                                    <div class="progress" style="height:7px;">
+                                        <div class="progress-bar gradient-ohhappiness" style="width:40%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="progress-wrapper">
+                                    <p>More Then 5 Hours <span class="float-right">20%</span></p>
+                                    <div class="progress" style="height:7px;">
+                                        <div class="progress-bar gradient-scooter" style="width:20%"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <h5 class="mt-2 mb-6"><span class="fa fa-clock-o ion-clock float-right"></span> События
+                                </h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Найдено 13 файлов в кэш
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Найдены 72 файла необходимых для обновления
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Проверка необходимости обновления
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Начало обновления
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <div class="alert-icon">
+                                <i class="icon-info"></i>
+                            </div>
+                            <div class="alert-message">
+                                <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link
+                                        to the latest summary report from the..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a
+                                        request on your account since that was..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices
+                                        quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt
+                                        ullamcorper eros eget luctus.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix
+                                        for tibulum tincidunt ullamcorper eros.
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="edit">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Mark">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="Jhonsan">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="email" value="mark@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="file">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="url" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="" placeholder="Street">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" value="" placeholder="City">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" value="" placeholder="State">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="jhonsanmark">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" value="11111122333">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -49,12 +262,46 @@
 {% endblock %}
 
 
-
 {% block css %}
+<!-- simplebar CSS-->
+<link href="{{template}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+<!-- Bootstrap core CSS-->
+<link href="{{template}}/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- animate CSS-->
+<link href="{{template}}/assets/css/animate.css" rel="stylesheet" type="text/css"/>
+<!-- Icons CSS-->
+<link href="{{template}}/assets/css/icons.css" rel="stylesheet" type="text/css"/>
+<!-- Sidebar CSS-->
+<link href="{{template}}/assets/css/sidebar-menu.css" rel="stylesheet"/>
+<!-- Custom Style-->
+<link href="{{template}}/assets/css/app-style.css" rel="stylesheet"/>
+<!-- skins CSS-->
+<link href="{{template}}/assets/css/skins.css" rel="stylesheet"/>
+<!-- Vector CSS -->
+<link href="{{template}}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
 {% endblock %}
 
 {% block js %}
 
+<!-- Easy Pie Chart JS -->
+<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/easy-pie-chart.init.js"></script>
+
+<!-- KNOB JS -->
+<!--[if IE]>
+<script type="text/javascript" src="{{template}}/assets/jquery-knob/excanvas.js"></script>
+<![endif]-->
+<script src="{{template}}/assets/plugins/jquery-knob/excanvas.js"></script>
+<script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+<script>
+        $(function() {
+            $(".knob").knob();
+        });
+
+</script>
+
+<script src="{{template}}/launcher/launcher.js"></script>
 
 {% endblock %}
 
