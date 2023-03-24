@@ -2,3 +2,4 @@
 *.htm linguist-language=PHP
 *.js linguist-language=PHP
 *.css linguist-language=PHP
+*.tpl linguist-language=TWIG 
