@@ -55,6 +55,7 @@ interface structure {
      */
     static public function account_change_password(): string;
 
+    //TODO:Deprecated
     /**
      * Найти аккаунт по почте
      * Используется для синхронизации внутреннего реестра зарегистрированных аккаунтов и с реестром аккаунтов сервера.

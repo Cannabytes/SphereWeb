@@ -72,7 +72,6 @@ class player_account {
         if(self::count_account($server_id) >= 20) {
             board::notice(false, lang::get_phrase(206));
         }
-
         $reQuest = self::getReQuest($server_id, $login);
         $err = self::account_registration($reQuest, [
             $login,
@@ -156,12 +155,23 @@ class player_account {
     }
 
     /**
+     * Функция для отсечения лишних параметров в массиве, которые превышают кол-во плейхолдеров в строке запроса
+     * К примеру: В некоторых сборках при регистрации аккаунта можно указывать email, в других сборках такой колонки
+     * в бд нет, но по умолчанию пользовательский email идет в запросе. Если в запросе нет его, мы отсекаем лишнее.
+     */
+    public static function placeholderPrepareFormat($query, $prepare){
+        $numPlaceholders = substr_count($query, '?');
+        return array_slice($prepare, 0, $numPlaceholders);
+    }
+
+    /**
      * @throws ExceptionAlias
      */
     public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true) {
         if(gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
+        $prepare = self::placeholderPrepareFormat($sqlQuery, $prepare);
         $server_id = $info['id'];
         sdb::set_server_id($server_id);
         if($gameServer) {

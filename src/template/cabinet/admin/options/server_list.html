@@ -21,6 +21,7 @@
                       <td><a href="/about/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a></td>
                       <td>{{ server.chronicle }}</td>
                       <td><a href="/admin/options/server/edit/{{ server.id }}">{{ phrase("edit") }}</a></td>
+                      <td><a href="/admin/options/server/launcher/add/{{ server.id }}">Лаунчер</a></td>
                       <td><a href="/admin/options/server/description/{{ server.id }}">{{ phrase(264) }}</a></td>
                     </tr>
 				  {% endfor %}

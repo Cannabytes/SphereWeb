@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% set launcher_info = get_launcher_info(serverID) %}
+
 <div class="row">
 
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <ul class="nav nav-tabs nav-tabs-success top-icon nav-justified">
                     <li class="nav-item">
                         <a href="javascript:void();" data-target="#profile" data-toggle="pill"
                            class="nav-link active"><span class="hidden-xs">Лаунчер</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><span
-                                class="hidden-xs">Messages</span></a>
-                    </li>
-                    <li class="nav-item">
                         <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><span
                                 class="hidden-xs">Настройки</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><span
+                                class="hidden-xs">Описание</span></a>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
@@ -34,19 +37,29 @@
                                             </div>
                                             <hr>
                                             <button
-                                               id="client_update"
-                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
-                                                    class="fa fa-refresh"></i> <span>Обновить клиент</span></button>
+                                                    id="button_loading"
+                                                    class="btn-social-text btn-tumblr waves-effect waves-light m-1 ">
+                                                Подключение
+                                            </button>
+                                            <button id="turn_on_launcher"
+                                                    class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none">
+                                                Включить лаунчер
+                                            </button>
                                             <button
-                                               id="update"
-                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
-                                                    class="fa fa-refresh"></i> <span>Статус</span></button>
+                                                    id="client_update"
+                                                    data-files-link="{{launcher_info['clientdir']}}"
+                                                    data-files-patch="{{launcher_info['patchlist']}}"
+                                                    data-client-start-app="{{launcher_info['l2app']}}"
+                                                    data-client-start-app-phrase="{{phrase(launcher_info['phrasebutton'])}}"
+                                                    class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
+                                                Обновить клиент
+                                            </button>
                                             <button
-                                               id="client_update_cancel"
-                                               class="btn-social-text btn-github waves-effect waves-light m-1"><i
-                                                    class="fa fa-refresh"></i> <span>Отмена</span></button>
+                                                    id="client_update_cancel"
+                                                    class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
+                                                <i
+                                                        class="fa fa-refresh"></i> <span>Отменить</span></button>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -58,7 +71,8 @@
                                     <p>Загружается: <span id="download_status_filename_1">Нет</span>
                                         <span id="download_status_load_procent_1" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
-                                        <div class="progress-bar gradient-ibiza " id="download_status_load_procent_csswidth_1" style="width:0%"></div>
+                                        <div class="progress-bar gradient-ibiza "
+                                             id="download_status_load_procent_csswidth_1" style="width:0%"></div>
                                     </div>
                                 </div>
 
@@ -66,7 +80,8 @@
                                     <p>Загружается: <span id="download_status_filename_2">Нет</span>
                                         <span id="download_status_load_procent_2" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
-                                        <div class="progress-bar gradient-quepal " id="download_status_load_procent_csswidth_2" style="width:0%"></div>
+                                        <div class="progress-bar gradient-quepal "
+                                             id="download_status_load_procent_csswidth_2" style="width:0%"></div>
                                     </div>
                                 </div>
 
@@ -74,7 +89,8 @@
                                     <p>Загружается: <span id="download_status_filename_3">Нет</span>
                                         <span id="download_status_load_procent_3" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
-                                        <div class="progress-bar gradient-blooker " id="download_status_load_procent_csswidth_3" style="width:0%"></div>
+                                        <div class="progress-bar gradient-blooker "
+                                             id="download_status_load_procent_csswidth_3" style="width:0%"></div>
                                     </div>
                                 </div>
 
@@ -82,7 +98,8 @@
                                     <p>Загружается: <span id="download_status_filename_4">Нет</span>
                                         <span id="download_status_load_procent_4" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
-                                        <div class="progress-bar gradient-ohhappiness " id="download_status_load_procent_csswidth_4" style="width:0%"></div>
+                                        <div class="progress-bar gradient-ohhappiness "
+                                             id="download_status_load_procent_csswidth_4" style="width:0%"></div>
                                     </div>
                                 </div>
 
@@ -90,7 +107,8 @@
                                     <p>Загружается: <span id="download_status_filename_5">Нет</span>
                                         <span id="download_status_load_procent_5" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
-                                        <div class="progress-bar gradient-scooter" id="download_status_load_procent_csswidth_5" style="width:0%"></div>
+                                        <div class="progress-bar gradient-scooter"
+                                             id="download_status_load_procent_csswidth_5" style="width:0%"></div>
                                     </div>
                                 </div>
 
@@ -100,33 +118,8 @@
                                 <h5 class="mt-2 mb-6"><span class="fa fa-clock-o ion-clock float-right"></span> События
                                 </h5>
                                 <div class="table-responsive">
-                                    <table class="table table-hover table-striped">
+                                    <table id="eventNotification" class="table table-hover table-striped">
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Найдено 13 файлов в кэш
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Найдены 72 файла необходимых для обновления
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Проверка необходимости обновления
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Начало обновления
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -182,84 +175,145 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="edit">
-                        <form>
+                        <div>
+
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="Mark">
-                                </div>
+                                <label for="input-6" class="col-sm-3 col-form-label">Папка для обновления клиента.<br>Под
+                                    клиент: High Five</label>
+                                    <div class="card-body">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-github text-success" type="button" data-toggle="modal" data-target="#largesizemodal">Добавить</button>
+                                            </div>
+                                            <select class="form-control custom-select-lg" name="intersted" required>
+                                                <option>C:\Games\HF localhost</option>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-github text-success" type="button">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="Jhonsan">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="email" value="mark@example.com">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="file">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="url" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="" placeholder="Street">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label"></label>
-                                <div class="col-lg-6">
-                                    <input class="form-control" type="text" value="" placeholder="City">
-                                </div>
-                                <div class="col-lg-3">
-                                    <input class="form-control" type="text" value="" placeholder="State">
+
+                            <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="dirfullpath">Мой компьютер</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                                <div class="card-body" id="dirlist">
+
+                                                    <figure class="cursor-pointer highlight direction">
+                                                        <img src="{{template}}/assets/images/local_disk.png" style="width: 124px;" alt="Folder Icon">
+                                                        <figcaption data-all-path="" class="name">Это пиктограмма папки.</figcaption>
+                                                    </figure>
+
+                                                    <figure class="cursor-pointer highlight direction">
+                                                        <img src="{{template}}/assets/images/local_disk.png" style="width: 124px;" alt="Folder Icon">
+                                                        <figcaption class="name">Это пиктограмма папки.</figcaption>
+                                                    </figure>
+
+                                                    <figure>
+                                                        <img src="{{template}}/assets/images/folder.png" alt="Folder Icon">
+                                                        <figcaption>Это пиктограмма папки.</figcaption>
+                                                    </figure>
+
+                                                    <figure>
+                                                        <img   src="{{template}}/assets/images/folder.png" alt="Folder Icon">
+                                                        <figcaption>Это пиктограмма папки.</figcaption>
+                                                    </figure>
+
+                                                    <figure>
+                                                        <img src="{{template}}/assets/images/folder.png" alt="Folder Icon">
+                                                        <figcaption>Это длинный текст, который должен переноситься на новую строку, если он длинее, чем ширина изображения.</figcaption>
+                                                    </figure>
+
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                            <button type="button" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save changes</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
+                            <hr>
+
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="jhonsanmark">
+                                <label for="input-6" class="col-sm-3 col-form-label">
+                                    <div class="icheck-material-primary">
+                                        <input type="checkbox" id="user-checkbox1" checked="">
+                                        <label for="user-checkbox1">Сохранять загруженные файлы</label>
+                                    </div>
+                                </label>
+                                <div class="col-sm-8">
+                                    Если "Да", лаунчер будет сохранять файлы патчей, для того чтоб не загружать их в
+                                    будущем в случае если когда-то ранее Вы его уже загружали.<br>
+                                    Данная опция может сократить время загрузки.
+                                </div>
+                                <button type="submit" class="btn btn-success col-sm-1"><i class="fa fa-plus"></i>
+                                    Указать папку
+                                </button>
+                            </div>
+                            <hr>
+                            <div class="form-group row">
+                                <label for="input-6" class="col-sm-3 col-form-label">
+                                    <div class="icheck-material-primary">
+                                        <input type="checkbox" id="user-checkbox2" checked="">
+                                        <label for="user-checkbox1">Автозагрузка</label>
+                                    </div>
+                                </label>
+                                <div class="col-sm-8">
+                                    Лаунчер не нужно будет запускать, он не потербляет память. После старта Windows,
+                                    лаунчер будет загружен в память, и срабатывать только при обращении к нему.
+                                    <br>
+                                    <small class="mb-0 text-facebook">Рекомендуется*</small>
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="password" value="11111122333">
+                                <label for="input-6" class="col-sm-3 col-form-label">
+                                    <div class="icheck-material-primary">
+                                        <input type="checkbox" id="user-checkbox3" checked="">
+                                        <label for="user-checkbox1">Автообновление</label>
+                                    </div>
+                                </label>
+                                <div class="col-sm-8">
+                                    Лаунчер будет периодически проверять обновление, и обновляться если вышла новая
+                                    версия.
+                                    <br>
+                                    <small class="mb-0 text-facebook">Рекомендуется*</small>
                                 </div>
+                                <button type="submit" class="btn btn-success col-sm-1"><i class="fa fa-refresh"></i>
+                                    Проверить обновление
+                                </button>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="password" value="11111122333">
-                                </div>
+                            <hr>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
                             </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label"></label>
-                                <div class="col-lg-9">
-                                    <input type="reset" class="btn btn-secondary" value="Cancel">
-                                    <input type="button" class="btn btn-primary" value="Save Changes">
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 
@@ -284,6 +338,26 @@
 <link href="{{template}}/assets/css/skins.css" rel="stylesheet"/>
 <!-- Vector CSS -->
 <link href="{{template}}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+
+<style>
+
+    figure {
+        display: inline-block;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    figcaption {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: break-word;
+    }
+
+
+</style>
+
 {% endblock %}
 
 {% block js %}
@@ -299,14 +373,25 @@
 <script src="{{template}}/assets/plugins/jquery-knob/excanvas.js"></script>
 <script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+
 <script>
         $(function() {
             $(".knob").knob();
         });
 
+$("#alert-basic").click(function(){
+
+});
+
+
+
+
+
 </script>
 
 <script src="{{template}}/launcher/launcher.js"></script>
+
 
 {% endblock %}
 

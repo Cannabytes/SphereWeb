@@ -56,6 +56,8 @@ return [
     "user" => "User",
     "guest" => "Guest",
 
+    "launch_game" => "Launch game",
+
     0 => "Description",
     1 => "Change game account password",
     2 => "Hide account password in account list?",

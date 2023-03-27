@@ -128,7 +128,10 @@ $route->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_d
 
 //лаунчер
 //Пока не используется, нужно создать красивые формы страницы или придумать как это должно работать
-$route->get("/launcher", function() {
+$route->get("/launcher/(\d+)", function($server_id) {
+    tpl::addVar([
+        "serverID" => $server_id,
+    ]);
     tpl::display("launcher/launcher.html");
 });
 
@@ -158,6 +161,9 @@ $route->get("/admin/options/server/edit/(\d+)", 'Ofey\Logan22\controller\admin\o
 $route->get("/admin/options/server/description/(\d+)", 'Ofey\Logan22\controller\admin\options::description_create');
 $route->post("/admin/options/server/description", 'Ofey\Logan22\controller\admin\options::description_save');
 $route->post("/admin/options/server/description/default", 'Ofey\Logan22\controller\admin\options::description_default_page_save');
+
+$route->get("/admin/options/server/launcher/add/(\d+)", "Ofey\Logan22\controller\admin\launcher::add");
+$route->post("/admin/options/server/launcher", "Ofey\Logan22\controller\admin\launcher::addNewServer");
 
 $route->get("/admin/gallery/screen", 'Ofey\Logan22\controller\admin\screen::all');
 $route->post("/admin/gallery/screen/enable", 'Ofey\Logan22\controller\admin\screen::add_enable');

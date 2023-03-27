@@ -69,7 +69,7 @@ class timezone {
     }
 
     private static function get_ip_info_ipApi($ip): array|bool {
-        $json = file_get_contents("https://ip-api.com/json/{$ip}?fields=status,message,countryCode,city,timezone");
+        $json = file_get_contents("http://ip-api.com/json/{$ip}?fields=status,message,countryCode,city,timezone");
         if(!$json) {
             return false;
         }

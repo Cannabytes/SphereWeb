@@ -13,6 +13,7 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\config\config;
+use Ofey\Logan22\model\admin\launcher;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page;
@@ -237,6 +238,9 @@ class tpl {
         //Информация о серверах или сервере
         $twig->addFunction(new TwigFunction('get_server_info', function($server_id = null) {
             return server::get_server_info($server_id);
+        }));
+        $twig->addFunction(new TwigFunction('get_launcher_info', function($server_id = null){
+            return launcher::get_launcher_info($server_id);
         }));
 
         $twig->addFunction(new TwigFunction('get_user_in_list', function($user_id) {
