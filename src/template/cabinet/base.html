@@ -7,6 +7,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <meta name="server_default" content="{{user_info('get_default_server')}}"/>
+    <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
     <title>{{ title }}</title>
     <!--favicon-->
     <link rel="icon" href="{{'assets/images/favicon.ico'|template}}" type="image/x-icon">

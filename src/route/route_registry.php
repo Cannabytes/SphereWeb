@@ -129,10 +129,16 @@ $route->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_d
 //лаунчер
 //Пока не используется, нужно создать красивые формы страницы или придумать как это должно работать
 $route->get("/launcher/(\d+)", function($server_id) {
+    if(!\Ofey\Logan22\model\server\server::get_server_info($server_id)){
+        \Ofey\Logan22\component\redirect::location("/main");
+    }
     tpl::addVar([
         "serverID" => $server_id,
     ]);
     tpl::display("launcher/launcher.html");
+});
+$route->get("/launcher/create", function(){
+    tpl::display("launcher/create.html");
 });
 
 /**

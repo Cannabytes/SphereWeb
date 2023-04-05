@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-6">
+   <div class="card">
+    <div class="card-header text-uppercase">Создание архивации клиента</div>
+    <div class="card-body">
+     <div>
+      <label>Месторасположение клиент (папка с файлами для архивации)</label>
+      <input type="text" id="clientDirectory" data-toggle="modal" data-target="#openDir" class="form-control">
+      <hr>
+      <label>Месторасположене сохранения архивов</label>
+      <input type="text" id="saveArchiveDirectory" data-toggle="modal" data-target="#openDir" class="form-control">
+      <hr>
+        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="startGenerationArchive">Начать генерацию патча</button>
+        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="stopGenerationArchive">Прервать генерацию</button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="col-lg-6">
+
+   <div class="card">
+    <div class="card-header text-uppercase text-center">Уровень загрузки</div>
+    <div class="card-body">
+     <div class="text-center">
+      <div class="chart-container-9 d-flex align-items-center justify-content-center">
+       <div id="vacancy-status"></div>
+      </div>
+     </div>
+    </div>
+    <div class="card-footer">
+     <div class="row align-items-center text-center">
+      <div class="col border-right border-light">
+       <h4 class="mb-0" id="files">0</h4>
+       <small class="extra-small-font">Обработано</small>
+      </div>
+      <div class="col">
+       <h4 class="mb-0" id="totalFiles">0</h4>
+       <small class="extra-small-font">Всего файлов</small>
+      </div>
+     </div>
+    </div>
+   </div>
+
+
+  </div>
+ </div>
+
+
+<div class="modal fade" id="openDir" style="display: none;" aria-hidden="true">
+ <div class="modal-dialog modal-lg">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h5 class="modal-title" id="dirfullpath">Мой компьютер</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     <span aria-hidden="true">×</span>
+    </button>
+   </div>
+   <div class="modal-body">
+    <div class="card-body" id="dirlist"></div>
+   </div>
+   <div class="modal-footer">
+    <button id="saveModalDirectory" type="button" data-server_id="{{serverID}}" data-trigger-id="" class="btn btn-primary" data-client-dir-path=""><i class="fa fa-check-square-o"></i> Сохранить</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<link href="{{template}}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block js %}
+
+<!-- Custom scripts -->
+<script src="{{template}}/assets/js/app-script.js"></script>
+<!-- Chart js -->
+
+<script src="{{template}}/assets/plugins/Chart.js/Chart.min.js"></script>
+
+<!-- Easy Pie Chart JS -->
+<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="{{template}}/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
+<script src="{{template}}/assets/plugins/jquery-knob/excanvas.js"></script>
+<script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+<!-- Apex Chart JS -->
+<script src="{{template}}/assets/plugins/apexcharts/apexcharts.js"></script>
+
+<script>
+$(function() {
+    $(".knob").knob();
+});
+
+
+</script>
+
+<script src="{{template}}/launcher/create.js"></script>
+{% endblock %}
