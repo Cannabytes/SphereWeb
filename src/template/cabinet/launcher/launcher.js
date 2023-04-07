@@ -58,7 +58,7 @@ function showClientUpdate() {
 }
 
 function connect() {
-   socket = new WebSocket("ws://localhost:8080/ws");
+   socket = new WebSocket("ws://localhost:17580/ws");
    socket.timeout = 500;
    socket.onopen = function () {
       console.log("Успешное соединение с лаунчером")
@@ -67,10 +67,10 @@ function connect() {
       getStatus()
       getChronicleDirectory()
       direction(".")
+      getEvents()
    };
 
-   //    var connectInterval = setInterval(function() {
-   if (socket.readyState === WebSocket.CONNECTING) {
+    if (socket.readyState === WebSocket.CONNECTING) {
       console.log("Соединение с лаунчером");
       showTurnOnLauncher()
    } else if (socket.readyState === WebSocket.OPEN) {
@@ -83,7 +83,6 @@ function connect() {
       showTurnOnLauncher()
       console.log("Ошибка соединения. Вероятно лаунчер не был запущен и его нужно установить и запустить.");
    }
-   //    } , socket.timeout); // проверять статус каждую секунду
 
    //Когда пользователь обновляет страницу или уходит.
    socket.onclose = function (event) {
@@ -95,14 +94,11 @@ function connect() {
       }
       socket.close();
       isConnect = false;
-      //                    downloadAndRunLauncher()
-
-      //        downloadAndRunLauncher()
    };
 
    socket.onmessage = function (event) {
       let response = JSON.parse(event.data); // преобразование JSON-строки в объект
-      console.log(response)
+//      console.log(response)
 
       if (response.command == "status") {
          if (lastStatusID != response.status && response.status == 0) {
@@ -125,14 +121,20 @@ function connect() {
                       allLoadPanel()
                       return
                    }
+
+                   $('#main_panel_load').attr('data-original-title', "Загружено " + response.loaded + " / " + response.filesTotal + " (" + ( (response.loaded / response.filesTotal) * 100).toFixed(2) + "%)")
+
                    for (let index = 0; index < response.boot.length; ++index) {
                       element = response.boot[index];
                       percentage = ((response.boot[index].size / response.boot[index].sizeTotal) * 100).toFixed(2);
+
+                      $("#download_status_filename_" + (index + 1)).attr('data-original-title', formatBytes(element.sizeTotal));
+
                       $("#download_status_filename_" + (index + 1)).text(element.filename)
                       $("#download_status_load_procent_" + (index + 1)).text(percentage + "%")
                       $("#download_status_load_procent_csswidth_" + (index + 1)).css("width", Math.floor(percentage) + "%");
 
-                      percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
+                      percentPanel = Math.floor((response.loaded / response.filesTotal) * 100).toFixed(0);
                       $('.chart').data('easyPieChart').update(percentPanel);
                       $('.percent').text((percentPanel));
                    }
@@ -145,17 +147,20 @@ function connect() {
          } else if (response.status == 5) {
             console.log("Загрузка отменена")
             resetLoadPanel()
-            allLoadPanel()
             showClientUpdate()
          }
          lastStatusID = response.status
       } else if (response.command == "event") {
-         $('#eventNotification tbody').append("<tr><td>" + response.message + "</td></tr>");
+          var date = new Date(response.time);
+          var time = date.toLocaleTimeString();
+          $('#eventNotification tbody').prepend("<tr><td>" + time + " - " + response.message + "</td></tr>");
          console.log(response.message)
       } else if (response.command == "eventslog") {
          if (response.events != null) {
             for (let index = 0; index < response.events.length; ++index) {
-               $('#eventNotification tbody').append("<tr><td>" + response.events[index].message + "</td></tr>");
+                var date = new Date(response.events[index].time);
+                var time = date.toLocaleTimeString();
+               $('#eventNotification tbody').prepend("<tr><td>" + time + " - " + response.events[index].message + "</td></tr>");
             }
          }
       } else if (response.command == "directry") {
@@ -196,7 +201,8 @@ function connect() {
             }
             $('#selectClient').append(newOption);
          });
-      } else if (response.command == "error") {
+
+      }else if (response.command == "error") {
          Error(response.message)
       }
 
@@ -336,6 +342,12 @@ function getChronicleDirectory() {
    };
    sendToLauncher(obj)
 }
+function getEvents() {
+   obj = {
+      command: 'getEvents',
+   };
+   sendToLauncher(obj)
+}
 
 //Если пользователь выбрал другую дефолтную папку
 $('#selectClient').change(function () {
@@ -370,6 +382,7 @@ function cancelUpdate() {
 
 function resetLoadPanel() {
    for (let index = 1; index < maxConcurrencyLoad + 1; index++) {
+      $("#download_status_filename_" + index).attr('data-original-title', formatBytes(0))
       $("#download_status_filename_" + index).text("Нет")
       $("#download_status_load_procent_" + index).text("0%")
       $("#download_status_load_procent_csswidth_" + index).css("width", "0%");
@@ -410,4 +423,19 @@ function Error(msg) {
       html: msg,
       //      footer: '<a href="">Why do I have this issue?</a>'
    })
+}
+
+//Байты в другие форматы
+function formatBytes(bytes) {
+  if (bytes < 1024) {
+    return bytes + " B";
+  } else if (bytes < 1024 * 1024) {
+    return (bytes / 1024).toFixed(2) + " KB";
+  } else if (bytes < 1024 * 1024 * 1024) {
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+  } else if (bytes < 1024 * 1024 * 1024 * 1024) {
+    return (bytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+  } else {
+    return (bytes / (1024 * 1024 * 1024 * 1024)).toFixed(2) + " TB";
+  }
 }

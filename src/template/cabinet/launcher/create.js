@@ -91,7 +91,7 @@ chart.render();
 
 
 function connect() {
-   socket = new WebSocket("ws://localhost:8080/ws");
+   socket = new WebSocket("ws://localhost:17580/ws");
    socket.timeout = 500;
    socket.onopen = function () {
       console.log("Успешное соединение с лаунчером")

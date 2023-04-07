@@ -72,33 +72,30 @@
 {% endblock %}
 
 {% block css %}
-<link href="{{template}}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+<style>
+
+ figure {
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+ }
+
+ figcaption {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+ }
+
+
+</style>
 {% endblock %}
 
 {% block js %}
 
-<!-- Custom scripts -->
-<script src="{{template}}/assets/js/app-script.js"></script>
-<!-- Chart js -->
-
-<script src="{{template}}/assets/plugins/Chart.js/Chart.min.js"></script>
-
-<!-- Easy Pie Chart JS -->
-<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="{{template}}/assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
-<script src="{{template}}/assets/plugins/jquery-knob/excanvas.js"></script>
-<script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
-
 <!-- Apex Chart JS -->
 <script src="{{template}}/assets/plugins/apexcharts/apexcharts.js"></script>
-
-<script>
-$(function() {
-    $(".knob").knob();
-});
-
-
-</script>
 
 <script src="{{template}}/launcher/create.js"></script>
 {% endblock %}
