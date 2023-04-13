@@ -7,7 +7,6 @@ var buttonShowNow = "button_loading";
 var criticalError = false;
 var criticalErrorMessage;
 
-var uid = "ahwduawdbwa";
 
 //ID сервера
 var serverID = parseInt($(this).attr('data-server_id'), 10)
@@ -463,7 +462,7 @@ function getAllConfig() {
 function startUpdate() {
    obj = {
       command: 'start_client_update',
-      uid: uid,
+      uid: launcher_accreditation_code,
       updateDirID: parseInt($("#selectClient").val(), 10),
    };
    sendToLauncher(obj);
