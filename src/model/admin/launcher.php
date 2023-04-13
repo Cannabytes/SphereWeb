@@ -17,7 +17,7 @@ class launcher {
         if($server_id == null){
             return false;
         }else{
-            return sql::getRow("SELECT id, clientdir, patchlist, l2app, phrasebutton, server_id FROM launcher WHERE server_id = ? LIMIT 1", [
+            return sql::getRows("SELECT id, l2app, args, phrase, server_id FROM launcher WHERE server_id = ?", [
                 $server_id
             ]);
         }

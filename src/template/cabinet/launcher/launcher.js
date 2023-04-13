@@ -7,7 +7,7 @@ var buttonShowNow = "button_loading";
 var criticalError = false;
 var criticalErrorMessage;
 
-var uid = "jk6m88454ec2g784jbmg";
+var uid = "ahwduawdbwa";
 
 //ID сервера
 var serverID = parseInt($(this).attr('data-server_id'), 10)
@@ -57,6 +57,19 @@ function showClientUpdate() {
    $("#turn_on_launcher").hide();
 }
 
+
+
+//Показать кнопку запуска игры
+function showStartGame() {
+   $("#client_update").hide();
+   $("#button_loading").hide();
+   $("#client_update_cancel").hide();
+   $("#turn_on_launcher").hide();
+
+   $(".startL2").show();
+   $(".startL2").removeClass("d-none");
+}
+
 function connect() {
    socket = new WebSocket("ws://localhost:17580/ws");
    socket.timeout = 500;
@@ -65,9 +78,11 @@ function connect() {
       isConnect = true;
       showClientUpdate()
       getStatus()
+      getVersionLauncher()
       getChronicleDirectory()
       direction(".")
       getEvents()
+      getAllConfig()
    };
 
     if (socket.readyState === WebSocket.CONNECTING) {
@@ -98,7 +113,7 @@ function connect() {
 
    socket.onmessage = function (event) {
       let response = JSON.parse(event.data); // преобразование JSON-строки в объект
-//      console.log(response)
+      console.log(response)
 
       if (response.command == "status") {
          if (lastStatusID != response.status && response.status == 0) {
@@ -143,7 +158,7 @@ function connect() {
             console.log("Загрузка завершена")
             resetLoadPanel()
             allLoadPanel()
-            showClientUpdate()
+            showStartGame()
          } else if (response.status == 5) {
             console.log("Загрузка отменена")
             resetLoadPanel()
@@ -202,10 +217,17 @@ function connect() {
             $('#selectClient').append(newOption);
          });
 
-      }else if (response.command == "error") {
+      } else if(response.command == "getAllConfig"){
+            $("#isClientFilesArchive").prop("checked", response.isClientFilesArchive ? true : false);
+            $("#autoStartLauncher").prop("checked", response.autoStartLauncher ? true : false);
+            $("#autoUpdateLauncher").prop("checked", response.autoUpdateLauncher ? true : false);
+      } else if (response.command == "getVersionLauncher"){
+            $(".userLauncherVersion").text(response.version)
+            $(".actualLauncherVersion").text(response.actualVersion)
+      }
+      else if (response.command == "error") {
          Error(response.message)
       }
-
    };
 }
 
@@ -238,7 +260,7 @@ function downloadAndRunLauncher() {
          /* Read more about handling dismissals below */
          result.dismiss === Swal.DismissReason.cancel
       ) {
-         window.location.href = 'open-launcher://run';
+         window.location.href = 'web-launcher://run';
          swalWithBootstrapButtons.fire(
             'Cancelled',
             'Your imaginary file is safe :)',
@@ -249,7 +271,7 @@ function downloadAndRunLauncher() {
 
 
 }
-//window.location.href = 'open-launcher://run';
+//window.location.href = 'web-launcher://run';
 
 connect();
 
@@ -258,18 +280,36 @@ $("#turn_on_launcher").click(function () {
       notify_error(criticalErrorMessage)
       return
    }
-   window.location.href = 'open-launcher://run';
+   window.location.href = 'web-launcher://run';
 });
 
+
+$(".client_update").click(function () {
+   if (criticalError) {
+      notify_error(criticalErrorMessage)
+      return
+   }
+   if(isNaN(parseInt($("#selectClient").val(), 10))){
+    notify_error("Не установлена папка для обновления клиента")
+   }else{
+      startUpdate()
+      getStatus()
+      showUpdateCancel()
+   }
+});
 
 $("#client_update").click(function () {
    if (criticalError) {
       notify_error(criticalErrorMessage)
       return
    }
-   startUpdate()
-   getStatus()
-   showUpdateCancel()
+   if(isNaN(parseInt($("#selectClient").val(), 10))){
+    notify_error("Не установлена папка для обновления клиента")
+   }else{
+      startUpdate()
+      getStatus()
+      showUpdateCancel()
+   }
 });
 
 $("#client_update_cancel").click(function () {
@@ -288,17 +328,19 @@ $("#dirlist").on("click", ".direction", function () {
 });
 
 $(document).on('click', '#removeClientDir', function () {
+   let dir_id = parseInt($("#selectClient").val(), 10);
    obj = {
       command: 'removeClientDir',
-      dir_id: parseInt($("#selectClient").val(), 10),
+      dir_id: dir_id,
       chronicle: chronicle,
       serverID: serverID,
    };
    sendToLauncher(obj)
+   $("#selectClient option[value='" + dir_id + "']").remove();
 });
 
 $(document).on('click', '.saveDirClient', function () {
-   $("#largesizemodal").modal("hide");
+   $("#addClientDirectory").modal("hide");
    obj = {
       command: 'saveDirectoryClient',
       dir: $(this).attr('data-client-dir-path'),
@@ -334,6 +376,14 @@ function getStatus() {
    sendToLauncher(obj)
 }
 
+//Получить версию лаунчера
+function getVersionLauncher() {
+   obj = {
+      command: 'getVersionLauncher'
+   };
+   sendToLauncher(obj)
+}
+
 function getChronicleDirectory() {
    obj = {
       command: 'getPathDirectoryChronicle',
@@ -361,6 +411,54 @@ $('#selectClient').change(function () {
    sendToLauncher(obj)
 });
 
+
+$('#addClientDirectory').on('show.bs.modal', function (event) {
+  if (isConnect == false) {
+    downloadAndRunLauncher();
+    event.preventDefault(); // отменяем открытие модального окна
+  } else {
+    $(this).modal('show'); // открываем модальное окно
+  }
+});
+
+$("#addClientDirectoryButton").on("click", function(event){
+       if (isConnect == false) {
+         downloadAndRunLauncher();
+       } else {
+         $("#addClientDirectory").modal('show');
+       }
+});
+
+
+$(".startL2").on("click", function(event){
+    obj = {
+       command: 'startGame',
+       application: $(this).attr("data-l2app"),
+       args: $(this).attr("data-args"),
+       dir: parseInt($("#selectClient").val(), 10)
+    }
+    socket.send(JSON.stringify(obj));
+});
+
+$("#selectClient").on("click", function(event){
+  if (isConnect == false) {
+    downloadAndRunLauncher();
+  }
+});
+
+$('#addClientDirectory').on('hidden.bs.modal', function (event) {
+   $("#addClientDirectory").modal('hide');
+});
+
+
+//Получение конфигурации
+function getAllConfig() {
+   obj = {
+      command: 'getAllConfig',
+   };
+   sendToLauncher(obj);
+}
+
 //Начать обновление
 function startUpdate() {
    obj = {
@@ -377,7 +475,6 @@ function cancelUpdate() {
       command: 'client_update_cancel'
    };
    sendToLauncher(obj)
-
 }
 
 function resetLoadPanel() {
@@ -439,3 +536,47 @@ function formatBytes(bytes) {
     return (bytes / (1024 * 1024 * 1024 * 1024)).toFixed(2) + " TB";
   }
 }
+
+/*
+ * Изменение настроек (конфигураций)
+ *
+*/
+$(document).ready(function() {
+
+    $("#isClientFilesArchive").on("click", function(event){
+      if (isConnect == false) {
+        downloadAndRunLauncher();
+      }
+      obj = {
+         command: 'setConfig',
+         param: 'isClientFilesArchive',
+         value: $("#isClientFilesArchive").prop("checked"),
+      };
+      sendToLauncher(obj)
+    });
+
+    $("#autoStartLauncher").on("click", function(event){
+      if (isConnect == false) {
+        downloadAndRunLauncher();
+      }
+      obj = {
+         command: 'setConfig',
+         param: 'autoStartLauncher',
+         value: $("#autoStartLauncher").prop("checked"),
+      };
+      sendToLauncher(obj)
+    });
+
+    $("#autoUpdateLauncher").on("click", function(event){
+      if (isConnect == false) {
+        downloadAndRunLauncher();
+      }
+      obj = {
+         command: 'setConfig',
+         param: 'autoUpdateLauncher',
+         value: $("#autoUpdateLauncher").prop("checked"),
+      };
+      sendToLauncher(obj)
+    });
+
+});

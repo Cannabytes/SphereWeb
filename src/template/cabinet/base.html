@@ -52,6 +52,7 @@
 
 
         {% for online in server_online_status() %}
+
         <div class="col-lg-12">
             <div class="pricing-table">
                 <div class="card">
@@ -82,6 +83,11 @@
                             <br>
                             <div class=""><b>Online</b>  {{online['player_count_online']}}</div>
                             <div class=""><b>{{online['chronicle']}}</b></div>
+                            {% if online['launcher_accreditation_code'] %}
+                            <hr>
+                            <div><b><a data-toggle="tooltip" data-placement="top" data-original-title="Лаунчер для обновления клиента" href="/launcher/{{online['id']}}">Подключение</a></b></div>
+                            {% endif %}
+
                         </div>
 
                     </div>

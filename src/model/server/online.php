@@ -46,14 +46,15 @@ class online {
             }
 
             self::$server_status[] = [
-                'id'                  => $info['id'],
-                'name'                => $info['name'],
-                'rate_exp'            => $info['rate_exp'],
-                'chronicle'           => $info['chronicle'],
-                'connect_login'       => $connect_login,
-                'connect_game'        => $connect_game,
-                'player_count_online' => $player_count_online,
-                'get_default_page_id' => server::get_default_desc_page_id($info['id']),
+                'id'                          => $info['id'],
+                'name'                        => $info['name'],
+                'rate_exp'                    => $info['rate_exp'],
+                'chronicle'                   => $info['chronicle'],
+                'launcher_accreditation_code' => $info['launcher_accreditation_code'],
+                'connect_login'               => $connect_login,
+                'connect_game'                => $connect_game,
+                'player_count_online'         => $player_count_online,
+                'get_default_page_id'         => server::get_default_desc_page_id($info['id']),
             ];
         }
         cache::save(dir::server_online_status->show(), self::$server_status);

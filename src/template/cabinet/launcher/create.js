@@ -134,6 +134,10 @@ function connect() {
           $("#totalFiles").text(response.totalFiles);
           options.series = [percentage];
           chart.updateOptions(options);
+        }else if (response.status==2){
+          //Обновление завершено
+          options.series = [100];
+          chart.updateOptions(options);
         }
       } else if (response.command == "event") {
          $('#eventNotification tbody').append("<tr><td>" + response.message + "</td></tr>");

@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% set server_info = get_server_info(serverID) %}
+{% set launcher_info = get_launcher_info(serverID) %}
+
+{% set title = "Ланучер " ~ server_info.name ~ " x" ~ server_info.rate_exp ?? "Not set name" %}
 
 {% block content %}
 
-{% set launcher_info = get_launcher_info(serverID) %}
 
 <div class="row">
 
@@ -31,6 +34,20 @@
                                 <div class="card">
                                     <div class="card-body text-center">
 
+
+                                        <div class="card-action">
+                                            <div class="dropdown">
+                                                <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                                    <i class="icon-options"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item client_update" href="#">Обновить клиент</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                         <div class="card-body">
                                             <div class="chart easy-pie-chart-4" id="main_panel_load" data-percent="0" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Загружено 0 / 0">
                                                 <span class="percent"></span>
@@ -45,20 +62,19 @@
                                                     class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none">
                                                 Включить лаунчер
                                             </button>
-                                            <button
-                                                    id="client_update"
-                                                    data-files-link="{{launcher_info['clientdir']}}"
-                                                    data-files-patch="{{launcher_info['patchlist']}}"
-                                                    data-client-start-app="{{launcher_info['l2app']}}"
-                                                    data-client-start-app-phrase="{{phrase(launcher_info['phrasebutton'])}}"
-                                                    class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
+                                            <button id="client_update" class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
                                                 Обновить клиент
                                             </button>
                                             <button
                                                     id="client_update_cancel"
                                                     class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
-                                                <i
-                                                        class="fa fa-refresh"></i> <span>Отменить</span></button>
+                                                <i class="fa fa-refresh"></i> <span>Отменить</span>
+                                            </button>
+
+                                            {% for launcher in launcher_info %}
+                                            <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2" data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">{{phrase(launcher['phrase'])}}</button>
+                                            {% endfor %}
+
                                         </div>
                                     </div>
                                 </div>
@@ -115,15 +131,29 @@
                             </div>
 
                             <div class="col-md-12">
-                                <h5 class="mt-2 mb-6"><span class="fa fa-clock-o ion-clock float-right"></span> События
-                                </h5>
-                                <div class="table-responsive">
-                                    <table id="eventNotification" class="table table-hover table-striped">
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                            <div id="accordion1">
+                                <div class="card mb-2">
+                                    <div class="card-header">
+                                        <button class="btn btn-link shadow-none" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                            События
+                                        </button>
+                                    </div>
+
+                                    <div id="collapse-1" class="collapse hide" data-parent="#accordion1">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table id="eventNotification" class="table table-sm">
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            </div>
+
+
                         </div>
                         <!--/row-->
                     </div>
@@ -136,7 +166,7 @@
                                         <h6>Что это за лаунчер?</h6><hr>
                                         <p>Как игроку мне надоело что нет стандартизации, что под каждый сервер приходится скачивать свой лаунчер.<br>
                                         Многие лаунчеры медленные, однопоточные, с достаточно маленькими возможностями и устаревшими подходами, которые вовсе не подходят для таких задач.<br>
-                                        Я задался вопросом, можно ли сделать один лаунчер, который будет интегрирован в TrashWeb (данную систему управления сайтом) и обновлять необходимые пользователю сервера.</p>
+                                        Я задался вопросом, можно ли сделать один лаунчер, который будет интегрирован в TrashWeb (данную систему) и обновлять необходимые пользователю сервера.</p>
                                         <p>Так и возникли первые наброски, через время достаточно работоспособное приложение, которое я развиваю.</p>
                                     </div>
                                 </div>
@@ -150,23 +180,71 @@
                                             Множественные одновременные загрузки файлов.<br>
                                             Возможность использовать ранее скаченные файлы (дубликаты) из архива.<br>
                                             Быстрейший алгоритм сравнения файлов.<br>
+                                            Использует максимально продуктивно все ядра процессора для увеличения скорости обработки.<br>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div><!--End Row-->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>Где получить информацию о лаунчере?</h6><hr>
+                                        <p>Единого сайта для обсуживания нет. Одноко, есть страница на github, в которой я попробую организовать общее представление о лаунчере.</p>
+                                        <p><a href="cannabytes.github.io" target="_blank">cannabytes.github.io</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>Является ли лаунчер бесплатным?</h6><hr>
+                                        <p>
+                                            Для пользователей (игроков) лаунчер бесплатный. Он является частью бесплатного open-source проекта TrashWeb.<br>
+                                            Для администрации сервера взымается плата за аккредитацию.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>Правила использования программного обеспечения</h6><hr>
+                                        <p>Изменение кода программы запрещено: Вы не можете изменять или модифицировать код программы без нашего разрешения. Если вы хотите внести какие-либо изменения, пожалуйста, свяжитесь с разработчком.</p>
+                                        <p>Использование лаунчера (программы для обновления) в коммерческих целях запрещено: Наш лаунчер предназначен для обновления и не взымает плату с конечных пользователей. Вы не можете использовать его для коммерческих целей или продавать его третьим лицам.</p>
+                                        <p>Использование лаунчера для незаконных действий запрещено: Вы не можете использовать наш лаунчер для незаконных действий.</p>
+                                        <p>Мы не несем ответственности за любые повреждения, вызванные неправильным использованием нашего программного обеспечения. Пожалуйста, используйте наше программное обеспечение только в соответствии с его предназначением.</p>
+                                        <p>Мы оставляем за собой право изменять эти правила использования в любое время. Если вы продолжаете использовать наше программное обеспечение, это означает, что вы соглашаетесь с измененными правилами.</p>
+                                        <hr>
+                                        <p>Выше основное положение, более детальное читайте на сайте <a href="cannabytes.github.io" target="_blank">cannabytes.github.io</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
+
+
+
+
                     <div class="tab-pane" id="edit">
                         <div>
 
                             <div class="form-group row">
-                                <label for="input-6" class="col-sm-3 col-form-label">Папка для обновления клиента.<br>Под
+                                <label for="selectClient" class="col-sm-3 col-form-label">Папка для обновления клиента.<br>Под
                                     клиент: {{get_server_info(user_info('get_default_server'))['chronicle']}}</label>
                                     <div class="card-body">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <button class="btn btn-github text-success" type="button" data-toggle="modal" data-target="#largesizemodal">Добавить</button>
+                                                <button class="btn btn-github text-success" id="addClientDirectoryButton" type="button" >Добавить</button>
                                             </div>
                                             <select class="form-control custom-select-lg" id="selectClient" required></select>
                                             <div class="input-group-append">
@@ -176,7 +254,7 @@
                                     </div>
                             </div>
 
-                            <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
+                            <div class="modal fade" id="addClientDirectory" style="display: none;" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -198,27 +276,27 @@
                             <hr>
 
                             <div class="form-group row">
-                                <label for="input-6" class="col-sm-3 col-form-label">
+                                <label for="isClientFilesArchive" class="col-sm-3 col-form-label">
                                     <div class="icheck-material-primary">
-                                        <input type="checkbox" id="user-checkbox1" checked="">
-                                        <label for="user-checkbox1">Сохранять загруженные файлы</label>
+                                        <input type="checkbox" id="isClientFilesArchive">
+                                        <label for="isClientFilesArchive">Сохранять загруженные файлы</label>
                                     </div>
                                 </label>
-                                <div class="col-sm-8">
+                                <divs class="col-sm-8">
                                     Если "Да", лаунчер будет сохранять файлы патчей, для того чтоб не загружать их в
                                     будущем в случае если когда-то ранее Вы его уже загружали.<br>
                                     Данная опция может сократить время загрузки.
-                                </div>
+                                </divs>
 <!--                                <button type="submit" class="btn btn-success col-sm-1"><i class="fa fa-plus"></i>-->
 <!--                                    Указать папку-->
 <!--                                </button>-->
                             </div>
                             <hr>
                             <div class="form-group row">
-                                <label for="input-6" class="col-sm-3 col-form-label">
+                                <label for="autoStartLauncher" class="col-sm-3 col-form-label">
                                     <div class="icheck-material-primary">
-                                        <input type="checkbox" id="user-checkbox2" checked="">
-                                        <label for="user-checkbox1">Автозагрузка</label>
+                                        <input type="checkbox" id="autoStartLauncher">
+                                        <label for="autoStartLauncher">Автозагрузка</label>
                                     </div>
                                 </label>
                                 <div class="col-sm-8">
@@ -230,17 +308,17 @@
                             </div>
                             <hr>
                             <div class="form-group row">
-                                <label for="input-6" class="col-sm-3 col-form-label">
+                                <label for="autoUpdateLauncher" class="col-sm-3 col-form-label">
                                     <div class="icheck-material-primary">
-                                        <input type="checkbox" id="user-checkbox3" checked="">
-                                        <label for="user-checkbox1">Автообновление</label>
+                                        <input type="checkbox" id="autoUpdateLauncher">
+                                        <label for="autoUpdateLauncher">Автообновление</label>
                                     </div>
                                 </label>
                                 <div class="col-sm-8">
                                     Лаунчер будет периодически проверять обновление, и обновляться если вышла новая
                                     версия.
                                     <br>
-                                    <small class="mb-0 text-facebook">Рекомендуется*</small>
+                                    <small class="mb-0 text-facebook">Рекомендуется*</small> [ У Вас - <spin class="userLauncherVersion">0</spin> версия лаунчера. Последняя версия - <spin class="actualLauncherVersion">0</spin> ]
                                 </div>
 
                             </div>
@@ -320,7 +398,12 @@
         $(function() {
             $(".knob").knob();
         });
+
+       //код лаунчера
+       var launcher_accreditation_code = {{server_info['launcher_accreditation_code']}};
 </script>
+
+
 
 <script src="{{template}}/launcher/launcher.js"></script>
 
