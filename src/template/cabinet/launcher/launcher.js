@@ -457,7 +457,7 @@ function getAllConfig() {
    };
    sendToLauncher(obj);
 }
-
+alert(launcher_accreditation_code)
 //Начать обновление
 function startUpdate() {
    obj = {
