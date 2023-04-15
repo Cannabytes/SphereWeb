@@ -70,16 +70,16 @@ class tpl {
      * @throws LoaderError
      */
     public static function display($tplName, $categoryCabinet = false) {
-        $__ROOT__ = $_SERVER['DOCUMENT_ROOT'] ;
+        $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
         //        $categoryDesign = "cabinet";
         //        Если вызывается личный кабинет
         $templatePath = "/src/template/cabinet/";
         if($categoryCabinet) {
-            $templatePath = "/template/" . config::get_template() ;
+            $templatePath = "/template/" . config::get_template();
             self::lang_template_load($__ROOT__ . $templatePath . "/lang.php");
         }
-        if(!file_exists($__ROOT__.$templatePath . "/". $tplName)) {
-            echo "Не найден шаблон: " .  $__ROOT__.$templatePath . "/". $tplName;
+        if(!file_exists($__ROOT__ . $templatePath . "/" . $tplName)) {
+            echo "Не найден шаблон: " . $__ROOT__ . $templatePath . "/" . $tplName;
             die();
         }
         $loader = new FilesystemLoader($__ROOT__ . $templatePath);
@@ -239,7 +239,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('get_server_info', function($server_id = null) {
             return server::get_server_info($server_id);
         }));
-        $twig->addFunction(new TwigFunction('get_launcher_info', function($server_id = null){
+        $twig->addFunction(new TwigFunction('get_launcher_info', function($server_id = null) {
             return launcher::get_launcher_info($server_id);
         }));
 

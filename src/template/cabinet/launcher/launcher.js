@@ -242,7 +242,7 @@ function downloadAndRunLauncher() {
 
    swalWithBootstrapButtons.fire({
       title: 'Не включен лаунчер',
-      html: 'Единажды скаченный, подойдет для всех серверов на движке <b>TrashWeb</b>.',
+      html: 'Единажды скаченный, подойдет для всех серверов на движке <b>SphereWeb</b>.',
       icon: 'error',
       showCancelButton: true,
       confirmButtonText: 'Скачать лаунчер',
@@ -279,7 +279,6 @@ $("#turn_on_launcher").click(function () {
       notify_error(criticalErrorMessage)
       return
    }
-   window.location.href = 'web-launcher://run';
 });
 
 
@@ -457,7 +456,7 @@ function getAllConfig() {
    };
    sendToLauncher(obj);
 }
-alert(launcher_accreditation_code)
+
 //Начать обновление
 function startUpdate() {
    obj = {

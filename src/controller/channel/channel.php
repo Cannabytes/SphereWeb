@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by Logan22
- * Github -> https://github.com/Cannabytes/TrashWeb
+ * Github -> https://github.com/Cannabytes/SphereWeb
  * Date: 10.09.2022 / 17:57:14
  */
 

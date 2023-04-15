@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by Logan22
- * Github -> https://github.com/Cannabytes/TrashWeb
+ * Github -> https://github.com/Cannabytes/SphereWeb
  * Date: 17.08.2022 / 16:19:29
  *
  * Список серверов по умолчанию, которые есть в клиенте

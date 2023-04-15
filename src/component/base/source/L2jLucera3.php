@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by Logan22
- * Github -> https://github.com/Cannabytes/TrashWeb
+ * Github -> https://github.com/Cannabytes/SphereWeb
  * Date: 15.12.2022 / 9:01:58
  */
 
@@ -453,7 +453,7 @@ WHERE
      * @return string
      */
     static public function add_item(): string {
-        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'TrashWeb')";
+        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'SphereWeb')";
     }
 
     static public function count_online_player(): string {

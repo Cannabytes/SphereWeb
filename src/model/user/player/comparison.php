@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by Logan22
- * Github -> https://github.com/Cannabytes/TrashWeb
+ * Github -> https://github.com/Cannabytes/SphereWeb
  * Date: 26.08.2022 / 18:12:47
  *
  * Класс актуальных игровых аккаунтов в реестре сервера
