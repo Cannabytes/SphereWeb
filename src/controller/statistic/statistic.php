@@ -117,7 +117,7 @@ class statistic {
      */
     static public function class($class_name): void {
         $class_id = race_class::get_id_class($class_name);
-        if($class_id == null)
+        if($class_id === null)
             error::error404("Игровой класс не найден");
         $class_name = race_class::get_class($class_id);
         tpl::addVar("class_name", $class_name);
