@@ -5,7 +5,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i> Скриншоты</div>
+            <div class="card-header"><i class="fa fa-table"></i> Скриншоты
+                <div class="card-action">
+                    <a href="/admin/gallery/screen/options" type="button" class="btn btn-info  btn-sm waves-effect waves-light">Настройки</a>
+                </div>
+            </div>
+
             <div class="card-body">
               <div class="table-responsive">
               <table id="default-datatable" class="table table-bordered">
@@ -27,7 +32,7 @@
 							<img src="/uploads/screenshots/thumb_{{screen.image}}" alt="lightbox" class="lightbox-thumb "></a>
 						</td>
                         <td>{{screen.desciption}}</td>
-                        <td>{{ get_user_in_list(7)['email'] }}</td>
+                        <td>{{ get_user_in_list(screen.user_id)['email'] }}</td>
                         <td>{{ screen.date|date("H:i\nd.m.Y")|nl2br}}</td>
                         <td id="screen_status_{{screen.id}}">{% if screen.enable %}<span class="text-success">Опубликовано</span>{% else %}<span class="text-info text-justify">На модерации</span>{% endif %}</td>
                         <td>
