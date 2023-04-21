@@ -22,6 +22,7 @@ return [
     "menu_gallery" => "Галерея",
     "menu_loading" => "Загрузить",
     "menu_referrals" => "Рефералы",
+    "menu_ticket" => "Тикет",
     "not_authorized" => "Не авторизован",
     "authorization" => "Авторизация",
     "logout" => "Выход",

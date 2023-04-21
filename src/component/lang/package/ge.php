@@ -22,6 +22,7 @@ return [
     "menu_gallery" => "გალერეა",
     "menu_loading" => "ატვირთვა",
     "menu_referrals" => "რეფერალები",
+    "menu_ticket" => "ბილეთი",
     "not_authorized" => "სტუმარი",
     "authorization" => "ავტორიზაცია",
     "logout" => "გამოსვლა",

@@ -22,6 +22,7 @@ return [
     "menu_gallery" => "Gallery",
     "menu_loading" => "Load",
     "menu_referrals" => "Referrals",
+    "menu_ticket" => "Ticket",
     "not_authorized" => "Not authorized",
     "authorization" => "Authorization",
     "logout" => "Logout",
