@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% if ticket.content is not empty %}
+{% set title = ticket.content[:100]|lower %}
+{% else %}
+{% set title = "Not set name" %}
+{% endif %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+
+                    <!-- Left sidebar -->
+                    <div class="col-lg-12 col-md-12">
+                        <a href="/ticket" class="btn-social-text btn-github waves-effect waves-light"><i
+                                class="fa fa-home"></i> <span>{{phrase(350)}}</span></a>
+
+                        {% if comment.user_id == ticket.user_id or user_info('get_access_level')=="admin" %}
+                        <div class="card-action">
+                            {% if ticket.close == true %}
+                            <div data-code="f18f" data-name="lock-open">
+                                <a href="javascript:void()" id="open_ticket" data-ticket-id="{{ticket.id}}"
+                                   class="btn-social-text btn-github waves-effect waves-light">
+                                    <i class="fa fa-lock"></i> <span>{{phrase(358)}}</span>
+                                </a>
+                            </div>
+                            {% else %}
+                            <div data-code="f18f" data-name="lock-open">
+                                <a href="javascript:void()" id="close_ticket" data-ticket-id="{{ticket.id}}"
+                                   class="btn-social-text btn-github waves-effect waves-light">
+                                    <i class="fa fa-unlock"></i> <span>{{phrase(359)}}</span>
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% else %}
+                        <div class="card-action">
+                            {{phrase(360)}}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="card">
+
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12">
+
+                        <div class="card profile-card-3">
+
+                            <div class="card-img-block">
+                                <img class="img-fluid"
+                                     src="{{template}}/assets/images/navatarback/{{ticket.avatar_background}}"
+                                     alt="Card image cap">
+                            </div>
+                            <h4>{{ticket.name}}</h4>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-12">
+
+                        <p>{{ ticket.content|nl2br|raw }}</p>
+
+
+                        {% if ticket.images|length >= 1 %}
+                        <div class="card-header">{{phrase(361)}}</div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                {% for img in ticket.images %}
+                                <div class="col-md-6 col-lg-3 col-xl-3">
+                                    <a href="/uploads/tickets/{{img.image}}" data-fancybox="group2">
+                                        <img src="/uploads/tickets/thumb_{{img.image}}" alt="lightbox"
+                                             class="lightbox-thumb img-thumbnail">
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ ticket.date|date("H:i / d.m.Y")
+                    }}</em></footer>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% if ticket.comments|length >= 1 %}
+<hr>
+{% endif %}
+
+{% for comment in ticket.comments%}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12">
+
+
+                        <div class="card profile-card-3">
+
+                            <div class="card-img-block">
+                                <img class="img-fluid"
+                                     src="{{template}}/assets/images/navatarback/{{comment.avatar_background}}"
+                                     alt="Card image cap">
+                            </div>
+                            <h4>{{ticket.name}}</h4>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-12">
+                        <p>{{ comment.content|nl2br|raw }}</p>
+
+                        {% if comment.images|length >= 1 %}
+                        <div class="card-header">{{phrase(361)}}</div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                {% for img in comment.images %}
+
+                                <div class="col-md-6 col-lg-3 col-xl-3">
+                                    <a href="/uploads/tickets/{{img.image}}" data-fancybox="group2">
+                                        <img src="/uploads/tickets/thumb_{{img.image}}" alt="lightbox"
+                                             class="lightbox-thumb img-thumbnail">
+                                    </a>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ comment.date|date("H:i / d.m.Y")
+                    }}</em></footer>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% if comment.user_id == ticket.user_id or user_info('get_access_level')=="admin" %}
+<hr>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12">
+                        <div class="card profile-card-3">
+                            <div class="card-img-block">
+                                <img class="img-fluid"
+                                     src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}"
+                                     alt="Card image cap">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-12">
+                        <div class="card mt-0 shadow-none">
+                            <div class="">
+                                <div class="form-group">
+                                    <textarea id="content" class="form-control" rows="9" placeholder=""></textarea>
+                                    <details>
+                                        <summary>{{phrase(362)}}</summary>
+                                        <div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">{{phrase(363)}} №1</label>
+                                                <div class="col-sm-10">
+                                                    <input id="image_1" type="file" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">{{phrase(363)}} №2</label>
+                                                <div class="col-sm-10">
+                                                    <input id="image_2" type="file" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">{{phrase(363)}} №3</label>
+                                                <div class="col-sm-10">
+                                                    <input id="image_3" type="file" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </details>
+
+                                </div>
+
+
+                                <div class="text-right">
+                                    <div class="card-action">
+                                        <button data-ticket-id="{{ticket.id}}" id="add_comment" type="button"
+                                                class="btn-social-text btn-github waves-effect waves-light"> {{phrase(364)}}
+                                        </button>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block css %}
+<link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+<script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
+<script src="{{'assets/js/ticket/comment.js'|template}}"></script>
+{% endblock %}
+
