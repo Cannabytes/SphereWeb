@@ -126,6 +126,22 @@ $route->post("gallery/screenshot/load", 'Ofey\Logan22\controller\gallery\screens
 $route->get("gallery/movie", 'Ofey\Logan22\controller\gallery\movie::show_page');
 $route->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_description');
 
+/**
+ * Тикеты
+ */
+$route->get("ticket", 'Ofey\Logan22\controller\ticket\ticket::all');
+$route->get("ticket/(\d+)", 'Ofey\Logan22\controller\ticket\ticket::get');
+$route->get("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::getOpenTickets');
+$route->get("ticket/close", 'Ofey\Logan22\controller\ticket\ticket::getCloseTickets');
+$route->get("ticket/create", 'Ofey\Logan22\controller\ticket\ticket::create');
+$route->get("ticket/search", 'Ofey\Logan22\controller\ticket\ticket::search');
+$route->get("ticket/search/{search}", 'Ofey\Logan22\controller\ticket\ticket::search');
+$route->post("ticket/add", 'Ofey\Logan22\controller\ticket\ticket::add');
+$route->post("ticket/add/comment", 'Ofey\Logan22\controller\ticket\ticket::addComment');
+$route->post("ticket/close", 'Ofey\Logan22\controller\ticket\ticket::close');
+$route->post("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::open');
+
+
 //лаунчер
 //Пока не используется, нужно создать красивые формы страницы или придумать как это должно работать
 $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');
