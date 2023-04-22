@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\ticket;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use Verot\Upload\Upload;
@@ -47,20 +48,38 @@ class ticket_model {
             ORDER BY `date` DESC");
     }
 
-    //
-    static public function get_info($id) {
+    static public function get_info($id, $loadComment = true) {
         $ticket = sql::getRow("SELECT tickets.*, users.`name`, users.avatar, users.avatar_background FROM tickets INNER JOIN users ON tickets.user_id = users.id WHERE tickets.id = ?", [$id]);
         if($ticket === false) {
             return false;
         }
         $ticket_img = sql::getRows("SELECT * FROM tickets_image WHERE ticket_id = ?", [$id]);
-        $comments = sql::getRows("SELECT tickets_comment.*, users.`name`, users.avatar, users.avatar_background FROM tickets_comment INNER JOIN users ON tickets_comment.user_id = users.id WHERE ticket_id = ?", [$id]);
-        foreach($comments as &$comment) {
-            $comment['images'] = self::getCommentImage($comment['id']);
+
+        if($loadComment) {
+            $comments = sql::getRows("SELECT tickets_comment.*, users.`name`, users.avatar, users.avatar_background FROM tickets_comment INNER JOIN users ON tickets_comment.user_id = users.id WHERE ticket_id = ?", [$id]);
+            foreach($comments as &$comment) {
+                $comment['images'] = self::getCommentImage($comment['id']);
+            }
+            $ticket['comments'] = $comments;
         }
         $ticket['images'] = $ticket_img;
-        $ticket['comments'] = $comments;
         return $ticket;
+    }
+
+    static public function get_ticket($ticket_id) {
+        return sql::getRow("SELECT * FROM tickets WHERE id = ?", [$ticket_id]);
+    }
+
+    //Информация о комментарии
+    static public function get_comment($ticket_id, $comment_id) {
+        $data = sql::getRow("SELECT * FROM tickets_comment WHERE ticket_id = ? AND id = ?", [
+            $ticket_id,
+            $comment_id,
+        ]);
+        $ticket_img = sql::getRows("SELECT * FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
+        $data['images'] = $ticket_img;
+        //        var_dump($ticket_id, $comment_id);exit;
+        return $data;
     }
 
     static private function getCommentImage($comment_id): array {
@@ -97,6 +116,10 @@ class ticket_model {
         $files = $_FILES['files'] ?? null;
         $ticketID = $_POST['ticketID'] ?? null;
 
+        $ticketInfo = self::get_info($ticketID);
+        if($ticketInfo['close']) {
+            board::notice(false, "Тикет закрыт");
+        }
         if($content === null and $files === null) {
             board::notice(false, lang::get_phrase(341));
             return;
@@ -152,26 +175,106 @@ class ticket_model {
                 $handle->process('./uploads/tickets');
                 if($handle->processed) {
                     $handle->clean();
-                    if($comment){
-                        sql::run("INSERT INTO `tickets_comment_image` (`comment_id`, `image`) VALUES (?, ?)", [
+                    if($comment) {
+                        sql::run("INSERT INTO `tickets_comment_image` (`user_id`, `comment_id`, `image`) VALUES (?, ?, ?)", [
+                            auth::get_id(),
                             $ticketID,
                             $filename . ".webp",
                         ]);
-                    }else{
+                    } else {
                         sql::run("INSERT INTO `tickets_image` (`user_id`, `image`, `ticket_id`) VALUES (?, ?, ?)", [
                             auth::get_id(),
                             $filename . ".webp",
                             $ticketID,
                         ]);
-
                     }
-
                 } else {
                     board::notice(false, $handle->error);
                 }
             } else {
                 board::notice(false, $handle->error);
             }
+        }
+    }
+
+    public static function removeImage(): void {
+        $comment_id = $_POST['commentID'];
+        $image_id = $_POST['imageID'];
+        $ok = sql::sql("DELETE FROM `tickets_comment_image` WHERE `id` = ? AND `comment_id` = ? AND `user_id` = ?", [
+            $image_id,
+            $comment_id,
+            auth::get_id(),
+        ]);
+        if($ok) {
+            board::notice(true, "Удалено");
+        }
+    }
+
+    public static function editComment(): void {
+        $ticket_id = $_POST['ticketID'];
+        $comment_id = $_POST['commentID'];
+        $content = $_POST['content'];
+        $files = $_FILES['files'] ?? null;
+
+        $commentInfo = self::get_comment($ticket_id, $comment_id);
+        if($commentInfo['user_id'] != auth::get_id()) {
+            board::notice(false, "Запрещено");
+            return;
+        }
+
+        if($files !== null) {
+            $count = count($files['name']);
+            $countPostImage = sql::getValue("SELECT count(1) AS `count` FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
+            if($countPostImage + $count > 3) {
+                board::notice(false, "Привышен лимит изображений");
+            }
+            self::processFiles($files, $comment_id, true);
+        }
+
+        $ok = sql::run("UPDATE `tickets_comment` SET `content` = ? WHERE `id` = ? AND `ticket_id` = ?", [
+            $content,
+            $comment_id,
+            $ticket_id,
+        ]);
+
+        if($ok) {
+            board::alert([
+                "ok"   => true,
+                "link" => "/ticket/{$ticket_id}/#msg{$comment_id}",
+            ]);
+        }
+    }
+
+    public static function editTicket() {
+        $ticket_id = $_POST['ticketID'];
+        $content = $_POST['content'];
+        $files = $_FILES['files'] ?? null;
+
+        $ticketInfo = self::get_info($ticket_id, false);
+        if($ticketInfo['user_id'] != auth::get_id()) {
+            board::notice(false, "Запрещено");
+            return;
+        }
+
+        if($files !== null) {
+            $count = count($files['name']);
+            $countPostImage = sql::getValue("SELECT count(1) AS `count` FROM tickets_image WHERE ticket_id = ?", [$ticket_id]);
+            if($countPostImage + $count > 3) {
+                board::notice(false, "Привышен лимит изображений");
+            }
+            self::processFiles($files, $ticket_id, false);
+        }
+
+        $ok = sql::run("UPDATE `tickets` SET `content` = ? WHERE `id` = ?", [
+            $content,
+            $ticket_id,
+        ]);
+
+        if($ok) {
+            board::alert([
+                "ok"   => true,
+                "link" => "/ticket/{$ticket_id}",
+            ]);
         }
     }
 }

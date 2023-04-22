@@ -9,6 +9,7 @@ namespace Ofey\Logan22\controller\ticket;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
@@ -69,6 +70,28 @@ class ticket {
         tpl::display("ticket/create.html");
     }
 
+    public static function edit($ticket_id, $comment_id = null): void {
+        validation::user_protection();
+        $ticket = ticket_model::get_ticket($ticket_id);
+        if($ticket == null) {
+            redirect::location("/ticket");
+        }
+        if($ticket['user_id'] != auth::get_id()) {
+            error::error404("Страница Вам недоступна.");
+        }
+        tpl::addVar("ticket", ticket_model::get_info($ticket_id, false));
+        if($comment_id != null) {
+            tpl::addVar("comment", ticket_model::get_comment($ticket_id, $comment_id));
+            tpl::display("ticket/editcomment.html");
+        }
+        tpl::display("ticket/editticket.html");
+    }
+
+    public static function removeImage() {
+        validation::user_protection();
+        ticket_model::removeImage();
+    }
+
     public static function add(): void {
         validation::user_protection();
         ticket_model::add();
@@ -107,5 +130,15 @@ class ticket {
         } else {
             board::notice(false, lang::get_phrase(348));
         }
+    }
+
+    public static function editComment(): void {
+        validation::user_protection();
+        ticket_model::editComment();
+    }
+
+    public static function editTicket(): void {
+        validation::user_protection();
+        ticket_model::editTicket();
     }
 }
