@@ -134,12 +134,17 @@ $route->get("ticket/(\d+)", 'Ofey\Logan22\controller\ticket\ticket::get');
 $route->get("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::getOpenTickets');
 $route->get("ticket/close", 'Ofey\Logan22\controller\ticket\ticket::getCloseTickets');
 $route->get("ticket/create", 'Ofey\Logan22\controller\ticket\ticket::create');
+$route->get("ticket/edit/(\d+)", 'Ofey\Logan22\controller\ticket\ticket::edit');
+$route->get("ticket/edit/(\d+)/(\d+)", 'Ofey\Logan22\controller\ticket\ticket::edit');
 $route->get("ticket/search", 'Ofey\Logan22\controller\ticket\ticket::search');
 $route->get("ticket/search/{search}", 'Ofey\Logan22\controller\ticket\ticket::search');
 $route->post("ticket/add", 'Ofey\Logan22\controller\ticket\ticket::add');
 $route->post("ticket/add/comment", 'Ofey\Logan22\controller\ticket\ticket::addComment');
 $route->post("ticket/close", 'Ofey\Logan22\controller\ticket\ticket::close');
 $route->post("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::open');
+$route->post("ticket/remove/comment/image", 'Ofey\Logan22\controller\ticket\ticket::removeImage');
+$route->post("ticket/edit/comment", 'Ofey\Logan22\controller\ticket\ticket::editComment');
+$route->post("ticket/edit/ticket", 'Ofey\Logan22\controller\ticket\ticket::editTicket');
 
 
 //лаунчер

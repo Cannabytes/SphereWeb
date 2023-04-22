@@ -8,7 +8,6 @@
 
 
 {% block content %}
-
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -20,8 +19,7 @@
                     <div class="col-lg-12 col-md-12">
                         <a href="/ticket" class="btn-social-text btn-github waves-effect waves-light"><i
                                 class="fa fa-home"></i> <span>{{phrase(350)}}</span></a>
-
-                        {% if comment.user_id == ticket.user_id or user_info('get_access_level')=="admin" %}
+                        {% if user_info('get_id') == ticket.user_id or user_info('get_access_level')=="admin" %}
                         <div class="card-action">
                             {% if ticket.close == true %}
                             <div data-code="f18f" data-name="lock-open">
@@ -50,7 +48,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-lg-12">
@@ -101,8 +98,14 @@
 
             </div>
             <div class="card-footer">
-                <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ ticket.date|date("H:i / d.m.Y")
-                    }}</em></footer>
+                <footer class="blockquote-footer">
+                    <em>{{ phrase("date_create") }}: {{ ticket.date|date("H:i / d.m.Y")}}</em>
+                    {% if user_info('get_id') == ticket.user_id %}
+                    <div class="card-action">
+                       <a href="/ticket/edit/{{ticket.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">Редактировать</a>
+                    </div>
+                    {% endif %}
+                </footer>
             </div>
         </div>
 
@@ -114,36 +117,28 @@
 <hr>
 {% endif %}
 
-{% for comment in ticket.comments%}
-<div class="row">
+{% for comment in ticket.comments %}
+<div class="row" id="msg{{comment.id}}">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-2 col-md-12">
-
-
                         <div class="card profile-card-3">
-
                             <div class="card-img-block">
                                 <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatarback/{{comment.avatar_background}}"
-                                     alt="Card image cap">
+                                     src="{{template}}/assets/images/navatarback/{{comment.avatar_background}}" >
                             </div>
                             <h4>{{ticket.name}}</h4>
-
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-12">
                         <p>{{ comment.content|nl2br|raw }}</p>
-
                         {% if comment.images|length >= 1 %}
                         <div class="card-header">{{phrase(361)}}</div>
                         <div class="card-body">
                             <div class="row">
-
                                 {% for img in comment.images %}
-
                                 <div class="col-md-6 col-lg-3 col-xl-3">
                                     <a href="/uploads/tickets/{{img.image}}" data-fancybox="group2">
                                         <img src="/uploads/tickets/thumb_{{img.image}}" alt="lightbox"
@@ -151,7 +146,6 @@
                                     </a>
                                 </div>
                                 {% endfor %}
-
                             </div>
                         </div>
                         {% endif %}
@@ -159,15 +153,22 @@
                 </div>
             </div>
             <div class="card-footer">
-                <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ comment.date|date("H:i / d.m.Y")
-                    }}</em></footer>
+                <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ comment.date|date("H:i / d.m.Y") }}</em>
+
+                    {% if comment.user_id == user_info('get_id') %}
+                    <div class="card-action">
+                        <a href="/ticket/edit/{{ticket.id}}/{{comment.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">Редактировать</a>
+                    </div>
+                    {% endif %}
+                </footer>
             </div>
         </div>
     </div>
 </div>
 {% endfor %}
 
-{% if comment.user_id == ticket.user_id or user_info('get_access_level')=="admin" %}
+{% if ticket.close == false %}
+{% if user_info('get_id') == ticket.user_id or user_info('get_access_level')=="admin" %}
 <hr>
 <div class="row">
     <div class="col-lg-12">
@@ -178,8 +179,7 @@
                         <div class="card profile-card-3">
                             <div class="card-img-block">
                                 <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}"
-                                     alt="Card image cap">
+                                     src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}" >
                             </div>
                         </div>
                     </div>
@@ -235,6 +235,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endif %}
 
 
