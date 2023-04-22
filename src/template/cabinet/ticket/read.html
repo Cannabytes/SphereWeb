@@ -63,10 +63,9 @@
 
                             <div class="card-img-block">
                                 <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatarback/{{ticket.avatar_background}}"
-                                     alt="Card image cap">
+                                     src="{{template}}/assets/images/navatarback/{{ticket.avatar_background}}" >
                             </div>
-                            <h4>{{ticket.name}}</h4>
+                            <h4>{% if ticket.name == null %} <span data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Юзер без имени" >#{{ticket.user_id}}</span> {% else %} {{ticket.name}} {% endif %}</h4>
 
                         </div>
                     </div>
@@ -102,7 +101,7 @@
                     <em>{{ phrase("date_create") }}: {{ ticket.date|date("H:i / d.m.Y")}}</em>
                     {% if user_info('get_id') == ticket.user_id %}
                     <div class="card-action">
-                       <a href="/ticket/edit/{{ticket.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">Редактировать</a>
+                       <a href="/ticket/edit/{{ticket.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("edit")}}</a>
                     </div>
                     {% endif %}
                 </footer>
@@ -157,7 +156,7 @@
 
                     {% if comment.user_id == user_info('get_id') %}
                     <div class="card-action">
-                        <a href="/ticket/edit/{{ticket.id}}/{{comment.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">Редактировать</a>
+                        <a href="/ticket/edit/{{ticket.id}}/{{comment.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("edit")}}</a>
                     </div>
                     {% endif %}
                 </footer>

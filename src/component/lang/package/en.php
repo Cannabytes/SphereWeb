@@ -449,5 +449,7 @@ return [
     363 => "Image",
     364 => "Submit",
     365 => "Creating a ticket",
+    366 => "Forbidden",
+    367 => "Image limit exceeded",
 
 ];

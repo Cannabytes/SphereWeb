@@ -20,6 +20,8 @@
                             <div class="card-img-block">
                                 <img class="img-fluid"
                                      src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}">
+                                <h4>{% if ticket.name == null %} <span data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Юзер без имени" >#{{ticket.user_id}}</span> {% else %} {{ticket.name}} {% endif %}</h4>
+
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,7 @@
                                     {% if ticket.images|length >= 1 %}
                                     <br>
                                     <div class="card">
-                                        <div class="card-header text-uppercase">Прикрепленные изображения</div>
+                                        <div class="card-header text-uppercase">{{phrase(361)}}</div>
                                         <div class="card-body">
                                             <div class="row">
                                                 {% for img in ticket.images %}
@@ -65,7 +67,8 @@
                                                              class="lightbox-thumb img-thumbnail">
                                                     </a>
                                                     <div class="fa-hover col-lg-12 col-xl-12 ">
-                                                        <button class="btn-social-text btn-github btn-block removeimage fa fa-close" data-ticket-id="{{comment.id}}" data-image-id="{{img.id}}"> Удалить</button>
+                                                        <button class="btn-social-text btn-github btn-block removeimage fa fa-close" data-ticket-id="{{comment.id}}" data-image-id="{{img.id}}">
+                                                            {{phrase("delete")}}</button>
                                                     </div>
                                                 </div>
                                                 {% endfor %}

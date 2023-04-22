@@ -218,15 +218,14 @@ class ticket_model {
 
         $commentInfo = self::get_comment($ticket_id, $comment_id);
         if($commentInfo['user_id'] != auth::get_id()) {
-            board::notice(false, "Запрещено");
-            return;
+            board::notice(false, lang::get_phrase(366));
         }
 
         if($files !== null) {
             $count = count($files['name']);
             $countPostImage = sql::getValue("SELECT count(1) AS `count` FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
             if($countPostImage + $count > 3) {
-                board::notice(false, "Привышен лимит изображений");
+                board::notice(false, lang::get_phrase(367));
             }
             self::processFiles($files, $comment_id, true);
         }
@@ -252,15 +251,14 @@ class ticket_model {
 
         $ticketInfo = self::get_info($ticket_id, false);
         if($ticketInfo['user_id'] != auth::get_id()) {
-            board::notice(false, "Запрещено");
-            return;
+            board::notice(false, lang::get_phrase(366));
         }
 
         if($files !== null) {
             $count = count($files['name']);
             $countPostImage = sql::getValue("SELECT count(1) AS `count` FROM tickets_image WHERE ticket_id = ?", [$ticket_id]);
             if($countPostImage + $count > 3) {
-                board::notice(false, "Привышен лимит изображений");
+                board::notice(false, lang::get_phrase(367));
             }
             self::processFiles($files, $ticket_id, false);
         }
