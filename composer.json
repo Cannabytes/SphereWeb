@@ -23,6 +23,7 @@
         "intervention/image": "^2.7",
         "s1syphos/php-simple-captcha": "^2.2",
       "ext-mbstring": "*",
-      "ext-curl": "*"
+      "ext-curl": "*",
+      "ext-gd": "*"
     }
 }
