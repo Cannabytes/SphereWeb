@@ -51,6 +51,7 @@ class screen {
     }
 
     public static function show_options() {
+        tpl::addVar("get_screen_enable", config::get_screen_enable());
         tpl::addVar("title", lang::get_phrase(227));
         tpl::display("admin/gallery/options.html");
     }

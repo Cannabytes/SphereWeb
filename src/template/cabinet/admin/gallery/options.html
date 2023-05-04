@@ -10,8 +10,10 @@
                 <label for="screen_enable" class="col-sm-2 col-form-label">Разрешить загрузки: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="screen_enable" id="screen_enable">
-                        <option value="true">Включить</option>
-                        <option value="false">Отключить</option>
+
+                        <option value="true" {% if get_screen_enable == true %}selected{% endif %}>Включить</option>
+                        <option value="false" {% if get_screen_enable == false %}selected{% endif %}>Отключить</option>
+
                     </select>
                 </div>
             </div>

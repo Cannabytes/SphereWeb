@@ -7,21 +7,42 @@
 
 namespace Ofey\Logan22\component\version;
 
-use Ofey\Logan22\component\alert\board;
-use Ofey\Logan22\component\lang\lang;
-
 class version {
 
     private const MIN_PHP_VERSION = 8.1;
 
-    static public function MIN_PHP_VERSION(): float {
+    static public function check_version_php() : void {
+        if ((float) PHP_VERSION < self::MIN_PHP_VERSION()) {
+            echo sprintf("Need min version php : %.1f<br>", self::MIN_PHP_VERSION());
+            echo 'Your php version : ' . PHP_VERSION;
+            exit;
+        }
+        self::libsPHP();
+    }
+
+    static public function MIN_PHP_VERSION() : float {
         return self::MIN_PHP_VERSION;
     }
 
-    static public function check_version_php(): void {
-        if((float)PHP_VERSION < self::MIN_PHP_VERSION()) {
-            echo sprintf("Need min version php : %.1f<br>", self::MIN_PHP_VERSION());
-            echo 'Your php version : ' . PHP_VERSION;
+    static public function libsPHP() : void {
+        if (!extension_loaded('gd') && !function_exists('gd_info')) {
+            echo 'Need to enable GD in php.ini';
+            exit;
+        }
+        if (!extension_loaded('curl')) {
+            echo 'Need to enable curl in php.ini - ';
+            exit;
+        }
+        if (!extension_loaded('pdo_mysql')) {
+            echo 'Need to enable pdo_mysql in php.ini';
+            exit;
+        }
+        if (!extension_loaded('mbstring')) {
+            echo 'Need to enable mbstring in php.ini';
+            exit;
+        }
+        if (!extension_loaded('fileinfo')) {
+            echo 'Need to enable fileinfo in php.ini';
             exit;
         }
     }

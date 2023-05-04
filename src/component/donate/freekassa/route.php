@@ -22,7 +22,7 @@ $routes = [
         "pattern" => "/donate/transfer/freekassa",
         "file"    => "pay.php",
         "call"    => function() {
-            (new freekassa())->create_link();
+            (new freekassa())->transfer();
         },
     ],
 ];

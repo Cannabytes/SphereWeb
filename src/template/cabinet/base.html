@@ -186,9 +186,11 @@
                 -->
 
                 <li class="nav-item dropdown-lg">
+                    {% if user_info('get_is_auth') %}
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
                        href="javascript:void();">
                         <i class="fa fa-money"></i><span class="badge badge-info badge-up header_donate_point_count">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></a>
+                    {% endif %}
                     <div class="dropdown-menu dropdown-menu-right">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center">

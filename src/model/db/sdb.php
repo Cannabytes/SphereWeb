@@ -64,8 +64,8 @@ class sdb {
                 self::$db[self::get_server_id()][self::get_type()] = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$name, self::$user, self::$pass, $options = [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    //Not change charset - need for l2j only utf8
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+                    PDO::ATTR_TIMEOUT => 1,
                 ]);
                 return self::$db[self::get_server_id()][self::get_type()];
             } catch(PDOException $e) {
@@ -77,7 +77,14 @@ class sdb {
     }
 
     public static function query($stmt) {
-        return self::$db[self::get_server_id()][self::get_type()]->query($stmt);
+        try {
+            return self::$db[self::get_server_id()][self::get_type()]->query($stmt);
+        } catch (PDOException $e) {
+            // handle the error here
+            self::$error = true;
+            self::$errorMessage = $e->getMessage();
+            return false;
+        }
     }
 
     public static function prepare($stmt) {
@@ -119,11 +126,10 @@ class sdb {
         }
         try {
             if(!$args) {
-                $results = self::query($query);
-                return $results;
+                return self::query($query);
             }
             $stmt = self::prepare($query);
-            $results = $stmt->execute($args);
+            $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
             if($showErrorPage) {

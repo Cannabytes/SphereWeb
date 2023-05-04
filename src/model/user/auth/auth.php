@@ -356,14 +356,15 @@ class auth {
             exit(lang::get_phrase(167));
         }
 
-        $donate_point = (float)$user['donate_point'] + $amount;
-        sql::run("UPDATE `users` SET `donate_point` = ? WHERE `id` = ?", [
-            $donate_point,
+        //$donate_point = (float)$user['donate_point'] + $amount;
+        sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+            $amount,
             $user_id,
         ]);
 
+
         //Запись логов
-        sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+        sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
             $user_id,
             $amount,
             lang::get_phrase(233),
@@ -372,14 +373,19 @@ class auth {
 
         if(config::getDonationBonusPayout() > 0) {
             $bonus = $amount * (100 + config::getDonationBonusPayout()) * 0.01 - $amount;
-            auth::change_donate_point($user_id, $bonus);
-            sql::run("INSERT INTO `donate_history` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+            sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+                $bonus,
+                $user_id,
+            ]);
+            sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
                 $user_id,
                 $bonus,
                 'Бонус за пожертвование',
                 time::mysql(),
             ]);
         }
+
+
     }
 
     static public function add_donate_self($amount) {

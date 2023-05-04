@@ -9,29 +9,13 @@
                 <div class="card-body">
                     <div>
                         <div class="form-group row">
-                            <label for="clientdir" class="col-sm-3 ">Ссылка на файлохранилище
-                                <hr>
-                                Например: https//expemple.com/client<br>
+                            <label for="code" class="col-sm-3 ">Код аккредитации лаунчера
+                            </label>
+                            <div class="col-sm-9">
+                                <input id="code" value="" type="text" class="form-control" required>
+                            </div>
+                        </div>
 
-                            </label>
-                            <div class="col-sm-9">
-                                <textarea id="clientdir"
-                                          placeholder="https://expemple.com/client&#10;https://project.com/update/&#10;https://123.101.0.140/files/client/highfive/"
-                                          rows="4" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group row">
-                            <label for="patchlist" class="col-sm-3 ">Ссылка патч-лист
-                                <hr>
-                                Например: https//expemple.com/client/patch_list.csv<br>
-                            </label>
-                            <div class="col-sm-9">
-                                <textarea id="patchlist"
-                                          placeholder="https://expemple.com/client/patch_list.csv&#10;https://project.com/highfive.csv&#10;https://123.101.0.140/files/hash/list.csv"
-                                          rows="4" class="form-control"></textarea>
-                            </div>
-                        </div>
                         <hr>
 
                         <div class="form-group row">
@@ -41,7 +25,7 @@
                             </div>
                             <label for="buttonphrase" class="col-sm-2 col-form-label">Кнопки запуска игры</label>
                             <div class="col-sm-3">
-                                <input id="buttonphrase" value="launch_game" type="text" class="form-control" >
+                                <input id="buttonphrase" value="launch_game" type="text" class="form-control">
                             </div>
                         </div>
                     </div>

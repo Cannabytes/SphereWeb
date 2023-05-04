@@ -17,9 +17,11 @@
 <div class="row">
 
     <!-- Left sidebar -->
-    <div class="col-lg-2 col-md-4">
+    <div class="col-lg-2 col-md-1">
+        {% if user_info('get_is_auth') %}
         <a href="/ticket/create" class="btn btn-danger btn-block">{{phrase(349)}}</a>
-        <div class="card mt-3 shadow-none">
+        {% endif %}
+        <div class="card mt-0 shadow-none">
             <div class="list-group shadow-none">
                 <a href="/ticket" class="list-group-item{% if category == 'all' %} active{% endif %}"><i class="fa fa-archive mr-2"></i>{{phrase(350)}}</a>
                 <a href="/ticket/open" class="list-group-item{% if category == 'open' %} active{% endif %}"><i class="fa fa-unlock text-danger mr-2"></i>{{phrase(351)}}</a>

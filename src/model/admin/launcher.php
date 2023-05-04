@@ -13,7 +13,8 @@ use PDOStatement;
 class launcher {
 
     //Возращает инфу о лаунчере
-    static function get_launcher_info($server_id = null) {
+    static function get_launcher_info($server_id = null): false|array
+    {
         if($server_id == null){
             return false;
         }else{
@@ -23,10 +24,10 @@ class launcher {
         }
     }
 
-    static function add_new_launcher(string $clientDir, string $patchlist, string $application, string $phrasebutton, int $server_id): PDOStatement|null|bool {
-        return sql::sql("INSERT INTO `launcher` (`clientdir`, `patchlist`, `l2app`, `phrasebutton`, `server_id`) VALUES (?, ?, ?, ?, ?)", [
-            $clientDir,
-            $patchlist,
+    static function add_new_launcher(string $code, string $application, string $phrasebutton, int $server_id): PDOStatement|null|bool {
+        sql::sql("UPDATE `server_list` SET `launcher_accreditation_code` = ? WHERE `id` = ?", [$code, $server_id]);
+
+        return sql::sql("INSERT INTO `launcher` (`l2app`, `phrase`, `server_id`) VALUES (?, ?, ?)", [
             $application,
             $phrasebutton,
             $server_id,

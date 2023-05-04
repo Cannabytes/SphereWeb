@@ -7,8 +7,7 @@ $(document).ready(function () {
             url: "/admin/options/server/launcher",
             dataType: "json",
             data: {
-                clientdir: $("#clientdir").val(),
-                patchlist: $("#patchlist").val(),
+                code: $("#code").val(),
                 l2app: $("#l2app").val(),
                 buttonphrase: $("#buttonphrase").val(),
                 serverId: $('#launcherAdd').data('server_id')

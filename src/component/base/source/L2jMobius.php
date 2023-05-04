@@ -399,6 +399,7 @@ character_subclasses.charId = ?';
                     characters.pvpkills AS pvp,
                     characters.pkkills AS pk,
                     characters.title,
+                    characters.sex,
                     characters.`online`,
                     characters.onlinetime AS time_in_game,
                     clan_data.clan_name,
