@@ -254,7 +254,7 @@ class auth {
             return false;
         }
         if(!$userInfo) {
-            self::logout();
+//            self::logout();
         }
         self::$userInfo = $userInfo;
         return self::$userInfo;
@@ -292,19 +292,23 @@ class auth {
     }
 
     static public function user_enter() {
+        var_dump("333");exit;
+
         if(auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
         $builder = new Builder;
 
         $captcha = $_POST['captcha'] ?? false;
-        if(!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
+        if(!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
             board::alert([
                 'ok'      => false,
                 "message" => lang::get_phrase(295),
                 "code"    => 1,
             ]);
         }
+        var_dump("123");exit;
+
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
         }
@@ -312,6 +316,7 @@ class auth {
         $password = request::setting('password', new request_config(max: 32));
 
         $user_info = self::exist_user($email);
+        var_dump($user_info);exit;
         if(!$user_info) {
             board::notice(false, lang::get_phrase(164));
         }
