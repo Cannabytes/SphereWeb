@@ -20,7 +20,7 @@ namespace Ofey\Logan22\component\base\source;
 
 use Ofey\Logan22\component\base\structure;
 
-class L2jMobius implements structure {
+class L2JMobiusClassic implements structure {
 
     static public function hash(): string {
         return 'sha1';
@@ -31,7 +31,7 @@ class L2jMobius implements structure {
     }
 
     static public function need_logout_player_for_item_add(): bool {
-        return true;
+        return false;
     }
 
     #[db("login")]
@@ -384,7 +384,8 @@ character_subclasses.charId = ?';
     }
 
     static public function add_item(): string {
-        return 'INSERT INTO `items` (`owner_id`, `object_id`, `item_id`, `count`, `enchant_level`, `loc`) VALUES (?, ?, ?, ?, ?, ?)';
+        return 'INSERT INTO `character_premium_items` (`charId`, `itemNum`, `itemId`, `itemCount`, `itemSender`) 
+                SELECT ?, COALESCE(MAX(`itemNum`), 0) + 1, ?, ?, "Bonus" FROM `character_premium_items`;';
     }
 
     static public function count_online_player(): string {
