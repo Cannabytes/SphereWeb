@@ -21,7 +21,7 @@ class captcha {
         $builder->applyEffects = false;
         $builder->textColor  = "#FFF";
         $builder->build(250, 60);
-        $_SESSION['phrase'] = $builder->phrase;
+        $_SESSION['captcha'] = $builder->phrase;
         return $builder;
     }
 

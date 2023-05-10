@@ -51,7 +51,7 @@ class comparison {
         }
 
         $builder = new Builder;
-        if (!$builder->compare($captcha, $_SESSION['phrase'])) {
+        if (!$builder->compare($captcha, $_SESSION['captcha'])) {
             board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
         }
         //Перегенерация капчи

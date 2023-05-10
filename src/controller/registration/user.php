@@ -30,7 +30,7 @@ class user {
         $password = request::setting('password', new request_config(max: 32));
         $builder = new Builder;
         $captcha = $_POST['captcha'] ?? false;
-        if (!$builder->compare(trim($captcha), $_SESSION['phrase'])) {
+        if (!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
             board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
         }
         if(auth::is_user($email)) {
