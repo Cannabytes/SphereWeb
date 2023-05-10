@@ -292,8 +292,6 @@ class auth {
     }
 
     static public function user_enter() {
-        var_dump("333");exit;
-
         if(auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
@@ -307,8 +305,6 @@ class auth {
                 "code"    => 1,
             ]);
         }
-        var_dump("123");exit;
-
         if(!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
         }
@@ -316,7 +312,6 @@ class auth {
         $password = request::setting('password', new request_config(max: 32));
 
         $user_info = self::exist_user($email);
-        var_dump($user_info);exit;
         if(!$user_info) {
             board::notice(false, lang::get_phrase(164));
         }

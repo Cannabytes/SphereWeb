@@ -20,7 +20,6 @@ class auth {
     }
 
     public static function auth_request() {
-        echo 'eeewqwseqweqwwqe';exit;
         validation::user_protection("guest");
         \Ofey\Logan22\model\user\auth\auth::user_enter();
     }
