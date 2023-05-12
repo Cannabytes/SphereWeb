@@ -205,7 +205,7 @@ class donate {
     }
 
     //Добавить предмет персонажу, по его максимальному ID
-    static private function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems) {
+    private static function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems) {
         $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
         player_account::add_item($server_info, [
             $player_id,
@@ -217,7 +217,7 @@ class donate {
         ]);
     }
 
-    static public function donate_history_pay_self() {
+    public static function donate_history_pay_self() {
         return sql::getRows("SELECT
                                 donate_history_pay.point, 
                                 donate_history_pay.pay_system, 
@@ -230,5 +230,16 @@ class donate {
                                 donate_history_pay.id DESC", [
             auth::get_id(),
         ]);
+    }
+
+    //Сумма зачисления денег с учетом курса валют конфига
+    public static function currency(int|float $sum, string $currency): float|int {
+        $config = require 'src/config/donate.php';
+        return match ($currency) {
+            "RUB" => ($sum / $config['coefficient']['RUB']) * $config['quantity'],
+            "UAH" => ($sum / $config['coefficient']['UAH']) * $config['quantity'],
+            "EUR" => ($sum / $config['coefficient']['EUR']) * $config['quantity'],
+            default => $sum * $config['quantity'],
+        };
     }
 }

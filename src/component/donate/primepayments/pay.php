@@ -77,7 +77,8 @@ class primepayments {
             die('wrong sign');
         $user_id = $_POST['innerID'];
         //Зачисление на пользовательский аккаунт средств
-        auth::change_donate_point($user_id, $_POST['sum']);
+        $amount = \Ofey\Logan22\model\donate\donate::currency($_POST['sum'], $_POST['currency']);
+        auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }
 

@@ -111,7 +111,6 @@ $route->get("donate/pay", '\Ofey\Logan22\controller\donate\pay::pay')->alias('do
 $route->get("donate", '\Ofey\Logan22\controller\donate\pay::shop')->alias('donate');
 
 $route->post("donate/transaction", 'Ofey\Logan22\controller\donate\pay::transaction');
-$route->post("donate/pay/success/freekassa", '\Ofey\Logan22\model\donate\freekassa::transaction');
 
 
 /**

@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\auth;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
@@ -254,7 +255,7 @@ class auth {
             return false;
         }
         if(!$userInfo) {
-//            self::logout();
+            return false;
         }
         self::$userInfo = $userInfo;
         return self::$userInfo;
@@ -296,9 +297,11 @@ class auth {
             board::notice(false, lang::get_phrase(160));
         }
         $builder = new Builder;
-
         $captcha = $_POST['captcha'] ?? false;
-        if(!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
+        $userSessionCaptcha = $_SESSION['captcha'];
+
+        captcha::generation();
+        if(!$builder->compare(trim($captcha), $userSessionCaptcha)) {
             board::alert([
                 'ok'      => false,
                 "message" => lang::get_phrase(295),

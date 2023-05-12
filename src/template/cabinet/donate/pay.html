@@ -10,7 +10,7 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <label>{{ phrase("summa") }}</label>
+                        <label>Сколько донат бонусов хотите?</label>
                         <input type="text" id="count" value="" name="range"/>
                     </div>
                 </div>
@@ -140,14 +140,14 @@
     $("#count").ionRangeSlider({
         min: currency_exchange.min_donate_bonus_coin,
         max: currency_exchange.max_donate_bonus_coin,
-        from: 10
+        from: (currency_exchange.min_donate_bonus_coin+currency_exchange.max_donate_bonus_coin)/2
     });
 
     function currency(val){
-        let rub = val*currency_exchange.coefficient['RUB'];
-        let uah = val*currency_exchange.coefficient['UAH'];
-        let usd = val*currency_exchange.coefficient['USD'];
-        let eur = val*currency_exchange.coefficient['EUR'];
+        let rub = val*currency_exchange.coefficient['RUB'] / currency_exchange.quantity;
+        let uah = val*currency_exchange.coefficient['UAH'] / currency_exchange.quantity;
+        let usd = val*currency_exchange.coefficient['USD'] / currency_exchange.quantity;
+        let eur = val*currency_exchange.coefficient['EUR'] / currency_exchange.quantity;
         $("#count_rub").text(rub.toFixed(1));
         $("#count_uah").text(uah.toFixed(1));
         $("#count_usd").text(usd.toFixed(1));

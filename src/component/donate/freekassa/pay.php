@@ -83,6 +83,7 @@ class freekassa {
         if($sign != $_REQUEST['SIGN'])
             die('wrong sign');
 
+        $amount = \Ofey\Logan22\model\donate\donate::currency($amount, $_REQUEST['currency']);
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }
