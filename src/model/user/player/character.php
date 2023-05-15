@@ -38,11 +38,12 @@ class character {
 
         $base = base::get_sql_source($server_info_cache[$server_id]['collection_sql_base_name'], "account_players");
         $players = player_account::extracted($base, $server_info_cache[$server_id], [$login]);
+        if(isset($players['error'])){
+            \Ofey\Logan22\controller\page\error::error404($players['error']);
+        }
         $players = $players->fetchAll();
         crest::conversion($players);
-
         cache::save(dir::characters->show_dynamic($server_id, $login), $players);
-
         return $players;
     }
 

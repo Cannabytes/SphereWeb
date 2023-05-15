@@ -24,13 +24,17 @@ class launcher {
         }
     }
 
-    static function add_new_launcher(string $code, string $application, string $phrasebutton, int $server_id): PDOStatement|null|bool {
-        sql::sql("UPDATE `server_list` SET `launcher_accreditation_code` = ? WHERE `id` = ?", [$code, $server_id]);
-
-        return sql::sql("INSERT INTO `launcher` (`l2app`, `phrase`, `server_id`) VALUES (?, ?, ?)", [
+    static function add_new_launcher(string $application, string $phrasebutton, string $args, int $server_id): PDOStatement|null|bool {
+        return sql::sql("INSERT INTO `launcher` (`l2app`, `phrase`, `args`, `server_id`) VALUES (?, ?, ?, ?)", [
             $application,
             $phrasebutton,
+            $args,
             $server_id,
         ]);
     }
+
+    static function remove(int $launcherID): false|PDOStatement|null {
+        return sql::sql("DELETE FROM `launcher` WHERE `id` = ?", [$launcherID]);
+    }
+
 }

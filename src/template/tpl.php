@@ -131,6 +131,21 @@ class tpl {
             return lang::lang_list($remove_lang);
         }));
 
+        //Возвращает полный список содержимого языкового пакета
+        $twig->addFunction(new TwigFunction('show_all_lang_package', function() {
+            return lang::show_all_lang_package();
+        }));
+
+        //Обрезаем слово до N значения, если оно больше, то добавляем в конец троеточие
+        $twig->addFunction(new TwigFunction('truncateWord', function ($word, $length = 16) {
+            if (mb_strlen($word, 'utf-8') <= $length) {
+                return $word;
+            } else {
+                return mb_substr($word, 0, $length, 'utf-8') . '...';
+            }
+        }));
+
+
         //TODO: Наверное лучшее все эти функции сделать отдельно
         // и функцию общего возрата {{ user_info().get_id() }} типо такого пробовать
         $twig->addFunction(new TwigFunction('user_info', function($type) {

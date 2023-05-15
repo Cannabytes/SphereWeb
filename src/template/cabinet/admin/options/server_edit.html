@@ -79,25 +79,25 @@
 						<hr>
 						<h4>{{ phrase(32) }}</h4>
 						 <div class="form-group row">
-						  <label for="host" class="col-sm-2 col-form-label">DB Host</label>
+						  <label for="db_login_host" class="col-sm-2 col-form-label">DB Host</label>
 						  <div class="col-sm-10">
 							<input value="{{ server['login_host'] }}" type="text" class="form-control" name="db_login_host" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="user" class="col-sm-2 col-form-label">DB User</label>
+						  <label for="db_login_user" class="col-sm-2 col-form-label">DB User</label>
 						  <div class="col-sm-10">
 							<input value="{{ server['login_user'] }}" type="text" class="form-control" name="db_login_user" required>
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="password" class="col-sm-2 col-form-label">DB Password</label>
+						  <label for="db_login_password" class="col-sm-2 col-form-label">DB Password</label>
 						  <div class="col-sm-10">
 							<input value="{{ server['login_password'] }}" type="text" class="form-control" name="db_login_password" >
 						  </div>
 						</div>
 						<div class="form-group row">
-						  <label for="name" class="col-sm-2 col-form-label">DB Name</label>
+						  <label for="db_login_name" class="col-sm-2 col-form-label">DB Name</label>
 						  <div class="col-sm-10">
 							<input value="{{ server['login_name'] }}" type="text" class="form-control" name="db_login_name" required>
 						  </div>
@@ -207,6 +207,17 @@
 							<label class="col-sm-2 col-form-label">Админ пароль чата</label>
 							<div class="col-sm-10">
 								<input type="text" minlength="32" maxlength="200" class="form-control" name="chat_admin_password" id="chat_admin_password" value="{{ server['chat_admin_password'] }}">
+							</div>
+						</div>
+
+
+						<hr>
+						<h4>Лаунчер / Обновлятор клиента</h4>
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Код аккредитации лаунчера</label>
+							<div class="col-sm-10">
+								<input value="{{ server['launcher_accreditation_code'] }}" type="text" maxlength="200" class="form-control" name="launcher_accreditation_code" id="launcher_accreditation_code" value="">
 							</div>
 						</div>
 

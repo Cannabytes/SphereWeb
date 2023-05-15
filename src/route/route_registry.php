@@ -179,7 +179,8 @@ $route->post("/admin/options/server/description", 'Ofey\Logan22\controller\admin
 $route->post("/admin/options/server/description/default", 'Ofey\Logan22\controller\admin\options::description_default_page_save');
 
 $route->get("/admin/options/server/launcher/add/(\d+)", "Ofey\Logan22\controller\admin\launcher::add");
-$route->post("/admin/options/server/launcher", "Ofey\Logan22\controller\admin\launcher::addNewServer");
+$route->post("/admin/options/server/launcher/add", "Ofey\Logan22\controller\admin\launcher::addNewServer");
+$route->post("/admin/options/server/launcher/remove", "Ofey\Logan22\controller\admin\launcher::removeLauncher");
 
 $route->get("/admin/gallery/screen", 'Ofey\Logan22\controller\admin\screen::all');
 $route->post("/admin/gallery/screen/enable", 'Ofey\Logan22\controller\admin\screen::add_enable');

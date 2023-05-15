@@ -288,7 +288,7 @@ $(".client_update").click(function () {
       return
    }
    if(isNaN(parseInt($("#selectClient").val(), 10))){
-    notify_error("Не установлена папка для обновления клиента")
+    notify_error("Не 2 установлена папка для обновления клиента")
    }else{
       startUpdate()
       getStatus()
@@ -301,7 +301,7 @@ $("#client_update").click(function () {
       notify_error(criticalErrorMessage)
       return
    }
-   if(isNaN(parseInt($("#selectClient").val(), 10))){
+   if($("#selectClient").val()==""){
     notify_error("Не установлена папка для обновления клиента")
    }else{
       startUpdate()
@@ -433,7 +433,7 @@ $(".startL2").on("click", function(event){
        command: 'startGame',
        application: $(this).attr("data-l2app"),
        args: $(this).attr("data-args"),
-       dir: parseInt($("#selectClient").val(), 10)
+       dir: $("#selectClient").val(),
     }
     socket.send(JSON.stringify(obj));
 });
@@ -462,7 +462,7 @@ function startUpdate() {
    obj = {
       command: 'start_client_update',
       uid: launcher_accreditation_code,
-      updateDirID: parseInt($("#selectClient").val(), 10),
+      updateDirID: $("#selectClient").val(),
    };
    sendToLauncher(obj);
 }

@@ -119,4 +119,8 @@ class lang {
         $_SESSION['lang'] = $lang_name;
         return $lang_name;
     }
+
+    public static function show_all_lang_package() {
+        return require "src/component/lang/package/". self::lang_user_default() . ".php";
+    }
 }
