@@ -28,6 +28,7 @@ enum dir {
     case statistic_class;
     case referral;
     case characters;
+    case chat;
 
     /**
      * Для статических адресов
@@ -65,6 +66,7 @@ enum dir {
             dir::statistic_class => "uploads/cache/statistic/{$server_id}/{$name}",
             dir::referral => "uploads/cache/referral/{$name}",
             dir::characters => "uploads/cache/characters/{$server_id}/{$name}",
+            dir::chat => "uploads/cache/chat/{$server_id}",
         };
     }
 }

@@ -54,7 +54,7 @@ class freekassa {
         $donate = include 'src/config/donate.php';
         $order_amount = $_POST['count'] * $donate['coefficient']['RUB'];
         $merchant_id = $this->merchant_id;
-        $order_id = auth::get_id();
+        $order_id = auth::get_email();
         $secret_word = $this->secret_key_1;
         $currency = $this->currency_default;
         $sign = md5($merchant_id . ':' . $order_amount . ':' . $secret_word . ':' . $currency . ':' . $order_id);
@@ -80,8 +80,9 @@ class freekassa {
 
         $sign = md5($MERCHANT_ID . ':' . $_REQUEST['AMOUNT'] . ':' . $this->secret_key_2 . ':' . $MERCHANT_ORDER_ID);
 
-        if($sign != $_REQUEST['SIGN'])
+        if($sign != $_REQUEST['SIGN']){
             die('wrong sign');
+        }
 
         $amount = \Ofey\Logan22\model\donate\donate::currency($amount, $_REQUEST['currency']);
         auth::change_donate_point($user_id, $amount);

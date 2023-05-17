@@ -15,10 +15,14 @@ use Ofey\Logan22\component\fileSys\fileSys;
  */
 class cache {
 
-    static public function read($dir, $decode = false, $second = 60) {
+    public static function read($dir, $decode = false, $second = 60) {
         $actual = fileSys::is_actual_stat_file($dir, $decode, $second);
-        if($actual)
+        if($actual){
+            if($decode){
+                return $actual;
+            }
             return json_decode($actual, true);
+        }
         return false;
     }
 
@@ -28,10 +32,23 @@ class cache {
      * @param dir        $dir
      * @param bool|array $last_message
      */
-    static public function save(string $dir, bool|array $last_message = []) {
+    public static function save(string $dir, bool|array $last_message = []): bool
+    {
         if($last_message && fileSys::put($dir, $last_message)) {
             return true;
         }
         return false;
     }
+
+    public static function clear(string $dir)
+    {
+        $files = glob($dir . '/*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
+
+    }
+
 }

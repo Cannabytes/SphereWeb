@@ -2,12 +2,20 @@ var last_message_id = 0;
 var player_message = "";
 var text_message = "";
 
-if(typeof chat_admin_password == 'undefined'){
-   var chat_admin_password = ""
+if (typeof chat_admin_password === 'undefined'){
+    var chat_admin_password = "";
 }
 
+
 function connect() {
-    var socket = new WebSocket("ws://" + web_socket_c);
+	
+	var headers = {
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+		'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+	};
+
+	var socket = new WebSocket("ws://" + web_socket_c, null, headers);
     var refreshSend;
 
     socket.onopen = function () {

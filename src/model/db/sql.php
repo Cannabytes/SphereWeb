@@ -28,8 +28,7 @@ class sql {
         if(self::$instance === null) {
             try {
                 if(!file_exists('src/config/db.php')) {
-                    header("Location: /install/db");
-                    die();
+                    return null;
                 }
                 require_once 'src/config/db.php';
                 self::$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD, $options = [
@@ -68,7 +67,12 @@ class sql {
      * @throws Exception
       */
     public static function run($query, $args = [], $showJson = false) {
-        if(!self::connect()) {
+        if(self::connect()===null) {
+//            var_dump(debug_backtrace());
+            echo 'Необходимо установить движок.<br><a href="/install">Нажми чтоб перейти на страницу установки.</a>';
+            exit;
+        }
+        if(self::connect()===false) {
             echo 'Not connect to db';
             exit;
         }

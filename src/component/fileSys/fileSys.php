@@ -99,7 +99,7 @@ class fileSys {
      *
      * @return bool|string
      */
-    static public function is_actual_stat_file($pathDir, bool $decode = false, $second = 60): bool|string {
+    static public function is_actual_stat_file($pathDir, bool $decode = false, $second = 60): bool|string|array {
         $statInfo = self::get_dir_files($pathDir, [
             'basename' => false,
             'suffix'   => '.json',

@@ -3,15 +3,11 @@
 {% set title = phrase(238) %}
 
 {% block content %}
-
 {% if (user_info('get_is_auth')) and (get_server_info() is not empty) %}
 <div class="row">
-
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-            <div class="card-header">{{ phrase(43) }}
-            </div>
-
+            <div class="card-header">{{ phrase(43) }}</div>
             <div class="row">
                 {% if get_server_info()|length >= 1 %}
                 <div class="col-lg-12">
@@ -24,7 +20,6 @@
                         </li>
                         {% endfor %}
                     </ul>
-
 
                     <div class="tab-content">
                         {% for num,server in get_server_info() %}
@@ -65,26 +60,20 @@
                                    data-target="#registration"
                                    class="btn-social-text btn-github waves-effect waves-light m-1">
                                     <i class="fa fa-user-o"></i> <span>{{ phrase(40) }}</span></a>
-
                                 <a href="/registration/account/sync/server/{{ server.id }}"
                                    class="btn-social-text btn-github waves-effect waves-light m-1">
                                     <i class="fa fa-superpowers"></i> <span>{{ phrase(335) }}</span></a>
                             </div>
-
                         </div>
                         {% endfor %}
-
                     </div>
                 </div>
                 {%endif%}
             </div>
-
-
         </div>
     </div>
 
     {% include ('chat/panel.html') %}
-
 
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
@@ -99,7 +88,6 @@
                     </div>
                 </li>
                 {% endfor %}
-
             </ul>
         </div>
     </div>
@@ -186,7 +174,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">{{ phrase("password") }} <a
                                     id="new_password_word" href="#"><i aria-hidden="true"
@@ -262,8 +249,6 @@
 {% endblock %}
 
 {% block js %}
-
-
 <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
 <script src="{{'assets/plugins/vertical-timeline/js/vertical-timeline.js'|template}}"></script>
 <script src="{{'assets/js/news/news.js'|template}}"></script>
@@ -304,7 +289,8 @@
         var web_socket_c = "{{ get_server_default()['chat_websocket_host'] }}";
 
 </script>
-<script src="{{'assets/js/ws/chat.js'|template}}"></script>
+<script src="{{'assets/js/ws/chatself.js'|template}}"></script>
+<!--<script src="{{'assets/js/ws/chat.js'|template}}"></script>-->
 {% endif %}
 
 

@@ -14,7 +14,7 @@ use Ofey\Logan22\component\request\request_config;
 
 class update_cache {
 
-    static public function save(){
+    public static function save(){
         $cache = [];
         $cache['forum'] = (int)request::setting('forum', new request_config(minValue: 30, isNumber: true));
         $cache['server_online_status'] = (int)request::setting('server_online_status', new request_config(minValue: 30, isNumber: true));

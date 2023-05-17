@@ -12,47 +12,39 @@ use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\gallery\screenshot as screenshot_model;
 use Ofey\Logan22\model\user\auth\auth;
+use PDOStatement;
 use Verot\Upload\Upload;
 
-class screenshot {
+class screenshot
+{
 
     //Кол-во изображений загруженых пользователем
-    static public function count_user_screenshots($user_id): int {
-        return sql::run("SELECT
-                    COUNT(*) as `count`
-                FROM
-                    gallery_screenshot
-                WHERE
-                    gallery_screenshot.user_id = ?
-                LIMIT 1", [$user_id])->fetch()['count'];
-    }
-
-    //Кол-во изображений загруженных пользователями
-    static public function count_screenshots(): int {
-        return sql::run("SELECT COUNT(*) as `count` FROM `gallery_screenshot` ")->fetch()['count'];
-    }
-
-    static public function load($limit = 30) {
+    public static function load($limit = 30): false|array
+    {
         return sql::run("SELECT * FROM `gallery_screenshot` WHERE enable = 1 ORDER BY id DESC LIMIT ?;", [$limit])->fetchAll();
     }
 
-    static public function admin_load_all() {
+    //Кол-во изображений загруженных пользователями
+
+    public static function admin_load_all(): false|array
+    {
         return sql::run("SELECT * FROM `gallery_screenshot` ORDER BY id, enable DESC ")->fetchAll();
     }
 
-    //Удовлетворение заявки размещения скриншота
-    static public function admin_screen_enable($screen_id) {
+    public static function admin_screen_enable($screen_id): false|PDOStatement|null
+    {
         return sql::run(" UPDATE `gallery_screenshot` SET `enable` = 1 WHERE `id` = ?", [$screen_id]);
     }
 
-    public static function load_my_screen() {
+    public static function load_my_screen(): false|array
+    {
         return sql::run("SELECT * FROM `gallery_screenshot` WHERE user_id = ?", [auth::get_id()])->fetchAll();
     }
 
     static public function save_screen() {
         $handle = new Upload($_FILES['file']);
-        if($handle->uploaded) {
-            if(screenshot_model::count_user_screenshots(auth::get_id()) >= config::get_max_user_count_screenshots() or screenshot_model::count_screenshots() >= config::get_max_count_all_screenshots()) {
+        if ($handle->uploaded) {
+            if (screenshot_model::count_user_screenshots(auth::get_id()) >= config::get_max_user_count_screenshots() or screenshot_model::count_screenshots() >= config::get_max_count_all_screenshots()) {
                 board::notice(false, 'Вы достигли лимита загрузок изображений');
             }
 
@@ -69,7 +61,7 @@ class screenshot {
             $handle->image_convert = 'webp';
             $handle->webp_quality = 95;
             $handle->process('./uploads/screenshots');
-            if(!$handle->processed) {
+            if (!$handle->processed) {
                 board::notice(false, $handle->error);
             }
 
@@ -80,12 +72,12 @@ class screenshot {
             $handle->image_convert = 'webp';
             $handle->webp_quality = 85;
             $handle->process('./uploads/screenshots');
-            if($handle->processed) {
+            if ($handle->processed) {
                 $handle->clean();
             } else {
                 board::notice(false, $handle->error);
             }
-            if(auth::get_access_level() == "admin" or auth::get_access_level() == "moderator") {
+            if (auth::get_access_level() == "admin" or auth::get_access_level() == "moderator") {
                 sql::run("INSERT INTO `gallery_screenshot` (`user_id`, `image`, `enable`) VALUES (?, ?, ?)", [
                     auth::get_id(),
                     $filename . ".webp",
@@ -102,7 +94,24 @@ class screenshot {
         }
     }
 
-    public static function save_description() {
+    public static function count_user_screenshots($user_id): int
+    {
+        return sql::run("SELECT
+                    COUNT(*) as `count`
+                FROM
+                    gallery_screenshot
+                WHERE
+                    gallery_screenshot.user_id = ?
+                LIMIT 1", [$user_id])->fetch()['count'];
+    }
+
+    public static function count_screenshots(): int
+    {
+        return sql::run("SELECT COUNT(*) as `count` FROM `gallery_screenshot` ")->fetch()['count'];
+    }
+
+    public static function save_description(): void
+    {
         $id = $_POST['id'];
         $desc = $_POST['desc'];
         $upd = sql::run("UPDATE `gallery_screenshot` SET `desciption` = ? WHERE `id` = ? and user_id=?", [
@@ -110,36 +119,39 @@ class screenshot {
             $id,
             auth::get_id(),
         ]);
-        if($upd->rowCount() == 0) {
+        if ($upd->rowCount() == 0) {
             exit(json_encode([
-                'ok'      => false,
+                'ok' => false,
                 'message' => 'Not change',
             ]));
         }
         exit(json_encode([
-            'ok'      => true,
+            'ok' => true,
             'message' => 'Данные обновлены',
         ]));
     }
 
-    public static function screen_remove($screen_id, $image_name) {
+    public static function screen_remove($screen_id, $image_name): void
+    {
         $status = unlink("uploads/screenshots/" . $image_name);
-        if(!$status) {
+        if (!$status) {
             board::notice(false, "Not find file: " . $image_name);
         }
         $status = unlink("uploads/screenshots/thumb_" . $image_name);
-        if(!$status) {
+        if (!$status) {
             board::notice(false, "Not find file: " . $image_name);
         }
         sql::run("DELETE FROM `gallery_screenshot` WHERE `id` = ?", [$screen_id]);
         board::notice(true, "Удалено");
     }
 
-    public static function get_hash_name_gallery_image($id) {
+    public static function get_hash_name_gallery_image($id)
+    {
         return sql::run("SELECT * FROM gallery_screenshot WHERE id = ?", [$id])->fetch();
     }
 
-    public static function options_save(bool $screen_enable = true, int $max_user_count_screenshots = 30, int $max_count_all_screenshots = 500) {
+    public static function options_save(bool $screen_enable = true, int $max_user_count_screenshots = 30, int $max_count_all_screenshots = 500): false|PDOStatement|null
+    {
         return sql::run("UPDATE `config` SET `screen_enable` = ?, `max_user_count_screenshots` = ?, `max_count_all_screenshots` = ? LIMIT 1", [
             (int)$screen_enable,
             $max_user_count_screenshots,

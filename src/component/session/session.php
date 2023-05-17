@@ -7,6 +7,8 @@
 
 namespace Ofey\Logan22\component\session;
 
+use Ofey\Logan22\model\user\auth\auth;
+
 class session {
 
     public static function init(){
@@ -15,6 +17,7 @@ class session {
             'gc_maxlifetime' => 86400*365,
             'use_strict_mode' => true,
         ]);
+        auth::user_auth();
     }
 
     public static function add($key, $value) {

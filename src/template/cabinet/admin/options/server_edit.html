@@ -4,13 +4,8 @@
 
 <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-           <div class="card-body">
 
         <div class="row">
-
-
-		<!-- Right Sidebar -->
         <div class="col-lg-12 col-md-12">
 
             <div class="card mt-0 shadow-none">
@@ -184,7 +179,7 @@
 						</div>
 						<hr>
 
-						<h4>Для вывода игрового чата</h4>
+						<h4>Игровой чат</h4>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label"></label>
@@ -197,30 +192,26 @@
 						</div>
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">IP чат-сервера</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="chat_websocket_host" id="chat_websocket_host" value="{{ server['chat_websocket_host'] }}">
-							</div>
+							<label class="col-sm-12 col-form-label">Для вывода информации из чата необходимо запустить программу, которая будет парсить каждые N сек. сообщения из файла chat.log сервера и отправлять БД сайта.</label>
 						</div>
-
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Админ пароль чата</label>
-							<div class="col-sm-10">
-								<input type="text" minlength="32" maxlength="200" class="form-control" name="chat_admin_password" id="chat_admin_password" value="{{ server['chat_admin_password'] }}">
-							</div>
-						</div>
-
-
 						<hr>
-						<h4>Лаунчер / Обновлятор клиента</h4>
+
+						<h4>Веб-лаунчер</h4>
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Код аккредитации лаунчера</label>
+							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
-								<input value="{{ server['launcher_accreditation_code'] }}" type="text" maxlength="200" class="form-control" name="launcher_accreditation_code" id="launcher_accreditation_code" value="">
+								<div class="icheck-material-primary">
+									<input name="launcher_enabled" type="checkbox" id="launcher_enabled" {% if server.launcher_enabled %}checked=""{%endif%}/>
+									<label for="launcher_enabled">Включить лаунчер</label>
+								</div>
 							</div>
 						</div>
 
+						<div class="form-group row">
+							<label class="col-sm-12 col-form-label">Веб-лаунчер это возможность обновления игры используя интерфейс CMS.<br>
+							Подробнее: <a target="_blank" href="https://cannabytes.github.io">https://cannabytes.github.io</a></label>
+						</div>
 						<hr>
 
 				  <div class="form-group">
@@ -231,9 +222,8 @@
                 </div> <!-- card body -->
              </div> <!-- card -->
            </div> <!-- end Col-9 -->
-         </div><!-- End row -->
-      </div>
-    </div>
+         </div>
+
   </div>
  </div>
 

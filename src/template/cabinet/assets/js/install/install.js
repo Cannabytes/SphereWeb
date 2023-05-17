@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $("form").submit(function (event) {
         $('#add_db').prop('disabled', true);
-        $('#add_db').text('Loading...');
         $.ajax({
             type: "POST",
             url: "/install/db/connect/test",
@@ -13,6 +12,7 @@ $(document).ready(function () {
                 notify_success(data.message)
                 document.location.href = '/install/admin'
             }else {
+                $('#add_db').prop('disabled', false);
                 notify_error(data.message)
             }
         });

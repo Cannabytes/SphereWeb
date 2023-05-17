@@ -16,51 +16,44 @@ class server {
     static private $data_list_server = null;
 
     static public function save_server() {
-        $name_server = $_POST['name'];
+        $name_server = !empty($_POST['name']) ? trim($_POST['name']) : board::notice(false, "Не заполнено название сервера");
+        $version_client = !empty($_POST['version_client']) ? trim($_POST['version_client']) : board::notice(false, "Не заполнена версия клиента");
 
-        $version_client = $_POST['version_client'];
+        $rate_exp = !empty($_POST['rate_exp']) ? trim($_POST['rate_exp']) : board::notice(false, "Не заполнено поле Rate EXP");
+        $rate_sp = !empty($_POST['rate_sp']) ? trim($_POST['rate_sp']) : board::notice(false, "Не заполнено поле Rate SP");
+        $rate_adena = !empty($_POST['rate_adena']) ? trim($_POST['rate_adena']) : board::notice(false, "Не заполнено поле Rate Adena");
+        $rate_drop = !empty($_POST['rate_drop']) ? trim($_POST['rate_drop']) : board::notice(false, "Не заполнено поле Rate Drop");
+        $rate_spoil = !empty($_POST['rate_spoil']) ? trim($_POST['rate_spoil']) : board::notice(false, "Не заполнено поле Rate Spoil");
 
-        $rate_exp = $_POST['rate_exp'];
-        $rate_sp = $_POST['rate_sp'];
-        $rate_adena = $_POST['rate_adena'];
-        $rate_drop = $_POST['rate_drop'];
-        $rate_spoil = $_POST['rate_spoil'];
-
-        $date_start = $_POST['date_start'];
-        $time_start = $_POST['time_start'];
+        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
+        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
 
         //Данные БД для логина
-        $db_login_host = $_POST['db_login_host'];
-        $db_login_user = $_POST['db_login_user'];
+        $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : board::notice(false, "Не заполнено поле хоста БД логина сервера");
+        $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : board::notice(false, "Не заполнено поле имя пользователя БД логин сервера");
         $db_login_password = $_POST['db_login_password'];
-        $db_login_name = $_POST['db_login_name'];
+        $db_login_name = !empty($_POST['db_login_name']) ? trim($_POST['db_login_name']) : board::notice(false, "Не заполнено поле имя БД логин сервера");
         //Данные БД для гейма
-        $db_game_host = $_POST['db_game_host'];
-        $db_game_user = $_POST['db_game_user'];
+        $db_game_host = !empty($_POST['db_game_host']) ? trim($_POST['db_game_host']) : board::notice(false, "Не заполнено поле хоста БД гейм сервера");;
+        $db_game_user = !empty($_POST['db_game_user']) ? trim($_POST['db_game_user']) : board::notice(false, "Не заполнено поле имя пользователя БД гейм сервера");;
         $db_game_password = $_POST['db_game_password'];
-        $db_game_name = $_POST['db_game_name'];
+        $db_game_name = !empty($_POST['db_game_name']) ? trim($_POST['db_game_name']) : board::notice(false, "Не заполнено поле имя БД гейм сервера");
 
-        if(!isset($_POST['sql_base_source'])) {
-            board::notice(false, "Need select sql database server collection");
-        }
-        $sql_base_source = $_POST['sql_base_source'];
 
+        $sql_base_source = !empty($_POST['sql_base_source']) ? trim($_POST['sql_base_source']) : board::notice(false, "Need select sql database server collection");
         $check_server_online = isset($_POST['check_server_online']) ?: 0;
 
         $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
-        $check_loginserver_online_port = $_POST['check_loginserver_online_port'];
+        $check_loginserver_online_port = $_POST['check_loginserver_online_port'] ?: null;
         $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
-        $check_gameserver_online_port = $_POST['check_gameserver_online_port'];
+        $check_gameserver_online_port = $_POST['check_gameserver_online_port'] ?: null;
 
-        $ws_chat_enable = isset($_POST['chat_game_enabled']) ?: 0;
-
-        $ws_ip_host = $_POST['chat_websocket_host'];
-        $ws_admin_password = $_POST['chat_admin_password'];
-        $launcher_accreditation_code = $_POST['launcher_accreditation_code'];
+        $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
+        $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
 
         //TODO: Проверка на соединение с БД
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled`, `chat_websocket_host`, `chat_admin_password`, `launcher_accreditation_code`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled` , `launcher_enabled` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -86,11 +79,9 @@ class server {
             $check_gameserver_online_host,
             $check_gameserver_online_port,
 
-            $ws_chat_enable,
-            $ws_ip_host,
-            $ws_admin_password,
-            $launcher_accreditation_code
-        ], true);
+            $chat_game_enabled,
+            $launcher_enabled,
+         ], false);
         if(!$ok) {
             board::notice(false, 'Ошибка');
         }
@@ -98,45 +89,41 @@ class server {
     }
 
     static public function update_server() {
-        $server_id = $_POST['server_id'];
+        $server_id = !empty($_POST['server_id']) ? trim($_POST['server_id']) : board::notice(false, "Нет ID редактируемого сервера");
 
-        $name_server = $_POST['name'];
+        $name_server = !empty($_POST['name']) ? trim($_POST['name']) : board::notice(false, "Не заполнено название сервера");
+        $version_client = !empty($_POST['version_client']) ? trim($_POST['version_client']) : board::notice(false, "Не заполнена версия клиента");
 
-        $version_client = $_POST['version_client'];
+        $rate_exp = !empty($_POST['rate_exp']) ? trim($_POST['rate_exp']) : board::notice(false, "Не заполнено поле Rate EXP");
+        $rate_sp = !empty($_POST['rate_sp']) ? trim($_POST['rate_sp']) : board::notice(false, "Не заполнено поле Rate SP");
+        $rate_adena = !empty($_POST['rate_adena']) ? trim($_POST['rate_adena']) : board::notice(false, "Не заполнено поле Rate Adena");
+        $rate_drop = !empty($_POST['rate_drop']) ? trim($_POST['rate_drop']) : board::notice(false, "Не заполнено поле Rate Drop");
+        $rate_spoil = !empty($_POST['rate_spoil']) ? trim($_POST['rate_spoil']) : board::notice(false, "Не заполнено поле Rate Spoil");
 
-        $rate_exp = $_POST['rate_exp'];
-        $rate_sp = $_POST['rate_sp'];
-        $rate_adena = $_POST['rate_adena'];
-        $rate_drop = $_POST['rate_drop'];
-        $rate_spoil = $_POST['rate_spoil'];
-
-        $date_start = $_POST['date_start'];
-        $time_start = $_POST['time_start'];
+        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
+        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
 
         //Данные БД для логина
-        $db_login_host = $_POST['db_login_host'];
-        $db_login_user = $_POST['db_login_user'];
+        $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : board::notice(false, "Не заполнено поле хоста БД логина сервера");
+        $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : board::notice(false, "Не заполнено поле имя пользователя БД логин сервера");
         $db_login_password = $_POST['db_login_password'];
-        $db_login_name = $_POST['db_login_name'];
+        $db_login_name = !empty($_POST['db_login_name']) ? trim($_POST['db_login_name']) : board::notice(false, "Не заполнено поле имя БД логин сервера");
         //Данные БД для гейма
-        $db_game_host = $_POST['db_game_host'];
-        $db_game_user = $_POST['db_game_user'];
+        $db_game_host = !empty($_POST['db_game_host']) ? trim($_POST['db_game_host']) : board::notice(false, "Не заполнено поле хоста БД гейм сервера");;
+        $db_game_user = !empty($_POST['db_game_user']) ? trim($_POST['db_game_user']) : board::notice(false, "Не заполнено поле имя пользователя БД гейм сервера");;
         $db_game_password = $_POST['db_game_password'];
-        $db_game_name = $_POST['db_game_name'];
+        $db_game_name = !empty($_POST['db_game_name']) ? trim($_POST['db_game_name']) : board::notice(false, "Не заполнено поле имя БД гейм сервера");
 
-        $sql_base_source = $_POST['sql_base_source'];
-
+        $sql_base_source = !empty($_POST['sql_base_source']) ? trim($_POST['sql_base_source']) : board::notice(false, "Need select sql database server collection");
         $check_server_online = isset($_POST['check_server_online']) ?: 0;
+
         $check_loginserver_online_host = $_POST['check_loginserver_online_host'];
         $check_loginserver_online_port = $_POST['check_loginserver_online_port'] ?: null;
         $check_gameserver_online_host = $_POST['check_gameserver_online_host'];
         $check_gameserver_online_port = $_POST['check_gameserver_online_port'] ?: null;
 
-        $ws_chat_enable = isset($_POST['chat_game_enabled']) ?: 0;
-        $ws_ip_host = $_POST['chat_websocket_host'];
-        $ws_admin_password = $_POST['chat_admin_password'];
-        $launcher_accreditation_code = $_POST['launcher_accreditation_code'];
-        //TODO: Проверка на соединение с БД
+        $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
+        $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
 
         $sql = "UPDATE `server_list` SET
                          `name` = ?,
@@ -162,10 +149,8 @@ class server {
                         `check_gameserver_online_host` = ?,
                         `check_gameserver_online_port` = ?,
                         `chat_game_enabled` = ?,
-                        `chat_websocket_host` = ?,
-                        `chat_admin_password` = ?,
-                        `launcher_accreditation_code` = ?
-                         WHERE
+                        `launcher_enabled` = ?
+                        WHERE
                             `id` = ?";
         $ok = sql::run($sql, [
             $name_server,
@@ -192,10 +177,8 @@ class server {
             $check_gameserver_online_host,
             $check_gameserver_online_port,
 
-            $ws_chat_enable,
-            $ws_ip_host,
-            $ws_admin_password,
-            $launcher_accreditation_code,
+            $chat_game_enabled,
+            $launcher_enabled,
 
             $server_id,
         ]);
@@ -240,30 +223,13 @@ class server {
         return sql::run("SELECT * FROM `server_list` WHERE id=?;", [$id])->fetch();
     }
 
-    public static function db_info_id($id) {
-        return sql::run("SELECT id, login_host, login_name, login_password, login_user, game_host, game_name, game_password, game_user, collection_sql_base_name, password_encrypt FROM server_connect_db WHERE id = ?", [$id])->fetch();
-    }
-
-    static function get_server_description($server_id) {
-        $sqlDescInfo = "SELECT
-	                        server_id, 
-	                        lang,
-	                        page_id,
-	                        default,
-	                        date_create, 
-	                        date_update
-                        FROM
-                            server_description
-                        WHERE
-                            server_description.server_id = ?";
-        return sql::run($sqlDescInfo, [$server_id])->fetch();
-    }
-
     public static function remove_server() {
         $server_id = $_POST['server_id'];
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
+        if(!$get_server_info){
+            board::notice(false, "Сервер не найден");
+        }
         sql::run("DELETE FROM `server_list` WHERE `id` = ?", [$server_id]);
-        sql::run("DELETE FROM `server_connect_db` WHERE `id` = ?", [$get_server_info['db_id']]);
         sql::run("DELETE FROM `server_description` WHERE `server_id` = ?", [$server_id]);
         board::notice(true, lang::get_phrase(146));
     }

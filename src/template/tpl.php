@@ -85,7 +85,7 @@ class tpl {
         $loader = new FilesystemLoader($__ROOT__ . $templatePath);
 
         $twig = new Environment($loader, [
-            'cache'       => $__ROOT__ . "/uploads/cache",
+            'cache'       => $__ROOT__ . "/uploads/cache/template",
             'auto_reload' => true,
             'debug'       => true,
         ]);

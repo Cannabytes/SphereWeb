@@ -24,12 +24,12 @@ class screenshot {
         tpl::addVar("screens", $screens);
         tpl::addVar("title", lang::get_phrase(236));
         $allow_load_screenshot = true;
-
-        if(screenshot_model::count_user_screenshots(auth::get_id()) >= config::get_max_user_count_screenshots() or screenshot_model::count_screenshots() >= config::get_max_count_all_screenshots()) {
-            $allow_load_screenshot = false;
+        if (auth::get_is_auth()) {
+            if (screenshot_model::count_user_screenshots(auth::get_id()) >= config::get_max_user_count_screenshots() or screenshot_model::count_screenshots() >= config::get_max_count_all_screenshots()) {
+                $allow_load_screenshot = false;
+            }
         }
         tpl::addVar("allow_load_screenshot", $allow_load_screenshot);
-
         tpl::display("/gallery/screenshots.html");
     }
 

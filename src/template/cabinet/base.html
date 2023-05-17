@@ -83,9 +83,9 @@
                             <br>
                             <div class=""><b>Online</b>  {{online['player_count_online']}}</div>
                             <div class=""><b>{{online['chronicle']}}</b></div>
-                            {% if online['launcher_accreditation_code'] %}
+                            {% if online['launcher_enabled'] %}
                             <hr>
-                            <div><b><a data-toggle="tooltip" data-placement="top" data-original-title="Лаунчер для обновления клиента" href="/launcher/{{online['id']}}">Подключение</a></b></div>
+                            <div><b><a class="text-danger" data-toggle="tooltip" data-placement="top" data-original-title="Лаунчер для обновления клиента" href="/launcher/{{online['id']}}">Веб-Лаунчер</a></b></div>
                             {% endif %}
 
                         </div>

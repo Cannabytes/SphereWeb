@@ -21,9 +21,9 @@ use Ofey\Logan22\model\user\player\player_account;
 
 class online {
 
-    static private array $server_status = [];
+    private static array $server_status = [];
 
-    static public function server_online_status() {
+    public static function server_online_status() {
 
         $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
         if($actualCache)
@@ -35,7 +35,7 @@ class online {
             $connect_game = false;
             $player_count_online = 0;
 
-            if($info['chat_game_enabled']){
+            if($info['check_server_online']){
                 if(@fsockopen($info['check_loginserver_online_host'], $info['check_loginserver_online_port'], $errno, $errstr, 1)) {
                     $connect_login = true;
                 }
@@ -53,13 +53,12 @@ class online {
                     }
                 }
             }
-
             self::$server_status[] = [
                 'id'                          => $info['id'],
                 'name'                        => $info['name'],
                 'rate_exp'                    => $info['rate_exp'],
                 'chronicle'                   => $info['chronicle'],
-                'launcher_accreditation_code' => $info['launcher_accreditation_code'],
+                'launcher_enabled'            => $info['launcher_enabled'],
                 'connect_login'               => $connect_login,
                 'connect_game'                => $connect_game,
                 'player_count_online'         => $player_count_online,

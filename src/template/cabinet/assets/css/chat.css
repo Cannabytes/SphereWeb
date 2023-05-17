@@ -70,31 +70,37 @@
     border-right-color: #18191a;
 }
 
-.messages .message.left .text {
+.messages .message.left .ALL {
     color: #fff;
 }
-.messages .message.left .tell {
+.messages .message.left .TELL {
     color: #b00c86;
 }
-.messages .message.left .trade {
+.messages .message.left .TRADE {
     color: #d3b647;
 }
-.messages .message.left .shout {
+.messages .message.left .SHOUT {
     color: #c48843;
 }
-.messages .message.left .party {
+.messages .message.left .PARTY {
     color: #207900;
 }
-.messages .message.left .clan {
+.messages .message.left .CLAN {
     color: #0d886b;
 }
-.messages .message.left .other {
+.messages .message.left .ALLIANCE {
+    color: #085845;
+}
+.messages .message.left .PETITION_PLAYER {
+    color: #0d886b;
+}
+.messages .message.left .OTHER {
+    color: #6080da;
+}
+.messages .message.left .HERO_VOICE {
     color: #023dec;
 }
-.messages .message.left .hero_voice {
-    color: #023dec;
-}
-.messages .message.left .priv_msg {
+.messages .message.left .PRIV_MSG {
     color: #fffc5f;
 }
 

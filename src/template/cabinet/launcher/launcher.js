@@ -9,7 +9,7 @@ var criticalErrorMessage;
 
 
 //ID сервера
-var serverID = parseInt($(this).attr('data-server_id'), 10)
+var serverID = parseInt($('meta[name="server_default"]').attr('content'), 10);
 var chronicle = $('meta[name="server_chronicle"]').attr('content')
 
 var filesLink = $('#client_update').data('files-link')
@@ -121,7 +121,13 @@ function connect() {
             resetLoadPanel()
          }
          //Если идет загрузка списка, если идет сравнение файлов, если загрузка файлов
-         if (response.status == 1 || response.status == 2 || response.status == 3) {
+         if (response.status == 0 || response.status == 1 || response.status == 2 || response.status == 3) {
+                if( response.status == 0 ){
+                    resetLoadPanel()
+                    allLoadPanel()
+                    showStartGame()
+                }
+
                 //Если приходит запрос, уведомление что идет сравнение файлов
                 if(response.status == 2){
                      percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
@@ -287,8 +293,8 @@ $(".client_update").click(function () {
       notify_error(criticalErrorMessage)
       return
    }
-   if(isNaN(parseInt($("#selectClient").val(), 10))){
-    notify_error("Не 2 установлена папка для обновления клиента")
+   if($("#selectClient").val()==""){
+    notify_error("Не установлена папка для обновления клиента")
    }else{
       startUpdate()
       getStatus()

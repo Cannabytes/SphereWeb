@@ -2,14 +2,18 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
-use Ofey\Logan22\model\user\auth\auth as auth_model;
-use Ofey\Logan22\template\tpl;
+use Ofey\Logan22\model\user\auth\auth;
 
 session::init();
 lang::load_package();
-auth_model::user_auth();
 
 $route = new Ofey\Logan22\route\Route();
+
+$route->get("/install", "Ofey\Logan22\controller\install\install::rules");
+$route->get("/install/db", "Ofey\Logan22\controller\install\install::db");
+$route->post("/install/db/connect/test", "Ofey\Logan22\controller\install\install::db_connect");
+$route->get("/install/admin", "Ofey\Logan22\controller\install\install::admin");
+$route->post("/install/admin", "Ofey\Logan22\controller\install\install::add_admin");
 
 $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
@@ -28,10 +32,10 @@ $route->get("registration/user", 'Ofey\Logan22\controller\registration\user::sho
 $route->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
 $route->get("registration/user/ref/{username}", 'Ofey\Logan22\controller\registration\user::show');
 
-$route->post("generation/account", function() {
+$route->post("generation/account", function () {
     echo \Ofey\Logan22\component\account\generation::word();
 });
-$route->post("generation/password", function() {
+$route->post("generation/password", function () {
     echo \Ofey\Logan22\component\account\generation::password(mt_rand(4, 6), special: false);
 });
 
@@ -145,7 +149,6 @@ $route->post("ticket/remove/comment/image", 'Ofey\Logan22\controller\ticket\tick
 $route->post("ticket/edit/comment", 'Ofey\Logan22\controller\ticket\ticket::editComment');
 $route->post("ticket/edit/ticket", 'Ofey\Logan22\controller\ticket\ticket::editTicket');
 
-
 //лаунчер
 //Пока не используется, нужно создать красивые формы страницы или придумать как это должно работать
 $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');
@@ -207,7 +210,9 @@ $route->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
 
 $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 
-$route->set404(function() {
+$route->post("/chat", 'Ofey\Logan22\controller\chat\chat::show');
+
+$route->set404(function () {
     \Ofey\Logan22\controller\page\error::error404();
 });
 

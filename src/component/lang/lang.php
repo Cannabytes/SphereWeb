@@ -102,7 +102,6 @@ class lang {
         if(!array_key_exists($key, self::$lang_array)) {
             return "[Not phrase «{$key}»]";
         }
-
         if(array_key_exists($key, self::$cache)) {
             return sprintf(self::$cache[$key], ...$values);
         }
@@ -116,8 +115,8 @@ class lang {
     //Язык пользователя по умолчанию
     static public function lang_user_default(): string {
         $lang_name = $_SESSION['lang'] ?? config::get_language_default();
-        $_SESSION['lang'] = $lang_name;
-        return $lang_name;
+        $_SESSION['lang'] = mb_strtolower($lang_name);
+        return $_SESSION['lang'];
     }
 
     public static function show_all_lang_package() {

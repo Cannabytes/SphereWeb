@@ -80,8 +80,8 @@ class auth {
         return self::$is_auth;
     }
 
-    static public function get_id(): string {
-        return self::$id;
+    static public function get_id(): ?string {
+        return self::$id ?? null ;
     }
 
     static public function get_email(): string {
@@ -125,7 +125,7 @@ class auth {
     }
 
     static public function get_avatar(): string {
-        return self::$avatar;
+        return self::$avatar ?? "none.jpeg";
     }
 
     static public function get_avatar_background(): string {
@@ -222,6 +222,8 @@ class auth {
                     self::set_timezone($auth['timezone'] ?? "America/Los_Angeles");
                     return;
                 }
+            }else{
+                session::clear();
             }
         }
         self::set_is_auth(false);
