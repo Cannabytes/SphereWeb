@@ -287,8 +287,8 @@ $(".client_update").click(function () {
       notify_error(criticalErrorMessage)
       return
    }
-   if(isNaN(parseInt($("#selectClient").val(), 10))){
-    notify_error("Не 2 установлена папка для обновления клиента")
+   if($("#selectClient").val()==""){
+    notify_error("Не установлена папка для обновления клиента")
    }else{
       startUpdate()
       getStatus()

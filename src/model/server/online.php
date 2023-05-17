@@ -35,7 +35,7 @@ class online {
             $connect_game = false;
             $player_count_online = 0;
 
-            if($info['chat_game_enabled']){
+            if($info['check_server_online']){
                 if(@fsockopen($info['check_loginserver_online_host'], $info['check_loginserver_online_port'], $errno, $errstr, 1)) {
                     $connect_login = true;
                 }
