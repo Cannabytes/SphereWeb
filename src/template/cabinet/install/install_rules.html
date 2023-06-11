@@ -42,41 +42,124 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="text-center error-pages">
-                    <h1 class="error-title text-danger"> Install</h1>
-
+                     <h1 class="error-title text-danger text-center">Install</h1>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header text-uppercase">Что нужно знать...</div>
                                 <div class="card-body">
                                     <blockquote class="blockquote">
-                                        <p>Данный CMS является бесплатной веб разработкой для Java серверов.<br/>
-                                            В котором будет либо уже реализован нужный функционал для администрирования.
+                                        <p>Sphere-Web является бесплатной веб разработкой для Java серверов написана на языке PHP.<br/>
+                                           В котором реализован огромный функционал для администрирования сайта и личного кабинета.<br/>
+                                            <hr>
+                                        <ol>
+                                            <li>Запрещено продавать CMS или CMS где используется код Sphere-Web</li>
+                                            <li>Запрещено предоставлять платные услуги в данной CMS</li>
+                                            <ol>
+                                                <li class="h6 text-muted">За исключением: Работа над веб-шаблонами</li>
+                                                <li class="h6 text-muted">За исключением: Принимающим участие в разработке Sphere-Web</li>
+                                            </ol>
+                                            <li>Копии Sphere-Web должны содержать ссылки на оригинал <a target="_blank" href="https://github.com/Cannabytes/SphereWeb">github</a> проекта Sphere-Web</li>
+                                        </ol>
+
                                         </p>
                                         <hr>
-                                        <p>Вы устанавливаете CMS на свой страх и риск.</p>
-                                        <p>Вы можете заказать разработку дополнительного функционала.</p>
-                                        <footer class="blockquote-footer">@Разработчик</footer>
+                                        <p>Вы можете заказать разработку дополнительного функционала у разработчика CMS.</p>
+                                        <footer class="blockquote-footer">Телеграмм чат CMS с описание доработок и связи с разработчиком - <a href="https://t.me/l2jweb" class="fa fa-telegram m-1 text-success"> l2jweb</a></footer>
                                     </blockquote>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-footer">
-                        <a href="/install/db" class="btn btn-success"><i class="fa fa-check-square-o"></i> Продолжить
-                            установку</a>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header text-uppercase">Проверка необходимых прав директорий (755)</div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Директория</th>
+                                        <th scope="col">Необходимые настройки</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for dir in dir_permissions %}
+                                        <tr>
+                                            <th scope="row">{{ dir.path }}</th>
+                                            <td>{{ dir.per  ?  '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
-                    <hr class="w-50">
-                    <div class="mt-2">
-                        <a href="https://github.com/Cannabytes/webAdmin" target="_blank"
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header text-uppercase">Минимальные настройки PHP</div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Параметр</th>
+                                        <th scope="col">Минимально</th>
+                                        <th scope="col">Сейчас</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for info in php_informations %}
+                                        <tr>
+                                            <th scope="row">{{info.name}}</th>
+                                            <th scope="row">{{info.min}}</th>
+                                            <th scope="row">{{info.get}}</th>
+                                            <th scope="row">{{info.allow ? '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</th>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <br>
+                                <div class="card-header text-uppercase">Необходимые подключенные расширения PHP</div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Библиотека</th>
+                                        <th scope="col">Подключена</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for ext in extensions %}
+                                        <tr>
+                                            <th scope="row">{{ext.name}}</th>
+                                            <th scope="row">{{ext.allow ? '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</th>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-footer text-center">
+                        {% if allow_install %}
+                        <a href="/install/db" class="btn btn-success">Продолжить установку</a>
+                        {% else %}
+                        <label href="#" disabled="" class="btn btn-danger">Невозможно продолжить установку</label>
+                        {% endif %}
+                    </div>
+
+                    <hr class="w-150">
+                    <div class="mt-2 text-center">
+                        <a href="https://github.com/Cannabytes/SphereWeb" target="_blank"
                            class="btn-social btn-github btn-social-circle waves-effect waves-light m-1"><i
                                 class="fa fa-github"></i></a>
                     </div>
                 </div>
-            </div>
+
         </div>
     </div>
 

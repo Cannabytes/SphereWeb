@@ -24,7 +24,6 @@ class online {
     private static array $server_status = [];
 
     public static function server_online_status() {
-
         $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
         if($actualCache)
             return $actualCache;

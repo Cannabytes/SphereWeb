@@ -2,18 +2,19 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
-use Ofey\Logan22\model\user\auth\auth;
 
 session::init();
 lang::load_package();
 
 $route = new Ofey\Logan22\route\Route();
 
-$route->get("/install", "Ofey\Logan22\controller\install\install::rules");
-$route->get("/install/db", "Ofey\Logan22\controller\install\install::db");
-$route->post("/install/db/connect/test", "Ofey\Logan22\controller\install\install::db_connect");
-$route->get("/install/admin", "Ofey\Logan22\controller\install\install::admin");
-$route->post("/install/admin", "Ofey\Logan22\controller\install\install::add_admin");
+if (!\Ofey\Logan22\model\install\install::exist_admin() and !file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
+    $route->get("/install", "Ofey\Logan22\controller\install\install::rules");
+    $route->get("/install/db", "Ofey\Logan22\controller\install\install::db");
+    $route->post("/install/db/connect/test", "Ofey\Logan22\controller\install\install::db_connect");
+    $route->get("/install/admin", "Ofey\Logan22\controller\install\install::admin");
+    $route->post("/install/admin", "Ofey\Logan22\controller\install\install::add_admin");
+}
 
 $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
