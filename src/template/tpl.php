@@ -247,6 +247,11 @@ class tpl {
             return server::get_server_info(auth::get_default_server());
         }));
 
+        //Кол-во серверов
+        $twig->addFunction(new TwigFunction("get_count_servers", function () {
+            return server::get_count_servers();
+        }));
+
         //Информация о серверах или сервере
         $twig->addFunction(new TwigFunction('get_server_info', function ($server_id = null) {
             return server::get_server_info($server_id);

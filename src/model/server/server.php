@@ -54,11 +54,16 @@ class server {
         return self::$server_info;
     }
 
+    //Кол-во серверов
+    public static function get_count_servers(): int {
+        return count(self::get_server_info());
+    }
+
     //Страница по умолчанию
-    static private array $get_default_desc_page_id = [];
+    private static array $get_default_desc_page_id = [];
 
     //Возращаем ID страницы описания
-    static public function get_default_desc_page_id($server_id) {
+    public static function get_default_desc_page_id($server_id) {
         if(self::$get_default_desc_page_id == []) {
             self::$get_default_desc_page_id = sql::getRows("SELECT
                                 server_description.server_id, 
@@ -91,7 +96,7 @@ class server {
     /*
      * Проверка на существования сервера во внутреннем реестре
      */
-    static public function exist_server_registry(int $server_id = 0): bool|array {
+    public static function exist_server_registry(int $server_id = 0): bool|array {
         if($server_id == null) {
             $server_id = auth::get_default_server();
             if(!$server_id) {

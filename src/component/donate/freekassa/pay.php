@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
 class freekassa {
@@ -84,7 +85,7 @@ class freekassa {
             die('wrong sign');
         }
 
-        $amount = \Ofey\Logan22\model\donate\donate::currency($amount, $_REQUEST['currency']);
+        $amount = donate::currency($amount, $_REQUEST['currency']);
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }

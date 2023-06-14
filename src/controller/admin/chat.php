@@ -12,13 +12,27 @@ use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\template\tpl;
 
 class chat {
-    static public function show(): void {
+    public static function show(): void {
         validation::user_protection("admin");
         tpl::addVar([
             "title" => "Server Chat Game",
-            'server_list'     => server::get_server_info(),
         ]);
-
         tpl::display("/admin/chat/chat.html");
+    }
+
+    public static function find_message(): void {
+        validation::user_protection("admin");
+        $message = trim($_POST['message']);
+        $server_id = $_POST['server_id'];
+        $result = \Ofey\Logan22\model\admin\chat::find_message($message, $server_id);
+        echo json_encode($result);
+    }
+
+    public static function find_player(): void {
+        validation::user_protection("admin");
+        $player = trim($_POST['player']);
+        $server_id = $_POST['server_id'];
+        $result = \Ofey\Logan22\model\admin\chat::find_player($player, $server_id);
+        echo json_encode($result);
     }
 }

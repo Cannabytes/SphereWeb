@@ -4,6 +4,7 @@ namespace Ofey\Logan22\model\db;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\alert\logs;
 use PDO;
 use PDOException;
 
@@ -84,6 +85,7 @@ class sql {
             $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
+            logs::loggerSQL($query, $args);
             if($showJson){
                 board::notice(false, $e->getMessage());
             }

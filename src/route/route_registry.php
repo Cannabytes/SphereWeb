@@ -208,6 +208,8 @@ $route->get("/admin/manual/{name}", '\Ofey\Logan22\controller\admin\manual::get'
 $route->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
 $route->post("/admin/forum", 'Ofey\Logan22\controller\admin\forum::save');
 $route->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
+$route->post("/admin/chat/find/message", '\Ofey\Logan22\controller\admin\chat::find_message');
+$route->post("/admin/chat/find/player", '\Ofey\Logan22\controller\admin\chat::find_player');
 
 $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 
