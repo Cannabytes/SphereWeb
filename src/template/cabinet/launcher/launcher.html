@@ -7,6 +7,17 @@
 {% block content %}
 
 
+<div class="alert alert-icon-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <div class="alert-icon icon-part-danger">
+        <i class="fa fa-times"></i>
+    </div>
+    <div class="alert-message">
+        <span><strong>Ошибка:</strong> Запустите лаунчер, если у Вас его нет - загрузите.</span>
+    </div>
+</div>
+
+
 <div class="row">
 
     <div class="col-lg-12">
@@ -37,7 +48,9 @@
 
                                         <div class="card-action">
                                             <div class="dropdown">
-                                                <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                                <a href="javascript:void();"
+                                                   class="dropdown-toggle dropdown-toggle-nocaret"
+                                                   data-toggle="dropdown">
                                                     <i class="icon-options"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right">
@@ -47,9 +60,10 @@
                                         </div>
 
 
-
                                         <div class="card-body">
-                                            <div class="chart easy-pie-chart-4" id="main_panel_load" data-percent="0" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Загружено 0 / 0">
+                                            <div class="chart easy-pie-chart-4" id="main_panel_load" data-percent="0"
+                                                 data-toggle="tooltip" data-placement="bottom" title=""
+                                                 data-original-title="Загружено 0 / 0">
                                                 <span class="percent"></span>
                                             </div>
                                             <hr>
@@ -62,7 +76,8 @@
                                                     class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none">
                                                 Включить лаунчер
                                             </button>
-                                            <button id="client_update" class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
+                                            <button id="client_update"
+                                                    class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
                                                 Обновить клиент
                                             </button>
                                             <button
@@ -72,7 +87,10 @@
                                             </button>
 
                                             {% for launcher in launcher_info %}
-                                            <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2" data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">{{phrase(launcher['phrase'])}}</button>
+                                            <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
+                                                    data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">
+                                                {{phrase(launcher['phrase'])}}
+                                            </button>
                                             {% endfor %}
 
                                         </div>
@@ -84,7 +102,8 @@
 
 
                                 <div class="progress-wrapper mb-4">
-                                    <p>Загружается: <span id="download_status_filename_1" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
+                                    <p>Загружается: <span id="download_status_filename_1" data-toggle="tooltip"
+                                                          data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
                                         <span id="download_status_load_procent_1" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
                                         <div class="progress-bar gradient-ibiza "
@@ -93,7 +112,8 @@
                                 </div>
 
                                 <div class="progress-wrapper mb-4">
-                                    <p>Загружается: <span id="download_status_filename_2" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
+                                    <p>Загружается: <span id="download_status_filename_2" data-toggle="tooltip"
+                                                          data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
                                         <span id="download_status_load_procent_2" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
                                         <div class="progress-bar gradient-quepal "
@@ -102,7 +122,8 @@
                                 </div>
 
                                 <div class="progress-wrapper mb-4">
-                                    <p>Загружается: <span id="download_status_filename_3" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
+                                    <p>Загружается: <span id="download_status_filename_3" data-toggle="tooltip"
+                                                          data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
                                         <span id="download_status_load_procent_3" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
                                         <div class="progress-bar gradient-blooker "
@@ -111,7 +132,8 @@
                                 </div>
 
                                 <div class="progress-wrapper mb-4">
-                                    <p>Загружается: <span id="download_status_filename_4" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
+                                    <p>Загружается: <span id="download_status_filename_4" data-toggle="tooltip"
+                                                          data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
                                         <span id="download_status_load_procent_4" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
                                         <div class="progress-bar gradient-ohhappiness "
@@ -120,7 +142,8 @@
                                 </div>
 
                                 <div class="progress-wrapper">
-                                    <p>Загружается: <span id="download_status_filename_5" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
+                                    <p>Загружается: <span id="download_status_filename_5" data-toggle="tooltip"
+                                                          data-placement="bottom" title="" data-original-title="0 kb">Нет</span>
                                         <span id="download_status_load_procent_5" class="float-right">0%</span></p>
                                     <div class="progress" style="height:7px;">
                                         <div class="progress-bar gradient-scooter"
@@ -131,26 +154,28 @@
                             </div>
 
                             <div class="col-md-12">
-                            <div id="accordion1">
-                                <div class="card mb-2">
-                                    <div class="card-header">
-                                        <button class="btn btn-link shadow-none" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                            События
-                                        </button>
-                                    </div>
+                                <div id="accordion1">
+                                    <div class="card mb-2">
+                                        <div class="card-header">
+                                            <button class="btn btn-link shadow-none" data-toggle="collapse"
+                                                    data-target="#collapse-1" aria-expanded="true"
+                                                    aria-controls="collapse-1">
+                                                События
+                                            </button>
+                                        </div>
 
-                                    <div id="collapse-1" class="collapse hide" data-parent="#accordion1">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table id="eventNotification" class="table table-sm">
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
+                                        <div id="collapse-1" class="collapse hide" data-parent="#accordion1">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table id="eventNotification" class="table table-sm">
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </div>
 
 
@@ -163,11 +188,18 @@
                             <div class="col-12 col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6>Что это за лаунчер?</h6><hr>
-                                        <p>Как игроку мне надоело что нет стандартизации, что под каждый сервер приходится скачивать свой лаунчер.<br>
-                                        Многие лаунчеры медленные, однопоточные, с достаточно маленькими возможностями и устаревшими подходами, которые вовсе не подходят для таких задач.<br>
-                                        Я задался вопросом, можно ли сделать один лаунчер, который будет интегрирован в SphereWeb (данную систему) и обновлять необходимые пользователю сервера.</p>
-                                        <p>Так и возникли первые наброски, через время достаточно работоспособное приложение, которое я развиваю.</p>
+                                        <h6>Что это за лаунчер?</h6>
+                                        <hr>
+                                        <p>Как игроку мне надоело что нет стандартизации, что под каждый сервер
+                                            приходится скачивать свой лаунчер.<br>
+                                            Многие лаунчеры медленные, однопоточные, с достаточно маленькими
+                                            возможностями и устаревшими подходами, которые вовсе не подходят для таких
+                                            задач.<br>
+                                            Я задался вопросом, можно ли сделать один лаунчер, который будет
+                                            интегрирован в SphereWeb (данную систему) и обновлять необходимые
+                                            пользователю сервера.</p>
+                                        <p>Так и возникли первые наброски, через время достаточно работоспособное
+                                            приложение, которое я развиваю.</p>
                                     </div>
                                 </div>
                             </div>
@@ -175,12 +207,14 @@
                             <div class="col-12 col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6>Что может лаунчер от SphereWeb?</h6><hr>
+                                        <h6>Что может лаунчер от SphereWeb?</h6>
+                                        <hr>
                                         <p>
                                             Множественные одновременные загрузки файлов.<br>
                                             Возможность использовать ранее скаченные файлы (дубликаты) из архива.<br>
                                             Быстрейший алгоритм сравнения файлов.<br>
-                                            Использует максимально продуктивно все ядра процессора для увеличения скорости обработки.<br>
+                                            Использует максимально продуктивно все ядра процессора для увеличения
+                                            скорости обработки.<br>
                                         </p>
                                     </div>
                                 </div>
@@ -191,8 +225,10 @@
                             <div class="col-12 col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6>Где получить информацию о лаунчере?</h6><hr>
-                                        <p>Единого сайта для обсуживания нет. Одноко, есть страница на github, в которой я попробую организовать общее представление о лаунчере.</p>
+                                        <h6>Где получить информацию о лаунчере?</h6>
+                                        <hr>
+                                        <p>Единого сайта для обсуживания нет. Одноко, есть страница на github, в которой
+                                            я попробую организовать общее представление о лаунчере.</p>
                                         <p><a href="cannabytes.github.io" target="_blank">cannabytes.github.io</a></p>
                                     </div>
                                 </div>
@@ -201,9 +237,11 @@
                             <div class="col-12 col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6>Является ли лаунчер бесплатным?</h6><hr>
+                                        <h6>Является ли лаунчер бесплатным?</h6>
+                                        <hr>
                                         <p>
-                                            Для пользователей (игроков) лаунчер бесплатный. Он является частью бесплатного open-source проекта SphereWeb.<br>
+                                            Для пользователей (игроков) лаунчер бесплатный. Он является частью
+                                            бесплатного open-source проекта SphereWeb.<br>
                                             Для администрации сервера взымается плата за аккредитацию.
                                         </p>
                                     </div>
@@ -212,19 +250,30 @@
                         </div>
 
 
-
                         <div class="row">
                             <div class="col-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6>Правила использования программного обеспечения</h6><hr>
-                                        <p>Изменение кода программы запрещено: Вы не можете изменять или модифицировать код программы без нашего разрешения. Если вы хотите внести какие-либо изменения, пожалуйста, свяжитесь с разработчком.</p>
-                                        <p>Использование лаунчера (программы для обновления) в коммерческих целях запрещено: Наш лаунчер предназначен для обновления и не взымает плату с конечных пользователей. Вы не можете использовать его для коммерческих целей или продавать его третьим лицам.</p>
-                                        <p>Использование лаунчера для незаконных действий запрещено: Вы не можете использовать наш лаунчер для незаконных действий.</p>
-                                        <p>Мы не несем ответственности за любые повреждения, вызванные неправильным использованием нашего программного обеспечения. Пожалуйста, используйте наше программное обеспечение только в соответствии с его предназначением.</p>
-                                        <p>Мы оставляем за собой право изменять эти правила использования в любое время. Если вы продолжаете использовать наше программное обеспечение, это означает, что вы соглашаетесь с измененными правилами.</p>
+                                        <h6>Правила использования программного обеспечения</h6>
                                         <hr>
-                                        <p>Выше основное положение, более детальное читайте на сайте <a href="cannabytes.github.io" target="_blank">cannabytes.github.io</a></p>
+                                        <p>Изменение кода программы запрещено: Вы не можете изменять или модифицировать
+                                            код программы без нашего разрешения. Если вы хотите внести какие-либо
+                                            изменения, пожалуйста, свяжитесь с разработчком.</p>
+                                        <p>Использование лаунчера (программы для обновления) в коммерческих целях
+                                            запрещено: Наш лаунчер предназначен для обновления и не взымает плату с
+                                            конечных пользователей. Вы не можете использовать его для коммерческих целей
+                                            или продавать его третьим лицам.</p>
+                                        <p>Использование лаунчера для незаконных действий запрещено: Вы не можете
+                                            использовать наш лаунчер для незаконных действий.</p>
+                                        <p>Мы не несем ответственности за любые повреждения, вызванные неправильным
+                                            использованием нашего программного обеспечения. Пожалуйста, используйте наше
+                                            программное обеспечение только в соответствии с его предназначением.</p>
+                                        <p>Мы оставляем за собой право изменять эти правила использования в любое время.
+                                            Если вы продолжаете использовать наше программное обеспечение, это означает,
+                                            что вы соглашаетесь с измененными правилами.</p>
+                                        <hr>
+                                        <p>Выше основное положение, более детальное читайте на сайте <a
+                                                href="cannabytes.github.io" target="_blank">cannabytes.github.io</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -233,25 +282,29 @@
                     </div>
 
 
-
-
                     <div class="tab-pane" id="edit">
                         <div>
 
                             <div class="form-group row">
-                                <label for="selectClient" class="col-sm-3 col-form-label">Папка для обновления клиента.<br>Под
+                                <label for="selectClient" class="col-sm-3 col-form-label">Папка для обновления
+                                    клиента.<br>Под
                                     клиент: {{get_server_info(user_info('get_default_server'))['chronicle']}}</label>
-                                    <div class="card-body">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-github text-success" id="addClientDirectoryButton" type="button" >Добавить</button>
-                                            </div>
-                                            <select class="form-control custom-select-lg" id="selectClient" required></select>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-github text-success" id="removeClientDir" type="button">Удалить</button>
-                                            </div>
+                                <div class="card-body">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-github text-success" id="addClientDirectoryButton"
+                                                    type="button">Добавить
+                                            </button>
+                                        </div>
+                                        <select class="form-control custom-select-lg" id="selectClient"
+                                                required></select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-github text-success" id="removeClientDir"
+                                                    type="button">Удалить
+                                            </button>
                                         </div>
                                     </div>
+                                </div>
                             </div>
 
                             <div class="modal fade" id="addClientDirectory" style="display: none;" aria-hidden="true">
@@ -267,7 +320,10 @@
                                             <div class="card-body" id="dirlist"></div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" data-server_id="{{serverID}}" class="btn btn-primary saveDirClient" data-client-dir-path=""><i class="fa fa-check-square-o"></i> Сохранить</button>
+                                            <button type="button" data-server_id="{{serverID}}"
+                                                    class="btn btn-primary saveDirClient" data-client-dir-path=""><i
+                                                    class="fa fa-check-square-o"></i> Сохранить
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -287,9 +343,9 @@
                                     будущем в случае если когда-то ранее Вы его уже загружали.<br>
                                     Данная опция может сократить время загрузки.
                                 </divs>
-<!--                                <button type="submit" class="btn btn-success col-sm-1"><i class="fa fa-plus"></i>-->
-<!--                                    Указать папку-->
-<!--                                </button>-->
+                                <!--                                <button type="submit" class="btn btn-success col-sm-1"><i class="fa fa-plus"></i>-->
+                                <!--                                    Указать папку-->
+                                <!--                                </button>-->
                             </div>
                             <hr>
                             <div class="form-group row">
@@ -318,7 +374,11 @@
                                     Лаунчер будет периодически проверять обновление, и обновляться если вышла новая
                                     версия.
                                     <br>
-                                    <small class="mb-0 text-facebook">Рекомендуется*</small> [ У Вас - <spin class="userLauncherVersion">0</spin> версия лаунчера. Последняя версия - <spin class="actualLauncherVersion">0</spin> ]
+                                    <small class="mb-0 text-facebook">Рекомендуется*</small> [ У Вас -
+                                    <spin class="userLauncherVersion">0</spin>
+                                    версия лаунчера. Последняя версия -
+                                    <spin class="actualLauncherVersion">0</spin>
+                                    ]
                                 </div>
 
                             </div>
@@ -400,8 +460,8 @@
         });
        var launcher_accreditation_code = "{{server_info['launcher_accreditation_code']}}";
 
- </script>
 
+</script>
 
 
 <script src="{{template}}/launcher/launcher.js"></script>

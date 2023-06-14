@@ -17,7 +17,7 @@ class version {
             echo 'Your php version : ' . PHP_VERSION;
             exit;
         }
-        self::libsPHP();
+//        self::libsPHP();
     }
 
     public static function MIN_PHP_VERSION() : float {
