@@ -223,7 +223,7 @@ return [
     155 => "Admin already exists",
     156 => "No connection to db",
     157 => "Admin profile created",
-    158 => '<p><b>Greetings!</b></p><p>You have installed the Java Server Administration Software.</p><p>What\'s next? - Then log in and go to the admin panel and set your server parameters, site settings and others.</p><p>If you have ideas for improvement, perhaps suggestions for development, refinement for your server - write to me <a href="https://t.me/xyuDobra" target="_blank">in telegram</a>.<br></p>',
+    158 => '<p><b>Greetings!</b></p><p>You have installed the Java Server Administration Software.</p><p>What\'s next? - Then log in and go to the admin panel and set your server parameters, site settings and others.</p><p>If you have ideas for improvement, perhaps suggestions for development, refinement for your server - write to me <a href="https://t.me/l2jweb" target="_blank">in telegram</a>.<br></p>',
      159 => "Web engine installation completed successfully!",
      160 => "You are already logged in",
      161 => "No data",

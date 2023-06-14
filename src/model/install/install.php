@@ -4,6 +4,7 @@ namespace Ofey\Logan22\model\install;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\encrypt\encrypt;
 use PDO;
 use PDOException;
@@ -60,14 +61,13 @@ const CHARSET = 'utf8';
                 $ip,
                 'admin',
             ])) {
-                self::setting();
                 self::add_first_news();
                 board::notice(true, lang::get_phrase(157));
             }
         }
     }
 
-    static public function exist_admin() {
+    public static function exist_admin() {
         if(!file_exists($_SERVER["DOCUMENT_ROOT"] . '/src/config/db.php')) {
             return false;
         }
@@ -77,23 +77,7 @@ const CHARSET = 'utf8';
         return $conn->query($sql)->fetch();
     }
 
-    static public function setting() {
-        require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
-        $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        $smt = $conn->prepare("INSERT INTO `config` (`template`, `timeout_statistic`, `language_default`, `enable_game_chat`, `screen_enable`, `max_user_count_screenshots`, `max_count_all_screenshots`, `forum_enable`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",);
-        $smt->execute([
-            'default',
-            60,
-            'ru',
-            0,
-            0,
-            30,
-            300,
-            0,
-        ]);
-    }
-
-    static private function add_first_news(): void {
+    private static function add_first_news(): void {
         $txt = lang::get_phrase(158);
         require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
         $conn = self::test_connect_mysql(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
