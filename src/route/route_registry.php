@@ -8,7 +8,7 @@ lang::load_package();
 
 $route = new Ofey\Logan22\route\Route();
 
-if (!\Ofey\Logan22\model\install\install::exist_admin() and !file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
+if (!\Ofey\Logan22\model\install\install::exist_admin() OR !file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
     $route->get("/install", "Ofey\Logan22\controller\install\install::rules");
     $route->get("/install/db", "Ofey\Logan22\controller\install\install::db");
     $route->post("/install/db/connect/test", "Ofey\Logan22\controller\install\install::db_connect");
