@@ -49,9 +49,9 @@ class install {
                                       ["name" => "mbstring",
                                        "allow" => self::isExtension(extension_loaded('mbstring')),
                                       ],
-                                      ["name" => "fileinfo",
-                                       "allow" => self::isExtension(extension_loaded('fileinfo')),
-                                      ],
+//                                      ["name" => "fileinfo",
+//                                       "allow" => self::isExtension(extension_loaded('fileinfo')),
+//                                      ],
                      ],
                      "allow_install" => self::$allow_install,
         ]);
