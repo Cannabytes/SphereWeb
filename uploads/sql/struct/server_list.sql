@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `server_list`;
+DROP TABLE `server_list`;
 CREATE TABLE `server_list`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(140) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,

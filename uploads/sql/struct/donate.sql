@@ -1,8 +1,8 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `donate`;
-CREATE TABLE `donate`  (
+DROP TABLE `channels_message`;
+CREATE TABLE `channels_message`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `item_id` int NULL DEFAULT NULL,
   `count` int NULL DEFAULT NULL,

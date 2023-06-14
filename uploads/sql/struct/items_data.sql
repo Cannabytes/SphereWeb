@@ -2,7 +2,7 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 
-DROP TABLE IF EXISTS `items_data`;
+DROP TABLE `items_data`;
 CREATE TABLE `items_data`  (
   `item_id` int NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,

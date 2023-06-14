@@ -5,7 +5,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for tickets
 -- ----------------------------
-DROP TABLE IF EXISTS `tickets`;
+DROP TABLE `tickets`;
 CREATE TABLE `tickets`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NULL DEFAULT NULL,

@@ -6,7 +6,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for tickets_comment
 -- ----------------------------
-DROP TABLE IF EXISTS `tickets_comment`;
+DROP TABLE `tickets_comment`;
 CREATE TABLE `tickets_comment`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `ticket_id` int NULL DEFAULT NULL,

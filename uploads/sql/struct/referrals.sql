@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `referrals`;
+DROP TABLE `referrals`;
 CREATE TABLE `referrals`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NULL DEFAULT NULL,

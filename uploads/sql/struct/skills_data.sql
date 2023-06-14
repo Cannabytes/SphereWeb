@@ -6,8 +6,8 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-CREATE TABLE IF NOT EXISTS `skills_data` (
+DROP TABLE `skills_data`;
+CREATE TABLE `skills_data` (
   `skill_id` int(11) NOT NULL,
   `level_max` int(11) DEFAULT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
