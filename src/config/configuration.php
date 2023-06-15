@@ -1,10 +1,10 @@
 <?php
 
-const template = 'Emerland';
+const template = 'default';
 
 const timeout_statistic = 60;
 
-const language_default = "RU";
+const language_default = "ru";
 
 const screen_enable = true;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ofey\Logan22\config;
+namespace Ofey\Logan22\component\config;
 
 class config
 {
@@ -9,24 +9,23 @@ class config
     private static ?string $template = null;
     private static int $timeout_statistic = 10;
     private static string $language_default = 'ru';
-    static public string $key_user_pass_encrypt = "@!@*jwnsaNsZZ";
-    static private bool $screen_enable = false;
-    static private int $max_user_count_screenshots = 0;
-    static private int $max_count_all_screenshots = 0;
-    static private bool $forum_enable = false;
+    public static string $key_user_pass_encrypt = "@!@*jwnsaNsZZ";
+    private static bool $screen_enable = false;
+    private static int $max_user_count_screenshots = 0;
+    private static int $max_count_all_screenshots = 0;
+    private static bool $forum_enable = false;
     /*
      * Бонусная выплата доната
      * Процент от суммы пополнения доната, который будет зачислен игроку
      */
-    static private float $donation_bonus_payout = 10;
+    private static float $donation_bonus_payout = 10;
 
-    static public function open()
+    public static function open(): void
     {
-        include "src/config/configuration.php";
+        require_once "src/config/configuration.php";
         self::$template = template;
         self::$timeout_statistic = timeout_statistic ?? self::$timeout_statistic;
         self::$language_default = language_default ?? self::$language_default;
-
         self::$screen_enable = screen_enable ?? self::$screen_enable;
         self::$max_user_count_screenshots = max_user_count_screenshots ?? self::$max_user_count_screenshots;
         self::$max_count_all_screenshots = max_count_all_screenshots ?? self::$max_count_all_screenshots;
@@ -56,12 +55,12 @@ class config
         return self::$max_user_count_screenshots;
     }
 
-    public static function get_max_count_all_screenshots()
+    public static function get_max_count_all_screenshots(): int
     {
         if (self::$config == null) {
             self::open();
         }
-        return self::$config->max_count_all_screenshots;
+        return self::$max_count_all_screenshots;
     }
 
     public static function get_template(): string
@@ -113,11 +112,4 @@ class config
         return self::$donation_bonus_payout;
     }
 
-    /**
-     * @param float $donation_bonus_payout
-     */
-    public static function setDonationBonusPayout(float $donation_bonus_payout): void
-    {
-        self::$donation_bonus_payout = $donation_bonus_payout;
-    }
 }

@@ -8,7 +8,6 @@
 namespace Ofey\Logan22\component\fileSys;
 
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\config\config;
 
 class fileSys {
 

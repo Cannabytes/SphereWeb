@@ -15,7 +15,6 @@ use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
-use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\user\player\player_account;
 

@@ -8,9 +8,9 @@
 namespace Ofey\Logan22\controller\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
-use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\gallery\screenshot as screenshot_model;

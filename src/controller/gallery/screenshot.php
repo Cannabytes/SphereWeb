@@ -8,9 +8,9 @@
 namespace Ofey\Logan22\controller\gallery;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
-use Ofey\Logan22\config\config;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\gallery\screenshot as screenshot_model;
 use Ofey\Logan22\model\server\server;
@@ -19,7 +19,8 @@ use Ofey\Logan22\template\tpl;
 
 class screenshot {
 
-    static public function show_page() {
+    public static function show_page(): void
+    {
         $screens = screenshot_model::load();
         tpl::addVar("screens", $screens);
         tpl::addVar("title", lang::get_phrase(236));
@@ -33,7 +34,8 @@ class screenshot {
         tpl::display("/gallery/screenshots.html");
     }
 
-    static public function show_add_page() {
+    public static function show_add_page(): void
+    {
         validation::user_protection();
 
         if(!config::get_screen_enable()) {
@@ -57,7 +59,7 @@ class screenshot {
         tpl::display("/gallery/add.html");
     }
 
-    static public function load_screen() {
+    public static function load_screen() {
         validation::user_protection();
         if(!config::get_screen_enable()) {
             redirect::location('/gallery');

@@ -8,7 +8,7 @@
 namespace Ofey\Logan22\model\gallery;
 
 use Ofey\Logan22\component\alert\board;
-use Ofey\Logan22\config\config;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\gallery\screenshot as screenshot_model;
 use Ofey\Logan22\model\user\auth\auth;

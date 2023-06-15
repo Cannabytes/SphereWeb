@@ -15,10 +15,10 @@
 			</div>
 		    {% endif %}
 			</div>
-			
+
             <div class="card-body">
               <div class="row">
-              
+
 			  {% for screen in screens %}
 			  {% set fileScreen = "uploads/screenshots/" ~ screen.image %}
 				{% if file_exists(fileScreen) %}
@@ -28,7 +28,7 @@
                 </div>
                {% endif %}
                {% endfor %}
-               
+
               </div>
             </div>
           </div>

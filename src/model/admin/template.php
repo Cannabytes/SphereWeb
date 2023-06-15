@@ -8,8 +8,8 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\config\config;
 
 class template {
 

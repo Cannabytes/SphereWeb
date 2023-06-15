@@ -151,9 +151,8 @@ $route->post("ticket/edit/comment", 'Ofey\Logan22\controller\ticket\ticket::edit
 $route->post("ticket/edit/ticket", 'Ofey\Logan22\controller\ticket\ticket::editTicket');
 
 //лаунчер
-//Пока не используется, нужно создать красивые формы страницы или придумать как это должно работать
 $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');
-$route->get("/launcher/create", 'Ofey\Logan22\controller\launcher\launcher::create');
+$route->get("/admin/launcher/create", 'Ofey\Logan22\controller\launcher\launcher::create');
 
 /**
  * ===========================================

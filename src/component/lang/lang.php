@@ -7,10 +7,10 @@
 
 namespace Ofey\Logan22\component\lang;
 
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\session\session;
-use Ofey\Logan22\config\config;
 
 class lang {
 

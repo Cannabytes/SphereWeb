@@ -7,7 +7,7 @@
 
 namespace Ofey\Logan22\controller\admin;
 
-use Ofey\Logan22\config\config;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
 
