@@ -4,6 +4,7 @@ namespace Ofey\Logan22\template;
 
 use InvalidArgumentException;
 use Ofey\Logan22\component\account\generation;
+use Ofey\Logan22\component\alert\logs;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\estate\castle;
@@ -147,43 +148,12 @@ class tpl
         }));
 
 
-        //TODO: Наверное лучшее все эти функции сделать отдельно
-        // и функцию общего возрата {{ user_info().get_id() }} типо такого пробовать
         $twig->addFunction(new TwigFunction('user_info', function ($type) {
-            switch ($type) {
-                case 'get_default_server':
-                    return auth::get_default_server();
-                case 'get_id':
-                    return auth::get_id();
-                case 'get_is_auth':
-                    return auth::get_is_auth();
-                case 'get_email':
-                    return auth::get_email();
-                case 'get_password':
-                    return auth::get_password();
-                case 'get_name':
-                    return auth::get_name();
-                case 'get_ip_registration':
-                    return auth::get_ip_registration();
-                case 'get_ip':
-                    return auth::get_ip();
-                case 'get_date_create':
-                    return auth::get_date_create();
-                case 'get_date_update':
-                    return auth::get_date_update();
-                case 'get_access_level':
-                    return auth::get_access_level();
-                case 'get_signature':
-                    return auth::get_signature();
-                case 'get_donate_point':
-                    return auth::get_donate_point();
-                case 'get_avatar':
-                    return auth::get_avatar();
-                case 'get_avatar_background':
-                    return auth::get_avatar_background();
-                case 'get_timezone':
-                    return auth::get_timezone();
-            }
+                if (method_exists(auth::class, $type)) {
+                    return auth::$type();
+                } else {
+                    throw new \InvalidArgumentException(sprintf('Method "%s" does not exist in auth class.', $type));
+                }
         }));
 
         //Показать слово
@@ -194,6 +164,11 @@ class tpl
         //Аналог get_phrase
         $twig->addFunction(new TwigFunction('phrase', function ($phraseKey, ...$values) {
             return lang::get_phrase($phraseKey, ...$values);
+        }));
+
+        //{{ config("getEnableTicket") }}
+        $twig->addFunction(new TwigFunction('config', function ($funcName) {
+            return config::$funcName();
         }));
 
         $twig->addFunction(new TwigFunction('get_template', function () {
@@ -506,12 +481,11 @@ class tpl
         try {
             echo $template->render(self::$allTplVars);
         } catch (\Exception  $e) {
-            echo "<h4>TEMPLATE ERROR</h4>";
-            echo "Message: " . $e->getMessage() . "<br>";
-            echo "File: " . $e->getFile() . "<br>";
-            echo "Line: " . $e->getLine();
-            echo "<BR>";
-            echo "Code: ";
+            $txt = "<h4>TEMPLATE ERROR</h4>";
+            $txt .= "Message: " . $e->getMessage() . "<br>";
+            $txt .= "File: " . $e->getFile() . "<br>";
+            $txt .= "Line: " . $e->getLine(); "<br>";
+            $txt .= "Code: ";
             $file = fopen($e->getFile(), "r");
             if ($file) {
                 for ($i = 1; $i < $e->getLine(); ++$i) {
@@ -521,8 +495,11 @@ class tpl
                 }
                 $line = fgets($file);
                 fclose($file);
-                echo htmlspecialchars($line);
+                $txt .= htmlspecialchars($line);
             }
+            echo $txt;
+            logs::loggerError(preg_replace('/<h4[^>]*>|<\/h4>|<br[^>]*>/', "
+", $txt));
         }
         exit();
     }

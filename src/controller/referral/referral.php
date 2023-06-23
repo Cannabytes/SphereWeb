@@ -7,14 +7,19 @@
 
 namespace Ofey\Logan22\controller\referral;
 
+use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\template\tpl;
 
 class referral {
 
-    static public function show() {
+    public static function show() {
         validation::user_protection();
         require_once 'src/config/referral.php';
+        require_once 'src/config/enable.php';
+        if (!ENABLE_REFERRAL){
+           error::error404("Реферальная система отключена");
+        }
         tpl::addVar([
             "GAME_TIME" => GAME_TIME,
             "LEVEL"     => LEVEL,
@@ -25,8 +30,12 @@ class referral {
         tpl::display('/referral/referral.html');
     }
 
-    static public function my_bonus() {
+    public static function my_bonus() {
         validation::user_protection();
+        require_once 'src/config/enable.php';
+        if (!ENABLE_REFERRAL){
+            error::error404("Реферальная система отключена");
+        }
         \Ofey\Logan22\model\referral\referral::add_new_bonus();
     }
 }

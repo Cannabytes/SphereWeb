@@ -128,7 +128,7 @@ $route->get("gallery/screenshot/my", 'Ofey\Logan22\controller\gallery\screenshot
 $route->post("gallery/screenshot/my/remove", 'Ofey\Logan22\controller\gallery\screenshot::my_remove');
 $route->get("gallery/screenshot/add", 'Ofey\Logan22\controller\gallery\screenshot::show_add_page');
 $route->post("gallery/screenshot/load", 'Ofey\Logan22\controller\gallery\screenshot::load_screen');
-$route->get("gallery/movie", 'Ofey\Logan22\controller\gallery\movie::show_page');
+//$route->get("gallery/movie", 'Ofey\Logan22\controller\gallery\movie::show_page');
 $route->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_description');
 
 /**

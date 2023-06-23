@@ -19,6 +19,10 @@ class config
      * Процент от суммы пополнения доната, который будет зачислен игроку
      */
     private static float $donation_bonus_payout = 10;
+    private static bool $enable_referral = true;
+    private static bool $enable_ticket = true;
+    private static bool $enable_gallery = true;
+    private static bool $enable_donate = true;
 
     public static function open(): void
     {
@@ -30,6 +34,17 @@ class config
         self::$max_user_count_screenshots = max_user_count_screenshots ?? self::$max_user_count_screenshots;
         self::$max_count_all_screenshots = max_count_all_screenshots ?? self::$max_count_all_screenshots;
         self::$forum_enable = forum_enable ?? self::$forum_enable;
+
+        self::loadEnable();
+    }
+
+    //Загрузка включенных и выключенных функций
+    private static function loadEnable(): void {
+        require_once 'src/config/enable.php';
+        self::$enable_referral = ENABLE_REFERRAL;
+        self::$enable_ticket = ENABLE_TICKET;
+        self::$enable_gallery = ENABLE_GALLERY;
+        self::$enable_donate = ENABLE_DONATE;
     }
 
     private static function check_open_config(): void
@@ -110,6 +125,32 @@ class config
     public static function getDonationBonusPayout(): float
     {
         return self::$donation_bonus_payout;
+    }
+
+    public static function getEnableReferral(): bool
+    {
+        return self::$enable_referral;
+    }
+
+    public static function getEnableTicket(): bool
+    {
+        return self::$enable_ticket;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function getEnableGallery(): bool
+    {
+        return self::$enable_gallery;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function getEnableDonate(): bool
+    {
+        return self::$enable_donate;
     }
 
 }

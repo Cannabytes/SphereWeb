@@ -29,7 +29,7 @@ class error {
         if($message == null) {
             $message = lang::get_phrase(239);
         }
-        tpl::addVar("title", "Oops...404");
+        tpl::addVar("title", "Проблема...");
         tpl::addVar('message', $message);
         tpl::display("/error/404.html");
     }

@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\ticket;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
@@ -20,24 +21,28 @@ use Ofey\Logan22\template\tpl;
 class ticket {
 
     public static function all(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         tpl::addVar("tickets", ticket_model::all());
         tpl::addVar("category", "all");
         tpl::display("ticket/all.html");
     }
 
     public static function getOpenTickets(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         tpl::addVar("tickets", ticket_model::all("open"));
         tpl::addVar("category", "open");
         tpl::display("ticket/all.html");
     }
 
     public static function getCloseTickets(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         tpl::addVar("tickets", ticket_model::all("close"));
         tpl::addVar("category", "close");
         tpl::display("ticket/all.html");
     }
 
     public static function get($id) {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         $ticket = ticket_model::get_info($id);
         if($ticket === false) {
             error::error404();
@@ -47,6 +52,7 @@ class ticket {
     }
 
     public static function search($word = ""): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         $error = "";
         if(empty($word)) {
             $error = lang::get_phrase(343);
@@ -66,11 +72,13 @@ class ticket {
     }
 
     public static function create(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         tpl::display("ticket/create.html");
     }
 
     public static function edit($ticket_id, $comment_id = null): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         $ticket = ticket_model::get_ticket($ticket_id);
         if($ticket == null) {
@@ -88,21 +96,25 @@ class ticket {
     }
 
     public static function removeImage() {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         ticket_model::removeImage();
     }
 
     public static function add(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         ticket_model::add();
     }
 
     public static function addComment(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         ticket_model::addComment();
     }
 
     public static function close(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         $ticket_id = $_POST['ticketID'] ?? null;
         if($ticket_id === null) {
@@ -118,6 +130,7 @@ class ticket {
     }
 
     public static function open(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         $ticket_id = $_POST['ticketID'] ?? null;
         if($ticket_id === null) {
@@ -133,17 +146,20 @@ class ticket {
     }
 
     public static function editComment(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         ticket_model::editComment();
     }
 
     public static function editTicket(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection();
         ticket_model::editTicket();
     }
 
 
     public static function remove(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection("admin");
         $ticketID = $_POST['ticketID'] ?? null;
         if(is_numeric($ticketID)){
@@ -157,6 +173,7 @@ class ticket {
     }
 
     public static function removeComment(): void {
+        if(!config::getEnableReferral()) error::error404("Отключено");
         validation::user_protection("admin");
         $ticketID = $_POST['commentID'] ?? null;
         if(is_numeric($ticketID)){

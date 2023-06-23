@@ -76,6 +76,7 @@
         </a>
        </li-->
 
+	   {% if config('getEnableDonate') %}
 	   <li>
 		   <a href="javaScript:void();" class="waves-effect">
 			   <i class="fa fa fa-money"></i> <span>{{phrase("menu_donate")}}</span>
@@ -86,25 +87,33 @@
 			   <li><a href="/donate"><i class="zmdi zmdi-dot-circle-alt"></i> {{phrase(215)}}</a></li>
 		   </ul>
 	   </li>
+	   {% endif %}
 
+	   {% if config('getEnableGallery') %}
 	   <li>
         <a href="/gallery" class="waves-effect">
           <i class="fa fa-television"></i> <span>{{ phrase("menu_gallery") }}</span>
         </a>
        </li>
+	   {% endif %}
 
+	   {% if config('getEnableTicket') %}
 	   <li>
         <a href="/ticket" class="waves-effect">
           <i class="fa fa-archive"></i> <span>{{ phrase("menu_ticket") }}</span>
         </a>
        </li>
+	   {% endif %}
+
 
 	   {% if user_info('get_is_auth') %}
+	   {% if config('getEnableReferral') %}
 	   <li>
         <a href="/referral" class="waves-effect">
           <i class="fa fa-users"></i> <span>{{phrase("menu_referrals")}}</span>
         </a>
        </li>
+	   {% endif %}
 	   {% endif %}
 
       

@@ -103,7 +103,7 @@
 {% include 'no_auth_main.html' %}
 {% endif %}
 
-
+{% if config('getEnableGallery') %}
 {% set screenshots = screenshots(12) %}
 {% if screenshots|length %}
 {% set showScreenCount = (screenshots|length >= 8) ? 12 : (screenshots|length <= 4) ? 0 : 6 %}
@@ -133,6 +133,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endif %}
 {% endif %}
 
