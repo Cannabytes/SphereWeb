@@ -66,10 +66,10 @@ class server {
     public static function get_default_desc_page_id($server_id) {
         if(self::$get_default_desc_page_id == []) {
             self::$get_default_desc_page_id = sql::getRows("SELECT
-                                server_description.server_id, 
-                                server_description.lang, 
-                                server_description.page_id, 
-                                server_description.`default`
+                                server_id, 
+                                lang, 
+                                page_id, 
+                                `default`
                             FROM
                                 server_description");
         }

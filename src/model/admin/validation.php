@@ -23,6 +23,9 @@ class validation {
         if(in_array($user_privilege, (array)$var)) {
             return true;
         }
+        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            board::notice(false, "Доступ запрещен");
+        }
         redirect::location("/main");
     }
 

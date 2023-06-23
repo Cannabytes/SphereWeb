@@ -7,7 +7,7 @@
 {% block content %}
 
 
-<div class="alert alert-icon-danger alert-dismissible" role="alert">
+<div id="showErrorStartLauncher" class="alert alert-icon-danger alert-dismissible d-none" role="alert">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <div class="alert-icon icon-part-danger">
         <i class="fa fa-times"></i>
@@ -67,31 +67,27 @@
                                                 <span class="percent"></span>
                                             </div>
                                             <hr>
-                                            <button
-                                                    id="button_loading"
-                                                    class="btn-social-text btn-tumblr waves-effect waves-light m-1 ">
-                                                Подключение
-                                            </button>
-                                            <button id="turn_on_launcher"
-                                                    class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none">
-                                                Включить лаунчер
-                                            </button>
-                                            <button id="client_update"
-                                                    class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
-                                                Обновить клиент
-                                            </button>
+                                            <div id="buttonGame"></div>
+
                                             <button
                                                     id="client_update_cancel"
                                                     class="btn-social-text btn-github waves-effect waves-light m-1 d-none">
                                                 <i class="fa fa-refresh"></i> <span>Отменить</span>
                                             </button>
 
-                                            {% for launcher in launcher_info %}
-                                            <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
-                                                    data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">
-                                                {{phrase(launcher['phrase'])}}
-                                            </button>
-                                            {% endfor %}
+                                            {% if launcher_info %}
+                                                {% for launcher in launcher_info %}
+                                                    <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
+                                                            data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">
+                                                        {{phrase(launcher['phrase'])}}
+                                                    </button>
+                                                {% endfor %}
+                                            {% else %}
+                                                <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
+                                                        data-l2app="/system/l2.exe" data-args="">
+                                                    {{phrase('launch_game')}}
+                                                </button>
+                                            {% endif %}
 
                                         </div>
                                     </div>
@@ -154,28 +150,10 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div id="accordion1">
-                                    <div class="card mb-2">
-                                        <div class="card-header">
-                                            <button class="btn btn-link shadow-none" data-toggle="collapse"
-                                                    data-target="#collapse-1" aria-expanded="true"
-                                                    aria-controls="collapse-1">
-                                                События
-                                            </button>
-                                        </div>
-
-                                        <div id="collapse-1" class="collapse hide" data-parent="#accordion1">
-                                            <div class="card-body">
-                                                <div class="table-responsive">
-                                                    <table id="eventNotification" class="table table-sm">
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <table id="eventNotification" class="table table-responsive-xl">
+                                    <tbody>
+                                    </tbody>
+                                </table>
                             </div>
 
 
@@ -307,27 +285,6 @@
                                 </div>
                             </div>
 
-                            <div class="modal fade" id="addClientDirectory" style="display: none;" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="dirfullpath">Мой компьютер</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="card-body" id="dirlist"></div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" data-server_id="{{serverID}}"
-                                                    class="btn btn-primary saveDirClient" data-client-dir-path=""><i
-                                                    class="fa fa-check-square-o"></i> Сохранить
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <hr>
 
@@ -396,6 +353,30 @@
 
 </div>
 
+<div class="modal fade" id="addClientDirectory" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dirfullpath">Мой компьютер</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body" id="dirlist"></div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-left" style="flex-grow: 1;">Укажите папку игры</div>
+                <button type="button" data-server_id="{{serverID}}"
+                        class="btn btn-primary saveDirClient" data-client-dir-path=""><i
+                        class="fa fa-check-square-o"></i> Сохранить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}
 
@@ -445,7 +426,6 @@
 <script src="{{template}}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="{{template}}/assets/plugins/jquery.easy-pie-chart/easy-pie-chart.init.js"></script>
 
-<!-- KNOB JS -->
 <!--[if IE]>
 <script type="text/javascript" src="{{template}}/assets/jquery-knob/excanvas.js"></script>
 <![endif]-->
@@ -453,14 +433,10 @@
 <script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
-
 <script>
         $(function() {
             $(".knob").knob();
         });
-       var launcher_accreditation_code = "{{server_info['launcher_accreditation_code']}}";
-
-
 </script>
 
 

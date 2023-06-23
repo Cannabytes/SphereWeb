@@ -57,6 +57,7 @@ class online {
                 'rate_exp'                    => $info['rate_exp'],
                 'chronicle'                   => $info['chronicle'],
                 'launcher_enabled'            => $info['launcher_enabled'],
+                'date_start_server'            => $info['date_start_server'],
                 'connect_login'               => $connect_login,
                 'connect_game'                => $connect_game,
                 'player_count_online'         => $player_count_online,

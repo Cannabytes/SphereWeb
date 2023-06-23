@@ -85,16 +85,19 @@ class sql {
             $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
-            logs::loggerSQL($query, $args);
+            logs::loggerSQL($query, $args, $e->getMessage());
             if($showJson){
                 board::notice(false, $e->getMessage());
             }
             echo "Ошибка выполнения запроса!<br>";
             echo "Запрос: {$query}<br>";
-            echo "Параметры: " . implode(", ",$args) . "<br>";
+            if(is_array($args)){
+                echo "Параметры: " . implode(", ", $args) . "<br>";
+            }else{
+                echo "Параметры: " .  $args  . "<br>";
+            }
             echo "Ошибка: {$e->getMessage()}<br>";
             die();
-//            throw new Exception($e);
         }
     }
 
@@ -104,7 +107,7 @@ class sql {
      *
      * @return mixed
      */
-    public static function getRow($query, $args = []) {
+    public static function getRow($query, array $args = []) {
         return self::run($query, $args)->fetch();
     }
 
@@ -114,7 +117,10 @@ class sql {
      *
      * @return array
      */
-    public static function getRows($query, $args = []) {
+    public static function getRows($query, array $args = []) {
+//        if(!is_array($args)){
+//            $args = [$args];
+//        }
         return self::run($query, $args)->fetchAll();
     }
 

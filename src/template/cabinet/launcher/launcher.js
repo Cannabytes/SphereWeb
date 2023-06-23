@@ -15,59 +15,25 @@ var chronicle = $('meta[name="server_chronicle"]').attr('content')
 var filesLink = $('#client_update').data('files-link')
 var filesPatch = $('#client_update').data('files-patch')
 
-function showTurnOnLauncher() {
-   if (buttonShowNow == "showTurnOnLauncher") {
-      return
-   }
-   buttonShowNow = "showTurnOnLauncher";
-   $("#turn_on_launcher").show();
-   $("#turn_on_launcher").removeClass("d-none");
 
-   $("#button_loading").hide();
-   $("#client_update").hide();
-   $("#client_update_cancel").hide();
+//Если лаунчер работает: кнопки закрываем или показываем
+var fasfid = -999;
+function launcherButtonIsWork(){
+    if (fasfid === lastStatusID){
+        return
+    }
+    fasfid = lastStatusID
+    if(lastStatusID == 0 || lastStatusID == 4 || lastStatusID == 5 || lastStatusID == 6 ){
+        $("#client_update_cancel").hide();
+        $(".startL2").show();
+        $(".startL2").removeClass("d-none");
+        return
+    }
+    $(".startL2").hide();
+    $("#client_update_cancel").show();
+    $("#client_update_cancel").removeClass("d-none");
 }
 
-function showUpdateCancel() {
-   if (buttonShowNow == "showUpdateCancel") {
-      return
-   }
-   buttonShowNow = "showUpdateCancel";
-
-   $("#client_update_cancel").show();
-   $("#client_update_cancel").removeClass("d-none");
-
-   $("#button_loading").hide();
-   $("#client_update").hide();
-   $("#turn_on_launcher").hide();
-}
-
-function showClientUpdate() {
-   if (buttonShowNow == "showClientUpdate") {
-      return
-   }
-   buttonShowNow = "showClientUpdate";
-
-   $("#client_update").show();
-   $("#client_update").removeClass("d-none");
-
-   $("#button_loading").hide();
-   $("#client_update_cancel").hide();
-   $("#turn_on_launcher").hide();
-}
-
-
-
-//Показать кнопку запуска игры
-function showStartGame() {
-   $("#client_update").hide();
-   $("#button_loading").hide();
-   $("#client_update_cancel").hide();
-   $("#turn_on_launcher").hide();
-
-   $(".startL2").show();
-   $(".startL2").removeClass("d-none");
-}
 
 function connect() {
    socket = new WebSocket("ws://localhost:17580/ws");
@@ -75,7 +41,6 @@ function connect() {
    socket.onopen = function () {
       console.log("Успешное соединение с лаунчером")
       isConnect = true;
-      showClientUpdate()
       getStatus()
       getVersionLauncher()
       getChronicleDirectory()
@@ -86,15 +51,12 @@ function connect() {
 
     if (socket.readyState === WebSocket.CONNECTING) {
       console.log("Соединение с лаунчером");
-      showTurnOnLauncher()
    } else if (socket.readyState === WebSocket.OPEN) {
       console.log("Соединение установлено");
-      showClientUpdate()
       clearInterval(connectInterval); // остановить проверку статуса соединения
    } else {
       socket.close();
       isConnect = false;
-      showTurnOnLauncher()
       console.log("Ошибка соединения. Вероятно лаунчер не был запущен и его нужно установить и запустить.");
    }
 
@@ -115,6 +77,9 @@ function connect() {
       console.log(response)
 
       if (response.command == "status") {
+         lastStatusID = response.status
+         launcherButtonIsWork()
+
          if (lastStatusID != response.status && response.status == 0) {
             $('.chart').data('easyPieChart').update(0);
             $('.percent').text(0);
@@ -123,16 +88,14 @@ function connect() {
          //Если идет загрузка списка, если идет сравнение файлов, если загрузка файлов
          if (response.status == 0 || response.status == 1 || response.status == 2 || response.status == 3) {
                 if( response.status == 0 ){
-                    resetLoadPanel()
-                    allLoadPanel()
-                    showStartGame()
                 }
 
                 //Если приходит запрос, уведомление что идет сравнение файлов
                 if(response.status == 2){
-                     percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
+                    percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
                     $('.chart').data('easyPieChart').update(percentPanel);
-                    $('.percent').text((percentPanel));
+                    $('.percent').text(percentPanel);
+                    $('#main_panel_load').attr('data-original-title', "Проверено файлов " + response.loaded + " / " + response.filesTotal + " (" + ( (response.loaded / response.filesTotal) * 100).toFixed(2) + "%)")
                 }
                 //Если приходит запрос, уведомление что идет загрузка файлов
                 if (response.status == 3) {
@@ -163,13 +126,10 @@ function connect() {
             console.log("Загрузка завершена")
             resetLoadPanel()
             allLoadPanel()
-            showStartGame()
          } else if (response.status == 5) {
             console.log("Загрузка отменена")
             resetLoadPanel()
-            showClientUpdate()
          }
-         lastStatusID = response.status
       } else if (response.command == "event") {
           var date = new Date(response.time);
           var time = date.toLocaleTimeString();
@@ -209,18 +169,20 @@ function connect() {
          if (response.clients == null) {
             return
          }
-         console.log(response.clients)
-         $('#selectClient').empty();
-         response.clients.forEach(function (elem) {
-            var newOption = $('<option>', {
-               value: elem.id,
-               text: elem.dir
+           $('#selectClient').empty();
+            var clients = JSON.parse(response.clients);
+            clients.client.forEach(function(elem) {
+              var newOption = $('<option>', {
+                value: elem.dir,
+                text: elem.dir
+              });
+
+              if (elem.dir === response.default) {
+                newOption.prop('selected', true);
+              }
+
+              $('#selectClient').append(newOption);
             });
-            if (elem.defaultDir === 1) {
-               newOption.prop('selected', true);
-            }
-            $('#selectClient').append(newOption);
-         });
 
       } else if(response.command == "getAllConfig"){
             $("#isClientFilesArchive").prop("checked", response.isClientFilesArchive ? true : false);
@@ -230,6 +192,39 @@ function connect() {
             $(".userLauncherVersion").text(response.version)
             $(".actualLauncherVersion").text(response.actualVersion)
       }
+      else if (response.command == "needClientUpdate") {
+
+              Swal.fire({
+                title: 'Необходимо обновление',
+                text: "",
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'Нет',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Начать обновление'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    '',
+                    'Начинается загрузка патча',
+                    'success'
+                  )
+                  //
+                     if (criticalError) {
+                        notify_error(criticalErrorMessage)
+                        return
+                     }
+                     if($("#selectClient").val()==""){
+                      notify_error("Не установлена папка для обновления клиента")
+                     }else{
+                        startUpdate()
+                        getStatus()
+                      }
+                }
+              })
+
+      }
       else if (response.command == "error") {
          Error(response.message)
       }
@@ -237,6 +232,7 @@ function connect() {
 }
 
 function downloadAndRunLauncher() {
+   $("#showErrorStartLauncher").removeClass("d-none");
 
    const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -298,8 +294,7 @@ $(".client_update").click(function () {
    }else{
       startUpdate()
       getStatus()
-      showUpdateCancel()
-   }
+    }
 });
 
 $("#client_update").click(function () {
@@ -312,13 +307,11 @@ $("#client_update").click(function () {
    }else{
       startUpdate()
       getStatus()
-      showUpdateCancel()
-   }
+    }
 });
 
-$("#client_update_cancel").click(function () {
+$(document).on('click', '#client_update_cancel', function () {
    cancelUpdate()
-   showClientUpdate()
 });
 
 $("#dirfullpath").on("click", ".linkdir", function () {
@@ -332,15 +325,16 @@ $("#dirlist").on("click", ".direction", function () {
 });
 
 $(document).on('click', '#removeClientDir', function () {
-   let dir_id = parseInt($("#selectClient").val(), 10);
    obj = {
       command: 'removeClientDir',
-      dir_id: dir_id,
+      dir: $("#selectClient").val(),
       chronicle: chronicle,
       serverID: serverID,
    };
    sendToLauncher(obj)
-   $("#selectClient option[value='" + dir_id + "']").remove();
+   var selectClientValue = $("#selectClient").val();
+   var replacedValue = selectClientValue.replace(/\\/g, '\\\\');
+   $("#selectClient option[value='" + replacedValue + "']").remove();
 });
 
 $(document).on('click', '.saveDirClient', function () {
@@ -353,6 +347,15 @@ $(document).on('click', '.saveDirClient', function () {
       serverID: serverID,
    };
    sendToLauncher(obj)
+
+    var optionValue = $(this).attr('data-client-dir-path');
+    var optionText = $(this).attr('data-client-dir-path');
+
+    $("#selectClient").append($('<option>', {
+      value: optionValue,
+      text: optionText
+    }).prop('selected', true));
+
 });
 
 function direction(dirname) {
@@ -392,6 +395,7 @@ function getChronicleDirectory() {
    obj = {
       command: 'getPathDirectoryChronicle',
       chronicle: chronicle,
+      domain: window.location.hostname,
       serverID: parseInt($('meta[name="server_default"]').attr('content')),
    };
    sendToLauncher(obj)
@@ -410,7 +414,7 @@ $('#selectClient').change(function () {
       chronicle: chronicle,
       domain: window.location.hostname,
       serverID: parseInt($('meta[name="server_default"]').attr('content')),
-      selectServerIdDefault: parseInt($(this).val(), 10),
+      dir: $(this).val(),
    }
    sendToLauncher(obj)
 });
@@ -435,11 +439,18 @@ $("#addClientDirectoryButton").on("click", function(event){
 
 
 $(".startL2").on("click", function(event){
+    if($("#selectClient").val()===null){
+        $("#addClientDirectory").modal('show');
+        return
+    }
     obj = {
        command: 'startGame',
        application: $(this).attr("data-l2app"),
        args: $(this).attr("data-args"),
        dir: $("#selectClient").val(),
+       uid: "anygame.eu.org",
+       //      uid: window.location.host,
+
     }
     socket.send(JSON.stringify(obj));
 });
@@ -467,7 +478,8 @@ function getAllConfig() {
 function startUpdate() {
    obj = {
       command: 'start_client_update',
-      uid: launcher_accreditation_code,
+      uid: "anygame.eu.org",
+//      uid: window.location.host,
       updateDirID: $("#selectClient").val(),
    };
    sendToLauncher(obj);

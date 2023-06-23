@@ -1,0 +1,20 @@
+{% for server in server_online_status() %}
+<div class="servers__list">
+    <div class="servers__server server" data-server="{{server.id}}" data-server-status="false" data-server-online="{{server.player_count_online}}" data-server-max-online="2500">
+        <div style="display: none;" data-server-inf></div>
+        <div class="server__desc" data-server-date></div>
+        <div class="server__info"></div>
+        <div class="server__rate">x{{server.rate_exp}}<br>{{server.chronicle}}</div>
+        <div class="server__title">{{server.name}}</div>
+        <div class="server__decor decor" data-decor>
+            <div class="decor__item decor__item_left_top"></div>
+            <div class="decor__item decor__item_right_top"></div>
+            <div class="decor__item decor__item_right_bottom"></div>
+            <div class="decor__item decor__item_left_bottom"></div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+

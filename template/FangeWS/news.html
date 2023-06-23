@@ -1,0 +1,159 @@
+                  <div class="mid__item mid__item_1">
+                     <div class="mid__scl scl">
+                        <a href="#" target="_blank" class="scl__item">
+                           <div class="scl__bg" style="background-image: url({{template}}/images/scl/scl__skype.png);"></div>
+                           <div class="scl__content">
+                              <div class="scl__title">Skype</div>
+                              <div class="scl__desc">admin_fange</div>
+                           </div>
+                        </a>
+                        <a href="#" target="_blank" class="scl__item">
+                           <div class="scl__bg" style="background-image: url({{template}}/images/scl/scl__telegram.png);"></div>
+                           <div class="scl__content">
+                              <div class="scl__title">Telegram</div>
+                              <div class="scl__desc">admin_fange</div>
+                           </div>
+                        </a>
+                        <a href="#" target="_blank" class="scl__item">
+                           <div class="scl__bg" style="background-image: url({{template}}/images/scl/scl__discord.png);"></div>
+                           <div class="scl__content">
+                              <div class="scl__title">Discord</div>
+                              <div class="scl__desc">admin_fange</div>
+                           </div>
+                        </a>
+                        <a href="#" target="_blank" class="scl__item">
+                           <div class="scl__bg" style="background-image: url({{template}}/images/scl/scl__vk.png);"></div>
+                           <div class="scl__content">
+                              <div class="scl__title">Vkontakte</div>
+                              <div class="scl__desc">admin_fange</div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="streams">
+                        <div class="streams__snv snv">
+                           <div class="snv__arrow snv__arrow_left" data-slider-streams-prev></div>
+                           <a href="https://forum.fange.ws/index.php?/topic/33425-%D1%81%D1%82%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D1%82%D0%B5%D0%B1%D0%B5-%D1%81%D1%8E%D0%B4%D0%B0/" target="_blank" class="snv__link" data-tip="Add stream"></a>
+                           <div class="snv__arrow snv__arrow_right" data-slider-streams-next></div>
+                        </div>
+                        <div class="streams__list" data-slider-streams>
+                           <div class="swiper-wrapper">
+                              <!-- START stream -->
+                              <div class="swiper-slide">
+                                 <div class="stream" data-insertmedia='{ "type" : "youtube", "src" : "https://www.youtube.com/embed/LcbPySUFPNE", "setting" : "autoplay=1&mute=1" }'>
+                                    <div class="stream__content">stream offline</div>
+                                 </div>
+                              </div>
+                              <!-- END stream --><!-- START stream -- <div class="swiper-slide"><div class="stream" data-insertmedia='{ "type" : "twitch", "src" : "https://player.twitch.tv/?channel=doublefine", "setting" : "autoplay=true&muted=true" }'><div class="stream__content">stream offline</div></div></div><!-- END stream --><!-- START stream -->
+                              <div class="swiper-slide">
+                                 <div class="stream" data-insertmedia='{ "type" : "youtube", "src" : "https://www.youtube.com/embed/jVzHVHb31Is", "setting" : "autoplay=1&mute=1" }'>
+                                    <div class="stream__content">stream offline</div>
+                                 </div>
+                              </div>
+                              <!-- END stream -->
+                           </div>
+                        </div>
+                        <!-- END streams__list -->
+                     </div>
+                     <!-- END streams -->
+                  </div>
+                  <div class="mid__item mid__item_2">
+                     <div class="tab">
+
+                        <!-- END tab__box -->
+                         <div class="tab__box" data-tab="rating" data-tab-group="box">
+                             <div class="tab__header">
+                                 <div class="tab__desc" style="background-image: url({template}/images/tab/heading-2.jpg);">
+                                     <div class="tab__title">{{ phrase('server_rating') }}</div>
+                                     <div class="tab__btns">
+                                         {% for server in get_server_info() %}
+                                         <div class="tab__button button" data-server-select data-open-tab="server-{{server.id}}" data-open-tab-group="rating">
+                                             {{server.name}} x{{server.rate_exp}} {{server.chronicle}}</div>
+                                         {% endfor %}
+                                     </div>
+                                 </div>
+                                 <div class="tab__switcher switcher">
+                                     <div class="switcher__btn switcher__btn_active ">
+                                         <div class="switcher__txt">{{ phrase('server_rating') }}</div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- END tab__header -->
+                             <div class="tab__content">
+                                 {% for server in get_server_info() %}
+                                 <div class="rating-container" style="display: none;" data-tab="server-{{server.id}}" data-tab-group="rating">
+                                     <div class="rating">
+                                         <div class="rating__box">
+                                             <!-- START rating pvp | server-1-pvp -->
+                                             <div class="rating__type" style="display: none;" data-tab="server-{{server.id}}-pvp" data-tab-group="server-{{server.id}}-type">
+                                                 <div class="rating__item">
+                                                     <div class="rating__title"><center>{{ phrase('rating_players') }} PvP</center></div>
+                                                     <div class="rating__col">
+                                                         {% for n, player in statistic_get_pvp(server.id, 10) %}
+                                                         <div class="top__rw">
+                                                             <div class="top__name"><span class="top__num">{{n+1}}.</span>
+                                                                 {% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
+                                                                 {{player.player_name}}
+                                                             </div>
+                                                             <div class="top__total">{{player.pvp}}</div>
+                                                         </div>
+                                                         {% endfor %}
+                                                     </div>
+                                                 </div>
+                                                 <!-- END rating__item -->
+                                             </div>
+                                             <!-- END rating__type --><!-- END rating pvp | server-1-pvp --><!-- START rating pk | server-1-pk -->
+                                             <div class="rating__type" style="display: none;" data-tab="server-{{server.id}}-pk" data-tab-group="server-{{server.id}}-type">
+                                                 <div class="rating__item">
+                                                     <div class="rating__title"><center>{{ phrase('rating_players') }} PK</center></div>
+                                                     <div class="rating__col">
+                                                         {% for n, player in statistic_get_pk(server.id, 10) %}
+                                                         <div class="top__rw">
+                                                             <div class="top__name"><span class="top__num">{{n+1}}.</span>
+                                                                 {% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
+                                                                 {{player.player_name}}
+                                                             </div>
+                                                             <div class="top__total">{{player.pk}}</div>
+                                                         </div>
+                                                         {% endfor %}
+                                                     </div>
+                                                 </div>
+                                                 <!-- END rating__item -->
+                                             </div>
+                                             <!-- END rating__type --><!-- END rating pk | server-1-pk --><!-- START rating clan | server-1-clan -->
+                                             <div class="rating__type" style="display: none;" data-tab="server-{{server.id}}-clan" data-tab-group="server-{{server.id}}-type">
+                                                 <div class="rating__item">
+                                                     <div class="rating__title"><center>{{ phrase('rating_clans') }}</center></div>
+                                                     <div class="rating__col">
+                                                         {% for n, clan in statistic_get_clans(server.id, 10) %}
+                                                         <div class="top__rw">
+                                                             <div class="top__name"><span class="top__num">{{n+1}}.</span>
+                                                                 {% if clan['alliance_crest']!=null%}<img src="data:image/png;base64, {{clan['alliance_crest'] }}">{% endif %}{% if clan['clan_crest']!=null%}<img src="data:image/png;base64, {{clan['clan_crest']}}">{% endif %}
+                                                                 <a href="/statistic/clan/{{clan.clan_name}}" target="_blank">{{clan.clan_name}}</a>
+                                                             </div>
+                                                             <div class="top__total">{{clan.reputation_score}}</div>
+                                                         </div>
+                                                         {% endfor %}
+                                                     </div>
+                                                 </div>
+                                                 <!-- END rating__item -->
+                                             </div>
+                                             <!-- END rating__type --><!-- END rating clan | server-1-clan -->
+                                         </div>
+                                         <!-- END rating__box -->
+                                         <div class="rating__btns">
+                                             <div class="rating__btn" data-rating-select data-open-tab="server-{{server.id}}-pvp" data-open-tab-group="server-{{server.id}}-type"><span>{{ phrase('ratingPvP') }}</span></div>
+                                             <div class="rating__btn" data-rating-select data-open-tab="server-{{server.id}}-pk" data-open-tab-group="server-{{server.id}}-type"><span>{{ phrase('ratingPK') }}</span></div>
+                                             <div class="rating__btn" data-rating-select data-open-tab="server-{{server.id}}-clan" data-open-tab-group="server-{{server.id}}-type"><span>{{ phrase('rating_clans') }}</span></div>
+                                         </div>
+                                         <!-- END rating__btns -->
+                                     </div>
+                                     <!-- END rating -->
+                                 </div>
+                                 {% endfor %}
+                                 <!-- END rating-container -->
+                             </div>
+                         </div>
+                        <!-- END tab__box -->
+                     </div>
+                     <!-- END tab -->
+                  </div>

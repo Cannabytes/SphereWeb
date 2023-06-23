@@ -33,7 +33,8 @@ use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class tpl {
+class tpl
+{
 
     static private array $allTplVars = [];
 
@@ -44,7 +45,8 @@ class tpl {
      * @return void
      * Добавление переменной к выводу шаблона
      */
-    public static function addVar($var, mixed $value = 'None') {
+    public static function addVar($var, mixed $value = 'None')
+    {
         if (is_array($var)) {
             self::$allTplVars = array_merge(self::$allTplVars, $var);
         } else {
@@ -52,7 +54,8 @@ class tpl {
         }
     }
 
-    public static function template_design_route(): ?array {
+    public static function template_design_route(): ?array
+    {
         $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/" . config::get_template() . "/route.php";
         if (file_exists($fileRoute)) {
             require_once $fileRoute;
@@ -68,7 +71,8 @@ class tpl {
      * @throws SyntaxError
      * @throws LoaderError
      */
-    public static function display($tplName, $categoryCabinet = false) {
+    public static function display($tplName, $categoryCabinet = false)
+    {
         $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
         //        $categoryDesign = "cabinet";
         //        Если вызывается личный кабинет
@@ -84,8 +88,8 @@ class tpl {
         $loader = new FilesystemLoader($__ROOT__ . $templatePath);
 
         $twig = new Environment($loader, ['cache' => $__ROOT__ . "/uploads/cache/template",
-                                          'auto_reload' => true,
-                                          'debug' => true,
+            'auto_reload' => true,
+            'debug' => true,
         ]);
         $twig->addExtension(new DebugExtension());
 
@@ -93,7 +97,7 @@ class tpl {
 
         $twig->addFilter(new TwigFilter('template', function ($string) use ($templatePath) {
             return str_replace(["//",
-                                "\\",
+                "\\",
             ], "/", $templatePath . $string);
         }));
 
@@ -346,8 +350,12 @@ class tpl {
         }));
 
 
-        $twig->addFunction(new TwigFunction('is_image', function ($dir, $file = null) {
-            return file_exists($dir . "/" . $file) ?: "/src/template/cabinet/assets/images/not-found.png";
+        $twig->addFunction(new TwigFunction('is_screenshot', function ($file = null) {
+            if(file_exists('uploads/screenshots/' . $file)){
+                return '/uploads/screenshots/' . $file;
+            }else{
+                return "/src/template/cabinet/assets/images/not-found.png";
+            }
         }));
 
         /**
@@ -456,7 +464,8 @@ class tpl {
                 throw new InvalidArgumentException('Argument must be an array.');
             }
 
-            function isReferralDone($referral) {
+            function isReferralDone($referral)
+            {
                 return isset($referral['done']) && $referral['done'];
             }
 
@@ -470,14 +479,14 @@ class tpl {
             $totalCount = count($referrals);
             if ($totalCount === 0) {
                 return ['completed' => 0,
-                        'continues' => 0,
-                        'made' => 0,
+                    'continues' => 0,
+                    'made' => 0,
                 ];
             }
 
             return ['completed' => $completedCount,
-                    'continues' => $totalCount - $completedCount,
-                    'made' => $completedCount / $totalCount * 100,
+                'continues' => $totalCount - $completedCount,
+                'made' => $completedCount / $totalCount * 100,
             ];
         }));
 
@@ -523,7 +532,8 @@ class tpl {
      *
      * @return void
      */
-    public static function lang_template_load($tpl) {
+    public static function lang_template_load($tpl)
+    {
         if (!file_exists($tpl)) {
             return;
         }

@@ -1,6 +1,6 @@
 <?php
 
-const template = 'default';
+const template = 'FangeWS';
 
 const timeout_statistic = 60;
 

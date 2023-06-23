@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>{{title}}</title>
+      <meta name="description" content="Lineage 2 Interlude, Classic-PvP x1200, MultiСraft x100, Craft-PvP x75">
+      <meta name="author" content="Fange">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <link rel="shortcut icon" href="{{template}}/images/favicon.png">
+      <script src="{{template}}/libs/jquery/jquery-3.4.1.min.js"></script>
+      <link rel="stylesheet" href="{{template}}/mmoweb/notiJ.css">
+      <script src="{{template}}/mmoweb/notiJ.js"></script>
+	  <script>
+const __config = {
+	preload: { /* Минимальное время показа прелоадера в секундах */
+		timeMin: 0.2,
+		/* Максимальное время показа прелоадера в секундах */ timeMax: 0.6,
+		/* Разрешить скрыть прелоадер кликнув на него */ hideByClick: true,
+	},
+	sliders: {
+		news: { /* Автоплей слайдера новостей включить/true выключить/false */
+			init: false,
+			/* Задержка между сменой слайдов в милисекундах */ delay: 10000,
+		},
+		sreams: { /* Автоплей слайдера стримов включить/true выключить/false */
+			init: true,
+			/* Задержка между сменой слайдов в милисекундах */ delay: 15000,
+		}
+	},
+	server: {
+		txt: {
+			load: 'Load',
+			offline: 'Сервер: <span class="color-red">off</span>',
+			soon: '<span class="color-yellow">Opening soon</span>',
+			zbt: '<span class="color-orange"><b>ZBT</b></span>',
+			obt: '<span class="color-green">OBT</span>',
+		},
+		animation: { /* Анимация сервера включить/true выключить/false */
+			init: true,
+			/* Время повтора анимации */ delay: 100
+		}
+	},
+	servers: { /* Чтобы выключить любое свойство, ставим false */
+	    {% for server in server_online_status() %}
+		'{{server.id}}': {
+			date: "{{server.date_start_server|date('H:i d.m.Y')}}",
+			status: "{{ server.connect_game ? "on" : "off" }}",
+			/* Стутса. Будет прописан вместо онлайна.*/ /* Статусы: "soon" "zbt" "obt" "on" "off" false - чтобы отключить и применить реальный статус сервера */ status: "soon",
+			/* в процентах + или - */ /* Если false, то будет расчитан реальный онлайн */ timeCorrection: 0,
+		},
+		{% endfor %}
+	},
+	eDate: { /* Формат YODHMS: лет, месяцев, дней, часов, минут, секунд */
+		format: 'DHMS',
+		year: 2020,
+		month: 7,
+		day: 17,
+		hour: 6,
+		minute: 20,
+		second: 0,
+		timeZone: +3,
+		endTimeMSG: "Server started successfully!"
+	},
+	donate: {
+		txt: {
+			currency: "Rub."
+		}
+	}
+};
+</script>
+   </head>
+   <body class="body body_glang-fix">
+      <div class="preload"><img src="{{template}}/images/logotype.png" alt="" class="preload__logo"></div>
+      <div class="page">
+         <div class="page__section navigation page__navigation">
+            <div class="page__container navigation__container">
+               <div class="page__inner page__inner_rw navigation__inner">
+                  <div>
+
+                            <div class="navigation__lang lang notranslate">
+                                <div class="lang__link lang__link_select" data-lang-active>
+                                   {% for lang in lang_list() %}
+                                      {% if lang['isActive']==true %}
+                                        <img class="lang__img lang__img_select" src="{{template}}/images/lang/lang__{{lang['lang'] }}.png" />
+                                      {% endif %}
+                                   {% endfor %}
+                                    <div class="lang__arrow"></div>
+                                </div>
+                                <div class="lang__list" data-lang-list>
+
+                                   {% for lang in lang_list() %}
+                                   {% if lang['isActive']==false %}
+                                       <a href="/user/change/lang/{{lang.lang}}" data-google-lang="{{lang.lang}}" class="lang__link lang__link_sub lang__link_translate"><img class="lang__img" src="{{template}}/images/lang/lang__{{lang.lang}}.png" alt="{{lang.lang}}"></a>
+                                   {% endif %}
+                                   {% endfor %}
+
+                                </div>
+                            </div>
+
+                  </div>
+                  <!-- lang -->
+                  <div class="navigation__nav nav">
+                     <div class="gw-burger navigation__burger">
+                        <div class="gw-burger__line gw-burger__line_pos_top"></div>
+                        <div class="gw-burger__line gw-burger__line_pos_middle"></div>
+                        <div class="gw-burger__line gw-burger__line_pos_bottom"></div>
+                     </div>
+                     <div class="navigation__list">
+                        <a href="/" class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_ruby.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('home') }}</div>
+                              <div class="nav__desc">{{ phrase('home_page') }}</div>
+                           </div>
+                        </a>
+                        <a href="javascript:;" data-open-window="files" class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_arrow.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('files') }}</div>
+                              <div class="nav__desc">{{ phrase('files_for_game') }}</div>
+                           </div>
+                        </a>
+                        <a href="{{alias('registration_account')}}" class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_lock.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('registration') }}</div>
+                              <div class="nav__desc">{{ phrase('create_account') }}</div>
+                           </div>
+                        </a>
+                        <a href="javascript:;" data-open-window="about" class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_bow.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('about server') }}</div>
+                              <div class="nav__desc">{{ phrase('desc_of_world') }}</div>
+                           </div>
+                        </a>
+                        <a href="https://forum.fange.ws/" class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_book.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('forum') }}</div>
+                              <div class="nav__desc">{{ phrase('forum_talk') }}</div>
+                           </div>
+                        </a>
+                        <a href="{{alias('donate')}}"  class="nav__link">
+                           <div class="nav__ico"><img src="{{template}}/images/nav/nav__ico_bag.png" alt="" class="nav__img"></div>
+                           <div class="nav__content">
+                              <div class="nav__name">{{ phrase('donation') }}</div>
+                              <div class="nav__desc">{{ phrase('help_project') }}</div>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <!-- END nav --><a href="{{alias('login')}}" class="navigation__enter enter" data-tip="{{ phrase('go_to_lk') }}"></a><!-- END lang -->
+               </div>
+               <!-- END page__inner -->
+            </div>
+            <!-- END page__inner -->
+         </div>
+         <!-- END page__section -->
+         <div class="page__section header page__header">
+            <div class="page__container header__container">
+               <div class="page__inner page__inner_rw header__inner">
+                        <div class="header__news news">
+                            <div class="news__header">
+                                <div class="news__title">{{ phrase('news') }}</div>
+                                <div class="news__slnav slnav notranslate">
+                                    <div class="slnav__arrow slnav__arrow_left" data-slider-news-prev></div>
+                                    <div class="slnav__counter">
+                                        <div class="color-yellow" data-slider-news-counter></div>
+                                        <div class="slnav__border">/</div>
+                                        <div data-slider-news-count></div>
+                                    </div>
+                                    <div class="slnav__arrow slnav__arrow_right" data-slider-news-next></div>
+                                </div>
+                            </div>
+                            <!-- END news__header -->
+                            <div class="news__list" data-slider-news>
+                                <div class="swiper-wrapper">
+
+                                   {% for news in last_news(10) %}
+                                    <div class="swiper-slide">
+                                        <article class="article article_fade">
+                                            <div class="article__title">{{news.name}}</div>
+                                            <div class="article__content"></div>
+                                        </article>
+                                    </div>
+                                   {% endfor %}
+
+
+                                </div>
+                            </div>
+                            <!-- END news__list -->
+                        </div>
+                  <!-- END news -->
+                  <div class="header__logotype">
+                     <a href="/" class="logo">
+                        <!-- Анимация вверх/вниз -->
+                        <div class="logo__sword"></div>
+                        <!-- Анимация вращения --><!-- <div class="logo__blade"><div class="logo__blade_0 logo__blade_def"></div><div class="logo__blade_1 logo__blade_def"></div><div class="logo__blade_2 logo__blade_def"></div><div class="logo__blade_3 logo__blade_def"></div><div class="logo__blade_4 logo__blade_def"></div><div class="logo__blade_5 logo__blade_def"></div><div class="logo__blade_6 logo__blade_def"></div></div> -->
+                     </a>
+                  </div>
+               </div>
+               <!-- END page__inner -->
+            </div>
+            <!-- END page__container -->
+         </div>
+         <!-- END page__section -->
+         <div class="page__section servers page__servers">
+            <div class="page__container servers__container">
+               <div class="page__inner page__inner_rw servers__inner">
+                  <div class="servers__btn btn btn_large_1" href="javascript:;" data-open-window="files">
+                     <div class="btn__pic"><img src="{{template}}/images/btns/ico-1.png" alt="" class="btn__img"></div>
+                            <div class="btn__content">
+                                <div class="btn__title">{{ phrase('start_game') }}</div>
+                                <div class="btn__desc">{{ phrase('game_client') }}</div>
+                            </div>
+                  </div>
+                  <!-- END servers__btn -->
+                  {% include 'server.html' %}
+
+                  <!-- END servers__list -->
+               </div>
+               <!-- END page__inner -->
+            </div>
+            <!-- END page__container -->
+         </div>
+         <!-- END page__section -->
+         <div class="page__section mid page__mid">
+            <div class="page__container mid__container">
+               <div class="page__inner mid__inner">
+                  {% for news in all_news %}{% endfor %}
+                     {% include 'news.html' with {'news':news} %}
+
+               </div>
+               <!-- END page__inner -->
+            </div>
+            <!-- END page__container -->
+         </div>
+         <!-- END page__section -->
+         <div class="page__section under page__under">
+            <div class="page__container under__container">
+               <div class="page__inner page__inner_rw under__inner">
+                  <div class="under__item"><a target="_blank" href="https://get-web.site/" class="under__bnr" title="Front-end Developer Get-Web.site"><img src="{{template}}/images/get-web-copyrights.png" alt="Get-Web.site"></a><a target="_blank" href="https://free-kassa.ru/" class="under__bnr"><img src="{{template}}/images/ps/ps__freekassa.png" alt="freekassa"></a><a target="_blank" href="https://paypal.com/" class="under__bnr"><img src="{{template}}/images/ps/ps__paypal.png" alt="paypal"></a><a target="_blank" href="https://webmoney.ru/" class="under__bnr"><img src="{{template}}/images/ps/ps__webmoney.png" alt="webmoney"></a></div>
+                  <div class="under__copy"><a href="/" class="under__logotype"><img src="{{template}}/images/logotype.png" alt="" class=""></a></div>
+                  <div class="under__item"><a target="_blank" href="https://qiwi.com/" class="under__bnr"><img src="{{template}}/images/ps/ps__qiwi.png" alt="qiwi"></a><a target="_blank" href="https://money.yandex.ru/" class="under__bnr"><img src="{{template}}/images/ps/ps__ya.png" alt="yandex"></a><a target="_blank" href="https://vk.com/deziart" class="under__bnr"><img src="{{template}}/images/copyright__dezi.png" alt=""></a></div>
+               </div>
+               <!-- END page__inner -->
+            </div>
+            <!-- END page__container -->
+         </div>
+         <!-- END page__section -->
+      </div>
+      <!-- END page --><!-- Donate START -->
+
+      <!-- Donate END --><!-- files START -->
+      <div style="display: none;">
+         <div id="files">
+            <div class="mdl compensate-for-scrollbar">
+               <div class="files">
+                  <div class="p-header">
+                     <div class="p-header__title">{{phrase('start_game')}}</div>
+                  </div>
+                  <div class="files__inner">
+                     <div class="files__selection selection border-right">
+                        <div class="m-heading m-heading_p">
+                           <div class="m-heading__title"> 1. {{phrase('select_server')}} </div>
+                        </div>
+                        <!-- END m-heading-->
+                        <label class="files__srv srv srv_mobile srv_bb">
+                           <input type="radio" class="srv__input" name="server-check" data-res-target="server-1">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_3.png" alt="s1" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title"><span class="color-white">{{phrase('files_for_...')}} PTS</span></div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> {{phrase('selection')}} </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -->
+                        <label class="files__srv srv srv_mobile srv_bb">
+                           <input type="radio" class="srv__input" name="server-check" data-res-target="server-2">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_4.png" alt="s2" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title"><span class="color-white">{{phrase('files_for_...')}} Java</span></div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> {{phrase('selection')}} </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -- <label class="files__srv srv srv_mobile srv_bb"><input type="radio" class="srv__input" name="server-check" data-res-target="server-3"><div class="srv__check"></div><div class="srv__info"><div class="srv__ico"><div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_1.png" alt="s3" class="srv__img"></div></div><div class="srv__content"><div class="srv__title">Interlude <span class="color-yellow">x1200</span></div><div class="srv__desc">Craft PVP</div></div><div class="srv__select btn btn_min"><div class="btn__content"> Выбрать </div></div></div></label><!-- END srv -- <label class="files__srv srv srv_mobile srv_bb"><input type="radio" class="srv__input" name="server-check" data-res-target="server-4"><div class="srv__check"></div><div class="srv__info"><div class="srv__ico"><div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_2.png" alt="s4" class="srv__img"></div></div><div class="srv__content"><div class="srv__title">Interlude <span class="color-yellow">x100</span></div><div class="srv__desc">Craft PVP</div></div><div class="srv__select btn btn_min"><div class="btn__content"> Выбрать </div></div></div></label><!-- END srv -- <label class="files__srv srv srv_mobile"><input type="radio" class="srv__input" name="server-check" data-res-target="server-5"><div class="srv__check"></div><div class="srv__info"><div class="srv__ico"><div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_5.png" alt="s5" class="srv__img"></div></div><div class="srv__content"><div class="srv__title">Interlude <span class="color-yellow">x50</span></div><div class="srv__desc">Craft PVP</div></div><div class="srv__select btn btn_min"><div class="btn__content"> Выбрать </div></div></div></label><!-- END srv -->
+                     </div>
+                     <!-- END files__selection -->
+                     <div class="files__res res">
+                        <!-- START files server-1 -->
+                        <div class="res__box" data-res-box="server-1" style="display: none;">
+                           <div class="res__inner">
+                              <div class="res__item border-right">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 2. {{phrase('download_and_install_game')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="http://launcher.fange.ru/Lineage%202%20Interlude.rar" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_clear_client')}}</div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 2.7 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_client')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 2.7 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_client')}} <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 2.7 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_client')}} <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 2.7 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_client')}} <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">12312312312312 2.7 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                              <div class="res__item">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END files server-1 --><!-- START files server-2 -->
+                        <div class="res__box" data-res-box="server-2" style="display: none;">
+                           <div class="res__inner">
+                              <div class="res__item border-right">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                              <div class="res__item">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END files server-2 --><!-- START files server-3 -->
+                        <div class="res__box" data-res-box="server-3" style="display: none;">
+                           <div class="res__inner">
+                              <div class="res__item border-right">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                              <div class="res__item">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END files server-3 --><!-- START files server-4 -->
+                        <div class="res__box" data-res-box="server-4" style="display: none;">
+                           <div class="res__inner">
+                              <div class="res__item border-right">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                              <div class="res__item">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END files server-4 --><!-- START files server-5 -->
+                        <div class="res__box" data-res-box="server-5" style="display: none;">
+                           <div class="res__inner">
+                              <div class="res__item border-right">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                              <div class="res__item">
+                                 <div class="res__list">
+                                    <div class="m-heading m-heading_p">
+                                       <div class="m-heading__title"> 3. {{phrase('download_patch_and_launcher')}} </div>
+                                    </div>
+                                    <!-- END m-heading-->
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">(Yandex)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download_patch')}} <span class="color-yellow">({{phrase('source')}} 1)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 2)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="item item_bb">
+                                       <div class="item__content">
+                                          <div class="item__title">{{phrase('download')}} updater <span class="color-yellow">({{phrase('source')}} 3)</span></div>
+                                          <div class="item__desc">LINEAGE INTERLUDE 5.4 GB</div>
+                                       </div>
+                                       <div class="item__select btn btn_min">
+                                          <div class="btn__content"> {{phrase('selection')}} </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                                 <!-- END res__list -->
+                              </div>
+                              <!-- END res__item -->
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END files server-5 -->
+                     </div>
+                     <!-- END files__res -->
+                  </div>
+                  <!-- END files__inner -->
+               </div>
+               <!-- END files -->  
+            </div>
+            <!-- END mdl-->
+         </div>
+      </div>
+      <!-- files END --> <!-- about START -->
+      <div style="display: none;">
+         <div id="about">
+            <div class="mdl compensate-for-scrollbar">
+               <div class="about">
+                  <div class="p-header">
+                     <div class="p-header__title">{{phrase('about server')}}</div>
+                  </div>
+                  <div class="about__inner">
+                     <div class="about__selection selection border-right">
+                        <div class="m-heading m-heading_p">
+                           <div class="m-heading__title"> {{phrase('select_server')}} </div>
+                        </div>
+                        <!-- END m-heading-->
+                        <label class="about__srv srv srv_mobile srv_bb">
+                           <input type="radio" class="srv__input" name="server-about" data-about-target="server-1">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_1.png" alt="s1" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title">Interlude <span class="color-yellow">PTS x50</span></div>
+                                 <div class="srv__desc">Craft PVP</div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> {{phrase('selection')}} </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -->
+                        <label class="about__srv srv srv_mobile srv_bb">
+                           <input type="radio" class="srv__input" name="server-about" data-about-target="server-2">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_2.png" alt="s2" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title">Interlude <span class="color-yellow">x1200</span></div>
+                                 <div class="srv__desc">Classic PvP</div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> {{phrase('selection')}} </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -->
+                        <label class="about__srv srv srv_mobile srv_bb">
+                           <input type="radio" class="srv__input" name="server-about" data-about-target="server-3">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_3.png" alt="s3" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title">Interlude <span class="color-yellow">x75</span></div>
+                                 <div class="srv__desc">Craft PVP</div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> {{phrase('selection')}} </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -->
+                        <label class="about__srv srv srv_mobile">
+                           <input type="radio" class="srv__input" name="server-about" data-about-target="server-4">
+                           <div class="srv__check"></div>
+                           <div class="srv__info">
+                              <div class="srv__ico">
+                                 <div class="srv__pic"><img src="{{template}}/images/server/server__bg_type_4.png" alt="s4" class="srv__img"></div>
+                              </div>
+                              <div class="srv__content">
+                                 <div class="srv__title">Interlude <span class="color-yellow">GvE</span></div>
+                                 <div class="srv__desc">Faction Mode</div>
+                              </div>
+                              <div class="srv__select btn btn_min">
+                                 <div class="btn__content"> Скоро </div>
+                              </div>
+                           </div>
+                        </label>
+                        <!-- END srv -->
+                     </div>
+                     <!-- END about__choice -->
+                     <div class="about__list">
+                        <!-- START about server-1 -->
+                        <div class="about__box" data-about-box="server-1" style="display: none;">
+                           <div class="about__container">
+                              <div class="m-heading m-heading_p">
+                                 <div class="m-heading__title"> {{phrase('desc_server')}} interlude PTS x50 </div>
+                              </div>
+                              <!-- END m-heading-->
+                              {{ phrase('server_about_1')|raw }}
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END about server-3 --><!-- START about server-2 -->
+                        <div class="about__box" data-about-box="server-2" style="display: none;">
+                           <div class="about__container">
+                              <div class="m-heading m-heading_p">
+                                 <div class="m-heading__title"> {{phrase('desc_server')}} interlude x1200 </div>
+                              </div>
+                              <!-- END m-heading-->
+                              {{phrase('server_about_2')|raw}}
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END about server-1 --><!-- START about server-3 -->
+                        <div class="about__box" data-about-box="server-3" style="display: none;">
+                           <div class="about__container">
+                              <div class="m-heading m-heading_p">
+                                 <div class="m-heading__title"> {{phrase('desc_server')}} interlude x75 </div>
+                              </div>
+                              <!-- END m-heading-->
+                              {{phrase('server_about_3')|raw}}
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END about server-2 --><!-- START about server-4 -->
+                        <div class="about__box" data-about-box="server-4" style="display: none;">
+                           <div class="about__container">
+                              <div class="m-heading m-heading_p">
+                                 <div class="m-heading__title"> {{phrase('desc_server')}} interlude GVE </div>
+                              </div>
+                              <!-- END m-heading-->
+                              <div class="about__content content">
+                                 <h3 class="content__title">{{phrase('main_info')}}:</h3>
+                                 <p> {{phrase('info_coming_soon')}} </p>
+                              </div>
+                           </div>
+                           <!-- END res__inner -->
+                        </div>
+                        <!-- END res__box --><!-- END about server-4 -->
+                     </div>
+                     <!-- END about__res -->
+                  </div>
+                  <!-- END about__inner -->
+               </div>
+               <!-- END about -->
+            </div>
+            <!-- END mdl-->
+         </div>
+      </div>
+      <!-- about END --> 
+	  <script src="{{template}}/libs/jquery-cookie/jquery.cookie.js"></script>
+	  <!-- fonts -->
+      <link rel="stylesheet" href="{{template}}/fonts/SegoeUI/stylesheet.css">
+      <!-- fancybox -->
+      <link rel="stylesheet" href="{{template}}/libs/fancybox/css/jquery.fancybox.min.css">
+      <script src="{{template}}/libs/fancybox/js/jquery.fancybox.js"></script>
+	  <!-- swiper -->
+	  <script src="{{template}}/libs/swiper/js/swiper.min.js"></script>
+      <link rel="stylesheet" href="{{template}}/libs/swiper/css/swiper.min.css">
+      <!-- countdown -->
+	  <script src="{{template}}/libs/countdown/js/jquery.plugin.min.js"></script>
+	  <script src="{{template}}/libs/countdown/js/jquery.countdown.min.js"></script>  
+	  <!-- tippy -->
+	  <script src="{{template}}/libs/tippy/js/popper.min.js"></script>
+	  <script src="{{template}}/libs/tippy/js/tippy-bundle.iife.min.js"></script>
+	  <!-- insertmedia -->
+	  <script src="{{template}}/libs/insertmedia/src/insertmedia.min.js"></script>
+	  <!-- Main style -->
+      <link rel="stylesheet" href="{{template}}/css/style.css?ver=0.0.3">
+      <!-- Adaptation style -->
+      <link rel="stylesheet" href="{{template}}/css/adaptation.css?ver=0.0.3">
+      <!-- Main app --><script src="{{template}}/js/app.js?ver=0.0.3"></script>
+   </body>
+</html>

@@ -57,7 +57,11 @@
             <div class="pricing-table">
                 <div class="card">
                     <div class="card-body text-center">
-                        <strong data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}">{{get_default_page(online['name'], online['id'])|raw}} x{{online['rate_exp']}}</strong>
+                        {% if online.get_default_page_id %}
+                           <strong data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}">{{get_default_page(online['name'], online['id'])|raw}} x{{online['rate_exp']}}</strong>
+                        {% else %}
+                           <strong >{{online['name']}} x{{online['rate_exp']}}</strong>
+                        {% endif %}
 
                         <div class="card-footer">
                             <div class="row align-items-center text-center">
@@ -85,7 +89,7 @@
                             <div class=""><b>{{online['chronicle']}}</b></div>
                             {% if online['launcher_enabled'] %}
                             <hr>
-                            <div><b><a class="text-danger" data-toggle="tooltip" data-placement="top" data-original-title="Лаунчер для обновления клиента" href="/launcher/{{online['id']}}">Веб-Лаунчер</a></b></div>
+                            <div><b><a class="text-danger" data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(368)}}" href="/launcher/{{online['id']}}">Веб-Лаунчер</a></b></div>
                             {% endif %}
 
                         </div>

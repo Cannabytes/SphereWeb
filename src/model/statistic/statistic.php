@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\model\statistic;
 
+use Error;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
@@ -101,19 +102,20 @@ class statistic {
         return $data;
     }
 
-    static private ?array $pvp = null;
+    private static null|array|false $pvp = null;
 
-    static public function get_pvp($server_id = 0) {
+    public static function get_pvp($server_id = 0) {
         if(self::$pvp) {
-            return self::$pvp;
+             return self::$pvp;
         }
         try {
             return self::$pvp = self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp', $server_id, second: timeout::statistic_pvp->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
+            var_dump($e->getMessage());
         }
     }
 
-    static private ?array $pk = null;
+    static private null|array|false $pk = null;
 
     static public function get_pk($server_id = 0) {
         if(self::$pk) {
@@ -121,11 +123,11 @@ class statistic {
         }
         try {
             return self::$pk = self::get_data_statistic(dir::statistic_pk, 'statistic_top_pk', $server_id, second: timeout::statistic_pk->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
-    static private ?array $players_online_time = null;
+    static private null|array|false $players_online_time = null;
 
     static public function get_players_online_time($server_id = 0) {
         if(self::$players_online_time) {
@@ -133,11 +135,11 @@ class statistic {
         }
         try {
             return self::$players_online_time = self::get_data_statistic(dir::statistic_online, 'statistic_top_onlinetime', $server_id, second: timeout::statistic_online->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
-    static private ?array $clan = null;
+    static private null|array|false $clan = null;
 
     static public function get_clan($server_id = 0) {
         if(self::$clan) {
@@ -145,11 +147,11 @@ class statistic {
         }
         try {
             return self::$clan = self::get_data_statistic(dir::statistic_clan, 'statistic_top_clan', $server_id, second: timeout::statistic_clan->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
-    static private ?array $heroes = null;
+    static private null|array|false $heroes = null;
 
     public static function get_heroes($server_id = 0) {
         if(self::$heroes) {
@@ -157,11 +159,11 @@ class statistic {
         }
         try {
             return self::$heroes = self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
-    static private ?array $castle = null;
+    static private null|array|false $castle = null;
 
     public static function get_castle($server_id = 0) {
         if(self::$castle) {
@@ -169,7 +171,7 @@ class statistic {
         }
         try {
             return self::$castle = self::get_data_statistic(dir::statistic_castle, 'statistic_top_castle', $server_id, second: timeout::statistic_castle->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
@@ -181,7 +183,7 @@ class statistic {
         }
         try {
             return self::$players_block = self::get_data_statistic(dir::statistic_block, 'statistic_top_block', $server_id, second: timeout::statistic_block->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
@@ -193,7 +195,7 @@ class statistic {
         }
         try {
             return self::$players_heroes = self::get_data_statistic(dir::statistic_heroes, 'statistic_top_heroes', $server_id, second: timeout::statistic_heroes->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
@@ -206,7 +208,7 @@ class statistic {
         }
         try {
             return self::$get_player_info = self::get_data_statistic_player(dir::statistic_player_info, 'statistic_player_info', player_name: $player_name, server_id: $server_id, acrossAll: false, prepare: [$player_name], second: timeout::statistic_player_info->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
@@ -246,7 +248,7 @@ class statistic {
         }
         try {
             return self::$top_counter = self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 
@@ -350,7 +352,7 @@ class statistic {
         }
         try {
             return self::$class = self::get_data_statistic_player(dir: dir::statistic_class, collection_sql_name: 'statistic_top_class', player_name: $class_id, server_id: $server_id, acrossAll: true, crest_convert: true, prepare: $prepare, second: timeout::statistic_counter->time());
-        } catch(\Error $e) {
+        } catch(Error $e) {
         }
     }
 }

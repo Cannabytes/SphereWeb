@@ -66,28 +66,32 @@ class ticket_model {
         return $ticket;
     }
 
-    static public function get_ticket($ticket_id) {
+    public static function get_ticket($ticket_id) {
         return sql::getRow("SELECT * FROM tickets WHERE id = ?", [$ticket_id]);
     }
 
     //Информация о комментарии
-    static public function get_comment($ticket_id, $comment_id) {
+    public static function get_comment($ticket_id, $comment_id) {
         $data = sql::getRow("SELECT * FROM tickets_comment WHERE ticket_id = ? AND id = ?", [
             $ticket_id,
             $comment_id,
         ]);
         $ticket_img = sql::getRows("SELECT * FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
         $data['images'] = $ticket_img;
-        //        var_dump($ticket_id, $comment_id);exit;
         return $data;
     }
 
-    static private function getCommentImage($comment_id): array {
+    private static function getCommentImage($comment_id): array {
         return sql::getRows("SELECT image FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
     }
 
-    static public function add() {
+
+    public static function add() {
         $content = isset($_POST['content']) ? trim($_POST['content']) : null;
+        if(10 > mb_strlen($content)){
+            board::notice(false, "Введите сообщение от 10 символов");
+        }
+
         $files = $_FILES['files'] ?? null;
 
         if($content === null && $files === null) {
@@ -111,7 +115,7 @@ class ticket_model {
         ]);
     }
 
-    static public function addComment() {
+    public static function addComment() {
         $content = isset($_POST['content']) ? trim($_POST['content']) : null;
         $files = $_FILES['files'] ?? null;
         $ticketID = $_POST['ticketID'] ?? null;
@@ -152,7 +156,7 @@ class ticket_model {
             if($handle->uploaded) {
                 $handle->allowed = ['image/*'];
                 $handle->mime_check = true;
-                $handle->file_max_size = 4 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
+                $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
 
                 $filename = md5(mt_rand(1, 100000) + time());
                 $handle->file_new_name_body = $filename;
@@ -164,7 +168,14 @@ class ticket_model {
                 $handle->webp_quality = 95;
                 $handle->process('./uploads/tickets');
                 if(!$handle->processed) {
-                    board::notice(false, $handle->error);
+                    if($comment){
+                        self::removeComment($ticketID);
+                    }else{
+                        self::remove($ticketID);
+                    }
+                    $fileName = $files['name'][$i];
+                    $msg = "Ошибка загрузки изображения '" . $fileName . "'\nПричина: " . $handle->error;
+                    board::notice(false,  $msg);
                 }
                 $handle->file_new_name_body = $filename;
                 $handle->image_resize = true;
@@ -188,11 +199,26 @@ class ticket_model {
                             $ticketID,
                         ]);
                     }
-                } else {
-                    board::notice(false, $handle->error);
                 }
+
+                if ($handle->error) {
+                    if($comment){
+                        self::removeComment($ticketID);
+                    }else{
+                        self::remove($ticketID);
+                    }
+                    $fileName = $files['name'][$i];
+                    $msg = "Ошибка загрузки изображения '" . $fileName . "'\nПричина: " . $handle->error;
+                    board::notice(false,  $msg);
+                }
+
             } else {
-                board::notice(false, $handle->error);
+                if($comment){
+                    self::removeComment($ticketID);
+                }else{
+                    self::remove($ticketID);
+                }
+                board::notice(false,  $handle->error);
             }
         }
     }
@@ -275,4 +301,49 @@ class ticket_model {
             ]);
         }
     }
+
+    //Удаление тикета
+    //Если всё удалено - true
+    public static function remove($ticket_id): bool {
+        $ticket = self::get_ticket($ticket_id);
+        if($ticket){
+            sql::run("DELETE FROM `tickets` WHERE `id` = ?", [$ticket_id]);
+            $comments = sql::getRows("SELECT `id` FROM `tickets_comment` WHERE ticket_id = ?", [$ticket_id]);
+            if($comments){
+                sql::run("DELETE FROM `tickets_comment` WHERE `ticket_id` = ?", [$ticket_id]);
+                $images = sql::run("SELECT `image` FROM `tickets_comment_image`;");
+                foreach ($images as $src) {
+                    unlink("uploads\\tickets\\{$src['image']}");
+                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                }
+                foreach ($comments AS $comment){
+                    sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$comment['id']]);
+                }
+                $images = sql::run("SELECT `image` FROM `tickets_image`;");
+                foreach ($images as $src) {
+                    unlink("uploads\\tickets\\{$src['image']}");
+                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                }
+                sql::run("DELETE FROM `tickets_image` WHERE `ticket_id` = ?", [$ticket_id]);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static function removeComment($commentID) : bool {
+        if(sql::run("SELECT `ticket_id` FROM `tickets_comment` WHERE id=?", [$commentID])){
+            if($images = sql::run("SELECT `image` FROM `tickets_comment_image` WHERE comment_id=?;", [$commentID])){
+                foreach ($images as $src) {
+                    unlink("uploads\\tickets\\{$src['image']}");
+                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                }
+            }
+            sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$commentID]);
+            sql::run("DELETE FROM `tickets_comment` WHERE `id` = ?", [$commentID]);
+            return true;
+        }
+        return false;
+    }
+
 }

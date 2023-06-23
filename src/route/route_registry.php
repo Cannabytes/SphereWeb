@@ -52,7 +52,8 @@ $route->post("registration/account/sync", 'Ofey\Logan22\controller\registration\
 /**
  * Авторизация
  */
-$route->get("auth", 'Ofey\Logan22\controller\user\auth\auth::index');
+$route->get("login", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("login");
+$route->get("auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
 $route->post("auth", 'Ofey\Logan22\controller\user\auth\auth::auth_request');
 $route->get("auth/logout", 'Ofey\Logan22\controller\user\auth\auth::logout');
 $route->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget');
@@ -149,6 +150,8 @@ $route->post("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::open');
 $route->post("ticket/remove/comment/image", 'Ofey\Logan22\controller\ticket\ticket::removeImage');
 $route->post("ticket/edit/comment", 'Ofey\Logan22\controller\ticket\ticket::editComment');
 $route->post("ticket/edit/ticket", 'Ofey\Logan22\controller\ticket\ticket::editTicket');
+$route->post("ticket/remove", 'Ofey\Logan22\controller\ticket\ticket::remove');
+$route->post("ticket/remove/comment", 'Ofey\Logan22\controller\ticket\ticket::removeComment');
 
 //лаунчер
 $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');

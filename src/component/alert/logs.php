@@ -42,14 +42,15 @@ class logs {
     /**
      * @throws Exception
      */
-    public static function loggerSQL($query, $args) {
+    public static function loggerSQL($query, $args, $comment = "") {
         $numPlaceholders = substr_count($query, '?');
+        if (is_string($args)) {
+            $args = [$args]; // Convert string to array
+        }
         $numArgs = count($args);
 
         if ($numPlaceholders != $numArgs) {
-            $message = "Несоответствие количества плейсхолдеров ({$numPlaceholders}) и аргументов ({$numArgs})";
-        } else {
-            $message = "Другая ошибка";
+            $comment = $comment . "\nНесоответствие количества плейсхолдеров ({$numPlaceholders}) и аргументов ({$numArgs})";
         }
 
         foreach ($args as $value) {
@@ -61,7 +62,7 @@ class logs {
             }
         }
 
-        self::loggerError($message, "uploads/logs/sql/", $query, $args);
+        self::loggerError($comment, "uploads/logs/sql/", $query, $args);
     }
 
     //Иногда формируемся неправильный SQL запрос, чтоб пресечь такие ошибки, будем сохранять запросы , которые были сформированы с ошибкой

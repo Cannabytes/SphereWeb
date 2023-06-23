@@ -15,17 +15,9 @@
                        class=" waves-effect waves-light " data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ phrase(335) }}">
                         <i class="fa fa-superpowers text-white"></i></a>
                     {% endif %}
-
-<!--                    <a href="#"-->
-<!--                       class=" waves-effect waves-light">-->
-<!--                        <i class="fa fa-question-circle-o text-white"></i></a>-->
                 </div>
 
-
-
-
             </div>
-
 
             <div class="row">
                 {% if get_server_info()|length >= 1 %}
@@ -126,10 +118,11 @@
                 <div class="row">
                     {% for screen in screenshots|slice(0, showScreenCount) %}
                     <div class="col-md-6 col-lg-2 col-xl-2">
-                        <a href="{{is_image('uploads/screenshots', screen.image) }}"
+
+                        <a href="{{is_screenshot( screen.image) }}"
                            data-fancybox="images"
                            data-caption="{{ screen.desciption }}">
-                            <img src="{{is_image('uploads/screenshots', screen.image) }}"
+                            <img src="{{is_screenshot( 'thumb_' ~ screen.image) }}"
                                  alt="lightbox"
                                  class="lightbox-thumb img-thumbnail rounded">
                         </a>
@@ -304,7 +297,6 @@
 
 </script>
 <script src="{{'assets/js/ws/chatself.js'|template}}"></script>
-<!--<script src="{{'assets/js/ws/chat.js'|template}}"></script>-->
 {% endif %}
 
 

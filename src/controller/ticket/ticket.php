@@ -141,4 +141,31 @@ class ticket {
         validation::user_protection();
         ticket_model::editTicket();
     }
+
+
+    public static function remove(): void {
+        validation::user_protection("admin");
+        $ticketID = $_POST['ticketID'] ?? null;
+        if(is_numeric($ticketID)){
+           if(ticket_model::remove($ticketID)){
+               board::alert([
+                   "ok" => true,
+                   "message"=> lang::get_phrase(146),
+               ]);
+           }
+        }
+    }
+
+    public static function removeComment(): void {
+        validation::user_protection("admin");
+        $ticketID = $_POST['commentID'] ?? null;
+        if(is_numeric($ticketID)){
+          if (ticket_model::removeComment($ticketID) ){
+              board::alert([
+                  "ok" => true,
+                  "message"=> lang::get_phrase(146),
+              ]);
+          }
+        }
+    }
 }

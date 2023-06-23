@@ -98,12 +98,21 @@
             </div>
             <div class="card-footer">
                 <footer class="blockquote-footer">
+
                     <em>{{ phrase("date_create") }}: {{ ticket.date|date("H:i / d.m.Y")}}</em>
-                    {% if user_info('get_id') == ticket.user_id %}
+
                     <div class="card-action">
-                       <a href="/ticket/edit/{{ticket.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("edit")}}</a>
-                    </div>
+
+                    {% if user_info('get_id') == ticket.user_id %}
+                        <a href="/ticket/edit/{{ticket.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("edit")}}</a>
                     {% endif %}
+
+                    {% if user_info('get_access_level')=="admin" %}
+                       <button id="removeTicket" data-ticket="{{ticket.id}}" type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("delete")}}</button>
+                    {% endif %}
+
+                    </div>
+
                 </footer>
             </div>
         </div>
@@ -153,12 +162,18 @@
             </div>
             <div class="card-footer">
                 <footer class="blockquote-footer"><em>{{ phrase("date_create") }}: {{ comment.date|date("H:i / d.m.Y") }}</em>
+                    <div class="card-action">
 
                     {% if comment.user_id == user_info('get_id') %}
-                    <div class="card-action">
                         <a href="/ticket/edit/{{ticket.id}}/{{comment.id}}"  type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light">{{phrase("edit")}}</a>
-                    </div>
                     {% endif %}
+
+                    {% if user_info('get_access_level')=="admin" %}
+                        <button data-comment="{{comment.id}}" type="button" class="btn-social-text btn-github btn-sm waves-effect waves-light removeTicketComment">{{phrase("delete")}}</button>
+                    {% endif %}
+
+                    </div>
+
                 </footer>
             </div>
         </div>
@@ -247,5 +262,8 @@
 {% block js %}
 <script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
 <script src="{{'assets/js/ticket/comment.js'|template}}"></script>
+{% if user_info('get_access_level')=="admin" %}
+<script src="{{'assets/js/ticket/ticket_admin.js'|template}}"></script>
+{% endif %}
 {% endblock %}
 
