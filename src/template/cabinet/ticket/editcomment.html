@@ -21,8 +21,7 @@
                     <div class="col-lg-2 col-md-12">
                         <div class="card profile-card-3">
                             <div class="card-img-block">
-                                <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}" >
+                                <img class="img-fluid" src="{{template}}/assets/images/navatar/{{ user_info('get_avatar') }}">
                             </div>
                             <h4>{% if ticket.name == null %} <span data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Юзер без имени" >#{{ticket.user_id}}</span> {% else %} {{ticket.name}} {% endif %}</h4>
 

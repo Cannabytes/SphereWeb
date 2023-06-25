@@ -128,14 +128,10 @@
                     <div class="col-lg-2 col-md-12">
                         <div class="card profile-card-3">
                             <div class="card-img-block">
-                                <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatarback/{{ user_info('get_avatar_background')}}"
-                                     alt="Card image cap">
+                                <img class="img-fluid" src="{{template}}/assets/images/navatar/{{ user_info('get_avatar') }}" >
                             </div>
-                            <div class="card-body pt-1">
-                                <img src="{{template}}/assets/images/navatar/{{ user_info('get_avatar') }}"
-                                     alt="profile-image" class="profile ">
-                                <h5 class="card-title">{{ user_info('get_name') }}</h5>
+                            <div class="card-body pt-2">
+                                <h5 class="btn btn-primary waves-effect waves-light mt-0">{{ user_info('get_name') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -147,10 +143,10 @@
                                               placeholder="Reply here..."></textarea>
                                 </div>
 
-                                <div class="text-right">
+                                <div class="text-right pb-2  mr-2 ">
                                     <button id="add_comment" type="button"
-                                            class="btn btn-primary waves-effect waves-light mt-0"><i
-                                            class="fa fa-send mr-1"></i> Send
+                                            class="btn btn-primary waves-effect waves-light "><i
+                                            class="fa fa-send m-auto"></i> {{phrase(364)}}
                                     </button>
                                 </div>
 
