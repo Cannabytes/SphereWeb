@@ -13,12 +13,14 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
 class page {
 
     //Изменение комментария
     public static function editComment(){
+        if(!auth::get_ban_page()) board::notice(false, "You are not allowed to do this");
         validation::user_protection("admin");
         $comment_id = request::setting('comment_id', new request_config(isNumber: true));
         $comment_msg = request::setting('comment_message', new request_config(max: 2000, required: true));
@@ -32,6 +34,9 @@ class page {
 
     //Удаление комментария из страницы
     public static function deleteComment(){
+        if(!auth::get_ban_page()){
+            board::notice(false, "You are not allowed to do this");
+        }
         validation::user_protection("admin");
         $comment_id = request::setting('comment_id', new request_config(isNumber: true));
         if (\Ofey\Logan22\model\page\page::delete($comment_id)){

@@ -39,6 +39,12 @@ class auth {
     static private string $avatar_background;
     static private string $timezone;
 
+    //ban func
+    private static ?bool $ban_page = false;
+    private static ?bool $ban_ticket = false;
+    private static ?bool $ban_gallery = false;
+
+
     /**
      * @return false|mixed|void|null
      * @throws Exception
@@ -220,6 +226,10 @@ class auth {
                     self::set_avatar($auth['avatar']);
                     self::set_avatar_background($auth['avatar_background']);
                     self::set_timezone($auth['timezone'] ?? "America/Los_Angeles");
+                    //ban func
+                    self::set_ban_page($auth['ban_page']);
+                    self::set_ban_ticket($auth['ban_ticket']);
+                    self::set_ban_gallery($auth['ban_gallery']);
                     return;
                 }
             }else{
@@ -241,17 +251,22 @@ class auth {
         self::set_avatar("none.jpeg");
         self::set_avatar_background("none.jpeg");
         self::set_timezone("America/Los_Angeles");
+
+        self::set_ban_page(true);
+        self::set_ban_ticket(true);
+        self::set_ban_gallery(true);
+
     }
 
     //TODO:Добавить в массив всех пользователей которых мы проверяем
-    static public array $userInfo = [];
+    public static array $userInfo = [];
     //Проверка существования юзера
     //$nCheck = false вернет в случае неудачи false, если true выйдет в логаут из профиля
-    static public function exist_user($email, $nCheck = true) {
+    public static function exist_user($email, $nCheck = true) {
         if(self::$userInfo != null) {
             return self::$userInfo;
         }
-        $sql = 'SELECT * FROM `users` WHERE `email` = ?;';
+        $sql = 'SELECT users.*,  users_permission.* FROM users LEFT JOIN users_permission ON users.id = users_permission.user_id WHERE email = ?;';
         $userInfo = sql::run($sql, [$email])->fetch();
         if(!$nCheck) {
             return false;
@@ -415,4 +430,39 @@ class auth {
         date_default_timezone_set($timezone);
         self::$timezone = $timezone;
     }
+
+    private static function set_ban_page(?bool $ban_page): void{
+        self::$ban_page = (bool)$ban_page;
+    }
+
+    private static function set_ban_ticket(?bool $ban_ticket): void{
+        self::$ban_ticket = (bool)$ban_ticket;
+    }
+
+    private static function set_ban_gallery(?bool $ban_gallery): void{
+        self::$ban_gallery = (bool)$ban_gallery;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function get_ban_page(): bool {
+        return self::$ban_page;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function get_ban_ticket(): bool {
+        return self::$ban_ticket;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function get_ban_gallery(): bool {
+        return self::$ban_gallery;
+    }
+
+
 }

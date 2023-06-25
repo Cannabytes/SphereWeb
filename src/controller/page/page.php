@@ -21,6 +21,9 @@ class page {
         if(!auth::get_is_auth()) {
             board::notice(false, "Only auth user");
         }
+        if(!auth::get_ban_page()){
+            board::notice(false, "You are not allowed to do this");
+        }
         $page_id = $_POST['id'];
         $comment = htmlentities($_POST['comment']);
         $page = page_model::get_news($page_id);

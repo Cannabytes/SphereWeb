@@ -22,7 +22,7 @@ class screenshot {
 
     public static function show_page(): void
     {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
         $screens = screenshot_model::load();
         tpl::addVar("screens", $screens);
         tpl::addVar("title", lang::get_phrase(236));
@@ -38,7 +38,8 @@ class screenshot {
 
     public static function show_add_page(): void
     {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
+        if(auth::get_ban_gallery()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         if(!config::get_screen_enable()) {
             redirect::location('/gallery');
@@ -62,7 +63,8 @@ class screenshot {
     }
 
     public static function load_screen() {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
+        if(auth::get_ban_gallery()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         if(!config::get_screen_enable()) {
             redirect::location('/gallery');
@@ -71,7 +73,7 @@ class screenshot {
     }
 
     public static function my_page() {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
         validation::user_protection();
         $screens = screenshot_model::load_my_screen();
         tpl::addVar("screens", $screens);
@@ -81,13 +83,14 @@ class screenshot {
     }
 
     public static function save_description() {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
+        if(auth::get_ban_gallery()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         screenshot_model::save_description();
     }
 
     public static function my_remove() {
-        if(!config::getEnableGallery()) error::error404("Отключено");
+        if(!config::getEnableGallery()) error::error404("Disabled");
         validation::user_protection();
         $screen_id = $_POST['id'];
         $image = screenshot_model::get_hash_name_gallery_image($screen_id);

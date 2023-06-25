@@ -8,10 +8,9 @@ use Ofey\Logan22\template\tpl;
 
 class promo {
 
-    static public function index(): void {
+    public static function index(): void {
         tpl::addVar([
             'title'       => lang::get_phrase(238),
-            'server_list' => server::get_server_info(),
         ]);
         tpl::display("index.html", true);
     }

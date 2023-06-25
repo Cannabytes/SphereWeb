@@ -118,7 +118,7 @@
 </div>
 {% endfor %}
 
-{% if page.comment == true and user_info('get_is_auth') == true or user_info('get_access_level')=="admin" %}
+{% if page.comment == true and user_info('get_is_auth') == true and user_info('get_ban_page') == false or user_info('get_access_level')=="admin" %}
 <hr>
 <div class="row">
     <div class="col-lg-12">

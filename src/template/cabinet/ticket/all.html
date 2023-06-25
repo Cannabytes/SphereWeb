@@ -17,7 +17,7 @@
 <div class="row">
     <!-- Left sidebar -->
     <div class="col-lg-2 col-md-1">
-        {% if user_info('get_is_auth') %}
+        {% if user_info('get_is_auth') and user_info('get_ban_ticket') == false %}
         <a href="/ticket/create" class="btn btn-danger btn-block">{{phrase(349)}}</a>
         {% endif %}
         <div class="card mt-0 shadow-none">

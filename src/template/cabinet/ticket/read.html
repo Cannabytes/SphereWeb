@@ -182,7 +182,7 @@
 {% endfor %}
 
 {% if ticket.close == false %}
-{% if user_info('get_id') == ticket.user_id or user_info('get_access_level')=="admin" %}
+{% if user_info('get_id') == ticket.user_id and user_info('get_ban_ticket') == false or user_info('get_access_level')=="admin" %}
 <hr>
 <div class="row">
     <div class="col-lg-12">

@@ -75,8 +75,6 @@ class tpl
     public static function display($tplName, $categoryCabinet = false)
     {
         $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
-        //        $categoryDesign = "cabinet";
-        //        Если вызывается личный кабинет
         $templatePath = "/src/template/cabinet/";
         if ($categoryCabinet) {
             $templatePath = "/template/" . config::get_template();
