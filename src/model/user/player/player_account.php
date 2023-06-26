@@ -45,7 +45,7 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function get_show_characters_info($account_name, bool $iemail = true) {
-        $info = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE login = ?", [$account_name])->fetch();
+        $info = sql::run("SELECT `email`, `show_characters_info`, `server_id` FROM player_accounts WHERE login = ?", [$account_name])->fetch();
         if($info == null) {
             return null;
         }

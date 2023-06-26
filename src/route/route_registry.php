@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
+use Ofey\Logan22\template\tpl;
 
 session::init();
 lang::load_package();
@@ -81,12 +82,18 @@ $route->get("user/change/avatar/background", 'Ofey\Logan22\controller\user\profi
 $route->post("user/change/avatar/background", 'Ofey\Logan22\controller\user\profile\change::set_avatar_background');
 
 /**
+ * Бонус коды
+ */
+$route->get("/bonus", '\Ofey\Logan22\controller\account\bonus\bonus::code');
+$route->post("/bonus/receiving", '\Ofey\Logan22\controller\account\bonus\bonus::receiving');
+
+/**
  * Форум
  */
-$route->get("channel", 'Ofey\Logan22\controller\channel\channel::all');
-$route->get("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::read');
-$route->post("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::writePost');
-$route->get("channel/create", 'Ofey\Logan22\controller\channel\channel::create');
+//$route->get("channel", 'Ofey\Logan22\controller\channel\channel::all');
+//$route->get("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::read');
+//$route->post("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::writePost');
+//$route->get("channel/create", 'Ofey\Logan22\controller\channel\channel::create');
 /**
  * Статистика
  */

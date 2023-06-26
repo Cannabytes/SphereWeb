@@ -453,5 +453,10 @@ return [
     367 => "Image limit exceeded",
     368 => "Lounger for client upgrade",
 
+    369 => "For voting",
+    370 => "Win the draw",
+    371 => "Gift from the project administration"
+
+
 
 ];

@@ -189,6 +189,38 @@
                 </li>
                 -->
 
+                {% if user_info('get_is_auth') and user_info('getBonus')|length >= 1 %}
+                <li class="nav-item dropdown-lg" id="bonusHeaderButton">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
+                       href="javascript:void();">
+                        <i class="fa fa-thumbs-up btn-social btn-social-circle  waves-light m-0"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="list-group list-group-flush" id="bonusSubHeaderButton">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Бонусный инвентарь
+                            </li>
+                            {% for bonus in user_info('getBonus') %}
+                            <li class="list-group-item" id="bonusObjectID{{bonus.id}}">
+                                <a href="#" class="bonusPanel" data-toggle="modal" data-target="#bonusPanel" data-bonus-id="{{bonus.id}}" data-icon="{{bonus.icon}}" data-enchant="{{bonus.enchant}}" data-name="{{bonus.name}}" data-count="{{bonus.count}}" data-phrase="{{phrase( bonus.phrase )}}">
+                                    <div class="media" >
+                                        <img data-bonus-id="{{bonus.id}}" style="width: 48px" class="{% if bonus.enchant > 0 %}player-inventory-enchant {% endif %}img-thumbnail" data-toggle="tooltip" data-placement="top" title="" src="/uploads/images/icon/{{bonus.icon}}.webp" data-original-title="{{bonus.name}}">
+                                        <div class="media-body ml-2">
+                                            <h6 class="mt-0 msg-title">{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if bonus.count > 1 %}({{bonus.count}}){% endif %}</h6>
+                                            <p class="msg-info">{{phrase( bonus.phrase )}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                {% endif %}
+
+
                 <li class="nav-item dropdown-lg">
                     {% if user_info('get_is_auth') %}
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
@@ -216,6 +248,7 @@
                         </ul>
                     </div>
                 </li>
+
                 <li class="nav-item language">
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
                        href="javascript:void();"><i class="flag-icon flag-icon-{{ lang_user_default() }}"></i></a>
@@ -310,6 +343,155 @@
         {% include ('modal_auth.html') %}
     {% endif %}
 
+    {% if user_info('get_is_auth') %}
+    <div class="row">
+        <div class="modal fade" id="registration">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content animated flipInX">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal_title">Регистрация</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="panel_registration_account">
+                        <div>
+                            <div class="form-group row">
+                                <label for="basic-select" class="col-sm-2 col-form-label">{{ phrase("server") }}</label>
+                                <div class="col-sm-6">
+                                    <select name="server" class="form-control" id="basic-select">
+                                        {% if server_id is empty %}
+                                        {% set server_id = user_info('get_default_server') %}
+                                        {% endif %}
+                                        {% for server in get_server_info() %}
+                                        <option {% if server.id== server_id %}selected="selected" {% endif %}
+                                                value="{{server.id}}">{{server.name}} - {{server.chronicle}}
+                                            x{{server.rate_exp}} от {{server.date_start_server}}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="login" class="col-sm-2 col-form-label">{{ phrase("login") }} <a
+                                        id="new_account_word" href="#"><i aria-hidden="true"
+                                                                          class="fa fa-refresh"></i></a></label>
+                                <div class="col-sm-6">
+                                    <input value="{{generation_account()}}" name="login" type="text"
+                                           class="form-control form-control-xl" id="login">
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="text-left">
+                                        {{phrase(132, 4, 16)|raw}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-2 col-form-label">{{ phrase("password") }} <a
+                                        id="new_password_word" href="#"><i aria-hidden="true"
+                                                                           class="fa fa-refresh"></i></a></label>
+                                <div for="password_hide" class="col-sm-6">
+                                    <div class="input-group-prepend">
+                                        <div data-toggle="tooltip" data-placement="top" title="{{ phrase(2) }}"
+                                             class="input-group-text">
+                                            <input checked id="password_hide" name="password_hide" type="checkbox"/>
+                                        </div>
+                                        <input name="password" type="text" class="form-control form-control-xl"
+                                               id="password"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="text-left">
+                                        {{phrase(133, 4)}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {% if user_info('get_is_auth') == false %}
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+                                <div class="col-sm-4">
+                                    <input name="email" type="email" class="form-control form-control-xl" id="email">
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="text-left">{{ phrase(6) }}</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">Капча</label>
+
+                                <div class="col-sm-2">
+                                    <a href="#"> <img id='refreshCaptcha' src=""
+                                                      class="lightbox-thumb img-thumbnail captcha_img"/> </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control form-control-xl" name="captcha" id="captcha">
+                                </div>
+                            </div>
+
+
+                            {% endif %}
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-6">
+                                    <button id="registration_game_account" type="submit" class="btn btn-primary px-5"> {{ phrase(7) }}</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if user_info('getBonus')|length >= 1 %}
+        <div class="modal fade" id="bonusPanel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bonusPhrase"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="media" >
+                            <img style="width: 48px" class="img-thumbnail" data-toggle="tooltip" data-placement="top" title="" id="bonusIcon" src="">
+                            <div class="media-body ml-2">
+                                <h6 class="mt-0 msg-title"><span id="bonusEnchant"></span> <span id="bonusNameItem"></span></h6>
+                                <p class="msg-info" id="bonusCount"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="bonusCharName" class="col-sm-4 col-form-label">Player Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="bonusCharName" placeholder="Your char">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="bonusSendToPlayer" type="submit" data-item-object="" class="btn btn-primary">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
+    {% endif %}
+
 </div><!--End wrapper-->
 
 <!-- Bootstrap core JavaScript-->
@@ -333,6 +515,9 @@
 
 {% if user_info('get_is_auth') == false %}
 <script src="{{'assets/js/auth/auth.js'|template}}"></script>
+{% endif %}
+{% if user_info('get_is_auth') %}
+<script src="{{'assets/js/user/bonus.js'|template}}"></script>
 {% endif %}
 
 

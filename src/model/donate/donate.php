@@ -205,14 +205,14 @@ class donate {
     }
 
     //Добавить предмет персонажу, по его максимальному ID
-    private static function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems) {
+    public static function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems, $enchantLevel = 0) {
         $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
         player_account::add_item($server_info, [
             $player_id,
             time() - $max_obj_id - $player_id,
             $donat_item_id,
             $addToUserItems,
-            0,
+            $enchantLevel,
             "INVENTORY",
         ]);
     }
