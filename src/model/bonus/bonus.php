@@ -15,10 +15,10 @@ class bonus {
 
     public static function addBonusPlayer($object_id, $char_name) {
         $bonusData = self::itemObjectData($object_id);
-        if(!$bonusData){
+        if (!$bonusData) {
             board::notice(false, "Бонусный предмет не найден");
         }
-        if($bonusData['user_id'] != auth::get_id()){
+        if ($bonusData['user_id'] != auth::get_id()) {
             board::notice(false, "Запрещенное действие");
         }
 
@@ -28,7 +28,7 @@ class bonus {
         $item_enchant = $bonusData['enchant'];
 
         $server_info = server::server_info($server_id);
-        if(!$server_info) {
+        if (!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
 
@@ -37,24 +37,24 @@ class bonus {
         //Проверяем что аккаунт пренадлежит пользователю
         //это нужно чтоб пользователь, не отправил "левым" бонус.
         $user = player_account::get_show_characters_info($player_info['login']);
-        if($user==null OR $user["email"]!=auth::get_email()){
+        if ($user == null or $user["email"] != auth::get_email()) {
             board::notice(false, "Получать бонус может только владелец аккаунта");
         }
-        if(!$player_info) board::notice(false, lang::get_phrase(151, $char_name));
+        if (!$player_info) board::notice(false, lang::get_phrase(151, $char_name));
         $player_id = $player_info["player_id"];
         $is_stack = client_icon::is_stack($item_id);
         //Если для выдачи предмета, персонаж должен быть ВНЕ игры
-        if($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
-            if($player_info["online"]) {
+        if ($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
+            if ($player_info["online"]) {
                 board::notice(false, lang::get_phrase(153, $char_name));
             }
-            if($is_stack) {
+            if ($is_stack) {
                 $checkPlayerItem = player_account::check_item_player($server_info, [
                     $item_id,
                     $player_id,
                 ]);
                 $checkPlayerItem = $checkPlayerItem->fetch();
-                if($checkPlayerItem) {
+                if ($checkPlayerItem) {
                     player_account::update_item_count_player($server_info, [
                         ($checkPlayerItem['count'] + $item_count),
                         $checkPlayerItem['object_id'],
