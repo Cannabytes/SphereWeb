@@ -158,12 +158,13 @@ class player_account {
         if (self::count_account($server_id) >= 20) {
             board::notice(false, lang::get_phrase(206));
         }
+        sdb::setShowErrorPage(false);
         $reQuest = self::getReQuest($server_id, $login);
         $err = self::account_registration($reQuest, [
             $login,
             encrypt::server_password($password, $reQuest),
             auth::get_email(),
-        ], showErrorPage: false);
+        ]);
         if (is_array($err)) {
             if (!$err['ok']) {
                 board::notice(false, $err['message']);
@@ -201,6 +202,8 @@ class player_account {
             ]);
         }
         $account = self::account_is_exist($server_info, $login);
+        var_dump($login);exit();
+
         //        if(isset($account['error'])){
         //            board::notice(false, $account['error']);
         //        }
@@ -238,7 +241,7 @@ class player_account {
     /**
      * @throws ExceptionAlias
      */
-    public static function extracted($sqlQuery, $info, $prepare = [], $showErrorPage = true, $gameServer = true) {
+    public static function extracted($sqlQuery, $info, $prepare = [], $gameServer = true) {
         if (gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
@@ -252,7 +255,7 @@ class player_account {
             sdb::set_type('login');
             sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
         }
-        return sdb::run($sqlQuery, $prepare, $showErrorPage);
+        return sdb::run($sqlQuery, $prepare);
     }
 
     /**
@@ -268,9 +271,9 @@ class player_account {
     /**
      * @throws ExceptionAlias
      */
-    public static function account_registration($info, $prepare, $showErrorPage = true) {
+    public static function account_registration($info, $prepare) {
         $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
-        return self::extracted($sqlQuery, $info, $prepare, $showErrorPage, gameServer: false);
+        return self::extracted($sqlQuery, $info, $prepare, gameServer: false);
     }
 
     /*

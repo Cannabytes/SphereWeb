@@ -37,7 +37,7 @@ class account {
         if(auth::get_is_auth()) {
             player_account::add($server_id, $login, $password, $password_hide);
         } else {
-            $builder = new Builder;
+            $builder = new Builder();
             $captcha = $_POST['captcha'] ?? false;
             if(!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
                 board::alert(['ok'      => false,
