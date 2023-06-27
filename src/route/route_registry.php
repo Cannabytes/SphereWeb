@@ -47,7 +47,7 @@ $route->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\contro
 $route->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
 $route->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
 $route->get("account/info/{account}/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::player_list');
-$route->post("account/info/change/characters/info", 'Ofey\Logan22\model\user\player\player_account::show_characters_info');
+$route->post("account/info/change/characters/info/forbidden", 'Ofey\Logan22\model\user\player\player_account::forbiddenViewPlayerData');
 $route->get("registration/account/sync/server/(\d+)", 'Ofey\Logan22\controller\registration\account::sync');
 $route->post("registration/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
 /**

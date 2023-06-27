@@ -38,7 +38,15 @@
 						  {% endif %}
 						  </td>
 						  <td>{{ clan['clan_level'] }}</td>
-						  <td><a href="/statistic/char/{{ clan['player_name']|url_encode }}">{{ clan['player_name'] }}</a></td>
+						  <td>
+                              {% if clan['forbidden'] == false %}
+                              <a class="btn btn-primary btn-block waves-effect waves-light mt-0" href="/statistic/char/{{ clan['player_name']|url_encode }}">
+                                  {{ clan['player_name'] }}
+                              </a>
+                              {% else %}
+                                  {{ clan['player_name'] }}
+                              {% endif %}
+                          </td>
 						  <td>{{ format_number_fr(clan['reputation_score']) }}</td>
 						  <td>{{ clan['clan_count_members'] }}</td>
 						</tr>

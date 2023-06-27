@@ -64,10 +64,12 @@
                         <section class="icon">
                             <div class="row fontawesome-icon-list">
                                 {% for player in clan_players %}
-                                <div class="fa-hover col-lg-6 col-xl-4">
-                                    <a href="/statistic/char/{{ player.player_name|url_encode }}">{{player.player_name}}
-                                        {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в
-                                            игре</small>{% endif %}</a>
+                                <div class="fa-hover col-lg-6 col-xl-3">
+                                    {% if player['forbidden'] %}
+                                        <a href="javascript:void(0)" onclick="event.preventDefault();">{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в игре</small>{% endif %}</a></a>
+                                    {% else %}
+                                         <a class="btn btn-primary btn-block waves-effect waves-light mt-0" href="/statistic/char/{{ player.player_name|url_encode }}">{{player.player_name}} {% if player.online %}<small class="badge badge-dark badge-pill text-danger">в игре</small>{% endif %}</a>
+                                    {% endif %}
                                 </div>
                                 {% endfor %}
                             </div>

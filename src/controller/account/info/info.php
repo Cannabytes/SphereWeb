@@ -21,11 +21,12 @@ class info {
         if($server_id == null) {
             $server_id = auth::get_default_server();
         }
+        $players = character::all_characters($account, $server_id);
+        $players = player_account::get_forbidden_players($players, $server_id);
         tpl::addVar([
-            'show_characters_info' => player_account::get_show_characters_info($account, false),
             'account'              => $account,
             'server_id'            => $server_id,
-            'players'              => character::all_characters($account, $server_id),
+            'players'              => $players,
         ]);
         tpl::display("/account/players_list.html");
     }

@@ -91,12 +91,10 @@ class statistic {
             //todo: если нет персонажа, выведем страницу ошибки, что отсутствует такой персонаж
             redirect::location("/main");
         }
-        $player_account = sql::run("SELECT `email`, `show_characters_info` FROM player_accounts WHERE player_accounts.login = ?", [$get_player_info['account_name']])->fetch();
-        if ($player_account) {
-            if (!$player_account['show_characters_info'] and
-                auth::get_email() != $player_account['email'] and
-                auth::get_access_level() != "admin"
-            ) {
+        $infoForbidden = self::getForbiddenViewPlayer($char_name);
+        //Просмотр запрещен другими пользователями, но админу и пользователю можно
+        if ($infoForbidden['forbidden']) {
+            if ( auth::get_email() != $infoForbidden['email'] and auth::get_access_level() != "admin") {
                 tpl::addVar("player", $get_player_info);
                 tpl::display("statistic/char_denied_access.html");
             }
@@ -108,6 +106,20 @@ class statistic {
         tpl::addVar("inventory", $inventory);
         tpl::addVar("sub_class", $sub_class);
         tpl::display("statistic/char.html");
+    }
+
+    public static function getForbiddenViewPlayer($player) {
+        $data = sql::getRow("SELECT `email`, `forbidden` FROM `player_forbidden` WHERE server_id = ? AND player = ?", [
+            auth::get_default_server(),
+            $player,
+        ]);
+        if (isset($data['forbidden'])) {
+            return [
+                'email' => $data['email'],
+                'forbidden' => $data['forbidden'],
+            ];
+        }
+        return ['forbidden' => true, 'email' => ''];
     }
 
     /**

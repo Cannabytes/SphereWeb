@@ -5,13 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">Персонажи аккаунта {{ account }}
-                <div class="card-action">
-                        <div class="bt-switch">
-                           <input {% if show_characters_info %}checked{% endif %} id="show_characters_info" type="checkbox" data-size="large"  data-on-color="success" data-off-color="danger" data-on-text="{{phrase(323)}}" data-off-text="{{phrase(324)}}">
-                        </div>
-                </div>
-            </div>
+            <div class="card-header">Персонажи аккаунта {{ account }}</div>
 
             {% if players is empty %}
             <div class="card-header text-uppercase">Нет персонажей</div>
@@ -19,6 +13,7 @@
 
             <ul class="list-group list-group-flush shadow-none">
                 {% for player in players %}
+<!--                {{dump(player)}}-->
                 <li class="list-group-item">
                     <div class="media align-items-center">
                         <img src="{{template}}/assets/images/race/{{sex(player.sex)}}/{{ get_class_race(player.class_id) }}.jpg" class="customer-img rounded">
@@ -28,11 +23,16 @@
                                 <tr>
                                     <th style="width: 20%">{% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
                                         <a href="/statistic/char/{{ player.player_name }}">{{ player.player_name }}</a></th>
-                                    <th style="width: 8%">Lv: {{ player.level }}</th>
-                                    <td style="width: 30%">Class: {{ get_class( player.class_id ) }}</td>
-                                    <td style="width: 15%">PvP: {{ player.pvp }}</td>
-                                    <td style="width: 15%">PK: {{ player.pk }}</td>
+                                    <th style="width: 10%">Lv: {{ player.level }}</th>
+                                    <td style="width: 20%">Class: {{ get_class( player.class_id ) }}</td>
+                                    <td style="width: 10%">PvP: {{ player.pvp }}</td>
+                                    <td style="width: 10%">PK: {{ player.pk }}</td>
                                     <td style="width: 15%">Clan: {% if player.clan_name != "" %}<a href="/statistic/clan/{{ player.clan_name|url_encode }}">{{ player.clan_name }}</a>{% else %}-{%endif%}</td>
+                                    <td style="width: 20%">
+                                        <div class="bt-switch">
+                                            <input {% if player.forbidden == true %}checked{% endif %} data-account="{{account}}" data-player="{{ player.player_name }}" type="checkbox" class="forbiddenToView" data-on-color="danger" data-off-color="success" data-on-text="Запрещено" data-off-text="Разрешено">
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -50,22 +50,45 @@
 
 
 {% block css %}
-<link href="{{template}}/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" />
+    <link href="{{template}}/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" />
     <link href="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
 {% endblock %}
 
 
 {% block js %}
+<script src="{{template}}/assets/js/app-script.js"></script>
 
-
-<!--Switchery Js-->
 <script src="{{template}}/assets/plugins/switchery/js/switchery.min.js"></script>
-
-
-<!--Bootstrap Switch Buttons-->
 <script src="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script>
     $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
+
+    $(".forbiddenToView").on('switchChange.bootstrapSwitch',function(e) {
+
+        $.ajax({
+            type: "POST",
+            url: "/account/info/change/characters/info/forbidden",
+            dataType: "json",
+            data: {
+                account: $(this).data('account'),
+                player: $(this).data('player'),
+                server_id: $('meta[name="server_default"]').attr('content'),
+                forbidden: $(this).is(":checked")
+            },
+            success: function(result) {
+                console.log(result);
+                if (result.ok){
+                    notify_success(result.message);
+                }else{
+                    notify_error(result.message);
+                }
+            },
+            error: function(result) {
+                notify_error(result.message);
+            }
+        });
+    });
+
 
     $("#show_characters_info").on('switchChange.bootstrapSwitch',function(e) {
         $.ajax({
@@ -77,12 +100,6 @@
                 show_characters_info: $("#show_characters_info").is(":checked")
             },
             success: function(result) {
-                console.log(result);
-                if (result.ok){
-                    notify_success(result.message);
-                }else{
-                    notify_error(result.message);
-                }
             },
             error: function(result) {
                 notify_error(result.message);

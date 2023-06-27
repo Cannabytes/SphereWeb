@@ -281,7 +281,8 @@ class L2jOpen implements structure {
                         castle
                         LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
                         LEFT JOIN characters ON clan_data.leader_id = characters.obj_Id
-                        LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id';
+                        LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    WHERE clan_data.expelled_member=0';
     }
 
     static public function statistic_top_block(): string {

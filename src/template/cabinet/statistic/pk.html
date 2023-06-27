@@ -30,11 +30,16 @@
                             {% for i, player in statistic_get_pk() %}
                             <tr>
                                 <th scope="row">{{ i+1 }}</th>
-                                <td>{% if player['alliance_crest']!=null%}<img
-                                        src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if
-                                    player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{%
-                                    endif %}
-                                    <a href="/statistic/char/{{ player['player_name']|url_encode }}">{{ player['player_name'] }}</a>
+                                <td>
+                                    {% if player['forbidden'] == false %}
+                                       <a class="btn btn-primary btn-block waves-effect waves-light mt-0" href="/statistic/char/{{ player['player_name']|url_encode }}">
+                                           {% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
+                                           {{ player['player_name'] }}
+                                       </a>
+                                    {% else %}
+                                    {% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
+                                    {{ player['player_name'] }}
+                                    {% endif %}
                                 </td>
                                 <td>{{ player['level'] }}</td>
                                 <td>{{ player['pvp'] }} / <strong class="text-success">{{ player['pk'] }}</strong></td>

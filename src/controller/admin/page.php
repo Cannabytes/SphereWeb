@@ -20,7 +20,7 @@ class page {
 
     //Изменение комментария
     public static function editComment(){
-        if(!auth::get_ban_page()) board::notice(false, "You are not allowed to do this");
+        if(auth::get_ban_page()) board::notice(false, "You are not allowed to do this");
         validation::user_protection("admin");
         $comment_id = request::setting('comment_id', new request_config(isNumber: true));
         $comment_msg = request::setting('comment_message', new request_config(max: 2000, required: true));
@@ -34,7 +34,7 @@ class page {
 
     //Удаление комментария из страницы
     public static function deleteComment(){
-        if(!auth::get_ban_page()){
+        if(auth::get_ban_page()){
             board::notice(false, "You are not allowed to do this");
         }
         validation::user_protection("admin");
@@ -95,16 +95,6 @@ class page {
     public static function trash_send($id) {
         validation::user_protection("admin");
         \Ofey\Logan22\model\admin\page::trash_send($id);
-    }
-
-    public static function trash() {
-        validation::user_protection("admin");
-        tpl::addVar([
-            'show_news' => \Ofey\Logan22\model\page\page::show_news_short(300, 1000, true),
-            'server_list' => server::get_server_info(),
-        ]);
-
-        tpl::display("admin/news_list_trash.html");
     }
 
 }

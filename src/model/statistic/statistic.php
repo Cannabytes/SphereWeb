@@ -17,13 +17,39 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 
 class statistic {
+
+
+    //Добавляет массиву параметр t/f - разрешено ли просматривать профиль
+    private static function charInfoPerm(&$statistic){
+        if(empty($statistic)){
+            return;
+        }
+        $playerNames = [];
+        foreach ($statistic as $stat) {
+            $playerNames[] = $stat["player_name"];
+        }
+        $playerSQLNicks = implode(", ", array_fill(0, count($playerNames), "?"));
+        $playerNames[] = auth::get_default_server();
+        $query = "SELECT * FROM player_forbidden WHERE player IN ($playerSQLNicks) AND server_id = ?;";
+        $allForbiddenInfo = sql::getRows($query, $playerNames);
+        foreach ($statistic AS &$stat){
+            $stat['forbidden'] = 1;
+            foreach ($allForbiddenInfo AS $forbidden){
+                if($forbidden['player'] == $stat["player_name"]){
+                    $stat['forbidden'] = $forbidden['forbidden'];
+                }
+            }
+        }
+    }
+
 
     /**
      * @throws \Exception
      */
-    static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60): null|array|bool {
+    static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = true): null|array|bool {
         [
             $server_info,
             $json,
@@ -38,6 +64,9 @@ class statistic {
         } else {
             $data = server::across($collection_sql_name, $server_info, $prepare);
         }
+        if($playerForbidden){
+            self::charInfoPerm($data);
+        }
         if($data) {
             if($crest_convert) {
                 crest::conversion($data);
@@ -49,7 +78,7 @@ class statistic {
         return $data;
     }
 
-    static private function get_data_statistic_clan(dir $dir, string $collection_sql_name, string $clan_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60): ?array {
+    static private function get_data_statistic_clan(dir $dir, string $collection_sql_name, string $clan_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = false): ?array {
         [
             $server_info,
             $json,
@@ -63,6 +92,9 @@ class statistic {
             $data = server::acrossAll($collection_sql_name, $server_info, $prepare);
         } else {
             $data = server::across($collection_sql_name, $server_info, $prepare);
+        }
+        if($playerForbidden){
+            self::charInfoPerm($data);
         }
         if($data) {
             if($crest_convert) {
@@ -247,7 +279,7 @@ class statistic {
             return self::$top_counter;
         }
         try {
-            return self::$top_counter = self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time());
+            return self::$top_counter = self::get_data_statistic(dir::statistic_counter, 'statistic_top_counter', $server_id, false, false, second: timeout::statistic_counter->time(), playerForbidden: false);
         } catch(Error $e) {
         }
     }
@@ -316,7 +348,7 @@ class statistic {
         if(!$clan_info) {
             redirect::location("/statistic/clan");
         }
-        $clan_players = self::get_data_statistic_clan(dir::statistic_clan_players, 'statistic_clan_players', clan_name: $clan_name, server_id: $server_id, acrossAll: true, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_players->time());
+        $clan_players = self::get_data_statistic_clan(dir::statistic_clan_players, 'statistic_clan_players', clan_name: $clan_name, server_id: $server_id, acrossAll: true, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_players->time(), playerForbidden: true);
         $clan_skills = self::get_data_statistic_clan(dir::statistic_clan_skills, 'statistic_clan_skills', clan_name: $clan_name, server_id: $server_id, crest_convert: false, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_skills->time());
 
         if($clan_skills != null) {
