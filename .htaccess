@@ -39,8 +39,5 @@
 
 </IfModule>
 
-php_flag log_errors on
-php_value error_log errors.log
-
 Options All -Indexes
 Header add Access-Control-Allow-Origin "*"
