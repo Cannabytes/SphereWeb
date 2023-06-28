@@ -23,25 +23,25 @@
                         <div class="row m-0 row-group text-center border-top border-bottom border-light-3">
                             <div class="col-12 col-lg-3">
                                 <div class="p-2">
-                                    <h5 class="mb-0" id="count_rub">0</h5>
+                                    <h5 class="mb-0" data-count="rub">0</h5>
                                     <small class="mb-0">RUB</small>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <div class="p-2">
-                                    <h5 class="mb-0" id="count_uah">0</h5>
+                                    <h5 class="mb-0" data-count="uah">0</h5>
                                     <small class="mb-0">UAH</small>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <div class="p-2">
-                                    <h5 class="mb-0" id="count_usd">0</h5>
+                                    <h5 class="mb-0" data-count="usd">0</h5>
                                     <small class="mb-0">USD</small>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <div class="p-2">
-                                    <h5 class="mb-0" id="count_eur">0</h5>
+                                    <h5 class="mb-0" data-count="eur">0</h5>
                                     <small class="mb-0">EUR</small>
                                 </div>
                             </div>
@@ -147,10 +147,10 @@
         let uah = val*currency_exchange.coefficient['UAH'] / currency_exchange.quantity;
         let usd = val*currency_exchange.coefficient['USD'] / currency_exchange.quantity;
         let eur = val*currency_exchange.coefficient['EUR'] / currency_exchange.quantity;
-        $("#count_rub").text(rub.toFixed(1));
-        $("#count_uah").text(uah.toFixed(1));
-        $("#count_usd").text(usd.toFixed(1));
-        $("#count_eur").text(eur.toFixed(1));
+        $('[data-count="rub"]').text(rub.toFixed(1));
+        $('[data-count="uah"]').text(uah.toFixed(1));
+        $('[data-count="usd"]').text(usd.toFixed(1));
+        $('[data-count="eur"]').text(eur.toFixed(1));
     }
     currency($("#count").val())
 
@@ -159,61 +159,25 @@
     });
 
 
-     $('#paynext').on('click', function () {
-        paysystem = $('input[name=paysystem]:checked').val();
-        if (paysystem == 'freekassa') {
-            return freekassa();
-        }
-        if (paysystem == 'primepayments') {
-            return primepayments();
-        }
-    });
-
-
-    function freekassa() {
-        var count = $("#count").val();
-        $.ajax(
-            {
-                type: "POST",
-                url: "/donate/transfer/freekassa/createlink",
-                data: ({"count": count}),
-                async: false,
-                success: function (redirectLink) {
-                    console.log(redirectLink)
-                    if (redirectLink['ok'] == false) {
-                        notify_error(redirectLink['message'])
-                        return;
-                    }
-                    window.open(redirectLink, '_blank');
-                }
-            });
-    }
-
-    function primepayments() {
-        var count = $("#count").val();
-        $.ajax(
-            {
-                type: "POST",
-                url: "/donate/transfer/primepayments/createlink",
-                data: ({"count": count}),
-                async: false,
-                dataType: "json",
-                success: function (response) {
-                    if (response['ok'] == false) {
-                        notify_error(response['message'])
-                        return;
-                    }
-                    window.open(redirectLink, '_blank');
-                }
-            });
-    }
-
-
-
-
-
-
-
+    $('#paynext').on('click', function () {
+    	paysystem = $('input[name=paysystem]:checked').val();
+    	var count = $("#count").val();
+    	$.ajax(
+    	{
+    		type: "POST",
+    		url: "/donate/transfer/" + paysystem + "/createlink",
+    		data: ({"count": count}),
+    		async: false,
+    		success: function (redirectLink) {
+    			console.log(redirectLink)
+    			if (redirectLink['ok'] == false) {
+    				notify_error(redirectLink['message'])
+    				return;
+    			}
+    			window.open(redirectLink, '_blank');
+    		}
+    	});
+    }); 
 
 </script>
 
