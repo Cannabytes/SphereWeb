@@ -202,11 +202,6 @@ class player_account {
             ]);
         }
         $account = self::account_is_exist($server_info, $login);
-        var_dump($login);exit();
-
-        //        if(isset($account['error'])){
-        //            board::notice(false, $account['error']);
-        //        }
         if (gettype($account) != "object") {
             if (!$account['ok']) {
                 board::alert([

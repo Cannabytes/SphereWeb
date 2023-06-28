@@ -368,7 +368,7 @@ character_subclasses.charId = ?';
     }
 
     static public function is_player(): string {
-        return 'SELECT charId as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
+        return 'SELECT `account_name` AS `login`, charId as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
     static public function max_value_item_object(): string {

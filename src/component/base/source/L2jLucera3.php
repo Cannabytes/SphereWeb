@@ -429,7 +429,7 @@ WHERE
     }
 
     static public function is_player(): string {
-        return 'SELECT obj_Id as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
+        return 'SELECT `account_name` AS `login`, obj_Id as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
     // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод

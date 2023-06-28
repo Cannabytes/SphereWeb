@@ -1,7 +1,7 @@
 <?php
 
 $cache_timeout = array (
-  'forum' => 65,
+  'forum' => 30,
   'server_online_status' => 60,
   'statistic_pvp' => 60,
   'statistic_pk' => 60,
@@ -17,5 +17,5 @@ $cache_timeout = array (
   'statistic_castle' => 60,
   'statistic_block' => 60,
   'statistic_counter' => 60,
-  'referral' => 67,
+  'referral' => 60,
 );

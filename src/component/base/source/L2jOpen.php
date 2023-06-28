@@ -403,7 +403,7 @@ class L2jOpen implements structure {
                         SUM( characters.pvpkills ) AS `count_pvpkills`,
                         SUM( characters.pkkills ) AS `count_pkkills`,
                         ( SELECT count(*) FROM `clan_data` ) AS `count_clans`,
-                        ( SELECT count(*) FROM `clan_data` WHERE hasCastle != 0 ) AS `count_clan_has_castle`,
+                        ( SELECT count(*) FROM `clan_data` WHERE hasCastle != 0 AND expelled_member != 0 ) AS `count_clan_has_castle`,
                         ( SELECT count(*) FROM `castle` ) AS `count_castle`,
                         ( SELECT count(*) FROM `characters` WHERE characters.ONLINE = 1 ) AS `player_online`,
                         ( SELECT count(*) FROM `characters` ) AS `player_all` 
