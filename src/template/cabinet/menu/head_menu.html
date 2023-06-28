@@ -1,6 +1,6 @@
    <div class="user-details">
     <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
-      <div class="avatar"><img class="mr-3 side-user-img user_self_avatar" src="{{template}}/assets/images/navatar/{{ user_info('get_avatar') }}" alt="avatar"></div>
+      <div class="avatar"><img class="mr-3 side-user-img user_self_avatar" src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="avatar"></div>
        <div class="media-body">
 	   {% if user_info('get_is_auth') %}
        <h6 class="side-user-name">{{ user_info('get_email') }}</h6>
