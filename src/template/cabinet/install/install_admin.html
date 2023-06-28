@@ -27,9 +27,6 @@
 
 <body>
 
-<!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -43,7 +40,7 @@
 			  <div class="form-group">
 			  <label for="login" class="sr-only">Username</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" name="login" class="form-control input-shadow" placeholder="login">
+				  <input type="text" id="login" name="login" class="form-control input-shadow" placeholder="login">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
@@ -52,14 +49,14 @@
 			  <div class="form-group">
 			  <label for="email" class="sr-only">Email</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" name="email" class="form-control input-shadow" placeholder="E-Mail">
+				  <input type="text" id="email" name="email" class="form-control input-shadow" placeholder="E-Mail">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			   <label for="password" class="sr-only">Password</label>
+			   <label for="password" id="password" class="sr-only">Password</label>
 			   <div class="position-relative has-icon-right">
 				  <input type="text" name="password" class="form-control input-shadow" placeholder="Password">
 				  <div class="form-control-position">
