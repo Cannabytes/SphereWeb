@@ -5,6 +5,7 @@ namespace Ofey\Logan22\model\db;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\alert\logs;
+use Ofey\Logan22\component\redirect;
 use PDO;
 use PDOException;
 
@@ -69,9 +70,8 @@ class sql {
       */
     public static function run($query, $args = [], $showJson = false) {
         if(self::connect()===null) {
-//            var_dump(debug_backtrace());
-            echo 'Необходимо установить движок.<br><a href="/install">Нажми чтоб перейти на страницу установки.</a>';
-            exit;
+            var_dump(debug_backtrace());
+            exit('Необходимо установить движок.<br><a href="/install">Нажми чтоб перейти на страницу установки.</a>');
         }
         if(self::connect()===false) {
             echo 'Not connect to db';

@@ -107,11 +107,11 @@
 {% endblock %}
 
 {% block css %}
-<link href="{{'assets/plugins/fancybox/css/jquery.fancybox.min.css'|template}}" rel="stylesheet" type="text/css"/>
+<link href="{{template('assets/plugins/fancybox/css/jquery.fancybox.min.css')}}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block js %}
-<script src="{{'assets/plugins/fancybox/js/jquery.fancybox.min.js'|template}}"></script>
-<script src="{{'assets/js/ticket/removeimage.js'|template}}"></script>
+<script src="{{template('assets/plugins/fancybox/js/jquery.fancybox.min.js')}}"></script>
+<script src="{{template('assets/js/ticket/removeimage.js')}}"></script>
 {% endblock %}
 

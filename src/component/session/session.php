@@ -17,7 +17,9 @@ class session {
             'gc_maxlifetime' => 86400*365,
             'use_strict_mode' => true,
         ]);
-        auth::user_auth();
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
+            auth::user_auth();
+        }
     }
 
     public static function add($key, $value) {

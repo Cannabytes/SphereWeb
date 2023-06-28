@@ -171,14 +171,14 @@
 
 {% block css %}
 <!--Touchspin-->
-<link href="{{'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css'|template}}" rel="stylesheet"
+<link href="{{template('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css')}}" rel="stylesheet"
       type="text/css">
 {% endblock %}
 
 {% block js %}
 <!--Bootstrap Touchspin Js-->
-<script src="{{'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js'|template}}"></script>
-<script src="{{'assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js'|template}}"></script>
+<script src="{{template('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js')}}"></script>
+<script src="{{template('assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js')}}"></script>
 
 
 {% endblock %}

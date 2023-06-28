@@ -10,27 +10,27 @@
     <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
     <title>{{ title }}</title>
     <!--favicon-->
-    <link rel="icon" href="{{'assets/images/favicon.ico'|template}}" type="image/x-icon">
+    <link rel="icon" href="{{template('assets/images/favicon.ico')}}" type="image/x-icon">
     {% block css_ol_1 %}{% endblock %}
     <!-- simplebar CSS-->
-    <link href="{{'assets/plugins/simplebar/css/simplebar.css'|template}}" rel="stylesheet"/>
+    <link href="{{template('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
     <!-- Bootstrap core CSS-->
-    <link href="{{'assets/css/bootstrap.min.css'|template}}" rel="stylesheet"/>
+    <link href="{{template('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
     <!-- animate CSS-->
-    <link href="{{'assets/css/animate.css'|template}}" rel="stylesheet" type="text/css"/>
+    <link href="{{template('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Icons CSS-->
-    <link href="{{'assets/css/icons.css'|template}}" rel="stylesheet" type="text/css"/>
+    <link href="{{template('assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Sidebar CSS-->
-    <link href="{{'assets/css/sidebar-menu.css'|template}}" rel="stylesheet"/>
+    <link href="{{template('assets/css/sidebar-menu.css')}}" rel="stylesheet"/>
     <!-- Custom Style-->
-    <link href="{{'assets/css/app-style.css'|template}}?1" rel="stylesheet"/>
+    <link href="{{template('assets/css/app-style.css')}}?1" rel="stylesheet"/>
     <!-- skins CSS-->
-    <link href="{{'assets/css/skins.css'|template}}" rel="stylesheet"/>
+    <link href="{{template('assets/css/skins.css')}}" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="{{'assets/plugins/notifications/css/lobibox.min.css'|template}}"/>
+    <link rel="stylesheet" href="{{template('assets/plugins/notifications/css/lobibox.min.css')}}"/>
     {% if get_enable_game_chat() %}
     <!-- chat CSS-->
-    <link href="{{'assets/css/chat.css'|template}}" rel="stylesheet"/>
+    <link href="{{template('assets/css/chat.css')}}" rel="stylesheet"/>
     {% endif %}
 
     {% block css %}{% endblock %}
@@ -495,29 +495,29 @@
 </div><!--End wrapper-->
 
 <!-- Bootstrap core JavaScript-->
-<script src="{{'assets/js/jquery.min.js'|template}}"></script>
-<script src="{{'assets/js/popper.min.js'|template}}"></script>
-<script src="{{'assets/js/bootstrap.min.js'|template}}"></script>
+<script src="{{template('assets/js/jquery.min.js')}}"></script>
+<script src="{{template('assets/js/popper.min.js')}}"></script>
+<script src="{{template('assets/js/bootstrap.min.js')}}"></script>
 
 <!-- simplebar js -->
-<script src="{{'assets/plugins/simplebar/js/simplebar.js'|template}}"></script>
+<script src="{{template('assets/plugins/simplebar/js/simplebar.js')}}"></script>
 
 <!-- sidebar-menu js -->
-<script src="{{'assets/js/sidebar-menu.js'|template}}"></script>
+<script src="{{template('assets/js/sidebar-menu.js')}}"></script>
 
 <!-- Custom scripts -->
-<script src="{{'assets/js/app-script.js'|template}}"></script>
-<script src="{{'assets/plugins/notifications/js/lobibox.min.js'|template}}"></script>
-<script src="{{'assets/js/notify.js'|template}}"></script>
-<script src="{{'assets/plugins/notifications/js/notifications.min.js'|template}}"></script>
+<script src="{{template('assets/js/app-script.js')}}"></script>
+<script src="{{template('assets/plugins/notifications/js/lobibox.min.js')}}"></script>
+<script src="{{template('assets/js/notify.js')}}"></script>
+<script src="{{template('assets/plugins/notifications/js/notifications.min.js')}}"></script>
 
-<script src="{{'assets/js/default-server.js'|template}}"></script>
+<script src="{{template('assets/js/default-server.js')}}"></script>
 
 {% if user_info('get_is_auth') == false %}
-<script src="{{'assets/js/auth/auth.js'|template}}"></script>
+<script src="{{template('assets/js/auth/auth.js')}}"></script>
 {% endif %}
 {% if user_info('get_is_auth') %}
-<script src="{{'assets/js/user/bonus.js'|template}}"></script>
+<script src="{{template('assets/js/user/bonus.js')}}"></script>
 {% endif %}
 
 

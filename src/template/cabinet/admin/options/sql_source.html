@@ -86,7 +86,7 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{'assets/js/admin/options/sql_request.js'|template}}"></script>
+<script src="{{template('assets/js/admin/options/sql_request.js')}}"></script>
 <script>
 	$("#loading").click(function(e) {
 		window.location.replace("/admin/options/server/sql/source/" + $("#base_source").val());

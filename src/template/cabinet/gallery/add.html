@@ -17,11 +17,11 @@
 {% endblock %}
 
 {% block css_ol_1 %}
-<link href="{{'assets/plugins/dropzone/css/dropzone.css'|template}}" rel="stylesheet" type="text/css">
+<link href="{{template('assets/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block js %}
-<script src="{{'assets/plugins/dropzone/js/dropzone.js'|template}}"></script>
+<script src="{{template('assets/plugins/dropzone/js/dropzone.js')}}"></script>
 <script>
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({

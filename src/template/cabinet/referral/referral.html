@@ -106,9 +106,9 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{'assets/js/referral/referral.js'|template}}"></script>
+<script src="{{template('assets/js/referral/referral.js')}}"></script>
 
-  <script src="{{'assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js'|template}}"></script>
+  <script src="{{template('assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
     <script>
         $('.fleet-chart').easyPieChart({
             easing: 'easeOutBounce',

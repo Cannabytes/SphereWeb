@@ -38,6 +38,7 @@ class tpl
 {
 
     static private array $allTplVars = [];
+    private static string $templatePath;
 
     /**
      * @param        $var
@@ -75,16 +76,16 @@ class tpl
     public static function display($tplName, $categoryCabinet = false)
     {
         $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
-        $templatePath = "/src/template/cabinet/";
+        self::$templatePath = "/src/template/cabinet/";
         if ($categoryCabinet) {
-            $templatePath = "/template/" . config::get_template();
-            self::lang_template_load($__ROOT__ . $templatePath . "/lang.php");
+            self::$templatePath = "/template/" . config::get_template();
+            self::lang_template_load($__ROOT__ . self::$templatePath . "/lang.php");
         }
-        if (!file_exists($__ROOT__ . $templatePath . "/" . $tplName)) {
-            echo "Не найден шаблон: " . $__ROOT__ . $templatePath . "/" . $tplName;
+        if (!file_exists($__ROOT__ . self::$templatePath . "/" . $tplName)) {
+            echo "Не найден шаблон: " . $__ROOT__ . self::$templatePath . "/" . $tplName;
             die();
         }
-        $loader = new FilesystemLoader($__ROOT__ . $templatePath);
+        $loader = new FilesystemLoader($__ROOT__ . self::$templatePath);
 
         $twig = new Environment($loader, ['cache' => $__ROOT__ . "/uploads/cache/template",
             'auto_reload' => true,
@@ -94,11 +95,18 @@ class tpl
 
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));
 
-        $twig->addFilter(new TwigFilter('template', function ($string) use ($templatePath) {
+        $twig->addFunction(new TwigFunction('template', function ($var = null) {
             return str_replace(["//",
                 "\\",
-            ], "/", $templatePath . $string);
+            ], "/", self::$templatePath . $var);
         }));
+
+//        $templatePath = self::$templatePath;
+//        $twig->addFilter(new TwigFilter('template', function ($string) use ($templatePath) {
+//            return str_replace(["//",
+//                "\\",
+//            ], "/", $templatePath . $string);
+//        }));
 
         $twig->registerUndefinedFunctionCallback(function ($name) {
             if (function_exists($name)) {
@@ -474,7 +482,7 @@ class tpl
         }));
 
         $template = $twig->load($tplName);
-        self::$allTplVars['template'] = $templatePath;
+        self::$allTplVars['template'] = self::$templatePath;
         self::$allTplVars['pointTime'] = microtime::pointTime();
         try {
             echo $template->render(self::$allTplVars);

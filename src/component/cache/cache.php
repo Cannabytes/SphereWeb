@@ -48,7 +48,6 @@ class cache {
                 unlink($file);
             }
         }
-
     }
 
 }
