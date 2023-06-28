@@ -24,11 +24,10 @@ $(document).ready(function () {
         });
     });
 
-
-    get_captcha();
     $("#refreshCaptcha").on('click', function (e) {
         get_captcha();
     });
+
     function get_captcha() {
         $.ajax({
             type: "POST",

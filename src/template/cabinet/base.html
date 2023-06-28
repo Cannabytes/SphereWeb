@@ -514,6 +514,7 @@
 <script src="{{template('assets/js/default-server.js')}}"></script>
 
 {% if user_info('get_is_auth') == false %}
+<script src="{{template('assets/js/user/captcha.js')}}"></script>
 <script src="{{template('assets/js/auth/auth.js')}}"></script>
 {% endif %}
 {% if user_info('get_is_auth') %}

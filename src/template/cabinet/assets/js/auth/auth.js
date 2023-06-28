@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    get_captcha()
-
     $("#registration_panel").click(function (e) {
             e.preventDefault();
             registration($("#email_registration_panel").val(), $("#password_registration_panel").val(), $("#captcha_registration_panel").val())
@@ -48,20 +46,6 @@ $(document).ready(function () {
         authorization($("#email_panel").val(), $("#password_panel").val(), $("#captcha_panel").val())
     });
 
-    $("#refreshCaptcha").on('click', function (e) {
-        get_captcha();
-    });
-
-
-    function get_captcha() {
-        $.ajax({
-            type: "POST",
-            url: "/captcha",
-            async: true,
-        }).success(function (data) {
-            $(".captcha_img").attr("src", data);
-        });
-    }
 
     function authorization(email, password, captcha) {
 

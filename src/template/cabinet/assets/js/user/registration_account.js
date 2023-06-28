@@ -1,19 +1,8 @@
 $(document).ready(function () {
 
-    get_captcha();
     $(".captcha_img").on('click', function (e) {
         get_captcha();
     });
-
-    function get_captcha() {
-        $.ajax({
-            type: "POST",
-            url: "/captcha",
-            async: true,
-        }).success(function (data) {
-            $(".captcha_img").attr("src", data);
-        });
-    }
 
     $("#registration_game_account").on("click", function (event) {
         event.preventDefault();
