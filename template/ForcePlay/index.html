@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>{title}</title>
+    <meta name="keywords" content="1">
+    <meta name="description" content="1">
+    <meta name="author" content="1">
+	<link href="{{template}}/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!-- style -->
+	<link rel="stylesheet" href="{{template}}/css/style.css?0.1">
+	<link rel="stylesheet" href="{{template}}/css/engine.css">
+	<link rel="stylesheet" href="{{template}}/css/style_media.css">
+	<link rel="stylesheet" href="{{template}}/fonts/fontawesome/css/font-awesome.css">
+	<!-- script -->
+	<script src="{{template}}/js/jquery.min.js"></script>
+	<script src="{{template}}/js/slider.js"></script>
+	<script src="{{template}}/js/timers.js"></script>
+	<script src="{{template}}/js/circle-progress.js"></script>
+	<script src="{{template}}/js/scripts.js"></script>
+	<script src="{{template}}/js/widget-vk.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="video_bg">
+			<video class="video" autoplay="" loop="" muted="" width="2048px" height="auto">
+				<source src="{{template}}/images/bg/video.mp4" type="video/mp4">
+				<source src="{{template}}/images/bg/video.webm" type="video/webm">
+			</video>
+		</div>
+		<header>
+			<nav class="flex-sbc">
+				<a href="/login#register" class="nav-link flex-sc">
+					<div class="nav-link__icon flex-cc"><img src="{{template}}/images/icons/nav_1.png" alt="Регистрация"></div>
+					<div class="nav-link__info">
+						<div class="nav-link__info__name">РЕГИСТРАЦИЯ</div>
+						<div class="nav-link__info__desc">Создание акаунта</div>
+					</div>
+				</a>
+				<a href="http://forum.forceplay.ru/threads/%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0-x1200.8/" class="nav-link flex-sc">
+					<div class="nav-link__icon flex-cc"><img src="{{template}}/images/icons/nav_2.png" alt="Описание"></div>
+					<div class="nav-link__info">
+						<div class="nav-link__info__name">ОПИСАНИЕ</div>
+						<div class="nav-link__info__desc">Подробное описание</div>
+					</div>
+				</a>
+				<div class="nav-link flex-sc" data-open-wnd="files">
+					<div class="nav-link__icon flex-cc"><img src="{{template}}/images/icons/nav_3.png" alt="Скачать файлы"></div>
+					<div class="nav-link__info">
+						<div class="nav-link__info__name">СКАЧАТЬ ФАЙЛЫ</div>
+						<div class="nav-link__info__desc">Файлы для начала игры</div>
+					</div>
+				</div>
+				<div class="nav-link flex-sc" data-open-wnd="donate">
+					<div class="nav-link__icon flex-cc"><img src="{{template}}/images/icons/nav_4.png" alt="Пожертвования"></div>
+					<div class="nav-link__info">
+						<div class="nav-link__info__name">ПОЖЕРТВОВАНИЯ</div>
+						<div class="nav-link__info__desc">Помощь в развитии сервера</div>
+					</div>
+				</div>
+				<a href="https://forum.forceplay.ru/" class="nav-link flex-sc">
+					<div class="nav-link__icon flex-cc"><img src="{{template}}/images/icons/nav_5.png" alt="Форум"></div>
+					<div class="nav-link__info">
+						<div class="nav-link__info__name">ФОРУМ</div>
+						<div class="nav-link__info__desc">Сообщество</div>
+					</div>
+				</a>
+				<div class="lang-switch">
+					<div class="lang-switch__items flex-cc">
+						<a href="#" class="lang-switch__items__lang flex-cc active"><img src="{{template}}/images/icons/ru.jpg" alt="RU"></a>
+						<a href="#" class="lang-switch__items__lang flex-cc"><img src="{{template}}/images/icons/en.jpg" alt="ENG"></a>
+						<a href="#" class="lang-switch__items__lang flex-cc"><img src="{{template}}/images/icons/pl.jpg" alt="ENG"></a>
+						<a href="#" class="lang-switch__items__lang flex-cc"><img src="{{template}}/images/icons/pt.jpg" alt="ENG"></a>
+					</div>
+				</div>
+			</nav>
+			<div class="header-content flex-sbs">
+				<div class="header-content__left">
+					<div class="timer">
+						<div class="timer__title">ДО ОТКРЫТИЯ СЕРВЕРА х1200</div>
+						<div class="timer__desc">Не пропустите открытие нашего сервера</div>
+						<div class="timer__time timer1 flex-cc ru" data-time="1575050400" data-end-msg="<div class='timer__time__end flex-cc'>УСПЕШНО ЗАПУЩЕН!</div>">L o a d i n g . . .</div>
+					</div>
+					<div class="stream_head_title">
+						<div class="timer__title">СТРИМ ТРАНСЛЯЦИИ</div>
+						<div class="timer__desc">Следи за событиями на сервере</div>
+					</div>
+					<div class="stream flex-cc">
+						<div class="stream__play" data-open-wnd="stream"></div>
+					</div>
+				</div>
+				<div class="header-content__center">
+					<a href="/" class="logo"><img src="{{template}}/images/logos/logo.png" alt=""></a>
+					<div class="servers flex-cc">
+{server}
+					</div>
+				</div>
+				<div class="header-content__right"></div>
+			</div>
+		</header>
+		<section class="content flex-sbs">
+			<div class="content__left">
+				<div class="content__title">
+					<div class="content__title__big">РЕЙТИНГ <span>ИГРОКОВ</span></div>
+					<div class="content__title__small">Лучшие из лучших на наших серверах</div>
+				</div>
+				<div class="rating">
+{pvptop}
+<!-- {pvptop2} -->
+					
+					<div class="rating__switch flex-cc">
+						<div class="rating__switch_button flex-cc active" data-open-id="1">x1200</div>
+<!-- 						<div class="rating__switch_button flex-cc" data-open-id="2">x100</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="content__center">
+				<!-- slider -->
+					<div class="slider">
+						<div class="slider-block" data-type="slider">
+ 							{% for news in last_news() %}
+							   {% include 'news.html' with {'news':news} %}
+							{% endfor %}
+						</div>
+					</div>
+					<!-- end slider -->
+			</div>
+			<div class="content__right">
+				<div class="content__title">
+					<div class="content__title__big">ТЕМЫ <span>С ФОРУМА</span></div>
+					<div class="content__title__small">Обсуждения на форуме</div>
+				</div>
+				<div class="forum">
+{forum}
+				</div>
+				<div class="vk">
+					<div id="vk_groups"></div>
+				</div>
+			</div>
+		</section>
+		<footer class="flex-sbc">
+			<div class="footer__cpr">
+				ForcePlay - лучшие сервера Lineage 2 Interlude.
+				ForcePlay.Ru © 2009 - 2019.
+			</div>
+			<div class="footer__banners flex-cc">
+				<a href="#"><img src="{{template}}/images/90x33.png" alt=""></a>
+				<a href="#"><img src="{{template}}/images/90x33.png" alt=""></a>
+			</div>
+			<div class="social flex-cc">
+				<a href="#" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+				<a href="https://t.me/forceplay" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+			</div>
+			<a href="https://coolness.su" target="blank" class="coolness"><img src="{{template}}/images/coolness.png" alt="Создание уникальных сайтов для игровых проектов!"></a>
+		</footer>
+
+		<div class="wnd-bg"></div>
+
+		<div class="wnd" data-wnd-name="files">
+			<div class="wnd__close"></div>
+			<div class="content__title">
+				<div class="content__title__big">СКАЧАТЬ ФАЙЛЫ</div>
+				<div class="content__title__small">Скачайте файлы для игры на наших серверах</div>
+			</div>
+			<div class="files-block">
+				<div class="files-block__title">1. СКАЧАЙ И УСТАНОВИ ИГРУ</div>
+				<div class="files-block__desc">Для игры на серверах <span>Force Play</span> тебе необходим клиент игры INTERLUDE.</div>
+				<div class="files-block__buttons flex-sbc">
+					<div class="files-block__buttons__title">Скачать клиент Interlude torrent (Рекомендуется):</div>
+					<div class="files-block__buttons__items flex-cc">
+						<a href="#" class="flex-cc" target="_blank">СКАЧАТЬ</a>
+					</div>
+				</div>
+			</div>
+			<div class="files-block">
+				<div class="files-block__title">2. УСТАНОВИ ПАТЧ</div>
+				<div class="files-block__desc">При возникновение ошибок разархивирования патча переустановить архиватор! Патч распакуй в корневую папку игры. Запуск игры D:\Lineage 2\system L2.exe.</div>
+				<div class="files-block__buttons flex-sbc">
+					<div class="files-block__buttons__title">Скачать патч:</div>
+					<div class="files-block__buttons__items flex-cc">
+						<a href="#" class="flex-cc" target="_blank">СКАЧАТЬ</a>
+						<a href="#" class="flex-cc" target="_blank">СКАЧАТЬ</a>
+						<a href="#" class="flex-cc" target="_blank">СКАЧАТЬ</a>
+					</div>
+				</div>
+			</div>
+			<div class="files-block">
+				<div class="files-block__title">3. ЗАРЕГИСТРИРУЙ АККАУНТ</div>
+				<div class="files-block__desc">Осталось лишь зарегистрировать аккаунт.</div>
+				<div class="files-block__buttons flex-sbc">
+					<div class="files-block__buttons__items flex-cc">
+						<a href="#" class="files-block__buttons__reg flex-cc" target="_blank">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wnd_stream" data-wnd-name="stream">
+			<div class="wnd__close"></div>
+			<div class="content__title">
+				<div class="content__title__big">ОНЛАЙН ТРАНСЛЯЦИИ</div>
+				<div class="content__title__small">Стримы наших игроков в реальном времени</div>
+			</div>
+			<div class="streams flex-sbc">
+				<div class="streams__stream">
+					<!-- <iframe src="https://player.twitch.tv/?channel=" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe> -->
+				</div>
+				<div class="streams__stream">
+					<!-- <iframe src="https://player.twitch.tv/?channel=" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe> -->
+				</div>
+				<div class="streams__stream">
+					<!-- <iframe src="https://player.twitch.tv/?channel=" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe> -->
+				</div>
+			</div>
+			<div class="streams__desc">
+				<span>Хотите оказаться на данной странице?</span><br>
+				Оставьте свою заявку в <a href="#" target="_blank">данной теме</a> и мы выберем тройку лучших!
+			</div>
+		</div>
+		<div class="wnd_donate flex-sbs" data-wnd-name="donate">
+			<div class="wnd__close"></div>
+			<div class="wnd_donate__left">
+				<div class="content__title">
+					<div class="content__title__big">ПОЖЕРТВОВАНИЯ</div>
+					<div class="content__title__small">Помощь в развитии нашего сервера ForcePlay</div>
+				</div>
+				<div class="wnd_donate__payments_left">
+					WebMoney&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Yandex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					QIWI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					MacterCard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					PayPal
+				</div>
+				<div class="wnd_donate__price">1 COL = 35 рублей</div>
+				<form action="">
+					<div class="wnd_donate__line wnd_donate__select_line">
+						<select name="select">
+							<option selected="selected">Выберите сервер</option>
+							<option>Interlude x1200</option>
+							<option>Interlude x100</option>
+							<option>Interlude x50</option>
+						</select>
+					</div>
+					<div class="wnd_donate__line wnd_donate__select_line">
+						<select name="select">
+							<option selected="selected">Платежная система</option>
+							<option>Unitpay</option>
+							<option>PayPal</option>
+							<option>G2APAY</option>
+						</select>
+					</div>
+					<div class="wnd_donate__line">
+						<input type="text" placeholder="Укажите ник персонажа">
+					</div>
+					<div class="wnd_donate__line">
+						<input type="text" placeholder="Введите количество COL">
+					</div>
+					<button class="wnd_donate__button">ВНЕСТИ ПОЖЕРТВОВАНИЯ</button>
+				</form>
+			</div>
+			<div class="wnd_donate__right">
+				<div class="wnd_donate__payments flex-cc"><img src="{{template}}/images/payments.png" alt=""></div>
+				<div class="wnd_donate__desc">
+					<span>Очень Выгодно!</span><br>Накопительная система до <span>20%</span>! При первом платеже получи Бонус <span>+3%</span>!
+				</div>
+				<a href="#" target="_blank" class="wnd_donate__cp_donate">Купить CoL через Кабинет</a>
+				<div class="wnd_donate__support">
+					<div class="wnd_donate__support_title">Тех. поддержка:</div>
+					<div class="wnd_donate__support_line">- Skype: <a href="#">Комьюнити менеджер</a></div>
+					<div class="wnd_donate__support_line">- Центр <a href="#">Тех. Поддержки</a></div>
+					<div class="wnd_donate__support_line">- Написать через<a href="#"> vkontakte</a></div>
+					<div class="wnd_donate__support_line">- E-mail: <a href="#">forceplay@gmail.com</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

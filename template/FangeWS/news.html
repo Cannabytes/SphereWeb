@@ -79,7 +79,7 @@
                              </div>
                              <!-- END tab__header -->
                              <div class="tab__content">
-                                 {% for server in get_server_info() %}
+                                 {% for server in server_online_status() %}
                                  <div class="rating-container" style="display: none;" data-tab="server-{{server.id}}" data-tab-group="rating">
                                      <div class="rating">
                                          <div class="rating__box">

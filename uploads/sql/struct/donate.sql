@@ -1,14 +1,17 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `channels_message`;
-CREATE TABLE `channels_message`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `item_id` int NULL DEFAULT NULL,
-  `count` int NULL DEFAULT NULL,
-  `cost` int NULL DEFAULT NULL,
-  `server_id` int NULL DEFAULT NULL,
+-- ----------------------------
+-- Table structure for donate
+-- ----------------------------
+DROP TABLE IF EXISTS `donate`;
+CREATE TABLE `donate`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NULL DEFAULT NULL,
+  `count` int(11) NULL DEFAULT NULL,
+  `cost` int(11) NULL DEFAULT NULL,
+  `server_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
