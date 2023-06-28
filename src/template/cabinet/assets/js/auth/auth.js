@@ -48,7 +48,6 @@ $(document).ready(function () {
 
 
     function authorization(email, password, captcha) {
-
         $.ajax({
             type: "POST",
             url: "/auth",
@@ -65,21 +64,7 @@ $(document).ready(function () {
                 location.reload()
             } else {
                 notify_error(data.message)
-
-                // $("#emailmain").val(email)
-                // $("#passwordmain").val(pass)
-                //need restart captcha
-                if (data.code == 1) {
-                    get_captcha()
-                } else if (data.code == 2) {
-                    //Пароль не подошел
-                    pass = null
-                    $("#getcaptchaauth").hide();
-                    $("#authcaptcha").hide();
-
-                    $("#emailmain").show();
-                    $("#passwordmain").show();
-                }
+                get_captcha()
             }
         });
     }
