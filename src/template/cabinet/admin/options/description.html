@@ -82,18 +82,18 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{template}}/assets/plugins/summernote/dist/summernote-bs4.css"/>
+<link rel="stylesheet" href="{{template('/assets/plugins/summernote/dist/summernote-bs4.css')}}"/>
 <!-- simplebar CSS-->
-<link href="{{template}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+<link href="{{template('/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
 {% endblock %}
 
 {% block js %}
 <!--Bootstrap Switch Buttons-->
-<script src="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="{{template('/assets/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
 
 <!-- simplebar js -->
-<script src="{{template}}/assets/plugins/simplebar/js/simplebar.js"></script>
-<script src="{{template}}/assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+<script src="{{template('/assets/plugins/simplebar/js/simplebar.js')}}"></script>
+<script src="{{template('/assets/plugins/summernote/dist/summernote-bs4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $("form").submit(function (event) {

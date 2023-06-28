@@ -41,23 +41,23 @@
 {% endblock %}
 
 {% block css %}
-  <link rel="stylesheet" href="{{template}}/assets/plugins/summernote/dist/summernote-bs4.css"/>
-  <link href="{{template}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{template('/assets/plugins/summernote/dist/summernote-bs4.css')}}"/>
+  <link href="{{template('/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
 {% endblock %}
 
 {% block js %}
 	<!-- simplebar js -->
-  <script src="{{template}}/assets/plugins/simplebar/js/simplebar.js"></script>
+  <script src="{{template('/assets/plugins/simplebar/js/simplebar.js')}}"></script>
   <!-- sidebar-menu js -->
-  <script src="{{template}}/assets/js/sidebar-menu.js"></script>
+  <script src="{{template('/assets/js/sidebar-menu.js')}}"></script>
   
-  <script src="{{template}}/assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+  <script src="{{template('/assets/plugins/summernote/dist/summernote-bs4.min.js')}}"></script>
   <script>
    $('#summernoteEditor').summernote({
             height: 470,
             tabsize: 2
         });
   </script>
-  <script src="{{template}}/assets/js/admin/pages/create.js"></script>
+  <script src="{{template('/assets/js/admin/pages/create.js')}}"></script>
 
 {% endblock %}

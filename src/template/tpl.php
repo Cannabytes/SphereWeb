@@ -193,7 +193,7 @@ class tpl
             return race_class::get_class($class_id);
         }));
         $twig->addFunction(new TwigFunction('get_class_race', function ($class_id) {
-            echo race_class::get_class_race($class_id);
+            return race_class::get_class_race($class_id);
         }));
         $twig->addFunction(new TwigFunction('key', function ($class_id) {
             echo key($class_id);

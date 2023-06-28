@@ -28,7 +28,8 @@
                         <tbody>
                         {% for castle in statistic_get_castle() %}
                         <tr>
-                            <td><img class="img-fluid" src="{{template}}/assets/images/castle/{{castle.castle_id}}.jpg">
+                            <td><img class="img-fluid" src="{{ template('/assets/images/castle/' ~ castle.castle_id ~ '.jpg') }}">
+
                             </td>
                             <td>{{ get_castle(castle.castle_id) }}</td>
                             <td>{% if castle['alliance_crest']!=null%}<img src="data:image/png;base64, {{castle['alliance_crest']}}">{% endif %}{% if castle['clan_crest']!=null%}<img src="data:image/png;base64, {{castle['clan_crest']}}">{% endif %}

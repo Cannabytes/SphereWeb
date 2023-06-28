@@ -10,8 +10,9 @@
                 {% for char in characters %}
                 <li class="list-group-item">
                     <div class="media align-items-center">
-                        <img src="{{template}}/assets/images/race/{{sex(char.sex)}}/{{ get_class_race(char.base_class) }}.jpg"
-                             alt="user avatar" class="customer-img rounded">
+					
+<img src="{{ template('/assets/images/race/' ~ sex(char.sex) ~ '/' ~ get_class_race(char.class_id)) ~ '.jpg' }}" class="customer-img rounded">
+
                         <div class="media-body ml-3">
                             <table class="table table-bordered">
                                 <tbody>
@@ -177,23 +178,23 @@
 {% endblock %}
 
 {% block css %}
-<link href="{{template}}/assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+<link href="{{template('/assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet"
       type="text/css">
-<link href="{{template}}/assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css" rel="stylesheet"
+<link href="{{template('/assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet"
       type="text/css">
 {% endblock %}
 
 {% block js %}
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/jszip.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/pdfmake.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/vfs_fonts.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/buttons.html5.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/jszip.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/pdfmake.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/vfs_fonts.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/buttons.html5.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/buttons.print.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js')}}"></script>
 
 <script>
     $(document).ready(function () {

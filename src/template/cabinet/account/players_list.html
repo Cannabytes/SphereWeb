@@ -16,7 +16,7 @@
 <!--                {{dump(player)}}-->
                 <li class="list-group-item">
                     <div class="media align-items-center">
-                        <img src="{{template}}/assets/images/race/{{sex(player.sex)}}/{{ get_class_race(player.class_id) }}.jpg" class="customer-img rounded">
+						<img src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}" class="customer-img rounded">
                         <div class="media-body ml-3">
                             <table class="table table-bordered">
                                 <tbody>
@@ -50,16 +50,16 @@
 
 
 {% block css %}
-    <link href="{{template}}/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" />
-    <link href="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="{{template('/assets/plugins/switchery/css/switchery.min.css')}}" rel="stylesheet" />
+    <link href="{{template('/assets/plugins/bootstrap-switch/bootstrap-switch.min.css')}}" rel="stylesheet">
 {% endblock %}
 
 
 {% block js %}
-<script src="{{template}}/assets/js/app-script.js"></script>
+<script src="{{template('/assets/js/app-script.js')}}"></script>
 
-<script src="{{template}}/assets/plugins/switchery/js/switchery.min.js"></script>
-<script src="{{template}}/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="{{template('/assets/plugins/switchery/js/switchery.min.js')}}"></script>
+<script src="{{template('/assets/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
 <script>
     $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
 

@@ -55,9 +55,8 @@
                         <div class="card profile-card-3">
 
                             <div class="card-img-block">
-                                <img class="img-fluid"
-                                     src="{{template}}/assets/images/navatar/{{ comment.avatar }}"
-                                     alt="Card image cap">
+                                <img class="img-fluid" src="{{ template('/assets/images/navatar/' ~ comment.avatar) }}" >
+
                             </div>
 
                             <div class="card-body pt-2">
@@ -124,7 +123,7 @@
                     <div class="col-lg-2 col-md-12">
                         <div class="card profile-card-3">
                             <div class="card-img-block">
-                                <img class="img-fluid" src="{{template}}/assets/images/navatar/{{ user_info('get_avatar') }}" >
+                                <img class="img-fluid" src="{{ template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" >
                             </div>
                             <div class="card-body pt-2">
                                 <h5 class="btn btn-primary waves-effect waves-light mt-0">{{ user_info('get_name') }}</h5>

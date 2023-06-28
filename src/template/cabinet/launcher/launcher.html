@@ -383,21 +383,21 @@
 
 {% block css %}
 <!-- simplebar CSS-->
-<link href="{{template}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+<link href="{{template('/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
 <!-- Bootstrap core CSS-->
-<link href="{{template}}/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="{{template('/assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
 <!-- animate CSS-->
-<link href="{{template}}/assets/css/animate.css" rel="stylesheet" type="text/css"/>
+<link href="{{template('/assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
 <!-- Icons CSS-->
-<link href="{{template}}/assets/css/icons.css" rel="stylesheet" type="text/css"/>
+<link href="{{template('/assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
 <!-- Sidebar CSS-->
-<link href="{{template}}/assets/css/sidebar-menu.css" rel="stylesheet"/>
+<link href="{{template('/assets/css/sidebar-menu.css')}}" rel="stylesheet"/>
 <!-- Custom Style-->
-<link href="{{template}}/assets/css/app-style.css" rel="stylesheet"/>
+<link href="{{template('/assets/css/app-style.css')}}" rel="stylesheet"/>
 <!-- skins CSS-->
-<link href="{{template}}/assets/css/skins.css" rel="stylesheet"/>
+<link href="{{template('/assets/css/skins.css')}}" rel="stylesheet"/>
 <!-- Vector CSS -->
-<link href="{{template}}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+<link href="{{template('/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
 
 <style>
 
@@ -423,14 +423,14 @@
 {% block js %}
 
 <!-- Easy Pie Chart JS -->
-<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="{{template}}/assets/plugins/jquery.easy-pie-chart/easy-pie-chart.init.js"></script>
+<script src="{{template('/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
+<script src="{{template('/assets/plugins/jquery.easy-pie-chart/easy-pie-chart.init.js')}}"></script>
 
 <!--[if IE]>
-<script type="text/javascript" src="{{template}}/assets/jquery-knob/excanvas.js"></script>
+<script type="text/javascript" src="{{template('/assets/jquery-knob/excanvas.js')}}"></script>
 <![endif]-->
-<script src="{{template}}/assets/plugins/jquery-knob/excanvas.js"></script>
-<script src="{{template}}/assets/plugins/jquery-knob/jquery.knob.js"></script>
+<script src="{{template('/assets/plugins/jquery-knob/excanvas.js')}}"></script>
+<script src="{{template('/assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 <script>
@@ -440,7 +440,7 @@
 </script>
 
 
-<script src="{{template}}/launcher/launcher.js"></script>
+<script src="{{template('/launcher/launcher.js')}}"></script>
 
 {% endblock %}
 
