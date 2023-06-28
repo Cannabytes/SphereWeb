@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE `channels_message`;
+DROP TABLE IF EXISTS `channels_message`
 CREATE TABLE `channels_message`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `item_id` int NULL DEFAULT NULL,

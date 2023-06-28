@@ -143,10 +143,6 @@ class install {
             header("Location: /");
             die();
         }
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
-            header("Location: /");
-            die();
-        }
         self::connect_test_db(false);
     }
 

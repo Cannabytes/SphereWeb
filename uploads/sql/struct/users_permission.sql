@@ -1,6 +1,6 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE `users_permission`;
+DROP TABLE IF EXISTS `users_permission`
 CREATE TABLE `users_permission`  (
   `user_id` int(11) NOT NULL,
   `ban_page` int(11) NULL DEFAULT 0,
