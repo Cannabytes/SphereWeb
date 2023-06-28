@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `tickets_comment_image`
+DROP TABLE IF EXISTS `tickets_comment_image`;
 CREATE TABLE `tickets_comment_image`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NULL DEFAULT NULL,

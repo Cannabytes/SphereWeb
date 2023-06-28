@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `player_forbidden`
+DROP TABLE IF EXISTS `player_forbidden`;
 CREATE TABLE `player_forbidden`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `server_id` int(11) NULL DEFAULT NULL,
