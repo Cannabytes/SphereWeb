@@ -309,10 +309,11 @@ class auth {
         }
         if (config::get_captcha_version("google")){
            $g_captcha = google::check($_POST['captcha']);
+            var_dump($g_captcha);exit;
+
            if(!$g_captcha['success']){
                board::notice(false, "гугл капча думает шо ты бот");
            }
-           var_dump($g_captcha);exit;
         }elseif(config::get_captcha_version("default")) {
             $builder = new Builder;
             $captcha = $_POST['captcha'] ?? false;
