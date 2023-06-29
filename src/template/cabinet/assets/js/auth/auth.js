@@ -20,7 +20,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok) {
                 location.reload()
             } else {
@@ -58,7 +58,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             console.log(data);
             if (data.ok) {
                 location.reload()

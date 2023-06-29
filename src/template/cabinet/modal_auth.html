@@ -80,15 +80,20 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="captcha_registration_panel" class="col-sm-2 col-form-label">Анти-Бот</label>
-                                <div class="col-sm-5">
-                                    <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control form-control-lg" name="captcha_registration_panel" id="captcha_registration_panel" >
-                                </div>
+                        {% if get_captcha_version("Google") %}
+                        <input class="captchaToken" type="hidden" name="captcha">
+                        {% elseif get_captcha_version("default") %}
+                        <div class="form-group row">
+                            <label for="captcha_registration_panel" class="col-sm-2 col-form-label">Анти-Бот</label>
+                            <div class="col-sm-5">
+                                <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
                             </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control form-control-lg" name="captcha_registration_panel" id="captcha_registration_panel" >
+                            </div>
+                        </div>
+                        {% endif %}
+
 
                             <button id="registration_panel" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
 

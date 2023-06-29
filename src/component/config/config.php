@@ -52,9 +52,14 @@ class config
     public static function get_captcha_version($checkCaptchaName = null): string|bool|null {
         if(self::$captcha===null){
             require_once 'src/config/captcha.php';
-            self::$captcha = CAPTCHA;
+            if (defined('CAPTCHA')) {
+                self::$captcha = CAPTCHA;
+            }
         }
         if($checkCaptchaName==null){
+            if(self::$captcha==null){
+                return 'default';
+            }
             return self::$captcha;
         }else{
             return (bool)strcasecmp(self::$captcha, $checkCaptchaName) == 0;

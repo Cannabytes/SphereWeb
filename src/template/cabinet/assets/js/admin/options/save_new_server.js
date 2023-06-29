@@ -8,7 +8,7 @@ $(document).ready(function () {
             data: $(this).serialize(),
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok){
                 document.location.href = '/admin/options/server/list'
             }else {

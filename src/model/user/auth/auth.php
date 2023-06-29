@@ -308,8 +308,8 @@ class auth {
             board::notice(false, lang::get_phrase(160));
         }
         if (config::get_captcha_version("google")){
-           $g_captcha = google::check($_POST['captcha']);
-           if(!$g_captcha['success']){
+           $g_captcha = google::check($_POST['captcha']??null);
+           if(isset($g_captcha['success']) AND !$g_captcha['success']){
                board::notice(false, $g_captcha['error-codes'][0]);
            }
         }elseif(config::get_captcha_version("default")) {
@@ -322,7 +322,6 @@ class auth {
                 board::alert([
                     'ok'      => false,
                     "message" => lang::get_phrase(295),
-                    "code"    => 1,
                 ]);
             }
         }

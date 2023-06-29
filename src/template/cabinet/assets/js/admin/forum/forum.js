@@ -6,7 +6,7 @@ $(document).ready(function () {
             data: $(this).serialize(),
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok){
                 notify_success(data.message);
             }else {

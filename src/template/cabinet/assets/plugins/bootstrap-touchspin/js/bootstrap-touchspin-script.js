@@ -58,7 +58,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok) {
                 notify_success(data.message + " " + name + " (" + count +")");
                 $('#modal_panel_apply').modal('toggle');

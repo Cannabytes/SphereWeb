@@ -8,6 +8,10 @@
     <meta name="author" content=""/>
     <meta name="server_default" content="{{user_info('get_default_server')}}"/>
     <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
+    <meta name="get_captcha_version" content="{{ get_captcha_version() }}"/>
+{% if get_captcha_version("Google") %}
+    <meta name="google_captcha_key" content="{{ google_secret_key() }}"/>
+{% endif %}
     <title>{{ title }}</title>
     <!--favicon-->
     <link rel="icon" href="{{template('assets/images/favicon.ico')}}" type="image/x-icon">
@@ -504,7 +508,9 @@
 </div><!--End wrapper-->
 
 <!-- Bootstrap core JavaScript-->
-<script src="{{template('assets/js/jquery.min.js')}}"></script>
+<!--<script src="{{template('assets/js/jquery.min.js')}}"></script>-->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
 <script src="{{template('assets/js/popper.min.js')}}"></script>
 <script src="{{template('assets/js/bootstrap.min.js')}}"></script>
 
@@ -536,11 +542,17 @@
 
 {% if get_captcha_version("Google") %}
 <script>
+
+$("#auth_panel").click(function (e) {
   grecaptcha.ready(function() {
     grecaptcha.execute('{{google_secret_key()}}', { action: 'submit' }).then(function(token) {
       $('.captchaToken').val(token);
     });
   });
+});
+
+
+
 </script>
 {% endif %}
 

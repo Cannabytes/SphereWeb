@@ -10,7 +10,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             dataType: "json"
-        }).success(function (data) {
+        }).done(function (data) {
             console.log(data)
             if (data.ok) {
                 notify_success(data.message)
@@ -31,7 +31,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             dataType: "json"
-        }).success(function (data) {
+        }).done(function (data) {
             console.log(data)
             if (data.ok) {
                 notify_success(data.message)

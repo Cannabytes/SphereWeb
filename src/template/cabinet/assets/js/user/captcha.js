@@ -10,7 +10,7 @@ $(document).ready(function() {
             type: "POST",
             url: "/captcha",
             async: true,
-        }).success(function (data) {
+        }).done(function (data) {
             $(".captcha_img").attr("src", data);
         });
    }

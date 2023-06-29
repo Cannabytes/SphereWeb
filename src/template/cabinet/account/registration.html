@@ -75,9 +75,12 @@
                         </div>
                     </div>
 
+
+                    {% if get_captcha_version("Google") %}
+                    <input class="captchaToken" type="hidden" name="captcha">
+                    {% elseif get_captcha_version("default") %}
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Анти-Бот</label>
-
                         <div class="col-sm-2">
                             <a href="#"> <img id='refreshCaptcha' src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
                         </div>
@@ -85,6 +88,7 @@
                             <input type="text" class="form-control form-control-xl" name="captcha" id="captcha" >
                         </div>
                     </div>
+                    {% endif %}
 
 
 

@@ -1,18 +1,34 @@
 $(document).ready(function () {
-
-
-
+    captchaVersion = $('meta[name="get_captcha_version"]').attr('content');
     $("#timezone").val(Intl.DateTimeFormat().resolvedOptions().timeZone)
 
     $("form").submit(function (event) {
         event.preventDefault();
+
+        var formData = new FormData(this);
+
+        if (captchaVersion == "google") {
+            google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+            grecaptcha.execute(google_captcha_key, { action: 'submit' }).then(function (token) {
+                formData.append("captcha", token);
+                sendAjaxRequest(formData);
+            });
+        } else {
+            sendAjaxRequest(formData);
+            get_captcha()
+        }
+    });
+
+    function sendAjaxRequest(formData) {
         $.ajax({
             type: "POST",
             url: "/registration/user",
-            data: $(this).serialize(),
+            data: formData,
+            processData:false,
+            contentType:false,
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok) {
                 notify_success(data.message);
                 setTimeout(() => {
@@ -22,22 +38,30 @@ $(document).ready(function () {
                 notify_error(data.message)
             }
         });
-    });
-
-    $("#refreshCaptcha").on('click', function (e) {
-        get_captcha();
-    });
-
-    function get_captcha() {
-        $.ajax({
-            type: "POST",
-            url: "/captcha",
-            async: true,
-        }).success(function (data) {
-            $(".captcha").attr("src", data);
-        });
     }
 
 
-
+    if(captchaVersion=="default"){
+            $("#refreshCaptcha").on('click', function (e) {
+                get_captcha();
+            });
+            function get_captcha() {
+                $.ajax({
+                    type: "POST",
+                    url: "/captcha",
+                    async: true,
+                }).done(function (data) {
+                    $(".captcha").attr("src", data);
+                });
+            }
+    }
 });
+
+
+
+
+
+
+
+
+

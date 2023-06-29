@@ -8,7 +8,7 @@ $(document).ready(function () {
 			},
             dataType: "json",
             encode: true,
-        }).success(function (data) {
+        }).done(function (data) {
             if (data.ok){
                 location.reload();
             }else {
@@ -23,7 +23,7 @@ $('#new_account_word').on('click', function () {
         type: "POST",
         url: "/generation/account",
         encode: true,
-    }).success(function (data) {
+    }).done(function (data) {
         $("input[name*='login']").val(data);
     });
 });
@@ -33,7 +33,7 @@ $('#new_password_word').on('click', function () {
         type: "POST",
         url: "/generation/password",
         encode: true,
-    }).success(function (data) {
+    }).done(function (data) {
         $("input[name*='password']").val(data);
     });
 });
