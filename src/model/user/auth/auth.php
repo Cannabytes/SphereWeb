@@ -308,8 +308,13 @@ class auth {
             board::notice(false, lang::get_phrase(160));
         }
         if (config::get_captcha_version("google")){
-           $test = google::check($_POST['captcha']);
-           var_dump($test);exit;
+           $g_captcha = google::check($_POST['captcha']);
+           if($g_captcha['success']==true){
+//               board::notice(true, "С капчей проблем нет");
+           }else{
+//               board::notice(false, "гугл капча думает шо ты бот");
+           }
+           var_dump($g_captcha);exit;
         }elseif(config::get_captcha_version("default")) {
             $builder = new Builder;
             $captcha = $_POST['captcha'] ?? false;

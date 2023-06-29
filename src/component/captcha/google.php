@@ -28,10 +28,11 @@ class google {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Отправляем запрос
-        $response = curl_exec($ch);
-        var_dump($response);exit;
+        return curl_exec($ch);
+//        return $response;
+//        var_dump($response);exit;
         // Возвращаем массив полученных данных
-        return json_decode($response, true);
+//        return json_decode($response, true);
     }
 
     public static function get_client_key(){
