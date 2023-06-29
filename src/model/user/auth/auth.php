@@ -309,10 +309,8 @@ class auth {
         }
         if (config::get_captcha_version("google")){
            $g_captcha = google::check($_POST['captcha']);
-           if($g_captcha['success']==true){
-//               board::notice(true, "С капчей проблем нет");
-           }else{
-//               board::notice(false, "гугл капча думает шо ты бот");
+           if(!$g_captcha['success']){
+               board::notice(false, "гугл капча думает шо ты бот");
            }
            var_dump($g_captcha);exit;
         }elseif(config::get_captcha_version("default")) {
