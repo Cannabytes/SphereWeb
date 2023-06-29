@@ -27,8 +27,10 @@
                     </div>
 
 
-
-
+                    {% if get_captcha_version("Google") %}
+                    <input class="captchaToken" type="hidden" name="token" id="captcha_panel">
+                    {% endif %}
+                    {% if get_captcha_version("default") %}
                     <div class="form-group row">
                         <label for="captcha_panel" class="col-sm-2 col-form-label">Анти-Бот</label>
                         <div class="col-sm-5">
@@ -38,6 +40,7 @@
                             <input type="text" class="form-control form-control-lg" name="captcha_panel" id="captcha_panel" >
                         </div>
                     </div>
+                    {% endif %}
 
                     <button id="auth_panel" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
 

@@ -83,6 +83,10 @@
                             </div>
 
 
+                            {% if get_captcha_version("Google") %}
+                            <input class="captchaToken" type="hidden" name="token">
+                            {% endif %}
+                            {% if get_captcha_version("default") %}
                             <div class="form-group row">
                                 <label for="captcha_main_registration" class="col-sm-3 col-form-label">Капча</label>
 
@@ -90,10 +94,12 @@
                                     <a href="#"> <img id='refreshCaptcha' src=""
                                                       class="lightbox-thumb img-thumbnail captcha_img"/> </a>
                                 </div>
+
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control form-control-lg" name="captcha_main_registration" id="captcha_main_registration">
                                 </div>
                             </div>
+                            {% endif %}
 
 
                             {% endif %}

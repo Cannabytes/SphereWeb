@@ -23,6 +23,7 @@ class config
     private static bool $enable_ticket = true;
     private static bool $enable_gallery = true;
     private static bool $enable_donate = true;
+    private static ?string $captcha = null;
 
     public static function open(): void
     {
@@ -45,6 +46,19 @@ class config
         self::$enable_ticket = ENABLE_TICKET;
         self::$enable_gallery = ENABLE_GALLERY;
         self::$enable_donate = ENABLE_DONATE;
+    }
+
+    // Возвращает название используемой капчи
+    public static function get_captcha_version($checkCaptchaName = null): string|bool|null {
+        if(self::$captcha===null){
+            require_once 'src/config/captcha.php';
+            self::$captcha = CAPTCHA;
+        }
+        if($checkCaptchaName==null){
+            return self::$captcha;
+        }else{
+            return (bool)strcasecmp(self::$captcha, $checkCaptchaName) == 0;
+        }
     }
 
     private static function check_open_config(): void

@@ -5,6 +5,7 @@ namespace Ofey\Logan22\template;
 use InvalidArgumentException;
 use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\alert\logs;
+use Ofey\Logan22\component\captcha\google;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\estate\castle;
@@ -120,6 +121,18 @@ class tpl
         $twig->addFunction(new TwigFunction('cache_timeout', function ($var = null) {
             return time::cache_timeout($var);
         }));
+
+        $twig->addFunction(new TwigFunction('get_captcha_version', function ($name = null) {
+            if($name==null){
+                return config::get_captcha_version();
+            }
+            return strcasecmp(config::get_captcha_version(), $name) == 0;
+        }));
+
+        $twig->addFunction(new TwigFunction('google_secret_key', function () {
+                return google::get_client_key();
+        }));
+
 
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function ($count = 10, $server_id = 0) {

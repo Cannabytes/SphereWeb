@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\auth;
 use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\captcha\captcha;
+use Ofey\Logan22\component\captcha\google;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
@@ -306,18 +307,24 @@ class auth {
         if (auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
-        $builder = new Builder;
-        $captcha = $_POST['captcha'] ?? false;
-        $userSessionCaptcha = $_SESSION['captcha'];
+        if (config::get_captcha_version("google")){
+           $test = google::check($_POST['captcha']);
+           var_dump($test);exit;
+        }elseif(config::get_captcha_version("default")) {
+            $builder = new Builder;
+            $captcha = $_POST['captcha'] ?? false;
+            $userSessionCaptcha = $_SESSION['captcha'];
 
-        captcha::generation();
-        if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
-            board::alert([
-                             'ok'      => false,
-                             "message" => lang::get_phrase(295),
-                             "code"    => 1,
-                         ]);
+            captcha::generation();
+            if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
+                board::alert([
+                    'ok'      => false,
+                    "message" => lang::get_phrase(295),
+                    "code"    => 1,
+                ]);
+            }
         }
+
         if (!isset($_POST['email']) or !isset($_POST['password'])) {
             board::notice(false, lang::get_phrase(161));
         }

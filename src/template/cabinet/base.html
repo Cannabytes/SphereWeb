@@ -11,7 +11,7 @@
     <title>{{ title }}</title>
     <!--favicon-->
     <link rel="icon" href="{{template('assets/images/favicon.ico')}}" type="image/x-icon">
-    {% block css_ol_1 %}{% endblock %}
+{% block css_ol_1 %}{% endblock %}
     <!-- simplebar CSS-->
     <link href="{{template('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
     <!-- Bootstrap core CSS-->
@@ -28,12 +28,16 @@
     <link href="{{template('assets/css/skins.css')}}" rel="stylesheet"/>
 
     <link rel="stylesheet" href="{{template('assets/plugins/notifications/css/lobibox.min.css')}}"/>
-    {% if get_enable_game_chat() %}
-    <!-- chat CSS-->
-    <link href="{{template('assets/css/chat.css')}}" rel="stylesheet"/>
-    {% endif %}
 
-    {% block css %}{% endblock %}
+{% if get_enable_game_chat() %}
+    <link href="{{template('assets/css/chat.css')}}" rel="stylesheet"/>
+{% endif %}
+
+{% if get_captcha_version("Google") %}
+    <script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
+{% endif %}
+
+{% block css %}{% endblock %}
 </head>
 
 <body>
@@ -424,10 +428,15 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-2 col-form-label">Капча</label>
 
+                                {% if get_captcha_version("Google") %}
+                                <input class="captchaToken" id="token" type="hidden" name="token">
+                                {% endif %}
+                                {% if get_captcha_version("default") %}
                                 <div class="col-sm-2">
-                                    <a href="#"> <img id='refreshCaptcha' src=""
-                                                      class="lightbox-thumb img-thumbnail captcha_img"/> </a>
+                                    <a href="#"> <img id='refreshCaptcha' src="" class="lightbox-thumb img-thumbnail captcha_img"/> </a>
                                 </div>
+                                {% endif %}
+
                                 <div class="col-sm-2">
                                     <input type="text" class="form-control form-control-xl" name="captcha" id="captcha">
                                 </div>
@@ -525,6 +534,15 @@
 {% block js %}{% endblock %}
 
 
+{% if get_captcha_version("Google") %}
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('{{google_secret_key()}}', { action: 'submit' }).then(function(token) {
+      $('.captchaToken').val(token);
+    });
+  });
+</script>
+{% endif %}
 
 </body>
 </html>
