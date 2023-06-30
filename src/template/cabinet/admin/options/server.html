@@ -29,7 +29,7 @@
                             </div>
                         </div>
 						<hr>
-						<h4>Рейты</h4>
+						<h4>{{phrase(375)}}</h4>
                         <div class="form-group">
                             <div class="row">
 
@@ -142,83 +142,83 @@
 
 
 						<hr>
-						<h4>Порты сервера</h4>
-						Для вывода информации о работоспособности сервера
+						<h4>{{phrase(376)}}</h4>
+						{{phrase(377)}}
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
 								<div class="icheck-material-primary">
 									<input name="check_server_online" type="checkbox" id="check_server_online" checked=""/>
-									<label for="check_server_online">Включить отображение работы сервера</label>
+									<label for="check_server_online">{{phrase(378)}}</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group row">
-							<label for="check_loginserver_online_host" class="col-sm-2 col-form-label">IP логин сервера</label>
+							<label for="check_loginserver_online_host" class="col-sm-2 col-form-label">{{phrase(379)}}</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="check_loginserver_online_host" id="check_loginserver_online_host" value="localhost">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="check_loginserver_online_port" class="col-sm-2 col-form-label">Порт логин сервера</label>
+							<label for="check_loginserver_online_port" class="col-sm-2 col-form-label">{{phrase(380)}}</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="check_loginserver_online_port" id="check_loginserver_online_port" value="2106" >
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="check_gameserver_online_host" class="col-sm-2 col-form-label">IP гейм сервера</label>
+							<label for="check_gameserver_online_host" class="col-sm-2 col-form-label">{{phrase(381)}}</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="check_gameserver_online_host" id="check_gameserver_online_host" value="localhost">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="check_gameserver_online_port" class="col-sm-2 col-form-label">Порт гейм сервера</label>
+							<label for="check_gameserver_online_port" class="col-sm-2 col-form-label">{{phrase(382)}}</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="check_gameserver_online_port" id="check_gameserver_online_port" value="7777" >
 							</div>
 						</div>
 						<hr>
 
-						<h4>Игровой чат</h4>
+						<h4>{{phrase(383)}}</h4>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
 								<div class="icheck-material-primary">
 									<input name="chat_game_enabled" type="checkbox" id="chat_game_enabled" {% if server.chat_game_enabled %}checked=""{%endif%}/>
-									<label for="chat_game_enabled">Включить вывод игрового чата</label>
+									<label for="chat_game_enabled">{{phrase(384)}}</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group row">
-							<label class="col-sm-12 col-form-label">Для вывода информации из чата необходимо запустить программу, которая будет парсить каждые N сек. сообщения из файла chat.log сервера и отправлять БД сайта.</label>
+							<label class="col-sm-12 col-form-label">{{phrase(385)}}</label>
 						</div>
 						<hr>
 
-						<h4>Веб-лаунчер</h4>
+						<h4>{{phrase(386)}}</h4>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label"></label>
 							<div class="col-sm-10">
 								<div class="icheck-material-primary">
 									<input name="launcher_enabled" type="checkbox" id="launcher_enabled" {% if server.launcher_enabled %}checked=""{%endif%}/>
-									<label for="launcher_enabled">Включить лаунчер</label>
+									<label for="launcher_enabled">{{phrase(387)}}</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group row">
-							<label class="col-sm-12 col-form-label">Веб-лаунчер это возможность обновления игры используя интерфейс CMS.<br>
-								Подробнее: <a target="_blank" href="https://cannabytes.github.io">https://cannabytes.github.io</a></label>
+							<label class="col-sm-12 col-form-label">{{phrase(388)}}<br>
+								{{phrase(389)}}: <a target="_blank" href="https://cannabytes.github.io">https://cannabytes.github.io</a></label>
 						</div>
 
 						<hr>
 
 						<div class="form-group">
-					<button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fa fa-trash-o mr-1"></i> Создать</button>
+					<button type="submit" class="btn btn-primary waves-effect waves-light mt-1">{{phrase("create")}}</button>
                   </div>
                  </form>
                 </div> <!-- card body -->

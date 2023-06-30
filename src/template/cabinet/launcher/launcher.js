@@ -243,18 +243,18 @@ function downloadAndRunLauncher() {
    })
 
    swalWithBootstrapButtons.fire({
-      title: 'Не включен лаунчер',
-      html: 'Единажды скаченный, подойдет для всех серверов на движке <b>SphereWeb</b>.',
+      title: '{{phrase(418)}}',
+      html: '{{phrase(419)|raw}}',
       icon: 'error',
       showCancelButton: true,
-      confirmButtonText: 'Скачать лаунчер',
-      cancelButtonText: 'Запустить',
+      confirmButtonText: '{{phrase(420)}}',
+      cancelButtonText: '{{phrase(421)}}',
       reverseButtons: true
    }).then((result) => {
       if (result.isConfirmed) {
          swalWithBootstrapButtons.fire(
-            'Ссылки для загрузки лаунчера',
-            'Зекрало №1<br>Зекрало №2<br>',
+            '{{phrase(422)}}',
+            '{{phrase(423)|raw}}',
             'success'
          )
       } else if (
@@ -290,7 +290,7 @@ $(".client_update").click(function () {
       return
    }
    if($("#selectClient").val()==""){
-    notify_error("Не установлена папка для обновления клиента")
+    notify_error("{{phrase(424)}}")
    }else{
       startUpdate()
       getStatus()
@@ -303,7 +303,7 @@ $("#client_update").click(function () {
       return
    }
    if($("#selectClient").val()==""){
-    notify_error("Не установлена папка для обновления клиента")
+    notify_error("{{phrase(424)}}")
    }else{
       startUpdate()
       getStatus()

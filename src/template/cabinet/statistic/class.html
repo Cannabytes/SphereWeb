@@ -6,13 +6,13 @@
 {% if player_classes is same as(null) %}
 {% include '/statistic/none.html' %}
 {% else %}
-	  <h3 class="mb-0">ТОП классов {{class_name}}</h3>
+	  <h3 class="mb-0">{{phrase(372)}} {{class_name}}</h3>
 	  {% include '/statistic/statistic_menu.html' %}
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Статистика класса {{class_name}}</h5>
+              <h5 class="card-title">{{phrase(373)}} {{class_name}}</h5>
 			  <div class="table-responsive">
                <table class="table table-striped">
                   <thead>

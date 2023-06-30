@@ -13,9 +13,8 @@ use Ofey\Logan22\model\db\sql;
 
 class forum {
 
-    static public function save() {
+    public static function save() {
         $enabled = isset($_POST['forum_enable']);
-        sql::run('UPDATE `config` SET `forum_enable` = ? LIMIT 1', [(int)$enabled]);
 
         $engine = $_POST['forum_engine'];
         $url = $_POST['forum_url'];
@@ -28,14 +27,15 @@ class forum {
         $forum_db_password = $_POST['forum_db_password'];
         $forum_db_name = $_POST['forum_db_name'];
 
-        $ok = self::saveToFile($forum_db_host, $forum_db_user, $forum_db_password, $forum_db_name, $engine, $url);
+        $ok = self::saveToFile($enabled ? "true" : "false", $forum_db_host, $forum_db_user, $forum_db_password, $forum_db_name, $engine, $url);
         if($ok){
             board::notice(true, lang::get_phrase(139));
         }
     }
 
-    static private function saveToFile($host, $user, $password, $name, $engine, $url) {
+    private static function saveToFile($enabled, $host, $user, $password, $name, $engine, $url) {
         $txt = "<?php
+const FORUM_ENABLED = {$enabled};
 const FORUM_HOST = '{$host}';
 const FORUM_USER = '{$user}';
 const FORUM_PASSWORD = '{$password}';

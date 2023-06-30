@@ -5,17 +5,19 @@
 <div class="row">
   <div class="col-lg-6">
    <div class="card">
-    <div class="card-header text-uppercase">Создание архивации клиента</div>
+    <div class="card-header">{{phrase(407)}}</div>
     <div class="card-body">
      <div>
-      <label>Месторасположение клиент (папка с файлами для архивации)</label>
+      <label>{{phrase(408)}}</label>
       <input type="text" id="clientDirectory" data-toggle="modal" data-target="#openDir" class="form-control">
       <hr>
-      <label>Месторасположене сохранения архивов</label>
+      <label>{{phrase(409)}}</label>
       <input type="text" id="saveArchiveDirectory" data-toggle="modal" data-target="#openDir" class="form-control">
       <hr>
-        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="startGenerationArchive">Начать генерацию патча</button>
-        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="stopGenerationArchive">Прервать генерацию</button>
+        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="startGenerationArchive">
+         {{phrase(410)}}</button>
+        <button type="button" class="btn-social-text btn-github waves-effect waves-light m-1" id="stopGenerationArchive">
+         {{phrase(411)}}</button>
      </div>
     </div>
    </div>
@@ -23,7 +25,7 @@
   <div class="col-lg-6">
 
    <div class="card">
-    <div class="card-header text-uppercase text-center">Уровень загрузки</div>
+    <div class="card-header text-uppercase text-center">{{phrase(412)}}</div>
     <div class="card-body">
      <div class="text-center">
       <div class="chart-container-9 d-flex align-items-center justify-content-center">
@@ -35,11 +37,11 @@
      <div class="row align-items-center text-center">
       <div class="col border-right border-light">
        <h4 class="mb-0" id="files">0</h4>
-       <small class="extra-small-font">Обработано</small>
+       <small class="extra-small-font">{{phrase(413)}}</small>
       </div>
       <div class="col">
        <h4 class="mb-0" id="totalFiles">0</h4>
-       <small class="extra-small-font">Всего файлов</small>
+       <small class="extra-small-font">{{phrase(414)}}</small>
       </div>
      </div>
     </div>
@@ -54,7 +56,7 @@
  <div class="modal-dialog modal-lg">
   <div class="modal-content">
    <div class="modal-header">
-    <h5 class="modal-title" id="dirfullpath">Мой компьютер</h5>
+    <h5 class="modal-title" id="dirfullpath">{{phrase(415)}}</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
      <span aria-hidden="true">×</span>
     </button>
@@ -63,7 +65,8 @@
     <div class="card-body" id="dirlist"></div>
    </div>
    <div class="modal-footer">
-    <button id="saveModalDirectory" type="button" data-server_id="{{serverID}}" data-trigger-id="" class="btn btn-primary" data-client-dir-path=""><i class="fa fa-check-square-o"></i> Сохранить</button>
+    <button id="saveModalDirectory" type="button" data-server_id="{{serverID}}" data-trigger-id="" class="btn btn-primary" data-client-dir-path=""><i class="fa fa-check-square-o"></i>
+     {{phrase(89)}}</button>
    </div>
   </div>
  </div>

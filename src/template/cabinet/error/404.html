@@ -16,9 +16,9 @@
                        <hr class="w-50 border-light">
 
                        <div class="mt-4">
-                           <a href="/main" class="btn btn-dark btn-round m-1">На главную </a>
+                           <a href="/main" class="btn btn-dark btn-round m-1">{{phrase(416)}} </a>
                            {% if http_referer() %}
-                            <a href="{{ http_referer() }}" class="btn btn-warning btn-round m-1">Назад </a>
+                            <a href="{{ http_referer() }}" class="btn btn-warning btn-round m-1">{{phrase(417)}} </a>
                            {% endif %}
                        </div>
 
