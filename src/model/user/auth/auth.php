@@ -25,8 +25,8 @@ use SimpleCaptcha\Builder;
 class auth {
 
     public static array $userInfo = [];
-    static private bool   $is_auth      = false;
-    static private int    $id;
+    static private bool $is_auth = false;
+    static private int $id;
     static private string $email;
     static private string $name;
     static private string $password;
@@ -36,14 +36,14 @@ class auth {
     static private string $date_create;
     static private string $date_update;
     static private string $access_level = 'guest';
-    static private float  $donate_point = 0;
+    static private float $donate_point = 0;
     static private string $avatar;
     static private string $avatar_background;
 
     //ban func
     static private string $timezone;
-    private static ?bool $ban_page    = false;
-    private static ?bool $ban_ticket  = false;
+    private static ?bool $ban_page = false;
+    private static ?bool $ban_ticket = false;
 
     //bonus
     private static ?bool $ban_gallery = false;
@@ -265,19 +265,19 @@ class auth {
     }
 
     private static function set_ban_page(?bool $ban_page): void {
-        self::$ban_page = (bool) $ban_page;
+        self::$ban_page = (bool)$ban_page;
     }
 
     //Проверка авторизации пользователя
 
     private static function set_ban_ticket(?bool $ban_ticket): void {
-        self::$ban_ticket = (bool) $ban_ticket;
+        self::$ban_ticket = (bool)$ban_ticket;
     }
 
     //TODO:Добавить в массив всех пользователей которых мы проверяем
 
     private static function set_ban_gallery(?bool $ban_gallery): void {
-        self::$ban_gallery = (bool) $ban_gallery;
+        self::$ban_gallery = (bool)$ban_gallery;
     }
     //Проверка существования юзера
     //$nCheck = false вернет в случае неудачи false, если true выйдет в логаут из профиля
@@ -295,7 +295,7 @@ class auth {
      * @throws Exception
      * Проверка существования пользователя по E-Mail
      */
-    static public function is_user($email) {
+    public static function is_user($email) {
         if (self::$userInfo != null) {
             return self::$userInfo;
         }
@@ -303,24 +303,23 @@ class auth {
         return sql::run($sql, [$email])->fetch();
     }
 
-    static public function user_enter() {
+    public static function user_enter() {
         if (auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
-        if (config::get_captcha_version("google")){
-           $g_captcha = google::check($_POST['captcha']??null);
-           if(isset($g_captcha['success']) AND !$g_captcha['success']){
-               board::notice(false, $g_captcha['error-codes'][0]);
-           }
-        }elseif(config::get_captcha_version("default")) {
-            $builder = new Builder;
+        if (config::get_captcha_version("google")) {
+            $g_captcha = google::check($_POST['captcha'] ?? null);
+            if (isset($g_captcha['success']) and !$g_captcha['success']) {
+                board::notice(false, $g_captcha['error-codes'][0]);
+            }
+        } elseif (config::get_captcha_version("default")) {
+            $builder = new Builder();
             $captcha = $_POST['captcha'] ?? false;
             $userSessionCaptcha = $_SESSION['captcha'];
-
             captcha::generation();
             if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
                 board::alert([
-                    'ok'      => false,
+                    'ok' => false,
                     "message" => lang::get_phrase(295),
                 ]);
             }
@@ -343,10 +342,10 @@ class auth {
             board::notice(true, lang::get_phrase(165));
         } else {
             board::alert([
-                             'ok'      => false,
-                             "message" => lang::get_phrase(185),
-                             "code"    => 2,
-                         ]);
+                'ok' => false,
+                "message" => lang::get_phrase(166),
+                "code" => 2,
+            ]);
         }
         board::notice(false, lang::get_phrase(166));
     }

@@ -16,7 +16,7 @@ use SimpleCaptcha\Builder;
 
 class user {
 
-    static public function show($ref_name = null) {
+    public static function show($ref_name = null): void {
         validation::user_protection("guest");
         tpl::addVar([
             'referral_name' => $ref_name,
@@ -25,7 +25,7 @@ class user {
     }
 
 
-    public static function add() {
+    public static function add(): void {
         $email = request::setting('email', new request_config(isEmail: true));
         $password = request::setting('password', new request_config(max: 32));
 

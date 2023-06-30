@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
 
-                <div class="card-body">
+                <div class="card-body" id="form_auth_panel">
 
                     <div class="form-group row">
                         <label for="email_panel" class="col-sm-2 col-form-label">{{ phrase(9) }}</label>
@@ -22,13 +22,13 @@
                     <div class="form-group row">
                         <label for="password_panel" class="col-sm-2 col-form-label">{{ phrase("password") }}</label>
                         <div class="col-sm-9">
-                            <input type="text" placeholder="{{ phrase('password') }}" class="form-control form-control-sm" name="password" id="password_panel">
+                            <input type="password" placeholder="{{ phrase('password') }}" class="form-control form-control-sm" name="password" id="password_panel">
                         </div>
                     </div>
 
 
                     {% if get_captcha_version("Google") %}
-                    <input class="captchaToken" type="hidden" name="token" id="captcha_panel">
+                    <input class="captchaToken" type="hidden" name="captcha" id="captcha_panel">
                     {% endif %}
                     {% if get_captcha_version("default") %}
                     <div class="form-group row">
@@ -37,7 +37,7 @@
                             <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
                         </div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control form-control-lg" name="captcha_panel" id="captcha_panel" >
+                            <input type="text" class="form-control form-control-lg" name="captcha" id="captcha_panel" >
                         </div>
                     </div>
                     {% endif %}
@@ -69,7 +69,7 @@
                             <div class="form-group row">
                                 <label for="email_registration_panel" class="col-sm-2 col-form-label">{{ phrase(9) }}</label>
                                 <div class="col-sm-9">
-                                    <input type="email" placeholder="{{ phrase(6) }}" class="form-control form-control-sm" name="email_registration_panel" id="email_registration_panel">
+                                    <input type="email" placeholder="{{ phrase(6) }}" class="form-control form-control-sm" name="email" id="email_registration_panel">
                                 </div>
                             </div>
 
@@ -89,13 +89,13 @@
                                 <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-lg" name="captcha_registration_panel" id="captcha_registration_panel" >
+                                <input type="text" class="form-control form-control-lg" name="captcha" id="captcha_registration_panel" >
                             </div>
                         </div>
                         {% endif %}
 
 
-                            <button id="registration_panel" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
+                            <button id="registration_panel" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase(7) }}</button>
 
                     </div>
                 </div>

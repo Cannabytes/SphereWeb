@@ -8,7 +8,7 @@
             <div class="card-header text-uppercase">{{ phrase(5) }}</div>
             <div class="card-body">
 
-                <form>
+                <div id="panel_registration_page">
 
                     <div class="form-group row">
                         <label for="basic-select" class="col-sm-2 col-form-label">{{ phrase("server") }}</label>
@@ -45,7 +45,7 @@
 
 
                     <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">{{ phrase("password") }} <a
+                        <label for="registration_page_password" class="col-sm-2 col-form-label">{{ phrase("password") }} <a
                                 id="new_password_word" href="#"><i aria-hidden="true"
                                                                    class="fa fa-refresh"></i></a></label>
                         <div for="password_hide" class="col-sm-4">
@@ -54,7 +54,7 @@
                                      class="input-group-text">
                                    <input checked id="password_hide" name="password_hide" type="checkbox"/>
                                 </div>
-                               <input name="password" type="text" class="form-control form-control-xl" id="password"/>
+                               <input name="password" type="text" class="form-control form-control-xl" id="registration_page_password"/>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -97,13 +97,13 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary px-5"><i class="icon-lock"></i> {{
+                            <button id="registration_page_button" type="submit" class="btn btn-primary px-5"><i class="icon-lock"></i> {{
                                 phrase(7) }}
                             </button>
                         </div>
                     </div>
 
-                </form>
+                </div>
 
             </div>
         </div>

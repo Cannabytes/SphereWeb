@@ -10,11 +10,11 @@
         <div class="card-body">
             <div class="card-content p-2">
                 <div class="card-title text-uppercase text-center py-3">{{ phrase(10) }}</div>
-                <div id="auth_page_form">
+                <div id="form_auth_page">
                     <div class="form-group">
                         <label for="email_auth_page" class="sr-only">{{ phrase(9) }}</label>
                         <div class="position-relative has-icon-right">
-                            <input type="email" id="email_auth_page" class="form-control input-shadow"
+                            <input name="email" type="email" id="email_auth_page" class="form-control input-shadow"
                                    placeholder="E-mail">
                             <div class="form-control-position">
                                 <i class="icon-user"></i>
@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="password_auth_page" class="sr-only">{{ phrase("password") }}</label>
                         <div class="position-relative has-icon-right">
-                            <input type="password" id="password_auth_page" class="form-control input-shadow"
+                            <input name="password" type="password" id="password_auth_page" class="form-control input-shadow"
                                    placeholder="Password">
                             <div class="form-control-position">
                                 <i class="icon-lock"></i>
@@ -40,8 +40,7 @@
                         <label for="captcha_auth_page" class="sr-only">{{ phrase("password") }}</label>
                         <div class="position-relative has-icon-right">
                             <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
-                            <input type="text" id="captcha_auth_page" class="form-control form-control-xl" placeholder="Captcha">
-
+                            <input type="text" name="captcha" id="captcha_auth_page" class="form-control form-control-xl" placeholder="Captcha">
                             <div class="form-control-position"></div>
                         </div>
                     </div>
