@@ -6,6 +6,13 @@ use Ofey\Logan22\model\user\auth\auth;
 
 class primepayments {
 
+    //Включена/отключена платежная система
+    private static bool $enable = true;
+
+    public static function isEnable(): bool{
+        return self::$enable;
+    }
+
     /**
      * Конфигурация
      * project_id - ID проекта

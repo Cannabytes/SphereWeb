@@ -18,9 +18,20 @@ use Ofey\Logan22\template\tpl;
 class pay {
 
     public static function pay(): void {
+        $dir = 'src/component/donate/'; // Укажите путь к вашей папке
+        $donateSysNames = array_values(array_diff(scandir($dir), array('..', '.')));
+        foreach($donateSysNames AS $i=>$sys){
+            if(!$sys::isEnable()){
+                unset($donateSysNames[$i]);
+            }
+        }
+//        var_dump($donateSysNames);
+//        exit();
+
         if(!config::getEnableDonate()) error::error404("Отключено");
         tpl::addVar("donate_history_pay_self", donate::donate_history_pay_self());
         tpl::addVar("title", lang::get_phrase(233));
+        tpl::addVar("donateSysNames", $donateSysNames);
         tpl::display("/donate/pay.html");
     }
 

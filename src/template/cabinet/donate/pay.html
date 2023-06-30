@@ -50,16 +50,16 @@
 
                     <br>
 
-                    <div class="col-md-12">
-                        <div class="icheck-material-success">
-                            <input type="radio" id="freekassa" name="paysystem" value="freekassa" checked/>
-                            <label for="freekassa">FREE-KASSA</label>
-                        </div>
 
+
+                    <div class="col-md-12">
+
+                        {% for name in donateSysNames %}
                         <div class="icheck-material-success">
-                            <input type="radio" id="primepayments" name="paysystem" value="primepayments"/>
-                            <label for="primepayments">PrimePayments</label>
+                            <input type="radio" id="{{name}}" name="paysystem" value="{{name}}" />
+                            <label for="{{name}}">{{name}}</label>
                         </div>
+                        {% endfor %}
 
                     </div>
                 </div>
@@ -133,7 +133,9 @@
 
 <script src="{{template('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
 <script>
-
+    $(document).ready(function() {
+      $('input[name="paysystem"]:first').prop('checked', true);
+    });
     const [currency_exchange] = JSON.parse('[{{currency_exchange_info()|raw}}]');
 
     $("#count").ionRangeSlider({
@@ -161,6 +163,9 @@
 
     $('#paynext').on('click', function () {
     	paysystem = $('input[name=paysystem]:checked').val();
+    	if (typeof paysystem === 'undefined') {
+            return;
+    	}
     	var count = $("#count").val();
     	$.ajax(
     	{
