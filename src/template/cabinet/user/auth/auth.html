@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="card-content p-2">
                 <div class="card-title text-uppercase text-center py-3">{{ phrase(10) }}</div>
-                <div>
+                <div id="auth_page_form">
                     <div class="form-group">
                         <label for="email_auth_page" class="sr-only">{{ phrase(9) }}</label>
                         <div class="position-relative has-icon-right">
@@ -33,6 +33,9 @@
                         </div>
                     </div>
 
+                    {% if get_captcha_version("Google") %}
+                    <input class="captchaToken" type="hidden" name="captcha">
+                    {% elseif get_captcha_version("default") %}
                     <div class="form-group">
                         <label for="captcha_auth_page" class="sr-only">{{ phrase("password") }}</label>
                         <div class="position-relative has-icon-right">
@@ -42,6 +45,8 @@
                             <div class="form-control-position"></div>
                         </div>
                     </div>
+                    {% endif %}
+
 
                     <button id="auth_page" type="submit" class="btn btn-primary btn-block waves-effect waves-light">{{ phrase("enter") }}</button>
 

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    captchaVersion = $('meta[name="get_captcha_version"]').attr('content');
 
     $("#registration_panel").click(function (e) {
             e.preventDefault();
@@ -37,8 +38,16 @@ $(document).ready(function () {
     });
 
     $("#auth_page").click(function (e) {
-        e.preventDefault();
-        authorization($("#email_auth_page").val(), $("#password_auth_page").val(), $("#captcha_auth_page").val())
+       e.preventDefault();
+       if (captchaVersion == "google") {
+           google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+           grecaptcha.execute(google_captcha_key, { action: 'submit' }).then(function (token) {
+               $(".captchaToken").val(token);
+               authorization($("#email_auth_page").val(), $("#password_auth_page").val(), $(".captchaToken").val());
+           });
+       }else{
+            authorization($("#email_auth_page").val(), $("#password_auth_page").val(), $("#captcha_auth_page").val())
+       }
     });
 
     $("#auth_panel").click(function (e) {
