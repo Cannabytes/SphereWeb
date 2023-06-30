@@ -83,7 +83,8 @@ class player_account {
         return $arrayAcPlayers;
     }
 
-    public static function add_account_not_user($server_id, $login, $password, $password_hide, $email) {
+    public static function add_account_not_user($login, $password, $password_hide, $email) {
+        $server_id = auth::get_default_server();
         self::valid_login($login);
         self::valid_password($password);
         self::valid_email($email);
@@ -152,7 +153,8 @@ class player_account {
      *
      * @throws ExceptionAlias
      */
-    public static function add($server_id, $login, $password, $password_hide) {
+    public static function add($login, $password, $password_hide) {
+        $server_id = auth::get_default_server();
         self::valid_login($login);
         self::valid_password($password);
         if (self::count_account($server_id) >= 20) {

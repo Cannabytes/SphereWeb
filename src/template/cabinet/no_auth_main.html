@@ -1,24 +1,3 @@
-<!--    {% if forum_enable() %}-->
-<!--    <div class="col-12">-->
-<!--        <div class="card">-->
-<!--            <div class="card-header">Последнее с форума <i aria-hidden="true" class="fa fa-refresh"></i></div>-->
-<!--            <ul class="list-group list-group-flush">-->
-
-<!--                {% for forum in last_forum_message(10) %}-->
-<!--                <li class="list-group-item">-->
-<!--                    <div class="media align-items-left">-->
-<!--                        <div class="media-body ml-2">-->
-<!--                            <small>{{forum.username}}: {{forum.message}}</small>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </li>-->
-<!--                {% endfor %}-->
-
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    {% endif %}-->
-
 <div class="row">
     <div class="col-12 col-lg-4 col-xl-4">
         <div class="row">
@@ -27,32 +6,15 @@
                     <div class="card-header ">{{ phrase(5) }}</div>
                     <div class="card-body">
 
-                        <div>
+                        <div id="registration_user_game_account">
 
-                            <div class="form-group row">
-                                <label for="server_main_registration" class="col-sm-3 col-form-label">{{ phrase("server") }}</label>
-                                <div class="col-sm-9">
-                                    <select name="server" class="form-control" id="server_main_registration">
-                                        {% if server_id is empty %}
-                                        {% set server_id = user_info('get_default_server') %}
-                                        {% endif %}
-                                        {% for server in get_server_info() %}
-                                        <option {% if server.id== server_id %}selected="selected" {% endif %}
-                                                value="{{server.id}}">{{server.name}} x{{server.rate_exp}} -
-                                            {{server.chronicle}}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
-
-                                </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="login_main_registration" class="col-sm-3 col-form-label">{{ phrase("login") }} <a
                                         id="new_account_word" href="#"><i aria-hidden="true"
                                                                           class="fa fa-refresh"></i></a></label>
                                 <div class="col-sm-9">
-                                    <input value="{{generation_account}}" name="login_main_registration" type="text"
+                                    <input value="{{generation_account}}" name="login" type="text"
                                            class="form-control form-control" id="login_main_registration">
                                 </div>
                             </div>
@@ -68,7 +30,7 @@
                                              class="input-group-text">
                                             <input checked id="password_hide_main_registration" name="password_hide_main_registration" type="checkbox"/>
                                         </div>
-                                        <input name="password_main_registration" type="text" class="form-control form-control"
+                                        <input name="password" type="text" class="form-control form-control"
                                                id="password_main_registration"/>
                                     </div>
                                 </div>
@@ -78,12 +40,12 @@
                             <div class="form-group row">
                                 <label for="email_main_registration" class="col-sm-3 col-form-label">E-Mail</label>
                                 <div class="col-sm-9">
-                                    <input name="email_main_registration" type="email" class="form-control form-control" id="email_main_registration">
+                                    <input name="email" type="email" class="form-control form-control" id="email_main_registration">
                                 </div>
                             </div>
 
                             {% if get_captcha_version("Google") %}
-                            <input class="captchaToken" type="hidden" name="token">
+                            <input class="captchaToken" type="hidden" name="captcha">
                             {% elseif get_captcha_version("default") %}
                             <div class="form-group row">
                                 <label for="captcha_main_registration" class="col-sm-3 col-form-label">Капча</label>

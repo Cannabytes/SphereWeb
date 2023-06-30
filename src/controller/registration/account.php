@@ -32,12 +32,12 @@ class account {
     }
 
     public static function requestNewAccount() {
-        $server_id = request::setting('server', new request_config(isNumber: true));
+//        $server_id = request::setting('server', new request_config(isNumber: true));
         $login = request::setting('login', new request_config(min: 4, max: 16, rules: "/^[a-zA-Z0-9]+$/"));
         $password = request::setting('password', new request_config(min: 4, max: 60));
         $password_hide = request::checkbox('password_hide');
         if (auth::get_is_auth()) {
-            player_account::add($server_id, $login, $password, $password_hide);
+            player_account::add($login, $password, $password_hide);
         } else {
             if (config::get_captcha_version("google")) {
                 $g_captcha = google::check($_POST['captcha']??null);
@@ -58,7 +58,7 @@ class account {
                 }
             }
             $email = request::setting("email", new request_config(isEmail: true));
-            player_account::add_account_not_user($server_id, $login, $password, $password_hide, $email);
+            player_account::add_account_not_user($login, $password, $password_hide, $email);
         }
     }
 

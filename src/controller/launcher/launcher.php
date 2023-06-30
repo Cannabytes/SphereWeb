@@ -15,7 +15,6 @@ use Ofey\Logan22\template\tpl;
 class launcher {
 
     static function show($server_id){
-        validation::user_protection("admin");
         if(!server::get_server_info($server_id)){
             redirect::location("/main");
         }

@@ -4,6 +4,8 @@ namespace Ofey\Logan22\component\captcha;
 
 use Ofey\Logan22\component\alert\board;
 
+// Google reCAPTCHA V3
+
 class google {
 
     private static string $client_key = "6LeyGOAmAAAAABZoLda4l-D49qpFzpDGICszdvEH";

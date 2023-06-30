@@ -29,15 +29,10 @@ $(document).ready(function () {
         });
     }
 
-
-    $("#auth").click(function (e) {
-        e.preventDefault();
-        authorization($("#email").val(), $("#password").val(), $("#captcha").val())
-    });
-
     $("#auth_page").click(function (e) {
        e.preventDefault();
        authorization_panel($('#form_auth_page'));
+       $("#captcha_panel").val("");
     });
 
     $("#auth_panel").click(function (e) {
@@ -170,13 +165,6 @@ $(document).ready(function () {
     $('#page_new_user_registration_button').keypress(function (e) {
         if (e.which == 13) {
            registration_panel("/registration/user", $('#page_new_user_registration'));
-        }
-    });
-
-
-    $('#captcha').keypress(function (e) {
-        if (e.which == 13) {
-            authorization($("#email").val(), $("#password").val(), $("#captcha").val())
         }
     });
 
