@@ -1,6 +1,11 @@
 $(document).ready(function () {
     captchaVersion = $('meta[name="get_captcha_version"]').attr('content');
 
+    $("#registration_game_account").click(function (e) {
+        e.preventDefault();
+        registration_panel("/registration/account", $('#panel_registration_account'));
+    });
+
     $("#registration_main_registration").click(function (e) {
         e.preventDefault();
         registration_panel("/registration/account", $('#registration_user_game_account'));
