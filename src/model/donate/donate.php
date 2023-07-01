@@ -33,17 +33,17 @@ class donate {
             auth::get_default_server(),
         ]);
 
-        if(empty($donate))
+        if (empty($donate))
             return [];
 
         $item_id_list = array_column($donate, 'item_id');
         $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN (" . implode(',', $item_id_list) . ");");
 
         $items = [];
-        foreach($donate as $item) {
+        foreach ($donate as $item) {
             $item_id = $item['item_id'];
-            foreach($lex as $row) {
-                if($item_id == $row['item_id']) {
+            foreach ($lex as $row) {
+                if ($item_id == $row['item_id']) {
                     $items[] = array_merge($item, $row);
                 }
             }
@@ -59,26 +59,26 @@ class donate {
      */
     static public function products() {
         $server_id = auth::get_default_server();
-        if(!$server_id) {
+        if (!$server_id) {
             tpl::display("error/not_server.html");
         }
         $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ?", [
             $server_id,
         ])->fetchAll();
         $item_id_list = [];
-        foreach($donate as $item) {
+        foreach ($donate as $item) {
             $item_id_list[] = $item['item_id'];
         }
-        if(empty($item_id_list))
+        if (empty($item_id_list))
             return $item_id_list;
         $list = implode(', ', $item_id_list);
         $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
 
         $items = [];
-        foreach($donate as $item) {
+        foreach ($donate as $item) {
             $item_id = $item['item_id'];
-            foreach($lex as $row) {
-                if($item_id == $row['item_id']) {
+            foreach ($lex as $row) {
+                if ($item_id == $row['item_id']) {
                     $items[] = array_merge($item, $row);
                 }
             }
@@ -94,40 +94,46 @@ class donate {
         $server_id = $_POST['server_id'];
         $user_value = request::setting('user_value', new request_config(min: 1));
         $char_name = trim($_POST['char_name']);
-        if($char_name == "") {
+        if ($char_name == "") {
             board::notice(false, lang::get_phrase(148));
         }
         $donat_info = self::donate_item_info($id, $server_id);
-        if(!$donat_info) {
+        if (!$donat_info) {
             board::notice(false, lang::get_phrase(152));
         }
-
+        $donat_info_cost = $donat_info['cost'];
+        //Процент скидки
+        $donateInfo = require_once 'src/config/donate.php';
+        $point = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0;
+        $procentDiscount = donate::getBonusDiscount($point, $donateInfo["discount"]['table']);
         //Стоимость товара * на количество
-        $cost_product = $donat_info['cost'] * $user_value;
-        if($cost_product > auth::get_donate_point()) {
+        $cost_product = $donat_info_cost * $user_value;
+        $decrease_factor = 1 - ($procentDiscount / 100);
+        $cost_product *= $decrease_factor;
+        if ($cost_product > auth::get_donate_point()) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
         $addToUserItems = $donat_info['count'] * $user_value;
 
         $server_info = server::server_info($server_id);
-        if(!$server_info) {
+        if (!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
 
         $player_info = player_account::is_player($server_info, [$char_name]);
         $player_info = $player_info->fetch();
-        if(!$player_info)
+        if (!$player_info)
             board::notice(false, lang::get_phrase(151, $char_name));
         $player_id = $player_info["player_id"];
 
         $is_stack = client_icon::is_stack($donat_info['item_id']);
 
         //Если для выдачи предмета, персонаж должен быть ВНЕ игры
-        if($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
+        if ($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
             /**
              * Проверка чтоб игрок был оффлайн для выдачи предмета
              */
-            if($player_info["online"]) {
+            if ($player_info["online"]) {
                 board::notice(false, lang::get_phrase(153, $char_name));
             }
 
@@ -140,14 +146,14 @@ class donate {
              * Есть ли на персонаже X предмет N
              * Если есть, добавим к числу N+N предметов
              */
-            if($is_stack) {
+            if ($is_stack) {
                 $checkPlayerItem = player_account::check_item_player($server_info, [
                     $donat_info['item_id'],
                     $player_id,
                 ]);
                 $checkPlayerItem = $checkPlayerItem->fetch();
                 //Если предмет есть у игрока
-                if($checkPlayerItem) {
+                if ($checkPlayerItem) {
                     player_account::update_item_count_player($server_info, [
                         ($checkPlayerItem['count'] + $addToUserItems),
                         $checkPlayerItem['object_id'],
@@ -181,8 +187,8 @@ class donate {
         ]);
 
         board::alert([
-            'ok'           => true,
-            'message'      => lang::get_phrase(304),
+            'ok' => true,
+            'message' => lang::get_phrase(304),
             'donate_bonus' => auth::get_donate_point(),
         ]);
     }
@@ -197,14 +203,6 @@ class donate {
         ])->fetch();
     }
 
-    static public function taking_money($dp, $user_id) {
-        sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
-            $dp,
-            $user_id,
-        ]);
-    }
-
-    //Добавить предмет персонажу, по его максимальному ID
     public static function add_item_max_val_id($server_info, $player_id, $donat_item_id, $addToUserItems, $enchantLevel = 0) {
         $max_obj_id = player_account::max_value_item_object($server_info)->fetch()['max_object_id'];
         player_account::add_item($server_info, [
@@ -214,6 +212,15 @@ class donate {
             $addToUserItems,
             $enchantLevel,
             "INVENTORY",
+        ]);
+    }
+
+    //Добавить предмет персонажу, по его максимальному ID
+
+    static public function taking_money($dp, $user_id) {
+        sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
+            $dp,
+            $user_id,
         ]);
     }
 
@@ -242,4 +249,33 @@ class donate {
             default => $sum * $config['quantity'],
         };
     }
+
+
+    //Возвращает процент скидки
+    public static function getBonusDiscount($amount = 0, $table = []) {
+        $rangeKey = null;
+        $discountValue = null;
+        $lastValue = null;
+        $keys = array_keys($table);
+        $firstKey = reset($keys);
+        if ($amount < $firstKey) {
+            return 0;
+        } else {
+            $reversedTable = array_reverse($table, true);
+            foreach ($reversedTable as $key => $value) {
+                if ($amount >= $key) {
+                    $rangeKey = $key;
+                    $discountValue = $value;
+                    break;
+                }
+                $lastValue = $value;
+            }
+            if ($rangeKey && $discountValue) {
+                return $discountValue;
+            } else {
+                return $lastValue;
+            }
+        }
+    }
+
 }

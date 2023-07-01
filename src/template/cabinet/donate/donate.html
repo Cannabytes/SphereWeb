@@ -69,7 +69,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-7">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i> {{phrase(300)}}</div>
             <div class="card-body">
@@ -99,6 +99,36 @@
                             <td>{{history.cost}}</td>
                             <td>{{history.char_name}}</td>
                             <td>{{history.date}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i> Накопительная система скидок
+                <span class="float-right">У Вас {{ procentDiscount }}% скидка</span>
+            </div>
+            <div class="card-body">
+                Мы используем полученные пожертвования для предоставления скидки.<br>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Донат Бонусов</th>
+                            <th>Процент скидки</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for donateAll, procent in discount.table %}
+                        <tr {% if procent == procentDiscount %}class="table-active"{% endif %}>
+                            <td>{{donateAll}}</td>
+                            <td>{{procent}}%</td>
                         </tr>
                         {% endfor %}
                         </tbody>

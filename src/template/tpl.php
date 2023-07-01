@@ -15,6 +15,7 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\launcher;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\gallery\screenshot;
 use Ofey\Logan22\model\page\page;
@@ -438,6 +439,7 @@ class tpl
         $twig->addFunction(new TwigFunction('icon', function ($fileIcon = null) {
             return file_exists("uploads/images/icon/" . $fileIcon . ".webp") && $fileIcon != null ? "/uploads/images/icon/" . $fileIcon . ".webp" : "/uploads/images/icon/NOIMAGE.webp";
         }));
+
 
         //Есть ли бонус для персонажа за привлеченного пользователя
         $twig->addFunction(new TwigFunction('is_referral_bonus', function ($referrals) {

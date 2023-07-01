@@ -11,6 +11,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\controller\page\error;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
@@ -37,9 +38,18 @@ class pay {
 
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
+        $donateInfo = require_once 'src/config/donate.php';
+        $point = 0;
+        if(auth::get_is_auth()){
+            $point = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0;
+        }
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
         tpl::addVar("title", lang::get_phrase(233));
+        tpl::addVar("discount", $donateInfo["discount"]);
+        tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
+        tpl::addVar("procentDiscount", donate::getBonusDiscount($point, $donateInfo["discount"]['table']));
+
         tpl::display("/donate/donate.html");
     }
 
