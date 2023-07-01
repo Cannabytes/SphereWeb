@@ -175,6 +175,11 @@ class tpl
                 }
         }));
 
+            $twig->addFunction(new TwigFunction('get_user_info', function ($user_id) {
+                return auth::get_user_info($user_id);
+            }));
+
+
         //Показать слово
         $twig->addFunction(new TwigFunction('get_phrase', function ($key, ...$values) {
             return lang::get_phrase($key, ...$values);

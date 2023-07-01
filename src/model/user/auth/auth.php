@@ -24,6 +24,9 @@ use SimpleCaptcha\Builder;
 
 class auth {
 
+    //Записываем сюда юзеров, которых ранее искали
+    private static array $usersMemArray = [];
+
     public static array $userInfo = [];
     static private bool $is_auth = false;
     static private int $id;
@@ -246,6 +249,26 @@ class auth {
         self::set_ban_ticket(true);
         self::set_ban_gallery(true);
 
+    }
+
+
+    private static function isUserInfoMemory($user_id): mixed {
+        foreach(self::$usersMemArray AS $user){
+            if($user['id']==$user_id){
+                return $user;
+            }
+        }
+        return false;
+    }
+
+    public static function get_user_info($user_id){
+        if($userMem = self::isUserInfoMemory($user_id)){
+            return $userMem;
+        }
+        $sql = 'SELECT users.*,  users_permission.* FROM users LEFT JOIN users_permission ON users.id = users_permission.user_id WHERE id = ?;';
+        $userInfo = sql::run($sql, [$user_id])->fetch();
+        self::$usersMemArray[] = $userInfo;
+        return $userInfo;
     }
 
     public static function exist_user($email, $nCheck = true) {

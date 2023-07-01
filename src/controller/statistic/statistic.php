@@ -10,6 +10,7 @@ namespace Ofey\Logan22\controller\statistic;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
+use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\auth\auth;
@@ -86,6 +87,7 @@ class statistic {
     }
 
     public static function char_info($char_name = null): void {
+        validation::user_protection();
         $get_player_info = statistic_model::get_player_info($char_name);
         if (!$get_player_info) {
             //todo: если нет персонажа, выведем страницу ошибки, что отсутствует такой персонаж
