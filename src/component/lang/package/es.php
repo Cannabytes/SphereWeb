@@ -591,4 +591,11 @@ Ubicación de la plantilla: <strong>src/template/cabinet/email_request/new_passw
     452 => "Idioma de la página",
     453 => "Publicar como noticia",
 
+    454 => "Límite de respuesta superado",
+    455 => "Error al cargar imagen",
+    456 => "Motivo",
+    457 => "Se ha superado el límite de entradas",
+    458 => "Por favor ingrese un mensaje de al menos 10 caracteres",
+    459 => "Billete privado",
+
 ];

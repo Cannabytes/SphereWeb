@@ -55,7 +55,11 @@
                             <i class="fa {% if ticket.close %}fa-lock text-success{% else %}fa-unlock text-danger{% endif %}"></i>
                         </td>
                         <td width="100%">
+                            {% if ticket.private == true and ticket.user_id != user_info('get_id') and user_info('get_access_level')!="admin" %}
+                             [ Скрыто настройками приватности ]
+                            {% else %}
                             <a href="/ticket/{{ticket.id}}">{{ ticket.content }}</a>
+                            {% endif %}
                         </td>
 
                         <td>

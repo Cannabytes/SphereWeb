@@ -409,14 +409,12 @@ class auth {
             exit(lang::get_phrase(167));
         }
 
-        //$donate_point = (float)$user['donate_point'] + $amount;
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
             $amount,
             $user_id,
         ]);
 
-
-        //Запись логов
+        //Запись в историю
         sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
             $user_id,
             $amount,
@@ -426,6 +424,7 @@ class auth {
 
         if (config::getDonationBonusPayout() > 0) {
             $bonus = $amount * (100 + config::getDonationBonusPayout()) * 0.01 - $amount;
+            if($bonus==0) return;
             sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
                 $bonus,
                 $user_id,

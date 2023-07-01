@@ -11,6 +11,9 @@ $(document).ready(function () {
         const formData = new FormData();
         formData.append('content', $("#content").val());
 
+        var isPrivate = $("#isPrivate").is(":checked");
+        formData.append('private', isPrivate ? 'true' : 'false');
+
         $('input[type=file]').each(function() {
             formData.append('files[]', $(this).get(0).files[0]);
         });

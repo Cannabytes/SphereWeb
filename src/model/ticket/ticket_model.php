@@ -17,14 +17,15 @@ use Verot\Upload\Upload;
 class ticket_model {
 
     //Список последних тикетов
-    static public function all($type = "all"): array {
+    public static function all($type = "all"): array {
         if($type == "open") {
             return sql::getRows("SELECT
             tickets.id, 
             tickets.user_id,
             SUBSTRING(tickets.content, 1, 100) as content, 
             tickets.date, 
-            tickets.`close`
+            tickets.`close`,
+            tickets.`private`
             FROM tickets WHERE
             `close` = 0 ORDER BY date DESC");
         }
@@ -34,7 +35,8 @@ class ticket_model {
             tickets.user_id,
             SUBSTRING(tickets.content, 1, 100) as content, 
             tickets.date, 
-            tickets.`close` 
+            tickets.`close`,
+            tickets.`private`
             FROM tickets
             where close=1 ORDER BY `date` DESC");
         }
@@ -43,7 +45,8 @@ class ticket_model {
             tickets.user_id,
             SUBSTRING(tickets.content, 1, 100) as content, 
             tickets.date, 
-            tickets.`close`
+            tickets.`close`,
+            tickets.`private`
             FROM tickets
             ORDER BY `date` DESC");
     }
@@ -85,11 +88,27 @@ class ticket_model {
         return sql::getRows("SELECT image FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
     }
 
+    //Кол-во созданных последних тикетов за N часов
+    private static function countCreateLastTime($user_id, $hour){
+        $sql = "SELECT COUNT(*) AS count FROM tickets WHERE user_id = ? AND date >= NOW() - INTERVAL ? HOUR;";
+        return sql::run($sql, [$user_id, $hour])->fetch()['count'];
+    }
+
+    //Кол-во ответов в тикетах за N часов
+    private static function countCommentLastTime($user_id, $hour){
+        $sql = "SELECT COUNT(*) AS count FROM tickets_comment WHERE user_id = ? AND date >= NOW() - INTERVAL ? HOUR;";
+        return sql::run($sql, [$user_id, $hour])->fetch()['count'];
+    }
 
     public static function add() {
+        if($count = self::countCreateLastTime(auth::get_id(), 1)){
+            if($count>=5){
+                board::notice(false, lang::get_phrase(457));
+            }
+        }
         $content = isset($_POST['content']) ? trim($_POST['content']) : null;
         if(10 > mb_strlen($content)){
-            board::notice(false, "Введите сообщение от 10 символов");
+            board::notice(false, lang::get_phrase(458));
         }
 
         $files = $_FILES['files'] ?? null;
@@ -98,10 +117,12 @@ class ticket_model {
             board::notice(false, lang::get_phrase(341));
             return;
         }
+        $private = isset($_POST['private']) && $_POST['private'] === 'true';
 
-        sql::run("INSERT INTO `tickets` (`user_id`, `content`) VALUES (?, ?)", [
+        sql::run("INSERT INTO `tickets` (`user_id`, `content`, `private`, `hide`) VALUES (?, ?, ?, 1)", [
             auth::get_id(),
             $content,
+            $private,
         ]);
         $ticket_ID = sql::lastInsertId();
 
@@ -116,13 +137,18 @@ class ticket_model {
     }
 
     public static function addComment() {
+        if($count = self::countCommentLastTime(auth::get_id(), 1)){
+            if($count>=10){
+                board::notice(false, lang::get_phrase(454));
+            }
+        }
         $content = isset($_POST['content']) ? trim($_POST['content']) : null;
         $files = $_FILES['files'] ?? null;
         $ticketID = $_POST['ticketID'] ?? null;
 
         $ticketInfo = self::get_info($ticketID);
         if($ticketInfo['close']) {
-            board::notice(false, "Тикет закрыт");
+            board::notice(false, lang::get_phrase(360));
         }
         if($content === null and $files === null) {
             board::notice(false, lang::get_phrase(341));
@@ -174,7 +200,7 @@ class ticket_model {
                         self::remove($ticketID);
                     }
                     $fileName = $files['name'][$i];
-                    $msg = "Ошибка загрузки изображения '" . $fileName . "'\nПричина: " . $handle->error;
+                    $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
                     board::notice(false,  $msg);
                 }
                 $handle->file_new_name_body = $filename;
@@ -208,7 +234,7 @@ class ticket_model {
                         self::remove($ticketID);
                     }
                     $fileName = $files['name'][$i];
-                    $msg = "Ошибка загрузки изображения '" . $fileName . "'\nПричина: " . $handle->error;
+                    $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
                     board::notice(false,  $msg);
                 }
 
@@ -232,7 +258,7 @@ class ticket_model {
             auth::get_id(),
         ]);
         if($ok) {
-            board::notice(true, "Удалено");
+            board::notice(true, lang::get_phrase(146));
         }
     }
 
@@ -313,16 +339,16 @@ class ticket_model {
                 sql::run("DELETE FROM `tickets_comment` WHERE `ticket_id` = ?", [$ticket_id]);
                 $images = sql::run("SELECT `image` FROM `tickets_comment_image`;");
                 foreach ($images as $src) {
-                    unlink("uploads\\tickets\\{$src['image']}");
-                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                    unlink("uploads/tickets/{$src['image']}");
+                    unlink("uploads/tickets/thumb_{$src['image']}");
                 }
                 foreach ($comments AS $comment){
                     sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$comment['id']]);
                 }
                 $images = sql::run("SELECT `image` FROM `tickets_image`;");
                 foreach ($images as $src) {
-                    unlink("uploads\\tickets\\{$src['image']}");
-                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                    unlink("uploads/tickets/{$src['image']}");
+                    unlink("uploads/tickets/thumb_{$src['image']}");
                 }
                 sql::run("DELETE FROM `tickets_image` WHERE `ticket_id` = ?", [$ticket_id]);
             }
@@ -335,8 +361,8 @@ class ticket_model {
         if(sql::run("SELECT `ticket_id` FROM `tickets_comment` WHERE id=?", [$commentID])){
             if($images = sql::run("SELECT `image` FROM `tickets_comment_image` WHERE comment_id=?;", [$commentID])){
                 foreach ($images as $src) {
-                    unlink("uploads\\tickets\\{$src['image']}");
-                    unlink("uploads\\tickets\\thumb_{$src['image']}");
+                    unlink("uploads/tickets/{$src['image']}");
+                    unlink("uploads/tickets/thumb_{$src['image']}");
                 }
             }
             sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$commentID]);

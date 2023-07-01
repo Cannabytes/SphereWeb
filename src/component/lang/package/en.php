@@ -580,4 +580,13 @@ return [
     451 => "Start the launcher, if you don't have one, download it.",
     452 => "Page language",
     453 => "Publish as news",
+
+    454 => "Reply limit exceeded",
+    455 => "Error loading image",
+    456 => "Reason",
+    457 => "Your ticket limit has been exceeded",
+    458 => "Please enter a message of at least 10 characters",
+    459 => "Private ticket",
+
+
 ];
