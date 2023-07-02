@@ -16,7 +16,7 @@
                   <tbody>
 				  {% for server in get_server_info() %}
                     <tr>
-                      <td><a href="/about/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a></td>
+                      <td>{% if server.desc_page_id %}<a href="/page/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a>{% else %}{{ server.name }} x{{ server.rate_exp }}{% endif %}</td>
                       <td>{{ server.chronicle }}</td>
                       <td><a href="/admin/options/server/edit/{{ server.id }}">{{ phrase("edit") }}</a></td>
                       <td><a href="/admin/options/server/launcher/add/{{ server.id }}">Лаунчер</a></td>
