@@ -31,7 +31,11 @@
     <!-- skins CSS-->
     <link href="{{template('assets/css/skins.css')}}" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="{{template('assets/plugins/notifications/css/lobibox.min.css')}}"/>
+    <link href="{{template('assets/plugins/notifications/css/lobibox.min.css')}}" rel="stylesheet"/>
+
+{% if user_info('get_is_auth') and user_info('getBonus')|length >= 1 %}
+    <link href="{{template('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
+{% endif %}
 
 {% if get_enable_game_chat() %}
     <link href="{{template('assets/css/chat.css')}}" rel="stylesheet"/>
@@ -40,7 +44,6 @@
 {% if get_captcha_version("Google") %}
     <script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
 {% endif %}
-
 {% block css %}{% endblock %}
 </head>
 
@@ -105,11 +108,9 @@
                     </div>
                 </div>
            </div>
+
         </div>
         {% endfor %}
-
-
-
 
     </div>
     <!--End sidebar-wrapper-->
@@ -292,7 +293,7 @@
     <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-    <!--Start footer-->
+<!--    Start footer-->
 <!--    <footer class="footer">-->
 <!--        <div class="container">-->
 <!--            <div class="text-center">-->
@@ -300,7 +301,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </footer>-->
-    <!--End footer-->
+<!--    End footer-->
 
     <!--start color switcher-->
     <div class="right-sidebar">
@@ -471,7 +472,15 @@
                         <div class="form-group row">
                             <label for="bonusCharName" class="col-sm-4 col-form-label">Player Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="bonusCharName" placeholder="Your char">
+                                <select id="bonusCharName" class="form-control single-select">
+                                    {% for account_name, players in get_account_players() %}
+                                    <optgroup label="Аккаунт: {{account_name}}">
+                                        {% for player in players %}
+                                        <option value="{{player}}">{{player}}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -510,17 +519,19 @@
 
 <script src="{{template('assets/js/default-server.js')}}"></script>
 
+{% block js %}{% endblock %}
+
 {% if user_info('get_is_auth') == false %}
 <script src="{{template('assets/js/user/captcha.js')}}"></script>
 <script src="{{template('assets/js/auth/auth.js')}}"></script>
 {% endif %}
 {% if user_info('get_is_auth') %}
+{% if user_info('get_is_auth') and user_info('getBonus')|length >= 1 %}
+<script src="{{template('assets/plugins/select2/js/select2.min.js')}}"></script>
+<script>$("#bonusCharName").select2({});</script>
 <script src="{{template('assets/js/user/bonus.js')}}"></script>
 {% endif %}
-
-
-{% block js %}{% endblock %}
-
+{% endif %}
 
 </body>
 </html>

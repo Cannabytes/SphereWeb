@@ -34,12 +34,12 @@ intervalId = setInterval(function() {
             return;
           }
           last_message_id = maxId
-          let i = 1;
+          let i = maxId+1;
           dataArray.forEach(function(object) {
             $("#chat_messages").append('<li data-count="' + i + '" class="message left appeared"><div class="text_wrapper"><div data-message-id="' + object.id + '" data-message-time="' + object.date + '" class="' + typeMessage(object.type) + '">' + object.player + " : " + object.message + '</div></div></li>');
             i++;
           });
-          $('#chat_messages').animate({scrollTop: document.body.scrollHeight + 50}, 500);
+          $('#chat_messages').animate({scrollTop: $('#chat_messages')[0].scrollHeight}, 500);
         },
         error: function(xhr, status, error) {
           console.log("Произошла ошибка при отправке запроса!");

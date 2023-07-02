@@ -23,6 +23,7 @@ use Ofey\Logan22\model\server\online;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
 use Ofey\Logan22\model\user\auth\auth;
+use Ofey\Logan22\model\user\player\character;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\route\Route;
@@ -134,6 +135,9 @@ class tpl
                 return google::get_client_key();
         }));
 
+        $twig->addFunction(new TwigFunction('get_account_players', function () {
+                return character::get_account_players();
+        }));
 
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function ($count = 10, $server_id = 0) {

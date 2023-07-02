@@ -14,6 +14,8 @@ use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
+use Ofey\Logan22\model\user\player\character;
+use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 
 class pay {

@@ -15,10 +15,28 @@ use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 
 class character {
 
-    public static function all_characters($login, $server_id) {
+    //возвращает всех персонажей пользователя
+    public static function get_account_players(): array {
+        $player_accounts = player_account::show_all_account_player();
+        $accounts = [];
+        foreach ($player_accounts as $account) {
+            $login = $account['login'];
+            $players = character::all_characters($account['login']);
+            foreach ($players as $player) {
+                $accounts[$login][] = $player["player_name"];
+            }
+        }
+        return $accounts;
+    }
+
+    public static function all_characters($login, $server_id = 0) {
+        if($server_id == 0){
+            $server_id = auth::get_default_server();
+        }
         static $server_info_cache = [];
         if(!isset($server_info_cache[$server_id])) {
             $server_info_cache[$server_id] = server::get_server_info($server_id);
@@ -26,13 +44,13 @@ class character {
                 redirect::location("/main");
             }
         }
-
         $cache = cache::read(dir::characters->show_dynamic($server_id, $login), second: 60);
         if($cache)
             return $cache;
 
         $account_players = player_account::show_all_account_player($server_id);
         if(!in_array($login, array_column($account_players, 'login'))) {
+            var_dump($account_players);exit;
             redirect::location('/main');
         }
 

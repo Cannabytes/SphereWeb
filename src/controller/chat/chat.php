@@ -19,7 +19,7 @@ class chat
             echo json_encode($actualCache);
             return;
         }
-        $query = sql::run("SELECT * FROM chat WHERE server=? AND type IN (1, 2, 3, 6) ORDER BY id ASC LIMIT 50", [
+        $query = sql::run("SELECT * FROM chat WHERE server=? AND type IN (1, 2, 3, 6) ORDER BY id DESC LIMIT 15", [
             $server_id,
         ])->fetchAll();
         foreach($query AS &$item){
@@ -27,7 +27,7 @@ class chat
         }
         cache::clear(dir::chat->show_dynamic(server_id: $server_id));
         cache::save(dir::chat->show_dynamic(server_id: $server_id), $query);
-        $query = array_reverse(self::getLatestRecords($query, $last_message_id, 20));
+        $query = self::getLatestRecords($query, $last_message_id, 20);
         echo json_encode($query);
     }
 

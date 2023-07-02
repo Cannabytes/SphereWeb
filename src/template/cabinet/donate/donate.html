@@ -69,7 +69,7 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-7">
+    <div class="col-lg-8">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i> {{phrase(300)}}</div>
             <div class="card-body">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <div class="col-lg-5">
+    <div class="col-lg-4">
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i> Накопительная система скидок
                 <span class="float-right">У Вас {{ procentDiscount }}% скидка</span>
@@ -155,25 +155,19 @@
             <div class="modal-body">
 
                 <p>{{phrase(76)}}</p>
-<!--                <div class="form-group row">-->
-<!--                    <label for="server_donate" class="col-sm-3 col-form-label">{{phrase("server")}}</label>-->
-<!--                    <div class="col-sm-9">-->
-
-<!--                        {{dump(get_server_default())}}-->
-<!--                        <h6 class="mb-0">Bootstrap Heading 6</h6>-->
-<!--                        <select disabled class="form-control" id="server_donate">-->
-<!--                            {% for server in get_server_info() %}-->
-<!--                                <option value="{{ server.id }}">{{ get_server_default().name|e }} x{{ get_server_default().rate_exp|e }}</option>-->
-<!--                            {% endfor %}-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
-
 
                 <div class="form-group row">
                     <label for="char_name" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
                     <div class="col-sm-9">
-                        <input type="text" id="char_name" class="form-control">
+                        <select id="char_name" class="form-control single-select">
+                            {% for account_name, players in get_account_players() %}
+                            <optgroup label="Аккаунт: {{account_name}}">
+                                {% for player in players %}
+                                <option value="{{player}}">{{player}}</option>
+                                {% endfor %}
+                            </optgroup>
+                            {% endfor %}
+                        </select>
                     </div>
                 </div>
                 <hr>
@@ -200,15 +194,18 @@
 
 
 {% block css %}
-<!--Touchspin-->
-<link href="{{template('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css')}}" rel="stylesheet"
-      type="text/css">
+    {% if user_info('get_is_auth') and user_info('getBonus')|length == 0 %}
+<link href="{{template('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
+    {% endif %}
 {% endblock %}
 
 {% block js %}
-<!--Bootstrap Touchspin Js-->
 <script src="{{template('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{template('assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js')}}"></script>
 
+{% if user_info('get_is_auth') and user_info('getBonus')|length == 0 %}
+<script src="{{template('assets/plugins/select2/js/select2.min.js')}}"></script>
+{% endif %}
+<script>$("#char_name").select2({});</script>
 
 {% endblock %}
