@@ -11,6 +11,7 @@ use Exception as ExceptionAlias;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\validation;
@@ -88,7 +89,6 @@ class player_account {
         self::valid_login($login);
         self::valid_password($password);
         self::valid_email($email);
-
         if (!auth::exist_user($email)) {
             registration::add($email, $password, true);
         }
@@ -106,6 +106,8 @@ class player_account {
             }
         }
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
+        session::add('email', $email);
+        session::add('password', $password);
         board::notice(true, lang::get_phrase(207));
     }
 

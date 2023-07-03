@@ -200,7 +200,8 @@ class auth {
         if (isset($_SESSION['password'])) {
             $auth = self::exist_user($_SESSION['email']);
             if ($auth) {
-                if ($auth['password'] == $_SESSION['password']) {
+                if (password_verify($_SESSION['password'], $auth['password'])) {
+//                if ($auth['password'] == $_SESSION['password']) {
                     self::set_is_auth(true);
                     self::set_id($auth['id']);
                     self::set_email($auth['email']);
@@ -319,11 +320,7 @@ class auth {
      * Проверка существования пользователя по E-Mail
      */
     public static function is_user($email) {
-        if (self::$userInfo != null) {
-            return self::$userInfo;
-        }
-        $sql = 'SELECT 1 FROM `users` WHERE `email` = ?;';
-        return sql::run($sql, [$email])->fetch();
+        return sql::run('SELECT 1 FROM `users` WHERE `email` = ?;', [$email])->fetch();
     }
 
     public static function user_enter() {
@@ -353,12 +350,12 @@ class auth {
         }
         $email = request::setting('email', new request_config(isEmail: true));
         $password = request::setting('password', new request_config(max: 32));
-
         $user_info = self::exist_user($email);
         if (!$user_info) {
             board::notice(false, lang::get_phrase(164));
         }
-        if ($user_info['password'] == $password) {
+//        var_dump($password, $user_info['password']);exit;
+        if (password_verify($password, $user_info['password'])){
             session::add('id', $user_info['id']);
             session::add('email', $email);
             session::add('password', $password);

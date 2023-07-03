@@ -9,6 +9,7 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\auth\registration;
 use Ofey\Logan22\template\tpl;
@@ -45,7 +46,6 @@ class user {
                 board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
             }
         }
-
         if (auth::is_user($email)) {
             board::notice(false, lang::get_phrase(201, $email));
         }

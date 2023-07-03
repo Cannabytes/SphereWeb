@@ -44,19 +44,19 @@ $(document).ready(function () {
     //Модальное окно регистрации пользователя
     $("#registration_panel").click(function (e) {
         e.preventDefault();
-        registration_panel("/registration/user", $('#model_registration'));
+        registration_panel("/registration/account", $('#model_registration'));
         $("#captcha_registration_panel").val("");
     });
 
     //Страница регистрации
     $("#registration_page_button").click(function (e) {
         e.preventDefault();
-        registration_panel("/registration/user", $('#panel_registration_page'));
+        registration_panel("/registration/account", $('#panel_registration_page'));
     });
 
     $("#page_new_user_registration_button").click(function (e) {
         e.preventDefault();
-        registration_panel("/registration/user", $('#page_new_user_registration'));
+        registration_panel("/registration/account", $('#page_new_user_registration'));
     });
 
     function authorization_panel(authPanel) {
@@ -105,7 +105,7 @@ $(document).ready(function () {
       }).done(function (data) {
           console.log(data);
           if (data.ok) {
-              location.reload()
+            window.location.href = "/main";
           } else {
               notify_error(data.message)
               if (captchaVersion != "google") {

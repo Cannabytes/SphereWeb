@@ -22,7 +22,6 @@ class registration {
         $timezone = null;
         $get_timezone_ip = null;
         $user_referral = null;
-        $insertArrays = [];
         if(isset($_POST['referral_name']) and !empty(trim($_POST['referral_name']))) {
             $user_referral = auth::exist_user_nickname(trim($_POST['referral_name']));
             if(!$user_referral) {
@@ -45,10 +44,11 @@ class registration {
             }
         }
 
+
         $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`) VALUES (?, ?, ?, ?)";
         $insertArrays = [
             $email,
-            $password,
+            password_hash($password, PASSWORD_ARGON2I),
             $_SERVER['REMOTE_ADDR'],
             $timezone,
         ];
@@ -63,7 +63,7 @@ class registration {
                 $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`, `country`, `city`) VALUES (?, ?, ?, ?, ?, ?)";
                 $insertArrays = [
                     $email,
-                    $password,
+                    password_hash($password, PASSWORD_ARGON2I),
                     $_SERVER['REMOTE_ADDR'],
                     $get_timezone_ip['timezone'],
                     $get_timezone_ip['country'],
