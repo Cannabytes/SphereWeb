@@ -56,7 +56,7 @@ const CHARSET = 'utf8';
             $smt = $conn->prepare("INSERT INTO `users` (`name`, `password`, `email`, `ip`, `access_level`) VALUES (?, ?, ?, ?, ?)",);
             if($smt->execute([
                 $name,
-                encrypt::user_password($password),
+                password_hash($password, PASSWORD_ARGON2I),
                 $email,
                 $ip,
                 'admin',
