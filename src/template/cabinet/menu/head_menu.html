@@ -19,7 +19,7 @@
 			{% if user_info('get_is_auth') %}
             <li><a href="/user/change"><i class="icon-settings"></i> {{ phrase("settings") }}</a></li>
             <li><a href="/user/change/avatar"><i class="icon-settings"></i> {{phrase(65)}}</a></li>
-            <li><a href="/user/change/avatar/background"><i class="icon-settings"></i> {{phrase(66)}}</a></li>
+<!--            <li><a href="/user/change/avatar/background"><i class="icon-settings"></i> {{phrase(66)}}</a></li>-->
  			<li><a href="/auth/logout"><i class="icon-power"></i> {{ phrase("logout") }}</a></li>
 			{% else %}
 			<li><a data-toggle="modal" data-target="#model_auth" href="/auth"><i class="icon-user"></i> {{ phrase("authorization") }}</a></li>

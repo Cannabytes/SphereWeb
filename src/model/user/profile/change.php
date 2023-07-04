@@ -33,7 +33,7 @@ class change {
         if(!empty($_POST['new_password'])) {
             if(self::password_comparison($_POST['new_password'], $_POST['two_password'])) {
                 $table[] = "`password` = ?";
-                $varSQL[] = $_POST['new_password'];
+                $varSQL[] = password_hash($_POST['new_password'], PASSWORD_ARGON2I);
             }
         }
 
