@@ -80,8 +80,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->post("user/change/default/server", '\Ofey\Logan22\controller\user\default_server::change');
     $route->get("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::show_avatar_page');
     $route->post("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::save_avatar');
-    $route->get("user/change/avatar/background", 'Ofey\Logan22\controller\user\profile\change::show_background_avatar_page');
-    $route->post("user/change/avatar/background", 'Ofey\Logan22\controller\user\profile\change::set_avatar_background');
 
     /**
      * Бонус коды

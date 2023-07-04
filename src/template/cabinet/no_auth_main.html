@@ -77,10 +77,16 @@
         </div>
     </div>
 
+    {% if get_enable_game_chat() %}
     {% include ('chat/panel.html') %}
+    {% endif %}
 
 
+    {% if get_enable_game_chat() %}
     <div class="col-12 col-lg-4 col-xl-4">
+        {% else %}
+    <div class="col-12 col-lg-8 col-xl-8">
+    {% endif %}
         <div class="card">
             <div class="card-header">{{phrase(3)}}</div>
             <ul class="list-group list-group-flush">
@@ -93,7 +99,6 @@
                     </div>
                 </li>
                 {% endfor %}
-
             </ul>
         </div>
     </div>
