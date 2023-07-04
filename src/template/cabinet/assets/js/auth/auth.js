@@ -44,7 +44,7 @@ $(document).ready(function () {
     //Модальное окно регистрации пользователя
     $("#registration_panel").click(function (e) {
         e.preventDefault();
-        registration_panel("/registration/account", $('#model_registration'));
+        registration_panel("/registration/user", $('#model_registration'));
         $("#captcha_registration_panel").val("");
     });
 
