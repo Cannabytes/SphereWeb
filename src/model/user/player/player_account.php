@@ -20,6 +20,7 @@ use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\auth\registration;
+use ReflectionClass;
 use ReflectionMethod;
 
 class player_account {
@@ -237,32 +238,44 @@ class player_account {
     }
 
     /**
+     * @throws \ReflectionException
+     */
+    static function getMethodAttribute($class, $methodName)
+    {
+        $classRef = new ReflectionClass($class);
+        foreach ($classRef->getMethods() as $method) {
+            if($method->name==$methodName){
+                $methodRef = new ReflectionMethod($method->class, $method->name);
+                foreach ($methodRef->getAttributes() as $attribute) {
+                    return $attribute->getArguments()[0]; // Вывод аргументов атрибута
+                }
+            }
+        }
+        // Возвращаем атрибут по умолчанию #[db("game")]
+        return "game";
+    }
+
+
+
+    /**
      * @throws ExceptionAlias
      */
     public static function extracted($collectionName, $info, $prepare = []) {
         $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], $collectionName);
-        $reflection = new ReflectionMethod($info['collection_sql_base_name'], $collectionName);
-        $attributes = $reflection->getAttributes();
-        $gameServer = true;
-        foreach($attributes as $attr) {
-            if('db' == basename($attr->getName())) {
-                $gameServer = false;
-                break;
-            }
-        }
-
+        $gameServer = self::getMethodAttribute($info['collection_sql_base_name'], $collectionName);
         if (gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
         $prepare = self::placeholderPrepareFormat($sqlQuery, $prepare);
         $server_id = $info['id'];
         sdb::set_server_id($server_id);
-        if ($gameServer) {
-            sdb::set_type('game');
-            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
-        } else {
+
+        if ($gameServer == "login") {
             sdb::set_type('login');
             sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
+        } else {
+            sdb::set_type('game');
+            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
         }
         return sdb::run($sqlQuery, $prepare);
     }

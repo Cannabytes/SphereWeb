@@ -22,7 +22,7 @@ class client {
         $all_class_base_data = base::all_class_base_data();
         $collection = [];
         foreach($all_class_base_data as $class) {
-            $chronicle_protocols = $class::chronicle();
+            $chronicle_protocols = ($class)::chronicle();
             $diff = array_intersect($protocols, $chronicle_protocols);
             if($diff) {
                 $collection[] = $class;
