@@ -162,7 +162,7 @@ class forget {
             board::notice(false, lang::get_phrase(172));
         }
         $password = generation::password();
-        if(auth::change_user_password($email, $password)) {
+        if(auth::change_user_password($email, password_hash($password, PASSWORD_ARGON2I))) {
             sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
                 0,
                 $data['id'],
