@@ -156,7 +156,7 @@ function connect() {
          }
          if (response.folders != null) {
             response.folders.forEach(function (elem) {
-               $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/src/template/cabinet/assets/images/' + image + '.png" style="width: 124px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
+               $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/src/template/cabinet/assets/images/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
             });
          } else {
             $("#dirlist").html("Тут больше нету папок.<br>Нажмите на кнопку <Сохранить> и мы сюда будем загружать клиент!")
@@ -166,24 +166,29 @@ function connect() {
             notify_success("Директория была сохранена")
          }
       } else if (response.command == "getChronicleDirectory") {
-         if (response.clients == null) {
-            return
-         }
+           console.log(response.clients)
            $('#selectClient').empty();
-            var clients = JSON.parse(response.clients);
-            clients.client.forEach(function(elem) {
-              var newOption = $('<option>', {
-                value: elem.dir,
-                text: elem.dir
-              });
-
-              if (elem.dir === response.default) {
-                newOption.prop('selected', true);
+            if (response.clients !== null) {
+              var clients = JSON.parse(response.clients);
+              if (Array.isArray(clients)) {
+                clients.forEach(function(elem) {
+                  var newOption = $('<option>', {
+                    value: elem.id,
+                    text: elem.dir
+                  });
+                  if (elem.dir === response.default) {
+                    newOption.prop('selected', true);
+                  }
+                  $('#selectClient').append(newOption);
+                });
+              } else {
+                // Действия, которые нужно выполнить, если clients не является массивом
+                // Например, добавление варианта по умолчанию или отображение сообщения об ошибке данных
               }
-
-              $('#selectClient').append(newOption);
-            });
-
+            } else {
+              // Действия, которые нужно выполнить, если response.clients равно null
+              // Например, добавление варианта по умолчанию или отображение сообщения об отсутствии данных
+            }
       } else if(response.command == "getAllConfig"){
             $("#isClientFilesArchive").prop("checked", response.isClientFilesArchive ? true : false);
             $("#autoStartLauncher").prop("checked", response.autoStartLauncher ? true : false);
@@ -243,18 +248,18 @@ function downloadAndRunLauncher() {
    })
 
    swalWithBootstrapButtons.fire({
-      title: '{{phrase(418)}}',
-      html: '{{phrase(419)|raw}}',
+      title: bad_title,
+      html: bad_html,
       icon: 'error',
       showCancelButton: true,
-      confirmButtonText: '{{phrase(420)}}',
-      cancelButtonText: '{{phrase(421)}}',
+      confirmButtonText: bad_confirmButtonText,
+      cancelButtonText: bad_cancelButtonText,
       reverseButtons: true
    }).then((result) => {
       if (result.isConfirmed) {
          swalWithBootstrapButtons.fire(
-            '{{phrase(422)}}',
-            '{{phrase(423)|raw}}',
+            bad_swalWithBootstrapButtonsTitle,
+            bad_swalWithBootstrapButtonsContent,
             'success'
          )
       } else if (
@@ -327,7 +332,7 @@ $("#dirlist").on("click", ".direction", function () {
 $(document).on('click', '#removeClientDir', function () {
    obj = {
       command: 'removeClientDir',
-      dir: $("#selectClient").val(),
+      id: $("#selectClient").val(),
       chronicle: chronicle,
       serverID: serverID,
    };
@@ -346,15 +351,15 @@ $(document).on('click', '.saveDirClient', function () {
       domain: window.location.hostname,
       serverID: serverID,
    };
-   sendToLauncher(obj)
-
-    var optionValue = $(this).attr('data-client-dir-path');
-    var optionText = $(this).attr('data-client-dir-path');
-
-    $("#selectClient").append($('<option>', {
-      value: optionValue,
-      text: optionText
-    }).prop('selected', true));
+    sendToLauncher(obj)
+    getChronicleDirectory()
+//    var optionValue = $(this).attr('data-client-dir-path');
+//    var optionText = $(this).attr('data-client-dir-path');
+//
+//    $("#selectClient").append($('<option>', {
+//      value: optionValue,
+//      text: optionText
+//    }).prop('selected', true));
 
 });
 
@@ -478,8 +483,8 @@ function getAllConfig() {
 function startUpdate() {
    obj = {
       command: 'start_client_update',
-      uid: "anygame.eu.org",
-//      uid: window.location.host,
+//      uid: "anygame.eu.org",
+      uid: window.location.host,
       updateDirID: $("#selectClient").val(),
    };
    sendToLauncher(obj);

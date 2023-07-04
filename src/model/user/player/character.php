@@ -20,8 +20,11 @@ use Ofey\Logan22\model\user\auth\auth;
 class character {
 
     //возвращает всех персонажей пользователя
-    public static function get_account_players(): array {
+    public static function get_account_players(): ?array {
         $player_accounts = player_account::show_all_account_player();
+        if(!$player_accounts){
+            return null;
+        }
         $accounts = [];
         foreach ($player_accounts as $account) {
             $login = $account['login'];
@@ -50,7 +53,6 @@ class character {
 
         $account_players = player_account::show_all_account_player($server_id);
         if(!in_array($login, array_column($account_players, 'login'))) {
-            var_dump($account_players);exit;
             redirect::location('/main');
         }
 

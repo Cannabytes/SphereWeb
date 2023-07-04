@@ -10,4 +10,3 @@ const ENABLE_GALLERY = true;
 
 //Включить систему пожертвований ?
 const ENABLE_DONATE = true;
-

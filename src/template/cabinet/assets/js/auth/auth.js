@@ -54,10 +54,7 @@ $(document).ready(function () {
         registration_panel("/registration/account", $('#panel_registration_page'));
     });
 
-    $("#page_new_user_registration_button").click(function (e) {
-        e.preventDefault();
-        registration_panel("/registration/account", $('#page_new_user_registration'));
-    });
+
 
     function authorization_panel(authPanel) {
         var formData = new FormData();
@@ -166,6 +163,11 @@ $(document).ready(function () {
         if (e.which == 13) {
            registration_panel("/registration/user", $('#page_new_user_registration'));
         }
+    });
+
+    $("#page_new_user_registration_button").click(function (e) {
+        e.preventDefault();
+        registration_panel("/registration/user", $('#page_new_user_registration'));
     });
 
 });

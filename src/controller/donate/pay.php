@@ -51,7 +51,6 @@ class pay {
         tpl::addVar("discount", $donateInfo["discount"]);
         tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
         tpl::addVar("procentDiscount", donate::getBonusDiscount($point, $donateInfo["discount"]['table']));
-
         tpl::display("/donate/donate.html");
     }
 

@@ -13,14 +13,14 @@
                 <div class="card-body" id="form_auth_panel">
 
                     <div class="form-group row">
-                        <label for="email_panel" class="col-sm-2 col-form-label">{{ phrase(9) }}</label>
+                        <label for="email_panel" class="col-sm-3 col-form-label">{{ phrase(9) }}</label>
                         <div class="col-sm-9">
                             <input type="text" placeholder="{{ phrase(9) }}" class="form-control form-control-sm" name="email" id="email_panel">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="password_panel" class="col-sm-2 col-form-label">{{ phrase("password") }}</label>
+                        <label for="password_panel" class="col-sm-3 col-form-label">{{ phrase("password") }}</label>
                         <div class="col-sm-9">
                             <input type="password" placeholder="{{ phrase('password') }}" class="form-control form-control-sm" name="password" id="password_panel">
                         </div>
@@ -32,7 +32,7 @@
                     {% endif %}
                     {% if get_captcha_version("default") %}
                     <div class="form-group row">
-                        <label for="captcha_panel" class="col-sm-2 col-form-label">Анти-Бот</label>
+                        <label for="captcha_panel" class="col-sm-3 col-form-label">Анти-Бот</label>
                         <div class="col-sm-5">
                             <a href="#"> <img src="" class="lightbox-thumb img-thumbnail captcha_img" /> </a>
                         </div>

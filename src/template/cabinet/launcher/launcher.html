@@ -360,19 +360,33 @@
 <style>
 
     figure {
+        cursor: pointer;
         display: inline-block;
         max-width: 100%;
         text-align: center;
+        margin-right: 10px; /* Задайте желаемое значение для расстояния между изображениями */
+    }
+    figure:hover .name {
+        color: red; /* Задайте желаемый цвет текста при наведении */
     }
 
     figcaption {
-        max-width: 140px;
+        max-width: 80px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        word-wrap: break-word;
+        word-wrap: normal;
     }
 
+    figcaption.name {
+        max-width: 80px; /* Задайте желаемую ширину для обрезки текста */
+        white-space: nowrap; /* Запретить перенос текста на новую строку */
+        overflow: hidden; /* Скрыть выходящий за пределы области текст */
+        text-overflow: ellipsis; /* Добавить многоточие (...) для обозначения обрезанного текста */
+    }
+    figcaption.name:hover {
+        color: red; /* Задайте желаемый цвет текста при наведении */
+    }
 
 </style>
 
@@ -395,6 +409,14 @@
         $(function() {
             $(".knob").knob();
         });
+
+        var bad_title = '{{phrase(418)}}';
+        var bad_html = '{{phrase(419)|raw}}';
+        var bad_confirmButtonText = '{{phrase(420)}}';
+        var bad_cancelButtonText = '{{phrase(421)}}';
+        var bad_swalWithBootstrapButtonsTitle = '{{phrase(422)}}';
+        var bad_swalWithBootstrapButtonsContent = '{{phrase(423)|raw}}';
+
 </script>
 
 
