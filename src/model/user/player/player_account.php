@@ -20,6 +20,7 @@ use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\auth\registration;
+use ReflectionMethod;
 
 class player_account {
 
@@ -92,7 +93,6 @@ class player_account {
         if (!auth::exist_user($email)) {
             registration::add($email, $password, true);
         }
-
         $reQuest = self::getReQuest($server_id, $login);
         $err = self::account_registration($reQuest, [
             $login,
@@ -233,14 +233,24 @@ class player_account {
     }
 
     public static function account_is_exist($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "account_is_exist");
-        return self::extracted($base, $info, $prepare);
+        return self::extracted("account_is_exist", $info, $prepare);
     }
 
     /**
      * @throws ExceptionAlias
      */
-    public static function extracted($sqlQuery, $info, $prepare = [], $gameServer = true) {
+    public static function extracted($collectionName, $info, $prepare = []) {
+        $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], $collectionName);
+        $reflection = new ReflectionMethod($info['collection_sql_base_name'], $collectionName);
+        $attributes = $reflection->getAttributes();
+        $gameServer = true;
+        foreach($attributes as $attr) {
+            if('db' == basename($attr->getName())) {
+                $gameServer = false;
+                break;
+            }
+        }
+
         if (gettype($prepare) == "string") {
             $prepare = [$prepare];
         }
@@ -271,8 +281,7 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function account_registration($info, $prepare) {
-        $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], "account_registration");
-        return self::extracted($sqlQuery, $info, $prepare, gameServer: false);
+        return self::extracted("account_registration", $info, $prepare);
     }
 
     /*
@@ -296,33 +305,28 @@ class player_account {
     }
 
     public static function is_player($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "is_player");
-        return self::extracted($base, $info, $prepare);
+        return self::extracted("is_player", $info, $prepare);
     }
 
     public static function max_value_item_object($info, $prepare = []) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], 'max_value_item_object');
-        return self::extracted($base, $info, $prepare);
+        return self::extracted('max_value_item_object', $info, $prepare);
     }
 
     //Проверка аккаунта во внутренней БД
 
     public static function check_item_player($info, $prepare = []) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], 'check_item_player');
-        return self::extracted($base, $info, $prepare);
+        return self::extracted('check_item_player', $info, $prepare);
     }
 
     public static function update_item_count_player($info, $prepare = []) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], 'update_item_count_player');
-        return self::extracted($base, $info, $prepare);
+        return self::extracted('update_item_count_player', $info, $prepare);
     }
 
     //Возвращаем список всех аккаунтов пользователя
     //$default_server - вернуть данные своих аккаунтов только сервера который по умолчанию
 
     public static function add_item($info, $prepare = []) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], 'add_item');
-        return self::extracted($base, $info, $prepare);
+        return self::extracted('add_item', $info, $prepare);
     }
 
     //Кол-во имеющихся аккаунтов

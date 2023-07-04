@@ -44,11 +44,10 @@ class change_password {
         if(!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
-        $base = base::get_sql_source($server_info['collection_sql_base_name'], "account_change_password");
-        $change = player_account::extracted($base, $server_info, [
+        $change = player_account::extracted("account_change_password", $server_info, [
             encrypt::server_password($password, $server_info),
             $login,
-        ], gameServer: false);
+        ]);
         if($change->rowCount() == 0) {
             //TODO: добавление в логирование ошибок
             //Возникла ошибка смены пароля

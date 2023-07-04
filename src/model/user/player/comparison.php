@@ -150,7 +150,6 @@ class comparison {
     }
 
     public static function accounts_email($reQuest, $prepare) {
-        $base = base::get_sql_source($reQuest['collection_sql_base_name'], "accounts_email");
-        return player_account::extracted($base, $reQuest, $prepare);
+        return player_account::extracted("accounts_email", $reQuest, $prepare);
     }
 }

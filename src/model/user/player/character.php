@@ -56,8 +56,7 @@ class character {
             redirect::location('/main');
         }
 
-        $base = base::get_sql_source($server_info_cache[$server_id]['collection_sql_base_name'], "account_players");
-        $players = player_account::extracted($base, $server_info_cache[$server_id], [$login]);
+        $players = player_account::extracted("account_players", $server_info_cache[$server_id], [$login]);
         $players = $players->fetchAll();
         crest::conversion($players);
         cache::save(dir::characters->show_dynamic($server_id, $login), $players);
@@ -69,8 +68,7 @@ class character {
         if(!$info) {
             return false;
         }
-        $base = base::get_sql_source($info['collection_sql_base_name'], "account_players");
-        $players = player_account::extracted($base, $info, [$login]);
+        $players = player_account::extracted("account_players", $info, [$login]);
         $players = $players->fetchAll();
         crest::conversion($players);
         return $players;
@@ -89,8 +87,7 @@ class character {
     }
 
     private static function player($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "is_characters_name");
-        return player_account::extracted($base, $info, $prepare);
+        return player_account::extracted("is_characters_name", $info, $prepare);
     }
 
     public static function get_items($login, $server_id) {
@@ -104,8 +101,7 @@ class character {
     }
 
     private static function items($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "all_player_items");
-        return player_account::extracted($base, $info, $prepare);
+        return player_account::extracted("all_player_items", $info, $prepare);
     }
 
     public static function get_subclasses($char_id, $server_id) {
@@ -119,7 +115,6 @@ class character {
     }
 
     private static function subclasses($info, $prepare) {
-        $base = base::get_sql_source($info['collection_sql_base_name'], "player_subclasses");
-        return player_account::extracted($base, $info, $prepare);
+        return player_account::extracted("player_subclasses", $info, $prepare);
     }
 }

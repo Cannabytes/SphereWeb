@@ -40,8 +40,7 @@ class online {
 
                 if(@fsockopen($info['check_gameserver_online_host'], $info['check_gameserver_online_port'], $errno, $errstr, 1)) {
                     $connect_game = true;
-                    $base = base::get_sql_source($info['collection_sql_base_name'], "count_online_player");
-                    $player_count_online = player_account::extracted($base, $info);
+                    $player_count_online = player_account::extracted("count_online_player", $info);
                     if($player_count_online===false){
                         $player_count_online = 0;
                     }else if(!sdb::is_error()) {
