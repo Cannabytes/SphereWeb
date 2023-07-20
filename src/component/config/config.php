@@ -37,6 +37,7 @@ class config
         self::$forum_enable = forum_enable ?? self::$forum_enable;
 
         self::loadEnable();
+
     }
 
     //Загрузка включенных и выключенных функций
@@ -171,5 +172,6 @@ class config
     {
         return self::$enable_donate;
     }
+
 
 }

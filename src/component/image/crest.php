@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\component\image;
 
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\model\user\auth\auth;
 
 class crest {
@@ -16,13 +17,13 @@ class crest {
      * Преобразование текстур иконок клана и альянса в изображение кодировки base64
      * Клан и альянса изображение должны иметь название clan_crest и alliance_crest
      */
-    static public function conversion(&$arr_crest) {
+    static public function conversion(&$arr_crest, $rest_api_enable = false) {
         $isSingle = count($arr_crest) - count($arr_crest, COUNT_RECURSIVE) >= 0;
         if ($isSingle) {
-            $arr_crest = self::crest_extract($arr_crest);
+            $arr_crest = self::crest_extract($arr_crest, $rest_api_enable);
         } else {
             foreach ($arr_crest as &$row) {
-                $row = self::crest_extract($row);
+                $row = self::crest_extract($row, $rest_api_enable);
             }
         }
     }
@@ -142,9 +143,8 @@ class crest {
         fseek($rnd_file, 0);
         $file = &$rnd_file;
         $dds = fread($file, 4);
-
         // Do not continue if the file is not a DDS image
-        if($dds !== 'DDS ')
+        if($dds !== "DDS ")
             die("Error: is not an DDS image");
 
         $hdrSize = self::readInt($file);
@@ -231,9 +231,13 @@ class crest {
      *
      * @return mixed
      */
-    private static function crest_extract(mixed $row): mixed {
+    private static function crest_extract(mixed $row, bool $rest_api_enable = null): mixed {
         if(isset($row["clan_crest"])) {
-            $base64Crest = self::get_clan_crest_base64($row["clan_crest"]);
+            $crest = $row["clan_crest"];
+            if($rest_api_enable){
+                $crest = base64_decode($crest);
+            }
+            $base64Crest = self::get_clan_crest_base64($crest);
             if($base64Crest !== null) {
                 $row["clan_crest"] = $base64Crest;
             } else {
@@ -241,7 +245,11 @@ class crest {
             }
         }
         if(isset($row["alliance_crest"])) {
-            $base64Crest = self::get_clan_crest_base64($row["alliance_crest"]);
+            $crest = $row["alliance_crest"];
+            if($rest_api_enable){
+                $crest = base64_decode($crest);
+            }
+            $base64Crest = self::get_clan_crest_base64($crest);
             if($base64Crest !== null) {
                 $row["alliance_crest"] = $base64Crest;
             } else {

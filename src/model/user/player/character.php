@@ -11,9 +11,11 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 
@@ -56,9 +58,25 @@ class character {
             redirect::location('/main');
         }
 
-        $players = player_account::extracted("account_players", $server_info_cache[$server_id], [$login]);
-        $players = $players->fetchAll();
-        crest::conversion($players);
+        if($server_info_cache[$server_id]['rest_api_enable']){
+            $data = restapi::Send(
+                $server_info_cache[$server_id],
+                "account_players",
+                $login,
+            );
+            if ($data == "false") {
+                return false;
+            }
+            $players = json_decode($data, true);
+        }else{
+            $players = player_account::extracted("account_players", $server_info_cache[$server_id], [$login]);
+            $players = $players->fetchAll();
+        }
+        if($players!=null){
+            crest::conversion($players,rest_api_enable: $server_info_cache['rest_api_enable']);
+        }else{
+            $players = [];
+        }
         cache::save(dir::characters->show_dynamic($server_id, $login), $players);
         return $players;
     }
@@ -70,7 +88,7 @@ class character {
         }
         $players = player_account::extracted("account_players", $info, [$login]);
         $players = $players->fetchAll();
-        crest::conversion($players);
+        crest::conversion($players, rest_api_enable: $info['rest_api_enable']);
         return $players;
     }
 
@@ -82,7 +100,7 @@ class character {
         $reQuest = server::db_info_id($server_info['db_id']);
         $my_chars = self::player($reQuest, [$char_name]);
         $user_characters = $my_chars->fetch();
-        crest::conversion($user_characters);
+        crest::conversion($user_characters, rest_api_enable: $server_info['rest_api_enable']);
         return $user_characters;
     }
 

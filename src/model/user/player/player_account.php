@@ -10,7 +10,9 @@ namespace Ofey\Logan22\model\user\player;
 use Exception as ExceptionAlias;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
@@ -40,7 +42,7 @@ class player_account {
 
         $player_info = player_account::is_player($server_info, [$player]);
         $player_info = $player_info->fetch();
-        if($player_info['login']!=$account){
+        if ($player_info['login'] != $account) {
             board::notice(false, "Запрещенное действие");
         }
         if (sql::getRow("SELECT `forbidden` FROM `player_forbidden` WHERE server_id = ? AND account = ? AND player = ?", [$server_id, $account, $player])) {
@@ -49,6 +51,78 @@ class player_account {
             sql::run("INSERT INTO `player_forbidden` (`server_id`, `email`, `account`, `player`, `forbidden`) VALUES (?, ?, ?, ?, ?)", [$server_id, auth::get_email(), $account, $player, $forbidden]);
         }
     }
+
+    public static function is_player($info, $prepare) {
+        return self::extracted("is_player", $info, $prepare);
+    }
+
+    /**
+     * Когда включен REST API то в $info приходит ID сервер
+     * @throws ExceptionAlias
+     */
+    public static function extracted($collectionName, $info, $prepare = []) {
+
+        if ($info['rest_api_enable']) {
+            $data = restapi::Send(
+                $info,
+                $collectionName,
+                $prepare,
+            );
+            if ($data == "false") {
+                return false;
+            }
+            return json_decode($data, true);
+        }
+
+        $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], $collectionName);
+        $gameServer = self::getMethodAttribute($info['collection_sql_base_name'], $collectionName);
+        if (gettype($prepare) == "string") {
+            $prepare = [$prepare];
+        }
+        $prepare = self::placeholderPrepareFormat($sqlQuery, $prepare);
+        $server_id = $info['id'];
+        sdb::set_server_id($server_id);
+
+        if ($gameServer == "login") {
+            sdb::set_type('login');
+            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
+        } else {
+            sdb::set_type('game');
+            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
+        }
+        return sdb::run($sqlQuery, $prepare);
+    }
+
+    /**
+     * @throws \ReflectionException
+     */
+    static function getMethodAttribute($class, $methodName) {
+        $classRef = new ReflectionClass($class);
+        foreach ($classRef->getMethods() as $method) {
+            if ($method->name == $methodName) {
+                $methodRef = new ReflectionMethod($method->class, $method->name);
+                foreach ($methodRef->getAttributes() as $attribute) {
+                    return $attribute->getArguments()[0]; // Вывод аргументов атрибута
+                }
+            }
+        }
+        // Возвращаем атрибут по умолчанию #[db("game")]
+        return "game";
+    }
+
+    /**
+     * Функция для отсечения лишних параметров в массиве, которые превышают кол-во плейхолдеров в строке запроса
+     * К примеру: В некоторых сборках при регистрации аккаунта можно указывать email, в других сборках такой колонки
+     * в бд нет, но по умолчанию пользовательский email идет в запросе. Если в запросе нет его, мы отсекаем лишнее.
+     */
+    public static function placeholderPrepareFormat($query, $prepare) {
+        $numPlaceholders = substr_count($query, '?');
+        return array_slice($prepare, 0, $numPlaceholders);
+    }
+
+    /*
+     * Проверка существования персонажа
+     */
 
     /**
      * @param      $account_name название аккаунта
@@ -64,21 +138,20 @@ class player_account {
         return $info;
     }
 
-
-    public static function get_forbidden_players($arrayAcPlayers = [], $server_id = 0){
-        if(empty($arrayAcPlayers)){
+    public static function get_forbidden_players($arrayAcPlayers = [], $server_id = 0) {
+        if (empty($arrayAcPlayers)) {
             return false;
         }
         $account = $arrayAcPlayers[0]['account_name'];
 
-        $allForbiddenInfo = sql::getRows("SELECT * FROM player_forbidden WHERE account = ? AND server_id=?;",[
+        $allForbiddenInfo = sql::getRows("SELECT * FROM player_forbidden WHERE account = ? AND server_id=?;", [
             $account, $server_id,
         ]);
 
-        foreach($arrayAcPlayers AS &$player){
+        foreach ($arrayAcPlayers as &$player) {
             $player['forbidden'] = 1;
-            foreach($allForbiddenInfo AS $info){
-                if($player['player_name'] == $info['player']){
+            foreach ($allForbiddenInfo as $info) {
+                if ($player['player_name'] == $info['player']) {
                     $player['forbidden'] = $info['forbidden'];
                 }
             }
@@ -86,6 +159,11 @@ class player_account {
         return $arrayAcPlayers;
     }
 
+    //Имеется ли на персонаже предмет N
+
+    /**
+     * @throws ExceptionAlias
+     */
     public static function add_account_not_user($login, $password, $password_hide, $email) {
         $server_id = auth::get_default_server();
         self::valid_login($login);
@@ -94,12 +172,21 @@ class player_account {
         if (!auth::exist_user($email)) {
             registration::add($email, $password, true);
         }
-        $reQuest = self::getReQuest($server_id, $login);
-        $err = self::account_registration($reQuest, [
-            $login,
-            encrypt::server_password($password, $reQuest),
-            $email,
-        ]);
+        $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
+        if ($get_server_info['rest_api_enable']){
+            $err = self::account_registration($server_id, [
+                $login,
+                $password,
+                $email,
+            ]);
+        }else{
+            $reQuest = self::getReQuest($server_id, $login);
+            $err = self::account_registration($reQuest, [
+                $login,
+                encrypt::server_password($password, $reQuest),
+                $email,
+            ]);
+        }
         //TODO: логирование ошибок
         if (is_array($err)) {
             if (!$err['ok']) {
@@ -124,10 +211,6 @@ class player_account {
         }
     }
 
-    /*
-     * Проверка существования персонажа
-     */
-
     public static function valid_password($password) {
         if (4 > mb_strlen($password)) {
             board::notice(false, lang::get_phrase(211));
@@ -142,8 +225,6 @@ class player_account {
             board::notice(false, lang::get_phrase(213));
         }
     }
-
-    //Имеется ли на персонаже предмет N
 
     /**
      * TODO: На будущее переделать, сначала проверить что N аккаунт пуст во внутренне БД и в БД сервера,
@@ -163,13 +244,23 @@ class player_account {
         if (self::count_account($server_id) >= 20) {
             board::notice(false, lang::get_phrase(206));
         }
-        sdb::setShowErrorPage(false);
-        $reQuest = self::getReQuest($server_id, $login);
-        $err = self::account_registration($reQuest, [
-            $login,
-            encrypt::server_password($password, $reQuest),
-            auth::get_email(),
-        ]);
+        $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
+        if ($get_server_info['rest_api_enable']){
+            $err = self::account_registration($server_id, [
+                $login,
+                $password,
+                auth::get_email(),
+            ]);
+        }else{
+            sdb::setShowErrorPage(false);
+            $reQuest = self::getReQuest($server_id, $login);
+            $err = self::account_registration($reQuest, [
+                $login,
+                encrypt::server_password($password, $reQuest),
+                auth::get_email(),
+            ]);
+        }
+
         if (is_array($err)) {
             if (!$err['ok']) {
                 board::notice(false, $err['message']);
@@ -187,6 +278,7 @@ class player_account {
             auth::get_email(),
         ])->fetch()["count"];
     }
+
 
     /**
      * @param $server_id
@@ -237,58 +329,9 @@ class player_account {
         return self::extracted("account_is_exist", $info, $prepare);
     }
 
-    /**
-     * @throws \ReflectionException
+    /*
+     * Проверка на диапазон значений в пароле
      */
-    static function getMethodAttribute($class, $methodName)
-    {
-        $classRef = new ReflectionClass($class);
-        foreach ($classRef->getMethods() as $method) {
-            if($method->name==$methodName){
-                $methodRef = new ReflectionMethod($method->class, $method->name);
-                foreach ($methodRef->getAttributes() as $attribute) {
-                    return $attribute->getArguments()[0]; // Вывод аргументов атрибута
-                }
-            }
-        }
-        // Возвращаем атрибут по умолчанию #[db("game")]
-        return "game";
-    }
-
-
-
-    /**
-     * @throws ExceptionAlias
-     */
-    public static function extracted($collectionName, $info, $prepare = []) {
-        $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], $collectionName);
-        $gameServer = self::getMethodAttribute($info['collection_sql_base_name'], $collectionName);
-        if (gettype($prepare) == "string") {
-            $prepare = [$prepare];
-        }
-        $prepare = self::placeholderPrepareFormat($sqlQuery, $prepare);
-        $server_id = $info['id'];
-        sdb::set_server_id($server_id);
-
-        if ($gameServer == "login") {
-            sdb::set_type('login');
-            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
-        } else {
-            sdb::set_type('game');
-            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
-        }
-        return sdb::run($sqlQuery, $prepare);
-    }
-
-    /**
-     * Функция для отсечения лишних параметров в массиве, которые превышают кол-во плейхолдеров в строке запроса
-     * К примеру: В некоторых сборках при регистрации аккаунта можно указывать email, в других сборках такой колонки
-     * в бд нет, но по умолчанию пользовательский email идет в запросе. Если в запросе нет его, мы отсекаем лишнее.
-     */
-    public static function placeholderPrepareFormat($query, $prepare) {
-        $numPlaceholders = substr_count($query, '?');
-        return array_slice($prepare, 0, $numPlaceholders);
-    }
 
     /**
      * @throws ExceptionAlias
@@ -297,9 +340,6 @@ class player_account {
         return self::extracted("account_registration", $info, $prepare);
     }
 
-    /*
-     * Проверка на диапазон значений в пароле
-     */
 
     /**
      * @throws ExceptionAlias
@@ -315,10 +355,6 @@ class player_account {
             time::mysql(),
             time::mysql(),
         ]);
-    }
-
-    public static function is_player($info, $prepare) {
-        return self::extracted("is_player", $info, $prepare);
     }
 
     public static function max_value_item_object($info, $prepare = []) {

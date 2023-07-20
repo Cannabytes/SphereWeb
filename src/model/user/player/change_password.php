@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\player;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
@@ -44,16 +45,21 @@ class change_password {
         if(!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
-        $change = player_account::extracted("account_change_password", $server_info, [
-            encrypt::server_password($password, $server_info),
-            $login,
-        ]);
-        if($change->rowCount() == 0) {
-            //TODO: добавление в логирование ошибок
-            //Возникла ошибка смены пароля
-            board::notice(false, lang::get_phrase(180));
+
+        $password = $server_info['rest_api_enable'] ? $password : encrypt::server_password($password, $server_info);
+
+        $change = player_account::extracted("account_change_password", $server_info, [$password, $login]);
+
+        if($server_info['rest_api_enable']){
+            board::notice($change['ok'], lang::get_phrase($change['ok'] ? 181 : 180));
         } else {
-            board::notice(true, lang::get_phrase(181));
+            if($change->rowCount() == 0) {
+                //TODO: добавление в логирование ошибок
+                board::notice(false, lang::get_phrase(180));
+            } else {
+                board::notice(true, lang::get_phrase(181));
+            }
         }
     }
+
 }

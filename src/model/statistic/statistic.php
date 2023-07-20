@@ -49,7 +49,7 @@ class statistic {
     /**
      * @throws \Exception
      */
-    static private function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = true): null|array|bool {
+    private static function get_data_statistic(dir $dir, string $collection_sql_name, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = true): null|array|bool {
         [
             $server_info,
             $json,
@@ -64,12 +64,15 @@ class statistic {
         } else {
             $data = server::across($collection_sql_name, $server_info, $prepare);
         }
+        if(isset($data['code']) AND $data['code'] != 0){
+            return $data['message'];
+        }
         if($playerForbidden){
             self::charInfoPerm($data);
         }
         if($data) {
             if($crest_convert) {
-                crest::conversion($data);
+                crest::conversion($data, rest_api_enable: $server_info['rest_api_enable']);
             }
             cache::save($dir->show_dynamic($server_info['id']), $data);
         } else {
@@ -98,7 +101,7 @@ class statistic {
         }
         if($data) {
             if($crest_convert) {
-                crest::conversion($data);
+                crest::conversion($data, rest_api_enable: $server_info['rest_api_enable']);
             }
             cache::save($dir->show_dynamic($server_info['id'], $clan_name), $data);
         } else {
@@ -127,7 +130,7 @@ class statistic {
         }
         if($data) {
             if($crest_convert) {
-                crest::conversion($data);
+                crest::conversion($data, rest_api_enable: $server_info['rest_api_enable']);
             }
             cache::save($dir->show_dynamic($server_info['id'], $player_name), $data);
         }
@@ -143,7 +146,6 @@ class statistic {
         try {
             return self::$pvp = self::get_data_statistic(dir::statistic_pvp, 'statistic_top_pvp', $server_id, second: timeout::statistic_pvp->time());
         } catch(Error $e) {
-            var_dump($e->getMessage());
         }
     }
 
@@ -272,7 +274,7 @@ class statistic {
         return $inventory;
     }
 
-    static private ?array $top_counter = null;
+    private static ?array $top_counter = null;
 
     public static function top_counter($server_id = 0) {
         if(self::$top_counter) {

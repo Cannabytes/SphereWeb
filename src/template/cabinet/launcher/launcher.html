@@ -17,6 +17,16 @@
     </div>
 </div>
 
+<div id="needUpdateMsg" class="alert alert-icon-danger alert-dismissible d-none" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <div class="alert-icon icon-part-danger">
+        <i class="fa fa-times"></i>
+    </div>
+    <div class="alert-message">
+        <span>У Вас старая версия. <a href="#" class="btn btn-danger waves-effect waves-light m-1 launcherUpdate" >Обновиться</a> </span>
+    </div>
+</div>
+
 
 <div class="row">
 
@@ -25,40 +35,25 @@
             <div class="card-body">
                 <ul class="nav nav-tabs nav-tabs-success top-icon nav-justified">
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#profile" data-toggle="pill"
-                           class="nav-link active"><span class="hidden-xs">{{phrase(386)}}</span></a>
+                        <a href="#interface" data-target="#interface" data-toggle="pill"
+                           class="nav-link"><span class="hidden-xs">{{phrase(386)}}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><span
+                        <a href="#edit" data-target="#edit" data-toggle="pill" class="nav-link"><span
                                 class="hidden-xs">{{phrase("settings")}}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><span
+                        <a href="#description" data-target="#description" data-toggle="pill" class="nav-link"><span
                                 class="hidden-xs">{{phrase(0)}}</span></a>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane active" id="profile">
+                    <div class="tab-pane " id="interface">
                         <div class="row">
                             <div class="col-md-3">
 
                                 <div class="card">
                                     <div class="card-body text-center">
-
-
-                                        <div class="card-action">
-                                            <div class="dropdown">
-                                                <a href="javascript:void();"
-                                                   class="dropdown-toggle dropdown-toggle-nocaret"
-                                                   data-toggle="dropdown">
-                                                    <i class="icon-options"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item client_update" href="#">{{phrase(449)}}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
 
                                         <div class="card-body">
                                             <div class="chart easy-pie-chart-4" id="main_panel_load" data-percent="0"
@@ -77,18 +72,24 @@
 
                                             {% if launcher_info %}
                                                 {% for launcher in launcher_info %}
-                                                    <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
-                                                            data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">
-                                                        {{phrase(launcher['phrase'])}}
+
+                                                <div class="btn-group m-0">
+                                                    <button type="button" class="btn btn-success waves-effect waves-light startL2" data-l2app="{{launcher['l2app']}}" data-args="{{launcher['args']}}">{{phrase(launcher['phrase'])}}</button>
+                                                    <button type="button" class="btn btn-success split-btn-success dropdown-toggle dropdown-toggle-split waves-effect waves-light startL2MenuButton" data-toggle="dropdown">
+                                                        <span class="caret"></span>
                                                     </button>
-                                                {% endfor %}
+                                                    <div class="dropdown-menu">
+                                                        <a href="javaScript:void();" class="dropdown-item client_update">{{phrase(449)}}</a>
+                                                    </div>
+                                                </div>
+
+                                            {% endfor %}
                                             {% else %}
-                                                <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 d-none startL2"
+                                                <button class="btn-social-text btn-tumblr waves-effect waves-light m-1 startL2"
                                                         data-l2app="/system/l2.exe" data-args="">
                                                     {{phrase('launch_game')}}
                                                 </button>
                                             {% endif %}
-
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +161,7 @@
                         </div>
                         <!--/row-->
                     </div>
-                    <div class="tab-pane" id="messages">
+                    <div class="tab-pane" id="description">
 
                         <div class="row">
                             <div class="col-12 col-lg-6">
@@ -289,7 +290,7 @@
                                 <div class="col-sm-8">
                                     {{phrase(445)}}
                                     <br>
-                                    <small class="mb-0 text-facebook">{{phrase(443)}}</small> [ {{phrase(446)}} -
+                                    <small class="mb-0 text-facebook">{{phrase(443)}}</small>[ {{phrase(446)}} -
                                     <spin class="userLauncherVersion">0</spin>
                                     {{phrase(447)}} -
                                     <spin class="actualLauncherVersion">0</spin>
@@ -324,7 +325,7 @@
                 <div class="card-body" id="dirlist"></div>
             </div>
             <div class="modal-footer">
-                <div class="text-left" style="flex-grow: 1;">{{phrase(448)}}</div>
+                <div class="text-left" style="flex-grow: 1;">{{phrase(448, get_server_info(user_info('get_default_server'))['chronicle'])|raw}}</div>
                 <button type="button" data-server_id="{{serverID}}"
                         class="btn btn-primary saveDirClient" data-client-dir-path=""><i
                         class="fa fa-check-square-o"></i> {{phrase(89)}}
@@ -333,8 +334,6 @@
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}
 
@@ -388,6 +387,12 @@
         color: red; /* Задайте желаемый цвет текста при наведении */
     }
 
+    .linkdir:hover {
+        color: red;
+        cursor: pointer;
+    }
+
+
 </style>
 
 {% endblock %}
@@ -410,15 +415,34 @@
             $(".knob").knob();
         });
 
+        $(document).ready(function() {
+            var url = window.location.href;
+            var hash = url.substring(url.indexOf("#") + 1);
+            var defaultTab = "interface";
+            if (hash && (hash === "interface" || hash === "edit" || hash === "description")) {
+                defaultTab = hash;
+            }
+            $('.nav-link').removeClass('active');
+            $('#' + defaultTab).addClass('active');
+            $('a[href="#' + defaultTab + '"]').addClass('active');
+        });
+
+
         var bad_title = '{{phrase(418)}}';
         var bad_html = '{{phrase(419)|raw}}';
         var bad_confirmButtonText = '{{phrase(420)}}';
         var bad_cancelButtonText = '{{phrase(421)}}';
         var bad_swalWithBootstrapButtonsTitle = '{{phrase(422)}}';
         var bad_swalWithBootstrapButtonsContent = '{{phrase(423)|raw}}';
+        var need_update = '{{phrase(472)|raw}}';
+        var no_need_update = '{{phrase(473)|raw}}';
+        var start_update = '{{phrase(474)|raw}}';
+        var need_set_dir_client = '{{phrase(475)|raw}}';
+        var checked_files = '{{phrase(476)|raw}}';
+        var loadercount = '{{phrase(477)|raw}}';
 
+        var userLang = '{{lang_user_default()}}';
 </script>
-
 
 <script src="{{template('/launcher/launcher.js')}}"></script>
 

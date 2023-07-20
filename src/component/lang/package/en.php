@@ -588,5 +588,21 @@ return [
     458 => "Please enter a message of at least 10 characters",
     459 => "Private ticket",
 
-
+    460 => "Already loading",
+    461 => "The server does not have permission to use the launcher",
+    462 => "Update not needed",
+    463 => "Update not required",
+    464 => "Starting update",
+    466 => "Counting needed files to update",
+    467 => "%%d files need to be updated",
+    468 => "Download forced to stop",
+    469 => "Update completed successfully",
+    470 => "There was an error loading the file",
+    471 => "Update Failed: StatusCode %%d was received while trying to download file %%s",
+    472 => "Update needed",
+    473 => "No",
+    474 => "Start update",
+    475 => "Client update folder not set",
+    476 => "Files checked",
+    477 => "Loaded",
 ];
