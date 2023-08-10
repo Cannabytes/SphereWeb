@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\user\profile;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\controller\promo\promo;
@@ -33,7 +34,7 @@ class change {
         if(!empty($_POST['new_password'])) {
             if(self::password_comparison($_POST['new_password'], $_POST['two_password'])) {
                 $table[] = "`password` = ?";
-                $varSQL[] = password_hash($_POST['new_password'], PASSWORD_ARGON2I);
+                $varSQL[] = password_hash($_POST['new_password'], config::algorithm_hashing_user_password());
             }
         }
 

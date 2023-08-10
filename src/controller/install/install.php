@@ -28,7 +28,7 @@ class install {
                      "php_informations" => [["name" => "Версия PHP",
                                              "get" => version::MIN_PHP_VERSION(),
                                              "min" => PHP_VERSION,
-                                             "allow" => self::compareUploadSizes(ini_get("upload_max_filesize"), "2M"),
+                                             "allow" => PHP_VERSION>=version::MIN_PHP_VERSION(),
                                             ],
                                             ["name" => "upload_max_filesize",
                                              "get" => ini_get("upload_max_filesize"),

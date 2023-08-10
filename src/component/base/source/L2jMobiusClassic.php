@@ -20,14 +20,14 @@ namespace Ofey\Logan22\component\base\source;
 
 use Ofey\Logan22\component\base\structure;
 
-class L2JMobiusClassic implements structure {
+class L2jMobiusClassic implements structure {
 
     static public function hash(): string {
         return 'sha1';
     }
 
     static public function chronicle(): mixed {
-        return [338, 362, 388, 414, 418];
+        return [338, 362, 388, 414, 418, 166];
     }
 
     static public function need_logout_player_for_item_add(): bool {

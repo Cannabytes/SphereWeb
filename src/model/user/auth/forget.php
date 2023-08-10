@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\auth;
 use DateTime;
 use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\mail\mail;
 use Ofey\Logan22\model\db\sql;
@@ -162,7 +163,7 @@ class forget {
             board::notice(false, lang::get_phrase(172));
         }
         $password = generation::password();
-        if(auth::change_user_password($email, password_hash($password, PASSWORD_ARGON2I))) {
+        if(auth::change_user_password($email, password_hash($password, config::algorithm_hashing_user_password()))) {
             sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
                 0,
                 $data['id'],

@@ -173,5 +173,8 @@ class config
         return self::$enable_donate;
     }
 
+    public static function algorithm_hashing_user_password(){
+        return PASSWORD_BCRYPT;
+    }
 
 }

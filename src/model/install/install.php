@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\model\install;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\encrypt\encrypt;
@@ -56,7 +57,7 @@ const CHARSET = 'utf8';
             $smt = $conn->prepare("INSERT INTO `users` (`name`, `password`, `email`, `ip`, `access_level`) VALUES (?, ?, ?, ?, ?)",);
             if($smt->execute([
                 $name,
-                password_hash($password, PASSWORD_ARGON2I),
+                password_hash($password, config::algorithm_hashing_user_password()),
                 $email,
                 $ip,
                 'admin',

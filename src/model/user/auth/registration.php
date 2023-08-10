@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\user\auth;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
@@ -48,7 +49,7 @@ class registration {
         $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`) VALUES (?, ?, ?, ?)";
         $insertArrays = [
             $email,
-            password_hash($password, PASSWORD_ARGON2I),
+            password_hash($password, config::algorithm_hashing_user_password()),
             $_SERVER['REMOTE_ADDR'],
             $timezone,
         ];
@@ -63,7 +64,7 @@ class registration {
                 $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`, `country`, `city`) VALUES (?, ?, ?, ?, ?, ?)";
                 $insertArrays = [
                     $email,
-                    password_hash($password, PASSWORD_ARGON2I),
+                    password_hash($password, config::algorithm_hashing_user_password()),
                     $_SERVER['REMOTE_ADDR'],
                     $get_timezone_ip['timezone'],
                     $get_timezone_ip['country'],

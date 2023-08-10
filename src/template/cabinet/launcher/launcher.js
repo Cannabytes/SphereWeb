@@ -3,10 +3,9 @@ var isConnect = false;
 var maxConcurrencyLoad = 5;
 var lastStatusID;
 var buttonShowNow = "button_loading";
-//Ошибка, при которой нужно прервать выполнение скрипта, и запретить ему соединяться далее с вебсокетом
 var criticalError = false;
 var criticalErrorMessage;
-var currentConnectAttempts = 0; // Текущее количество попыток соединения
+var currentConnectAttempts = 0;
 var swalWithBootstrapButtons = null;
 
 
@@ -17,20 +16,17 @@ var chronicle = $('meta[name="server_chronicle"]').attr('content')
 
 document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('beforeunload', function(event) {
-        // Ваш код обработки события beforeunload
-        return  alert("TTTEST")
-        var confirmationMessage = 'Вы уверены, что хотите обновить страницу?';
-        event.returnValue = confirmationMessage;
-        return confirmationMessage;
+        socket.close();
+        isConnect = false;
     });
 });
 
 
-// window.addEventListener('beforeunload', function (event) {
-//     // Здесь можно выполнить действия перед обновлением
-//     alert("TEE")
-//     localStorage.setItem('browserReloaded', 'true');
-// });
+window.addEventListener('beforeunload', function (event) {
+    socket.close();
+    isConnect = false;
+    localStorage.setItem('browserReloaded', 'true');
+});
 
 
 
@@ -57,9 +53,9 @@ function launcherButtonIsWork() {
 
 
 function connect() {
-    var connectionTimeout = 1000; // Время ожидания в миллисекундах
+    var connectionTimeout = 1000;
     var connectInterval = null;
-    var reconnectTimeout = 2000; // Задержка перед повторной попыткой соединения
+    var reconnectTimeout = 2000;
 
     function establishConnection() {
         socket = new WebSocket("ws://localhost:17580/ws");
@@ -67,7 +63,6 @@ function connect() {
         var connectionTimer = setTimeout(function () {
             socket.close();
             isConnect = false;
-            // Повторная попытка соединения, если не достигнуто максимальное количество попыток
             currentConnectAttempts++;
             console.log("Повторная попытка соединения: №", currentConnectAttempts);
             if(currentConnectAttempts===1){
@@ -100,7 +95,7 @@ function connect() {
             if (isConnect === true) {
                 isConnect = false;
                 downloadAndRunLauncher()
-                setTimeout(establishConnection, reconnectTimeout); // Повторная попытка соединения с задержкой
+                setTimeout(establishConnection, reconnectTimeout);
             }
             isConnect = false;
         };
@@ -113,12 +108,11 @@ function connect() {
 
     establishConnection();
 
-    // Проверка статуса соединения каждые 500 миллисекунд
     connectInterval = setInterval(function () {
         if (socket.readyState === WebSocket.OPEN) {
             console.log("Соединение установлено");
             downloadAndRunLauncher_hide()
-            clearInterval(connectInterval); // Остановить проверку статуса соединения
+            clearInterval(connectInterval);
         }
     }, 500);
 }
@@ -132,29 +126,29 @@ function responseMessage(event) {
     let response = JSON.parse(event.data); // преобразование JSON-строки в объект
     console.log(response)
 
-    if (response.command == "status") {
+    if (response.command === "status") {
         lastStatusID = response.status
         launcherButtonIsWork()
 
-        if (lastStatusID != response.status && response.status == 0) {
+        if (lastStatusID !== response.status && response.status === 0) {
             $('.chart').data('easyPieChart').update(0);
             $('.percent').text(0);
             resetLoadPanel()
         }
         //Если идет загрузка списка, если идет сравнение файлов, если загрузка файлов
-        if (response.status == 0 || response.status == 1 || response.status == 2 || response.status == 3) {
-            if (response.status == 0) {
+        if (response.status === 0 || response.status === 1 || response.status === 2 || response.status === 3) {
+            if (response.status === 0) {
             }
 
             //Если приходит запрос, уведомление что идет сравнение файлов
-            if (response.status == 2) {
+            if (response.status === 2) {
                 percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
                 $('.chart').data('easyPieChart').update(percentPanel);
                 $('.percent').text(percentPanel);
                 $('#main_panel_load').attr('data-original-title', checked_files + " " + response.loaded + " / " + response.filesTotal + " (" + ((response.loaded / response.filesTotal) * 100).toFixed(2) + "%)")
             }
             //Если приходит запрос, уведомление что идет загрузка файлов
-            if (response.status == 3) {
+            if (response.status === 3) {
                 if (response.boot == null) {
                     resetLoadPanel()
                     allLoadPanel()
@@ -221,7 +215,7 @@ function responseMessage(event) {
         $("#dirfullpath").html(parsePathToLinks(response.directory))
         //Если это не папка, значит показываем изображение диска
         image = "folder"
-        if ($("#dirfullpath").text() == false) {
+        if ($("#dirfullpath").text() === false) {
             image = "local_disk"
         }
         if (response.folders != null) {
@@ -231,11 +225,11 @@ function responseMessage(event) {
         } else {
             $("#dirlist").html("Тут больше нету папок.<br>Нажмите на кнопку <Сохранить> и мы сюда будем загружать клиент!")
         }
-    } else if (response.command == "saveDirectory") {
+    } else if (response.command === "saveDirectory") {
         if (response.error == null) {
             notify_success("Директория была сохранена")
         }
-    } else if (response.command == "getChronicleDirectory") {
+    } else if (response.command === "getChronicleDirectory") {
         console.log(response.clients)
         $('#selectClient').empty();
         if (response.clients !== null) {
@@ -258,17 +252,17 @@ function responseMessage(event) {
             // Действия, которые нужно выполнить, если response.clients равно null
             // Например, добавление варианта по умолчанию или отображение сообщения об отсутствии данных
         }
-    } else if (response.command == "getAllConfig") {
+    } else if (response.command === "getAllConfig") {
         $("#isClientFilesArchive").prop("checked", response.isClientFilesArchive ? true : false);
         $("#autoStartLauncher").prop("checked", response.autoStartLauncher ? true : false);
         $("#autoUpdateLauncher").prop("checked", response.autoUpdateLauncher ? true : false);
-    } else if (response.command == "getVersionLauncher") {
+    } else if (response.command === "getVersionLauncher") {
         $(".userLauncherVersion").text(response.version)
         $(".actualLauncherVersion").text(response.actualVersion)
         if (response.actualVersion > response.version){
             $("#needUpdateMsg").removeClass("d-none");
         }
-    } else if (response.command == "needClientUpdate") {
+    } else if (response.command === "needClientUpdate") {
 
         Swal.fire({
             title: need_update,
