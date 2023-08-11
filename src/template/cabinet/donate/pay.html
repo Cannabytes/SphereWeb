@@ -11,6 +11,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label>{{phrase(374)}}</label>
+                        <input id="countValue" type="text" value="0" name="countValue">
                         <input type="text" id="count" value="" name="range"/>
                     </div>
                 </div>
@@ -124,24 +125,47 @@
 <link href="{{template('assets/plugins/ion-rangeslider/css/ion.rangeSlider.css')}}" rel="stylesheet" type="text/css"/>
 <link href="{{template('assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinNice.css')}}" rel="stylesheet"
       type="text/css"/>
+
 {% endblock %}
 
 {% block js %}
-<!--Bootstrap Touchspin Js-->
+
+
 <script src="{{template('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{template('assets/plugins/bootstrap-touchspin/js/bootstrap-touchspin-script.js')}}"></script>
 
 <script src="{{template('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
+
+
 <script>
-    $(document).ready(function() {
-      $('input[name="paysystem"]:first').prop('checked', true);
-    });
+
     const [currency_exchange] = JSON.parse('[{{currency_exchange_info()|raw}}]');
+
+    $(document).ready(function() {
+        $("input[name='countValue']").TouchSpin({
+            min: currency_exchange.min_donate_bonus_coin,
+            max: currency_exchange.max_donate_bonus_coin,
+        });
+        $('input[name="paysystem"]:first').prop('checked', true);
+    });
+    $("#countValue").val( ( currency_exchange.min_donate_bonus_coin+currency_exchange.max_donate_bonus_coin)/2 );
+
+    function positionSlider(){
+        let sliderElement = $('#count');
+        let newValue = $("#countValue").val();
+        sliderElement.val(newValue).change();
+        sliderElement.ionRangeSlider('update', { from: newValue });
+        sliderElement.data('ionRangeSlider').update({ from: newValue });
+    }
+
 
     $("#count").ionRangeSlider({
         min: currency_exchange.min_donate_bonus_coin,
         max: currency_exchange.max_donate_bonus_coin,
-        from: (currency_exchange.min_donate_bonus_coin+currency_exchange.max_donate_bonus_coin)/2
+        from: (currency_exchange.min_donate_bonus_coin+currency_exchange.max_donate_bonus_coin)/2,
+        onChange: function (data) {
+            $("#countValue").val(data.from);
+        }
     });
 
     function currency(val){
@@ -157,7 +181,13 @@
     currency($("#count").val())
 
     $("#count").on("change", function(){
-        currency($(this).val())
+        currency($(this).val());
+        $("#countValue").val($("#count").val());
+    });
+
+    $("#countValue").on("change", function(){
+        currency($(this).val());
+        positionSlider()
     });
 
 
