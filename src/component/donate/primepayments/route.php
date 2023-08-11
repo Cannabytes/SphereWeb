@@ -19,7 +19,7 @@ $routes = [
     ],
 
     [
-        "method"  => "GET",
+        "method"  => "POST",
         "pattern" => "/donate/transfer/primepayments",
         "file"    => "pay.php",
         "call"    => function() {

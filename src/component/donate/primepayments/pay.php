@@ -27,6 +27,8 @@ class primepayments {
      */
     private $allowIP = [
         '136.243.38.108',
+        '37.1.217.38',
+        '186.2.162.11',
     ];
 
     /**
