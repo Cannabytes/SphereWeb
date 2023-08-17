@@ -169,9 +169,11 @@ class player_account {
         self::valid_login($login);
         self::valid_password($password);
         self::valid_email($email);
-        if (!auth::exist_user($email)) {
-            registration::add($email, $password, true);
+
+        if (auth::is_user($email)) {
+            board::notice(false, lang::get_phrase(201, $email));
         }
+        registration::add($email, $password, false, false);
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
         if ($get_server_info['rest_api_enable']){
             $err = self::account_registration($server_id, [
@@ -194,8 +196,6 @@ class player_account {
             }
         }
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
-        session::add('email', $email);
-        session::add('password', $password);
         board::notice(true, lang::get_phrase(207));
     }
 

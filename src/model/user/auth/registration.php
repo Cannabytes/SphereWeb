@@ -19,7 +19,7 @@ use Ofey\Logan22\model\user\player\player_account;
 class registration {
 
     //Регистрация
-    static public function add($email, $password, $ret = false) {
+    public static function add($email, $password, $ret = false, $show_notice = true) {
         $timezone = null;
         $get_timezone_ip = null;
         $user_referral = null;
@@ -87,7 +87,9 @@ class registration {
             session::add('id', $userID);
             session::add('email', $email);
             session::add('password', $password);
-            board::notice(true, lang::get_phrase(177));
+            if($show_notice){
+                board::notice(true, lang::get_phrase(177));
+            }
         } else {
             board::notice(false, lang::get_phrase(178));
         }
