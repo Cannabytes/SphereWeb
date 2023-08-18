@@ -13,10 +13,33 @@
                                 <label for="login_main_registration" class="col-sm-3 col-form-label">{{ phrase("login") }} <a
                                         id="new_account_word" href="#"><i aria-hidden="true"
                                                                           class="fa fa-refresh"></i></a></label>
-                                <div class="col-sm-9">
+                                {% if prefix_info()['type'] == "prefix" %}
+                                    {% if prefix_info()['enable'] %}
+                                    <div class="col-sm-2" style="padding: 0;">
+                                        <select class="form-control prefixlist" name="prefix" >
+                                            <option disabled>------------------</option>
+                                            <option value="null">Без префикса</option>
+                                            <option class="prefixRefresh">Обновить</option>
+                                        </select>
+                                    </div>
+                                 {% endif %}
+                                {% endif %}
+                                <div class="col-sm-{% if prefix_info()['enable'] %}7{%else%}9{%endif%}">
                                     <input value="{{generation_account}}" name="login" type="text"
                                            class="form-control form-control" id="login_main_registration">
                                 </div>
+
+                                {% if prefix_info()['type'] == "suffix" %}
+                                    {% if prefix_info()['enable'] %}
+                                    <div class="col-sm-2" style="padding: 0;">
+                                        <select class="form-control prefixlist" name="prefix" >
+                                            <option disabled>------------------</option>
+                                            <option value="null">Без префикса</option>
+                                            <option class="prefixRefresh">Обновить</option>
+                                        </select>
+                                    </div>
+                                    {% endif %}
+                                {% endif %}
                             </div>
 
 
@@ -37,6 +60,7 @@
                             </div>
 
                             {% if user_info('get_is_auth') == false %}
+                            <hr>
                             <div class="form-group row">
                                 <label for="email_main_registration" class="col-sm-3 col-form-label">E-Mail</label>
                                 <div class="col-sm-9">

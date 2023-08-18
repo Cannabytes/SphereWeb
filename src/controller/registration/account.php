@@ -32,15 +32,28 @@ class account {
     }
 
     public static function requestNewAccount() {
-//        $server_id = request::setting('server', new request_config(isNumber: true));
-        $login = request::setting('login', new request_config(min: 4, max: 16, rules: "/^[a-zA-Z0-9]+$/"));
+        $login = request::setting('login', new request_config(min: 4, max: 16, rules: "/^[a-zA-Z0-9_]+$/"));
+        $prefixInfo = require "src/config/prefix_suffix.php";
+        if ($prefixInfo['enable']) {
+            if ($prefixInfo['type'] == "prefix") {
+                $prefix = $_POST['prefix'] ?? "";
+                if ($prefix != "null") {
+                    $login = $prefix . $login;
+                }
+            } else {
+                $prefix = $_POST['prefix'] ?? "";
+                if ($prefix != "null") {
+                    $login = $login . $prefix;
+                }
+            }
+        }
         $password = request::setting('password', new request_config(min: 4, max: 60));
         $password_hide = request::checkbox('password_hide');
         if (auth::get_is_auth()) {
             player_account::add($login, $password, $password_hide);
         } else {
             if (config::get_captcha_version("google")) {
-                $g_captcha = google::check($_POST['captcha']??null);
+                $g_captcha = google::check($_POST['captcha'] ?? null);
                 if (isset($g_captcha['success'])) {
                     if (!$g_captcha['success']) {
                         board::notice(false, $g_captcha['error-codes'][0]);

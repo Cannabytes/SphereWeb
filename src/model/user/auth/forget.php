@@ -101,7 +101,7 @@ class forget {
         }
 
         $password = generation::password();
-        if(auth::change_user_password($email, $password)) {
+        if(auth::change_user_password($email, password_hash($password, config::algorithm_hashing_user_password()))) {
             sql::run("UPDATE `users_password_forget` SET `active` = ? WHERE `id` = ?", [
                 0,
                 $ok['id'],

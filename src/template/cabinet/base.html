@@ -367,12 +367,36 @@
                         <div>
                             <div class="form-group row">
                                 <label for="login" class="col-sm-2 col-form-label">{{ phrase("login") }} <a
-                                        id="new_account_word" href="#"><i aria-hidden="true"
-                                                                          class="fa fa-refresh"></i></a></label>
-                                <div class="col-sm-6">
-                                    <input value="{{generation_account()}}" name="login" type="text"
+                                        id="new_account_word" href="#"><i aria-hidden="true" class="fa fa-refresh"></i></a></label>
+                                {% if prefix_info()['type'] == "prefix" %}
+                                    {% if prefix_info()['enable'] %}
+                                    <div class="col-lg-1" style="padding: 0;">
+                                        <select data-type="{{prefix_info()['type']}}" class="form-control form-control-xl prefixlist" name="prefix" >
+                                            <option disabled>------------------</option>
+                                            <option value="null">Без префикса</option>
+                                            <option class="prefixRefresh">Обновить</option>
+                                        </select>
+                                    </div>
+                                    {% endif %}
+                                {% endif %}
+
+                                <div class="col-sm-{% if prefix_info()['enable'] %}5{%else%}6{%endif%}">
+                                    <input value="{{generation_account()}}" name="login" type="text" maxlength="16"
                                            class="form-control form-control-xl" id="login">
                                 </div>
+
+                                {% if prefix_info()['type'] == "suffix" %}
+                                    {% if prefix_info()['enable'] %}
+                                    <div class="col-lg-1" style="padding: 0;">
+                                        <select data-type="{{prefix_info()['type']}}" class="form-control form-control-xl prefixlist" name="prefix" >
+                                            <option disabled>------------------</option>
+                                            <option value="null">Без суффикса</option>
+                                            <option class="prefixRefresh">Обновить</option>
+                                        </select>
+                                    </div>
+                                    {% endif %}
+                                {% endif %}
+
                                 <div class="col-sm-4">
                                     <p class="text-left">
                                         {{phrase(132, 4, 16)|raw}}

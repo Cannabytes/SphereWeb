@@ -206,7 +206,7 @@ class player_account {
         if (16 < mb_strlen($login)) {
             board::notice(false, lang::get_phrase(209));
         }
-        if (!preg_match("/^[a-zA-Z0-9]+$/", $login) == 1) {
+        if (!preg_match("/^[a-zA-Z0-9_]+$/", $login) == 1) {
             board::notice(false, lang::get_phrase(210));
         }
     }

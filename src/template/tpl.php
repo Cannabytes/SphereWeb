@@ -131,6 +131,10 @@ class tpl
             return strcasecmp(config::get_captcha_version(), $name) == 0;
         }));
 
+        $twig->addFunction(new TwigFunction('prefix_info', function () {
+            return require "src/config/prefix_suffix.php";
+        }));
+
         $twig->addFunction(new TwigFunction('google_secret_key', function () {
                 return google::get_client_key();
         }));

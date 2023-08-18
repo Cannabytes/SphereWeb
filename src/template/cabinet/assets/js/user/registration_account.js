@@ -1,5 +1,8 @@
 $(document).ready(function () {
+    generateRandomCharacters(2,5)
     captchaVersion = $('meta[name="get_captcha_version"]').attr('content');
+
+
 
     $("#registration_game_account").click(function (e) {
         e.preventDefault();
@@ -15,18 +18,14 @@ $(document).ready(function () {
         var formData = new FormData();
         var inputs = form.find('input, select');
         inputs.each(function() {
-            // Проверяем тип элемента
             var type = this.type;
             if (type === 'select-one') {
-              // Для элемента select добавляем выбранное значение
               formData.append(this.name, this.value);
             } else if (type === 'checkbox' || type === 'radio') {
-              // Для элементов checkbox и radio добавляем значение, только если они выбраны
               if (this.checked) {
                 formData.append(this.name, this.value);
               }
             } else {
-              // Для остальных элементов input добавляем их значение
               formData.append(this.name, this.value);
             }
         });
@@ -70,6 +69,34 @@ $(document).ready(function () {
            get_captcha()
     });
 
+    $(document).on("click", ".prefixRefresh", function (){
+       generateRandomCharacters(2, 5);
+    });
+
 
 });
+
+
+function generateRandomCharacters(length, count) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const prefixArray = [];
+    for (let j = 0; j < count; j++) {
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            result += characters.charAt(randomIndex);
+        }
+        prefixArray.push(result);
+    }
+    var elementType = $('.prefixlist').data('type');
+    $(".prefixlist [data-prefix='true']").remove();
+    prefixArray.forEach(prefix => {
+        if(elementType=="prefix"){
+            $(".prefixlist").prepend(`<option value="${prefix}_" data-prefix="true">${prefix}_</option>`);
+        }else{
+            $(".prefixlist").prepend(`<option value="_${prefix}" data-prefix="true">_${prefix}</option>`);
+        }
+    });
+    $(".prefixlist").val($(".prefixlist [data-prefix='true']:first").val());
+}
 
