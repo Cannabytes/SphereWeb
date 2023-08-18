@@ -75,9 +75,18 @@ $(document).ready(function () {
 
     function registration_panel(url, form) {
         var formData = new FormData();
-        var inputs = form.find('input');
+        var inputs = form.find('input, select');
         inputs.each(function() {
-          formData.append(this.name, this.value);
+            var type = this.type;
+            if (type === 'select-one') {
+                formData.append(this.name, this.value);
+            } else if (type === 'checkbox' || type === 'radio') {
+                if (this.checked) {
+                    formData.append(this.name, this.value);
+                }
+            } else {
+                formData.append(this.name, this.value);
+            }
         });
         if (captchaVersion == "google") {
            google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
@@ -102,7 +111,19 @@ $(document).ready(function () {
       }).done(function (data) {
           console.log(data);
           if (data.ok) {
-            window.location.href = "/main";
+              notify_success(data.message)
+              if(data.isDownload){
+                  var blob = new Blob([data.content], { type: "text/plain" });
+                  var link = document.createElement("a");
+                  link.href = URL.createObjectURL(blob);
+                  link.download = data.title;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+              }
+              setTimeout(function() {
+                  window.location.href = "/main";
+              }, 1000);
           } else {
               notify_error(data.message)
               if (captchaVersion != "google") {

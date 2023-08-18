@@ -12,5 +12,6 @@ return [
     //prefix or suffix
     //prefix добавляет в начало символы Sj_login
     //suffix добавляет в конец слова символы login_Sj
-    'type' => 'suffix',
+    'type' => 'prefix',
 ];
+

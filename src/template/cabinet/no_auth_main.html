@@ -16,7 +16,7 @@
                                 {% if prefix_info()['type'] == "prefix" %}
                                     {% if prefix_info()['enable'] %}
                                     <div class="col-sm-2" style="padding: 0;">
-                                        <select class="form-control prefixlist" name="prefix" >
+                                        <select data-type="{{prefix_info()['type']}}" class="form-control prefixlist" name="prefix" >
                                             <option disabled>------------------</option>
                                             <option value="null">Без префикса</option>
                                             <option class="prefixRefresh">Обновить</option>
@@ -32,7 +32,7 @@
                                 {% if prefix_info()['type'] == "suffix" %}
                                     {% if prefix_info()['enable'] %}
                                     <div class="col-sm-2" style="padding: 0;">
-                                        <select class="form-control prefixlist" name="prefix" >
+                                        <select data-type="{{prefix_info()['type']}}" class="form-control prefixlist" name="prefix" >
                                             <option disabled>------------------</option>
                                             <option value="null">Без префикса</option>
                                             <option class="prefixRefresh">Обновить</option>

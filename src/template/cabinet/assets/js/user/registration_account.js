@@ -100,9 +100,10 @@ function generateRandomCharacters(length, count) {
     var elementType = $('.prefixlist').data('type');
     $(".prefixlist [data-prefix='true']").remove();
     prefixArray.forEach(prefix => {
-        if(elementType=="prefix"){
+        if(elementType==="prefix"){
             $(".prefixlist").prepend(`<option value="${prefix}_" data-prefix="true">${prefix}_</option>`);
-        }else{
+        }
+        if(elementType==="suffix"){
             $(".prefixlist").prepend(`<option value="_${prefix}" data-prefix="true">_${prefix}</option>`);
         }
     });
