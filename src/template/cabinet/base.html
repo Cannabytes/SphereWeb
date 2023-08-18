@@ -547,8 +547,12 @@
 
 {% if user_info('get_is_auth') == false %}
 <script src="{{template('assets/js/user/captcha.js')}}"></script>
-<script src="{{template('assets/js/auth/auth.js')}}"></script>
 {% endif %}
+
+<script src="{{template('assets/js/user/registration_account.js')}}"></script>
+<script src="{{template('assets/js/auth/auth.js')}}"></script>
+
+
 {% if user_info('get_is_auth') %}
 {% if user_info('get_is_auth') and user_info('getBonus')|length >= 1 %}
 <script src="{{template('assets/plugins/select2/js/select2.min.js')}}"></script>

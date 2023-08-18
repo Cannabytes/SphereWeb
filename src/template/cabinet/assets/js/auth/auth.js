@@ -54,8 +54,6 @@ $(document).ready(function () {
         registration_panel("/registration/account", $('#panel_registration_page'));
     });
 
-
-
     function authorization_panel(authPanel) {
         var formData = new FormData();
         var inputs = authPanel.find('input');

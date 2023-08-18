@@ -2,8 +2,6 @@ $(document).ready(function () {
     generateRandomCharacters(2,5)
     captchaVersion = $('meta[name="get_captcha_version"]').attr('content');
 
-
-
     $("#registration_game_account").click(function (e) {
         e.preventDefault();
         registration_panel("/registration/account", $('#panel_registration_account'));
@@ -81,7 +79,6 @@ $(document).ready(function () {
     $(document).on("click", ".prefixRefresh", function (){
        generateRandomCharacters(2, 5);
     });
-
 
 });
 
