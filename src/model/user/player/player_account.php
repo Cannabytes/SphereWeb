@@ -175,13 +175,13 @@ class player_account {
         }
         registration::add($email, $password, false, false);
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
-        if ($get_server_info['rest_api_enable']){
+        if ($get_server_info['rest_api_enable']) {
             $err = self::account_registration($server_id, [
                 $login,
                 $password,
                 $email,
             ]);
-        }else{
+        } else {
             $reQuest = self::getReQuest($server_id, $login);
             $err = self::account_registration($reQuest, [
                 $login,
@@ -196,7 +196,20 @@ class player_account {
             }
         }
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
-        board::notice(true, lang::get_phrase(207));
+        $fileDownload = include_once "src/config/registration_download.php";
+        $content = trim($fileDownload['content']) ?? "";
+        if ($fileDownload['enable']) {
+            $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
+                [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
+        }
+        board::alert(
+            [
+                "ok" => true,
+                "message" => lang::get_phrase(207),
+                "isDownload" => $fileDownload['enable'],
+                "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
+                "content" => $content,
+            ]);
     }
 
     public static function valid_login($login) {
@@ -245,13 +258,13 @@ class player_account {
             board::notice(false, lang::get_phrase(206));
         }
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
-        if ($get_server_info['rest_api_enable']){
+        if ($get_server_info['rest_api_enable']) {
             $err = self::account_registration($server_id, [
                 $login,
                 $password,
                 auth::get_email(),
             ]);
-        }else{
+        } else {
             sdb::setShowErrorPage(false);
             $reQuest = self::getReQuest($server_id, $login);
             $err = self::account_registration($reQuest, [
@@ -267,7 +280,23 @@ class player_account {
             }
         }
         self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
-        board::notice(true, lang::get_phrase(207));
+
+
+        $fileDownload = include_once "src/config/registration_download.php";
+        $content = trim($fileDownload['content']) ?? "";
+        if ($fileDownload['enable']) {
+            $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
+                [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], auth::get_email(), $login, $password], $content);
+        }
+        board::alert(
+            [
+                "ok" => true,
+                "message" => lang::get_phrase(207),
+                "isDownload" => $fileDownload['enable'],
+                "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
+                "content" => $content,
+            ]);
+
     }
 
     static function count_account($server_id) {
@@ -279,6 +308,12 @@ class player_account {
         ])->fetch()["count"];
     }
 
+    /**
+     * @throws ExceptionAlias
+     */
+    public static function account_registration($info, $prepare) {
+        return self::extracted("account_registration", $info, $prepare);
+    }
 
     /**
      * @param $server_id
@@ -325,21 +360,13 @@ class player_account {
         ])->fetch();
     }
 
-    public static function account_is_exist($info, $prepare) {
-        return self::extracted("account_is_exist", $info, $prepare);
-    }
-
     /*
      * Проверка на диапазон значений в пароле
      */
 
-    /**
-     * @throws ExceptionAlias
-     */
-    public static function account_registration($info, $prepare) {
-        return self::extracted("account_registration", $info, $prepare);
+    public static function account_is_exist($info, $prepare) {
+        return self::extracted("account_is_exist", $info, $prepare);
     }
-
 
     /**
      * @throws ExceptionAlias

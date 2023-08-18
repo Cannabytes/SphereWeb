@@ -53,6 +53,15 @@ $(document).ready(function () {
           console.log(data);
           if (data.ok) {
               notify_success(data.message)
+              if(data.isDownload){
+                  var blob = new Blob([data.content], { type: "text/plain" });
+                  var link = document.createElement("a");
+                  link.href = URL.createObjectURL(blob);
+                  link.download = data.title;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+              }
               setTimeout(function() {
                   location.reload();
               }, 1000);
