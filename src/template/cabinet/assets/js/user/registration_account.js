@@ -76,8 +76,8 @@ $(document).ready(function () {
            get_captcha()
     });
 
-    $(document).on("click", ".prefixRefresh", function (){
-       generateRandomCharacters(2, 5);
+    $(document).on("change", ".prefixlist", function() {
+        generateRandomCharacters(2, 5);
     });
 
 });
