@@ -274,6 +274,14 @@ class client {
                 'protocol' => [388],
                 'name'     => "Master Class Ch. 3",
             ],
+            [
+                'protocol' => [418],
+                'name'     => "The Source of Flame",
+            ],
+            [
+                'protocol' => [439],
+                'name'     => "Age of Magic",
+            ],
         ];
     }
 }
