@@ -92,7 +92,7 @@ class freekassa {
             die('wrong sign');
         }
 
-        $amount = donate::currency($amount, $_REQUEST['currency']);
+        $amount = donate::currency($amount, "RUB" );
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }
