@@ -8,8 +8,8 @@ use Ofey\Logan22\component\alert\board;
 
 class google {
 
-    private static string $client_key = "6LeyGOAmAAAAABZoLda4l-D49qpFzpDGICszdvEH";
-    private static string $server_key = "6LeyGOAmAAAAAGp5DSOLm2yYULYfBWYEJU7W4RRU";
+    private static string $client_key = "";
+    private static string $server_key = "";
 
     public static function check($token = null){
         if($token===null){
