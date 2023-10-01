@@ -19,6 +19,11 @@ class encrypt {
                 return base64_encode(hash('whirlpool', $password, true));
             case 'sha1':
                 return base64_encode(hash('sha1', $password, true));
+            case 'bcrypt':
+                $hashedpass = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
+                
+                // Замена идентификатора версии алгоритма, ибо эмуляторы используют старый алгоритм
+                return str_replace('$2y', '$2a', $hashedpass);
         }
     }
 
