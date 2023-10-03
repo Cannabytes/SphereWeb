@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\account\password;
 
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\player\change_password;
@@ -27,13 +28,12 @@ class change {
             'server_id'     => $server_id,
             'password_hide' => $exist_account_inside['password_hide'],
         ]);
-
-        tpl::display("account_password_change.html");
+        tpl::display("account/change_password.html");
     }
 
-    static public function password() {
+    public static function password(): void {
         validation::user_protection();
-        $login = $_POST['login'];
+        $login = $_POST['login'] ?? board::notice(false, "Не получен login");
         $server_id = $_POST['server_id'];
         $password = $_POST['password'];
         $password_hide = isset($_POST['password_hide']) ? 1 : 0;

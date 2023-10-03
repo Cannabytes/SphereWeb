@@ -73,7 +73,6 @@ class referral {
                 auth::get_id(),
             ]
         );
-
         $characters = [];
         foreach ($ref_users as &$user) {
             $playerAccounts = sql::getRows(
@@ -86,6 +85,7 @@ class referral {
                 player_accounts.email = ?",
                 [$user['email']]
             );
+
             foreach ($playerAccounts as &$char) {
                 $login = $char['login'];
                 $server_id = $char['server_id'];

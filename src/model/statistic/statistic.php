@@ -18,6 +18,7 @@ use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
+use Ofey\Logan22\model\user\player\character;
 
 class statistic {
 
@@ -81,7 +82,7 @@ class statistic {
         return $data;
     }
 
-    static private function get_data_statistic_clan(dir $dir, string $collection_sql_name, string $clan_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = false): ?array {
+    private static function get_data_statistic_clan(dir $dir, string $collection_sql_name, string $clan_name = null, int $server_id = 0, bool $acrossAll = true, bool $crest_convert = true, $prepare = [], $second = 60, $playerForbidden = false): ?array {
         [
             $server_info,
             $json,
@@ -97,7 +98,11 @@ class statistic {
             $data = server::across($collection_sql_name, $server_info, $prepare);
         }
         if($playerForbidden){
-            self::charInfoPerm($data);
+            if($collection_sql_name == 'statistic_clan_data'){
+                character::is_forbidden($data, "player_forbidden");
+            }else{
+                self::charInfoPerm($data);
+            }
         }
         if($data) {
             if($crest_convert) {

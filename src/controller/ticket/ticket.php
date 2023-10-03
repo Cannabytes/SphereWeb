@@ -44,6 +44,9 @@ class ticket {
     public static function get($id) {
         if(!config::getEnableReferral()) error::error404("Disabled");
         $ticket = ticket_model::get_info($id);
+        if(!$ticket){
+            error::error404();
+        }
         if($ticket['private'] and auth::get_id() != $ticket['user_id'] and auth::get_access_level() != "admin"){
             error::error404("Тикет скрыт настройками приватности");
         }

@@ -1,0 +1,35 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(36)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{phrase(36)}}</h3>
+            <div class="block-options">
+                <div class="block-options-item">
+                    <a class="btn btn-sm btn-alt-secondary ajaxload" href="/admin/options">
+                        <i class="fa fa-briefcase opacity-50 me-1"></i> {{phrase("add_new_server")}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="block-content">
+            <table class="table table-sm table-vcenter">
+                <tbody>
+                {% for server in get_server_info() %}
+                <tr>
+                    <td>{% if server.desc_page_id %}<a class="ajaxload" href="/page/{{ server.id }}">{{ server.name }} x{{ server.rate_exp }}</a>{% else %}{{ server.name }} x{{ server.rate_exp }}{% endif %}</td>
+                    <td>{{ server.chronicle }}</td>
+                    <td><a class="ajaxload" href="/admin/options/server/edit/{{ server.id }}">{{ phrase("edit") }}</a></td>
+                    <td><a class="ajaxload" href="/admin/options/server/launcher/add/{{ server.id }}">{{phrase("menu_launcher")}}</a></td>
+                    <td><a class="ajaxload" href="/admin/options/server/description/{{ server.id }}">{{ phrase(264) }}</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

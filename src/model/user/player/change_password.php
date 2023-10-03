@@ -35,8 +35,7 @@ class change_password {
                 self::change_password_server($server_id, $login, $password);
             }
         } else {
-            header('Location: /main');
-            die();
+            board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
         }
     }
 
@@ -57,7 +56,7 @@ class change_password {
                 //TODO: добавление в логирование ошибок
                 board::notice(false, lang::get_phrase(180));
             } else {
-                board::notice(true, lang::get_phrase(181));
+                board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
             }
         }
     }

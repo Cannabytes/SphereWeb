@@ -1,0 +1,97 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(40)}}{% endblock %}
+
+{% block content %}
+
+
+<div class="bg-gd-dusk">
+    <div class="hero-static content content-full bg-body-extra-light">
+        <!-- Header -->
+        <div class="py-4 px-1 text-center mb-4">
+            <h1 class="h3 fw-bold mt-5 mb-2">{{phrase(40)}}</h1>
+        </div>
+        <!-- END Header -->
+
+        <!-- Sign In Form -->
+        <div class="row justify-content-center px-1">
+            <div class="col-sm-8 col-md-6 col-xl-4">
+                <form class="js-validation-signin" action="/registration/account" method="POST" autocomplete="off">
+                    <div class="form-floating mb-4">
+                        <div class="row">
+
+                        {% if prefix_info()['type'] == "prefix" %}
+                        {% if prefix_info()['enable'] %}
+
+                        <div class="col-3" id="prefix_account_div">
+                            <div class="form-floating mb-2">
+                                <select data-type="{{prefix_info()['type']}}" class="form-select prefixlist" id="prefix_account" name="prefix" aria-label="prefix">
+                                    <option disabled="disabled"></option>
+                                    <option value="off_prefix">{{phrase(479)}}</option>
+                                </select>
+                                <label class="form-label" for="prefix_account">{{phrase(478)}}</label>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endif %}
+
+                        <div class="col-9" id="registration_login_div">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control text-center" value="" id="registration_login" name="login" placeholder="{{phrase(480)}}"  >
+                                    <label class="form-label" for="registration_login">{{phrase(480)}}</label>
+                                </div>
+                        </div>
+
+                        {% if prefix_info()['type'] == "suffix" %}
+                        {% if prefix_info()['enable'] %}
+                        <div class="col-3">
+                            <div class="form-floating mb-4">
+                                <select data-type="{{prefix_info()['type']}}" class="form-select prefixlist"  id="suffix_account" name="prefix"
+                                        aria-label="Floating label select example">
+                                </select>
+                                <label class="form-label" for="suffix_account">{{phrase(481)}}</label>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endif %}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check form-switch" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase(483)}}">
+                                <input class="form-check-input" type="checkbox" value="" id="password_hide" name="password_hide" checked="">
+                                <label class="form-check-label" for="password_hide">{{phrase(482)}}</label>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <a href="#" class="form-label generation_password" for="password" >{{phrase(484)}}</a>
+                        </div>
+
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control text-center password" value="" id="password" name="password"
+                               placeholder="{{phrase('password')}}" >
+                        <label class="form-label" for="password">{{phrase("password")}}</label>
+                    </div>
+
+                    <div class="row g-sm mb-4">
+                        <div class="col-12 mb-2">
+                            <button type="submit" class="btn btn-lg btn-alt-primary w-100 py-3 fw-semibold">
+                                {{phrase(40)}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END Sign In Form -->
+    </div>
+</div>
+
+
+{% endblock %}

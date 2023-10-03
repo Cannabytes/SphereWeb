@@ -1,0 +1,70 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+    .chat {
+        min-height: 70vh; /* Максимальная высота чата */
+        max-height: 70vh; /* Максимальная высота чата */
+        overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    }
+
+</style>
+
+<div class="content">
+<div class="">
+    <div class="block block-rounded">
+        <div class="block-content  chat">
+                <ul id="chat_messages" class="timeline  pull-t">
+                </ul>
+        </div>
+        <div class="block-content block-content-full text-center bg-body-light">
+
+            <div class="row">
+                <div class="col-md-12 col-xl-6">
+                    <div class="block block-rounded block-link-shadow">
+                        <div class="block-content block-content-full">
+                            <div class="row row-cols-lg-auto g-3 align-items-center" >
+                                <div class="col-12 col-lg-8">
+                                    <label class="visually-hidden" for="user_message"></label>
+                                    <input type="text" class="form-control" id="user_message" name="user_message" placeholder="" >
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <button id="search_user_message" type="submit" class="btn btn-primary">Поиск по нику</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-6">
+                    <div class="block block-rounded block-link-shadow">
+                        <div class="block-content block-content-full">
+                            <div class="row row-cols-lg-auto g-3 align-items-center"  >
+                                <div class="col-12 col-lg-8">
+                                    <label class="visually-hidden" for="text_message"></label>
+                                    <input type="text" class="form-control" id="text_message" name="text_message" placeholder="">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <button id="search_message_text" type="submit" class="btn btn-primary">Поиск по сообщению</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

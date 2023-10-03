@@ -1,0 +1,44 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="row">
+
+        {% if get_enable_game_chat() %}
+
+        <div class="col-sm-4">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Чат игры сервера {{get_server_default().name}}</h3>
+                        <div class="block-options">
+                            <div class="block-options-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value="" id="enableChatScrolling"
+                                           name="enableChatScrolling" {%if get_user_variables("chat_scrolling") == "true"
+                                    %}checked=""{%endif%}>
+                                    <button type="button" class="btn btn-sm btn-secondary me-1 mb-1" id="chatDownScroll">Прокрутить
+                                        вниз
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="block-rounded chat">
+                            <ul id="chat_messages" class="timeline pull-t">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        {%endif%}
+
+    </div>
+
+    {{ block("forum", "forum/forum.html") }}
+
+</div>
+{% endblock %}

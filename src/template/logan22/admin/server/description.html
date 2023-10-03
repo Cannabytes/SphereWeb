@@ -1,0 +1,79 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("page_description")}}{% endblock %}
+
+{% block content %}
+
+<div class="content">
+
+    <div class="block block-rounded">
+        <div class="block-content block-content-full">
+            <form method="POST" action="/admin/options/server/description">
+                <div class="py-3 text-center">
+                    <input name="id" type="hidden" value="{{ server_id }}">
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label" for="lang">{{ phrase(22) }}</label>
+                            <select class="form-control" id="lang" name="lang">
+                                {% for lang in lang_list() %}
+                                <option value="{{lang['lang']}}" {% if page_lang==lang['lang'] %} selected {% endif %}>
+                                    {{lang['name']}}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-8">
+                            <label class="form-label" for="page_id">{{ phrase(22) }}</label>
+                            <select class="form-control" id="page_id" name="page_id">
+                                {% for page in all_page_name %}
+                                <option value="{{page['id']}}">{{page['name']}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">{{phrase(438)}}</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="block block-rounded">
+        <div class="block-content">
+            <table class="table table-vcenter">
+                <thead>
+                <tr>
+                    <th scope="col">{{phrase("lang")}}</th>
+                    <th scope="col">{{phrase("page_description")}}</th>
+                    <th scope="col">{{phrase("default")}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for page in desc_server_list_short %}
+                <tr>
+                    <td>
+                        {{page.lang}}
+                    </td>
+                    <td><a href="/page/{{page.page_id}}">{{page.name}}</a></td>
+                    <td>
+                        <div>
+                            <input type="radio" name="is_default" value="{{page.page_id}}" data-lang="{{page.lang}}" data-server_id="{{page.server_id}}"
+                                   class="form-check-input radio-switch"
+                                   {%if page.default %}checked{%endif%}>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

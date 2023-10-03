@@ -41,12 +41,11 @@ class Route extends Router {
 
     public function __construct() {
         $this->__addingPlugin();
-
         //Загрузка из шаблона указанных файлов
         if($pages = tpl::template_design_route()) {
             foreach($pages as $page => $template) {
                 parent::get($page, function() use ($template) {
-                    tpl::display($template, true);
+                    tpl::displayDemo($template);
                 });
             }
         }
@@ -55,16 +54,26 @@ class Route extends Router {
     private static array  $aliases = [];
     private static string $pattern;
 
+    public function all($pattern, $fn) {
+        parent::all($pattern, $fn);
+        self::$pattern = $pattern;
+        return $this;
+    }
+
     public function get($pattern, $fn) {
         parent::get($pattern, $fn);
         self::$pattern = $pattern;
         return $this;
     }
 
+
     public function alias($alias, $pattern = null): static {
         if($pattern == null) {
-            self::add_alias($alias, self::$pattern);
+            self::add_alias($alias, '/' . self::$pattern);
         } else {
+            if ($pattern[0] !== '/') {
+                $pattern = '/' . $pattern;
+            }
             self::add_alias($alias, $pattern);
         }
         return $this;

@@ -1,0 +1,99 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("templates")}}{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">{{phrase("template")}}</h3>
+    </div>
+    <div class="block-content">
+        <form action="/admin/template/save" method="POST" onsubmit="return false;">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="mb-4">
+                        <label class="form-label" for="template">{{phrase("template_basic_page")}}</label>
+                        <select class="form-select" id="template" name="template" size="6" >
+                            {% for name in template_list %}
+                            <option value="{{name}}" {%if name == get_template() %} selected {% endif %}>{{name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 col-xl-4">
+                            <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                                    <div class="me-1">
+                                        <p class="fs-lg fw-semibold mb-0" id="version">
+                                            {{demo['version'] ?? '0.0' }}
+                                        </p>
+                                        <p class="fs-sm text-uppercase fw-semibold text-muted mb-0">
+                                            {{phrase(261)}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                                    <div class="me-1">
+                                        <p class="fs-lg fw-semibold mb-0" id="date">
+                                            {{demo['date']|date('d.m.Y')}}
+                                        </p>
+                                        <p class="fs-sm text-uppercase fw-semibold text-muted mb-0">
+                                            {{phrase(262)}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                                <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                                    <div class="me-1">
+                                        <p class="fs-lg fw-semibold mb-0" id="author">
+                                            {{demo['author'] ?? '-'}}
+                                        </p>
+                                        <p class="fs-sm text-uppercase fw-semibold text-muted mb-0">
+                                            {{phrase(263)}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="lead" id="description"></p>
+                    {{demo['description']}}
+                    <hr>
+
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="opacity-50 me-1"></i> {{phrase(266)}}
+                        </button>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-7">
+                    <div class="mb-4">
+                        <div class="col-md-6 col-lg-8 col-xl-9 animated fadeIn">
+                            <a class="img-link img-link-zoom-in img-thumb img-lightbox" id="screen_href" href="{{ img ?? '/src/template/logan22/assets/images/none.png' }}">
+                                <img id="screen" class="img-fluid" src="{{ img ?? '/src/template/logan22/assets/images/none.png' }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

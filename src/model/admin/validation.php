@@ -18,15 +18,18 @@ class validation {
      * user, admin
      * default: all
      */
-    public static function user_protection($var = ["user", "admin"]) {
+    public static function user_protection($var = ["user", "moderator", "admin"], $need_redirect = true) {
         $user_privilege = auth::get_access_level();
         if(in_array($user_privilege, (array)$var)) {
             return true;
         }
-        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-            board::notice(false, "Доступ запрещен");
+        if($need_redirect){
+            if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                board::notice(false, "Доступ запрещен");
+            }
+            redirect::location("/main");
         }
-        redirect::location("/main");
+        return false;
     }
 
 

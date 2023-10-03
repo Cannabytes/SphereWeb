@@ -19,38 +19,47 @@ use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\server\server;
 use SimpleCaptcha\Builder;
 
 class auth {
 
     //Записываем сюда юзеров, которых ранее искали
-    private static array $usersMemArray = [];
-
     public static array $userInfo = [];
-    static private bool $is_auth = false;
-    static private int $id;
-    static private string $email;
-    static private string $name;
-    static private string $password;
-    static private string $signature;
-    static private string $ip_registration;
-    static private string $ip;
-    static private string $date_create;
-    static private string $date_update;
-    static private string $access_level = 'guest';
-    static private float $donate_point = 0;
-    static private string $avatar;
-    static private string $avatar_background;
+    private static array $usersMemArray = [];
+    private static bool $is_auth = false;
+    private static int $id;
+    private static string $email;
+    private static string $name;
+    private static string $password;
+    private static string $signature;
+    private static string $ip_registration;
+    private static string $ip;
+    private static string $date_create;
+    private static string $date_update;
+    private static string $access_level = 'guest';
+    private static float $donate_point = 0;
+    private static string $avatar;
+    private static string $avatar_background;
 
     //ban func
-    static private string $timezone;
+    private static string $timezone;
     private static ?bool $ban_page = false;
     private static ?bool $ban_ticket = false;
 
     //bonus
     private static ?bool $ban_gallery = false;
     private static ?array $bonus = [];
+    private static array $user_variables = [];
+
+    public static function get_user_variables($var, $default = null): mixed {
+        return self::$user_variables[$var] ?? ($default ?? false);
+    }
+
+    public static function show_all_variables(): array {
+        return self::$user_variables;
+    }
 
     /**
      * @return false|mixed|void|null
@@ -59,7 +68,7 @@ class auth {
      * Сервер по умолчанию (если нет, то последний)
      * иначе false
      */
-    static public function get_default_server() {
+    public static function get_default_server() {
         $server_id = session::get('default_server');
         $get_server_info = server::get_server_info();
         /*
@@ -89,83 +98,83 @@ class auth {
         return $server_id;
     }
 
-    static public function get_email(): string {
+    public static function get_email(): string {
         return self::$email;
     }
 
-    static public function set_email($email) {
+    public static function set_email($email) {
         self::$email = $email;
     }
 
-    static public function get_name(): string {
+    public static function get_name(): string {
         return self::$name;
     }
 
-    static public function set_name($name = '') {
+    public static function set_name($name = '') {
         self::$name = $name;
     }
 
-    static public function get_signature(): string {
+    public static function get_signature(): string {
         return self::$signature;
     }
 
-    static public function set_signature($signature = "") {
+    public static function set_signature($signature = "") {
         self::$signature = $signature ?? "";
     }
 
-    static public function get_ip_registration(): string {
+    public static function get_ip_registration(): string {
         return self::$ip_registration;
     }
 
-    static public function set_ip_registration($ip_registration) {
+    public static function set_ip_registration($ip_registration) {
         self::$ip_registration = $ip_registration ?? "0.0.0.0";
     }
 
-    static public function get_ip(): string {
+    public static function get_ip(): string {
         return self::$ip;
     }
 
-    static public function set_ip($ip) {
+    public static function set_ip($ip) {
         self::$ip = $ip;
     }
 
-    static public function get_date_create(): string {
+    public static function get_date_create(): string {
         return self::$date_create;
     }
 
-    static public function set_date_create($date_create = '') {
+    public static function set_date_create($date_create = '') {
         self::$date_create = $date_create;
     }
 
-    static public function get_date_update(): string {
+    public static function get_date_update(): string {
         return self::$date_update;
     }
 
-    static public function set_date_update($date_update): void {
+    public static function set_date_update($date_update): void {
         self::$date_update = $date_update;
     }
 
-    static public function get_access_level(): string {
+    public static function get_access_level(): string {
         return self::$access_level;
     }
 
-    static public function set_access_level($access_level): void {
+    public static function set_access_level($access_level): void {
         self::$access_level = $access_level;
     }
 
-    static public function get_donate_point(): float {
+    public static function get_donate_point(): float {
         return self::$donate_point;
     }
 
-    static public function set_donate_point($donate_point): void {
+    public static function set_donate_point($donate_point): void {
         self::$donate_point = $donate_point;
     }
 
-    static public function get_avatar(): string {
+    public static function get_avatar(): string {
         return self::$avatar ?? "none.jpeg";
     }
 
-    static public function set_avatar($avatar = null): void {
+    public static function set_avatar($avatar = null): void {
         if ($avatar == null) {
             self::$avatar = 'none.jpeg';
             return;
@@ -173,26 +182,26 @@ class auth {
         self::$avatar = $avatar;
     }
 
-    static public function get_avatar_background(): string {
+    public static function get_avatar_background(): string {
         return self::$avatar_background;
     }
 
-    static public function set_avatar_background($avatar): void {
+    public static function set_avatar_background($avatar): void {
         self::$avatar_background = $avatar;
     }
 
     /**
      * Применить пароль к текущей сессии
      */
-    static public function apply_password() {
+    public static function apply_password() {
         session::edit("password", self::get_password());
     }
 
-    static public function get_password(): string {
+    public static function get_password(): string {
         return self::$password;
     }
 
-    static public function set_password($password) {
+    public static function set_password($password) {
         self::$password = $password;
     }
 
@@ -223,6 +232,9 @@ class auth {
                     self::set_ban_gallery($auth['ban_gallery']);
 
                     self::setBonus();
+
+                    self::set_user_variables();
+
                     return;
                 }
 
@@ -250,26 +262,8 @@ class auth {
         self::set_ban_ticket(true);
         self::set_ban_gallery(true);
 
-    }
+        self::set_user_variables();
 
-
-    private static function isUserInfoMemory($user_id): mixed {
-        foreach(self::$usersMemArray AS $user){
-            if($user['id']==$user_id){
-                return $user;
-            }
-        }
-        return false;
-    }
-
-    public static function get_user_info($user_id){
-        if($userMem = self::isUserInfoMemory($user_id)){
-            return $userMem;
-        }
-        $sql = 'SELECT users.*,  users_permission.* FROM users LEFT JOIN users_permission ON users.id = users_permission.user_id WHERE id = ?;';
-        $userInfo = sql::run($sql, [$user_id])->fetch();
-        self::$usersMemArray[] = $userInfo;
-        return $userInfo;
     }
 
     public static function exist_user($email, $nCheck = true) {
@@ -292,25 +286,80 @@ class auth {
         self::$ban_page = (bool)$ban_page;
     }
 
-    //Проверка авторизации пользователя
-
     private static function set_ban_ticket(?bool $ban_ticket): void {
         self::$ban_ticket = (bool)$ban_ticket;
     }
 
-    //TODO:Добавить в массив всех пользователей которых мы проверяем
-
     private static function set_ban_gallery(?bool $ban_gallery): void {
         self::$ban_gallery = (bool)$ban_gallery;
     }
-    //Проверка существования юзера
-    //$nCheck = false вернет в случае неудачи false, если true выйдет в логаут из профиля
 
-    static public function exist_user_nickname($nickname, $nCheck = true) {
-        return sql::run('SELECT * FROM `users` WHERE `name` = ?;', [$nickname])->fetch();
+    private static function set_user_variables() {
+        if (!self::get_is_auth()) {
+            foreach (session::get_guest_var() as $n => $v) {
+                self::$user_variables[$n] = [
+                    'var' => $n,
+                    'val' => $v ?? "",
+                ];
+            }
+            return;
+        }
+        $vars = sql::getRows("SELECT * FROM `user_variables` WHERE `user_id` = ?", [self::get_id(),]);
+        foreach ($vars as $var) {
+            self::$user_variables[$var['var']] = $var;
+        }
     }
 
-    //Проверка существования пользователя по его никнейму
+//TODO:Добавить в массив всех пользователей которых мы проверяем
+
+    public
+    static function get_is_auth(): bool {
+        return self::$is_auth;
+    }
+
+    public static function set_is_auth($boolean) {
+        self::$is_auth = $boolean;
+    }
+
+//Проверка существования пользователя по его никнейму
+
+    public
+    static function get_id(): ?string {
+        return self::$id ?? null;
+    }
+
+    public
+    static function set_id($user_id) {
+        self::$id = $user_id;
+    }
+
+//Проверка существования юзера
+
+    public
+    static function get_user_info($user_id) {
+        if ($userMem = self::isUserInfoMemory($user_id)) {
+            return $userMem;
+        }
+        $sql = 'SELECT users.*,  users_permission.* FROM users LEFT JOIN users_permission ON users.id = users_permission.user_id WHERE id = ?;';
+        $userInfo = sql::run($sql, [$user_id])->fetch();
+        self::$usersMemArray[] = $userInfo;
+        return $userInfo;
+    }
+
+    private
+    static function isUserInfoMemory($user_id): mixed {
+        foreach (self::$usersMemArray as $user) {
+            if ($user['id'] == $user_id) {
+                return $user;
+            }
+        }
+        return false;
+    }
+
+    public
+    static function exist_user_nickname($nickname, $nCheck = true) {
+        return sql::run('SELECT * FROM `users` WHERE `name` = ?;', [$nickname])->fetch();
+    }
 
     /**
      * @param $email
@@ -319,14 +368,25 @@ class auth {
      * @throws Exception
      * Проверка существования пользователя по E-Mail
      */
-    public static function is_user($email) {
+    public
+    static function is_user($email) {
         return sql::run('SELECT 1 FROM `users` WHERE `email` = ?;', [$email])->fetch();
     }
 
-    public static function user_enter() {
+//Зачисление пользователю денег
+
+    public
+    static function user_enter() {
         if (auth::get_is_auth()) {
             board::notice(false, lang::get_phrase(160));
         }
+
+        if (!isset($_POST['email']) or !isset($_POST['password'])) {
+            board::notice(false, lang::get_phrase(161));
+        }
+        $email = request::setting('email', new request_config(isEmail: true));
+        $password = request::setting('password', new request_config(max: 32));
+
         if (config::get_captcha_version("google")) {
             $g_captcha = google::check($_POST['captcha'] ?? null);
             if (isset($g_captcha['success']) and !$g_captcha['success']) {
@@ -338,55 +398,30 @@ class auth {
             $userSessionCaptcha = $_SESSION['captcha'];
             captcha::generation();
             if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
-                board::alert([
-                    'ok' => false,
-                    "message" => lang::get_phrase(295),
-                ]);
+                board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
             }
         }
 
-        if (!isset($_POST['email']) or !isset($_POST['password'])) {
-            board::notice(false, lang::get_phrase(161));
-        }
-        $email = request::setting('email', new request_config(isEmail: true));
-        $password = request::setting('password', new request_config(max: 32));
         $user_info = self::exist_user($email);
         if (!$user_info) {
             board::notice(false, lang::get_phrase(164));
         }
-//        var_dump($password, $user_info['password']);exit;
-        if (password_verify($password, $user_info['password'])){
+        if (password_verify($password, $user_info['password'])) {
             session::add('id', $user_info['id']);
             session::add('email', $email);
             session::add('password', $password);
-            board::notice(true, lang::get_phrase(165));
-        } else {
-            board::alert([
-                'ok' => false,
-                "message" => lang::get_phrase(166),
-                "code" => 2,
-            ]);
+            board::response("notice", ["message" => lang::get_phrase(165), "ok"=>true, "redirect" => "/main"]);
         }
-        board::notice(false, lang::get_phrase(166));
+        board::response("notice", ["message" => lang::get_phrase(166), "ok"=>false, "reloadCaptcha" => true]);
     }
 
-    //Проверка существования юзера
-
-    static public function get_is_auth(): bool {
-        return self::$is_auth;
-    }
-
-    static public function set_is_auth($boolean) {
-        self::$is_auth = $boolean;
-    }
-
-    static public function logout() {
+    public static function logout() {
         session::clear();
         header("Refresh: 0;");
         die();
     }
 
-    static public function change_user_password($user_email, $password) {
+    public static function change_user_password($user_email, $password) {
         $update = sql::run("UPDATE `users` SET `password` = ? WHERE `email` = ?", [
             $password,
             $user_email,
@@ -398,14 +433,12 @@ class auth {
         return false;
     }
 
-    //Зачисление пользователю денег
-    static public function change_donate_point(int $user_id, float|int $amount) {
+    public static function change_donate_point(int $user_id, float|int $amount): void {
         $user = self::exist_user_id($user_id);
         if (!$user) {
             //TODO: Тут возможно сделать ошибку с записью в файл
             exit(lang::get_phrase(167));
         }
-
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
             $amount,
             $user_id,
@@ -419,25 +452,24 @@ class auth {
             time::mysql(),
         ]);
 
-        if (config::getDonationBonusPayout() > 0) {
-            $bonus = $amount * (100 + config::getDonationBonusPayout()) * 0.01 - $amount;
-            if($bonus==0) return;
-            sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
-                $bonus,
-                $user_id,
-            ]);
-            sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
-                $user_id,
-                $bonus,
-                'Бонус за пожертвование',
-                time::mysql(),
-            ]);
-        }
-
+        $bonus_procent = donate::getBonusDiscount();
+        $bonus = ($bonus_procent / 100) * $amount;
+        if ($bonus == 0) return;
+        sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+            $bonus,
+            $user_id,
+        ]);
+        sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
+            $user_id,
+            $bonus,
+            "+{$bonus_procent}% Бонус за пожертвование",
+            time::mysql(),
+            1, //Означает что это зачисление от sphere
+        ]);
 
     }
 
-    static public function exist_user_id($id) {
+    public static function exist_user_id($id) {
         self::$userInfo['id'] ??= '';
         if (self::$userInfo['id'] == $id) {
             return self::$userInfo;
@@ -447,19 +479,11 @@ class auth {
         return self::$userInfo;
     }
 
-    static public function add_donate_self($amount) {
+    public static function add_donate_self($amount) {
         sql::run("UPDATE `users` SET `donate_point` = `donate_point`+? WHERE `id` = ?", [
             $amount,
             auth::get_id(),
         ]);
-    }
-
-    static public function get_id(): ?string {
-        return self::$id ?? null;
-    }
-
-    static public function set_id($user_id) {
-        self::$id = $user_id;
     }
 
     /**
@@ -506,6 +530,8 @@ class auth {
         return self::$bonus;
     }
 
+//Получаем все переменные пользователя
+
     /**
      * @param array|null $bonus
      */
@@ -516,5 +542,4 @@ class auth {
             self::get_id(),
         ]);
     }
-
 }

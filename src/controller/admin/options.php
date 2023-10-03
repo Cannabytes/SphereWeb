@@ -19,6 +19,7 @@ use Ofey\Logan22\model\admin\update_cache;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\template\tpl;
+use PDO;
 
 class options {
 
@@ -30,7 +31,7 @@ class options {
             "title"                   => lang::get_phrase(221),
             'server'                  => \Ofey\Logan22\model\server\server::get_server_info($server_id),
         ]);
-        tpl::display("/admin/options/server_edit.html");
+        tpl::display("/admin/server/edit.html");
     }
 
     static public function server_show() {
@@ -42,7 +43,7 @@ class options {
             "title"                   => lang::get_phrase(221),
             'server_list'             => \Ofey\Logan22\model\server\server::get_server_info(),
         ]);
-        tpl::display("/admin/options/server.html");
+        tpl::display("/admin/server/add.html");
     }
 
     public static function new_server_save() {
@@ -52,16 +53,33 @@ class options {
 
     public static function test_connect_db() {
         validation::user_protection("admin");
-        if(install::test_connect_mysql($_POST['host'], $_POST['user'], $_POST['password'], $_POST['name'])) {
+        if(install::test_connect_mysql($_POST['host'] ?? "127.0.0.1", $_POST['user'] ?? "root", $_POST['password']  ?? "", $_POST['name'] ?? "")) {
             board::notice(true, lang::get_phrase(222));
         } else {
             board::notice(false, lang::get_phrase(223));
         }
     }
 
+    public static function test_connect_db_selected_name() {
+        validation::user_protection("admin");
+        try {
+            $pdo = new PDO("mysql:host={$_POST['host']}", $_POST['login'], $_POST['password']);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SHOW DATABASES";
+            $stmt = $pdo->query($sql);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $databases[] = $row['Database'];
+            }
+            echo json_encode($databases);
+            $pdo = null;
+        } catch (PDOException $e) {
+            die('Ошибка: ' . $e->getMessage());
+        }
+    }
+
     public static function server_list() {
         validation::user_protection("admin");
-        tpl::display("/admin/options/server_list.html");
+        tpl::display("/admin/server/servers.html");
     }
 
     public static function description_create($id) {
@@ -74,7 +92,7 @@ class options {
             'server_list'            => \Ofey\Logan22\model\server\server::get_server_info(),
             'server_info'            => \Ofey\Logan22\model\server\server::get_server_info($id),
         ]);
-        tpl::display("/admin/options/description.html");
+        tpl::display("/admin/server/description.html");
     }
 
     public static function description_save() {
@@ -109,7 +127,7 @@ class options {
      */
     public static function cache_page(){
         validation::user_protection("admin");
-        tpl::display("/admin/options/cache.html");
+        tpl::display("/admin/cache/cache.html");
     }
 
     public static function cache_save(){

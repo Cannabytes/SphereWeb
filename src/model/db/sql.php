@@ -20,6 +20,7 @@ class sql {
      */
     protected static $instance = null;
     static public bool $error = false;
+    private static int $rowCount = 0;
 
     /**
      * DB constructor.
@@ -68,7 +69,7 @@ class sql {
     /**
      * @throws Exception
       */
-    public static function run($query, $args = [], $showJson = false) {
+    public static function run($query, $args = [], $showJson = false, $isBad = true) {
         if(self::connect()===null) {
             var_dump(debug_backtrace());
             exit('Необходимо установить движок.<br><a href="/install">Нажми чтоб перейти на страницу установки.</a>');
@@ -83,9 +84,13 @@ class sql {
             }
             $stmt = self::prepare($query);
             $stmt->execute($args);
+            self::$rowCount = $stmt->rowCount();
             return $stmt;
         } catch(PDOException $e) {
             logs::loggerSQL($query, $args, $e->getMessage());
+            if($isBad) {
+                return false;
+            }
             if($showJson){
                 board::notice(false, $e->getMessage());
             }
@@ -99,6 +104,12 @@ class sql {
             echo "Ошибка: {$e->getMessage()}<br>";
             die();
         }
+    }
+
+    public static function rowCount(){
+        $count = self::$rowCount;
+        self::$rowCount = 0;
+        return $count;
     }
 
     /**
@@ -118,9 +129,6 @@ class sql {
      * @return array
      */
     public static function getRows($query, array $args = []) {
-//        if(!is_array($args)){
-//            $args = [$args];
-//        }
         return self::run($query, $args)->fetchAll();
     }
 
@@ -137,7 +145,6 @@ class sql {
         }
         return $result;
     }
-
     /**
      * @param       $query
      * @param array $args

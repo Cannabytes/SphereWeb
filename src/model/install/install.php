@@ -14,7 +14,10 @@ class install {
 
     //Мы должны получить host, user, pass, name
     //Так же проверка на существования файла подключения к БД, если файл существует, тогда запрет
-    static public function test_connect_mysql($host, $user, $password, $name): bool|PDO {
+    public static function test_connect_mysql($host, $user, $password, $name = ""): bool|PDO {
+        if($name === "") {
+            board::notice(false, "Нет имени базы данных");
+        }
         try {
             $conn = new PDO("mysql:host={$host};dbname={$name};charset=utf8mb4", $user, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,7 +27,7 @@ class install {
         }
     }
 
-    static public function saveConfig($host, $user, $password, $name) {
+    public static function saveConfig($host, $user, $password, $name) {
         lang::load_package();
         $phpText = "<?php
 const DB_HOST = '{$host}';
@@ -36,7 +39,7 @@ const CHARSET = 'utf8';
         file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php", $phpText);
     }
 
-    static public function add_user_admin() {
+    public static function add_user_admin() {
         lang::load_package();
         if(!file_exists($_SERVER["DOCUMENT_ROOT"] . '/src/config/db.php')) {
             board::notice(false, lang::get_phrase(154));

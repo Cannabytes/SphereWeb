@@ -1,0 +1,466 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(26)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <form class="js-validation-installation" action="/admin/option/server/save" method="POST">
+        <div class="block block-rounded block-fx-shadow">
+
+            <div class="block-content">
+                <h2 class="content-heading pt-3">{{phrase(26)}}</h2>
+                <div class="row items-push">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-floating mb-4">
+                                    <select name="version_client" class="form-control"
+                                            id="open_protocol_class_collection">
+                                        {% for client in client_list_default %}
+                                        <option {% if client['name'] == server['chronicle'] %}selected{% endif %}>{{ client['name'] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label class="form-label" for="open_protocol_class_collection">{{phrase(261)}}</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-floating mb-4">
+                                    <select class="form-control" id="sql_base_source"
+                                            name="sql_base_source">
+                                        {% for basename in sql_base_source %}
+                                        <option value="{{ basename }}">{{ basename }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label class="form-label" for="sql_base_source">{{ phrase(34)  }}</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control form-control-lg" id="name"
+                                           name="name" value="{{ random(servername_list_default) }}">
+                                    <label class="form-label" for="name">{{phrase(27)}}</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+
+
+                            <div class="col-2">
+                                <div class="form-floating mb-4">
+                                    <input type="number" class="form-control form-control-lg" id="rate_exp"
+                                           name="rate_exp" value="{{ random([1, 10, 50, 100, 1200]) }}">
+                                    <label class="form-label" for="rate_exp">EXP</label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-floating mb-4">
+                                    <input type="number" class="form-control form-control-lg" id="rate_sp"
+                                           name="rate_sp" value="{{ random([1, 10, 50, 100, 1200]) }}">
+                                    <label class="form-label" for="rate_sp">SP</label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-floating mb-4">
+                                    <input type="number" class="form-control form-control-lg" id="rate_adena"
+                                           name="rate_adena" value="{{ random([1, 10, 50, 100, 1200]) }}">
+                                    <label class="form-label" for="rate_adena">Adena</label>
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-floating mb-4">
+                                    <input type="number" class="form-control form-control-lg" id="rate_drop"
+                                           name="rate_drop" value="{{ random([1, 10, 20, 50]) }}">
+                                    <label class="form-label" for="rate_drop">Drop</label>
+                                </div>
+
+                            </div>
+                            <div class="col-2">
+                                <div class="form-floating mb-4">
+                                    <input type="number" class="form-control form-control-lg" id="rate_spoil"
+                                           name="rate_spoil" value="{{ random([1, 10, 50, 100, 1200]) }}">
+                                    <label class="form-label" for="rate_spoil">Spoil</label>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- mysql section -->
+            <div class="block-content">
+                <h2 class="content-heading pt-3">{{phrase("connect_to_server_db")}}</h2>
+                <div class="row items-push">
+                    <div class="col-12">
+                        <!-- Vertical Block Tabs Default Style With Extra Info -->
+                        <div class="block block-rounded row g-0 overflow-hidden">
+                            <ul class="nav nav-tabs nav-tabs-block flex-md-column col-md-4 col-xxl-2 rounded-0"
+                                role="tablist">
+                                <li class="nav-item d-md-flex flex-md-column" role="presentation">
+                                    <div class="nav-link fs-sm text-md-start rounded-0 active" role="button"
+                                         id="btabs-vertical-info-home-tab" data-bs-toggle="tab"
+                                         data-bs-target="#btabs-vertical-info-home" role="tab"
+                                         aria-controls="btabs-vertical-info-home" aria-selected="false" tabindex="-1">
+                                        <i class="fa fa-fw fa-home opacity-50 me-1 d-none d-sm-inline-block"></i>
+                                        <span>MySQL</span>
+                                        <p class="d-none d-md-block fs-xs fw-medium opacity-75 mt-md-2 mb-0">
+                                            {{phrase("connect_to_server_db")}}
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column" role="presentation">
+                                    <div role="button" class="nav-link fs-sm text-md-start rounded-0 "
+                                         id="btabs-vertical-info-profile-tab" data-bs-toggle="tab"
+                                         data-bs-target="#btabs-vertical-info-profile" role="tab"
+                                         aria-controls="btabs-vertical-info-profile" aria-selected="true">
+                                        <i class="fa fa-fw fa-user-circle opacity-50 me-1 d-none d-sm-inline-block"></i>
+                                        <span>RestAPI</span>
+                                        <p class="d-none d-md-block fs-xs fw-medium opacity-75 mt-md-2 mb-0">
+                                            {{phrase("connect_to_restapi")}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="tab-content col-md-8 col-xxl-10">
+                                <div class="block-content tab-pane active show" id="btabs-vertical-info-home"
+                                     role="tabpanel" aria-labelledby="btabs-vertical-info-home-tab" tabindex="0">
+                                    <h4 class="fw-semibold">{{phrase("mysql_connect")}}</h4>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xl-5">
+                                            {{phrase(32)}}
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" name="db_login_host"
+                                                               id="db_login_host" value="127.0.0.1">
+                                                        <label class="form-label"
+                                                               for="db_login_host">IP</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" name="mysql_login_port"
+                                                               id="mysql_login_port" value="3306">
+                                                        <label class="form-label" for="mysql_login_port">Port</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control"
+                                                               name="db_login_user"
+                                                               value="root"
+                                                               id="db_login_user">
+                                                        <label class="form-label"
+                                                               for="db_login_user">User name</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control"
+                                                               name="db_login_password"
+                                                               id="db_login_password" value="">
+                                                        <label class="form-label"
+                                                               for="db_login_password">Password</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-lg-6 ">
+                                                    <div id="getDBNameLogin" type="submit" class="btn btn-primary mb-2">
+                                                        <i class="fa fa-arrow-right opacity-50 me-1"></i> {{phrase("check_and_select_db")}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-floating mb-4 col-6">
+                                                <select class="form-select" id="db_login_name"
+                                                        name="db_login_name">
+                                                    <option selected="" disabled>{{phrase("no_select")}}</option>
+                                                </select>
+                                                <label class="form-label" for="db_login_name">{{phrase("db_login")}}</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-1 col-xl-1">
+                                        </div>
+
+                                        <div class="col-lg-6 col-xl-5">
+                                            {{phrase(33)}}
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" name="db_game_host"
+                                                               id="db_game_host" value="127.0.0.1">
+                                                        <label class="form-label"
+                                                               for="db_game_host">IP</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" name="db_game_port"
+                                                               id="db_game_port" value="3306">
+                                                        <label class="form-label" for="db_game_port">Port</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control"
+                                                               name="db_game_user"
+                                                               id="db_game_user" value="root">
+                                                        <label class="form-label"
+                                                               for="db_game_user">User name</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control"
+                                                               name="db_game_password"
+                                                               id="db_game_password" value="">
+                                                        <label class="form-label"
+                                                               for="db_game_password">Password</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-lg-6 ">
+                                                    <div id="getDBNameGame" type="submit" class="btn btn-primary mb-2">
+                                                        <i class="fa fa-arrow-right opacity-50 me-1"></i> {{phrase("check_and_select_db")}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-floating mb-4 col-6">
+                                                    <select class="form-select" id="db_game_name"
+                                                            name="db_game_name">
+                                                        <option selected="" disabled>{{phrase("no_select")}}</option>
+                                                    </select>
+                                                    <label class="form-label" for="db_game_name">{{phrase("db_game")}}</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="block-content tab-pane " id="btabs-vertical-info-profile" role="tabpanel"
+                                     aria-labelledby="btabs-vertical-info-profile-tab" tabindex="0">
+                                    <h4 class="fw-semibold">RestAPI</h4>
+                                    <p class="fs-sm">
+                                        {{phrase("rest_api_desc")}}<br>
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xl-5">
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="rest_api_enable"
+                                                               name="rest_api_enable">
+                                                        <label class="form-check-label"
+                                                               for="rest_api_enable">{{phrase("on")}}</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" id="rest_api_ip"
+                                                               name="rest_api_ip" value="127.0.0.1">
+                                                        <label class="form-label" for="rest_api_ip">IP</label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-floating mb-4">
+                                                        <input type="text" class="form-control" id="rest_api_port"
+                                                               name="rest_api_port" value="3333">
+                                                        <label class="form-label" for="rest_api_port">Port</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-floating mb-4">
+                                                <input type="text" class="form-control" id="rest_api_key"
+                                                       name="rest_api_key" >
+                                                <label class="form-label" for="rest_api_key">{{phrase("security_key")}}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END Administrator section -->
+            <div class="block-content">
+                <h2 class="content-heading pt-3">{{phrase("additional_settings")}}</h2>
+                <div class="row items-push">
+
+                    <div class="block block-rounded">
+                        <ul class="nav nav-tabs nav-tabs-alt" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <div class="nav-link active" id="status-server-tab" data-bs-toggle="tab"
+                                     data-bs-target="#status-server" role="tab"
+                                     aria-controls="status-server" aria-selected="true">{{phrase("status_server")}}
+                                </div>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <div class="nav-link" id="game-chat-tab" data-bs-toggle="tab"
+                                     data-bs-target="#game-chat" role="tab"
+                                     aria-controls="game-chat" aria-selected="false" tabindex="-1">
+                                    {{phrase(383)}}
+                                </div>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <div class="nav-link" id="web-launcher-tab" data-bs-toggle="tab"
+                                     data-bs-target="#web-launcher" role="tab"
+                                     aria-controls="web-launcher" aria-selected="false" tabindex="-1">
+                                    {{phrase("menu_launcher")}}
+                                </div>
+                            </li>
+
+                        </ul>
+                        <div class="block-content tab-content">
+                            <div class="tab-pane active show" id="status-server" role="tabpanel"
+                                 aria-labelledby="status-server-tab" tabindex="0">
+                                <p>{{phrase("server_info_desc")}}</p>
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check_server_online"
+                                           name="check_server_online"
+                                           value="1">
+                                    <label class="form-check-label" for="check_server_online">{{phrase("on")}}</label>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="check_loginserver_online_host"
+                                                   name="check_loginserver_online_host">
+                                            <label class="form-label" for="check_loginserver_online_host">IP Login</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="check_loginserver_online_port"
+                                                   name="check_loginserver_online_port" value="2106">
+                                            <label class="form-label" for="check_loginserver_online_port">Port
+                                                Login</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="check_gameserver_online_host"
+                                                   name="check_gameserver_online_host">
+                                            <label class="form-label" for="check_gameserver_online_host">IP Game</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="check_gameserver_online_port"
+                                                   name="check_gameserver_online_port" value="7777">
+                                            <label class="form-label" for="check_gameserver_online_port">Port
+                                                Game</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane" id="game-chat" role="tabpanel"
+                                 aria-labelledby="game-chat-tab" tabindex="0">
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="chat_game_enabled"
+                                           name="chat_game_enabled"
+                                           value="1" >
+                                    <label class="form-check-label" for="chat_game_enabled">{{phrase(384)}}</label>
+                                    <br>
+                                    <a href="https://mmo-dev.info/threads/%D0%98%D0%B3%D1%80%D0%BE%D0%B2%D0%BE%D0%B9-%D1%87%D0%B0%D1%82-%D0%BD%D0%B0-%D1%81%D0%B0%D0%B9%D1%82%D0%B5.24582/">Manual</a>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="web-launcher" role="tabpanel"
+                                 aria-labelledby="web-launcher-tab" tabindex="0">
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="launcher_enabled"
+                                           name="launcher_enabled" >
+
+
+                                    <label class="form-check-label" for="launcher_enabled">{{phrase(384)}}</label>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-form-label">{{phrase(388)}}<br>
+                                            {{phrase(389)}}: <a target="_blank" href="https://cannabytes.github.io">https://cannabytes.github.io</a></label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="block-content">
+                <div class="row mb-4">
+                    <div class="col-lg-6 offset-lg-5">
+                        <button type="submit" class="btn btn-primary mb-2">
+                            <i class="fa fa-arrow-right opacity-50 me-1"></i> {{phrase(438)}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}

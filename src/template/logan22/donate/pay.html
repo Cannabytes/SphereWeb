@@ -1,0 +1,227 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(486)}}{% endblock %}
+
+{% block content %}
+
+<!-- END Hero -->
+
+<!-- Page Content -->
+<div class="content">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Subscribe -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default text-center">
+                    <h3 class="block-title">
+                        <i class="fa fa-fw fa-info opacity-50"></i>
+                        {{phrase(486)}}
+                    </h3>
+                </div>
+                <div class="block-content">
+
+                    <div class="input-group">
+                        <div class="form-floating">
+
+                            <input id="countPayUser" value="0" type="text" class="form-control text-center"
+                                   id="example-group3-floating2" name="example-group3-floating2"
+                                   placeholder="Введите число" oninput="this.value = this.value.replace(/\D/g, '')">
+
+                            <label for="example-group3-floating2">{{phrase("how_much")}} <img
+                                    src="{{template}}/assets/images/coin/sphere-coin_24.png"> {{phrase("Sphere-Coin")}} {{phrase("do_you_want_to_receive")}}</label>
+                        </div>
+                        <button id="paynext" type="button" class="btn btn-secondary">{{phrase("confirm")}}</button>
+                    </div>
+
+                    <hr>
+                    <div class="mb-0">
+                        {% for i, name in donateSysNames %}
+                        <div class="space-y-2">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" id="{{name}}" name="paysystem" value="{{name}}" {% if i == 0 %}checked{%endif%}/>
+                                <label for="{{name}}">{{name}}</label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="text-center">{{phrase("estimated_cost")}}</div>
+                    <div class="block-content block-content-full">
+                        <div class="row text-center">
+                            <div class="col-3">
+                                <div class="fs-sm fw-semibold text-uppercase text-muted">USD</div>
+                                <div data-count="usd" class="fs-3 fw-semibold">0</div>
+                            </div>
+                            <div class="col-3">
+                                <div class="fs-sm fw-semibold text-uppercase text-muted">EUR</div>
+                                <div data-count="eur" class="fs-3 fw-semibold">0</div>
+                            </div>
+                            <div class="col-3">
+                                <div class="fs-sm fw-semibold text-uppercase text-muted">RUB</div>
+                                <div data-count="rub" class="fs-3 fw-semibold">0</div>
+                            </div>
+                            <div class="col-3">
+                                <div class="fs-sm fw-semibold text-uppercase text-muted">UAH</div>
+                                <div data-count="uah" class="fs-3 fw-semibold">0</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- END Subscribe -->
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="block block-rounded overflow-hidden">
+                        <ul class="nav nav-tabs nav-tabs-block" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link active" id="btabs-static-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#btabs-static-home" role="tab" aria-controls="btabs-static-home"
+                                        aria-selected="true">{{phrase("bonuses")}}
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" id="btabs-static-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#btabs-static-profile" role="tab"
+                                        aria-controls="btabs-static-profile" aria-selected="false">{{phrase("forward")}} {{phrase("Sphere-Coin")}}
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="block-content tab-content">
+                            <div class="tab-pane active" id="btabs-static-home" role="tabpanel"
+                                 aria-labelledby="btabs-static-home-tab" tabindex="0">
+                                <h4 class="fw-normal text-center">{{phrase("savings_system_gives_you")}} - {{ procentDiscount
+                                    }}% {{phrase("bonus_on_donation")}}</h4>
+                                <div class="text-center"> {{phrase("during_all")}} <img data-bs-toggle="tooltip"
+                                                                                         data-bs-placement="top"
+                                                                                         data-bs-original-title="Sphere Coin"
+                                                                                         class="mb-1"
+                                                                                         src="{{template}}/assets/images/coin/sphere-coin_16.png">{{count_all_donate_bonus}}
+                                    {{phrase("Sphere-Coin")}}
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th width="90%">{{phrase(63)}}</th>
+                                            <th>{{phrase("bonus")}}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for donateAll, procent in discount.table %}
+                                        <tr {% if procent== procentDiscount %}class="table-active" {% endif %}>
+                                            <td>{{donateAll}}</td>
+                                            <td>{{procent}}%</td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="btabs-static-profile" role="tabpanel"
+                                 aria-labelledby="btabs-static-profile-tab" tabindex="0">
+                                <h4 class="fw-normal">{{phrase("forward")}} {{phrase("Sphere-Coin")}} </h4>
+
+
+                                <form action="/user/money/transfer" method="POST" onsubmit="return false;">
+
+                                    <div class="mb-4">
+                                        <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="far fa-fw fa-user"></i>
+                        </span>
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="user"
+                                                       name="user" placeholder="Username">
+                                                <label for="user">{{phrase("user_nick")}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                              <img data-bs-toggle="tooltip"
+                                                   data-bs-placement="top"
+                                                   data-bs-original-title="Sphere Coin"
+                                                   class=""
+                                                   src="{{template}}/assets/images/coin/sphere-coin_32.png">
+                                            </span>
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="count"
+                                                       name="count" placeholder="Count">
+                                                <label for="count">{{phrase("summa")}}</label>
+                                            </div>
+                                            <span class="input-group-text">{{phrase("Sphere-Coin")}}</span>
+                                        </div>
+                                    </div>
+                                    {% if user_info('get_is_auth') %}
+                                    <button type="submit" class="btn btn-primary w-100 mb-4">
+                                        <i class="fa fa-fw fa-paper-plane mr-1"></i> {{phrase(364)}}
+                                    </button>
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{phrase(234)}}
+                                    </div>
+                                    {% endif %}
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xl-8">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default text-center">
+                    <h3 class="block-title">
+                        <i class="fa fa-fw fa-info opacity-50"></i>
+                        {{phrase(303)}}
+                    </h3>
+                </div>
+                <div class="block-content">
+                    <table class="table table-borderless table-vcenter mb-4">
+                        <tbody>
+                        {% for history in donate_history_pay_self %}
+
+                        {% if history.pay_system %}
+                            <tr>
+                                <td class="">{{history.pay_system}}</td>
+                                <td>+{{history.point}}<img data-bs-toggle="tooltip" data-bs-placement="top"
+                                                           data-bs-original-title="Sphere Coin" class="mb-1"
+                                                           src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>
+                                <td>{{history.date}}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td class="">
+                                    {% if user_info('get_id') == history.user_sender %} {{phrase("sent_to_user")}} {{history.receiver_name}} {% endif %}
+                                    {% if user_info('get_id') == history.user_receiving %} {{phrase("receiving_from_user")}} {{history.sender_name}} {% endif %}
+                                </td>
+                                <td>
+                                    {% if user_info('get_id') == history.user_receiving %}+{% else %}-{% endif %}{{history.point}}<img data-bs-toggle="tooltip" data-bs-placement="top"
+                                                           data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1"
+                                                           src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>
+                                <td>{{history.date}}</td>
+                            </tr>
+                        {% endif %}
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

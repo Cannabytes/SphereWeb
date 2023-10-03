@@ -54,4 +54,24 @@ class time {
             'referral'                        => 60,
         ];
     }
+
+
+    public static function secToHum($timeString) {
+        $parts = explode(':', $timeString);
+        $hours = (int)$parts[0];
+        $minutes = (int)$parts[1];
+        $seconds = (int)$parts[2];
+        $result = '';
+        if ($hours > 0) {
+            $result .= $hours . ' ч.';
+            $result .= ' ';
+        }
+        if ($minutes > 0) {
+            $result .= $minutes . ' м. ';
+        }
+        if ($seconds > 0) {
+            $result .= $seconds . ' сек.';
+        }
+        return trim($result == '' ? 'только что' : $result . ' назад');
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace Ofey\Logan22\component\config;
 
+use Ofey\Logan22\model\donate\donate;
+
 class config
 {
 
@@ -18,7 +20,7 @@ class config
      * Бонусная выплата доната
      * Процент от суммы пополнения доната, который будет зачислен игроку
      */
-    private static float $donation_bonus_payout = 10;
+    private static ?float $donation_bonus_payout = 0;
     private static bool $enable_referral = true;
     private static bool $enable_ticket = true;
     private static bool $enable_gallery = true;
@@ -52,7 +54,7 @@ class config
     // Возвращает название используемой капчи
     public static function get_captcha_version($checkCaptchaName = null): string|bool|null {
         if(self::$captcha===null){
-            require_once 'src/config/captcha.php';
+            include 'src/config/captcha.php';
             if (defined('CAPTCHA')) {
                 self::$captcha = CAPTCHA;
             }
@@ -138,15 +140,6 @@ class config
         return (bool) file_put_contents($file, $result);
     }
 
-
-    /**
-     * @return float
-     */
-    public static function getDonationBonusPayout(): float
-    {
-        return self::$donation_bonus_payout;
-    }
-
     public static function getEnableReferral(): bool
     {
         return self::$enable_referral;
@@ -173,7 +166,7 @@ class config
         return self::$enable_donate;
     }
 
-    public static function algorithm_hashing_user_password(){
+    public static function algorithm_hashing_user_password(): string {
         return PASSWORD_BCRYPT;
     }
 

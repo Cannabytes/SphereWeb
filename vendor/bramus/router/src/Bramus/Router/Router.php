@@ -414,7 +414,6 @@ class Router {
                 }
             }
         }
-
         // Return the number of routes handled
         return $numHandled;
     }

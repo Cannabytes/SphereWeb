@@ -10,12 +10,13 @@ namespace Ofey\Logan22\model\admin;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\install\install;
 
 class server {
 
-    static private $data_list_server = null;
+    private static $data_list_server = null;
 
-    static public function save_server() {
+    public static function save_server() {
         $name_server = !empty($_POST['name']) ? trim($_POST['name']) : board::notice(false, "Не заполнено название сервера");
         $version_client = !empty($_POST['version_client']) ? trim($_POST['version_client']) : board::notice(false, "Не заполнена версия клиента");
 
@@ -25,19 +26,32 @@ class server {
         $rate_drop = !empty($_POST['rate_drop']) ? trim($_POST['rate_drop']) : board::notice(false, "Не заполнено поле Rate Drop");
         $rate_spoil = !empty($_POST['rate_spoil']) ? trim($_POST['rate_spoil']) : board::notice(false, "Не заполнено поле Rate Spoil");
 
-        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
-        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
+//        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
+//        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
+        $date_start = date("Y-m-d");
+        $time_start = date("H:i");
 
         //Данные БД для логина
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
         $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : "";
         $db_login_password = $_POST['db_login_password'];
-        $db_login_name = !empty($_POST['db_login_name']) ? trim($_POST['db_login_name']) : "";
+
+        if (isset($_POST['db_login_name'])) {
+            $db_login_name = trim($_POST['db_login_name']);
+        } else {
+            board::notice(false, "Не выбрана БД логина");
+        }
+
         //Данные БД для гейма
         $db_game_host = !empty($_POST['db_game_host']) ? trim($_POST['db_game_host']) : "";
         $db_game_user = !empty($_POST['db_game_user']) ? trim($_POST['db_game_user']) : "";
         $db_game_password = $_POST['db_game_password'];
-        $db_game_name = !empty($_POST['db_game_name']) ? trim($_POST['db_game_name']) : "";
+
+        if (isset($_POST['db_game_name'])) {
+            $db_game_name = trim($_POST['db_game_name']);
+        } else {
+            board::notice(false, "Не выбрана БД сервера");
+        }
 
 
         $sql_base_source = !empty($_POST['sql_base_source']) ? trim($_POST['sql_base_source']) : board::notice(false, "Need select sql database server collection");
@@ -49,13 +63,20 @@ class server {
         $check_gameserver_online_port = $_POST['check_gameserver_online_port'] ?: null;
 
         $rest_api_enable = isset($_POST['rest_api_enable']) ?: 0;
-        $rest_api_ip = isset($_POST['rest_api_ip']) ?: "127.0.0.1";
-        $rest_api_port = isset($_POST['rest_api_port']) ?: 3333;
-        $rest_api_key = isset($_POST['rest_api_key']) ?: "";
-
+        $rest_api_ip = $_POST['rest_api_ip'] ?? "127.0.0.1";
+        $rest_api_port = $_POST['rest_api_port'] ?? 3333;
+        $rest_api_key = $_POST['rest_api_key'] ?? "";
 
         $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
         $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
+
+        //Проверяем соединение с БД перед тем как добавить
+        if(!install::test_connect_mysql($db_login_host, $db_login_user, $db_login_password, $db_login_name)) {
+            board::notice(false, lang::get_phrase(223));
+        }
+        if(!install::test_connect_mysql($db_game_host, $db_game_user, $db_game_password, $db_game_name)) {
+            board::notice(false, lang::get_phrase(223));
+        }
 
         $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled` , `launcher_enabled`, `rest_api_enable`, `rest_api_hostname`, `rest_api_port`, `rest_api_key` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
@@ -98,7 +119,7 @@ class server {
         board::notice(true, 'Добавлено');
     }
 
-    static public function update_server() {
+    public static function update_server() {
         $server_id = !empty($_POST['server_id']) ? trim($_POST['server_id']) : board::notice(false, "Нет ID редактируемого сервера");
 
         $name_server = !empty($_POST['name']) ? trim($_POST['name']) : board::notice(false, "Не заполнено название сервера");
@@ -110,8 +131,11 @@ class server {
         $rate_drop = !empty($_POST['rate_drop']) ? trim($_POST['rate_drop']) : board::notice(false, "Не заполнено поле Rate Drop");
         $rate_spoil = !empty($_POST['rate_spoil']) ? trim($_POST['rate_spoil']) : board::notice(false, "Не заполнено поле Rate Spoil");
 
-        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
-        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
+//        $date_start = !empty($_POST['date_start']) ? trim($_POST['date_start']) : board::notice(false, "Не заполнено поле даты старта сервера");
+//        $time_start = !empty($_POST['time_start']) ? trim($_POST['time_start']) : board::notice(false, "Не заполнено поле время старта сервера");
+        $date_start = date("Y-m-d");
+        $time_start = date("H:i");
+
 
         //Данные БД для логина
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
@@ -213,7 +237,7 @@ class server {
     }
 
     //Добавление описания
-    static public function add_description() {
+    public static function add_description() {
         $server_id = (int)$_POST['id'];
         $lang = ($_POST['lang']);
         $page_id = (int)($_POST['page_id']);

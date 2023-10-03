@@ -1,0 +1,82 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("authorization")}}{% endblock %}
+
+{% block content %}
+
+<div class="bg-gd-dusk">
+    <div class="hero-static content content-full bg-body-extra-light">
+        <!-- Header -->
+        <div class="py-4 px-1 text-center mb-4">
+            <h1 class="h3 fw-bold mt-5 mb-2">{{phrase("authorization")}}</h1>
+        </div>
+        <!-- END Header -->
+
+        <!-- Sign In Form -->
+        <div class="row justify-content-center px-1">
+            <div class="col-sm-8 col-md-6 col-xl-4">
+                <form class="js-validation-signin" action="/auth" method="POST" data-function="captchaToken">
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="">
+                        <label class="form-label" for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="">
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    {% if get_captcha_version("Google") %}
+                    <input class="captchaToken" type="hidden" name="captcha">
+                    {% elseif get_captcha_version("default") %}
+
+                    <div class="row g-sm mb-4">
+                        <div class="col-sm-6 mb-1">
+                            <div class="form-floating d-flex align-items-center" style="height: 100%;">
+                                <img src="" class="lightbox-thumb img-thumb captcha_img" style="width: 100%; height: 100%; object-fit: cover;" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-1">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="auth_captcha" name="captcha" placeholder="Captcha">
+                                <label class="form-label" for="auth_captcha">Captcha</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    {% endif %}
+
+
+
+                    <div class="row g-sm mb-4">
+                        <div class="col-12 mb-2">
+                            <button type="submit" class="btn btn-lg btn-alt-primary w-100 py-3 fw-semibold">
+                                {{phrase("enter")}}
+                            </button>
+                        </div>
+                        <div class="col-sm-6 mb-1">
+                            <a class="btn btn-alt-secondary w-100 ajaxload" href="/registration/user">
+                                {{phrase("menu_registration")}}
+                            </a>
+                        </div>
+                        <div class="col-sm-6 mb-1">
+                            <a class="btn btn-alt-secondary w-100" href="#">
+                                {{phrase(67)}}
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END Sign In Form -->
+    </div>
+</div>
+<!-- END Page Content -->
+<script>
+    captchaToken();
+</script>
+{% endblock %}
+

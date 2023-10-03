@@ -28,7 +28,7 @@ class freekassa {
     /*
      * Список IP адресов, от которых может прити уведомление от платежной системы.
      */
-    private $allowIP = [
+    private array $allowIP = [
         '168.119.157.136',
         '168.119.60.227',
         '138.201.88.124',
@@ -59,8 +59,17 @@ class freekassa {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
+
         $donate = include 'src/config/donate.php';
-        $order_amount = $_POST['count'] * $donate['coefficient']['RUB'];
+
+        if ($_POST['count'] < $donate['min_donate_bonus_coin']) {
+            board::notice(false, "Минимальное пополнение: " . $donate['min_donate_bonus_coin']  );
+        }
+        if ($_POST['count'] > $donate['max_donate_bonus_coin']) {
+            board::notice(false, "Максимальная пополнение: " . $donate['max_donate_bonus_coin']  );
+        }
+
+        $order_amount = $_POST['count'] * ($donate['coefficient']['RUB'] / $donate['quantity']);
         $merchant_id = $this->merchant_id;
         $order_id = auth::get_email();
         $secret_word = $this->secret_key_1;
@@ -92,7 +101,7 @@ class freekassa {
             die('wrong sign');
         }
 
-        $amount = donate::currency($amount, $_REQUEST['currency']);
+        $amount = donate::currency($amount, $_REQUEST['currency'] ?? "RUB");
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }

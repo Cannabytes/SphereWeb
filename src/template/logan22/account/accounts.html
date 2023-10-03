@@ -1,0 +1,47 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(43)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">
+                {{phrase(43)}}
+            </h3>
+        </div>
+        <div class="block-content block-content-full">
+
+
+            <table class="table table-vcenter">
+                <tbody>
+                {% for player in show_all_account_player() %}
+
+                {% if player.server_id == get_server_default().id %}
+                <tr>
+                    <td>{{player.login}}</td>
+                    <td class="d-none d-sm-table-cell">
+                        {% if player.password_hide %}
+                        <span class="badge bg-danger">{{phrase(42)}}</span>
+                        {% else %}
+                        <span class="text-success">{{player.password}}</span>
+                        {% endif %}
+
+                    </td>
+                    <td><a class="ajaxload" href="/account/info/{{ player.login }}">{{phrase(203)}}</a></td>
+                    <td><a class="ajaxload" href="/account/password/change/{{player.login}}/server/{{player.server_id}}">{{phrase(485)}}</a></td>
+                </tr>
+                {% endif %}
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

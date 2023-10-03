@@ -1,0 +1,119 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("rechanged_profile")}}{% endblock %}
+
+{% block content %}
+
+<div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-popout" role="document">
+        <div class="modal-content">
+            <form action="/admin/users/edit" method="POST" class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("rechanged_profile")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+
+                    <input type="hidden" class="form-control" id="edit_user_id" name="id" value="" >
+
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="mb-4">
+                            <label class="form-label" for="edit_user_email">Email</label>
+                            <input type="email" class="form-control" id="edit_user_email" name="email" >
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="edit_user_name">{{phrase("user_nick")}}</label>
+                            <input type="text" class="form-control" id="edit_user_name" name="name" >
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="edit_user_donate_point">{{phrase("Sphere-Coin")}}</label>
+                            <input type="text" class="form-control" id="edit_user_donate_point" name="donate" >
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="user_edit_password">{{phrase("password")}}</label>
+                            <input type="text" class="form-control" id="user_edit_password" name="password">
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="mb-4">
+                                <label class="form-label" for="edit_user_access_level">{{phrase("group")}}</label>
+                                <select class="form-select" id="edit_user_access_level" name="group">
+                                    <option value="admin">{{phrase("admin")}}</option>
+                                    <option value="moderator">{{phrase("moderator")}}</option>
+                                    <option value="user">{{phrase("user")}}</option>
+                                    <option value="user_ro">{{phrase("user_group_only_read")}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button id="edit_user_save" type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("apply")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+
+
+    <!-- Full Table -->
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Full Table</h3>
+        </div>
+        <div class="block-content">
+            <div class="table-responsive">
+                <table class="table table-striped table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 5%;">
+                            <i class="fa fa-user"></i>
+                        </th>
+                        <th style="width: 30%;">Email</th>
+                        <th style="width: 15%;">{{phrase("user_nick")}}</th>
+                        <th style="width: 10%;">{{phrase("Sphere-Coin")}}</th>
+                        <th style="width: 15%;">{{phrase("group")}}</th>
+                        <th class="text-center" style="width: 5%;"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td class="text-center">
+                            <img class="img-avatar img-avatar48" src="{{template('/assets/images/navatar/' ~ user.avatar  ) }}" alt="">
+                        </td>
+                        <td>{{user.email}}</td>
+                        <td class="fw-semibold">{{user.name}}</td>
+                        <td class="fw-semibold">{{user.donate_point}}</td>
+                        <td>
+                            <span class="badge bg-{% if user.access_level=='admin' %}danger{% elseif user.access_level=='user' %}info{% elseif user.access_level=='moderator' %}success{% endif %}">{{user.access_level}}</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button data-user-id="{{user.id}}" data-email="{{user.email}}" data-name="{{user.name}}" data-donate="{{user.donate_point}}" data-group="{{user.access_level}}" data-bs-toggle="modal" data-bs-target="#modal-edit-user" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled user_edit_button" >
+                                    <i class="fa fa-pencil-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- END Full Table -->
+
+</div>
+
+{% endblock %}

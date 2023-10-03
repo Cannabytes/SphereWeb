@@ -1,0 +1,94 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("creating_bonus_codes")}}{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">{{phrase("creating_bonus_codes")}}</h3>
+        <div class="block-options">
+            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                <i class="si si-refresh"></i>
+            </button>
+            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+        </div>
+    </div>
+    <div class="block-content">
+        <form action="/admin/bonuscode" method="POST" onsubmit="return false;" data-function="bonuscode">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row mb-4">
+                        <div class="col-2">
+                            <label class="form-label" for="prefix">{{phrase(478)}}</label>
+                            <input type="text" class="form-control form-control-lg" id="prefix" name="prefix" placeholder="">
+                        </div>
+                        <div class="col-2">
+                            <label class="form-label" for="itemid">ITEM ID</label>
+                            <input type="text" class="form-control form-control-lg" id="itemid" name="itemid" placeholder="57">
+                        </div>
+                        <div class="col-2">
+                            <label class="form-label" for="enchant">Enchant</label>
+                            <input type="text" class="form-control form-control-lg" id="enchant" name="enchant" placeholder="0" value="0">
+                        </div>
+                        <div class="col-2">
+                            <label class="form-label" for="minCount">Min Count</label>
+                            <input type="text" class="form-control form-control-lg" id="minCount" name="minCount" placeholder="1" value="1">
+                        </div>
+                        <div class="col-2">
+                            <label class="form-label" for="maxCount">Max Count</label>
+                            <input type="text" class="form-control form-control-lg" id="maxCount" name="maxCount" placeholder="10" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-5">
+                    <div class="col-6">
+                        <label class="form-label" for="minCodeSymbols">{{phrase("min_symbols")}}</label>
+                        <input type="text" class="form-control form-control-lg" id="minCodeSymbols" name="minCodeSymbols" placeholder="5" value="5">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" for="maxCodeSymbols">{{phrase("max_symbols")}}</label>
+                        <input type="text" class="form-control form-control-lg" id="maxCodeSymbols" name="maxCodeSymbols" placeholder="8" value="8">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="mb-4">
+                        <label class="form-label" for="bonusCode">{{phrase("list_code")}}</label>
+                        <textarea readonly="readonly" class="form-control form-control-lg" id="bonusCode" name="bonusCode" rows="17" placeholder=""></textarea>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mb-4">
+                        <label class="form-label" for="countGenBonusCode">{{phrase("how_much_codes")}}</label>
+                        <input type="text" class="form-control form-control-lg" id="countGenBonusCode" name="countGenBonusCode" placeholder="100" value="100">
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <label class="form-label" for="start_date_code">{{phrase("date_start")}}</label>
+                            <input type="text" class="js-flatpickr form-control" id="start_date_code" name="start_date_code" data-enable-time="true" data-time_24hr="true">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label" for="end_date_code">{{phrase("date_end")}}</label>
+                            <input type="text" class="js-flatpickr form-control" id="end_date_code" name="end_date_code" data-enable-time="true" data-time_24hr="true">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check opacity-50 me-1"></i> {{phrase("generate")}}
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

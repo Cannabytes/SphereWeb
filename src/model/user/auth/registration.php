@@ -23,9 +23,9 @@ class registration {
         $timezone = null;
         $get_timezone_ip = null;
         $user_referral = null;
-        if(isset($_POST['referral_name']) and !empty(trim($_POST['referral_name']))) {
+        if (isset($_POST['referral_name']) and !empty(trim($_POST['referral_name']))) {
             $user_referral = auth::exist_user_nickname(trim($_POST['referral_name']));
-            if(!$user_referral) {
+            if (!$user_referral) {
                 board::notice(false, "Проверьте ник пользователя «" . trim($_POST['referral_name']) . "», который Вас пригласил, такого у нас нет!");
             }
         }
@@ -35,10 +35,10 @@ class registration {
          * недостоверные данные.
          * По этому сравним со списоком возможных timezone.
          */
-        if(isset($_POST['timezone'])) {
+        if (isset($_POST['timezone'])) {
             $timezone = $_POST['timezone'];
-            foreach(timezone::all() as $key => $val) {
-                if($_POST['timezone'] == $key) {
+            foreach (timezone::all() as $key => $val) {
+                if ($_POST['timezone'] == $key) {
                     $timezone = $key;
                     break;
                 }
@@ -54,13 +54,16 @@ class registration {
             $timezone,
         ];
 
+
+
+
         /**
          * Если по каким-то причинам мы не определили ранее timezone пользователя,
          * тогда воспользуемся сторонними API для определения пользовательских данных по IP, в т.е. timezone
          */
-        if($timezone == null) {
+        if ($timezone == null) {
             $get_timezone_ip = timezone::get_timezone_ip($_SERVER['REMOTE_ADDR']);
-            if($get_timezone_ip != null) {
+            if ($get_timezone_ip != null) {
                 $insertUserSQL = "INSERT INTO `users` (`email`, `password`, `ip`, `timezone`, `country`, `city`) VALUES (?, ?, ?, ?, ?, ?)";
                 $insertArrays = [
                     $email,
@@ -73,12 +76,19 @@ class registration {
             }
         }
         $insert = sql::run($insertUserSQL, $insertArrays);
-        if($ret) {
+        if ($ret) {
             return $insert;
         }
         $userID = sql::lastInsertId();
-        if($insert) {
-            if($user_referral) {
+        if ($insert) {
+            //Сгенерируем ник пользователя
+            sql::run("UPDATE `users` SET `name` = ? WHERE `id` = ?", [
+                "user-" . substr(md5($userID), mt_rand(2,3), mt_rand(4,5)),
+                $userID,
+            ]);
+
+
+            if ($user_referral) {
                 sql::run("INSERT INTO `referrals` (`user_id`, `leader_id`) VALUES (?, ?)", [
                     $userID,
                     $user_referral['id'],
@@ -87,8 +97,12 @@ class registration {
             session::add('id', $userID);
             session::add('email', $email);
             session::add('password', $password);
-            if($show_notice){
-                board::notice(true, lang::get_phrase(177));
+            if ($show_notice) {
+                board::response("notice", [
+                    "ok" => true,
+                    "message" => lang::get_phrase(177),
+                    "redirect" => "/main",
+                ]);
             }
         } else {
             board::notice(false, lang::get_phrase(178));

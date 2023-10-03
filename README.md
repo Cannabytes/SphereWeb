@@ -31,8 +31,6 @@
 
 
 ### Тестовый сайт ЛК
-http://nikdev.ru/main
-| Логин  | Пароль   | Статус |
-| ------- | -------- | ----- |
-| `test@example.com`   | `test`    | Пользователь |
+https://anygame.eu.org/main
+
  	

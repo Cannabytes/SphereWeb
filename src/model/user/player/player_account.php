@@ -12,6 +12,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
@@ -82,7 +83,6 @@ class player_account {
         $prepare = self::placeholderPrepareFormat($sqlQuery, $prepare);
         $server_id = $info['id'];
         sdb::set_server_id($server_id);
-
         if ($gameServer == "login") {
             sdb::set_type('login');
             sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
@@ -202,7 +202,7 @@ class player_account {
             $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                 [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
         }
-        board::alert(
+        board::response("notice_registration",
             [
                 "ok" => true,
                 "message" => lang::get_phrase(207),
@@ -273,7 +273,6 @@ class player_account {
                 auth::get_email(),
             ]);
         }
-
         if (is_array($err)) {
             if (!$err['ok']) {
                 board::notice(false, $err['message']);
@@ -281,14 +280,13 @@ class player_account {
         }
         self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
 
-
         $fileDownload = include_once "src/config/registration_download.php";
         $content = trim($fileDownload['content']) ?? "";
         if ($fileDownload['enable']) {
             $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                 [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], auth::get_email(), $login, $password], $content);
         }
-        board::alert(
+        board::response("notice_registration",
             [
                 "ok" => true,
                 "message" => lang::get_phrase(207),
@@ -296,7 +294,6 @@ class player_account {
                 "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
                 "content" => $content,
             ]);
-
     }
 
     static function count_account($server_id) {
@@ -333,7 +330,11 @@ class player_account {
                 'getCode' => 0,
             ]);
         }
+
         $account = self::account_is_exist($server_info, $login);
+        if (sdb::is_error()){
+            board::notice(false, sdb::is_error());
+        }
         if (gettype($account) != "object") {
             if (!$account['ok']) {
                 board::alert([
@@ -372,6 +373,9 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function add_inside_account($login, $password, $email, $ip, $server_id, $password_hide) {
+        if($password_hide){
+            $password = "";
+        }
         return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
             $login,
             $password,

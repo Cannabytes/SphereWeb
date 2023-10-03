@@ -7,7 +7,9 @@
 
 namespace Ofey\Logan22\controller\user\auth;
 
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\user\auth\forget;
 use Ofey\Logan22\template\tpl;
@@ -76,5 +78,24 @@ class auth {
     public static function send_email_verification_forget() {
         validation::user_protection("guest");
         forget::verification();
+    }
+
+    //Установка временных переменных для зарегистрированных пользователей
+    public static function set_variable(){
+        $variables = [
+            "chat_scrolling"
+        ];
+        $user_var = $_POST['var'] ?? board::notice(false, "Переменная не найдена");
+        $val = $_POST['val'] ?? "";
+        if(!in_array($user_var,$variables)) {
+            board::notice(false, "Переменной не существует");
+        }
+        if (\Ofey\Logan22\model\user\auth\auth::get_is_auth()){
+            \Ofey\Logan22\model\user\auth\user::set_variable($user_var, $val);
+        }else{
+            session::add_var($user_var, $val);
+        }
+        \Ofey\Logan22\model\user\auth\user::set_variable($user_var, $val);
+        echo json_encode(["status" => "ok"]);
     }
 }

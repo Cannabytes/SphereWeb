@@ -6,6 +6,7 @@
 namespace Ofey\Logan22\controller\install;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\version\version;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
@@ -25,7 +26,7 @@ class install {
         tpl::addVar(["need_min_version_php" => version::MIN_PHP_VERSION(),
                      "dir_permissions" => self::checkFolderPermissions(["/src/config", "/uploads",]),
                      "isLinux" => "Linux" == php_uname('s'),
-                     "php_informations" => [["name" => "Версия PHP",
+                     "php_informations" => [["name" => lang::get_phrase("PHP_VERSION"),
                                              "get" => version::MIN_PHP_VERSION(),
                                              "min" => PHP_VERSION,
                                              "allow" => PHP_VERSION>=version::MIN_PHP_VERSION(),
@@ -65,18 +66,19 @@ class install {
             $ownerPermissions = ($permissions & 0o700) >> 6;
             $groupPermissions = ($permissions & 0o070) >> 3;
             $otherPermissions = $permissions & 0o007;
-            if ($ownerPermissions === 7 && $groupPermissions === 5 && $otherPermissions === 5) {
-                $dirPer[] = ["path" => $folder,
-                             "per" => true,
+            if ($ownerPermissions >= 7 && $groupPermissions >= 5 && $otherPermissions >= 5) {
+                $dirPer[] = [
+                    "path" => $folder,
+                    "per" => true,
                 ];
             } else {
                 if (php_uname('s') == "Windows NT") {
                     $dirPer[] = ["path" => $folder,
-                                 "per" => true,
+                        "per" => true,
                     ];
                 } else {
                     $dirPer[] = ["path" => $folder,
-                                 "per" => false,
+                        "per" => false,
                     ];
                     self::set_allow_install(false);
                 }

@@ -1,0 +1,108 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+{% set referral_count = referral_count(referrals) %}
+{% set is_player_bonus = is_referral_bonus(referrals) %}
+
+<div class="content">
+
+    <div class="block block-rounded mb-0">
+        <div class="block-content block-content-full">
+            <div class="py-3 text-center">
+                <h1 class="h3 fw-extrabold mb-1">
+                    {{phrase(306)}}
+                </h1>
+                <h2 class="fs-sm fw-medium text-muted mb-0">
+                    {{phrase(307, timeHasPassed(GAME_TIME, "true"), LEVEL, PVP, PK)|raw}}
+                </h2>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+    <div class="row text-center">
+
+        <div class="col-12">
+            <div class="block block-rounded">
+                <form method="POST" action="/referral" class="block-content">
+
+                    <ul class="list-unstyled">
+                        <li class="text-center">{{phrase(310)}} : {{referral_count.completed+referral_count.continues}}</li>
+                        <li class="text-center">{{phrase(311)}} : {{referral_count.completed}}</li>
+                        <li class="text-center">{{phrase(312)}} : {{referral_count.continues}}</li>
+                        <li class="text-center">{{phrase(313)}} :
+                            {% if user_info('get_name') %}
+                            <a data-toggle="tooltip" data-placement="top"
+                               title="{{phrase(314)}}" class="copy" onclick="return false;" href="{{referral_link()}}">{{referral_link()}}</a>
+                            {% else %}
+                            <a href="/user/change">{{phrase(315)}}</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+
+                    {% if is_player_bonus %}
+                    <button class="btn btn-sm  btn-alt-secondary" type="submit">
+                        <i class="fa fa-eye me-1 text-muted"></i> {{phrase(309)}}
+                    </button>
+                    {% else %}
+                    <button disabled="disabled" class="btn btn-sm  btn-alt-secondary" href="javascript:void(0)">
+                        <i class="fa fa-eye me-1 text-muted"></i> {{phrase(309)}}
+                    </button>
+                    {% endif %}
+
+                </form>
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+
+            {% for referral in referrals %}
+            {%if referral.done == false %}
+            <div class="block block-rounded mb-0">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <h5 class="card-title">{{phrase(316)}} - #{{i+1}}
+                                    </h5>
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">{{phrase(93)}}</th>
+                                        <th scope="col">{{phrase(100)}}</th>
+                                        <th scope="col">{{phrase(317)}}</th>
+                                        <th scope="col">{{phrase(318)}}</th>
+                                        <th scope="col">{{phrase(115)}}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for character in referral.characters %}
+                                    <tr>
+                                        <td style="width: 10%">{{character.player_name}}</td>
+                                        <td style="width: 10%">{{character.level}} {%if character.level >= LEVEL %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                                        <td style="width: 10%">{{character.pvp}} {%if character.pvp >= PVP %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                                        <td style="width: 10%">{{character.pk}} {%if character.pk >= PK %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                                        <td style="width: 10%">{{timeHasPassed(character.time_in_game)}} {%if character.time_in_game >= GAME_TIME %}<i aria-hidden="true" class="fa fa-check text-success"></i>{%else%}<i aria-hidden="true" class="fa fa-times-circle text-danger"></i>{% endif %}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+</div>
+
+    {% endfor %}
+
+
+{% endblock %}

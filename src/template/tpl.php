@@ -2,32 +2,40 @@
 
 namespace Ofey\Logan22\template;
 
+use Exception;
 use InvalidArgumentException;
 use Ofey\Logan22\component\account\generation;
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\alert\logs;
+use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\captcha\google;
+use Ofey\Logan22\component\chronicle\client;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
 use Ofey\Logan22\component\estate\fort;
+use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\launcher;
-use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\forum\forum;
+use Ofey\Logan22\model\forum\internal;
 use Ofey\Logan22\model\gallery\screenshot;
+use Ofey\Logan22\model\notification\notification;
 use Ofey\Logan22\model\page\page;
 use Ofey\Logan22\model\server\online;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\statistic\statistic as statistic_model;
+use Ofey\Logan22\model\template\async;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\character;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\route\Route;
 use RuntimeException;
+use Throwable;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -37,11 +45,14 @@ use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class tpl
-{
+class tpl {
 
-    static private array $allTplVars = [];
+    private static array $allTplVars = [];
     private static string $templatePath;
+    private static ?bool $isAjax = null;
+    private static bool $ajaxLoad = false;
+    private static bool $categoryCabinet = false;
+    private static bool|array $get_buffs_registry = false;
 
     /**
      * @param        $var
@@ -50,8 +61,7 @@ class tpl
      * @return void
      * Добавление переменной к выводу шаблона
      */
-    public static function addVar($var, mixed $value = 'None')
-    {
+    public static function addVar($var, mixed $value = 'None') {
         if (is_array($var)) {
             self::$allTplVars = array_merge(self::$allTplVars, $var);
         } else {
@@ -59,8 +69,7 @@ class tpl
         }
     }
 
-    public static function template_design_route(): ?array
-    {
+    public static function template_design_route(): ?array {
         $fileRoute = $_SERVER['DOCUMENT_ROOT'] . "/template/" . config::get_template() . "/route.php";
         if (file_exists($fileRoute)) {
             require_once $fileRoute;
@@ -74,28 +83,66 @@ class tpl
     /**
      * @throws RuntimeError
      * @throws SyntaxError
-     * @throws LoaderError
+     * @throws LoaderError|Throwable
+     *
+     * $contents массив, где первый параметр название переменной, а второй название блока
      */
-    public static function display($tplName, $categoryCabinet = false)
-    {
+    public static function getHTML(async $anyn) {
+        $twig = self::preload($anyn->get_fileTpl());
+        $template = $twig->load($anyn->get_fileTpl());
+        foreach ($anyn->blocks as &$a) {
+            $a['html'] = $template->renderBlock($a['html'], self::$allTplVars);
+        }
+        board::alert($anyn->getArray());
+    }
+
+    private static function preload(string $tplName): Environment {
+        self::$ajaxLoad = false;
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            self::$ajaxLoad = true;
+        }
+
         $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
-        self::$templatePath = "/src/template/cabinet/";
-        if ($categoryCabinet) {
+        self::$templatePath = "/src/template/logan22";
+        if (self::$categoryCabinet) {
             self::$templatePath = "/template/" . config::get_template();
             self::lang_template_load($__ROOT__ . self::$templatePath . "/lang.php");
         }
         if (!file_exists($__ROOT__ . self::$templatePath . "/" . $tplName)) {
+            if (self::$ajaxLoad) {
+                self::display("page/error.html");
+                die();
+            }
+            self::display("page/error.html");
             echo "Не найден шаблон: " . $__ROOT__ . self::$templatePath . "/" . $tplName;
             die();
         }
         $loader = new FilesystemLoader($__ROOT__ . self::$templatePath);
 
-        $twig = new Environment($loader, ['cache' => $__ROOT__ . "/uploads/cache/template",
+        $twig = new Environment($loader, [
+//            'cache' => $__ROOT__ . "/uploads/cache/template",
             'auto_reload' => true,
             'debug' => true,
         ]);
         $twig->addExtension(new DebugExtension());
+        $twig = self::generalfunc($twig);
+        $twig = self::user_var_func($twig);
+        self::$allTplVars['template'] = self::$templatePath;
+        self::$allTplVars['pointTime'] = microtime::pointTime();
+        return $twig;
+    }
 
+    /**
+     * Загрузка языкового пакета шаблона
+     */
+    public static function lang_template_load($tpl) {
+        if (!file_exists($tpl)) {
+            return;
+        }
+        lang::load_template_lang_packet($tpl);
+    }
+
+    private static function generalfunc(Environment $twig = null): Environment {
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));
 
         $twig->addFunction(new TwigFunction('template', function ($var = null) {
@@ -103,13 +150,6 @@ class tpl
                 "\\",
             ], "/", self::$templatePath . $var);
         }));
-
-//        $templatePath = self::$templatePath;
-//        $twig->addFilter(new TwigFilter('template', function ($string) use ($templatePath) {
-//            return str_replace(["//",
-//                "\\",
-//            ], "/", $templatePath . $string);
-//        }));
 
         $twig->registerUndefinedFunctionCallback(function ($name) {
             if (function_exists($name)) {
@@ -120,12 +160,31 @@ class tpl
             throw new RuntimeException(sprintf('Function %s not found', $name));
         });
 
+        $twig->addFunction(new TwigFunction('class_group_color', function ($access_level = "user") {
+            switch ($access_level) {
+                case "admin":
+                    return "danger";
+                case "moderator":
+                    return "success";
+                default:
+                    return "info";
+            }
+        }));
+
         $twig->addFunction(new TwigFunction('cache_timeout', function ($var = null) {
             return time::cache_timeout($var);
         }));
 
+        $twig->addFunction(new TwigFunction('isAjaxRequest', function () {
+            if (self::$isAjax === null) {
+                self::$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+            }
+            return self::$isAjax;
+        }));
+
+
         $twig->addFunction(new TwigFunction('get_captcha_version', function ($name = null) {
-            if($name==null){
+            if ($name == null) {
                 return config::get_captcha_version();
             }
             return strcasecmp(config::get_captcha_version(), $name) == 0;
@@ -136,11 +195,11 @@ class tpl
         }));
 
         $twig->addFunction(new TwigFunction('google_secret_key', function () {
-                return google::get_client_key();
+            return google::get_client_key();
         }));
 
         $twig->addFunction(new TwigFunction('get_account_players', function () {
-                return character::get_account_players();
+            return character::get_account_players();
         }));
 
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
@@ -177,16 +236,16 @@ class tpl
 
 
         $twig->addFunction(new TwigFunction('user_info', function ($type) {
-                if (method_exists(auth::class, $type)) {
-                    return auth::$type();
-                } else {
-                    throw new \InvalidArgumentException(sprintf('Method "%s" does not exist in auth class.', $type));
-                }
+            if (method_exists(auth::class, $type)) {
+                return auth::$type();
+            } else {
+                throw new InvalidArgumentException(sprintf('Method "%s" does not exist in auth class.', $type));
+            }
         }));
 
-            $twig->addFunction(new TwigFunction('get_user_info', function ($user_id) {
-                return auth::get_user_info($user_id);
-            }));
+        $twig->addFunction(new TwigFunction('get_user_info', function ($user_id) {
+            return auth::get_user_info($user_id);
+        }));
 
 
         //Показать слово
@@ -212,10 +271,16 @@ class tpl
             echo number_format($num, 0, ',', ' ');
         }));
 
+
+        $twig->addFunction(new TwigFunction('ProhloVremya', function ($mysqlTimeFormat) {
+            return statistic_model::timeHasPassed(time() - strtotime($mysqlTimeFormat));
+        }));
+
         //Время (в секундах) в часы. минуты, сек.
         $twig->addFunction(new TwigFunction('timeHasPassed', function ($num, $onlyHour = false) {
             return statistic_model::timeHasPassed($num, $onlyHour);
         }));
+
         $twig->addFunction(new TwigFunction('get_class', function ($class_id) {
             return race_class::get_class($class_id);
         }));
@@ -237,6 +302,12 @@ class tpl
         $twig->addFunction(new TwigFunction('sex', function ($v) {
             return $v == 0 ? 'male' : 'female';
         }));
+
+        $twig->addFunction(new TwigFunction('MobileDetect', function () {
+            return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i"
+                , $_SERVER["HTTP_USER_AGENT"]);
+        }));
+
 
         $twig->addFunction(new TwigFunction('get_youtube_id', function ($link) {
             $video_id = explode("?v=", $link);
@@ -300,6 +371,10 @@ class tpl
             return forum::user_avatar($user_id);
         }));
 
+        $twig->addFunction(new TwigFunction("forum_internal", function () {
+            return internal::forum();
+        }));
+
         $twig->addFunction(new TwigFunction('get_enable_game_chat', function () {
             return server::get_server_info(auth::get_default_server())['chat_game_enabled'] ?? false;
         }));
@@ -359,9 +434,9 @@ class tpl
 
 
         $twig->addFunction(new TwigFunction('is_screenshot', function ($file = null) {
-            if(file_exists('uploads/screenshots/' . $file)){
+            if (file_exists('uploads/screenshots/' . $file)) {
                 return '/uploads/screenshots/' . $file;
-            }else{
+            } else {
                 return "/src/template/cabinet/assets/images/not-found.png";
             }
         }));
@@ -445,7 +520,7 @@ class tpl
         }));
 
         $twig->addFunction(new TwigFunction('icon', function ($fileIcon = null) {
-            return file_exists("uploads/images/icon/" . $fileIcon . ".webp") && $fileIcon != null ? "/uploads/images/icon/" . $fileIcon . ".webp" : "/uploads/images/icon/NOIMAGE.webp";
+            return client_icon::icon($fileIcon);
         }));
 
 
@@ -473,8 +548,7 @@ class tpl
                 throw new InvalidArgumentException('Argument must be an array.');
             }
 
-            function isReferralDone($referral)
-            {
+            function isReferralDone($referral) {
                 return isset($referral['done']) && $referral['done'];
             }
 
@@ -499,6 +573,20 @@ class tpl
             ];
         }));
 
+        //bool прошло ли больше N времени
+        $twig->addFunction(new TwigFunction("testOfTime", function ($mysqlTime) {
+            if (time() - strtotime($mysqlTime) > 3600 * 3) {
+                return false;
+            }
+            return true;
+        }));
+
+        //Проверка на наличие возможности просматривать чужим своего персонажа
+        $twig->addFunction(new TwigFunction("is_forbidden", function ($charnames) {
+            return character::is_forbidden($charnames);
+        }));
+
+
         $twig->addFunction(new TwigFunction('referral_link', function () {
             $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https://' : 'http://';
             $name = auth::get_name() ?: auth::get_id();
@@ -509,16 +597,77 @@ class tpl
             return json_encode(require 'src/config/donate.php');
         }));
 
-        $template = $twig->load($tplName);
-        self::$allTplVars['template'] = self::$templatePath;
-        self::$allTplVars['pointTime'] = microtime::pointTime();
+        $twig->addFunction(new TwigFunction('get_buffs_registry', function () {
+            if (self::$get_buffs_registry === false) {
+                self::$get_buffs_registry = include "src/config/forum/buff.php";
+            }
+            return self::$get_buffs_registry;
+        }));
+
+        $twig->addFunction(new TwigFunction('random_skill_buff_registry', function () {
+            if (self::$get_buffs_registry === false) {
+                self::$get_buffs_registry = include "src/config/forum/buff.php";
+            }
+            $buffs = self::$get_buffs_registry['buff'];
+            return $buffs[array_rand($buffs)];
+        }));
+
+
+        $twig->addFunction(new TwigFunction('get_collection', function ($chronicle_name) {
+            $protocols = client::get_protocol($chronicle_name);
+            if (!$protocols)
+                return 'false';
+            $all_class_base_data = base::all_class_base_data();
+            $collection = [];
+            foreach ($all_class_base_data as $class) {
+                $chronicle_protocols = ($class)::chronicle();
+                $diff = array_intersect($protocols, $chronicle_protocols);
+                if ($diff) {
+                    $collection[basename_php($class)] = $class;
+                }
+            }
+            return $collection;
+        }));
+
+        $twig->addFunction(new TwigFunction("get_self_notification", function ($bool = 0) {
+            return notification::get_self_notification($bool);
+        }));
+
+        function basename_php($str) {
+            $base = substr($str, strrpos($str, '\\') + 1);
+            if (strrpos($base, "\\") !== false) {
+                $base = substr($base, 0, strrpos($base, "\\"));
+            }
+            return $base;
+        }
+
+        return $twig;
+    }
+
+    public static function displayDemo(string $template) {
+        self::$categoryCabinet = true;
+        self::display($template);
+    }
+
+    public static function display($tplName) {
+        $twig = self::preload($tplName);
         try {
-            echo $template->render(self::$allTplVars);
-        } catch (\Exception  $e) {
+            //Если загрузка идет через аякс, то возвращаем только контент, используется при переходе по ссылкам
+            if (self::$ajaxLoad) {
+                $template = $twig->load($tplName);
+                $html = $template->renderBlock("content", self::$allTplVars);
+                $title = $template->renderBlock("title");
+                board::html($html, $title);
+            } else {
+                $template = $twig->load($tplName);
+                echo $template->render(self::$allTplVars);
+            }
+        } catch (Exception  $e) {
             $txt = "<h4>TEMPLATE ERROR</h4>";
             $txt .= "Message: " . $e->getMessage() . "<br>";
             $txt .= "File: " . $e->getFile() . "<br>";
-            $txt .= "Line: " . $e->getLine(); "<br>";
+            $txt .= "Line: " . $e->getLine();
+            "<br>";
             $txt .= "Code: ";
             $file = fopen($e->getFile(), "r");
             if ($file) {
@@ -538,16 +687,13 @@ class tpl
         exit();
     }
 
-    /**
-     * Загрузка языкового пакета шаблона
-     *
-     * @return void
-     */
-    public static function lang_template_load($tpl)
-    {
-        if (!file_exists($tpl)) {
-            return;
-        }
-        lang::load_template_lang_packet($tpl);
+    private static function user_var_func(Environment $twig = null): Environment {
+        $twig->addFunction(new TwigFunction('get_user_variables', function ($varName) {
+            return auth::get_user_variables($varName);
+        }));
+
+        return $twig;
     }
+
+
 }

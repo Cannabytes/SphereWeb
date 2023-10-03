@@ -11,30 +11,12 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\page\page as page_model;
+use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\template\async;
+use Ofey\Logan22\template\tpl;
 
 class page {
-
-    static private function check_data($title, $content) {
-        //Предельные символы
-        $mix_title_len = 4;
-        $max_title_len = 140; // Максимум 600 символов. Рекомендую оставить 140.
-        $min_content_len = 20;
-        $max_content_len = pow(2, 24) - 1; //До 16 мб текста...
-
-        //Проверка данных
-        if(!validation::min_len($title, $mix_title_len)) {
-            board::notice(false, lang::get_phrase(140, $mix_title_len));
-        }
-        if(!validation::max_len($title, $max_title_len)) {
-            board::notice(false, lang::get_phrase(141, $max_title_len));
-        }
-        if(!validation::min_len($content, $min_content_len)) {
-            board::notice(false, lang::get_phrase(142, $min_content_len));
-        }
-        if(!validation::max_len($content, $max_content_len)) {
-            board::notice(false, lang::get_phrase(143, $max_content_len));
-        }
-    }
 
     static public function create() {
         //Получение данных запроса
@@ -57,17 +39,46 @@ class page {
             $lang,
         ]);
         //Проверка результата вставки
-        if($request) {
-            board::alert([
-                'ok'       => true,
-                'message'  => 'Новость успешно создана',
-                'redirect' => "/page/" . sql::lastInsertId(),
+        if ($request) {
+            $id = sql::lastInsertId();
+            tpl::addVar([
+                'page' => page_model::get_news($id),
+                'comments' => page_model::get_comments($id),
             ]);
+
+            $async = new async("page/read.html");
+            $async->block("main-container", "content", "update", true);
+            $async->block("title", "title");
+            $async->send();
         }
+
         board::notice(false, 'Произошла ошибка');
     }
 
+    static private function check_data($title, $content) {
+        //Предельные символы
+        $mix_title_len = 4;
+        $max_title_len = 140; // Максимум 600 символов. Рекомендую оставить 140.
+        $min_content_len = 20;
+        $max_content_len = pow(2, 24) - 1; //До 16 мб текста...
+
+        //Проверка данных
+        if (!validation::min_len($title, $mix_title_len)) {
+            board::notice(false, lang::get_phrase(140, $mix_title_len));
+        }
+        if (!validation::max_len($title, $max_title_len)) {
+            board::notice(false, lang::get_phrase(141, $max_title_len));
+        }
+        if (!validation::min_len($content, $min_content_len)) {
+            board::notice(false, lang::get_phrase(142, $min_content_len));
+        }
+        if (!validation::max_len($content, $max_content_len)) {
+            board::notice(false, lang::get_phrase(143, $max_content_len));
+        }
+    }
+
     //Обновление данных
+
     public static function update() {
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
@@ -87,10 +98,10 @@ class page {
             $id,
         ]);
         //Проверка результата вставки
-        if($request) {
+        if ($request) {
             board::alert([
-                'ok'       => true,
-                'message'  => self::get_page(144),
+                'ok' => true,
+                'message' => self::get_page(144),
                 'redirect' => "/page/" . sql::lastInsertId(),
             ]);
         }
@@ -98,14 +109,15 @@ class page {
     }
 
     //Отправить в корзину новость
+
+    public static function get_page($id) {
+        return sql::run("SELECT * FROM `pages` WHERE id=?", [$id])->fetch();
+    }
+
     public static function trash_send($id) {
         sql::run('DELETE FROM `pages` WHERE `id` = ?', [$id]);
         header("Location: /admin/pages");
         die();
-    }
-
-    public static function get_page($id) {
-        return sql::run("SELECT * FROM `pages` WHERE id=?", [$id])->fetch();
     }
 
     public static function show_page() {
@@ -113,7 +125,7 @@ class page {
     }
 
     public static function show_pages_short($max_desc_len = 300, $trash = false) {
-        if($trash == true) {
+        if ($trash == true) {
             return sql::run("SELECT `id`, `name`, LEFT(content, $max_desc_len) AS `content`, `trash`, `date_create` FROM `pages` WHERE trash = 1;")->fetchAll();
         }
         return sql::run("SELECT `id`, `name`, LEFT(content, $max_desc_len) AS `content`, `trash`, `date_create` FROM `pages`;")->fetchAll();

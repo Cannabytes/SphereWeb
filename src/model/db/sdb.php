@@ -19,19 +19,22 @@ class sdb {
     /**
      * @var PDO
      */
-    static private $db = [];
+    private static $db = [];
     private static bool $showErrorPage = false;
-    static private int $server_id = 0;
-    static private string $type;
+    private static int $server_id = 0;
+    private static string $type;
     private static bool $error = false;
-    private static string $errorMessage;
+    private static ?string $errorMessage = null;
 
     public static function get_error() {
         return self::$db[self::get_server_id()][self::get_type()]->errorInfo();
     }
 
-    public static function is_error() {
-        return self::$error;
+    public static function is_error(): ?string {
+        if(self::$error){
+            return self::$errorMessage;
+        }
+        return false;
     }
 
     public static function get_server_id(): int {
@@ -81,7 +84,7 @@ class sdb {
         return self::$instance;
     }
 
-    static public function lastInsertId() {
+    public static function lastInsertId() {
         return self::$db[self::get_server_id()][self::get_type()]->lastInsertId();
     }
 
@@ -110,15 +113,14 @@ class sdb {
     }
 
 
+    // В случаи ошибки возвращает null и записывает ошибку в $errorMessage
     public static function run($query, $args = []) {
         self::$error = false;
-        self::$errorMessage = "";
+        self::$errorMessage = null;
         if (!self::connect()) {
             self::$error = true;
-            self::$errorMessage = "Not connect to db";
-            return [
-                'error' => 'Not connect to db',
-            ];
+            self::$errorMessage = "Not connect to DB";
+            return null;
         }
         try {
             if (!$args) {
@@ -141,11 +143,10 @@ class sdb {
         }
     }
 
-    public static function query($stmt) {
+    private static function query($stmt) {
         try {
             return self::$db[self::get_server_id()][self::get_type()]->query($stmt);
         } catch (PDOException $e) {
-            // handle the error here
             self::$error = true;
             self::$errorMessage = $e->getMessage();
             return false;

@@ -53,6 +53,11 @@ class donate {
         \Ofey\Logan22\model\admin\donate::add_item();
     }
 
+    public static function edit_item() {
+        validation::user_protection("admin");
+        \Ofey\Logan22\model\admin\donate::edit_item();
+    }
+
     public static function remove_item() {
         validation::user_protection("admin");
         $id = request::setting("productId", new request_config(isNumber: true));

@@ -1,0 +1,35 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(272)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block block-rounded">
+                <div class="block-content block-content-full d-flex align-items-center justify-content-between bg-primary-dark">
+                    <div class="p-1">
+                        <i class="fa fa-2x fa-camera-retro text-white-75"></i>
+                    </div>
+                    <div class="ms-1 text-end">
+                        <p class="fs-sm fw-semibold text-white-75 mb-0">
+                            {{phrase(272)}}
+                        </p>
+                    </div>
+                </div>
+                <div class="block-content block-content-full">
+                    <div class="row js-gallery img-fluid-100 g-sm js-gallery-enabled">
+                        {% for avatar in avatars %}
+                        <div class="col-6 col-lg-2 animated fadeIn">
+                            <div class="img-thumb mb-1" >
+                                <img role='button' data-avatar="{{avatar}}" class="img-fluid change_avatar" src="/src/template/cabinet/assets/images/navatar/{{avatar}}" alt="">
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

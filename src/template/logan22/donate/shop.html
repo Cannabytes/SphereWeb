@@ -1,0 +1,139 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(215)}}{% endblock %}
+
+{% block content %}
+
+<div class="content">
+    <div class="row">
+
+        {% if products|length > 0 %}
+        {% for product in products %}
+        <div class="col-md-6 col-xl-3">
+            <div class="block block-rounded text-center">
+                <div class="block-content block-content-full block-content-sm">
+                    <div class="fw-semibold">{{ grade_img(product['crystal_type'])|raw }} {{product['name']}}</div>
+                </div>
+                <div class="block-content block-content-full bg-body-light">
+                    <img class="img-avatar img-avatar-thumb img-avatar-rounded" src="{{ icon( product.icon ) }}" alt="">
+                </div>
+                <div class="block-content block-content-full">
+
+
+                    <table class="table table-borderless table-striped table-hover mb-0 fs-sm">
+                        <tbody>
+                        <tr>
+                            <td class="fw-medium" style="width: 70%;">
+                                {{phrase(71)}}
+                            </td>
+                            <td class="text-center" style="width: 30%;">
+                                <span id="product_count_{{product.id}}" class="fw-semibold text-success">{{product.count|number_format(0, ',', '.')}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-medium">
+                                {{phrase(72)}}
+                            </td>
+                            <td class="text-center">
+                                <span id="product_cost_{{product.id}}" class="fw-semibold text-success"><img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">{{product.cost}}</span>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+<hr>
+                    {% if user_info('get_is_auth') %}
+                    {% if product['consume_type'] == "consume_type_normal" %}
+                    <div class="d-flex justify-content-center">
+                        <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                               data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="hidden" min="1">
+                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal-fadein" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
+                    </div>
+                   {% else %}
+                    <div class="input-group">
+                        <div class="form-floating">
+                            <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                                   data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="number" min="1" class="count form-control" placeholder="{{phrase(71)}}">
+                            <label for="user_value_{{product.id}}">{{phrase("how_much_to_buy")}}</label>
+                        </div>
+                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal-fadein" class="input-group-text openWindowBuy">
+                            {{phrase(74)}}
+                        </button>
+                    </div>
+                    {% endif%}
+                    {% else %}
+                      {{phrase(234)}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="block block-rounded mb-0">
+            <div class="block-content block-content-full">
+                <div class="py-3 text-center">
+                    <h1 class="h3 fw-extrabold mb-1">
+                        {{phrase("empty")}}
+                    </h1>
+                    <h2 class="fs-sm fw-medium text-muted mb-0">
+                        {{phrase("no_products")}}
+                    </h2>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(75)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <p>{{phrase(76)}}</p>
+
+                    <div class="form-group row">
+                        <label for="char_name" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
+
+                        <select id="char_name" class="form-control single-select">
+                            {% for account_name, players in get_account_players() %}
+                            <optgroup label="{{phrase(480)}}: {{account_name}}">
+                                {% for player in players %}
+                                <option value="{{player}}">{{player}}</option>
+                                {% endfor %}
+                            </optgroup>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <hr>
+                    <p>
+                        {{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
+                        {{phrase(72)}}: <span id="user_worth_buy"></span> {{phrase(68)}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i>
+                        {{phrase("cancel")}}
+                    </button>
+                    <button id="buy" data-server_id="{{ get_server_default().id }}" type="button" data-product-id="1" data-user_value="1" class="btn btn-success"><i class="fa fa-check-square-o"></i>
+                        {{phrase(81)}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

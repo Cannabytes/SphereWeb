@@ -1,0 +1,38 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(523)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">{{phrase(523)}}</h3>
+        <div class="block-options">
+            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                <i class="si si-refresh"></i>
+            </button>
+            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+        </div>
+    </div>
+    <div class="block-content">
+        <ul class="timeline pull-t">
+            {% for notification in get_self_notification(true) %}
+            <li class="timeline-event">
+                <div class="timeline-event-time text-center">{{ProhloVremya(notification.date)}}</div>
+                <div class="timeline-event-block">
+                    {% if notification.link %}
+                    <a href="{{notification.link}}">
+                    {% endif %}
+                      <p>{{notification.message}}</p>
+                    {% if notification.link %}
+                    </a>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</div>
+{% endblock %}

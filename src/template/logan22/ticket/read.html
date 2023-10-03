@@ -1,0 +1,127 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="col-lg-12 col-xl-12">
+        <div class="block block-rounded" id="ticket_read_list">
+            <div class="block-content block-content-full">
+                <div class="d-flex">
+                    <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
+                         src="{{ template('/assets/images/navatar/' ~ ticket.avatar ) }}" alt="">
+                    <div class="flex-grow-1">
+                        <p class="mb-1">
+                            <a class="fw-semibold" href="javascript:void(0)">{% if ticket.name == null %} <span
+                                    data-toggle="tooltip" data-placement="bottom" title=""
+                                    data-original-title="Юзер без имени">#{{ticket.user_id}}</span> {% else %}
+                                {{ticket.name}} {% endif %}</a>
+                        </p>
+                        <p class="fs-sm">
+                            {{ ticket.content|nl2br|raw }}
+                        </p>
+
+
+                        <div class="block-content block-content-full">
+                            <div class="row js-gallery img-fluid-100 g-sm">
+
+                                {% for img in ticket.images %}
+                                <div class="col-6 col-lg-2 animated fadeIn">
+                                    <a class="img-link img-link-zoom-in img-thumb img-lightbox"
+                                       href="/uploads/tickets/{{img.image}}">
+                                        <img class="img-fluid" src="/uploads/tickets/thumb_{{img.image}}" alt="">
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            {% for comment in ticket.comments %}
+            {% block contentCommentTicket %}
+            <div class="block-content block-content-full border-top">
+                <div class="d-flex">
+                    <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
+                         src="{{ template('/assets/images/navatar/' ~ comment.avatar ) }}" alt="">
+                    <div class="flex-grow-1">
+                        <p class="mb-1">
+                            <a class="fw-semibold" href="javascript:void(0)">{{comment.name}}</a>
+                        </p>
+                        <p class="fs-sm">
+                            {{ comment.content|nl2br|raw }}
+                        </p>
+
+                        <div class="block-content block-content-full">
+                            <div class="row js-gallery img-fluid-100 g-sm">
+
+                                {% for img in comment.images %}
+                                <div class="col-6 col-lg-2 animated fadeIn">
+                                    <a class="img-link img-link-zoom-in img-thumb img-lightbox"
+                                       href="/uploads/tickets/{{img.image}}">
+                                        <img class="img-fluid" src="/uploads/tickets/thumb_{{img.image}}" alt="">
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+            {% endfor %}
+
+        </div>
+        <div class="block block-rounded">
+
+            <div class="block-content">
+                <form action="/ticket/add/comment" method="POST" onsubmit="return false;" enctype="multipart/form-data">
+                    <input name="ticketID" type="hidden" value="{{ticket.id}}">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="mb-4">
+                                <textarea class="form-control form-control-lg" name="ticket_comment"
+                                          placeholder="" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-4">
+                                <div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <input name="image_1" id="image_1" type="file" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <input name="image_2" id="image_2" type="file" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <input name="image_3" id="image_3" type="file" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="opacity-50 me-1"></i> {{ phrase(364) }}
+                            </button>
+                        </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

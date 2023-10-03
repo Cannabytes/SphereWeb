@@ -1,0 +1,105 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(118)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(118)}} - {{clan_info.clan_name}}</h3>
+                </div>
+                <div class="block-content">
+                    <table class="table table-vcenter">
+                        <tbody>
+                        <tr>
+                            <th scope="row">{{phrase(101)}}:</th>
+                            <td>
+                                {% if clan_info.player_forbidden %}
+                                <a href="/statistic/char/{{ clan_info.player_name_leader_clan|url_encode }}">{{clan_info.player_name_leader_clan}}</a>
+                                {% else %}
+                                {{clan_info.player_name_leader_clan}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(102)}}:</th>
+                            <td>{{ format_number_fr(clan_info.reputation_score) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(103)}}:</th>
+                            <td>{{ clan_players|length }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(119)}}:</th>
+                            <td>{{ timeHasPassed ( array_field_sum( clan_players , 'time_in_game') ) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(120)}} PvP / PK:</th>
+                            <td>{{ array_field_sum( clan_players , 'pvp') }} / {{ array_field_sum( clan_players ,
+                                'pk') }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(121)}}:</th>
+                            <td>{{ get_castle(clan_info.castle_id) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(122)}}:</th>
+                            <td>{{ get_fort(clan_info.fortress_id) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{phrase(123)}}:</th>
+                            <td>{{ get_clanhall(clan_info.clanhall_id) }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(125)}}</h3>
+                </div>
+                <div class="block-content">
+                    <div class="js-slider text-center" data-autoplay="true" data-dots="true" data-arrows="true"
+                         data-slides-to-show="4">
+
+                        {% for skill in clan_skills %}
+                        <div class="py-2">
+                            <img class="img-avatar" src="/uploads/images/skills/{{skill.icon}}.webp" alt="">
+                            <div class="mt-2 fw-semibold">{{skill.name_en}}</div>
+                            <div class="fs-sm text-muted">{{skill.skill_level}} lvl</div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        {% for player in clan_players %}
+        <div class="col-6 col-md-4 col-xl-2">
+            <a class="block block-rounded block-bordered block-link-shadow text-center {% if player['forbidden']==false %}ajaxload{%endif%}" href="{% if player['forbidden'] == false %}/statistic/char/{{ player.player_name|url_encode }}{%else%}javascript:void(0){%endif%}">
+                <div class="block-content">
+                    {% if player['forbidden'] %}
+                        <p class="fw-semibold">{{player.player_name}}  {% if player.online %}<span class="text-success">•</span>{% endif %}<br>{{player.pvp}} / {{player.pk}}</p>
+                    {% else %}
+                         <p class="fw-semibold">{{player.player_name}}<br>{{player.pvp}} / {{player.pk}}</p>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

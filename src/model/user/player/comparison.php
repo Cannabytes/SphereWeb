@@ -50,7 +50,7 @@ class comparison {
             board::notice(false, lang::get_phrase(330));
         }
 
-        $builder = new Builder;
+        $builder = new Builder();
         if (!$builder->compare($captcha, $_SESSION['captcha'])) {
             board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
         }

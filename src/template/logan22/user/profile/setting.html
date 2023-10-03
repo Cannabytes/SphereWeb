@@ -1,0 +1,62 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{ phrase(13) }}</h3>
+        </div>
+        <div class="block-content col-6">
+            <form action="/user/change" method="POST" onsubmit="return false;">
+                <div class="row push">
+                    <div class="col-xl-3">
+                        <div class="mb-4">
+                            <label class="form-label" for="name">{{ phrase(14) }}</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ user_info('get_name') }}" placeholder="">
+                        </div>
+                        <hr>
+                        <div class="mb-4">
+                            <label class="form-label" for="new_password">{{ phrase("new_password") }}</label>
+                            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="two_password">{{ phrase("two_password") }}</label>
+                            <input type="password" class="form-control" id="two_password" name="two_password" placeholder="">
+                        </div>
+                        <hr>
+                        <div class="mb-4">
+                            <label class="form-label" for="timezone">{{ phrase(31) }}</label>
+                            <select class="form-select" name="timezone" id="timezone">
+                                {% set timezone = user_info('get_timezone') %}
+                                {% for key, name in timezone_list_default %}
+                                <option {% if name == timezone %}selected{% endif %} value="{{ name }}">{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <hr>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="signature">{{ phrase("signature") }}</label>
+                            <textarea class="form-control" id="signature" name="signature" rows="4" placeholder="...">{{ user_info('get_signature') }}</textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-alt-primary">
+                                <i class="fa fa-check opacity-50 me-1"></i> {{ phrase("apply") }}
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <!-- Instructor -->
+            <div class="block block-rounded block-link-shadow text-center" >
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">
+                        <i class="fa fa-fw fa-graduation-cap opacity-50"></i>
+                        Добавление нового предмета в магазин
+                    </h3>
+                </div>
+                <form action="/admin/donate/add" method="POST" class="block-content block-content-full">
+                    <div class="push">
+                        <img id="editImgSrc" class="img-thumb" src="/uploads/images/icon/NOIMAGE.webp" alt="">
+                    </div>
+                    <div id="itemNameDonate" class="fw-semibold mb-1">Нет предмета</div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="form-label" for="itemIDDonate">Item ID</label>
+                            <input type="text" class="form-control form-control-lg" id="itemIDDonate" name="itemid">
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="count">Кол-во</label>
+                            <input type="text" class="form-control form-control-lg" id="count" name="count">
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="cost">Стоимость</label>
+                            <input type="text" class="form-control form-control-lg" id="cost" name="cost">
+                        </div>
+
+                    </div>
+
+                    <div class="block-content">
+                        <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i> Добавить</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- END Instructor -->
+
+            <!-- Course Info -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default text-center">
+                    <h3 class="block-title">
+                        <i class="fa fa-fw fa-info opacity-50"></i>
+                        About
+                    </h3>
+                </div>
+                <div class="block-content">
+                    <div class="text-warning text-center mb-1">
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                    </div>
+                    <div class="fs-sm text-muted text-center mb-3">
+                        258 reviews
+                    </div>
+                    <table class="table table-borderless table-striped">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-fw fa-heart opacity-50 me-2"></i>
+                                <span class="fs-sm">456 Favorites</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-fw fa-calendar-alt opacity-50 me-2"></i>
+                                <span class="fs-sm">1 week ago</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-fw fa-tags opacity-50 me-2"></i>
+                                <a class="link-fx fs-sm fw-medium" href="javascript:void(0)">HTML</a>,
+                                <a class="link-fx fs-sm fw-medium" href="javascript:void(0)">CSS</a>,
+                                <a class="link-fx fs-sm fw-medium" href="javascript:void(0)">JavaScript</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END Course Info -->
+        </div>
+        <div class="col-xl-8">
+            <!-- Lessons -->
+            <div class="block block-rounded">
+                <div class="block-content">
+
+
+                    <!-- Basics -->
+                    <table class="table table-borderless table-vcenter mb-4">
+                        <tbody>
+                        {% for i, product in products %}
+                            <tr class="border-bottom">
+                                <td style="width: 1%;">
+                                    <img src="{{ icon( product.icon ) }}" class="img-thumb">
+                                </td>
+                                <td class="" >
+                                        <h4 class="fs-6 mb-1">{{product.name}} x{{product.count}}</h4>
+                                        <h5 class="fs-sm fw-light mb-1">{{product.cost}}</h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <button data-img="{{ icon( product.icon ) }}" data-object-id="{{product.id}}" data-item-name="{{product.name}}" data-item-id="{{product.item_id}}" data-item-count="{{product.count}}" data-item-cost="{{product.cost}}"  data-bs-toggle="modal" data-bs-target="#donateEdit" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled editDonateButton" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+                                            <i class="fa fa-pencil-alt"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- END Advanced -->
+                </div>
+            </div>
+            <!-- END Lessons -->
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="donateEdit" tabindex="-1" role="dialog" aria-labelledby="modal-large" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Terms &amp; Conditions</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+
+                    <form action="/admin/donate/edit" method="POST" class="block-content block-content-full">
+                        <div class="push text-center">
+                            <img class="img-thumb" src="https://anygame.eu.org/uploads/images/icon/etc_adena_i00.webp" alt="">
+                        </div>
+                        <div class="fw-semibold mb-1 text-center">Нет предмета</div>
+                        <input type="hidden" class="form-control form-control-lg" id="edit_id" name="id">
+
+                        <div class="row">
+                            <div class="col-4">
+                                <label class="form-label" for="itemID">Item ID</label>
+                                <input disabled type="text" class="form-control form-control-lg" id="edit_itemID" name="itemid">
+                            </div>
+                            <div class="col-4">
+                                <label class="form-label" for="count">Кол-во</label>
+                                <input type="text" class="form-control form-control-lg" id="edit_count" name="count">
+                            </div>
+                            <div class="col-4">
+                                <label class="form-label" for="cost">Стоимость</label>
+                                <input type="text" class="form-control form-control-lg" id="edit_cost" name="cost">
+                            </div>
+
+                        </div>
+
+                        <div class="block-content text-center">
+                            <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i> Сохранить</button>
+                        </div>
+                    </form>
+
+                   </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

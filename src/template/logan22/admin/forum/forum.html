@@ -1,0 +1,276 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(62)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{phrase(62)}}</h3>
+        </div>
+        <div class="block-content block-content-full">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_category">
+                {{phrase("add_category")}}
+            </button>
+        </div>
+    </div>
+
+    <div id="forum_category">
+    {{ block('forum_category') }}
+    </div>
+
+</div>
+
+
+<div class="modal" id="create_category" tabindex="-1" role="dialog" aria-labelledby="create_category"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="/admin/forum/add/category" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("add_category")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+
+                    <div class="row">
+                        <div class="mb-4">
+                            <label class="form-label" for="name_category">{{phrase(27)}}</label>
+                            <input type="text" class="form-control" id="name_category" name="name" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="edit_category" tabindex="-1" role="dialog" aria-labelledby="edit_category"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="/admin/forum/edit/category" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("change_category_name")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+
+                    <div class="row">
+                        <div class="mb-4">
+                            <input id="change_category_id"  name="id" value="" type="hidden">
+                            <label class="form-label" for="change_name_category">{{phrase(27)}}}}</label>
+                            <input type="text" class="form-control" id="change_name_category" name="name" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="remove_category" tabindex="-1" role="dialog" aria-labelledby="remove_category"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form action="/admin/forum/remove/category" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("delete")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <div class="row">
+                        <div class="mb-4">
+                            <input id="remove_category_id"  name="id" value="" type="hidden">
+                            <label class="form-label" for="change_name_category">{{phrase("want_delete_category")}} <span class="text-danger" id="remove_category_name"></span> ?</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="add_section" tabindex="-1" role="dialog" aria-labelledby="add_section"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="/admin/forum/add/section" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("add_section")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <input id="id_category_new_section"  name="category_id" value="" type="hidden">
+                    <div class="row">
+                        <div class="mb-4">
+                            <label class="form-label" for="create_name_section">{{phrase(27)}}</label>
+                            <input type="text" class="form-control" id="create_name_section" name="name" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="edit_section" tabindex="-1" role="dialog" aria-labelledby="edit_section"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="/admin/forum/edit/section" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("add_section")}} </h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <input id="edit_section_id"  name="id" value="" type="hidden">
+                    <div class="row">
+                        <div class="mb-4">
+                            <label class="form-label" for="edit_name_section">{{phrase(27)}}</label>
+                            <input type="text" class="form-control" id="edit_name_section" name="name" placeholder="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal" id="remove_section" tabindex="-1" role="dialog" aria-labelledby="remove_section"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form action="/admin/forum/remove/section" method="POST"  class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase("delete")}} </h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <div class="row">
+                        <div class="mb-4">
+                            <input id="remove_section_id"  name="id" value="" type="hidden">
+                            <label class="form-label" for="remove_section_id">{{phrase("want_delete_section")}} <span class="text-danger" id="remove_section_name"></span> ?</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("close")}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("create")}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block forum_category %}
+    {% for i, category in getCategoryInfo %}
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{category.name}}</h3>
+
+            <div class="btn-group btn-group-sm me-1 mb-0" role="group" aria-label="">
+                <button type="button" class="btn btn-secondary edit_category" data-category-id="{{category.id}}" data-category-name="{{category.name}}" data-bs-toggle="modal" data-bs-target="#edit_category">
+                    {{phrase("rename_category")}}</button>
+                <button type="button" class="btn btn-secondary remove_category" data-category-id="{{category.id}}" data-category-name="{{category.name}}" data-bs-toggle="modal" data-bs-target="#remove_category">
+                    {{phrase("remove_category")}}</button>
+                <button type="button" class="btn btn-secondary add_section" data-category-id="{{category.id}}" data-category-name="{{category.name}}" data-bs-toggle="modal" data-bs-target="#add_section">
+                    {{phrase("add_section")}}</button>
+            </div>
+
+        </div>
+        <div class="block-content">
+            <ul class="list-group push">
+             {% for section in getSectionInfo %}
+                 {% if section.category_id == category.id %}
+                  <li class="list-group-item">{{ section.name }}
+                      <div class="btn-group btn-group-sm me-1 mb-0 float-end" role="group" aria-label="">
+                          <button type="button" class="btn btn-secondary edit_section" data-section-id="{{section.id}}" data-section-name="{{section.name}}" data-bs-toggle="modal" data-bs-target="#edit_section">
+                              {{phrase("rename")}}</button>
+                          <button type="button" class="btn btn-secondary remove_section" data-section-id="{{section.id}}" data-section-name="{{section.name}}" data-bs-toggle="modal" data-bs-target="#remove_section">{{phrase("delete")}}</button>
+                          <button type="button" class="btn btn-secondary button_close" data-is-close="{% if section.is_close %}true{% else %}false{% endif %}" data-section-id="{{section.id}}">{% if section.is_close %}{{phrase("is_close")}}{% else %}{{phrase("is_open")}}{% endif %}</button>
+                      </div>
+                  </li>
+                 {% endif %}
+             {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

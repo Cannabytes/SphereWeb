@@ -49,17 +49,26 @@ class primepayments {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
+        $donate = include 'src/config/donate.php';
+
+        if ($_POST['count'] < $donate['min_donate_bonus_coin']) {
+            board::notice(false, "Минимальное пополнение: " . $donate['min_donate_bonus_coin']  );
+        }
+        if ($_POST['count'] > $donate['max_donate_bonus_coin']) {
+            board::notice(false, "Максимальная пополнение: " . $donate['max_donate_bonus_coin']  );
+        }
+        $sum = $_POST['count'] * ($donate['coefficient']['RUB'] / $donate['quantity']);
         $data = [
-            'action'     => 'initPayment',
-            'project'    => $this->project_id,
-            'sum'        => $_POST['count'],
-            'currency'   => 'RUB',
-            'innerID'    => auth::get_id(),
-            'payWay'     => '1',
-            'email'      => auth::get_email(),
+            'action' => 'initPayment',
+            'project' => $this->project_id,
+            'sum' => $_POST['count'],
+            'currency' => 'RUB',
+            'innerID' => auth::get_id(),
+            'payWay' => '1',
+            'email' => auth::get_email(),
             'returnLink' => 1,
         ];
-        $data['sign'] = md5($this->secret1 . $data['action'] . $data['project'] . $data['sum'] . $data['currency'] . $data['innerID'] . $data['email'] . $data['payWay']);
+        $data['sign'] = md5($this->secret1 . $data['action'] . $data['project'] . $sum . $data['currency'] . $data['innerID'] . $data['email'] . $data['payWay']);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://pay.primepayments.io/API/v2/');
         curl_setopt($ch, CURLOPT_POST, true);

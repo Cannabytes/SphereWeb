@@ -1,0 +1,447 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(62)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{topic.name}}</h3>
+            <div class="block-options">
+                {% if countPages > 1 %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm">
+
+                        {% if currentPage != 1 %}
+                        <li class="page-item">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
+                               aria-label="Previous">
+                          <span aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                          </span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        {% for i in 1..countPages %}
+                        <li class="page-item {% if i==currentPage%}active{%endif%}">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
+                        </li>
+                        {% endfor %}
+
+                        {% if countPages != currentPage %}
+                        <li class="page-item">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
+                          <span aria-hidden="true">
+                            <i class="fa fa-angle-right"></i>
+                          </span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+
+        <ul class="list list-activity " id="postMessage">
+            {% block postMessage %}
+            {% for post in posts %}
+            <li class="timeline-event panel_comment_id_{{post.id}}" id="{{post.id}}">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="block block-rounded text-center">
+                            <div class="block-content block-content-full">
+                                <img class="img-avatar img-avatar128"
+                                     src="{{template('/assets/images/navatar/' ~ post.avatar) }}">
+                            </div>
+                            <div class="block-content block-content-full block-content-sm bg-body-light">
+                                <div class="fw-semibold mb-1"><span
+                                        class="badge bg-{{class_group_color(post.access_level)}}">{{post.name}}</span>
+                                </div>
+                                <div class="fs-sm fw-medium text-muted">{{post.access_level}}</div>
+                            </div>
+                            <div class="block-content block-content-full">
+
+
+
+                                {# Когда пользователь автор #}
+
+                                {% if user_info('get_is_auth') %}
+                                {% if ( testOfTime(post.date_create) and user_info('get_id') == post.user_id ) or
+                                user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator"
+                                %}
+                                <a class="btn btn-sm btn-alt-secondary me-1 mb-1 editForumComment" data-is-open="false"
+                                   data-post-id="{{post.id}}"
+                                   href="javascript:void(0)">{{phrase("edit")}}</a>
+                                {% endif %}
+                                {% if user_info('get_access_level') == "admin" or user_info('get_access_level') ==
+                                "moderator" %}
+                                <br>
+
+                                <a class="btn btn-sm btn-alt-secondary me-1 mb-1 deleteForumCommentModal"
+                                   data-bs-toggle="modal" data-bs-target="#deletePost" data-post-id="{{post.id}}"
+                                   href="javascript:void(0)">{{phrase("delete")}}</a>
+                                {% endif %}
+                                {% endif %}
+
+                            </div>
+
+                            {{ block("likes") }}
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 col-xl-10">
+                        <div class="mb-1 edit_post_forum" id="comment_message_id_{{post.id}}">
+                            {{post.post|raw}}
+                        </div>
+                        {% if post.is_attached %}
+                        <div class='row g-sm js-gallery img-fluid-100 edit_post_forum_image'>
+                            {% for file in post.attached %}
+                            <div class='col-2 pic_img_{{post.id}}' data-file-id="{{file.id}}">
+                                <a class='img-link img-link-simple img-thumb img-lightbox'
+                                   href='/uploads/images/forum/{{file.image}}'>
+                                    <img class='img-fluid' src='/uploads/images/forum/thumb_{{file.image}}' alt=''>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+
+
+                        {% if user_info('get_is_auth') %}
+                        <div class="row align-items-center">
+                            <div class="col-sm-12 py-2 text-md-end">
+                                <a class="btn btn-sm btn-alt-secondary me-1 my-1 buttonLikeBuffPanel" data-post-id="{{post.id}}" href="javascript:void(0)">
+                                    <i class="fa fa-heart opacity-50 me-1"></i> {{phrase(513)}}
+                                </a>
+                                <a class="btn btn-sm btn-alt-secondary me-4 my-1 quote" data-post-author="{{post.name}}" data-post-id="{{post.id}}" href="javascript:void(0)">
+                                    <i class="fa fa-message opacity-50 me-1"></i> {{phrase(514)}}
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            {% endblock %}
+
+        </ul>
+
+        <div class="block-content  bg-body-light  text-center">
+            <div class="     d-inline-block" >
+                {% if countPages > 1 %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm">
+
+                        {% if currentPage != 1 %}
+                        <li class="page-item">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
+                               aria-label="Previous">
+                          <span aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                          </span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        {% for i in 1..countPages %}
+                        <li class="page-item {% if i==currentPage%}active{%endif%}">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
+                        </li>
+                        {% endfor %}
+
+                        {% if countPages != currentPage %}
+                        <li class="page-item">
+                            <a class="page-link ajaxload"
+                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
+                          <span aria-hidden="true">
+                            <i class="fa fa-angle-right"></i>
+                          </span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    {% if user_info('get_is_auth') %}
+    {% if section.is_close == 0 or user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+    <div class="block block-rounded">
+        <ul class="list list-activity ">
+            <li class="timeline-event">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="block block-rounded text-center">
+                            <div class="block-content block-content-full">
+                                <img class="img-avatar img-avatar128"
+                                     src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}">
+                            </div>
+                            <div class="block-content block-content-full block-content-sm bg-body-light">
+                                <div class="fw-semibold mb-1"><span
+                                        class="badge bg-{{class_group_color(user_info('get_access_level'))}}">{{user_info('get_name')}}</span>
+                                </div>
+                                <div class="fs-sm fw-medium text-muted">{{post.access_level}}</div>
+                            </div>
+                            <div class="block-content block-content-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-xl-10">
+                        <form action="/forum/topic/post/add" method="POST" onsubmit="return false;" data-function="toGoHash">
+                            <div class="mb-4">
+                                <input name="topicID" type="hidden" value="{{topic.id}}">
+                                <input id="lastMessageID" name="lastMessageID" type="hidden" value="{{lastMessageID}}">
+                                <textarea class="form-control writepanel" id="js-ckeditor" name="message" placeholder=""
+                                          rows="8"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-alt-primary clearEditor">
+                                    <i class="fa fa-reply opacity-50 me-1"></i> {{phrase(364)}}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+    {% endif %}
+
+</div>
+
+{% if user_info('get_is_auth') %}
+
+<div class="modal" id="showBuffPanel" tabindex="-1" role="dialog" aria-labelledby="modal-large" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-popout" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(515)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content ">
+                    <div class="block block-rounded overflow-hidden ">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="btabs-static-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#btabs-static-home" role="tab" aria-controls="btabs-static-home"
+                                        aria-selected="true">{{phrase(516)}}
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="btabs-static-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#btabs-static-profile" role="tab"
+                                        aria-controls="btabs-static-profile" aria-selected="false" tabindex="-1">{{phrase(517)}}
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="block-content tab-content">
+                            <div class="tab-pane active show" id="btabs-static-home" role="tabpanel"
+                                 aria-labelledby="btabs-static-home-tab" tabindex="0">
+                                <div class="row text-center">
+                                    {% for type, skills in get_buffs_registry() %}
+                                    {% if type=="buff" %}
+                                    {% for i, skill in skills %}
+                                    <div role="button" class="col col-sm-12 col-lg-12 col-xl-2 post-buff-skill">
+                                        <img data-skill-id="{{skill.id}}" data-skill-type="{{type}}" role="button"
+                                             class="img-avatar-thumb img-avatar"
+                                             src="/uploads/images/skills/{{skill.icon}}"
+                                             alt="">
+                                        <code role="button">{{skill.name}}</code>
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="btabs-static-profile" role="tabpanel"
+                                 aria-labelledby="btabs-static-profile-tab" tabindex="0">
+                                <div class="row text-center ">
+                                    {% for type, skills in get_buffs_registry() %}
+                                    {% if type=="debuff" %}
+                                    {% for i, skill in skills %}
+                                    <div class="col col-sm-9 col-lg-8 col-xl-2 post-buff-skill">
+                                        <img data-skill-id="{{skill.id}}" data-skill-type="{{type}}" role="button"
+                                             class="img-avatar-thumb img-avatar "
+                                             src="/uploads/images/skills/{{skill.icon}}"
+                                             alt="">
+                                        <code role="button">{{skill.name}}</code>
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row text-center border-top">
+                        <div class="col-2">
+                            <div class="block block-rounded">
+                                <div class="block-content">
+                                    <img class="img-avatar img-avatar40 selected-buff-skill"
+                                         src="/uploads/images/skills/{{random_skill_buff_registry().icon}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="block block-rounded">
+                                <div class="block-content">
+                                    <form method="POST" action="/forum/post/like"
+                                          class="input-group input-group-sm formBuffMessage">
+                                        {% set skill = random_skill_buff_registry() %}
+                                        <input type="hidden" id="buff_post_id" name="post_id" value="">
+                                        <input type="hidden" id="buff_skill_type" name="type" value="buff">
+                                        <input type="hidden" id="buff_skill_id" name="skill_id" value="{{skill.id}}">
+                                        <textarea name="comment" style="resize: none;" maxlength="140" type="text"
+                                                  class="form-control form-control-alt text-center"
+                                                  placeholder="{{phrase(522)}}"></textarea>
+                                        <button data-bs-dismiss="modal" type="submit"
+                                                class="btn btn-secondary buttonBuffAddRequest">
+                                            {{phrase(518)}}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="showBuffListPostPanel" tabindex="-1" role="dialog" aria-labelledby="modal-large"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-popout" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(519)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content ">
+
+                    <table class="table table-bordered  table-vcenter js-dataTable-full buffListTable">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 5%;"></th>
+                            <th class="d-none d-sm-table-cell">Comment</th>
+                            <th class="d-none d-sm-table-cell" style="width: 15%;">User</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center"><img class="img-avatar-thumb img-avatar " src="/uploads/images/skills/skill1085.webp" alt=""></td>
+                            <td class="d-none d-sm-table-cell text-center"></td>
+                            <td class="d-none d-sm-table-cell text-center">
+                                <span class="badge bg-info"></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+<div class="modal" id="deletePost" tabindex="-1" role="dialog" aria-labelledby="deletePost" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(520)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <p>{{phrase(521)}}</p>
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top text-center">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase("cancel")}}
+                    </button>
+                    <button id="removePostButton" data-post-id="-1" type="button" class="btn btn-alt-primary"
+                            data-bs-dismiss="modal"
+                            data-animation-class="bounceOut"
+                            >
+                        {{phrase("delete")}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endif %}
+
+
+{% endblock %}
+
+
+
+{% block likes %}
+<div class="block-content py-2 bg-body-light flex-grow-0  buttonBuffListPost_{{post.id}} {% if post.buffs|length == 0 %}d-none{% endif %}">
+    <div {% if user_info("get_is_auth") %}role="button"{% endif %} class="row g-0 fs-sm buttonBuffListPost buttonBuffListPost_{{post.id}} {% if post.buffs|length == 0 %}d-none{% endif %}"
+         data-post-id="{{post.id}}">
+        {% block like %}
+        <div class="" id="post_like_{{post.id}}">
+            {% for buff in post.buffs %}
+            {% if buff.type == 0 %}
+            <img class="img-avatar img-avatar32" src="/uploads/images/skills/{{buff.icon}}"
+                 alt="">
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endblock %}
+
+        {% block delike %}
+        <div class="" id="post_delike_{{post.id}}">
+            {% for buff in post.buffs %}
+            {% if buff.type == 1 %}
+            <img class="img-avatar img-avatar32 " src="/uploads/images/skills/{{buff.icon}}"
+                 alt="">
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

@@ -14,10 +14,10 @@ use Ofey\Logan22\component\session\session;
 
 class lang {
 
-    static private array $lang_array = [];
+    private static array $lang_array = [];
 
     //Загрузка языкового пакета шаблона
-    static public function load_template_lang_packet($tpl) {
+    public static function load_template_lang_packet($tpl) {
         $lang_name = self::lang_user_default();
         $langs_array = require $tpl;
         if(array_key_exists($lang_name, $langs_array)) {
@@ -26,7 +26,7 @@ class lang {
     }
 
     //Смена языка
-    static public function set_lang($lang): void {
+    public static function set_lang($lang): void {
         $allowLang = include 'src/config/lang.php';
         if (in_array($lang, $allowLang)) {
             if (self::name($lang)) {
@@ -36,7 +36,7 @@ class lang {
         redirect::location($_SERVER['HTTP_REFERER'] ?? "/main");
     }
 
-    static private function name($lang = 'ru') {
+    private static function name($lang = 'ru') {
         if(empty($lang)) {
             error_log("Language name is empty");
             return null;
@@ -50,7 +50,7 @@ class lang {
         return null;
     }
 
-    static public function load_package(): void {
+    public static function load_package(): void {
         $lang = $_SESSION['lang'] ?? 'ru';
         self::$lang_array = require $_SERVER['DOCUMENT_ROOT'] . "/src/component/lang/package/{$lang}.php";
     }
@@ -61,7 +61,7 @@ class lang {
      *
      * @return array
      */
-    static public function lang_list($remove_lang = null, $onlyLang = false): array {
+    public static function lang_list($remove_lang = null, $onlyLang = false): array {
         $lngs = fileSys::get_dir_files("src/component/lang/package/", [
             'basename' => false,
             'suffix'   => '.php',
@@ -88,7 +88,7 @@ class lang {
         return $langs;
     }
 
-    static protected array $cache = [];
+    protected static array $cache = [];
 
     /**
      * @param $key - передаем название строки (индикатор/ключ)
@@ -98,7 +98,7 @@ class lang {
      *
      * Получение языковой фразы
      */
-    static public function get_phrase($key, ...$values): string {
+    public static function get_phrase($key, ...$values): string {
         if(!array_key_exists($key, self::$lang_array)) {
             return "[Not phrase «{$key}»]";
         }
@@ -113,7 +113,7 @@ class lang {
     }
 
     //Язык пользователя по умолчанию
-    static public function lang_user_default(): string {
+    public static function lang_user_default(): string {
         $lang_name = $_SESSION['lang'] ?? config::get_language_default();
         $_SESSION['lang'] = mb_strtolower($lang_name);
         return $_SESSION['lang'];

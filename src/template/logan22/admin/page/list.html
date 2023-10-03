@@ -1,0 +1,56 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(244)}}{% endblock %}
+
+{% block content %}
+
+<div class="content">
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{phrase(244)}}</h3>
+            <div class="block-options">
+                <div class="block-options-item">
+                    <button href="/admin/pages/create" class="ajaxload btn btn-sm btn-alt-secondary js-click-ripple-enabled" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">
+                        {{phrase(17)}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="block-content">
+            <table class="table table-vcenter">
+                <tbody>
+                {% for news in show_news  %}
+                {% if news.trash == 0 %}
+                <tr>
+                    <td class="text-center">
+                        <div class="btn-group">
+
+                            <a href="/admin/pages/edit/{{ news.id }}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+                                <i class="fa fa-pencil-alt"></i>
+                            </a>
+                            <a href="/admin/pages/trash/{{ news.id }}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td width="15%" class="text-truncate" style="max-width: calc(15 * 1vw )">
+                        <a href="/page/{{ news.id }}">{{ news.name|striptags|raw }}</a>
+                    </td>
+                    <td width="85%" class="text-truncate" style="max-width: calc(30 * 1vw )">
+                        <a href="/page/{{ news.id }}" ><i class="fa fa-circle text-info mr-2"></i>{{ news.description|striptags|raw  }}</a>
+                    </td>
+                    <td class="text-right">
+                        {{ news.date_create }}
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

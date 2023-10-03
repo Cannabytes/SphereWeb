@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>{% block title %}Lineage 2 Sphere{% endblock %}</title>
+
+    <meta name="description"
+          content="{{meta_description}}">
+    <meta name="author" content="Logan22">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta name="server_default" content="{{user_info('get_default_server')}}"/>
+    <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
+
+    {% if user_info('get_is_auth') == false %}
+    <meta name="get_captcha_version" content="{{ get_captcha_version() }}"/>
+    {% if get_captcha_version("Google") %}
+    <meta name="google_captcha_key" content="{{ google_secret_key() }}"/>
+    <script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
+    {% endif %}
+    {% endif %}
+
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="{{meta_description}}">
+    <meta property="og:site_name" content="ShpereWeb">
+    <meta property="og:description"
+          content="{{meta_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="shortcut icon" href="{{template}}/assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{template}}/assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{template}}/assets/media/favicons/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" href="{{template}}/assets/js/plugins/slick-carousel/slick.css">
+    <link rel="stylesheet" href="{{template}}/assets/js/plugins/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" href="{{template}}/assets/js/plugins/magnific-popup/magnific-popup.css">
+
+    <link rel="stylesheet" href="{{template}}/assets/js/plugins/flatpickr/flatpickr.min.css">
+
+    <link rel="stylesheet" id="css-main" href="{{template}}/assets/css/codebase.css">
+
+    <style>
+        .chat {
+            min-height: 30vh; /* Максимальная высота чата */
+            max-height: 30vh; /* Максимальная высота чата */
+            overflow-y: scroll; /* Включаем вертикальную прокрутку */
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="page-container" class="sidebar-o enable-page-overlay side-scroll {% if get_user_variables('theme')['val'] == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
+    <!-- Side Overlay-->
+    <aside id="side-overlay">
+        <!-- Side Header -->
+        <div class="content-header bg-primary-dark">
+            <!-- User Avatar -->
+            <a class="img-link me-2" href="#">
+                <img class="img-avatar img-avatar32"
+                     src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+            </a>
+            <!-- END User Avatar -->
+
+            <!-- User Info -->
+            <a class="link-fx text-white fw-semibold fs-sm" href="#">
+                {{ phrase("sphere_inventory") }}
+            </a>
+            <!-- END User Info -->
+
+            <!-- Close Side Overlay -->
+            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <button type="button" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout"
+                    data-action="side_overlay_close">
+                <i class="fa fa-fw fa-times"></i>
+            </button>
+            <!-- END Close Side Overlay -->
+        </div>
+        <!-- END Side Header -->
+
+        {# Инвентарь #}
+        {% block inventory %}
+        <div class="content-side" id="inventory">
+            <div class="block pull-x">
+                <div class="block-header bg-body-light">
+                    <h3 class="block-title">
+                        <i class="fa fa-fw fa-users opacity-50 me-1"></i> {{phrase("sphere_inventory")}}
+                    </h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-toggle="block-option"
+                                data-action="state_toggle" data-action-mode="demo">
+                            <i class="si si-refresh"></i>
+                        </button>
+                        <button type="button" class="btn-block-option" data-toggle="block-option"
+                                data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                    </div>
+                </div>
+                <div class="block-content">
+                    <ul class="nav-users">
+
+                        {% for bonus in user_info('getBonus') %}
+                        <li>
+                            <a data-bonus-phrase="{{phrase( bonus.phrase )}}" data-bonus-id="{{bonus.id}}"
+                               data-bonus-enchant="{{bonus.enchant}}" data-bonus-icon="{{bonus.icon}}"
+                               data-bonus-name="{{bonus.name}}" data-bonus-count="{{bonus.count}}" href="#"
+                               class="selectItem" data-bs-toggle="modal" data-bs-target="#selectCharacters">
+                                <img data-bonus-id="{{bonus.id}}"
+                                     class="{% if bonus.enchant > 0 %}player-inventory-enchant {% endif %}"
+                                     data-toggle="tooltip" data-placement="top" title=""
+                                     src="/uploads/images/icon/{{bonus.icon}}.webp"
+                                     data-original-title="{{bonus.name}}">
+                                <div>{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if
+                                    bonus.count > 1 %}({{bonus.count}}){% endif %}
+                                </div>
+                                <div class="fw-normal fs-xs text-muted">{{phrase( bonus.phrase)  }}</div>
+                            </a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+    </aside>
+    <!-- END Side Overlay -->
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <!-- Sidebar Content -->
+        <div class="sidebar-content">
+            <!-- Side Header -->
+            <div class="content-header justify-content-lg-center bg-black-10">
+                <div>
+              <span class="smini-visible fw-bold tracking-wide fs-lg">
+                c<span class="text-primary">b</span>
+              </span>
+                    <a class="link-fx fw-bold tracking-wide mx-auto ajaxload" href="/main">
+                <span class="smini-hidden">
+                  <i class="fa fa-fire text-primary"></i>
+                  {{phrase('sphere_project_name')|raw}}
+                </span>
+                    </a>
+                </div>
+                <!-- END Logo -->
+
+                <!-- Options -->
+                <div>
+                    <!-- Close Sidebar, Visible only on mobile screens -->
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout"
+                            data-action="sidebar_close">
+                        <i class="fa fa-fw fa-times"></i>
+                    </button>
+                    <!-- END Close Sidebar -->
+                </div>
+                <!-- END Options -->
+            </div>
+            <!-- END Side Header -->
+
+            <!-- Sidebar Scrolling -->
+            <div class="js-sidebar-scroll">
+                <!-- Side User
+                <div class="content-side content-side-user px-0 py-0">
+                    <div class="smini-visible-block animated fadeIn px-3">
+                        <img class="img-avatar img-avatar32 user_self_avatar"
+                             src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                    </div>
+                    <div class="smini-hidden text-center mx-auto">
+                        <a class="img-link" href="#">
+                            <img class="img-avatar user_self_avatar"
+                                 src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                        </a>
+                        <ul class="list-inline mt-3 mb-0">
+                            <li class="list-inline-item">
+
+                                {% if user_info('get_is_auth') %}
+                                <a class="link-fx text-dual fs-sm fw-semibold" href="#">{{ user_info('get_name') }}</a>
+                                {% else %}
+                                Гость
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+                  END Side User -->
+
+                <!-- Side Navigation -->
+                <div class="content-side content-side-full">
+                    <ul class="nav-main">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/main">
+                                <i class="nav-main-link-icon fa fa-house-user"></i>
+                                <span class="nav-main-link-name">{{phrase("menu_main")}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/page" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-newspaper"></i>
+                                <span class="nav-main-link-name">{{phrase("news")}}</span>
+                            </a>
+                        </li>
+                        {% if user_info('get_is_auth') %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                               aria-expanded="true" href="#">
+                                <i class="nav-main-link-icon fa fa-user"></i>
+                                <span class="nav-main-link-name">{{phrase(480)}}</span>
+                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/registration/account" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(40)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/accounts" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(43)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/auth" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-sign-in"></i>
+                                <span class="nav-main-link-name">{{phrase("authorization")}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="{{alias('registration_user')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-address-book"></i>
+                                <span class="nav-main-link-name">{{phrase("menu_registration")}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/donate/pay" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-money-bill"></i>
+                                <span class="nav-main-link-name">{{phrase(486)}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/donate" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-cart-shopping"></i>
+                                <span class="nav-main-link-name">{{phrase(215)}}</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                               aria-expanded="true" href="#">
+                                <i class="nav-main-link-icon fa fa-star"></i>
+                                <span class="nav-main-link-name">{{phrase("menu_statistics")}}</span>
+                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/pvp" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(317)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/pk" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(318)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/clan" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(49)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/castle" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(50)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/heroes" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(51)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/online/time" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(52)}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link ajaxload" href="/statistic/block" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                        <span class="nav-main-link-name">{{phrase(53)}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/ticket" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-message"></i>
+                                <span class="nav-main-link-name">{{phrase("menu_ticket")}}</span>
+                            </a>
+                        </li>
+
+                        {% if user_info('get_is_auth') %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/referral" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-people-arrows"></i>
+                                <span class="nav-main-link-name">{{phrase("menu_referrals")}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/forum" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-comments"></i>
+                                <span class="nav-main-link-name">{{phrase(62)}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">{{phrase("other")}}</li>
+                        {% if user_info('get_access_level') == "admin" %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link ajaxload" href="/admin" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-door-open"></i>
+                                <span class="nav-main-link-name">{{phrase(221)}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="/" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa fa-arrow-left"></i>
+                                <span class="nav-main-link-name">{{phrase("return_demo_page")}}</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- END Side Navigation -->
+            </div>
+            <!-- END Sidebar Scrolling -->
+        </div>
+        <!-- Sidebar Content -->
+    </nav>
+    <!-- END Sidebar -->
+
+    <!-- Header -->
+    <header id="page-header">
+        <!-- Header Content -->
+        <div class="content-header">
+            <!-- Left Section -->
+            <div class="d-flex align-items-center space-x-2">
+                <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
+                        data-action="sidebar_toggle">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-alt-secondary d-sm-none" data-toggle="layout"
+                        data-action="header_search_on">
+                    <i class="fa fa-fw fa-search"></i>
+                </button>
+
+                {% if get_server_info()|length > 1 %}
+                    <select class="form-select" id="server_set_default">
+                        {% for server in get_server_info() %}
+                        <option value="{{ server.id }}" {% if user_info('get_default_server') == server.id %}selected{% endif %} >{{ server.name }}</option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
+
+                <form class="d-none d-sm-inline-block" action="/" method="POST" onsubmit="return false;">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control " placeholder="Search..">
+                        <span class="input-group-text">
+                  <i class="fa fa-search"></i>
+                </span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="space-x-1">
+
+
+
+
+                <div class="dropdown d-inline-block">
+
+
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                         aria-labelledby="page-header-user-dropdown">
+                        <div class="px-2 py-3 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+                                {{phrase("menu")}}
+                            </h5>
+                        </div>
+                        <div class="p-2">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/donate/pay">
+                                <span>{{phrase("refill")}}</span>
+                                <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
+                               href="/user/notification">
+                                <span>{{phrase("notification")}}</span>
+                                <i class="fa fa-fw fa-envelope-open opacity-25"></i>
+                            </a>
+
+
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change/avatar">
+                                <span>{{phrase(65)}}</span>
+                                <i class="fa fa-fw fa-file opacity-25"></i>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
+
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change">
+                                <span>{{phrase("settings")}}</span>
+                                <i class="fa fa-fw fa-wrench opacity-25"></i>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                               href="/auth/logout">
+                                <span>{{phrase("logout")}}</span>
+                                <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                {# Панель пользователя #}
+                {% if user_info('get_is_auth') %}
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user d-sm-none"></i>
+
+                        <img class="img-avatar img-avatar48 user_self_avatar"
+                             src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+
+                        <span class="d-none d-sm-inline-block fw-semibold">{{ user_info('get_name') }}
+                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></span>
+                        <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                         aria-labelledby="page-header-user-dropdown">
+                        <div class="px-2 py-3 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+                                {{phrase("menu")}}
+                            </h5>
+                        </div>
+                        <div class="p-2">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/donate/pay">
+                                <span>{{phrase("refill")}}</span>
+                                <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
+                               href="/user/notification">
+                                <span>{{phrase("notification")}}</span>
+                                <i class="fa fa-fw fa-envelope-open opacity-25"></i>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change/avatar">
+                                <span>{{phrase(65)}}</span>
+                                <i class="fa fa-fw fa-file opacity-25"></i>
+                            </a>
+
+
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change">
+                                <span>{{phrase("settings")}}</span>
+                                <i class="fa fa-fw fa-wrench opacity-25"></i>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                               href="/auth/logout">
+                                <span>{{phrase("logout")}}</span>
+                                <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                {# Верхняя панель для неавторизированных пользователей #}
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user d-sm-none"></i>
+                        <span class="d-none d-sm-inline-block fw-semibold">{{phrase("authorization")}}</span>
+                        <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                         aria-labelledby="page-header-user-dropdown">
+                        <div class="px-2 py-3 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+{{phrase("menu")}}
+                            </h5>
+                        </div>
+                        <div class="p-2">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="{{alias('login')}}">
+                                <span>{{phrase("authorization")}}</span>
+                                <i class="fa fa-fw fa-user opacity-25"></i>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="{{alias('registration_user')}}">
+                                <span>{{phrase(131)}}</span>
+                                <i class="fa fa-fw fa-envelope-open opacity-25"></i>
+                            </a>
+
+
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="{{alias('forget')}}">
+                                <span>{{phrase(67)}}</span>
+                                <i class="fa fa-fw fa-file opacity-25"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% if user_info('get_is_auth') %}
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary" id="вawd"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user d-sm-none"></i>
+                        <span class="d-none d-sm-inline-block fw-semibold">{{phrase("get_bonus")}}
+                        <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                        </span>
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                         aria-labelledby="page-header-user-dropdown">
+                        <div class="px-2 py-3 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+                                {{phrase("menu_bonus")}}
+                            </h5>
+                        </div>
+                        <div class="p-2">
+                            <form class="row row-cols-lg-auto g-1 align-items-center " action="/bonus/receiving" method="POST" onsubmit="return false;">
+                                <div class="col-lg-12 col-xl-12">
+                                    <input type="text" class="form-control" id="code" name="code" placeholder="{{phrase('code_bonus')}}">
+                                </div>
+
+                                <div class="me-1 mb-1 w-100 text-center">
+                                    <button type="submit" class="btn btn-sm btn-info">{{phrase("receive")}}</button>
+                                </div>
+                            </form>
+
+
+                            <div class="dropdown-divider"></div>
+
+                            <a role="button" class="dropdown-item d-flex align-items-center justify-content-between space-x-1" data-toggle="layout" data-action="side_overlay_toggle">
+                                <span>{{phrase(111)}}</span>
+                                <i class="fa fa-fw fa-box-open opacity-25"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                {% if get_self_notification()|length > 0 %}
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-notifications"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-flag"></i>
+                        <span id="notification_point" class="text-danger">&bull;</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                         aria-labelledby="page-header-notifications">
+                        <div class="px-2 py-3 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+                                {{phrase("notification")}}
+                            </h5>
+                        </div>
+                        <ul class="nav-items my-2 fs-sm">
+                            {% for notification in get_self_notification() %}
+                            <li>
+                                <a class="text-dark d-flex py-2" href="{{notification.link}}">
+                                    <div class="flex-grow-1 pe-2 me-2 ms-3">
+                                        <p class="fw-medium mb-1">{{notification.message}}</p>
+                                        <div class="text-muted">{{ProhloVremya(notification.date)}}</div>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="p-2 bg-body-light rounded-bottom">
+                            <a class="dropdown-item text-center mb-0" href="javascript:void(0)">
+                                <i class="fa fa-fw fa-flag opacity-50 me-1"></i> {{phrase("all_notifications")}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary theme"
+                            data-toggle="layout" data-action="dark_mode_toggle" aria-haspopup="true"
+                            aria-expanded="false">
+                        <i class="fa fa-moon"></i>
+                    </button>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn btn-sm btn-alt-secondary" id="#"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-globe"></i>
+                     </button>
+                    <div class="dropdown-menu dropdown-menu-lg-start dropdown-menu-end p-0"
+                         aria-labelledby="page-header-notifications">
+                        <div class="px-1 py-1 bg-body-light rounded-top">
+                            <h5 class="h6 text-center mb-0">
+                                {{phrase("lang")}}
+                            </h5>
+                        </div>
+
+                        {% for lang in lang_list(lang_user_default()) %}
+                        <div class="p-1">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                               href="/user/change/lang/{{lang.lang}}">
+                                <span>{{lang.name}}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+
+                {% if user_info('get_is_auth') %}
+                <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
+                        data-action="side_overlay_toggle">
+                    <i class="fa fa-fw fa-box-open"></i>
+                </button>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+        <!-- Header Search -->
+        <div id="page-header-search" class="overlay-header bg-body-extra-light">
+            <div class="content-header">
+                <form class="w-100" action="#" method="POST">
+                    <div class="input-group">
+                        <button type="button" class="btn btn-secondary" data-toggle="layout"
+                                data-action="header_search_off">
+                            <i class="fa fa-fw fa-times"></i>
+                        </button>
+                        <input type="text" class="form-control" placeholder="{{phrase(353)}}"
+                               id="page-header-search-input" name="page-header-search-input">
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fa fa-fw fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="page-header-loader" class="overlay-header bg-primary">
+            <div class="content-header">
+                <div class="w-100 text-center">
+                    <i class="far fa-sun fa-spin text-white"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-container" class="main-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer id="page-footer" class="bg-body-extra-light">
+        <div class="content py-3">
+            <div class="row fs-sm">
+                <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                    {{phrase("sphere_footer")|raw}}
+                </div>
+                <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END Footer -->
+
+    <div class="modal fade" id="selectCharacters" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-popout" role="document">
+            <div class="modal-content">
+                <form action="/bonus/receiving" method="POST" class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">{{phrase("submitting_an_item")}}</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm">
+                        <input type="hidden" name="object_id" id="object_id">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <img class="img-thumb" id="bonusIcon" src="assets/media/avatars/avatar5.jpg" alt="">
+                            </div>
+                            <div>
+                                <div class="fw-semibold mb-1">  <span
+                                        id="bonusNameItem"></span> x<span id="bonusCount"></span></div>
+                                <div class="fs-sm text-muted" id="bonusPhrase"></div>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="form-group row">
+                            <label for="bonusCharName" class="col-sm-4 col-form-label">{{phrase(77)}}</label>
+                            <div class="col-sm-8">
+                                <select name="player_name" id="bonusCharName" class="form-control single-select">
+                                    {% for account_name, players in get_account_players() %}
+                                    <optgroup label="{{phrase(480)}}: {{account_name}}">
+                                        {% for player in players %}
+                                        <option value="{{player}}">{{player}}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="block-content block-content-full block-content-sm text-end border-top">
+                        <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                            {{phrase(80)}}
+                        </button>
+                        <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                            {{phrase(364)}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const currency_exchange = JSON.parse('{{currency_exchange_info()|raw}}');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{{template}}/assets/js/codebase.app.min.js"></script>
+
+<!-- Page JS Plugins -->
+<script src="{{template}}/assets/js/plugins/chart.js/chart.umd.js"></script>
+<script src="{{template}}/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script src="{{template}}/assets/js/plugins/slick-carousel/slick.min.js"></script>
+<script src="{{template}}/assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<script src="{{template}}/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons/dataTables.buttons.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons-jszip/jszip.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons/buttons.print.min.js"></script>
+<script src="{{template}}/assets/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
+<script src="{{template}}/assets/js/plugins/cleditor/jquery.cleditor.js" type="text/javascript"></script>
+<script src="{{template}}/assets/js/pages/be_tables_datatables.min.js"></script>
+<script src="{{template}}/assets/js/pages/db_classic.min.js"></script>
+<script src="{{template}}/assets/sphere/js/captcha.js"></script>
+<script src="{{template}}/assets/sphere/js/notice.js"></script>
+<script src="{{template}}/assets/sphere/js/account/prefix.js"></script>
+<script src="{{template}}/assets/sphere/js/pay.js"></script>
+<script src="{{template}}/assets/sphere/js/general.js"></script>
+<script src="{{template}}/assets/sphere/js/ticket/ticket.js"></script>
+<script src="{{template}}/assets/js/plugins/ckeditor/ckeditor.js"></script>
+
+{% if user_info('get_is_auth') %}
+<script src="{{template}}/assets/sphere/js/forum.js"></script>
+{% endif %}
+
+<script src="{{template}}/assets/sphere/js/preload.js"></script>
+<script src="{{template}}/assets/sphere/js/ajax.js"></script>
+
+{% if get_enable_game_chat() %}
+<script src="{{template}}/assets/sphere/js/chat.js"></script>
+{% endif %}
+
+
+
+{% if user_info('get_access_level') == 'admin' %}
+
+<script src="{{template}}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
+
+<script>Codebase.helpersOnLoad(['js-flatpickr']);</script>
+
+<script src="{{template}}/assets/sphere/js/chatself.js"></script>
+<script src="{{template}}/assets/sphere/js/admin.js"></script>
+{% endif %}
+
+{% if user_info('get_is_auth') == false %}
+{% if get_captcha_version("Google") %}
+<script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
+<script>
+    function captchaToken() {
+        google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+        grecaptcha.execute(google_captcha_key, {action: 'submit'}).then(function (token) {
+            $(".captchaToken").val(token);
+        });
+    }
+    captchaToken();
+</script>
+{% endif %}
+{% endif %}
+
+</body>
+</html>

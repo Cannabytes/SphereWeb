@@ -1,0 +1,26 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("news")}}{% endblock %}
+
+{% block content %}
+        <div class="content">
+          <div class="row g-xxl-5 items-push py-4">
+            <div class="col-xl-12">
+              {% for short in shorts %}
+              <div class="mb-5">
+                <h3 class="fw-bold mb-2"><a class="ajaxload" href="/page/{{short.id}}">{{short.name}}</a></h3>
+                <div class="fs-sm fw-medium text-muted mb-2">
+                  <span class="me-3">
+                    <i class="fa fa-fw fa-calendar-alt opacity-50 me-1"></i> {{short.date_create|date("F d, Y")}}
+                  </span>
+                </div>
+                <p class="fs-sm mb-2">
+                  {{short.description|raw|replace({'<p>': '', '</p>': '', '<b>': '', '</b>': '', '<br>': ''})|raw}}
+                </p>
+                <a class="fs-sm link-fx fw-semibold ajaxload" href="/page/{{short.id}}">{{phrase("read_more")}}</a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+{% endblock %}

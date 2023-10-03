@@ -1,0 +1,47 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <h2 class="content-heading">{{phrase("account_characters")}} <small>{{ account }}</small></h2>
+    <div class="row">
+
+        {% for char in characters %}
+            <div class="col-md-6 col-xl-3">
+                <div class="block block-rounded  text-center">
+                    <div class="block-content ">
+                        <img class="img-avatar" src="{{ template('/assets/images/race/' ~ sex(char.sex) ~ '/' ~ get_class_race(char.class_id)) ~ '.jpg' }}" alt="">
+                    </div>
+                    <div class="block-content block-content-full">
+                        <div class="fw-semibold mb-1">{% if char.alliance_crest!=null%}<img
+                                src="data:image/png;base64, {{ char.alliance_crest }}">{% endif %}{% if
+                            char.clan_crest!=null%}<img src="data:image/png;base64, {{char.clan_crest}}">{%
+                            endif %}
+
+                            <a href="/statistic/char/{{ char.player_name }}">{{ char.player_name }}</a></div>
+                        <div class="fs-sm text-muted">LvL: {{ char.level }}</div>
+                        <div class="fs-sm text-muted">Class: {{ get_class( char.class_id ) }}</div>
+                        <div class="fs-sm text-muted">PvP / PK: {{ char.pvp }} / {{ char.pk }}</div>
+                        <div class="fs-sm text-muted">Clan: <a href="/statistic/clan/{{ char.clan_name }}">{{ char.clan_name }}</a></div>
+
+                        <hr>
+                        <div class="form-check form-switch">
+                            <input id="{{char.player_name}}" {% if char.forbidden == true %}checked{% endif %} data-account="{{account}}" data-player="{{ char.player_name }}" type="checkbox" class="forbiddenToView form-check-input" data-on-color="danger" data-off-color="success" data-on-text="{{phrase(40)}}" data-off-text="{{phrase('visible_to_everyone')}}">
+                            <label class="form-check-label" for="{{char.player_name}}">{{phrase("allow_viewing_characters")}}</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

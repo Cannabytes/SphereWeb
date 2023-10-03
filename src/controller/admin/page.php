@@ -54,7 +54,7 @@ class page {
             'server_list' => server::get_server_info(),
             "title" => lang::get_phrase("pages"),
         ]);
-        tpl::display("admin/news_list.html");
+        tpl::display("admin/page/list.html");
     }
 
     public static function create_news() {
@@ -68,7 +68,7 @@ class page {
         tpl::addVar([
             "title" => lang::get_phrase("create"),
         ]);
-        tpl::display("admin/news_create.html");
+        tpl::display("admin/page/create.html");
     }
 
     public static function edit_news($id) {

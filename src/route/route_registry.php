@@ -5,9 +5,11 @@ use Ofey\Logan22\component\session\session;
 
 session::init();
 lang::load_package();
-
+date_default_timezone_set(DEFAULT_TIMEZONE);
 $route = new Ofey\Logan22\route\Route();
+$route->get("user/change/lang/{lang}", 'Ofey\Logan22\component\lang\lang::set_lang');
 
+//TODO: сейчас при каждом запросе идет подключение к бд на проверку админа. Нужно пересмотреть.
 if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
     $route->get("/", "Ofey\Logan22\controller\install\install::rules");
     $route->get("/install", "Ofey\Logan22\controller\install\install::rules");
@@ -21,6 +23,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
 } else {
     $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
+    //Новости и страницы
+    $route->get("page", '\Ofey\Logan22\controller\page\page::lastNews');
     $route->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");
     $route->post("page/comment/add", '\Ofey\Logan22\controller\page\page::addComment');
     $route->post("page/comment/delete", '\Ofey\Logan22\controller\admin\page::deleteComment');
@@ -43,15 +47,31 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
         echo \Ofey\Logan22\component\account\generation::password(mt_rand(4, 6), special: false);
     });
 
+    $route->get("/forum/topic/add/(\d+)", 'Ofey\Logan22\controller\forum\forum::addTopic');
+    $route->get("/forum/", 'Ofey\Logan22\controller\forum\forum::forum');
+    $route->get("/forum/threads/(\d+)/(\d+)", 'Ofey\Logan22\controller\forum\forum::getTopic');
+    $route->get("/forum/threads/(\d+)/(\d+)/(\d+)", 'Ofey\Logan22\controller\forum\forum::getPosts');
+    $route->get("/forum/threads/(\d+)", 'Ofey\Logan22\controller\forum\forum::getTopics');
+    $route->post("/forum/topic/post/add", 'Ofey\Logan22\controller\forum\forum::addPost');
+    $route->post("/forum/topic/add", 'Ofey\Logan22\controller\forum\forum::addTopicRequest');
+    $route->post("/forum/post/like", 'Ofey\Logan22\controller\forum\forum::likePost');
+    $route->post("/forum/post/like/get", 'Ofey\Logan22\controller\forum\forum::getLikePost');
+    $route->post("/forum/edit/comment", 'Ofey\Logan22\controller\forum\forum::editComment');
+    $route->post("/forum/delete/comment", 'Ofey\Logan22\controller\forum\forum::deleteComment');
+    $route->post("/forum/delete/comment/image", 'Ofey\Logan22\controller\forum\forum::deleteCommentImage');
+    $route->post("/forum/get/user/name", 'Ofey\Logan22\controller\forum\forum::getUserName');
+
+    $route->get("/accounts", 'Ofey\Logan22\controller\account\info\info::account');
     $route->get("account/password/change/{login}/server/(\d+)", 'Ofey\Logan22\controller\account\password\change::show');
 //TODO:Реквесты
 //TODO:Пересмотреть логику смены пароля игровому аккаунту
     $route->post("account/password/change", 'Ofey\Logan22\controller\account\password\change::password');
     $route->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
-    $route->get("account/info/{account}/server/(\d+)", 'Ofey\Logan22\controller\account\info\info::player_list');
+    $route->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
     $route->post("account/info/change/characters/info/forbidden", 'Ofey\Logan22\model\user\player\player_account::forbiddenViewPlayerData');
     $route->get("registration/account/sync/server/(\d+)", 'Ofey\Logan22\controller\registration\account::sync');
     $route->post("registration/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
+
     /**
      * Авторизация
      */
@@ -59,7 +79,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->get("auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
     $route->post("auth", 'Ofey\Logan22\controller\user\auth\auth::auth_request');
     $route->get("auth/logout", 'Ofey\Logan22\controller\user\auth\auth::logout');
-    $route->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget');
+    $route->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget')->alias("forget");
     $route->post("auth/forget/send/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_forget');
     $route->post("auth/forget/verification/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_verification_forget');
     $route->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
@@ -76,24 +96,22 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
      */
     $route->get("user/change", '\Ofey\Logan22\controller\user\profile\change::show');
     $route->post("user/change", '\Ofey\Logan22\controller\user\profile\change::save');
-    $route->get("user/change/lang/{lang}", 'Ofey\Logan22\component\lang\lang::set_lang');
     $route->post("user/change/default/server", '\Ofey\Logan22\controller\user\default_server::change');
     $route->get("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::show_avatar_page');
     $route->post("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::save_avatar');
+    $route->post("user/change/theme", 'Ofey\Logan22\controller\user\profile\change::change_theme');
+
+    $route->post('/user/money/transfer', 'Ofey\Logan22\controller\user\profile\change::transfer_money');
+    $route->post("/user/notification/read", 'Ofey\Logan22\model\notification\notification::notification_mark_read');
+    $route->get("/user/notification", 'Ofey\Logan22\controller\user\profile\change::show_notification');
 
     /**
      * Бонус коды
      */
     $route->get("/bonus", '\Ofey\Logan22\controller\account\bonus\bonus::code');
     $route->post("/bonus/receiving", '\Ofey\Logan22\controller\account\bonus\bonus::receiving');
+    $route->post("/bonus/inventory/update", "\Ofey\Logan22\controller\account\bonus\bonus::update_inventory");
 
-    /**
-     * Форум
-     */
-//$route->get("channel", 'Ofey\Logan22\controller\channel\channel::all');
-//$route->get("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::read');
-//$route->post("channel/(\d)", 'Ofey\Logan22\controller\channel\channel::writePost');
-//$route->get("channel/create", 'Ofey\Logan22\controller\channel\channel::create');
     /**
      * Статистика
      */
@@ -120,6 +138,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     /**
      * Донат
      */
+    //Получение курса валют
+    $route->post("donate/currency_exchange_info", '\Ofey\Logan22\controller\donate\pay::currency_exchange_info');
     $route->get("donate/pay", '\Ofey\Logan22\controller\donate\pay::pay')->alias('donate_pay');
     $route->get("donate", '\Ofey\Logan22\controller\donate\pay::shop')->alias('donate');
 
@@ -135,7 +155,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->post("gallery/screenshot/my/remove", 'Ofey\Logan22\controller\gallery\screenshot::my_remove');
     $route->get("gallery/screenshot/add", 'Ofey\Logan22\controller\gallery\screenshot::show_add_page');
     $route->post("gallery/screenshot/load", 'Ofey\Logan22\controller\gallery\screenshot::load_screen');
-//$route->get("gallery/movie", 'Ofey\Logan22\controller\gallery\movie::show_page');
+
     $route->post("gallery/save", 'Ofey\Logan22\controller\gallery\screenshot::save_description');
 
     /**
@@ -150,8 +170,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->get("ticket/edit/(\d+)/(\d+)", 'Ofey\Logan22\controller\ticket\ticket::edit');
     $route->get("ticket/search", 'Ofey\Logan22\controller\ticket\ticket::search');
     $route->get("ticket/search/{search}", 'Ofey\Logan22\controller\ticket\ticket::search');
-    $route->post("ticket/add", 'Ofey\Logan22\controller\ticket\ticket::add');
-    $route->post("ticket/add/comment", 'Ofey\Logan22\controller\ticket\ticket::addComment');
+    $route->post("/ticket/add", 'Ofey\Logan22\controller\ticket\ticket::add');
+    $route->post("/ticket/add/comment", 'Ofey\Logan22\controller\ticket\ticket::addComment');
     $route->post("ticket/close", 'Ofey\Logan22\controller\ticket\ticket::close');
     $route->post("ticket/open", 'Ofey\Logan22\controller\ticket\ticket::open');
     $route->post("ticket/remove/comment/image", 'Ofey\Logan22\controller\ticket\ticket::removeImage');
@@ -159,6 +179,11 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->post("ticket/edit/ticket", 'Ofey\Logan22\controller\ticket\ticket::editTicket');
     $route->post("ticket/remove", 'Ofey\Logan22\controller\ticket\ticket::remove');
     $route->post("ticket/remove/comment", 'Ofey\Logan22\controller\ticket\ticket::removeComment');
+
+    /*
+     * Установка переменных пользователя
+     */
+    $route->post("/user/variable/set", 'Ofey\Logan22\controller\user\auth\auth::set_variable');
 
 //лаунчер
     $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');
@@ -169,6 +194,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
      * Роутер админ панели
      * ===========================================
      */
+    $route->get("/admin", 'Ofey\Logan22\controller\admin\index::index');
     $route->get("/admin/pages", 'Ofey\Logan22\controller\admin\page::list');
     $route->get("/admin/pages/create", 'Ofey\Logan22\controller\admin\page::create');
     $route->post("/admin/pages/create", 'Ofey\Logan22\controller\admin\page::create_news');
@@ -180,6 +206,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->post("/admin/option/server/update", 'Ofey\Logan22\controller\admin\options::update_server_save');
     $route->post("/admin/option/server/remove", 'Ofey\Logan22\controller\admin\options::remove_server');
     $route->post("/admin/option/server/db/connect", 'Ofey\Logan22\controller\admin\options::test_connect_db');
+    $route->post("/admin/option/server/db/connect/select/name", 'Ofey\Logan22\controller\admin\options::test_connect_db_selected_name');
     $route->post("/admin/options/server/client/protocol", '\Ofey\Logan22\component\chronicle\client::get_base_collection_class');
 
     $route->get("/admin/options/server/cache", 'Ofey\Logan22\controller\admin\options::cache_page');
@@ -211,18 +238,35 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->get("/admin/donate", 'Ofey\Logan22\controller\admin\donate::show');
     $route->get("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add');
     $route->post("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add_item');
+    $route->post("/admin/donate/edit", 'Ofey\Logan22\controller\admin\donate::edit_item');
     $route->post("/admin/donate/remove", 'Ofey\Logan22\controller\admin\donate::remove_item');
-    $route->get("/admin/manual", '\Ofey\Logan22\controller\admin\manual::index');
-    $route->get("/admin/manual/{name}", '\Ofey\Logan22\controller\admin\manual::get');
+
+
     $route->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
     $route->post("/admin/forum", 'Ofey\Logan22\controller\admin\forum::save');
+    $route->post("/admin/forum/add/category", 'Ofey\Logan22\controller\admin\forum::addCategory');
+    $route->post("/admin/forum/edit/category", 'Ofey\Logan22\controller\admin\forum::editCategory');
+    $route->post("/admin/forum/remove/category", 'Ofey\Logan22\controller\admin\forum::removeCategory');
+    $route->post("/admin/forum/add/section", 'Ofey\Logan22\controller\admin\forum::addSection');
+    $route->post("/admin/forum/edit/section", 'Ofey\Logan22\controller\admin\forum::editSection');
+    $route->post("/admin/forum/remove/section", 'Ofey\Logan22\controller\admin\forum::removeSection');
+    $route->post("/admin/forum/section/close", 'Ofey\Logan22\controller\admin\forum::closeSection');
+
     $route->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
     $route->post("/admin/chat/find/message", '\Ofey\Logan22\controller\admin\chat::find_message');
     $route->post("/admin/chat/find/player", '\Ofey\Logan22\controller\admin\chat::find_player');
+    $route->get("/admin/users", "\Ofey\Logan22\controller\admin\users::showAll");
+    $route->post("/admin/users/edit", "\Ofey\Logan22\controller\admin\users::edit");
+    $route->get("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::show");
+    $route->post("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::genereate");
 
     $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 
     $route->post("/chat", 'Ofey\Logan22\controller\chat\chat::show');
+
+    $route->post('/admin/client/info', 'Ofey\Logan22\component\image\client_icon::get_item_info');
+    $route->get("/admin/support", 'Ofey\Logan22\controller\admin\index::support');
+
 
     $route->set404(function () {
         \Ofey\Logan22\controller\page\error::error404();

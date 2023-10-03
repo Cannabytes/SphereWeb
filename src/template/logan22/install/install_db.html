@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>{{phrase("setting_connect_to_db")}}</title>
+
+    <meta name="description" content="{{meta_description}}">
+    <meta name="author" content="logan22">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="{{meta_description}}">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="{{meta_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+
+    <link rel="shortcut icon" href="{{template}}/assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{template}}/assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{template}}/assets/media/favicons/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" id="css-main" href="{{template}}/assets/css/codebase.min.css">
+
+  </head>
+
+  <body>
+
+    <div id="page-container" class="main-content-boxed">
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <div class="bg-body-light hero-bubbles">
+          <span class="hero-bubble hero-bubble-lg bg-primary" style="top: 20%; left: 10%;"></span>
+          <span class="hero-bubble bg-success" style="top: 20%; left: 80%;"></span>
+          <span class="hero-bubble hero-bubble-sm bg-corporate" style="top: 40%; left: 25%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-pulse" style="top: 30%; left: 90%;"></span>
+          <span class="hero-bubble bg-danger" style="top: 40%; left: 20%;"></span>
+          <span class="hero-bubble bg-warning" style="top: 60%; left: 25%;"></span>
+          <span class="hero-bubble bg-info" style="top: 60%; left: 80%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-flat" style="top: 75%; left: 70%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-earth" style="top: 75%; left: 10%;"></span>
+          <span class="hero-bubble bg-elegance" style="top: 90%; left: 90%;"></span>
+          <div class="row g-0 justify-content-center position-relative">
+            <div class="hero-static col-lg-7">
+              <div class="content content-full overflow-hidden">
+                <!-- Heading -->
+                <div class="py-5 text-center">
+                  <a class="link-fx fw-bold" href="index.html">
+                    <i class="fa fa-fire"></i>
+                    <span class="fs-4 text-body-color">Sphere</span><span class="fs-4">Web</span>
+                  </a>
+                  <h1 class="h3 fw-extrabold mb-1 mt-4">{{phrase("setting_connect_to_db")}}</h1>
+                </div>
+                <!-- END Heading -->
+
+                <form class="js-validation-installation" action="/install/db/connect/test" method="POST">
+                  <div class="block block-rounded block-fx-shadow">
+                    <!-- Database section -->
+                    <div class="block-content">
+                      <h2 class="content-heading pt-3">{{phrase(39)}}</h2>
+                      <div class="row items-push">
+                        <div class="col-lg-4">
+                          <p class="text-muted">
+                            {{phrase(info_db_install)}}
+                          </p>
+                        </div>
+                        <div class="col-lg-6 offset-lg-1">
+
+                          <div class="mb-4">
+                            <label class="form-label" for="install-db-host">Host</label>
+                            <input type="text" class="form-control form-control-lg" id="install-db-host" name="install-db-host" value="127.0.0.1" placeholder="127.0.0.1">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label" for="user">User</label>
+                            <input type="text" class="form-control form-control-lg" id="user" name="user" value="root" placeholder="root">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" class="form-control form-control-lg" id="password" name="password" value="" placeholder="password">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" value="sphere" placeholder="sphere">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="block-content">
+                      <div class="row mb-4">
+                        <div class="col-lg-6 offset-lg-5">
+                          <button id="add_db" type="submit" class="btn btn-primary mb-2">
+                            <i class="fa fa-arrow-right opacity-50 me-1"></i> {{phrase("install_db")}}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script src="{{template}}/assets/js/codebase.app.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="{{template}}/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="{{template}}/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <script src="{{template}}/assets/sphere/js/notice.js"></script>
+
+    <script src="{{template}}/assets/js/pages/op_installation.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("form").submit(function (event) {
+          $('#add_db').prop('disabled', true);
+          $.ajax({
+            type: "POST",
+            url: "/install/db/connect/test",
+            data: $(this).serialize(),
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            if (data.ok){
+              notify_success(data.message)
+              document.location.href = '/install/admin'
+            }else {
+              $('#add_db').prop('disabled', false);
+              notify_error(data.message)
+            }
+          });
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>

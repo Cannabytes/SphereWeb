@@ -22,7 +22,7 @@ class user {
         tpl::addVar([
             'referral_name' => $ref_name,
         ]);
-        tpl::display("/user/auth/new_user_registration.html");
+        tpl::display("/user/registration/registration.html");
     }
 
 
@@ -43,11 +43,11 @@ class user {
             $builder = new Builder();
             $captcha = $_POST['captcha'] ?? false;
             if (!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
-                board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
+                board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
             }
         }
         if (auth::is_user($email)) {
-            board::notice(false, lang::get_phrase(201, $email));
+            board::response("notice", ["message" => lang::get_phrase(201, $email), "ok"=>false, "reloadCaptcha" => true]);
         }
         registration::add($email, $password, false);
     }

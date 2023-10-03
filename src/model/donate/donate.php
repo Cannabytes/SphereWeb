@@ -62,7 +62,7 @@ class donate {
         if (!$server_id) {
             tpl::display("error/not_server.html");
         }
-        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ?", [
+        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC" , [
             $server_id,
         ])->fetchAll();
         $item_id_list = [];
@@ -72,7 +72,7 @@ class donate {
         if (empty($item_id_list))
             return $item_id_list;
         $list = implode(', ', $item_id_list);
-        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
+        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list}); ");
 
         $items = [];
         foreach ($donate as $item) {
@@ -102,10 +102,9 @@ class donate {
             board::notice(false, lang::get_phrase(152));
         }
         $donat_info_cost = $donat_info['cost'];
-        //Процент скидки
+
         $donateInfo = require_once 'src/config/donate.php';
-        $point = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0;
-        $procentDiscount = donate::getBonusDiscount($point, $donateInfo["discount"]['table']);
+        $procentDiscount = donate::getBonusDiscount();
         //Стоимость товара * на количество
         $cost_product = $donat_info_cost * $user_value;
         $decrease_factor = 1 - ($procentDiscount / 100);
@@ -225,7 +224,7 @@ class donate {
     }
 
     public static function donate_history_pay_self() {
-        return sql::getRows("SELECT
+        $pays = sql::getRows("SELECT
                                 donate_history_pay.point, 
                                 donate_history_pay.pay_system, 
                                 donate_history_pay.date
@@ -237,6 +236,28 @@ class donate {
                                 donate_history_pay.id DESC", [
             auth::get_id(),
         ]);
+        $trs = sql::getRows("SELECT
+                                        log_transfer_spherecoin.*, 
+                                        sender.`name` AS sender_name,
+                                        receiver.`name` AS receiver_name
+                                    FROM
+                                        log_transfer_spherecoin
+                                    LEFT JOIN
+                                        users AS sender
+                                        ON log_transfer_spherecoin.user_sender = sender.id
+                                    LEFT JOIN
+                                        users AS receiver
+                                        ON log_transfer_spherecoin.user_receiving = receiver.id
+                                    WHERE
+                                        user_sender = ? OR
+                                        user_receiving = ?
+                                    ORDER BY
+                                        log_transfer_spherecoin.id DESC", [auth::get_id(), auth::get_id()]);
+        $result = array_merge($pays, $trs);
+        usort($result, function ($a, $b) {
+            return $a['date'] <=> $b['date'];
+        });
+        return array_reverse($result);
     }
 
     //Сумма зачисления денег с учетом курса валют конфига
@@ -252,10 +273,13 @@ class donate {
 
 
     //Возвращает процент скидки
-    public static function getBonusDiscount($amount = 0, $table = []) {
+    public static function getBonusDiscount() {
+        $table = require 'src/config/donate.php';
+        $amount = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ? and sphere=0", [auth::get_id()])->fetch()['count'] ?? 0;
         $rangeKey = null;
         $discountValue = null;
         $lastValue = null;
+        $table = $table["discount"]['table'];
         $keys = array_keys($table);
         $firstKey = reset($keys);
         if ($amount < $firstKey) {

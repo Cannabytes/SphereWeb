@@ -8,9 +8,21 @@
 namespace Ofey\Logan22\controller\account\bonus;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\template\async;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
 class bonus {
+
+
+    public static function update_inventory(){
+        auth::setBonus();
+        $async = new async("basic/base.html");
+        $async->block("inventory", "inventory", "replace", true);
+        $async->block("title", "title");
+        $async->send();
+    }
 
     //Бонус код
     public static function code() {
@@ -18,12 +30,9 @@ class bonus {
     }
 
     public static function receiving(): void {
-        $object_id = $_POST['object_id'];
-        $player_name = trim($_POST['player_name']);
-        if (mb_strlen($player_name) < 1 || mb_strlen($player_name) > 21) {
-            board::notice(false, "Недопустимая длина имени игрока. Имя должно содержать от 1 до 21 символа.");
-        }
-        \Ofey\Logan22\model\bonus\bonus::addBonusPlayer($object_id, $player_name);
+        validation::user_protection();
+        $code = $_POST['code'] ?? board::notice(false, "Не передано значение объекта");
+        \Ofey\Logan22\model\bonus\bonus::getCode($code);
     }
 
 }

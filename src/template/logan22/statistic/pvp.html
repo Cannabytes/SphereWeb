@@ -1,0 +1,81 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(247)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{phrase(247)}}</h3>
+        </div>
+        <div class="block-content">
+            <div class="table-responsive">
+                <table class="table table-striped table-vcenter">
+                    <thead>
+                    <tr>
+                        <th style="width: 1%;">№</th>
+                        <th class="text-center" style="width: 3%;">
+                            <i class="fa fa-user"></i>
+                        </th>
+                        <th style="">{{phrase(14)}}</th>
+                        <th style="">{{phrase(100)}}</th>
+                        <th style=""><strong class="text-success">PvP</strong> / <a class="ajaxload"
+                                                                                    href="/statistic/pk">PK</a></th>
+                        <th style="">{{phrase(94)}}</th>
+                        <th style="">{{phrase(109)}}</th>
+                        <th style="">{{phrase(52)}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i, player in statistic_get_pvp() %}
+                    <tr>
+                        <td>{{ i+1 }}</td>
+                        <td class="text-center">
+                            <img class="img-avatar img-avatar48"
+                                 src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}"
+                                 alt="">
+                        </td>
+                        <td class="fw-semibold">
+
+                            {% if player['forbidden'] == false %}
+                            <a class="btn btn-primary btn-block waves-effect waves-light mt-0 ajaxload"
+                               href="/statistic/char/{{ player['player_name']|url_encode }}">
+                                {% if player['alliance_crest']!=null%}<img
+                                    src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if
+                                player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{%
+                                endif %}
+                                {{ player['player_name'] }}
+                            </a>
+                            {% else %}
+                            {% if player['alliance_crest']!=null%}<img
+                                src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if
+                            player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{%
+                            endif %}
+                            {{ player['player_name'] }}
+                            {% endif %}
+                        </td>
+                        <td>{{ player['level'] }}</td>
+                        <td><strong class="text-success">{{ player['pvp'] }}</strong> / {{ player['pk'] }}</td>
+                        <td>
+                            {% if player['castle_id'] != 0 %}
+                            <span data-toggle="tooltip" data-placement="top" title=""
+                                  data-original-title="{{phrase(96)}}: {{ get_castle(player['castle_id']) }}"
+                                  class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
+                            {% else %}
+                            <a class="ajaxload" href="/statistic/clan/{{ player['clan_name']|url_encode }}">{{
+                                player['clan_name'] }}</a>
+                            {% endif %}
+                        </td>
+                        <td><a class="ajaxload" href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
+                        </td>
+                        <td>{{ timeHasPassed(player['time_in_game']) }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

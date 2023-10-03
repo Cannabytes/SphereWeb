@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\statistic;
 
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\chronicle\race_class;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
@@ -101,7 +102,6 @@ class statistic {
                 tpl::display("statistic/char_denied_access.html");
             }
         }
-
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
         tpl::addVar("player", $get_player_info);

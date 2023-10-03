@@ -12,6 +12,6 @@ class promo {
         tpl::addVar([
             'title'       => lang::get_phrase(238),
         ]);
-        tpl::display("index.html", true);
+        tpl::displayDemo("index.html");
     }
 }

@@ -28,35 +28,37 @@ class pay {
                 unset($donateSysNames[$i]);
             }
         }
-//        var_dump($donateSysNames);
-//        exit();
-
         if(!config::getEnableDonate()) error::error404("Отключено");
+        $donateInfo = require_once 'src/config/donate.php';
+        $point = 0;
+        if(auth::get_is_auth()){
+            $point = donate::getBonusDiscount();
+        }
         tpl::addVar("donate_history_pay_self", donate::donate_history_pay_self());
         tpl::addVar("title", lang::get_phrase(233));
+        tpl::addVar("discount", $donateInfo["discount"]);
+        tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
+        tpl::addVar("procentDiscount", $point);
         tpl::addVar("donateSysNames", $donateSysNames);
         tpl::display("/donate/pay.html");
     }
 
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
-        $donateInfo = require_once 'src/config/donate.php';
-        $point = 0;
-        if(auth::get_is_auth()){
-            $point = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0;
-        }
+
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
         tpl::addVar("title", lang::get_phrase(233));
-        tpl::addVar("discount", $donateInfo["discount"]);
-        tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
-        tpl::addVar("procentDiscount", donate::getBonusDiscount($point, $donateInfo["discount"]['table']));
-        tpl::display("/donate/donate.html");
+        tpl::display("/donate/shop.html");
     }
 
     public static function transaction(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
         if(!auth::get_is_auth()) board::notice(false, lang::get_phrase(234));
         donate::transaction();
+    }
+
+    public static function currency_exchange_info(){
+        echo json_encode(require 'src/config/donate.php');
     }
 }

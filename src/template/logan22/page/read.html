@@ -1,0 +1,80 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase("news")}}{% endblock %}
+
+{% block content %}
+
+<div class="bg-image" style="background-image: url('{{template}}/assets/media/photos/photo27@2x.jpg');">
+    <div class="bg-black-75">
+        <div class="content content-top text-center">
+            <div class="py-7">
+                <h1 class="fw-bold text-white mb-2">{{page.name}}</h1>
+                <div class="font-size-md text-white-75">
+                    <a class="link-fx text-white" href="#">{{ page.date_create|date("F d, Y") }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Hero -->
+
+<!-- Story -->
+<div class="content content-full story">
+    <div class="row justify-content-center py-4">
+        <div class="col-lg-8">
+            {{page.description|raw}}
+        </div>
+    </div>
+    <div class="row justify-content-center py-4">
+        <div class="col-lg-8 d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-alt-danger me-1">
+                <i class="fa fa-heart opacity-50 me-1 "></i> Reccomend
+            </button>
+            <button type="button" class="btn btn-alt-info">
+                <i class="fa fa-share-alt opacity-50 me-1 "></i> Share
+            </button>
+        </div>
+    </div>
+</div>
+<!-- END Story -->
+
+<!-- Responses -->
+<div class="bg-body-dark">
+    <div class="content content-full">
+        <div class="row justify-content-center py-4">
+            <div class="col-lg-8">
+                {% for comment in comments %}
+                    {% block page_new_comment %}
+                    <div class="d-flex mb-4">
+                        <img class="img-avatar img-avatar48 flex-shrink-0 me-3" src="{{ template('/assets/images/navatar/' ~ comment.avatar) }}" alt="">
+                        <div class="flex-grow-1">
+                            <p class="fs-sm fw-medium mb-1">
+                                <a class="fw-semibold" href="javascript:void(0)">
+                                    {% if comment.name == null %} <span data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Без имени" >No Name</span> {% else %} {{comment.name}} {% endif %}
+                                </a>: {{comment.message|raw|nl2br}}
+                            </p>
+                        </div>
+                    </div>
+                    {% endblock %}
+                {% endfor %}
+                <div id="page_new_comment"></div>
+                {% if user_info("get_is_auth") %}
+                <div class="d-flex mb-4">
+                    <img class="img-avatar img-avatar48 d-flex me-3" src="{{ template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                    <div class="flex-grow-1">
+                        <form action="/page/comment/add" method="POST" onsubmit="return false;">
+                            <input type="hidden" name="id" value="{{page.id}}">
+                            <textarea name="comment" class="form-control mb-1" rows="5" placeholder="Comment"></textarea>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-reply opacity-50 me-1"></i> {{phrase(364)}}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Responses -->
+{% endblock %}

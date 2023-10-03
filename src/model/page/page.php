@@ -38,12 +38,29 @@ class page {
                         LIMIT 50;", [$page_id])->fetchAll();
     }
 
+    public static function get_comment_id($id) {
+        return sql::run("SELECT
+                            page_comments.*, 
+                            users.`name`,
+                            users.`avatar`,
+                            users.`avatar_background`
+                        FROM
+                            page_comments
+                            INNER JOIN
+                            users
+                            ON 
+                                page_comments.user_id = users.id
+                        WHERE
+                            page_comments.id = ?
+                        LIMIT 50;", [$id])->fetch();
+    }
+
     public static function get_news($id) {
         return sql::run("SELECT * FROM `pages` WHERE id=?", [$id])->fetch();
     }
 
     public static function show_all_pages_short($max_desc_len = 300, $limit = 300) {
-        return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `trash`, `date_create` FROM `pages` ORDER BY `id` DESC LIMIT $limit;")->fetchAll();
+        return sql::run("SELECT `id`, `name`, LEFT(description, $max_desc_len) AS `description`, `comment`, `trash`, `date_create` FROM `pages` ORDER BY `id` DESC LIMIT $limit;")->fetchAll();
     }
 
     /**

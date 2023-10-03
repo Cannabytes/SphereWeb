@@ -39,5 +39,4 @@
 
 </IfModule>
 
-Options All -Indexes
 Header add Access-Control-Allow-Origin "*"

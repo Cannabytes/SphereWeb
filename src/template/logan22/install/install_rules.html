@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>{{phrase("install_sphere")}}</title>
+
+    <meta name="description" content="{{meta_description}}">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:title" content="{{meta_description}}">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="{{meta_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="shortcut icon" href="{{template}}/assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{template}}/assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{template}}/assets/media/favicons/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" id="css-main" href="{{template}}/assets/css/codebase.min.css">
+
+  </head>
+
+  <body>
+
+    <div id="page-container" class=" ">
+      <main id="main-container">
+        <div class="py-1 text-center">
+
+          <div class="block block-rounded block-link-shadow overflow-hidden" >
+            <div class="block-content block-content-full">
+              <div class="row g-5 py-1">
+                {% for lang in lang_list(lang_user_default()) %}
+                <div class="col-6">
+                    <div class="fs-3 fw-semibold text-success"><a href="/user/change/lang/{{lang.lang}}"> {{lang.name}} </a></div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+
+                <h1 class="h2 fw-bold mt-1 mb-2">{{phrase("rules_sphere")}}</h1>
+
+                <blockquote class="blockquote">
+                  <p>{{phrase("install_rules_1")|raw}}
+                  <hr>
+                  <p>
+                    {{phrase("install_rules_2")|raw}}
+                  </p>
+
+                  </p>
+                  <hr>
+                    {{phrase("install_rules_3")|raw}}
+                </blockquote>
+
+
+                       <div class="card">
+                        <div class="card-header text-uppercase">{{phrase("directory_rights")}}</div>
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th scope="col">{{phrase("directory")}}</th>
+                            <th scope="col">{{phrase("required_settings")}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          {% for dir in dir_permissions %}
+                          <tr>
+                            <th scope="row">{{ dir.path }}</th>
+                            <td>{{ dir.per  ?  '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</td>
+                          </tr>
+                          {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+
+
+                       <div class="card">
+                        <div class="card-header text-uppercase">{{phrase("min_version_php")}}</div>
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th scope="col">{{phrase("param")}}</th>
+                            <th scope="col">{{phrase("min")}}</th>
+                            <th scope="col">{{phrase("now")}}</th>
+                            <th scope="col"></th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          {% for info in php_informations %}
+                          <tr>
+                            <th scope="row">{{info.name}}</th>
+                            <th scope="row">{{info.min}}</th>
+                            <th scope="row">{{info.get}}</th>
+                            <th scope="row">{{info.allow ? '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</th>
+                          </tr>
+                          {% endfor %}
+                          </tbody>
+                        </table>
+                        <br>
+                        <div class="card-header text-uppercase">{{phrase("need_php_plugin")}}</div>
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th scope="col">{{phrase("library")}}</th>
+                            <th scope="col">{{phrase("Connected")}}</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          {% for ext in extensions %}
+                          <tr>
+                            <th scope="row">{{ext.name}}</th>
+                            <th scope="row">{{ext.allow ? '<i aria-hidden="true" class="fa fa-check text-success"></i>' : '<i aria-hidden="true" class="fa fa-close text-danger"></i>' }}</th>
+                          </tr>
+                          {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+
+
+
+                  <br>
+                  <div class="form-footer text-center">
+                    {% if allow_install %}
+                    <a href="/install/db" class="btn btn-success"><i class="fa fa-arrow-alt-circle-right opacity-50 me-1"></i>{{phrase("next_install")}}</a>
+                    {% else %}
+                    <label href="#" disabled="" class="btn btn-danger">{{phrase("install_cannot_continue")}}</label>
+                    {% endif %}
+                  </div>
+                  <br>
+
+              </div>
+
+
+      </main>
+    </div>
+
+    <script src="{{template}}/assets/js/codebase.app.min.js"></script>
+  </body>
+</html>

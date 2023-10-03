@@ -1,0 +1,72 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(62)}}{% endblock %}
+
+{% block forum %}
+    {% if forum_internal() is not empty %}
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{phrase(62)}}</h3>
+            <div class="block-options">
+                <div class="dropdown">
+                    <button type="button" class="btn-block-option" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        <i class="fa fa-fw fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="javascript:void(0)">
+                            <i class="fa fa-fw fa-flask opacity-50 me-1"></i> Filter
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                            <i class="fa fa-fw fa-cogs opacity-50 me-1"></i> Manage
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-content">
+            {% for forum in forum_internal() %}
+            <table class="table table-striped table-borderless table-vcenter">
+                <thead class="thead-light">
+                <tr>
+                    <th>{{forum.name}}</th>
+                    <th class="d-none d-md-table-cell text-center" style="width: 90px;">{{phrase("topics")}}</th>
+                    <th class="d-none d-md-table-cell text-center" style="width: 90px;">{{phrase("posts")}}</th>
+                    <th class="d-none d-md-table-cell" style="width: 180px;">{{phrase("last_post")}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for section in forum.section %}
+                <tr>
+                    <td>
+                        <a class="fs-5 fw-semibold ajaxload" href="/forum/threads/{{section.id}}">{{section.name}}</a>
+                        {% if section.topics_count > 0 %}
+                        <div class="fs-sm text-muted mt-1"> {{phrase("last_message_topic")}}
+                            <a class="ajaxload" href="/forum/threads/{{section.id}}/{{section.topic_id}}">{{section.topic_name}}</a>
+                            {{phrase("from")}}
+                            <a href="#">{{section.user_name}}</a> {{ProhloVremya(section.date_update)}} {{phrase("back")}}.
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td class="d-none d-md-table-cell text-center">{{section.topics_count}}</td>
+                    <td class="d-none d-md-table-cell text-center">{{section.posts_count}}</td>
+                    <td class="d-none d-md-table-cell">
+                        {% if section.topics_count > 0 %}
+                        <span class="fs-sm">{{phrase("from")}} <a href="#">{{section.user_name}}</a><br>в {{section.date_update|date("H:i")}}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="content">
+    {{ block('forum')}}
+</div>
+{% endblock %}
