@@ -119,11 +119,16 @@ class tpl {
         }
         $loader = new FilesystemLoader($__ROOT__ . self::$templatePath);
 
-        $twig = new Environment($loader, [
-//            'cache' => $__ROOT__ . "/uploads/cache/template",
-            'auto_reload' => true,
-            'debug' => true,
-        ]);
+        include "src/config/cache.php";
+        $arrTwigConfig = [];
+        if ($enable_cache_template) {
+            $arrTwigConfig['cache'] = $__ROOT__ . "/uploads/cache/template";
+        }
+        $arrTwigConfig['auto_reload'] = $auto_reload;
+        $arrTwigConfig['debug'] = $debug_template;
+        $twig = new Environment($loader, $arrTwigConfig);
+
+
         $twig->addExtension(new DebugExtension());
         $twig = self::generalfunc($twig);
         $twig = self::user_var_func($twig);
