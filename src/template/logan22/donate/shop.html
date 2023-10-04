@@ -19,7 +19,6 @@
                 </div>
                 <div class="block-content block-content-full">
 
-
                     <table class="table table-borderless table-striped table-hover mb-0 fs-sm">
                         <tbody>
                         <tr>
@@ -47,7 +46,7 @@
                     <div class="d-flex justify-content-center">
                         <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
                                data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="hidden" min="1">
-                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal-fadein" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
+                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
                     </div>
                    {% else %}
                     <div class="input-group">
@@ -56,7 +55,7 @@
                                    data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="number" min="1" class="count form-control" placeholder="{{phrase(71)}}">
                             <label for="user_value_{{product.id}}">{{phrase("how_much_to_buy")}}</label>
                         </div>
-                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal-fadein" class="input-group-text openWindowBuy">
+                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
                             {{phrase(74)}}
                         </button>
                     </div>
@@ -87,7 +86,7 @@
 </div>
 
 
-<div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
+<div class="modal fade" id="modal_panel_apply" tabindex="-1" role="dialog" aria-labelledby="modal_panel_apply" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="block block-rounded shadow-none mb-0">
