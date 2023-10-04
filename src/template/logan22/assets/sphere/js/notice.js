@@ -1,7 +1,10 @@
 Codebase.helpersOnLoad(['jq-notify']);
 function ResponseNotice(response) {
+    if(response.type!=="notice"){
+       return false;
+    }
     if(response === undefined || response === ""){
-        return
+        return false
     }
     console.log(response);
 

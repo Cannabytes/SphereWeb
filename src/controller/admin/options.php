@@ -20,6 +20,7 @@ use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\template\tpl;
 use PDO;
+use PDOException;
 
 class options {
 
@@ -67,13 +68,16 @@ class options {
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SHOW DATABASES";
             $stmt = $pdo->query($sql);
+            if (!$stmt) {
+                board::error($pdo->errorInfo());
+            }
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $databases[] = $row['Database'];
             }
             echo json_encode($databases);
             $pdo = null;
         } catch (PDOException $e) {
-            die('Ошибка: ' . $e->getMessage());
+            board::error( $e->getMessage());
         }
     }
 

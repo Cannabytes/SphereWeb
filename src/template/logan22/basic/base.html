@@ -119,7 +119,7 @@
                                 <div>{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if
                                     bonus.count > 1 %}({{bonus.count}}){% endif %}
                                 </div>
-                                <div class="fw-normal fs-xs text-muted">{{phrase( bonus.phrase)  }}</div>
+                                <div class="fw-normal fs-xs text-muted">{% if bonus.phrase is not empty%}{{phrase(bonus.phrase)}}{%endif%}</div>
                             </a>
                         </li>
                         {% endfor %}

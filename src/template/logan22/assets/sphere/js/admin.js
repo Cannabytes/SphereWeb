@@ -58,12 +58,16 @@ $(document).on('click', '#getDBNameLogin', function (event) {
         },
         dataType: 'json',
         success: function (response) {
+            if(response.type==="notice"){
+                if(!ResponseNotice(response)){
+                    return;
+                }
+            }
             //response возвращает массив , его элементы размещаем в select getDBNameLogin
             $("#db_login_name").empty();
             $.each(response, function (index, value) {
                 $("#db_login_name").append('<option value="' + value + '">' + value + '</option>');
             });
-
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при выполнении AJAX-запроса:', error);
@@ -83,7 +87,11 @@ $(document).on('click', '#getDBNameGame', function (event) {
         },
         dataType: 'json',
         success: function (response) {
-            //response возвращает массив , его элементы размещаем в select getDBNameLogin
+            if(response.type==="notice"){
+                if(!ResponseNotice(response)){
+                    return;
+                }
+            }
             $("#db_game_name").empty();
             $.each(response, function (index, value) {
                 $("#db_game_name").append('<option value="' + value + '">' + value + '</option>');
