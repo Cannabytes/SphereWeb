@@ -94,7 +94,8 @@ class L2jLucera3 implements structure {
                         ON 
                             characters.clanid = clan_subpledges.clan_id
                     WHERE
-                        character_subclasses.active = 1
+                        character_subclasses.active = 1 AND
+	clan_subpledges.type = 0
                     ORDER BY
                         pvpkills DESC
                     LIMIT 100';
@@ -137,7 +138,8 @@ class L2jLucera3 implements structure {
                             ON 
                                 characters.clanid = clan_subpledges.clan_id
                     WHERE
-                        character_subclasses.active = 1
+                        character_subclasses.active = 1 AND
+	clan_subpledges.type = 0
                     ORDER BY
                         pkkills DESC
                     LIMIT 100';
@@ -164,6 +166,7 @@ class L2jLucera3 implements structure {
                     INNER JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
                     INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
+                    WHERE clan_subpledges.type = 0
                 ORDER BY
                     clan_count_members DESC,
                     clan_data.reputation_score DESC 
@@ -191,7 +194,8 @@ class L2jLucera3 implements structure {
                     INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
                     INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
                 WHERE
-                    clan_subpledges.name = ?';
+                    clan_subpledges.name = ?  AND
+	clan_subpledges.type = 0';
     }
 
     static public function statistic_clan_skills(): string {
@@ -242,7 +246,8 @@ class L2jLucera3 implements structure {
                     LEFT JOIN character_subclasses ON heroes.char_id = character_subclasses.char_obj_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
                 WHERE
-                    character_subclasses.isBase = 1 
+                    character_subclasses.isBase = 1   AND
+	clan_subpledges.type = 0
                 ORDER BY
                     characters.onlinetime DESC 
                     LIMIT 100';
@@ -270,7 +275,9 @@ class L2jLucera3 implements structure {
                     LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
-                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id';
+                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
+                 WHERE  clan_subpledges.type = 0   
+                 ';
     }
 
     static public function statistic_top_block(): string {
@@ -289,7 +296,8 @@ class L2jLucera3 implements structure {
                     INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
                 WHERE
-                    characters.accesslevel < 0;';
+                    characters.accesslevel < 0  AND
+	clan_subpledges.type = 0;';
     }
 
     static public function statistic_top_onlinetime(): string {
@@ -317,7 +325,8 @@ FROM
 	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
-	character_subclasses.isBase = 1 
+	character_subclasses.isBase = 1  AND
+	clan_subpledges.type = 0
 ORDER BY
 	characters.onlinetime DESC 
 	LIMIT 100;';
@@ -349,7 +358,8 @@ FROM
 	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
-  characters.char_name = ? AND character_subclasses.isBase = 1;';
+  characters.char_name = ? AND character_subclasses.isBase = 1  AND
+	clan_subpledges.type = 0;';
     }
 
     static public function statistic_player_info_sub_class(): string {
@@ -420,7 +430,8 @@ WHERE
                 WHERE
                     character_subclasses.class_id = ? AND
                     character_subclasses.isBase = 1 AND
-                    characters.pvpkills > 0
+                    characters.pvpkills > 0 AND
+	clan_subpledges.type = 0
                 ORDER BY
                     characters.pvpkills DESC, 
                     character_subclasses.`level` DESC, 
@@ -487,6 +498,7 @@ WHERE
                     LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
                 WHERE
                     characters.account_name = ? 
-                    AND character_subclasses.isBase = 1';
+                    AND character_subclasses.isBase = 1 AND
+	clan_subpledges.type = 0';
     }
 }
