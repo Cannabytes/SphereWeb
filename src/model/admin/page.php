@@ -12,13 +12,13 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\page\page as page_model;
-use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\template\async;
 use Ofey\Logan22\template\tpl;
+use Verot\Upload\Upload;
 
 class page {
 
-    static public function create() {
+    public static function create(): void {
         //Получение данных запроса
         $title = $_POST['title'];
         $is_news = (int)filter_var(isset($_POST['is_news']), FILTER_VALIDATE_BOOLEAN);
@@ -29,14 +29,56 @@ class page {
         //Проверка данных
         self::check_data($title, $content);
 
+        $poster = "";
+
+        if (!is_dir(dirname("uploads/images/news"))) {
+            mkdir("uploads/images/news", 0777, true);
+        }
+
+        $files = $_FILES['files'] ?? null;
+
+        //Из массива $files оставляем только первый массив
+        $file = array_map(function ($file) {
+            return $file[0];
+        }, $files);
+
+        $handle = new Upload($file['tmp_name']);
+        if ($handle->uploaded) {
+            $handle->allowed = ['image/*'];
+            $handle->mime_check = true;
+            $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
+
+            $filename = md5(mt_rand(1, 100000) + time());
+            $handle->file_new_name_body = $filename;
+            $handle->image_resize = true;
+            $handle->image_x = 1200;
+            $handle->image_ratio_y = true;
+            $handle->image_convert = 'webp';
+            $handle->webp_quality = 95;
+            $handle->process('./uploads/images/news');
+            if ($handle->processed) {
+                $handle->clean();
+                $poster = $filename . ".webp";
+            }
+            if ($handle->error) {
+                $fileName = $files['name'];
+                $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
+                board::notice(false, $msg);
+            }
+        } else {
+            board::notice(false, $handle->error);
+        }
+
+
         //Запись в базу
-        $request = sql::run('INSERT INTO `pages` (`is_news`, `name`, `description`, `comment`, `date_create`, `lang`) VALUES (?, ?, ?, ?, ?, ?)', [
+        $request = sql::run('INSERT INTO `pages` (`is_news`, `name`, `description`, `comment`, `date_create`, `lang`, `poster`) VALUES (?, ?, ?, ?, ?, ?, ?)', [
             $is_news,
             $title,
             $content,
             $enable_comment,
             time::mysql(),
             $lang,
+            $poster,
         ]);
         //Проверка результата вставки
         if ($request) {
@@ -55,7 +97,7 @@ class page {
         board::notice(false, 'Произошла ошибка');
     }
 
-    static private function check_data($title, $content) {
+    private static function check_data($title, $content) {
         //Предельные символы
         $mix_title_len = 4;
         $max_title_len = 140; // Максимум 600 символов. Рекомендую оставить 140.
@@ -88,6 +130,65 @@ class page {
         $lang = $_POST['lang'];
         //Проверка данных
         self::check_data($title, $content);
+
+        //Если есть files тогда загружаем, если нет, пропускаем.
+        if (isset($_FILES['files'])) {
+            if (!is_dir(dirname("uploads/images/news"))) {
+                mkdir("uploads/images/news", 0777, true);
+            }
+
+            $files = $_FILES['files'] ?? null;
+
+            //Из массива $files оставляем только первый массив
+            $file = array_map(function ($file) {
+                return $file[0];
+            }, $files);
+
+            $handle = new Upload($file['tmp_name']);
+            if ($handle->uploaded) {
+                $handle->allowed = ['image/*'];
+                $handle->mime_check = true;
+                $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
+
+                $filename = md5(mt_rand(1, 100000) + time());
+                $handle->file_new_name_body = $filename;
+                $handle->image_resize = true;
+                $handle->image_x = 1200;
+                $handle->image_ratio_y = true;
+                $handle->image_convert = 'webp';
+                $handle->webp_quality = 95;
+                $handle->process('./uploads/images/news');
+                if ($handle->processed) {
+                    $handle->clean();
+                    $poster = $filename . ".webp";
+                    $request = sql::run('UPDATE `pages` SET `is_news` = ?, `name` = ?, `description` = ?, `comment` = ?, `lang` = ? , `poster` = ?  WHERE `id` = ?', [
+                        $is_news,
+                        $title,
+                        $content,
+                        $enable_comment,
+                        $lang,
+                        $poster,
+                        $id,
+                    ]);
+                    if ($request) {
+                        board::alert([
+                            'type' => 'notice',
+                            'ok' => true,
+                            'redirect' => "/page/" . $id,
+                        ]);
+                    }
+                }
+                if ($handle->error) {
+                    $fileName = $files['name'];
+                    $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
+                    board::notice(false, $msg);
+                }
+            } else {
+                board::notice(false, $handle->error);
+            }
+        }
+
+
         //Запись в базу
         $request = sql::run('UPDATE `pages` SET `is_news` = ?, `name` = ?, `description` = ?, `comment` = ?, `lang` = ?  WHERE `id` = ?', [
             $is_news,
@@ -100,9 +201,9 @@ class page {
         //Проверка результата вставки
         if ($request) {
             board::alert([
+                'type' => 'notice',
                 'ok' => true,
-                'message' => self::get_page(144),
-                'redirect' => "/page/" . sql::lastInsertId(),
+                'redirect' => "/page/" . $id,
             ]);
         }
         board::notice(false, self::get_page(145));

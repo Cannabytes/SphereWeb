@@ -82,9 +82,7 @@ class page {
             'is_news'     => $data['is_news'],
             'page_lang'   => $data['lang'],
         ]);
-        tpl::addVar('server_list', server::get_server_info());
-
-        tpl::display("admin/news_edit.html");
+        tpl::display("admin/page/edit.html");
     }
 
     public static function update_news() {

@@ -4,7 +4,14 @@
 
 {% block content %}
 
-<div class="bg-image" style="background-image: url('{{template}}/assets/media/photos/photo27@2x.jpg');">
+{% set pathImg = "/uploads/images/news/" ~ page.poster %}
+
+{% if page.poster == null %}
+{% set pathImg = template ~ "/assets/images/logo_news_d.jpg" %}
+{% endif %}
+
+
+<div class="bg-image" style="background-image: url('{{pathImg}}');">
     <div class="bg-black-75">
         <div class="content content-top text-center">
             <div class="py-7">
@@ -16,25 +23,23 @@
         </div>
     </div>
 </div>
-<!-- END Hero -->
 
-<!-- Story -->
 <div class="content content-full story">
     <div class="row justify-content-center py-4">
         <div class="col-lg-8">
             {{page.description|raw}}
         </div>
     </div>
-    <div class="row justify-content-center py-4">
-        <div class="col-lg-8 d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-alt-danger me-1">
-                <i class="fa fa-heart opacity-50 me-1 "></i> Reccomend
-            </button>
-            <button type="button" class="btn btn-alt-info">
-                <i class="fa fa-share-alt opacity-50 me-1 "></i> Share
-            </button>
-        </div>
-    </div>
+<!--    <div class="row justify-content-center py-4">-->
+<!--        <div class="col-lg-8 d-flex justify-content-between align-items-center">-->
+<!--            <button type="button" class="btn btn-alt-danger me-1">-->
+<!--                <i class="fa fa-heart opacity-50 me-1 "></i> Reccomend-->
+<!--            </button>-->
+<!--            <button type="button" class="btn btn-alt-info">-->
+<!--                <i class="fa fa-share-alt opacity-50 me-1 "></i> Share-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 <!-- END Story -->
 
