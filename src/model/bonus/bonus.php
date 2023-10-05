@@ -122,7 +122,6 @@ class bonus {
         }
     }
 
-    //TODO: Диприкейтед
     public static function addBonusPlayer($object_id, $char_name) {
         $bonusData = self::itemObjectData($object_id);
         if (!$bonusData) {
@@ -176,12 +175,15 @@ class bonus {
                 donate::add_item_max_val_id($server_info, $player_id, $item_id, $item_count);
             }
         } else {
-            player_account::add_item($server_info, [
+            $ok = player_account::add_item($server_info, [
                 $player_id,
                 $item_id,
                 $item_count,
                 $item_enchant,
             ]);
+            if (!$ok) {
+                board::notice(false, lang::get_phrase("Отправка не произошла"));
+            }
         }
         sql::run("UPDATE `bonus` SET `issued` = 1 WHERE `id` = ?", [$object_id]);
         auth::setBonus();

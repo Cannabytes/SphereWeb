@@ -111,6 +111,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->get("/bonus", '\Ofey\Logan22\controller\account\bonus\bonus::code');
     $route->post("/bonus/receiving", '\Ofey\Logan22\controller\account\bonus\bonus::receiving');
     $route->post("/bonus/inventory/update", "\Ofey\Logan22\controller\account\bonus\bonus::update_inventory");
+    $route->post("/bonus/inventory/addplayer", "\Ofey\Logan22\controller\account\bonus\bonus::addBonusPlayer");
 
     /**
      * Статистика
