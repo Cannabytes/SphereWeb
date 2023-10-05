@@ -209,6 +209,7 @@ class player_account {
                 "isDownload" => $fileDownload['enable'],
                 "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
                 "content" => $content,
+                "redirect" => "/accounts",
             ]);
     }
 
