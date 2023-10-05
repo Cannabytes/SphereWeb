@@ -335,11 +335,11 @@ return [
     268 => "HTML page that we will send to the user by email.<br>
             Variable <strong>%code%</strong> - contains the verification code.<br>
             The <strong>%link%</strong> variable is a link to the password reset page.</br>
-            Template Location: <strong>src/template/cabinet/email_request/forget.html</strong>",
+            Template Location: <strong>src/template/logan22/email_request/forget.html</strong>",
     269 => "HTML page that we will send to the user by email.<br>
             The variable <strong>%password%</strong> is the new password.<br>
             The <strong>%link%</strong> variable is a link to the login page.</br>
-            Template Location: <strong>src/template/cabinet/email_request/new_password.html</strong>",
+            Template Location: <strong>src/template/logan22/email_request/new_password.html</strong>",
     270 => "Mail settings",
     271 => "Save",
     272 => "Choose an avatar",

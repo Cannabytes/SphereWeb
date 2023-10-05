@@ -342,11 +342,11 @@ return [
     268 => "Página HTML que enviaremos al usuario por correo electrónico.<br>
 Variable <strong>%code%</strong>: contiene el código de verificación.<br>
 La variable <strong>%link%</strong> es un enlace a la página de restablecimiento de contraseña.</br>
-Ubicación de la plantilla: <strong>src/template/cabinet/email_request/forget.html</strong>",
+Ubicación de la plantilla: <strong>src/template/logan22/email_request/forget.html</strong>",
     269 => "Página HTML que enviaremos al usuario por correo electrónico.<br>
 La variable <strong>%password%</strong> es la nueva contraseña.<br>
 La variable <strong>%link%</strong> es un enlace a la página de inicio de sesión.</br>
-Ubicación de la plantilla: <strong>src/template/cabinet/email_request/new_password.html</strong>",
+Ubicación de la plantilla: <strong>src/template/logan22/email_request/new_password.html</strong>",
     270 => "Configuración de correo",
     271 => "Guardar",
     272 => "Elige un avatar",

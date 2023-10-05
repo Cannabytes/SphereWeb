@@ -335,11 +335,11 @@ return [
     268 => "HTML страница, которую мы будет отправлять пользователю на почту.<br>
 				 Переменная <strong>%code%</strong> - содержит проверочный код.<br>
 				 Переменная <strong>%link%</strong> - ссылка на страницу сброса пароля.</br>
-				 Месторасположение шаблона: <strong>src/template/cabinet/email_request/forget.html</strong>",
+				 Месторасположение шаблона: <strong>src/template/logan22/email_request/forget.html</strong>",
     269 => "HTML страница, которую мы будет отправлять пользователю на почту.<br>
 				 Переменная <strong>%password%</strong> - новый пароль.<br>
 				 Переменная <strong>%link%</strong> - ссылка на страницу авторизации.</br>
-				 Месторасположение шаблона: <strong>src/template/cabinet/email_request/new_password.html</strong>",
+				 Месторасположение шаблона: <strong>src/template/logan22/email_request/new_password.html</strong>",
     270 => "Настройка почты",
     271 => "Сохранить",
     272 => "Выберите аватар",

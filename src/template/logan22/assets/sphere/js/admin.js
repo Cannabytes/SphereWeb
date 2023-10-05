@@ -270,8 +270,8 @@ function readme() {
                 $("#screen").attr("src", "/template/" + $("#template").val() + "/" + result.screen);
                 $("#screen_href").attr("href", "/template/" + $("#template").val() + "/" + result.screen);
             } else {
-                $("#screen").attr("src", "/src/template/cabinet/assets/images/none.png");
-                $("#screen_href").attr("href", "/src/template/cabinet/assets/images/none.png");
+                $("#screen").attr("src", "/src/template/logan22/assets/images/none.png");
+                $("#screen_href").attr("href", "/src/template/logan22/assets/images/none.png");
             }
             $("#version").text(result.version ?? "0.0");
             $("#author").text(result.author ?? "-");

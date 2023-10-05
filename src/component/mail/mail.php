@@ -31,7 +31,7 @@ class mail {
             //Content
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->msgHTML($content, "src/template/cabinet/email_request/");
+            $mail->msgHTML($content, "src/template/logan22/email_request/");
             $mail->AltBody = 'Enabled HTML';
             $mail->send();
             return [

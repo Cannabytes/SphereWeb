@@ -446,7 +446,7 @@ class tpl {
             if (file_exists('uploads/screenshots/' . $file)) {
                 return '/uploads/screenshots/' . $file;
             } else {
-                return "/src/template/cabinet/assets/images/not-found.png";
+                return "/src/template/logan22/assets/images/not-found.png";
             }
         }));
 

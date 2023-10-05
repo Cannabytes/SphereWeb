@@ -21,7 +21,7 @@ class template {
         $template = config::get_template() ?? "default";
         $readmeJson = "template/{$template}/readme.json";
         $demo = [];
-        $img = "/src/template/cabinet/assets/images/none.png";
+        $img = "/src/template/logan22/assets/images/none.png";
         if(file_exists($readmeJson)) {
             $jsonContents = file_get_contents($readmeJson);
             $demo = json_decode($jsonContents, true);
@@ -39,13 +39,13 @@ class template {
     public static function email_forget() {
         validation::user_protection("admin");
 
-        tpl::addVar('forget', file_get_contents('src/template/cabinet/email_request/forget.html'));
+        tpl::addVar('forget', file_get_contents('src/template/logan22/email_request/forget.html'));
         tpl::display("admin/template/email/forget.html");
     }
 
     public static function new_password() {
         validation::user_protection("admin");
-        tpl::addVar('new_password', file_get_contents('src/template/cabinet/email_request/new_password.html'));
+        tpl::addVar('new_password', file_get_contents('src/template/logan22/email_request/new_password.html'));
         tpl::display("admin/template/email/new_password.html");
     }
 
