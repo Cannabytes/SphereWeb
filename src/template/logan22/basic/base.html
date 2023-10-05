@@ -452,8 +452,8 @@
                         <img class="img-avatar img-avatar48 user_self_avatar"
                              src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
 
-                        <span class="d-none d-sm-inline-block fw-semibold">{{ user_info('get_name') }}
-                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></span>
+                        <span class="d-none d-sm-inline-block fw-semibold m-2">{{ user_info('get_name') }}</span>
+                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span>
                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
