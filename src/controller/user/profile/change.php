@@ -44,7 +44,7 @@ class change {
         \Ofey\Logan22\model\user\profile\change::set();
     }
 
-    static public function show_avatar_page(): void {
+    public static function show_avatar_page(): void {
         validation::user_protection();
         tpl::addVar([
             "title" => lang::get_phrase(192),
@@ -54,7 +54,7 @@ class change {
         tpl::display("user/profile/select_avatar.html");
     }
 
-    static public function show_background_avatar_page(): void {
+    public static function show_background_avatar_page(): void {
         validation::user_protection();
         tpl::addVar([
             "title" => lang::get_phrase(193),

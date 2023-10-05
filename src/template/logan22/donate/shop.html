@@ -34,7 +34,7 @@
                                 {{phrase(72)}}
                             </td>
                             <td class="text-center">
-                                <span id="product_cost_{{product.id}}" class="fw-semibold text-success"><img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">{{product.cost}}</span>
+                                <span id="product_cost_{{product.id}}" class="fw-semibold text-success">{%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">{%endif%}{{product.cost}}</span>
                             </td>
                         </tr>
 

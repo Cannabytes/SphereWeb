@@ -372,6 +372,10 @@ class tpl {
             return forum::forum_enable();
         }));
 
+        $twig->addFunction(new TwigFunction('show_image_sphere_coin', function () {
+            return config::show_image_sphere_coin();
+        }));
+
         $twig->addFunction(new TwigFunction('forum_user_avatar', function ($user_id = 0) {
             return forum::user_avatar($user_id);
         }));

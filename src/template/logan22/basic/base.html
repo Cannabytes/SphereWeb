@@ -404,7 +404,9 @@
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
                                href="/donate/pay">
                                 <span>{{phrase("refill")}}</span>
+                                {%if show_image_sphere_coin()%}
                                 <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
+                                {% endif %}
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
                                href="/user/notification">
@@ -465,7 +467,9 @@
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
                                href="/donate/pay">
                                 <span>{{phrase("refill")}}</span>
+                                {%if show_image_sphere_coin()%}
                                 <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
+                                {% endif %}
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
                                href="/user/notification">

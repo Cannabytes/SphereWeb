@@ -26,6 +26,7 @@ class config
     private static bool $enable_gallery = true;
     private static bool $enable_donate = true;
     private static ?string $captcha = null;
+    private static bool $show_image_sphere_coin = true;
 
     public static function open(): void
     {
@@ -37,7 +38,7 @@ class config
         self::$max_user_count_screenshots = max_user_count_screenshots ?? self::$max_user_count_screenshots;
         self::$max_count_all_screenshots = max_count_all_screenshots ?? self::$max_count_all_screenshots;
         self::$forum_enable = forum_enable ?? self::$forum_enable;
-
+        self::$show_image_sphere_coin = show_image_sphere_coin ?? self::$show_image_sphere_coin;
         self::loadEnable();
 
     }
@@ -122,6 +123,14 @@ class config
             self::check_open_config();
         }
         return self::$forum_enable;
+    }
+
+    public static function show_image_sphere_coin(): bool
+    {
+        if (self::$show_image_sphere_coin == "") {
+            self::check_open_config();
+        }
+        return self::$show_image_sphere_coin;
     }
 
     public static function set_template($template_name)

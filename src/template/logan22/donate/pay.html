@@ -27,8 +27,7 @@
                                    id="example-group3-floating2" name="example-group3-floating2"
                                    placeholder="Введите число" oninput="this.value = this.value.replace(/\D/g, '')">
 
-                            <label for="example-group3-floating2">{{phrase("how_much")}} <img
-                                    src="{{template}}/assets/images/coin/sphere-coin_24.png"> {{phrase("Sphere-Coin")}} {{phrase("do_you_want_to_receive")}}</label>
+                            <label for="example-group3-floating2">{{phrase(71)}} {%if show_image_sphere_coin()%}<img src="{{template}}/assets/images/coin/sphere-coin_24.png">{%endif%}</label>
                         </div>
                         <button id="paynext" type="button" class="btn btn-secondary">{{phrase("confirm")}}</button>
                     </div>
@@ -96,11 +95,11 @@
                                  aria-labelledby="btabs-static-home-tab" tabindex="0">
                                 <h4 class="fw-normal text-center">{{phrase("savings_system_gives_you")}} - {{ procentDiscount
                                     }}% {{phrase("bonus_on_donation")}}</h4>
-                                <div class="text-center"> {{phrase("during_all")}} <img data-bs-toggle="tooltip"
+                                <div class="text-center"> {{phrase("during_all")}} {%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip"
                                                                                          data-bs-placement="top"
                                                                                          data-bs-original-title="Sphere Coin"
                                                                                          class="mb-1"
-                                                                                         src="{{template}}/assets/images/coin/sphere-coin_16.png">{{count_all_donate_bonus}}
+                                                                                         src="{{template}}/assets/images/coin/sphere-coin_16.png">{%endif%}{{count_all_donate_bonus}}
                                     {{phrase("Sphere-Coin")}}
                                 </div>
                                 <div class="table-responsive">
@@ -145,11 +144,12 @@
                                     <div class="mb-4">
                                         <div class="input-group">
                                             <span class="input-group-text">
-                                              <img data-bs-toggle="tooltip"
+                                             {%if show_image_sphere_coin()%} <img data-bs-toggle="tooltip"
                                                    data-bs-placement="top"
                                                    data-bs-original-title="Sphere Coin"
                                                    class=""
                                                    src="{{template}}/assets/images/coin/sphere-coin_32.png">
+                                                {%endif%}
                                             </span>
                                             <div class="form-floating">
                                                 <input type="text" class="form-control" id="count"
@@ -194,9 +194,9 @@
                         {% if history.pay_system %}
                             <tr>
                                 <td class="">{{history.pay_system}}</td>
-                                <td>+{{history.point}}<img data-bs-toggle="tooltip" data-bs-placement="top"
+                                <td>+{{history.point}}{%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top"
                                                            data-bs-original-title="Sphere Coin" class="mb-1"
-                                                           src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>
+                                                           src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>{%endif%}
                                 <td>{{history.date}}</td>
                             </tr>
                         {% else %}
@@ -206,9 +206,11 @@
                                     {% if user_info('get_id') == history.user_receiving %} {{phrase("receiving_from_user")}} {{history.sender_name}} {% endif %}
                                 </td>
                                 <td>
-                                    {% if user_info('get_id') == history.user_receiving %}+{% else %}-{% endif %}{{history.point}}<img data-bs-toggle="tooltip" data-bs-placement="top"
+                                    {% if user_info('get_id') == history.user_receiving %}+{% else %}-{% endif %}{{history.point}}
+                                    {%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top"
                                                            data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1"
                                                            src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>
+                                {%endif%}
                                 <td>{{history.date}}</td>
                             </tr>
                         {% endif %}
