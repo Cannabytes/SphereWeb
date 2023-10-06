@@ -737,10 +737,12 @@
 
                         </div>
                         <hr>
+
                         <div class="form-group row">
                             <label for="bonusCharName" class="col-sm-4 col-form-label">{{phrase(77)}}</label>
                             <div class="col-sm-8">
                                 <select name="player_name" id="bonusCharName" class="form-control single-select">
+                                    {% if get_account_players() is null  %}
                                     {% for account_name, players in get_account_players() %}
                                     <optgroup label="{{phrase(480)}}: {{account_name}}">
                                         {% for player in players %}
@@ -748,6 +750,8 @@
                                         {% endfor %}
                                     </optgroup>
                                     {% endfor %}
+
+                                    {% endif %}
                                 </select>
                             </div>
                         </div>

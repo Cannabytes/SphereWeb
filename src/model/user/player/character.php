@@ -31,6 +31,7 @@ class character {
 
     //возвращает всех персонажей пользователя
     public static function get_account_players(): ?array {
+
         $get_server_info = server::get_server_info();
         if (!$get_server_info) {
             return null;
@@ -43,6 +44,9 @@ class character {
         foreach ($player_accounts as $account) {
             $login = $account['login'];
             $players = character::all_characters($login);
+            if (!$players) {
+                return null;
+            }
             if (sdb::is_error()){
                 return null;
             }
@@ -50,7 +54,7 @@ class character {
                 $accounts[$login][] = $player["player_name"];
             }
         }
-        return $accounts;
+        return $accounts ?? null;
     }
 
     public static function all_characters($login, $server_id = 0) {
@@ -60,7 +64,7 @@ class character {
         $cache = cache::read(dir::characters->show_dynamic($server_id, $login), second: 60);
         if ($cache)
             return $cache;
-        if (server::get_server_info($server_id)['rest_api_enable']) {
+        if (server::get_server_info($server_id)['rest_api_enable']?? false) {
             $data = restapi::Send(
                 $server_id,
                 "account_players",
@@ -72,6 +76,7 @@ class character {
             $players = json_decode($data, true);
         } else {
             $players = player_account::extracted("account_players", server::get_server_info($server_id), [$login]);
+
             if (sdb::is_error()){
                 return [];
             }
@@ -82,7 +87,7 @@ class character {
             }
         }
         if ($players != null) {
-            crest::conversion($players, rest_api_enable: server::get_server_info($server_id)['rest_api_enable']);
+            crest::conversion($players, rest_api_enable: server::get_server_info($server_id)['rest_api_enable'] ?? false);
         } else {
             $players = [];
         }

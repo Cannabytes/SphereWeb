@@ -114,7 +114,7 @@ class sdb {
 
 
     // В случаи ошибки возвращает null и записывает ошибку в $errorMessage
-    public static function run($query, $args = []) {
+    public static function run($query, $args = [], $notice = true) {
         self::$error = false;
         self::$errorMessage = null;
         if (!self::connect()) {
@@ -130,6 +130,9 @@ class sdb {
             $stmt->execute($args);
             return $stmt;
         } catch (PDOException $e) {
+            if(!$notice){
+                return false;
+            }
             if (self::isShowErrorPage()) {
                 tpl::addVar("title", "Ошибка");
                 error::show($e);
