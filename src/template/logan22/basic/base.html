@@ -799,13 +799,31 @@
 <script src="{{template}}/assets/js/plugins/cleditor/jquery.cleditor.js" type="text/javascript"></script>
 <script src="{{template}}/assets/js/pages/be_tables_datatables.min.js"></script>
 <script src="{{template}}/assets/js/pages/db_classic.min.js"></script>
-<script src="{{template}}/assets/sphere/js/captcha.js"></script>
+
+
 <script src="{{template}}/assets/sphere/js/notice.js"></script>
 <script src="{{template}}/assets/sphere/js/account/prefix.js"></script>
 <script src="{{template}}/assets/sphere/js/pay.js"></script>
 <script src="{{template}}/assets/sphere/js/general.js"></script>
 <script src="{{template}}/assets/sphere/js/ticket/ticket.js"></script>
 <script src="{{template}}/assets/js/plugins/ckeditor/ckeditor.js"></script>
+
+
+{% if user_info('get_is_auth') == false %}
+{% if get_captcha_version("google") %}
+<script>
+    $(document).ready(function () {
+        google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+        grecaptcha.execute(google_captcha_key).then(function (token) {
+            $(".captchaToken").val(token);
+        });
+    });
+</script>
+{% else %}
+    <script src="{{template}}/assets/sphere/js/captcha.js"></script>
+{% endif %}
+{% endif %}
+
 
 {% if user_info('get_is_auth') %}
 <script src="{{template}}/assets/sphere/js/forum.js"></script>
@@ -830,20 +848,7 @@
 <script src="{{template}}/assets/sphere/js/admin.js"></script>
 {% endif %}
 
-{% if user_info('get_is_auth') == false %}
-{% if get_captcha_version("Google") %}
-<script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
-<script>
-    function captchaToken() {
-        google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
-        grecaptcha.execute(google_captcha_key, {action: 'submit'}).then(function (token) {
-            $(".captchaToken").val(token);
-        });
-    }
-    captchaToken();
-</script>
-{% endif %}
-{% endif %}
+
 
 </body>
 </html>

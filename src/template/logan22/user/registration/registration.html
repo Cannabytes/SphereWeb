@@ -82,12 +82,6 @@
     </div>
 </div>
 
-{% if user_info('get_is_auth') == false %}
-{% if get_captcha_version("Google") %}
-<script>
-    captchaToken();
-</script>
-{% endif %}
-{% endif %}
+
 
 {% endblock %}

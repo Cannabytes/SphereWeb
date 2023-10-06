@@ -1,5 +1,3 @@
-get_captcha()
-
 $(document).on('click', '.ajaxload', function (event) {
     event.preventDefault();
     return false;
