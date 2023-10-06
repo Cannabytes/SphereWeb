@@ -311,15 +311,33 @@ class statistic {
         }
 
         $times = self::seconds2times($second);
-        if($onlyHour) {
-            return $times[2] . ' ' . $times_values[2] . ' ';
+
+        // Удаляем нули в начале массива времени
+        while(count($times) > 1 && $times[0] == 0) {
+            array_shift($times);
         }
+
+        // Удаляем секунды, если прошло более минуты
+        if(count($times) > 2 && !$onlyHour) {
+            array_shift($times);
+            array_shift($times_values);
+        }
+
+        // Удаляем минуты, если прошло более часа
+        if(count($times) > 2 && !$onlyHour) {
+            array_shift($times);
+            array_shift($times_values);
+        }
+
+        // Формируем строку
         $line = '';
         for($i = count($times) - 1; $i >= 0; $i--) {
             $line .= $times[$i] . ' ' . $times_values[$i] . ' ';
         }
-        return $line;
+
+        return trim($line);
     }
+
 
     private static function seconds2times($seconds): array {
         $times = [];
