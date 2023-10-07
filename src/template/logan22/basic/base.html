@@ -449,11 +449,11 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user d-sm-none"></i>
 
-                        <img class="img-avatar img-avatar20 user_self_avatar"
+                        <img class="img-avatar img-avatar48 user_self_avatar"
                              src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
 
-                        <span class="d-none d-sm-inline-block fw-semibold mx-2">{{ user_info('get_name') }}</span>
-                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span>
+                        <span class="d-none d-sm-inline-block fw-semibold">{{ user_info('get_name') }}
+                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></span>
                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
@@ -567,7 +567,7 @@
                                 </div>
 
                                 <div class="me-1 mb-1 w-100 text-center">
-                                    <button type="submit" class="btn btn-sm btn-info">{{phrase("receive")}}</button>
+                                    <button type="submit" class="btn btn-sm btn-info mt-2">{{phrase("receive")}}</button>
                                 </div>
                             </form>
 
