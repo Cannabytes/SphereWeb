@@ -22,42 +22,42 @@ use Ofey\Logan22\component\base\structure;
 
 class L2jLucera3 implements structure {
 
-    static public function hash(): string {
+    public static function hash(): string {
         return 'whirlpool';
     }
 
-    static public function chronicle(): array {
+    public static function chronicle(): array {
         return [
             746,
         ];
     }
 
-    static public function need_logout_player_for_item_add(): bool {
+    public static function need_logout_player_for_item_add(): bool {
         return false;
     }
 
     #[db("login")]
-    static public function account_is_exist(): string {
+    public static function account_is_exist(): string {
         return 'SELECT `login`, `password` FROM `accounts` WHERE login=?;';
     }
 
     #[db("login")]
-    static public function account_registration(): string {
+    public static function account_registration(): string {
         return 'INSERT INTO `accounts` (`login`, `password`, `accessLevel`, `l2email` ) VALUES (?, ?, 0, ?);';
     }
 
     #[db("login")]
-    static public function account_change_password(): string {
+    public static function account_change_password(): string {
         return 'UPDATE `accounts` SET `password` = ? WHERE `login` = ?;';
     }
 
     #[db("login")]
-    static public function accounts_email(): string {
+    public static function accounts_email(): string {
         return 'SELECT login, password FROM accounts WHERE l2email = ?';
     }
 
     #[db('game')]
-    static public function statistic_top_pvp(): string {
+    public static function statistic_top_pvp(): string {
         return 'SELECT
                         characters.obj_Id AS player_id, 
                         characters.char_name AS player_name, 
@@ -94,14 +94,14 @@ class L2jLucera3 implements structure {
                         ON 
                             characters.clanid = clan_subpledges.clan_id
                     WHERE
-                        character_subclasses.active = 1 AND
-	clan_subpledges.type = 0
+                        character_subclasses.active = 1
                     ORDER BY
-                        pvpkills DESC
+                        pvpkills DESC, 
+                        time_in_game DESC
                     LIMIT 100';
     }
 
-    static public function statistic_top_pk(): string {
+    public static function statistic_top_pk(): string {
         return 'SELECT
                         characters.obj_Id AS player_id, 
                         characters.char_name AS player_name, 
@@ -138,14 +138,14 @@ class L2jLucera3 implements structure {
                             ON 
                                 characters.clanid = clan_subpledges.clan_id
                     WHERE
-                        character_subclasses.active = 1 AND
-	clan_subpledges.type = 0
+                        character_subclasses.active = 1
                     ORDER BY
-                        pkkills DESC
+                        pkkills DESC, 
+                        time_in_game DESC
                     LIMIT 100';
     }
 
-    static public function statistic_top_clan(): string {
+    public static function statistic_top_clan(): string {
         return 'SELECT
                     clan_data.clan_id,
                     clan_data.clan_level,
@@ -173,12 +173,11 @@ class L2jLucera3 implements structure {
                     LIMIT 100';
     }
 
-    static public function statistic_clan_data(): string {
+    public static function statistic_clan_data(): string {
         return 'SELECT
                     clan_data.clan_id,
                     clan_data.clan_level,
                     clan_data.hasCastle AS castle_id,
-                    clan_data.hasFortress AS fortress_id,
                     clan_data.hasHideout AS hideout_id,
                     clan_data.crest AS clan_crest,
                     clan_data.reputation_score,
@@ -189,16 +188,16 @@ class L2jLucera3 implements structure {
                     ally_data.crest AS `alliance_crest` 
                 FROM
                     clan_data
-                    LEFT JOIN clanhall ON clan_data.clan_id = clanhall.ownerId
-                    INNER JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
-                    INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
-                    INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
+                    LEFT JOIN clanhall ON clan_data.hasHideout = clanhall.id
+                    LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
+                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
                 WHERE
                     clan_subpledges.name = ?  AND
 	clan_subpledges.type = 0';
     }
 
-    static public function statistic_clan_skills(): string {
+    public static function statistic_clan_skills(): string {
         return 'SELECT
                         clan_skills.skill_id, 
                         clan_skills.skill_level
@@ -208,7 +207,7 @@ class L2jLucera3 implements structure {
                         clan_skills.clan_id = ?';
     }
 
-    static public function statistic_clan_players(): string {
+    public static function statistic_clan_players(): string {
         return 'SELECT
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
@@ -222,11 +221,11 @@ class L2jLucera3 implements structure {
                         characters.clanid = ?';
     }
 
-    static public function statistic_top_player(): string {
+    public static function statistic_top_player(): string {
         return 'SELECT characters.*, clan_data.* FROM characters LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id ORDER BY onlinetime DESC LIMIT 100';
     }
 
-    static public function statistic_top_heroes(): string {
+    public static function statistic_top_heroes(): string {
         return 'SELECT
                     characters.char_name AS player_name,
                     characters.pvpkills AS pvp,
@@ -246,14 +245,13 @@ class L2jLucera3 implements structure {
                     LEFT JOIN character_subclasses ON heroes.char_id = character_subclasses.char_obj_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
                 WHERE
-                    character_subclasses.isBase = 1   AND
-	clan_subpledges.type = 0
+                    character_subclasses.isBase = 1
                 ORDER BY
                     characters.onlinetime DESC 
                     LIMIT 100';
     }
 
-    static public function statistic_top_castle(): string {
+    public static function statistic_top_castle(): string {
         return 'SELECT
                     castle.id AS castle_id,
                     castle.`name`,
@@ -276,11 +274,11 @@ class L2jLucera3 implements structure {
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
                     LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
-                 WHERE  clan_subpledges.type = 0   
+                    WHERE clan_subpledges.type = 0   
                  ';
     }
 
-    static public function statistic_top_block(): string {
+    public static function statistic_top_block(): string {
         return 'SELECT
                     characters.char_name AS player_name,
                     characters.pvpkills AS pvp,
@@ -296,11 +294,10 @@ class L2jLucera3 implements structure {
                     INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
                 WHERE
-                    characters.accesslevel < 0  AND
-	clan_subpledges.type = 0;';
+                    characters.accesslevel < 0';
     }
 
-    static public function statistic_top_onlinetime(): string {
+    public static function statistic_top_onlinetime(): string {
         return 'SELECT
 	characters.obj_Id AS player_id,
 	characters.char_name AS player_name,
@@ -325,14 +322,13 @@ FROM
 	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
-	character_subclasses.isBase = 1  AND
-	clan_subpledges.type = 0
+	character_subclasses.isBase = 1 
 ORDER BY
 	characters.onlinetime DESC 
 	LIMIT 100;';
     }
 
-    static public function statistic_player_info(): string {
+    public static function statistic_player_info(): string {
         return 'SELECT
 	characters.account_name,
 	characters.obj_Id AS player_id,
@@ -358,11 +354,10 @@ FROM
 	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
-  characters.char_name = ? AND character_subclasses.isBase = 1  AND
-	clan_subpledges.type = 0;';
+  characters.char_name = ? AND character_subclasses.isBase = 1';
     }
 
-    static public function statistic_player_info_sub_class(): string {
+    public static function statistic_player_info_sub_class(): string {
         return 'SELECT
                         character_subclasses.class_id, 
                         character_subclasses.`level`
@@ -372,7 +367,7 @@ WHERE
                         character_subclasses.char_obj_id = ? AND character_subclasses.isBase = 0';
     }
 
-    static public function statistic_player_inventory_info(): string {
+    public static function statistic_player_inventory_info(): string {
         return 'SELECT
                     items.item_type AS `item_id`,
                     items.amount as `count`,
@@ -385,7 +380,7 @@ WHERE
                     AND items.owner_id = ?';
     }
 
-    static public function statistic_top_counter(): string {
+    public static function statistic_top_counter(): string {
         return 'SELECT
                         SUM( characters.onlinetime ) AS `count_onlinetime`,
                         SUM( characters.pvpkills ) AS `count_pvpkills`,
@@ -399,7 +394,7 @@ WHERE
                         characters;';
     }
 
-    static public function statistic_top_class(): string {
+    public static function statistic_top_class(): string {
         return 'SELECT
                     characters.char_name AS player_name, 
                     characters.pvpkills AS pvp, 
@@ -431,7 +426,7 @@ WHERE
                     character_subclasses.class_id = ? AND
                     character_subclasses.isBase = 1 AND
                     characters.pvpkills > 0 AND
-	clan_subpledges.type = 0
+                	clan_subpledges.type = 0
                 ORDER BY
                     characters.pvpkills DESC, 
                     character_subclasses.`level` DESC, 
@@ -439,22 +434,22 @@ WHERE
                 LIMIT 100;';
     }
 
-    static public function is_player(): string {
+    public static function is_player(): string {
         return 'SELECT `account_name` AS `login`, obj_Id as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
     // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
-    static public function max_value_item_object(): string {
+    public static function max_value_item_object(): string {
         return 'SELECT MAX(object_id) + 1 AS `max_object_id` FROM `items`';
     }
 
     // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
-    static public function check_item_player(): string {
+    public static function check_item_player(): string {
         return 'SELECT count, object_id, owner_id, item_id FROM items WHERE item_id = ? AND owner_id = ? LIMIT 1';
     }
 
     // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
-    static public function update_item_count_player(): string {
+    public static function update_item_count_player(): string {
         return 'UPDATE `items` SET `count` = ? WHERE `object_id` = ?';
     }
 
@@ -463,15 +458,15 @@ WHERE
      *
      * @return string
      */
-    static public function add_item(): string {
+    public static function add_item(): string {
         return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'SphereWeb')";
     }
 
-    static public function count_online_player(): string {
+    public static function count_online_player(): string {
         return 'SELECT COUNT(1) AS `count_online_player` FROM characters WHERE characters.`online` = 1';
     }
 
-    static public function account_players(): string {
+    public static function account_players(): string {
         return 'SELECT
                     characters.account_name,
                     characters.obj_id AS player_id,

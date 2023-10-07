@@ -21,6 +21,6 @@ $cache_timeout = array (
 );
 
 // true / false - включить / отключить кэширование шаблонов
-$enable_cache_template = true;
-$debug_template = false;
+$enable_cache_template = false;
+$debug_template = true;
 $auto_reload = true;

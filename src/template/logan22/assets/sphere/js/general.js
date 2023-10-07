@@ -198,7 +198,12 @@ $(document).on("change", "#prefix_account", function () {
     }
 });
 
-
+function captchaToken() {
+    google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+    grecaptcha.execute(google_captcha_key).then(function (token) {
+        $(".captchaToken").val(token);
+    });
+}
 
 
 

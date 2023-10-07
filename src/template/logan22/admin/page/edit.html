@@ -1,13 +1,13 @@
 {% extends 'basic/base.html' %}
 
-{% block title %}{{phrase("add_news")}}{% endblock %}
+{% block title %}{{phrase("edit")}}{% endblock %}
 
 {% block content %}
 <div class="content">
 
 <div class="block block-rounded">
     <div class="block-header block-header-default">
-        <h3 class="block-title">{{phrase("add_news")}}</h3>
+        <h3 class="block-title">{{phrase("edit")}}</h3>
         <div class="block-options">
             <button type="button" class="btn-block-option">
                 <i class="si si-wrench"></i>
@@ -15,19 +15,19 @@
         </div>
     </div>
 <div class="block-content">
-    <form action="/admin/pages/create" method="POST" enctype="multipart/form-data">
-
+    <form action="/admin/pages/edit" method="POST"  enctype="multipart/form-data" >
+        <input name="id" type="hidden" value="{{ id }}">
         <div class="row">
             <div class="col-lg-8 col-xl-4 mb-4">
                 <label class="form-label" for="title">{{phrase(27)}}</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="">
+                <input type="text" class="form-control" id="title" name="title" placeholder="{{ phrase(15) }}" value="{{title}}">
             </div>
 
             <div class="col-lg-4 col-xl-2 mb-4">
                 <label class="form-label" for="lang">{{phrase("lang")}}</label>
                 <select class="form-select" id="lang" name="lang">
                     {% for lang in lang_list() %}
-                    <option value="{{lang['lang']}}">{{lang['name']}}</option>
+                    <option value="{{lang['lang']}}" {% if page_lang==lang['lang'] %} selected {% endif %}>{{lang['name']}}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -36,14 +36,14 @@
                 <br>
                 <div class="space-x-4">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="comment" name="comment" checked="">
+                        <input class="form-check-input" type="checkbox" value="" id="comment" name="comment" {% if comment %}checked="checked"{% endif %}>
                         <label class="form-check-label" for="comment">{{phrase(16)}}</label>
                     </div>
                 </div>
 
                 <div class="space-x-4">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="is_news" name="is_news" checked="">
+                        <input class="form-check-input" type="checkbox" value="" id="is_news" name="is_news" {% if is_news %}checked="checked"{% endif %}>
                         <label class="form-check-label" for="is_news">{{phrase(453)}}</label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
 
         <div class="row mb-4">
             <div class="col-lg-12">
-                <textarea name="content" id="js-ckeditor" class="form-control writepanel"></textarea>
+                <textarea name="content" id="js-ckeditor" class="form-control writepanel" >{{ description }}</textarea>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
 
         <div class="row mb-4">
             <div class="ms-auto">
-                <button type="submit" class="btn btn-primary">{{phrase("create")}}</button>
+                <button type="submit" class="btn btn-primary">{{ phrase("refresh") }}</button>
             </div>
         </div>
     </form>

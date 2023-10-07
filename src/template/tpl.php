@@ -307,8 +307,10 @@ class tpl {
         $twig->addFunction(new TwigFunction('sex', function ($v) {
             return $v == 0 ? 'male' : 'female';
         }));
-
         $twig->addFunction(new TwigFunction('MobileDetect', function () {
+            if (!isset($_SERVER["HTTP_USER_AGENT"])) {
+                return false;
+            }
             return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i"
                 , $_SERVER["HTTP_USER_AGENT"]);
         }));

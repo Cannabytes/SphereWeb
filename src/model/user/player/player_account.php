@@ -62,8 +62,7 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function extracted($collectionName, $info, $prepare = []) {
-
-        if ($info['rest_api_enable']) {
+        if ($info['rest_api_enable'] ?? false){
             $data = restapi::Send(
                 $info,
                 $collectionName,
@@ -74,7 +73,6 @@ class player_account {
             }
             return json_decode($data, true);
         }
-
         $sqlQuery = base::get_sql_source($info['collection_sql_base_name'], $collectionName);
         $gameServer = self::getMethodAttribute($info['collection_sql_base_name'], $collectionName);
         if (gettype($prepare) == "string") {
@@ -90,7 +88,7 @@ class player_account {
             sdb::set_type('game');
             sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
         }
-        return sdb::run($sqlQuery, $prepare);
+        return sdb::run($sqlQuery, $prepare, false);
     }
 
     /**

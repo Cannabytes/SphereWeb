@@ -69,9 +69,7 @@ class account {
                 $builder = new Builder();
                 $captcha = $_POST['captcha'] ?? false;
                 if (!$builder->compare(trim($captcha), $_SESSION['captcha'])) {
-                    board::alert(['ok' => false,
-                        "message" => lang::get_phrase(295),
-                    ]);
+                    board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
                 }
             }
             $email = request::setting("email", new request_config(isEmail: true));

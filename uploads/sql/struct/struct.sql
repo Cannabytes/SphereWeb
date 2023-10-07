@@ -285,42 +285,50 @@ CREATE TABLE `notification`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `page_comments`;
 CREATE TABLE `page_comments`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `page_id` int(11) NULL DEFAULT NULL,
-  `user_id` int(11) NULL DEFAULT NULL,
-  `message` varchar(3000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `trash` int(11) NOT NULL DEFAULT 0,
-  `date_create` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_update` timestamp NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+                                  `id`          int(11)                                                        NOT NULL AUTO_INCREMENT,
+                                  `page_id`     int(11)                                                        NULL     DEFAULT NULL,
+                                  `user_id`     int(11)                                                        NULL     DEFAULT NULL,
+                                  `message`     varchar(3000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL     DEFAULT NULL,
+                                  `trash`       int(11)                                                        NOT NULL DEFAULT 0,
+                                  `date_create` timestamp                                                      NOT NULL DEFAULT current_timestamp(),
+                                  `date_update` timestamp                                                      NULL     DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
+                                  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci
+  ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for pages
 -- ----------------------------
 DROP TABLE IF EXISTS `pages`;
-CREATE TABLE `pages`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `is_news` int(11) NULL DEFAULT 0,
-  `name` varchar(140) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `comment` int(11) NOT NULL DEFAULT 0,
-  `date_create` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_update` timestamp NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
-  `trash` int(11) NOT NULL DEFAULT 0,
-  `lang` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'ru',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `pages`
+(
+    `id`          int(11)   NOT NULL,
+    `is_news`     int(11)                                 DEFAULT '0',
+    `name`        varchar(140) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `description` mediumtext COLLATE utf8mb4_unicode_ci,
+    `comment`     int(11)   NOT NULL                      DEFAULT '0',
+    `date_create` timestamp NOT NULL                      DEFAULT CURRENT_TIMESTAMP,
+    `date_update` timestamp NULL                          DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `trash`       int(11)   NOT NULL                      DEFAULT '0',
+    `lang`        varchar(10) COLLATE utf8mb4_unicode_ci  DEFAULT 'ru',
+    `poster`      varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Table structure for player_accounts
 -- ----------------------------
 DROP TABLE IF EXISTS `player_accounts`;
-CREATE TABLE `player_accounts`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+CREATE TABLE `player_accounts`
+(
+    `id`          int(11)                                                       NOT NULL AUTO_INCREMENT,
+    `login`       varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    `password`    varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+    `email`       varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `server_id` int(11) NULL DEFAULT NULL,
   `password_hide` int(11) NULL DEFAULT NULL,
