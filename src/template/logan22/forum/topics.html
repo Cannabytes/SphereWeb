@@ -57,8 +57,7 @@
     <td {% if topic.pin == false %}colspan="2"{% endif %}>
         <a class="fw-semibold ajaxload" href="/forum/threads/{{section.id}}/{{ topic.id }}">{{ topic.name }}</a>
         <div class="fs-sm text-muted mt-1"> {{phrase("last_message_author")}}
-            <a href="#">{{topic.last_post_user_name}}</a> {{phrase("was_sent")}} {{ProhloVremya(topic.date_update)}}
-            {{phrase("back")}}.
+            <a href="#">{{topic.last_post_user_name}}</a>
         </div>
     </td>
     <td class="d-none d-md-table-cell text-center">

@@ -7,6 +7,6 @@
 const CAPTCHA = "google";
 
 // Для гугл капчи
-const GOOGLE_CLIENT_KEY = "6Lefjk0oAAAAAC9e71C84JiXNaOXfqaf3MkZb1c5";
-const GOOGLE_SERVER_KEY = "6Lefjk0oAAAAAIX3oVvU8jMfpbiXOVWxwYLzLQ0C";
+const GOOGLE_CLIENT_KEY = "";
+const GOOGLE_SERVER_KEY = "";
 

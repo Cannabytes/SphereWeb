@@ -5,6 +5,12 @@
 {% block content %}
 <div class="content">
 
+    <nav class="breadcrumb push bg-body-extra-light rounded-pill px-4 py-2">
+        <a class="breadcrumb-item ajaxload" href="/forum">{{phrase(62)}}</a>
+        <a class="breadcrumb-item ajaxload" href="/forum/threads/{{section.id}}">{{section.name}}</a>
+        <span class="breadcrumb-item active">{{topic.name}}</span>
+    </nav>
+
     <div class="block block-rounded">
         <div class="block-header block-header-default">
             <h3 class="block-title">{{topic.name}}</h3>

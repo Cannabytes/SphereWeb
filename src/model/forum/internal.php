@@ -142,11 +142,16 @@ WHERE
         $query = "SELECT `id`, `post_id`, `skill_id`, `type`, `comment`, `user_id`, `date_create` FROM `forum_buffs` WHERE `post_id` = ? ORDER BY `id` DESC";
         $rows = sql::getRows($query, [$post_id]);
         if ($isGroupSkills && !empty($rows)) {
+            $uniqueSkillIds = [];
             $uniqueBuffs = [];
             foreach ($rows as $row) {
-                $uniqueBuffs[$row['skill_id']] = $row;
+                $skillId = $row['skill_id'];
+                if (!in_array($skillId, $uniqueSkillIds)) {
+                    $uniqueSkillIds[] = $skillId;
+                    $uniqueBuffs[] = $row;
+                }
             }
-            return array_values($uniqueBuffs);
+            return $uniqueBuffs;
         }
         return $rows;
     }

@@ -40,7 +40,7 @@ class auth {
     public static function forget() {
         validation::user_protection("guest");
         tpl::addVar("title", lang::get_phrase(285));
-        tpl::display("user/auth/forget.html");
+        tpl::display("user/forget/email.html");
     }
 
     public static function send_email_forget() {

@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\component\mail;
 
+use Ofey\Logan22\component\alert\board;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -16,6 +17,11 @@ class mail {
         $mail = new PHPMailer(true);
         try {
             require_once 'src/config/email.php';
+            //проверка заполненных данных конфигруации из email.php
+            if (empty(EMAIL_HOST) or empty(EMAIL_USERNAME) or empty(EMAIL_PASSWORD) or empty(EMAIL_PORT) or empty(EMAIL_SMTP_AUTH) or empty(EMAIL_ENCRYPT)) {
+                board::error("Не заполнены данные для отправки почты. Проверьте файл src/config/email.php");
+            }
+
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host = EMAIL_HOST;                     //Set the SMTP server to send through
             $mail->SMTPAuth = EMAIL_SMTP_AUTH;                                   //Enable SMTP authentication
