@@ -17,10 +17,7 @@ class timezone {
      */
     static public function all(): array {
         $listIdentifiers = DateTimeZone::listIdentifiers();
-        $listIdentifiers = array_map(function($identifier) {
-            return str_replace("Europe/Kiev", "Europe/Kyiv", $identifier);
-        }, $listIdentifiers);
-        return $listIdentifiers;
+        return str_replace("Europe/Kiev", "Europe/Kyiv", $listIdentifiers);
     }
 
     /**
@@ -142,7 +139,7 @@ class timezone {
      * нужно всё таки применять старые названия таймзон для таких случаев
      */
     public static function checkUserTimeZoneOld($userTimezone) {
-        if($userTimezone == "Europe/Kyiv" or $userTimezone == 'Europe/Kiev') {
+        if($userTimezone == 'Europe/Kiev') {
             foreach(timezone_identifiers_list() as $row) {
                 if('Europe/Kiev' == $row) {
                     return $row;
@@ -151,4 +148,7 @@ class timezone {
         }
         return $userTimezone;
     }
+
+
+
 }

@@ -35,7 +35,7 @@ class info {
         tpl::addVar([
             'account'              => $account,
             'server_id'            => $server_id,
-            'characters'              => $characters,
+            'characters'           => $characters,
         ]);
         tpl::display("/account/players_list.html");
     }

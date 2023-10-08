@@ -96,6 +96,7 @@ class change {
             board::notice(false, "Вы не изменили ни одного поля");
         }
         $varSQL[] = auth::get_email();
+//        echo sql::debug_query("UPDATE `users` SET {$gen} WHERE `email` = ?", $varSQL);exit;
         if (sql::run("UPDATE `users` SET {$gen} WHERE `email` = ?", $varSQL)->rowCount() == 0) {
             board::notice(false, lang::get_phrase(182));
         }

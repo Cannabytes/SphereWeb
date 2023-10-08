@@ -31,7 +31,6 @@ class character {
 
     //возвращает всех персонажей пользователя
     public static function get_account_players(): ?array {
-
         $get_server_info = server::get_server_info();
         if (!$get_server_info) {
             return null;
@@ -41,11 +40,11 @@ class character {
             return null;
         }
         $accounts = [];
-        foreach ($player_accounts as $account) {
+        foreach ($player_accounts as &$account) {
             $login = $account['login'];
             $players = character::all_characters($login);
             if (!$players) {
-                return null;
+                continue;
             }
             if (sdb::is_error()){
                 return null;

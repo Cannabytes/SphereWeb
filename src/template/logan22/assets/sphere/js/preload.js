@@ -1,7 +1,10 @@
 function preload() {
-    var captchaInput = $('.captcha_img');
-    if (captchaInput.length > 0) {
-        get_captcha()
+
+    if ($("meta[name='get_captcha_version']").attr("content") !== "google") {
+        var captchaInput = $('.captcha_img');
+        if (captchaInput.length > 0) {
+            get_captcha()
+        }
     }
 
     var prefixlist = $('.prefixlist');

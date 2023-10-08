@@ -45,7 +45,7 @@
                         <div class="fs-sm text-muted mt-1"> {{phrase("last_message_topic")}}
                             <a class="ajaxload" href="/forum/threads/{{section.id}}/{{section.topic_id}}">{{section.topic_name}}</a>
                             {{phrase("from")}}
-                            <a href="#">{{section.user_name}}</a> {{ProhloVremya(section.date_update)}} {{phrase("back")}}.
+                            <a href="#">{{section.user_name}}</a> {{formatSeconds(section.date_update)}} {{phrase("back")}}.
                         </div>
                         {% endif %}
                     </td>

@@ -32,7 +32,7 @@ class pay {
         $donateInfo = require_once 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
-            $point = donate::getBonusDiscount();
+            $point = donate::getBonusDiscount(auth::get_id());
         }
         tpl::addVar("donate_history_pay_self", donate::donate_history_pay_self());
         tpl::addVar("title", lang::get_phrase(233));

@@ -493,7 +493,6 @@ WHERE
                     LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
                 WHERE
                     characters.account_name = ? 
-                    AND character_subclasses.isBase = 1 AND
-	clan_subpledges.type = 0';
+                    AND character_subclasses.isBase = 1';
     }
 }

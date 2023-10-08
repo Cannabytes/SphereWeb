@@ -103,7 +103,6 @@
 
                     <div class="form-group row">
                         <label for="char_name" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
-
                         <select id="char_name" class="form-control single-select">
                             {% for account_name, players in get_account_players() %}
                             <optgroup label="{{phrase(480)}}: {{account_name}}">

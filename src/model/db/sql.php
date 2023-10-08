@@ -66,6 +66,16 @@ class sql {
         return self::$db->lastInsertId();
     }
 
+    public static function debug_query($sql, $args = []){
+        if (!empty($args)) {
+            // Заменяем символ ? на значения аргументов
+            $sql = preg_replace_callback('/\?/', function($matches) use (&$args) {
+                return "'" . array_shift($args) . "'";
+            }, $sql);
+        }
+        return $sql;
+    }
+
     /**
      * @throws Exception
       */

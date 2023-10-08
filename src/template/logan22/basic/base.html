@@ -14,16 +14,15 @@
     <meta name="server_default" content="{{user_info('get_default_server')}}"/>
     <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
 
-    {% if user_info('get_is_auth') == false %}
     <meta name="get_captcha_version" content="{{ get_captcha_version() }}"/>
-    {% if get_captcha_version("Google") %}
+
+    {% if user_info('get_is_auth') == false %}
+      {% if get_captcha_version("Google") %}
     <meta name="google_captcha_key" content="{{ google_secret_key() }}"/>
     <script src="https://www.google.com/recaptcha/api.js?render={{google_secret_key()}}"></script>
-    {% endif %}
+      {% endif %}
     {% endif %}
 
-
-    <!-- Open Graph Meta -->
     <meta property="og:title" content="{{meta_description}}">
     <meta property="og:site_name" content="ShpereWeb">
     <meta property="og:description"
@@ -818,6 +817,9 @@
             $(".captchaToken").val(token);
         });
     });
+
+    //Напиши функцию
+
 </script>
 {% else %}
     <script src="{{template}}/assets/sphere/js/captcha.js"></script>

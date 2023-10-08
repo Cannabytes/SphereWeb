@@ -104,7 +104,7 @@ class donate {
         $donat_info_cost = $donat_info['cost'];
 
         $donateInfo = require_once 'src/config/donate.php';
-        $procentDiscount = donate::getBonusDiscount();
+        $procentDiscount = donate::getBonusDiscount(auth::get_id());
         //Стоимость товара * на количество
         $cost_product = $donat_info_cost * $user_value;
         $decrease_factor = 1 - ($procentDiscount / 100);
@@ -273,9 +273,9 @@ class donate {
 
 
     //Возвращает процент скидки
-    public static function getBonusDiscount() {
+    public static function getBonusDiscount($user_id) {
         $table = require 'src/config/donate.php';
-        $amount = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ? and sphere=0", [auth::get_id()])->fetch()['count'] ?? 0;
+        $amount = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ? and sphere=0", [$user_id])->fetch()['count'] ?? 0;
         $rangeKey = null;
         $discountValue = null;
         $lastValue = null;

@@ -286,6 +286,28 @@ class tpl {
             return statistic_model::timeHasPassed($num, $onlyHour);
         }));
 
+        $twig->addFunction(new TwigFunction('formatSeconds', function ($timeMysql) {
+            $secs = time() - strtotime($timeMysql);
+            $lang = lang::lang_user_default() == "ru" ? 0 : 1;
+            $times_values = [
+                ['сек.', 'sec.'],
+                ['мин.', 'min.'],
+                ['час.', 'h.'],
+                ['д.', 'd.'],
+                ['мес.', 'm.'],
+                ['лет', 'y.'],
+            ];
+            $divisors = [1, 60, 3600, 86400, 2592000, 31104000];
+            foreach ($divisors as $pow => $divisor) {
+                if ($secs < $divisor) {
+                    $time = $secs / $divisors[$pow - 1];
+                    return round($time) . ' ' . $times_values[$pow][$lang];
+                }
+            }
+            $time = $secs / 31104000;
+            return round($time) . ' ' . $times_values[5][$lang];
+        }));
+
         $twig->addFunction(new TwigFunction('get_class', function ($class_id) {
             return race_class::get_class($class_id);
         }));

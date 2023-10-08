@@ -153,9 +153,7 @@ class forum {
         $topic = internal::getTopic($topicIDs['lastIdTopic']);
         $posts = internal::getPosts($topic['id'], self::$perPage, 1);
 
-        //Увеличиваем показатели сообщений и топиков раздела
-//        var_dump($section_id, $topicIDs['postID'], $topicIDs['lastIdTopic']);exit();
-        internal::incrSectionTopicAndPost($section_id, $topicIDs['postID'], $topicIDs['lastIdTopic']);
+        internal::incrSectionTopicAndPost($section_id, $topicIDs['postID'], $topicIDs['lastIdTopic'], true);
 
         $lastMessageID = max(array_column($posts, 'id'));
         tpl::addVar("lastMessageID", $lastMessageID);

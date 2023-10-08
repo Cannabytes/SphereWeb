@@ -233,8 +233,10 @@ WHERE
     }
 
     // Увеличиваем счетчик постов в секции
-    public static function incrSectionTopicAndPost($section_id, $last_post_id, $topicID): false|PDOStatement|null {
-        return sql::run("UPDATE forum_section SET posts_count = posts_count+1, topics_count = topics_count+1, `last_post_id` = ?, `topic_id` = ?, `user_id` = ?, `user_name` = ? WHERE id = ?;", [
+    public static function incrSectionTopicAndPost($section_id, $last_post_id, $topicID, $incr_topic_count_posts = false): false|PDOStatement|null {
+        $add_topic_count = ($incr_topic_count_posts) ? 1 : 0;
+        return sql::run("UPDATE forum_section SET posts_count = posts_count+1, topics_count = topics_count+?, `last_post_id` = ?, `topic_id` = ?, `user_id` = ?, `user_name` = ? WHERE id = ?;", [
+            $add_topic_count,
             $last_post_id,
             $topicID,
             auth::get_id(),

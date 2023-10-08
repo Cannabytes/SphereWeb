@@ -225,7 +225,7 @@ class auth {
                     self::set_donate_point($auth['donate_point']);
                     self::set_avatar($auth['avatar']);
                     self::set_avatar_background($auth['avatar_background']);
-                    self::set_timezone($auth['timezone'] ?? "America/Los_Angeles");
+                    self::set_timezone($auth['timezone'] ?? DEFAULT_TIMEZONE);
                     //ban func
                     self::set_ban_page($auth['ban_page']);
                     self::set_ban_ticket($auth['ban_ticket']);
@@ -256,7 +256,7 @@ class auth {
         self::set_donate_point(0);
         self::set_avatar("none.jpeg");
         self::set_avatar_background("none.jpeg");
-        self::set_timezone("America/Los_Angeles");
+        self::set_timezone(DEFAULT_TIMEZONE);
 
         self::set_ban_page(true);
         self::set_ban_ticket(true);
@@ -452,7 +452,7 @@ class auth {
             time::mysql(),
         ]);
 
-        $bonus_procent = donate::getBonusDiscount();
+        $bonus_procent = donate::getBonusDiscount($user_id);
         $bonus = ($bonus_procent / 100) * $amount;
         if ($bonus == 0) return;
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
