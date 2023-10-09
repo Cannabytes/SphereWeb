@@ -526,7 +526,7 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('get_default_page', function ($str, $server_id) {
             $pId = server::get_default_desc_page_id($server_id);
-            return $pId ? "<a href='/page/{$pId}'>$str</a>" : $str;
+            return $pId;
         }));
 
         $twig->addFunction(new TwigFunction('http_referer', function () {

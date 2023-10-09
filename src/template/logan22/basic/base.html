@@ -342,6 +342,45 @@
                         </li>
 
                     </ul>
+
+
+
+
+                    {% for online in server_online_status() %}
+                    <div class="block block-rounded" >
+                        <div class="block-content block-content-full py-3 text-center">
+                            <div class="pt-1">
+                                {% set pageID = get_default_page(online['name'], online['id']) %}
+                                {% if pageID %}
+                                <a data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}" class="btn btn-sm btn-alt-success ajaxload" href="/page/{{pageID}}">
+                                    {{online['name']}} x{{online['rate_exp']}}
+                                </a>
+                                {% else %}
+                                    {{online['name']}} x{{online['rate_exp']}}
+                                {% endif %}
+                            </div>
+                            <div class="row pt-2 pb-1 ">
+                                <div class="col-6 border-end">
+                                    {% if online['connect_game'] %}
+                                    <div class="fs-3 fw-semibold text-success">ON</div>
+                                    {% else %}
+                                    <div class="fs-3 fw-semibold text-danger">OFF</div>
+                                    {% endif %}
+                                    <div class="fs-sm fw-semibold text-uppercase text-muted">Server</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fs-3 fw-semibold">{{online['player_count_online']}}</div>
+                                    <div class="fs-sm fw-semibold text-uppercase text-muted">Online</div>
+                                </div>
+
+                                <div class="fw-semibold text-start text-center">
+                                    {{online['chronicle']}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
                 </div>
                 <!-- END Side Navigation -->
             </div>

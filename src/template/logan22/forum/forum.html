@@ -42,10 +42,12 @@
                     <td>
                         <a class="fs-5 fw-semibold ajaxload" href="/forum/threads/{{section.id}}">{{section.name}}</a>
                         {% if section.topics_count > 0 %}
-                        <div class="fs-sm text-muted mt-1"> {{phrase("last_message_topic")}}
-                            <a class="ajaxload" href="/forum/threads/{{section.id}}/{{section.topic_id}}">{{section.topic_name}}</a>
+                        <div class="fs-sm text-muted mt-1"> <a class="ajaxload text-dual" href="/forum/threads/{{section.id}}/{{section.topic_id}}">{{phrase("last_message_topic")}}</a>
+                            -
+                            <a class="ajaxload" href="/forum/threads/{{section.id}}/{{section.topic_id}}/1">{{section.topic_name}}</a>
                             {{phrase("from")}}
-                            <a href="#">{{section.user_name}}</a> {{formatSeconds(section.date_update)}} {{phrase("back")}}.
+                            <a href="#">{{section.user_name}}</a>
+                            <!-- <a href="#">{{section.user_name}}</a> {{formatSeconds(section.date_update)}} {{phrase("back")}}. -->
                         </div>
                         {% endif %}
                     </td>
