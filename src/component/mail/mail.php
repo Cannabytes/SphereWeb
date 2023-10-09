@@ -7,47 +7,52 @@
 
 namespace Ofey\Logan22\component\mail;
 
+
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\lang\lang;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class mail {
 
-    static public function send(string $email, string $content, string $subject) {
+    public static function send(string $email, string $content, string $subject) {
+
         $mail = new PHPMailer(true);
         try {
             require_once 'src/config/email.php';
-            //проверка заполненных данных конфигруации из email.php
+
             if (empty(EMAIL_HOST) or empty(EMAIL_USERNAME) or empty(EMAIL_PASSWORD) or empty(EMAIL_PORT) or empty(EMAIL_SMTP_AUTH) or empty(EMAIL_ENCRYPT)) {
                 board::error("Не заполнены данные для отправки почты. Проверьте файл src/config/email.php");
             }
+            $mail->isSMTP();
 
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host = EMAIL_HOST;                     //Set the SMTP server to send through
-            $mail->SMTPAuth = EMAIL_SMTP_AUTH;                                   //Enable SMTP authentication
-            $mail->Username = EMAIL_USERNAME;                     //SMTP username
-            $mail->Password = EMAIL_PASSWORD;                               //SMTP password
-            $mail->SMTPSecure = EMAIL_ENCRYPT;            //Enable implicit TLS encryption
-            $mail->Port = EMAIL_PORT;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-            $mail->CharSet = 'UTF-8';
+            $mail->CharSet = "UTF-8";
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = function ($str, $level) {
+                $GLOBALS['status'][] = $str;
+            };
 
-            $mail->setFrom(EMAIL_USERNAME, $_SERVER["SERVER_NAME"]);
-            $mail->addAddress($email, 'Email');
+            $mail->SMTPAuth = EMAIL_SMTP_AUTH ?? true;
+            $mail->Host = EMAIL_HOST; // SMTP сервера вашей почты
+            $mail->Username = EMAIL_USERNAME;
+            $mail->Password = EMAIL_PASSWORD;
+            $mail->SMTPSecure = EMAIL_ENCRYPT;
+            $mail->Port = EMAIL_PORT;
 
-            //Content
+            $mail->setFrom(EMAIL_USERNAME, lang::get_phrase(67));
+            $mail->addAddress($email);
+
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->msgHTML($content, "src/template/logan22/email_request/");
+            $mail->Body = $content;
             $mail->AltBody = 'Enabled HTML';
-            $mail->send();
-            return [
-                'ok' => true,
-            ];
-        } catch(Exception $e) {
-            return [
-                'ok'      => false,
-                'message' => "{$mail->ErrorInfo}",
-            ];
+            if ($mail->send()) {
+                board::response("notice", ["message" => "Письмо отправлено на почту {$email}", "ok" => true]);
+            } else {
+                board::error("Не удалось отправить письмо на почту {$email}. {$mail->ErrorInfo}");
+            }
+        } catch (Exception $e) {
+            board::error("Не удалось отправить письмо на почту {$email}. {$mail->ErrorInfo}");
         }
     }
 }

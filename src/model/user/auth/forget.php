@@ -39,7 +39,6 @@ class forget {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             board::notice(false, lang::get_phrase(281));
         }
-
         if (config::get_captcha_version("google")) {
             $g_captcha = google::check($_POST['captcha'] ?? null);
             if (isset($g_captcha['success']) and !$g_captcha['success']) {
@@ -54,7 +53,22 @@ class forget {
                 board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
             }
         }
+        //Делаем проверку на существования уже активного запроса
+        $data = sql::run("SELECT `id`, `active`, `date` FROM `users_password_forget` WHERE email=? AND active=? ORDER BY id DESC", [
+            $email,
+            true,
+        ])->fetch();
+        if($data) {
+            $nowTime = new DateTime();
+            $requestTime = new DateTime($data['date']);
+            $second_b = $nowTime->getTimestamp() - $requestTime->getTimestamp();
 
+            if($second_b < 60 * 10) {
+                board::notice(false, "Запрос уже был отправлен. Повторный запрос можно сделать через " . (10 - floor($second_b / 60)) . " минут");
+            }
+        }
+
+        exit();
         $userValid = self::userValid($email);
         if(!$userValid) {
             board::notice(false, lang::get_phrase(282));
@@ -85,14 +99,26 @@ class forget {
             $code,
             $link,
         ], $content);
-        $isMail = mail::send($email, $content, lang::get_phrase(169));
-        if($isMail['ok']) {
-            board::notice(true, lang::get_phrase(168));
-        }
-        board::notice(false, $isMail['message']);
+        mail::send($email, $content, lang::get_phrase(169));
     }
 
     public static function verification() {
+
+        if (config::get_captcha_version("google")) {
+            $g_captcha = google::check($_POST['captcha'] ?? null);
+            if (isset($g_captcha['success']) and !$g_captcha['success']) {
+                board::notice(false, $g_captcha['error-codes'][0]);
+            }
+        } elseif (config::get_captcha_version("default")) {
+            $builder = new Builder();
+            $captcha = $_POST['captcha'] ?? false;
+            $userSessionCaptcha = $_SESSION['captcha'];
+            captcha::generation();
+            if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
+                board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
+            }
+        }
+
         $email = $_POST['email'];
         $code = $_POST['code'];
         $ok = sql::run("SELECT `id`, `active`, `date` FROM `users_password_forget` WHERE code=? AND email=?", [
@@ -149,8 +175,30 @@ class forget {
      * @throws \Exception
      */
     public static function reset_password(): void {
-        $email = $_POST['email'];
+
+        if (config::get_captcha_version("google")) {
+            $g_captcha = google::check($_POST['captcha'] ?? null);
+            if (isset($g_captcha['success']) and !$g_captcha['success']) {
+                board::notice(false, $g_captcha['error-codes'][0]);
+            }
+        } elseif (config::get_captcha_version("default")) {
+            $builder = new Builder();
+            $captcha = $_POST['captcha'] ?? false;
+            $userSessionCaptcha = $_SESSION['captcha'];
+            captcha::generation();
+            if (!$builder->compare(trim($captcha), $userSessionCaptcha)) {
+                board::response("notice", ["message" => lang::get_phrase(295), "ok"=>false, "reloadCaptcha" => true]);
+            }
+        }
+
+
         $code = $_POST['code'];
+        $data = forget::dataForgetInfo($code);
+        if(!$data){
+            board::notice(false, "Код не найден");
+        }
+        $email = $data['email'];
+
         $userValid = self::userValid($email);
         if(!$userValid) {
             board::notice(false, lang::get_phrase(282));

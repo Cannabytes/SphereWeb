@@ -57,7 +57,7 @@ class auth {
             'code' => $code,
             'email' => $data['email'],
         ]);
-        tpl::display("user/auth/forget_link.html");
+        tpl::display("user/forget/forget_link.html");
      }
 
     /**

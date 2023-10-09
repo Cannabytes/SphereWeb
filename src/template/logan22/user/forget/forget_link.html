@@ -15,11 +15,15 @@
         <!-- Sign In Form -->
         <div class="row justify-content-center px-1">
             <div class="col-sm-8 col-md-6 col-xl-4">
-                <form class="js-validation-signin" action="/auth/forget/send/code" method="POST"
+                <form class="js-validation-signin" action="/auth/forget/send/password" method="POST"
                       data-function="captchaToken">
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="">
+                        <input type="email" class="form-control" id="email" disabled name="email" placeholder="" value="{{email}}">
                         <label class="form-label" for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="code" name="code" placeholder="" value="{{code}}">
+                        <label class="form-label" for="code">Код сброса</label>
                     </div>
 
                     {% if get_captcha_version("Google") %}
@@ -46,7 +50,7 @@
                     <div class="row g-sm mb-4">
                         <div class="col-12 mb-2">
                             <button type="submit" class="btn btn-lg btn-alt-primary w-100 py-3 fw-semibold">
-                                {{phrase(169)}}
+                                {{phrase(278)}}
                             </button>
                         </div>
                         <div class="col-sm-6 mb-1">
