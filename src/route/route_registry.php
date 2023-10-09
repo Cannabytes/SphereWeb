@@ -86,65 +86,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
     $route->post("/auth/forget/send/password", 'Ofey\Logan22\controller\user\auth\auth::send_password');
 
-    $route->get("mail", function (){
-        require 'src/component/mail/phpMailer/Exception.php';
-        require 'src/component/mail/phpMailer/PHPMailer.php';
-        require 'src/component/mail/phpMailer/SMTP.php';
-
-
-// Переменные, которые отправляет пользователь
-        $name = "LOLKEK";
-        $email = "logan22f@gmail.com";
-        $text = "test";
-
-// Формирование самого письма
-        $title = "Заголовок письма";
-        $body = "
-<h2>Новое письмо</h2>
-<b>Имя:</b> $name<br>
-<b>Почта:</b> $email<br><br>
-<b>Сообщение:</b><br>$text
-";
-
-// Настройки PHPMailer
-        $mail = new PHPMailer();
-        try {
-            $mail->isSMTP();
-            $mail->CharSet = "UTF-8";
-            $mail->SMTPAuth   = true;
-            $mail->SMTPDebug = 0;
-            $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
-
-            // Настройки вашей почты
-            $mail->Host       = 'connect.smtp.bz'; // SMTP сервера вашей почты
-            $mail->Username   = 'test@l2damage.net'; // Логин на почте
-            $mail->Password   = 'sVfdvbfdVf5gbfbf'; // Пароль на почте
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port       = 465;
-            $mail->setFrom('test@l2damage.net', 'Имя отправителя'); // Адрес самой почты и имя отправителя
-
-            // Получатель письма
-            $mail->addAddress($email); // Ещё один, если нужен
-
-
-// Отправка сообщения
-            $mail->isHTML(true);
-            $mail->Subject = $title;
-            $mail->Body = $body;
-
-// Проверяем отравленность сообщения
-            if ($mail->send()) {$result = "success";}
-            else {$result = "error";}
-
-        } catch (Exception $e) {
-            $result = "error";
-            $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
-        }
-
-// Отображение результата
-        echo json_encode(["result" => $result, "status" => $status]);
-    });
-
     /**
      * Реферальная система
      */
