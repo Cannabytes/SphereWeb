@@ -145,9 +145,8 @@ class player_account {
         $allForbiddenInfo = sql::getRows("SELECT * FROM player_forbidden WHERE account = ? AND server_id=?;", [
             $account, $server_id,
         ]);
-
         foreach ($arrayAcPlayers as &$player) {
-            $player['forbidden'] = 1;
+            $player['forbidden'] = false;
             foreach ($allForbiddenInfo as $info) {
                 if ($player['player_name'] == $info['player']) {
                     $player['forbidden'] = $info['forbidden'];

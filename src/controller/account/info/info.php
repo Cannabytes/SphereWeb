@@ -32,6 +32,7 @@ class info {
         }
         $characters = character::all_characters($account, $server_id);
         $characters = player_account::get_forbidden_players($characters, $server_id);
+
         tpl::addVar([
             'account'              => $account,
             'server_id'            => $server_id,

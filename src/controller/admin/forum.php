@@ -32,6 +32,7 @@ class forum {
     }
 
     private static function forumAdminMainLoader(): void {
+        validation::user_protection("admin");
         tpl::addVar("getCategoryInfo", internal::getCategoryInfo());
         tpl::addVar("getSectionInfo", internal::getSectionInfo());
         $async = new async("admin/forum/forum.html");
