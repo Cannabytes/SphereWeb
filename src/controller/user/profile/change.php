@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\user\profile;
 
+use DateTime;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
@@ -115,19 +116,33 @@ class change {
     public static function transfer_money(){
         validation::user_protection();
         if(!is_numeric($_POST['count']) || empty($_POST['count']) || str_contains($_POST['count'], '.')){
-            board::notice(false, "Некорректное значение суммы");
+            board::error("Некорректное значение суммы");
         }
         $moneyCount = $_POST['count'] ?? 0;
         $user = trim($_POST['user']);
-        if($moneyCount > auth::get_donate_point()){
-            board::notice(false, "У Вас недостаточно денег");
+        if ($moneyCount > auth::get_donate_point()) {
+            board::error("У Вас недостаточно денег");
         }
         $userInfo = auth::exist_user_nickname($user);
-        if(!$userInfo){
-            board::notice(false, "Пользователь не найден");
+        if (!$userInfo) {
+            board::error("Пользователь не найден");
+        }
+        if ($userInfo['id'] == auth::get_id()) {
+            board::error("Нельзя перевести деньги самому себе");
+        }
+        $ltt = auth::get_user_variables("last_transfer_transaction");
+        if ($ltt) {
+            $nowTime = new DateTime();
+            $requestTime = new DateTime($ltt['date_create']);
+            $second_b = $nowTime->getTimestamp() - $requestTime->getTimestamp();
+            //Сделай провреку на 15 секунд
+            if ($second_b < 15) {
+                board::error("Вы слишком часто переводите деньги");
+            }
         }
         \Ofey\Logan22\model\user\profile\change::transfer_money($moneyCount, $userInfo['id']);
         sql::sql("INSERT INTO `log_transfer_spherecoin` (`user_sender`, `user_receiving`, `count`) VALUES (?, ?, ?)", [auth::get_id(), $userInfo['id'], $moneyCount]);
-        board::notice(true, "Перевод успешно выполнен");
+        \Ofey\Logan22\model\user\auth\user::set_variable("last_transfer_transaction", null);
+        board::success("Перевод успешно выполнен");
     }
 }
