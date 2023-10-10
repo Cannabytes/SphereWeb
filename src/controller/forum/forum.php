@@ -82,6 +82,13 @@ class forum {
         $skill_id = $_POST['skill_id'] ?? board::notice(false, lang::get_phrase(498));
         $comment = $_POST['comment'] ?? "";
 
+        if (auth::get_access_level() != "admin" && auth::get_access_level() != "moderator") {
+            if( (time() - ((int)auth::get_user_variables("last_time_like")['val'] ?? 0) )  < 10){
+                board::error("Вы слишком часто ставите лайк");
+            }
+            \Ofey\Logan22\model\user\auth\user::set_variable("last_time_like", time());
+        }
+
         $post_info = internal::getPost($post_id);
         if ($post_info['user_id'] == auth::get_id()) {
             board::notice(false, lang::get_phrase(499));
@@ -131,6 +138,13 @@ class forum {
         $section_id = $_POST['sectionID'] ?? board::notice(false, lang::get_phrase(501));
         $topicName = $_POST['topicName'] ?? "";
         $message = $_POST['message'] ?? "";
+
+        if (auth::get_access_level() != "admin" && auth::get_access_level() != "moderator") {
+            if( (time() - ((int)auth::get_user_variables("last_time_forum_topic_add")['val'] ?? 0) )  < 60){
+                board::error("Вы слишком часто создаете темы");
+            }
+            \Ofey\Logan22\model\user\auth\user::set_variable("last_time_forum_topic_add", time());
+        }
 
         $msgTrims = trim(htmlspecialchars_decode(strip_tags($message)), " &nbsp;\t\n\r\0\x0B\xC2\xA0");
         if (empty($msgTrims)) {
@@ -229,6 +243,12 @@ class forum {
         $topicID = $_POST['topicID'] ?? 0;
         $lastMessageID = $_POST['lastMessageID'] ?? 0;
         $message = $_POST['message'] ?? "";
+        if (auth::get_access_level() != "admin" && auth::get_access_level() != "moderator") {
+            if( (time() - ((int)auth::get_user_variables("last_time_forum_post_add")['val'] ?? 0) )  < 20){
+                board::error("Вы слишком часто отправляете сообщения");
+            }
+            \Ofey\Logan22\model\user\auth\user::set_variable("last_time_forum_post_add", time());
+        }
 
         $images = internal::base64ImgToSrcImg($message);
         //Если $images массив пуст

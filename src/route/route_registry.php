@@ -2,7 +2,6 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
-use PHPMailer\PHPMailer\PHPMailer;
 
 session::init();
 lang::load_package();
