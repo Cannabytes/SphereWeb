@@ -35,6 +35,7 @@ class server {
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
         $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : "";
         $db_login_password = $_POST['db_login_password'];
+        $db_login_port = $_POST['db_login_port'] ?? 3306;
 
         if (isset($_POST['db_login_name'])) {
             $db_login_name = trim($_POST['db_login_name']);
@@ -46,6 +47,7 @@ class server {
         $db_game_host = !empty($_POST['db_game_host']) ? trim($_POST['db_game_host']) : "";
         $db_game_user = !empty($_POST['db_game_user']) ? trim($_POST['db_game_user']) : "";
         $db_game_password = $_POST['db_game_password'];
+        $db_game_port = $_POST['db_game_port'] ?? 3306;
 
         if (isset($_POST['db_game_name'])) {
             $db_game_name = trim($_POST['db_game_name']);
@@ -71,14 +73,14 @@ class server {
         $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
 
         //Проверяем соединение с БД перед тем как добавить
-        if(!install::test_connect_mysql($db_login_host, $db_login_user, $db_login_password, $db_login_name)) {
+        if(!install::test_connect_mysql($db_login_host, $db_login_port, $db_login_user, $db_login_password, $db_login_name)) {
             board::notice(false, lang::get_phrase(223));
         }
-        if(!install::test_connect_mysql($db_game_host, $db_game_user, $db_game_password, $db_game_name)) {
+        if(!install::test_connect_mysql($db_game_host, $db_game_port, $db_game_user, $db_game_password, $db_game_name)) {
             board::notice(false, lang::get_phrase(223));
         }
 
-        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_user`, `login_password`, `login_name`, `game_host`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled` , `launcher_enabled`, `rest_api_enable`, `rest_api_hostname`, `rest_api_port`, `rest_api_key` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_port`, `login_user`, `login_password`, `login_name`, `game_host`, `game_port`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled` , `launcher_enabled`, `rest_api_enable`, `rest_api_hostname`, `rest_api_port`, `rest_api_key` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $ok = sql::run($sql, [
             $name_server,
             $rate_exp,
@@ -89,10 +91,12 @@ class server {
             "{$date_start} {$time_start}:00",
             $version_client,
             $db_login_host,
+            $db_login_port,
             $db_login_user,
             $db_login_password,
             $db_login_name,
             $db_game_host,
+            $db_game_port,
             $db_game_user,
             $db_game_password,
             $db_game_name,
@@ -113,9 +117,7 @@ class server {
             $rest_api_key,
 
         ], false);
-        if (!$ok) {
-            board::notice(false, 'Ошибка');
-        }
+
         board::notice(true, 'Добавлено');
     }
 
@@ -139,11 +141,13 @@ class server {
 
         //Данные БД для логина
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
+        $db_login_port = $_POST['db_login_port'] ?? 3306;
         $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : "";
         $db_login_password = $_POST['db_login_password'];
         $db_login_name = !empty($_POST['db_login_name']) ? trim($_POST['db_login_name']) : "";
         //Данные БД для гейма
         $db_game_host = !empty($_POST['db_game_host']) ? trim($_POST['db_game_host']) : "";
+        $db_game_port = $_POST['db_game_port'] ?? 3306;
         $db_game_user = !empty($_POST['db_game_user']) ? trim($_POST['db_game_user']) : "";
         $db_game_password = $_POST['db_game_password'];
         $db_game_name = !empty($_POST['db_game_name']) ? trim($_POST['db_game_name']) : "";
@@ -174,10 +178,12 @@ class server {
                         `date_start_server` = ?,
                         `chronicle` = ?,
                         `login_host` = ?,
+                        `login_port` = ?,
                         `login_user` = ?,
                         `login_password` = ?,
                         `login_name` = ?,
                         `game_host` = ?,
+                        `game_port` = ?,
                         `game_user` = ?,
                         `game_password` = ?,
                         `game_name` = ?,
@@ -205,10 +211,12 @@ class server {
             "{$date_start} {$time_start}:00",
             $version_client,
             $db_login_host,
+            $db_login_port,
             $db_login_user,
             $db_login_password,
             $db_login_name,
             $db_game_host,
+            $db_game_port,
             $db_game_user,
             $db_game_password,
             $db_game_name,

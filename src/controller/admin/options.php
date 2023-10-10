@@ -54,7 +54,7 @@ class options {
 
     public static function test_connect_db() {
         validation::user_protection("admin");
-        if(install::test_connect_mysql($_POST['host'] ?? "127.0.0.1", $_POST['user'] ?? "root", $_POST['password']  ?? "", $_POST['name'] ?? "")) {
+        if(install::test_connect_mysql($_POST['host'] ?? "127.0.0.1", $_POST['port'] ?? 3306, $_POST['user'] ?? "root", $_POST['password']  ?? "", $_POST['name'] ?? "")) {
             board::notice(true, lang::get_phrase(222));
         } else {
             board::notice(false, lang::get_phrase(223));
@@ -64,7 +64,15 @@ class options {
     public static function test_connect_db_selected_name() {
         validation::user_protection("admin");
         try {
-            $pdo = new PDO("mysql:host={$_POST['host']}", $_POST['login'], $_POST['password']);
+            $host = $_POST['host'];
+            $port = $_POST['port'] ?? 3306;
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+
+            // Создаем DSN с учетом порта
+            $dsn = "mysql:host={$host};port={$port}";
+
+            $pdo = new PDO($dsn, $login, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SHOW DATABASES";
             $stmt = $pdo->query($sql);
@@ -77,9 +85,10 @@ class options {
             echo json_encode($databases);
             $pdo = null;
         } catch (PDOException $e) {
-            board::error( $e->getMessage());
+            board::error($e->getMessage());
         }
     }
+
 
     public static function server_list() {
         validation::user_protection("admin");

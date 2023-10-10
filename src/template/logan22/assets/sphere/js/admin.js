@@ -52,7 +52,7 @@ $(document).on('click', '#getDBNameLogin', function (event) {
         type: "POST",
         data: {
             "host": $("#db_login_host").val(),
-            "port": $("#mysql_login_port").val(),
+            "port": $("#db_game_port").val(),
             "login": $("#db_login_user").val(),
             "password": $("#db_login_password").val(),
         },
@@ -112,6 +112,7 @@ $(document).on('click', '#check_connect_mysql_login', function (e) {
         dataType: "json",
         data: {
             host: $("input[name=db_login_host]").val(),
+            port: $("input[name=db_login_port]").val(),
             user: $("input[name=db_login_user]").val(),
             password: $("input[name=db_login_password]").val(),
             name: $("input[name=db_login_name]").val(),
@@ -131,7 +132,6 @@ $(document).on('click', '#check_connect_mysql_login', function (e) {
 
 
 $(document).on('click', '#check_connect_mysql_game', function (e) {
-
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -139,6 +139,7 @@ $(document).on('click', '#check_connect_mysql_game', function (e) {
         dataType: "json",
         data: {
             host: $("input[name=db_game_host]").val(),
+            port: $("input[name=db_game_port]").val(),
             user: $("input[name=db_game_user]").val(),
             password: $("input[name=db_game_password]").val(),
             name: $("input[name=db_game_name]").val(),

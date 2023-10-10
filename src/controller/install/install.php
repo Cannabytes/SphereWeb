@@ -155,14 +155,15 @@ class install {
             }
         }
         $host = $_POST['host'];
+        $port = $_POST['port'] ?? 3306;
         $user = $_POST['user'];
         $password = $_POST['password'];
         $name = $_POST['name'];
-        $pdo = \Ofey\Logan22\model\install\install::test_connect_mysql($host, $user, $password, $name);
+        $pdo = \Ofey\Logan22\model\install\install::test_connect_mysql($host, $port, $user, $password, $name);
         if ($pdo) {
             self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/uploads/sql/struct/*.sql");
             self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/uploads/sql/data/*.sql");
-            \Ofey\Logan22\model\install\install::saveConfig($host, $user, $password, $name);
+            \Ofey\Logan22\model\install\install::saveConfig($host, $port, $user, $password, $name);
             board::notice(true, 'Next install');
         } else {
             board::notice(false, 'Database connection error');
