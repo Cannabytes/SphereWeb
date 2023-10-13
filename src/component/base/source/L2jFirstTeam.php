@@ -504,8 +504,7 @@ WHERE
                     character_subclasses.`level`, 
                     character_subclasses.isBase, 
                     clan_data.crest AS clan_crest, 
-                    ally_data.crest AS alliance_crest, 
-                    clan_subpledges.`name` as clan_name
+                    ally_data.crest AS alliance_crest
                 FROM
                     characters
                     LEFT JOIN
@@ -520,10 +519,6 @@ WHERE
                     character_subclasses
                     ON 
                         characters.obj_Id = character_subclasses.char_obj_id
-                    LEFT JOIN
-                    clan_subpledges
-                    ON 
-                        clan_data.clan_id = clan_subpledges.clan_id
                 WHERE
                     characters.account_name = ? AND
                     character_subclasses.isBase = 1';

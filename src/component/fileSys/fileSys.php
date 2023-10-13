@@ -142,7 +142,7 @@ class fileSys {
     /**
      * Список файлов в папке
      */
-    static public function file_list($dir) {
+    public static function file_list($dir): false|array {
         if($dir == null)
             return false;
         return array_values(array_diff(scandir($dir), ['.', '..']));

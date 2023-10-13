@@ -17819,7 +17819,12 @@ a.block.block-themed .btn-block-option:focus,
 .img-avatar.img-avatar-square {
   border-radius: 0;
 }
-
+.img-avatar-thumb-online {
+  box-shadow: 0 0 0 0.20rem rgb(22, 121, 8);
+}
+.img-avatar-thumb-offline {
+  box-shadow: 0 0 0 0.20rem rgb(57, 55, 55);
+}
 .img-thumb {
   padding: 0.375rem;
   background-color: #fff;

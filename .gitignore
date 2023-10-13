@@ -5,6 +5,8 @@ uploads/logs
 uploads/screenshots
 uploads/cache
 uploads/user
+uploads/avatar/user_*
+uploads/avatar/thumb_*
 uploads/tickets
 src/config/db.php
 src/config/captcha.php

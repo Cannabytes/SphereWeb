@@ -45,8 +45,8 @@
                         <td>{{ player.level }}</td>
                         <td>
                               <span class="user-profile">
-                                  <img src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}"
-                                       class="img-avatar img-avatar48">
+                                 <img class="img-avatar img-avatar48 {% if player['online'] %}img-avatar-thumb-online{% else %}img-avatar-thumb-offline{% endif %}"
+                                      src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}">
                               </span>
                             <a class="ajaxload" href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
                         <td>{{ timeHasPassed(player['time_in_game']) }}</td>

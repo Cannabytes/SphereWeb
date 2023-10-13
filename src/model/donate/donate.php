@@ -214,9 +214,8 @@ class donate {
         ]);
     }
 
-    //Добавить предмет персонажу, по его максимальному ID
-
-    static public function taking_money($dp, $user_id) {
+    //Уменьшение коинов
+    public static function taking_money($dp, $user_id) {
         sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
             $dp,
             $user_id,

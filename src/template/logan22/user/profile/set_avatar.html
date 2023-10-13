@@ -1,0 +1,30 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">{{phrase(526)}}</h3>
+    </div>
+    <div class="block-content">
+        <p>{{phrase(524, PRICE_CHANGE_AVATAR, phrase("Sphere-Coin"))}}</p>
+        <form action="/user/change/avatar/self" method="POST" enctype="multipart/form-data">
+            <div class="row push">
+                <div class="col-lg-12 col-xl-5 overflow-hidden">
+                    <div class="mb-4">
+                        <label class="form-label" for="file">{{phrase(525)}}</label>
+                        <input class="form-control" type="file" name="file" id="file">
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="btn btn-primary">{{phrase(89)}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

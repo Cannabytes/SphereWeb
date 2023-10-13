@@ -199,11 +199,11 @@ class forum {
     static public function user_avatar($user_id): string {
         $image = match (self::get_engine()) {
             'xenforo' => sprintf("%s/data/avatars/m/0/%d.jpg", self::get_url(), $user_id),
-            'ipb' => 'src/template/logan22/assets/images/navatar/none.jpeg',
+            'ipb' => 'uploads/avatar/none.jpeg',
             default => 'No Link',
         };
 		if (!file_exists($image)) {
-			return 'src/template/logan22/assets/images/navatar/none.jpeg';
+			return 'uploads/avatar/none.jpeg';
 		}
 		return $image;
      }

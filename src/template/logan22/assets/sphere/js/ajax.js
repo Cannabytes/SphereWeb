@@ -108,6 +108,8 @@ function responseAnalysis(response, form) {
         ResponseNotice(response)
     } else if (response.type === "notice_registration") {
         ResponseNoticeRegistration(response)
+    } else if (response.type === "notice_set_avatar") {
+        ResponseNoticeSetAvatar(response)
     } else if (response.type === "ticket_comment_add") {
         ResponseTicketCommentAdd(response, form)
     } else if (response.type === "bonus") {
@@ -229,3 +231,4 @@ function AjaxSend(url, method, data) {
 function updateInventory(){
     AjaxSend("/bonus/inventory/update", "POST", {})
 }
+

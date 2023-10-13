@@ -291,53 +291,28 @@ class statistic {
         }
     }
 
-    public static function timeHasPassed($second, $onlyHour = false): string {
-        if(lang::lang_user_default() == "ru") {
-            $times_values = [
-                'сек.',
-                'мин.',
-                'час.',
-                'д.',
-                'лет',
-            ];
-        } else {
-            $times_values = [
-                'sec.',
-                'min.',
-                'h.',
-                'd.',
-                'y.',
-            ];
+    public static function timeHasPassed($seconds, $onlyHour = false): string {
+        $days = floor($seconds / 86400);
+        $seconds %= 86400;
+        $hours = floor($seconds / 3600);
+        $seconds %= 3600;
+        $minutes = floor($seconds / 60);
+        $seconds %= 60;
+
+        $result = '';
+        if ($days > 0) {
+            $result .= $days . ' дней, ';
         }
-
-        $times = self::seconds2times($second);
-
-        // Удаляем нули в начале массива времени
-        while(count($times) > 1 && $times[0] == 0) {
-            array_shift($times);
+        if ($hours > 0) {
+            $result .= $hours . ' часов, ';
         }
-
-        // Удаляем секунды, если прошло более минуты
-        if(count($times) > 2 && !$onlyHour) {
-            array_shift($times);
-            array_shift($times_values);
+        if ($minutes > 0) {
+            $result .= $minutes . ' минут, ';
         }
+        $result .= $seconds . ' секунд';
 
-        // Удаляем минуты, если прошло более часа
-        if(count($times) > 2 && !$onlyHour) {
-            array_shift($times);
-            array_shift($times_values);
-        }
-
-        // Формируем строку
-        $line = '';
-        for($i = count($times) - 1; $i >= 0; $i--) {
-            $line .= $times[$i] . ' ' . $times_values[$i] . ' ';
-        }
-
-        return trim($line);
+        return $result;
     }
-
 
     private static function seconds2times($seconds): array {
         $times = [];
@@ -358,13 +333,13 @@ class statistic {
         for($i = 3; $i >= 0; $i--) {
             $period = floor($seconds / $periods[$i]);
             if(($period > 0) || ($period == 0 && $count_zero)) {
-                $times[$i + 1] = $period;
+                $times[] = $period; // Добавляем элемент в массив
                 $seconds -= $period * $periods[$i];
                 $count_zero = true;
             }
         }
 
-        $times[0] = $seconds;
+        $times[] = $seconds;
         return $times;
     }
 

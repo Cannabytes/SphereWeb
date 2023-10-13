@@ -187,7 +187,6 @@ class tpl {
             return self::$isAjax;
         }));
 
-
         $twig->addFunction(new TwigFunction('get_captcha_version', function ($name = null) {
             if ($name == null) {
                 return config::get_captcha_version();
@@ -206,6 +205,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('get_account_players', function () {
             return character::get_account_players();
         }));
+
 
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function ($count = 10, $server_id = 0) {
@@ -286,8 +286,7 @@ class tpl {
             return statistic_model::timeHasPassed($num, $onlyHour);
         }));
 
-        $twig->addFunction(new TwigFunction('formatSeconds', function ($timeMysql) {
-            $secs = time() - strtotime($timeMysql);
+        $twig->addFunction(new TwigFunction('formatSeconds', function ($secs) {
             $lang = lang::lang_user_default() == "ru" ? 0 : 1;
             $times_values = [
                 ['сек.', 'sec.'],
@@ -298,15 +297,17 @@ class tpl {
                 ['лет', 'y.'],
             ];
             $divisors = [1, 60, 3600, 86400, 2592000, 31104000];
-            foreach ($divisors as $pow => $divisor) {
-                if ($secs < $divisor) {
-                    $time = $secs / $divisors[$pow - 1];
+            for ($pow = count($divisors) - 1; $pow >= 0; $pow--) {
+                if ($secs >= $divisors[$pow]) {
+                    $time = $secs / $divisors[$pow];
                     return round($time) . ' ' . $times_values[$pow][$lang];
                 }
             }
-            $time = $secs / 31104000;
-            return round($time) . ' ' . $times_values[5][$lang];
+            return round($secs) . ' ' . $times_values[0][$lang];
         }));
+
+
+
 
         $twig->addFunction(new TwigFunction('get_class', function ($class_id) {
             return race_class::get_class($class_id);

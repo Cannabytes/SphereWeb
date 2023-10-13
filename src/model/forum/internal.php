@@ -75,6 +75,7 @@ WHERE
     public static function getLastPostFromN(int $lastID, int $topicID) {
         return sql::getRows("SELECT
         forum_posts.*,
+        users.`email`,
         users.`name`,
         users.signature,
         users.avatar,
@@ -98,6 +99,7 @@ WHERE
 
         $posts = sql::getRows("SELECT
         forum_posts.*, 
+        users.`email`, 
         users.`name`, 
         users.signature, 
         users.avatar, 

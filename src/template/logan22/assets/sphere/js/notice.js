@@ -79,3 +79,17 @@ function notify_error(message) {
         message: message
     });
 }
+
+function ResponseNoticeSetAvatar(response){
+    if(response.type!=="notice_set_avatar"){
+        return false;
+    }
+    $(".user_self_avatar").attr("src", response.src);
+    $(".count_sphere_coin").text(response.count_sphere_coin);
+    if (response.ok){
+        notify_success(response.message);
+    }
+    if (response.ok === false){
+        notify_error(response.message);
+    }
+}

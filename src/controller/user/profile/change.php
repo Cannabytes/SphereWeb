@@ -15,10 +15,11 @@ use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\notification\notification;
-use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
+use Verot\Upload\Upload;
 
 class change {
 
@@ -47,12 +48,103 @@ class change {
 
     public static function show_avatar_page(): void {
         validation::user_protection();
+        $avatarList = fileSys::file_list('uploads/avatar');
+        //Удалить из списка все записи, которые начинаются с user_
+        foreach ($avatarList as $key => $value) {
+            if (mb_substr($value, 0, 5) == "user_") {
+                unset($avatarList[$key]);
+            }
+        }
         tpl::addVar([
             "title" => lang::get_phrase(192),
-            "avatars" => fileSys::file_list('src/template/logan22/assets/images/navatar'),
+            "avatars" => $avatarList,
         ]);
-        tpl::addVar('server_list', server::get_server_info());
         tpl::display("user/profile/select_avatar.html");
+    }
+
+    //Смена аватарки на свой
+    public static function set_self_avatar() {
+        validation::user_protection();
+        tpl::addVar([
+            "PRICE_CHANGE_AVATAR" => PRICE_CHANGE_AVATAR,
+        ]);
+        tpl::display("user/profile/set_avatar.html");
+    }
+
+    public static function set_self_avatar_load() {
+        validation::user_protection();
+        $files = $_FILES['files'] ?? null;
+        if ($files == null) {
+            return;
+        }
+        include "src/config/general.php";
+
+        if (PRICE_CHANGE_AVATAR > auth::get_donate_point()) {
+            board::error("У Вас недостаточно денег. Стоимость смены аватарки " . PRICE_CHANGE_AVATAR . " " . lang::get_phrase("Sphere-Coin") . ".");
+        }
+
+        //проверка на наличие файлов
+        if ($files) {
+            //Из массива $files оставляем только первый массив
+            $file = array_map(function ($file) {
+                return $file[0];
+            }, $files);
+
+            $handle = new Upload($file['tmp_name']);
+            if ($handle->uploaded) {
+                $handle->allowed = ['image/*'];
+                $handle->mime_check = true;
+                $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
+
+                $filename = "user_" . md5(time() . mt_rand(0, 1000000));
+
+                $handle->file_new_name_body = $filename;
+                $handle->image_resize = true;
+                $handle->image_x = 250;
+                $handle->image_ratio_y = true;
+                $handle->file_name_body_pre = 'thumb_';
+                $handle->image_convert = 'webp';
+                $handle->webp_quality = 95;
+                $handle->process('./uploads/avatar');
+                if (!$handle->processed) {
+                    board::notice(false, $handle->error);
+                }
+
+                $handle->file_new_name_body = $filename;
+                $handle->image_resize = true;
+                $handle->image_x = 1200;
+                $handle->image_ratio_y = true;
+                $handle->image_convert = 'webp';
+                $handle->webp_quality = 95;
+                $handle->process('./uploads/avatar');
+                if ($handle->processed) {
+                    $handle->clean();
+
+                    if (mb_substr(auth::get_avatar(), 0, 5) == "user_") {
+                        unlink("uploads/avatar/" . auth::get_avatar());
+                    }
+                    donate::taking_money(PRICE_CHANGE_AVATAR, auth::get_id());
+                    auth::set_donate_point(auth::get_donate_point() - PRICE_CHANGE_AVATAR);
+
+                    auth::set_avatar($filename . ".webp");
+
+                    \Ofey\Logan22\model\user\profile\change::set_avatar($filename . ".webp");
+                    board::alert([
+                        'type' => 'notice_set_avatar',
+                        'ok' => true,
+                        'message' => lang::get_phrase(197),
+                        'src' => "/uploads/avatar/thumb_" . $filename . ".webp",
+                        'count_sphere_coin' => auth::get_donate_point(),
+                    ]);
+
+                }
+                if ($handle->error) {
+                    $fileName = $files['file'];
+                    $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
+                    board::notice(false, $msg);
+                }
+            }
+        }
     }
 
     public static function show_background_avatar_page(): void {
@@ -61,7 +153,6 @@ class change {
             "title" => lang::get_phrase(193),
             "avatars" => fileSys::file_list('src/template/logan22/assets/images/navatarback'),
         ]);
-        tpl::addVar('server_list', server::get_server_info());
         tpl::display("user/option/select_background_avatar.html");
     }
 
@@ -73,13 +164,13 @@ class change {
         }
         if (62 < mb_strlen($avatar))
             board::notice(false, lang::get_phrase(195));
-        if (!file_exists("src/template/logan22/assets/images/navatar/" . $avatar))
+        if (!file_exists("uploads/avatar/" . $avatar))
             board::notice(false, lang::get_phrase(196));
         \Ofey\Logan22\model\user\profile\change::set_avatar($avatar);
         board::alert([
             'ok' => true,
             'message' => lang::get_phrase(197),
-            'src' => "/src/template/logan22/assets/images/navatar/" . $avatar,
+            'src' => "/uploads/avatar/" . $avatar,
         ]);
     }
 

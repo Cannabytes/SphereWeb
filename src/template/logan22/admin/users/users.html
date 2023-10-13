@@ -90,7 +90,7 @@
                     {% for user in users %}
                     <tr>
                         <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="{{template('/assets/images/navatar/' ~ user.avatar  ) }}" alt="">
+                            <img class="img-avatar img-avatar48" src="/uploads/avatar/{{ user.avatar }}" alt="">
                         </td>
                         <td>{{user.email}}</td>
                         <td class="fw-semibold">{{user.name}}</td>

@@ -64,7 +64,7 @@
             <!-- User Avatar -->
             <a class="img-link me-2" href="#">
                 <img class="img-avatar img-avatar32"
-                     src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                     src="/uploads/avatar/{{ user_info('get_avatar') }}" alt="">
             </a>
             <!-- END User Avatar -->
 
@@ -458,6 +458,11 @@
                                 <span>{{phrase(65)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change/avatar/self">
+                                <span>{{phrase(525)}}</span>
+                                <i class="fa fa-fw fa-file opacity-25"></i>
+                            </a>
                             <div class="dropdown-divider"></div>
 
 
@@ -488,10 +493,10 @@
                         <i class="fa fa-user d-sm-none"></i>
 
                         <img class="img-avatar img-avatar48 user_self_avatar"
-                             src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                             src="/uploads/avatar/{{ user_info('get_avatar') }}" alt="">
 
                         <span class="d-none d-sm-inline-block fw-semibold">{{ user_info('get_name') }}
-                        <span class="nav-main-link-badge badge rounded-pill bg-primary">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></span>
+                        <span class="nav-main-link-badge badge rounded-pill bg-primary count_sphere_coin">{{ user_info('get_donate_point')|number_format(0, "", "") }}</span></span>
                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
@@ -521,7 +526,11 @@
                                 <span>{{phrase(65)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
-
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
+                               href="/user/change/avatar/self">
+                                <span>{{phrase(525)}}</span>
+                                <i class="fa fa-fw fa-file opacity-25"></i>
+                            </a>
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
                                href="/user/change">
@@ -780,7 +789,7 @@
                             <label for="bonusCharName" class="col-sm-4 col-form-label">{{phrase(77)}}</label>
                             <div class="col-sm-8">
                                 <select name="player_name" id="bonusCharName" class="form-control single-select">
-                                    {% if get_account_players() is null  %}
+                                    {% if get_account_players() is not null %}
                                     {% for account_name, players in get_account_players() %}
                                     <optgroup label="{{phrase(480)}}: {{account_name}}">
                                         {% for player in players %}
@@ -788,7 +797,6 @@
                                         {% endfor %}
                                     </optgroup>
                                     {% endfor %}
-
                                     {% endif %}
                                 </select>
                             </div>
@@ -864,8 +872,8 @@
 
 
 {% if user_info('get_is_auth') %}
-<script src="{{template}}/assets/sphere/js/forum.js"></script>
 {% endif %}
+<script src="{{template}}/assets/sphere/js/forum.js"></script>
 
 <script src="{{template}}/assets/sphere/js/preload.js"></script>
 <script src="{{template}}/assets/sphere/js/ajax.js"></script>
@@ -881,6 +889,9 @@
 <script src="{{template}}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
 
 <script>Codebase.helpersOnLoad(['js-flatpickr']);</script>
+
+
+<!-- Page JS Helpers (Magnific Popup Plugin) -->
 
 <script src="{{template}}/assets/sphere/js/chatself.js"></script>
 <script src="{{template}}/assets/sphere/js/admin.js"></script>

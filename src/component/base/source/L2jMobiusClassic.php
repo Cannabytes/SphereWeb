@@ -27,7 +27,7 @@ class L2jMobiusClassic implements structure {
     }
 
     static public function chronicle(): mixed {
-        return [338, 362, 388, 414, 418, 166];
+        return [338, 362, 388, 414, 418, 166, 439];
     }
 
     static public function need_logout_player_for_item_add(): bool {

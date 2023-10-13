@@ -10,7 +10,7 @@
             <div class="block-content block-content-full">
                 <div class="d-flex">
                     <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
-                         src="{{ template('/assets/images/navatar/' ~ ticket.avatar ) }}" alt="">
+                         src="/uploads/avatar/{{ ticket.avatar }}" alt="">
                     <div class="flex-grow-1">
                         <p class="mb-1">
                             <a class="fw-semibold" href="javascript:void(0)">{% if ticket.name == null %} <span
@@ -47,7 +47,7 @@
             <div class="block-content block-content-full border-top">
                 <div class="d-flex">
                     <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
-                         src="{{ template('/assets/images/navatar/' ~ comment.avatar ) }}" alt="">
+                         src="/uploads/avatar/{{ comment.avatar }}" alt="">
                     <div class="flex-grow-1">
                         <p class="mb-1">
                             <a class="fw-semibold" href="javascript:void(0)">{{comment.name}}</a>

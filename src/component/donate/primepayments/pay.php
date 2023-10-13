@@ -19,9 +19,9 @@ class primepayments {
      * secret1 - секретный ключ №1
      * secret2 - секретный ключ №2
      */
-    private $project_id = 1;
-    private $secret1    = "######";
-    private $secret2    = "######";
+    private $project_id = 0000;
+    private $secret1    = "";
+    private $secret2    = "";
     /*
      * Список IP адресов, от которых может прити уведомление от платежной системы.
      */
@@ -61,13 +61,14 @@ class primepayments {
         $data = [
             'action' => 'initPayment',
             'project' => $this->project_id,
-            'sum' => $_POST['count'],
+            'sum' => $sum,
             'currency' => 'RUB',
             'innerID' => auth::get_id(),
             'payWay' => '1',
             'email' => auth::get_email(),
             'returnLink' => 1,
         ];
+
         $data['sign'] = md5($this->secret1 . $data['action'] . $data['project'] . $sum . $data['currency'] . $data['innerID'] . $data['email'] . $data['payWay']);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://pay.primepayments.io/API/v2/');

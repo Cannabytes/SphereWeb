@@ -68,7 +68,6 @@ class forget {
             }
         }
 
-        exit();
         $userValid = self::userValid($email);
         if(!$userValid) {
             board::notice(false, lang::get_phrase(282));

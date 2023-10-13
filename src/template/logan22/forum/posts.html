@@ -64,8 +64,21 @@
                     <div class="col-lg-2">
                         <div class="block block-rounded text-center">
                             <div class="block-content block-content-full">
-                                <img class="img-avatar img-avatar128"
-                                     src="{{template('/assets/images/navatar/' ~ post.avatar) }}">
+
+                                <!-- Если аватарка называется на user_ тогда...! -->
+                                {% if post.avatar|slice(0, 5) == "user_" %}
+                                <div class='js-gallery img-lightbox'>
+                                    <a class='img-lightbox' href='/uploads/avatar/{{post.avatar}}'>
+                                        <img class='img-fluid img-avatar img-avatar128' src='/uploads/avatar/thumb_{{post.avatar}}' alt=''>
+                                    </a>
+                                </div>
+                                {% else %}
+                                <img class='img-fluid img-avatar img-avatar128' src='/uploads/avatar/{{post.avatar}}' alt=''>
+                                {% endif %}
+
+
+
+
                             </div>
                             <div class="block-content block-content-full block-content-sm bg-body-light">
                                 <div class="fw-semibold mb-1"><span
@@ -73,19 +86,16 @@
                                 </div>
                                 <div class="fs-sm fw-medium text-muted">{{post.access_level}}</div>
                             </div>
-                            <div class="block-content block-content-full">
 
+                            {# Когда пользователь автор #}
 
-
-                                {# Когда пользователь автор #}
-
-                                {% if user_info('get_is_auth') %}
-                                {% if ( testOfTime(post.date_create) and user_info('get_id') == post.user_id ) or
-                                user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator"
-                                %}
-                                <a class="btn btn-sm btn-alt-secondary me-1 mb-1 editForumComment" data-is-open="false"
-                                   data-post-id="{{post.id}}"
-                                   href="javascript:void(0)">{{phrase("edit")}}</a>
+                            {% if user_info('get_is_auth') %}
+                            {% if ( testOfTime(post.date_create) and user_info('get_id') == post.user_id ) or
+                            user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator"
+                            %}
+                            <a class="btn btn-sm btn-alt-secondary me-1 mb-1 editForumComment" data-is-open="false"
+                               data-post-id="{{post.id}}"
+                               href="javascript:void(0)">{{phrase("edit")}}</a>
                                 {% endif %}
                                 {% if user_info('get_access_level') == "admin" or user_info('get_access_level') ==
                                 "moderator" %}
@@ -97,7 +107,6 @@
                                 {% endif %}
                                 {% endif %}
 
-                            </div>
 
                             {{ block("likes") }}
 
@@ -198,8 +207,7 @@
                     <div class="col-lg-2">
                         <div class="block block-rounded text-center">
                             <div class="block-content block-content-full">
-                                <img class="img-avatar img-avatar128"
-                                     src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}">
+                                <img class="img-avatar img-avatar128" src="/uploads/avatar/{{ user_info('get_avatar') }}">
                             </div>
                             <div class="block-content block-content-full block-content-sm bg-body-light">
                                 <div class="fw-semibold mb-1"><span

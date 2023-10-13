@@ -31,7 +31,7 @@
                     <tr>
                         <td>{{ i+1 }}</td>
                         <td class="text-center">
-                            <img class="img-avatar img-avatar48"
+                            <img class="img-avatar img-avatar48 {% if player['online'] %}img-avatar-thumb-online{% else %}img-avatar-thumb-offline{% endif %}"
                                  src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}"
                                  alt="">
                         </td>

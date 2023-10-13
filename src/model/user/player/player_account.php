@@ -61,8 +61,8 @@ class player_account {
      * Когда включен REST API то в $info приходит ID сервер
      * @throws ExceptionAlias
      */
-    public static function extracted($collectionName, $info, $prepare = []) {
-        if ($info['rest_api_enable'] ?? false){
+    public static function extracted($collectionName, $info, $prepare = [], $notice = false) {
+        if ($info['rest_api_enable'] ?? false) {
             $data = restapi::Send(
                 $info,
                 $collectionName,
@@ -88,7 +88,7 @@ class player_account {
             sdb::set_type('game');
             sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
         }
-        return sdb::run($sqlQuery, $prepare, false);
+        return sdb::run($sqlQuery, $prepare, $notice);
     }
 
     /**
@@ -330,7 +330,7 @@ class player_account {
         }
 
         $account = self::account_is_exist($server_info, $login);
-        if (sdb::is_error()){
+        if (sdb::is_error()) {
             board::notice(false, sdb::is_error());
         }
         if (gettype($account) != "object") {
@@ -371,7 +371,7 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function add_inside_account($login, $password, $email, $ip, $server_id, $password_hide) {
-        if($password_hide){
+        if ($password_hide) {
             $password = "";
         }
         return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [
@@ -409,25 +409,29 @@ class player_account {
 
     //Кол-во имеющихся аккаунтов
 
-    static function show_all_account_player($server_id = null) {
-        if (!auth::get_is_auth())
-            return;
+    public static function show_all_account_player($email = null, $server_id = null) {
+        if ($email === null) {
+            if (!auth::get_is_auth()) {
+                return;
+            }
+            $email = auth::get_email();
+        }
 
         if ($server_id === null) {
             return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? ORDER BY date_create", [
-                auth::get_email(),
+                $email,
             ]);
         }
 
         if (is_int((int)$server_id)) {
             return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
-                auth::get_email(),
+                $email,
                 $server_id,
             ]);
         }
 
         return sql::getRows("SELECT id, login, `password`, email, ip, server_id, password_hide, date_create, date_update FROM player_accounts WHERE email = ? AND server_id = ? ORDER BY date_create", [
-            auth::get_email(),
+            $email,
             auth::get_default_server(),
         ]);
     }

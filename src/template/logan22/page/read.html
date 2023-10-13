@@ -51,7 +51,7 @@
                 {% for comment in comments %}
                     {% block page_new_comment %}
                     <div class="d-flex mb-4">
-                        <img class="img-avatar img-avatar48 flex-shrink-0 me-3" src="{{ template('/assets/images/navatar/' ~ comment.avatar) }}" alt="">
+                        <img class="img-avatar img-avatar48 flex-shrink-0 me-3" src="/uploads/avatar/{{ comment.avatar }}" alt="">
                         <div class="flex-grow-1">
                             <p class="fs-sm fw-medium mb-1">
                                 <a class="fw-semibold" href="javascript:void(0)">
@@ -65,7 +65,7 @@
                 <div id="page_new_comment"></div>
                 {% if user_info("get_is_auth") %}
                 <div class="d-flex mb-4">
-                    <img class="img-avatar img-avatar48 d-flex me-3" src="{{ template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
+                    <img class="img-avatar img-avatar48 d-flex me-3" src="/uploads/avatar/{{ user_info('get_avatar') }}" alt="">
                     <div class="flex-grow-1">
                         <form action="/page/comment/add" method="POST" onsubmit="return false;">
                             <input type="hidden" name="id" value="{{page.id}}">

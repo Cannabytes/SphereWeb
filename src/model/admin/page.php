@@ -36,7 +36,9 @@ class page {
         }
 
         $files = $_FILES['files'] ?? null;
-
+        //проверка на наличие файлов
+        if ($files) {
+            board::notice(false, 'Произошла ошибка');
         //Из массива $files оставляем только первый массив
         $file = array_map(function ($file) {
             return $file[0];
@@ -67,6 +69,7 @@ class page {
             }
         } else {
             board::notice(false, $handle->error);
+        }
         }
 
 

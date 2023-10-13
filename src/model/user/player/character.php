@@ -13,6 +13,7 @@ use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\restapi\restapi;
+use Ofey\Logan22\controller\statistic\statistic;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
@@ -28,6 +29,7 @@ class character {
         $row = sql::getRow("SELECT `forbidden` FROM `player_forbidden` WHERE `player` = ?", [$player]);
         $charnames['player_forbidden'] = $row['forbidden'];
     }
+
 
     //возвращает всех персонажей пользователя
     public static function get_account_players(): ?array {
@@ -53,7 +55,10 @@ class character {
                 $accounts[$login][] = $player["player_name"];
             }
         }
-        return $accounts ?? null;
+        if (empty($accounts)) {
+            return null;
+        }
+        return $accounts;
     }
 
     public static function all_characters($login, $server_id = 0) {
@@ -74,8 +79,7 @@ class character {
             }
             $players = json_decode($data, true);
         } else {
-            $players = player_account::extracted("account_players", server::get_server_info($server_id), [$login]);
-
+            $players = player_account::extracted("account_players", server::get_server_info($server_id), [$login], false);
             if (sdb::is_error()){
                 return [];
             }

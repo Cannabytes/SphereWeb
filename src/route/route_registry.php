@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
+use Ofey\Logan22\model\user\player\character;
 
 session::init();
 lang::load_package();
@@ -99,6 +100,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
     $route->post("user/change/default/server", '\Ofey\Logan22\controller\user\default_server::change');
     $route->get("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::show_avatar_page');
     $route->post("user/change/avatar", 'Ofey\Logan22\controller\user\profile\change::save_avatar');
+    $route->get("/user/change/avatar/self", 'Ofey\Logan22\controller\user\profile\change::set_self_avatar');
+    $route->post("/user/change/avatar/self", 'Ofey\Logan22\controller\user\profile\change::set_self_avatar_load');
     $route->post("user/change/theme", 'Ofey\Logan22\controller\user\profile\change::change_theme');
 
     $route->post('/user/money/transfer', 'Ofey\Logan22\controller\user\profile\change::transfer_money');
