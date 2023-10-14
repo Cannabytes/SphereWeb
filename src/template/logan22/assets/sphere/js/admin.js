@@ -204,6 +204,21 @@ $(document).on('change', '.radio-switch', function (event) {
     }
 });
 
+$(document).on('click', '.removeDonateItem', function (e) {
+    $.ajax({
+        type: "POST",
+        url: "/admin/donate/remove",
+        data: {
+            productId: $(this).data("object-id"),
+        },
+        dataType: "json",
+     }).done(function (data) {
+        if (data.ok) {
+            $(this).closest("tr").remove();
+        }
+    })
+});
+
 $(document).on('click', '.editDonateButton', function (event) {
     let objectId = $(this).data("object-id");
     let itemName = $(this).data("item-name");
