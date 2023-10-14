@@ -55,8 +55,13 @@
 
 <body>
 
-
-<div id="page-container" class="sidebar-o enable-page-overlay side-scroll {% if get_user_variables('theme')['val'] == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
+{% set mode_template = 'light' %}
+{% if get_user_variables('theme')['val'] is null %}
+{% set mode_template = MODE_TEMPLATE() %}
+{% else %}
+{% set mode_template = get_user_variables('theme')['val'] %}
+{% endif %}
+<div id="page-container" class="sidebar-o enable-page-overlay side-scroll {% if mode_template == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
     <!-- Side Overlay-->
     <aside id="side-overlay">
         <!-- Side Header -->

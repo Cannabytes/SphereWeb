@@ -239,6 +239,9 @@ class tpl {
             }
         }));
 
+        $twig->addFunction(new TwigFunction("MODE_TEMPLATE", function (){
+            return MODE_TEMPLATE;
+        }));
 
         $twig->addFunction(new TwigFunction('user_info', function ($type) {
             if (method_exists(auth::class, $type)) {
