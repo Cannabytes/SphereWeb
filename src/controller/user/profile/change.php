@@ -49,9 +49,11 @@ class change {
     public static function show_avatar_page(): void {
         validation::user_protection();
         $avatarList = fileSys::file_list('uploads/avatar');
-        //Удалить из списка все записи, которые начинаются с user_
         foreach ($avatarList as $key => $value) {
             if (mb_substr($value, 0, 5) == "user_") {
+                unset($avatarList[$key]);
+            }
+            if (mb_substr($value, 0, 6) == "thumb_") {
                 unset($avatarList[$key]);
             }
         }
