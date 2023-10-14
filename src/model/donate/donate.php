@@ -105,13 +105,16 @@ class donate {
             board::notice(false, lang::get_phrase(152));
         }
         $donat_info_cost = $donat_info['cost'];
-
-        $donateInfo = require_once 'src/config/donate.php';
-        $procentDiscount = donate::getBonusDiscount(auth::get_id());
-        //Стоимость товара * на количество
         $cost_product = $donat_info_cost * $user_value;
-        $decrease_factor = 1 - ($procentDiscount / 100);
-        $cost_product *= $decrease_factor;
+
+        //Проверка на скидку по товару
+        $donateInfo = require_once 'src/config/donate.php';
+        if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT']){
+            $procentDiscount = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
+            $decrease_factor = 1 - ($procentDiscount / 100);
+            $cost_product *= $decrease_factor;
+        }
+
         if ($cost_product > auth::get_donate_point()) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
@@ -275,13 +278,11 @@ class donate {
 
 
     //Возвращает процент скидки
-    public static function getBonusDiscount($user_id) {
-        $table = require 'src/config/donate.php';
+    public static function getBonusDiscount($user_id, $table) {
         $amount = sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ? and sphere=0", [$user_id])->fetch()['count'] ?? 0;
         $rangeKey = null;
         $discountValue = null;
         $lastValue = null;
-        $table = $table["discount"]['table'];
         $keys = array_keys($table);
         $firstKey = reset($keys);
         if ($amount < $firstKey) {

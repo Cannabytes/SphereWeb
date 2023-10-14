@@ -5,6 +5,13 @@
 {% block content %}
 
 <div class="content">
+    <div class="block block-rounded">
+        <div class="block-content text-center">
+            <p>
+                Ваша скидка на покупку товаров - <span class="fw-semibold text-success">{{procentProductDiscount}}%</span>
+            </p>
+        </div>
+    </div>
     <div class="row">
 
         {% if products|length > 0 %}
@@ -35,8 +42,9 @@
                             </td>
                             <td class="text-center">
                                 <span id="product_cost_{{product.id}}" class="fw-semibold text-success">{%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">{%endif%}
-                                      {% if procentDiscount > 0 %}
-                                      <span class="fw-semibold text-success">{{ product.cost - (product.cost * procentDiscount / 100) }}</span>
+                                      {% if procentProductDiscount > 0 %}
+                                        <sub><s>{{product.cost}}</s></sub>
+                                      <span class="fw-semibold text-success">{{ product.cost - (product.cost * procentProductDiscount / 100) }}</span>
                                       {% else %}
                                         <span class="fw-semibold text-success">{{product.cost}}</span>
                                       {% endif %}
@@ -51,17 +59,17 @@
                     {% if product['consume_type'] == "consume_type_normal" %}
                     <div class="d-flex justify-content-center">
                         <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
-                               data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="hidden" min="1">
+                               data-default_cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-id="{{product.id}}" type="hidden" min="1">
                         <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
                     </div>
                    {% else %}
                     <div class="input-group">
                         <div class="form-floating">
                             <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
-                                   data-default_cost="{{product.cost}}" data-id="{{product.id}}" type="number" min="1" class="count form-control" placeholder="{{phrase(71)}}">
+                                   data-default_cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-id="{{product.id}}" type="number" min="1" class="count form-control" placeholder="{{phrase(71)}}">
                             <label for="user_value_{{product.id}}">{{phrase("how_much_to_buy")}}</label>
                         </div>
-                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
+                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
                             {{phrase(74)}}
                         </button>
                     </div>

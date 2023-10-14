@@ -439,6 +439,14 @@ class auth {
             //TODO: Тут возможно сделать ошибку с записью в файл
             exit(lang::get_phrase(167));
         }
+
+        $donate = include 'src/config/donate.php';
+        if ($donate['DONATE_DISCOUNT_TYPE_STORAGE']) {
+            $bonus_procent = donate::getBonusDiscount($user_id, $donate['discount']['table']);
+            $amount = ($bonus_procent / 100) * $amount;
+            if ($amount == 0) return;
+        }
+
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
             $amount,
             $user_id,
@@ -452,16 +460,13 @@ class auth {
             time::mysql(),
         ]);
 
-        $bonus_procent = donate::getBonusDiscount($user_id);
-        $bonus = ($bonus_procent / 100) * $amount;
-        if ($bonus == 0) return;
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
-            $bonus,
+            $amount,
             $user_id,
         ]);
         sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
             $user_id,
-            $bonus,
+            $amount,
             "+{$bonus_procent}% Бонус за пожертвование",
             time::mysql(),
             1, //Означает что это зачисление от sphere

@@ -11,6 +11,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\controller\page\error;
+use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
@@ -21,7 +22,7 @@ use Ofey\Logan22\template\tpl;
 class pay {
 
     public static function pay(): void {
-        $dir = 'src/component/donate/'; // Укажите путь к вашей папке
+        $dir = 'src/component/donate/';
         $donateSysNames = array_values(array_diff(scandir($dir), array('..', '.')));
         foreach($donateSysNames AS $i=>$sys){
             if(!$sys::isEnable()){
@@ -32,7 +33,9 @@ class pay {
         $donateInfo = require_once 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
-            $point = donate::getBonusDiscount(auth::get_id());
+            if($donateInfo['DONATE_DISCOUNT_TYPE_STORAGE']){
+                $point = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount']['table']);
+            }
         }
         tpl::addVar("donate_history_pay_self", donate::donate_history_pay_self());
         tpl::addVar("title", lang::get_phrase(233));
@@ -45,14 +48,15 @@ class pay {
 
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
+
         $donateInfo = require_once 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
-            $point = donate::getBonusDiscount(auth::get_id());
+            if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT']){
+                $point = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
+            }
         }
-        tpl::addVar("discount", $donateInfo["discount"]);
-        tpl::addVar("procentDiscount", $point);
-        tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
+        tpl::addVar("procentProductDiscount", $point);
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
         tpl::addVar("title", lang::get_phrase(233));
@@ -60,6 +64,7 @@ class pay {
     }
 
     public static function transaction(): void {
+        validation::user_protection();
         if(!config::getEnableDonate()) error::error404("Отключено");
         if(!auth::get_is_auth()) board::notice(false, lang::get_phrase(234));
         donate::transaction();
