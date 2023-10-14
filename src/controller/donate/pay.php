@@ -45,7 +45,14 @@ class pay {
 
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
-
+        $donateInfo = require_once 'src/config/donate.php';
+        $point = 0;
+        if(auth::get_is_auth()){
+            $point = donate::getBonusDiscount(auth::get_id());
+        }
+        tpl::addVar("discount", $donateInfo["discount"]);
+        tpl::addVar("procentDiscount", $point);
+        tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
         tpl::addVar("title", lang::get_phrase(233));
