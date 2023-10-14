@@ -511,7 +511,7 @@ CREATE TABLE `users`  (
   `date_create` timestamp NOT NULL DEFAULT current_timestamp(),
   `date_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
   `access_level` enum('user','moderator','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'user',
-  `donate_point` int(11) NULL DEFAULT 0,
+  `donate_point` float NULL DEFAULT 0,
   `avatar` varchar(62) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'none.jpeg',
   `avatar_background` varchar(62) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'none.jpeg',
   `timezone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
