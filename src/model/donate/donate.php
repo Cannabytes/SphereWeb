@@ -91,8 +91,11 @@ class donate {
      */
     static public function transaction() {
         $id = $_POST['id'];
-        $server_id = $_POST['server_id'];
-        $user_value = request::setting('user_value', new request_config(min: 1));
+        $server_id = filter_input(INPUT_POST, 'server_id', FILTER_VALIDATE_INT);
+        $user_value = filter_input(INPUT_POST, 'user_value', FILTER_VALIDATE_INT);
+        if ($user_value <= 0) {
+            board::notice(false, lang::get_phrase(255));
+        }
         $char_name = trim($_POST['char_name']);
         if ($char_name == "") {
             board::notice(false, lang::get_phrase(148));
