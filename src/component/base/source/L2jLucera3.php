@@ -209,6 +209,7 @@ class L2jLucera3 implements structure {
 
     public static function statistic_clan_players(): string {
         return 'SELECT
+                        characters.account_name AS account_name,
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
                         characters.pkkills AS pk, 
@@ -304,6 +305,7 @@ class L2jLucera3 implements structure {
 	characters.pvpkills AS pvp,
 	characters.pkkills AS pk,
 	characters.clanid,
+	characters.sex,
 	characters.`online`,
 	characters.onlinetime AS time_in_game,
 	clan_data.crest AS clan_crest,

@@ -1,0 +1,35 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Плагины{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Плагины</h3>
+        </div>
+        <div class="block-content">
+                <table class="table table-bordered table-vcenter">
+                    <thead>
+                    <tr>
+                        <th>Плагин</th>
+                        <th>Описание</th>
+                        <th>Версия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for plugin in plugins %}
+                    <tr>
+                        <td><a href="{{plugin['PLUGIN_ADMIN_PAGE']}}" class="ajaxload">{{plugin['PLUGIN_ADMIN_PAGE_NAME']}}</a></td>
+                        <td>{{plugin['PLUGIN_DESCRIPTION']}}</td>
+                        <td>{{plugin['PLUGIN_VERSION']}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

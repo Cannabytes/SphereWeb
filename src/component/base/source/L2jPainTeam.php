@@ -226,6 +226,7 @@ WHERE
 
     public static function statistic_clan_players(): string {
         return 'SELECT
+                        characters.account_name AS account_name,
                         characters.char_name AS player_name, 
                         characters.pvpkills AS pvp, 
                         characters.pkkills AS pk, 

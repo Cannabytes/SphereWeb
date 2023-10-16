@@ -193,21 +193,7 @@ class player_account {
             }
         }
         self::add_inside_account($login, $password, $email, $_SERVER['REMOTE_ADDR'], $server_id, $password_hide);
-        $fileDownload = include_once "src/config/registration_download.php";
-        $content = trim($fileDownload['content']) ?? "";
-        if ($fileDownload['enable']) {
-            $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
-                [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
-        }
-        board::response("notice_registration",
-            [
-                "ok" => true,
-                "message" => lang::get_phrase(207),
-                "isDownload" => $fileDownload['enable'],
-                "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
-                "content" => $content,
-                "redirect" => "/accounts",
-            ]);
+        return $reQuest;
     }
 
     public static function valid_login($login) {

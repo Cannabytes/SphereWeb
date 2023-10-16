@@ -11,6 +11,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\notification\notification;
 use Ofey\Logan22\model\template\async;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
@@ -81,12 +82,11 @@ class ticket_model {
         if ($files !== null) {
             self::processFiles($files, $ticket_ID, false);
         }
-
+        notification::toAdmin("New ticket", "/ticket/{$ticket_ID}");
         $ticket = ticket_model::get_info($ticket_ID);
         tpl::addVar([
             "ticket" => $ticket,
         ]);
-
         $async = new async("ticket/read.html");
         $async->block("main-container", "content", "update", true);
         $async->block("title", "title");
@@ -294,6 +294,8 @@ class ticket_model {
             $content,
         ]);
         $comment_ID = sql::lastInsertId();
+        notification::toAdmin("New ticket comment", "/ticket/{$ticketID}/#msg{$comment_ID}");
+
         $images = [];
         if ($files !== null) {
             $images = self::processFiles($files, $comment_ID, true);

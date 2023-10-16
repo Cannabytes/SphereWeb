@@ -37,6 +37,25 @@ class Route extends Router {
                 }
             }
         }
+
+        $dir = "src/component/plugins/";
+        $plugins = fileSys::file_list($dir);
+        foreach($plugins as $plugin) {
+            if(file_exists($dir . $plugin . "/route.php")) {
+                include_once $dir . $plugin . "/route.php";
+                foreach($routes as $route) {
+                    include_once $dir . $plugin . "/" . $route['file'];
+                    $method = "POST";
+                    if($route['method'] == "GET") {
+                        $method = "GET";
+                    }
+                    $this->$method($route['pattern'], function(...$var) use ($route) {
+                        $route['call'](...$var);
+                    });
+                }
+            }
+        }
+
     }
 
     public function __construct() {
@@ -49,6 +68,7 @@ class Route extends Router {
                 });
             }
         }
+
     }
 
     private static array  $aliases = [];

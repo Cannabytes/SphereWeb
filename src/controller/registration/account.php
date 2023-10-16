@@ -73,8 +73,23 @@ class account {
                 }
             }
             $email = request::setting("email", new request_config(isEmail: true));
-            player_account::add_account_not_user($login, $password, $password_hide, $email);
-
+            if($reQuest = player_account::add_account_not_user($login, $password, $password_hide, $email)){
+                $fileDownload = include_once "src/config/registration_download.php";
+                $content = trim($fileDownload['content']) ?? "";
+                if ($fileDownload['enable']) {
+                    $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
+                        [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
+                }
+                board::response("notice_registration",
+                    [
+                        "ok" => true,
+                        "message" => lang::get_phrase(207),
+                        "isDownload" => $fileDownload['enable'],
+                        "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
+                        "content" => $content,
+                        "redirect" => "/accounts",
+                    ]);
+            }
         }
     }
 

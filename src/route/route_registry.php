@@ -270,6 +270,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER
 
     $route->post('/admin/client/info', 'Ofey\Logan22\component\image\client_icon::get_item_info');
     $route->get("/admin/support", 'Ofey\Logan22\controller\admin\index::support');
+    $route->get("/admin/plugin", 'Ofey\Logan22\controller\admin\plugin::show');
 
 
     $route->set404(function () {

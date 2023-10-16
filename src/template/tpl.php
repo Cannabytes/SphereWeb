@@ -108,7 +108,7 @@ class tpl {
             self::$templatePath = "/template/" . config::get_template();
             self::lang_template_load($__ROOT__ . self::$templatePath . "/lang.php");
         }
-        if (!file_exists($__ROOT__ . self::$templatePath . "/" . $tplName)) {
+        if (!file_exists($__ROOT__ . self::$templatePath . "/" . $tplName) AND !file_exists($__ROOT__ . "/src/component/plugins/" . $tplName)) {
             if (self::$ajaxLoad) {
                 self::display("page/error.html");
                 die();
@@ -117,7 +117,10 @@ class tpl {
             echo "Не найден шаблон: " . $__ROOT__ . self::$templatePath . "/" . $tplName;
             die();
         }
-        $loader = new FilesystemLoader($__ROOT__ . self::$templatePath);
+        $loader = new FilesystemLoader([
+            $__ROOT__ . self::$templatePath,
+            $__ROOT__ . "/src/component/plugins"
+        ]);
 
         include "src/config/cache.php";
         $arrTwigConfig = [];
@@ -684,6 +687,19 @@ class tpl {
     public static function displayDemo(string $template) {
         self::$categoryCabinet = true;
         self::display($template);
+    }
+
+    public static function displayPlugin($tplName){
+        $twig = self::preload($tplName);
+        if (self::$ajaxLoad) {
+            $template = $twig->load($tplName);
+            $html = $template->renderBlock("content", self::$allTplVars);
+            $title = $template->renderBlock("title");
+            board::html($html, $title);
+        } else {
+            $template = $twig->load($tplName);
+            echo $template->render(self::$allTplVars);
+        }
     }
 
     public static function display($tplName) {

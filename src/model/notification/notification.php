@@ -4,6 +4,7 @@ namespace Ofey\Logan22\model\notification;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\statistic\statistic;
 use Ofey\Logan22\model\user\auth\auth;
 
 class notification {
@@ -30,6 +31,13 @@ class notification {
             board::success("Notification marked as read");
         }else{
             board::error("No notification to mark as read");
+        }
+    }
+
+    public static function toAdmin($message, $link){
+        $admins = sql::getRows("SELECT * FROM `users` WHERE `access_level` = 'admin' OR 'moderator';");
+        foreach ($admins as $admin){
+            self::add($admin['id'], $message, $link);
         }
     }
 
