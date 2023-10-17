@@ -6,8 +6,8 @@
 <div class="content">
 
     <nav class="breadcrumb push bg-body-extra-light rounded-pill px-4 py-2">
-        <a class="breadcrumb-item ajaxload" href="/forum">{{phrase(62)}}</a>
-        <a class="breadcrumb-item ajaxload" href="/forum/threads/{{section.id}}">{{section.name}}</a>
+        <a class="breadcrumb-item ajaxload" href="{{dir}}/forum">{{phrase(62)}}</a>
+        <a class="breadcrumb-item ajaxload" href="{{dir}}/forum/threads/{{section.id}}">{{section.name}}</a>
         <span class="breadcrumb-item active">{{topic.name}}</span>
     </nav>
 
@@ -22,7 +22,7 @@
                         {% if currentPage != 1 %}
                         <li class="page-item">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
                                aria-label="Previous">
                           <span aria-hidden="true">
                             <i class="fa fa-angle-left"></i>
@@ -35,14 +35,14 @@
                         {% for i in 1..countPages %}
                         <li class="page-item {% if i==currentPage%}active{%endif%}">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
                         </li>
                         {% endfor %}
 
                         {% if countPages != currentPage %}
                         <li class="page-item">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
                           <span aria-hidden="true">
                             <i class="fa fa-angle-right"></i>
                           </span>
@@ -68,12 +68,12 @@
                                 <!-- Если аватарка называется на user_ тогда...! -->
                                 {% if post.avatar|slice(0, 5) == "user_" %}
                                 <div class='js-gallery img-lightbox'>
-                                    <a class='img-lightbox' href='/uploads/avatar/{{post.avatar}}'>
-                                        <img class='img-fluid img-avatar img-avatar128' src='/uploads/avatar/thumb_{{post.avatar}}' alt=''>
+                                    <a class='img-lightbox' href='{{dir}}/uploads/avatar/{{post.avatar}}'>
+                                        <img class='img-fluid img-avatar img-avatar128' src='{{dir}}/uploads/avatar/thumb_{{post.avatar}}' alt=''>
                                     </a>
                                 </div>
                                 {% else %}
-                                <img class='img-fluid img-avatar img-avatar128' src='/uploads/avatar/{{post.avatar}}' alt=''>
+                                <img class='img-fluid img-avatar img-avatar128' src='{{dir}}/uploads/avatar/{{post.avatar}}' alt=''>
                                 {% endif %}
 
 
@@ -122,8 +122,8 @@
                             {% for file in post.attached %}
                             <div class='col-2 pic_img_{{post.id}}' data-file-id="{{file.id}}">
                                 <a class='img-link img-link-simple img-thumb img-lightbox'
-                                   href='/uploads/images/forum/{{file.image}}'>
-                                    <img class='img-fluid' src='/uploads/images/forum/thumb_{{file.image}}' alt=''>
+                                   href='{{dir}}/uploads/images/forum/{{file.image}}'>
+                                    <img class='img-fluid' src='{{dir}}/uploads/images/forum/thumb_{{file.image}}' alt=''>
                                 </a>
                             </div>
                             {% endfor %}
@@ -162,7 +162,7 @@
                         {% if currentPage != 1 %}
                         <li class="page-item">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage-1}}"
                                aria-label="Previous">
                           <span aria-hidden="true">
                             <i class="fa fa-angle-left"></i>
@@ -175,14 +175,14 @@
                         {% for i in 1..countPages %}
                         <li class="page-item {% if i==currentPage%}active{%endif%}">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{i}}">{{i}}</a>
                         </li>
                         {% endfor %}
 
                         {% if countPages != currentPage %}
                         <li class="page-item">
                             <a class="page-link ajaxload"
-                               href="/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
+                               href="{{dir}}/forum/threads/{{section.id}}/{{topic.id}}/{{currentPage+1}}" aria-label="Next">
                           <span aria-hidden="true">
                             <i class="fa fa-angle-right"></i>
                           </span>
@@ -207,7 +207,7 @@
                     <div class="col-lg-2">
                         <div class="block block-rounded text-center">
                             <div class="block-content block-content-full">
-                                <img class="img-avatar img-avatar128" src="/uploads/avatar/{{ user_info('get_avatar') }}">
+                                <img class="img-avatar img-avatar128" src="{{dir}}/uploads/avatar/{{ user_info('get_avatar') }}">
                             </div>
                             <div class="block-content block-content-full block-content-sm bg-body-light">
                                 <div class="fw-semibold mb-1"><span
@@ -220,7 +220,7 @@
                         </div>
                     </div>
                     <div class="col-lg-10 col-xl-10">
-                        <form action="/forum/topic/post/add" method="POST" onsubmit="return false;" data-function="toGoHash">
+                        <form action="{{dir}}/forum/topic/post/add" method="POST" onsubmit="return false;" data-function="toGoHash">
                             <div class="mb-4">
                                 <input name="topicID" type="hidden" value="{{topic.id}}">
                                 <input id="lastMessageID" name="lastMessageID" type="hidden" value="{{lastMessageID}}">
@@ -283,7 +283,7 @@
                                     <div role="button" class="col col-sm-12 col-lg-12 col-xl-2 post-buff-skill">
                                         <img data-skill-id="{{skill.id}}" data-skill-type="{{type}}" role="button"
                                              class="img-avatar-thumb img-avatar"
-                                             src="/uploads/images/skills/{{skill.icon}}"
+                                             src="{{dir}}/uploads/images/skills/{{skill.icon}}"
                                              alt="">
                                         <code role="button">{{skill.name}}</code>
                                     </div>
@@ -301,7 +301,7 @@
                                     <div class="col col-sm-9 col-lg-8 col-xl-2 post-buff-skill">
                                         <img data-skill-id="{{skill.id}}" data-skill-type="{{type}}" role="button"
                                              class="img-avatar-thumb img-avatar "
-                                             src="/uploads/images/skills/{{skill.icon}}"
+                                             src="{{dir}}/uploads/images/skills/{{skill.icon}}"
                                              alt="">
                                         <code role="button">{{skill.name}}</code>
                                     </div>
@@ -318,14 +318,14 @@
                             <div class="block block-rounded">
                                 <div class="block-content">
                                     <img class="img-avatar img-avatar40 selected-buff-skill"
-                                         src="/uploads/images/skills/{{random_skill_buff_registry().icon}}" alt="">
+                                         src="{{dir}}/uploads/images/skills/{{random_skill_buff_registry().icon}}" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-10">
                             <div class="block block-rounded">
                                 <div class="block-content">
-                                    <form method="POST" action="/forum/post/like"
+                                    <form method="POST" action="{{dir}}/forum/post/like"
                                           class="input-group input-group-sm formBuffMessage">
                                         {% set skill = random_skill_buff_registry() %}
                                         <input type="hidden" id="buff_post_id" name="post_id" value="">
@@ -374,7 +374,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="text-center"><img class="img-avatar-thumb img-avatar " src="/uploads/images/skills/skill1085.webp" alt=""></td>
+                            <td class="text-center"><img class="img-avatar-thumb img-avatar " src="{{dir}}/uploads/images/skills/skill1085.webp" alt=""></td>
                             <td class="d-none d-sm-table-cell text-center"></td>
                             <td class="d-none d-sm-table-cell text-center">
                                 <span class="badge bg-info"></span>
@@ -439,7 +439,7 @@
         <div class="" id="post_like_{{post.id}}">
             {% for buff in post.buffs %}
             {% if buff.type == 0 %}
-            <img class="img-avatar img-avatar32" src="/uploads/images/skills/{{buff.icon}}"
+            <img class="img-avatar img-avatar32" src="{{dir}}/uploads/images/skills/{{buff.icon}}"
                  alt="">
             {% endif %}
             {% endfor %}
@@ -450,7 +450,7 @@
         <div class="" id="post_delike_{{post.id}}">
             {% for buff in post.buffs %}
             {% if buff.type == 1 %}
-            <img class="img-avatar img-avatar32 " src="/uploads/images/skills/{{buff.icon}}"
+            <img class="img-avatar img-avatar32 " src="{{dir}}/uploads/images/skills/{{buff.icon}}"
                  alt="">
             {% endif %}
             {% endfor %}

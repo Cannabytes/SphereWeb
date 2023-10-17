@@ -1,6 +1,6 @@
 <?php
 
-const template = 'Interlude';
+const template = 'default';
 
 const timeout_statistic = 60;
 

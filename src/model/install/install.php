@@ -4,6 +4,7 @@ namespace Ofey\Logan22\model\install;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\encrypt\encrypt;
@@ -76,18 +77,18 @@ const CHARSET = 'utf8';
     }
 
     public static function exist_admin() {
-        if(!file_exists($_SERVER["DOCUMENT_ROOT"] . '/src/config/db.php')) {
+        if(!file_exists(fileSys::get_dir('/src/config/db.php'))) {
             return false;
         }
         $sql = 'SELECT * FROM users WHERE access_level = "admin"';
-        require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
+        require_once fileSys::get_dir("/src/config/db.php");
         $conn = self::test_connect_mysql(DB_HOST, 3306,DB_USER, DB_PASSWORD, DB_NAME);
         return $conn->query($sql)->fetch();
     }
 
     private static function add_first_news(): void {
         $txt = lang::get_phrase(158);
-        require_once $_SERVER["DOCUMENT_ROOT"] . "/src/config/db.php";
+        require_once fileSys::get_dir("/src/config/db.php");
         $conn = self::test_connect_mysql(DB_HOST, 3306, DB_USER, DB_PASSWORD, DB_NAME);
         $smt = $conn->prepare('INSERT INTO `pages` (`is_news`, `name`, `description`) VALUES (1, ?, ?);');
         $smt->execute([

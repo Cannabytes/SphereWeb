@@ -9,7 +9,7 @@
         <h3 class="block-title">{{phrase("template")}}</h3>
     </div>
     <div class="block-content">
-        <form action="/admin/template/save" method="POST" onsubmit="return false;">
+        <form action="{{dir}}/admin/template/save" method="POST" onsubmit="return false;">
             <div class="row">
                 <div class="col-md-5">
                     <div class="mb-4">
@@ -83,8 +83,8 @@
                 <div class="col-md-7">
                     <div class="mb-4">
                         <div class="col-md-6 col-lg-8 col-xl-9 animated fadeIn">
-                            <a class="img-link img-link-zoom-in img-thumb img-lightbox" id="screen_href" href="{{ img ?? '/src/template/logan22/assets/images/none.png' }}">
-                                <img id="screen" class="img-fluid" src="{{ img ?? '/src/template/logan22/assets/images/none.png' }}" alt="">
+                            <a class="img-link img-link-zoom-in img-thumb img-lightbox" id="screen_href" href="{{ img ?? '{{dir}}/src/template/logan22/assets/images/none.png' }}">
+                                <img id="screen" class="img-fluid" src="{{ img ?? '{{dir}}/src/template/logan22/assets/images/none.png' }}" alt="">
                             </a>
                         </div>
                     </div>

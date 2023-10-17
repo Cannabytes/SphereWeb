@@ -8,7 +8,7 @@
 
     <div class="block block-rounded">
         <div class="block-content block-content-full">
-            <form method="POST" action="/admin/options/server/description">
+            <form method="POST" action="{{dir}}/admin/options/server/description">
                 <div class="py-3 text-center">
                     <input name="id" type="hidden" value="{{ server_id }}">
 
@@ -58,7 +58,7 @@
                     <td>
                         {{page.lang}}
                     </td>
-                    <td><a href="/page/{{page.page_id}}">{{page.name}}</a></td>
+                    <td><a href="{{dir}}/page/{{page.page_id}}">{{page.name}}</a></td>
                     <td>
                         <div>
                             <input type="radio" name="is_default" value="{{page.page_id}}" data-lang="{{page.lang}}" data-server_id="{{page.server_id}}"

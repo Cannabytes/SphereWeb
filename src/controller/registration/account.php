@@ -7,6 +7,7 @@ use Ofey\Logan22\component\account\generation;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\captcha\google;
 use Ofey\Logan22\component\config\config;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
@@ -87,7 +88,7 @@ class account {
                         "isDownload" => $fileDownload['enable'],
                         "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
                         "content" => $content,
-                        "redirect" => "/accounts",
+                        "redirect" => fileSys::localdir("/accounts"),
                     ]);
             }
         }

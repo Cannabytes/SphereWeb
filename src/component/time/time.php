@@ -7,6 +7,8 @@
 
 namespace Ofey\Logan22\component\time;
 
+use Ofey\Logan22\component\fileSys\fileSys;
+
 class time {
 
     //Время формата datetime
@@ -22,8 +24,8 @@ class time {
      */
     public static function cache_timeout($value = null): array|int {
         if(self::$timeoutCache == null) {
-            if(file_exists('src/config/cache.php')) {
-                require_once('src/config/cache.php');
+            if(file_exists(fileSys::get_dir('src/config/cache.php'))) {
+                require_once(fileSys::get_dir('src/config/cache.php'));
                 self::$timeoutCache = $cache_timeout ?? self::defaultTimeout();
             } else {
                 self::$timeoutCache = self::defaultTimeout();

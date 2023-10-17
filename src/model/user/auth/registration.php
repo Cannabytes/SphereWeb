@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\user\auth;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
@@ -101,7 +102,7 @@ class registration {
                 board::response("notice", [
                     "ok" => true,
                     "message" => lang::get_phrase(177),
-                    "redirect" => "/main",
+                    "redirect" => fileSys::localdir("/main"),
                 ]);
             }
         } else {

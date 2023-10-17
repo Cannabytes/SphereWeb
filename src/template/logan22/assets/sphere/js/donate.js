@@ -9,7 +9,7 @@ $(document).on("click", "#paynext", function (){
     $.ajax(
         {
             type: "POST",
-            url: "/donate/transfer/" + paysystem + "/createlink",
+            url: baseHref + "/donate/transfer/" + paysystem + "/createlink",
             data: ({"count": count}),
             async: false,
             success: function (redirectLink) {

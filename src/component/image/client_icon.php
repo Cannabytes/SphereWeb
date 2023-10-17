@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\component\image;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 
@@ -46,7 +47,7 @@ class client_icon {
     }
 
     public static function icon($fileIcon = null){
-        return file_exists("uploads/images/icon/" . $fileIcon . ".webp") && $fileIcon != null ? "/uploads/images/icon/" . $fileIcon . ".webp" : "/uploads/images/icon/NOIMAGE.webp";
+        return file_exists(fileSys::get_dir("/uploads/images/icon/" . $fileIcon . ".webp")) && $fileIcon != null ? fileSys::localdir("/uploads/images/icon/" . $fileIcon . ".webp") : fileSys::localdir("/uploads/images/icon/NOIMAGE.webp");
     }
 
 }

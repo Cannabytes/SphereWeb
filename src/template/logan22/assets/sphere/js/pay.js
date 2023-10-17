@@ -48,7 +48,7 @@ $(document).on("click", "#buy", function (event) {
     name = $("#user_name_buy").text();
     $.ajax({
         type: "POST",
-        url: "/donate/transaction",
+        url: baseHref + "/donate/transaction",
         data: {
             server_id: $(this).attr("data-server_id"),
             id: $(this).attr("data-product-id"),
@@ -101,7 +101,7 @@ $(document).on('click', '#paynext', function () {
     $.ajax(
         {
             type: "POST",
-            url: "/donate/transfer/" + paysystem + "/createlink",
+            url: baseHref + "/donate/transfer/" + paysystem + "/createlink",
             data: ({"count": count}),
             async: false,
             success: function (redirectLink) {

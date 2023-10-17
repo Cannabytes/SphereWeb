@@ -12,7 +12,9 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\captcha\google;
 use Ofey\Logan22\component\config\config;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
@@ -410,14 +412,14 @@ class auth {
             session::add('id', $user_info['id']);
             session::add('email', $email);
             session::add('password', $password);
-            board::response("notice", ["message" => lang::get_phrase(165), "ok"=>true, "redirect" => "/main"]);
+            board::response("notice", ["message" => lang::get_phrase(165), "ok"=>true, "redirect" => fileSys::localdir("/main")]);
         }
         board::response("notice", ["message" => lang::get_phrase(166), "ok"=>false, "reloadCaptcha" => true]);
     }
 
     public static function logout() {
         session::clear();
-        header("Refresh: 0;");
+        redirect::location("/main");
         die();
     }
 

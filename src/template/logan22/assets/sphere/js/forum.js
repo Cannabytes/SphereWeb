@@ -48,7 +48,7 @@ $(document).on("click", ".removeImagePost", function () {
     var dataFileId = $(this).data('file-id');
     var postID = $(this).data('post-id');
     $.ajax({
-        url: "/forum/delete/comment/image",
+        url: baseHref + "/forum/delete/comment/image",
         type: "POST",
         data: {
             post_id: postID,
@@ -72,7 +72,7 @@ $(document).on("click", ".saveForumComment", function () {
     editorContent = editorContent.replace(/<blockquote>/g, "");
 
     $.ajax({
-        url: "/forum/edit/comment",
+        url: baseHref + "/forum/edit/comment",
         type: "POST",
         data: {
             post_id: postID,
@@ -108,7 +108,7 @@ $(document).on("click", "#removePostButton", function () {
     postID = $(this).attr("data-post-id");
     $(".panel_comment_id_" + postID).remove();
     $.ajax({
-        url: "/forum/delete/comment",
+        url: baseHref + "/forum/delete/comment",
         type: "POST",
         data: {
             post_id: postID,

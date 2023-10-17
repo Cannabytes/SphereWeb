@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\component\session;
 
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\model\user\auth\auth;
 
 class session {
@@ -17,7 +18,7 @@ class session {
             'gc_maxlifetime' => 86400*365,
             'use_strict_mode' => true,
         ]);
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
+        if (file_exists(fileSys::get_dir('/src/config/db.php'))) {
             auth::user_auth();
         }
     }

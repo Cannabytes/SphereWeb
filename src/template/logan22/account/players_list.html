@@ -20,11 +20,11 @@
                             char.clan_crest!=null%}<img src="data:image/png;base64, {{char.clan_crest}}">{%
                             endif %}
 
-                            <a href="/statistic/char/{{ char.player_name }}">{{ char.player_name }}</a></div>
+                            <a href="{{dir}}/statistic/char/{{ char.player_name }}">{{ char.player_name }}</a></div>
                         <div class="fs-sm text-muted">LvL: {{ char.level }}</div>
                         <div class="fs-sm text-muted">Class: {{ get_class( char.class_id ) }}</div>
                         <div class="fs-sm text-muted">PvP / PK: {{ char.pvp }} / {{ char.pk }}</div>
-                        <div class="fs-sm text-muted">Clan: <a href="/statistic/clan/{{ char.clan_name }}">{{ char.clan_name }}</a></div>
+                        <div class="fs-sm text-muted">Clan: <a href="{{dir}}/statistic/clan/{{ char.clan_name }}">{{ char.clan_name }}</a></div>
 
                         <hr>
                         <div class="form-check form-switch">

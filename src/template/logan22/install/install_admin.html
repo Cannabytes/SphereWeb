@@ -122,14 +122,14 @@
           $('#add_admin').prop('disabled', true);
           $.ajax({
             type: "POST",
-            url: "/install/admin",
+            url: "{{dir}}/install/admin",
             data: $(this).serialize(),
             dataType: "json",
             encode: true,
           }).done(function (data) {
             if (data.ok){
               notify_success(data.message)
-              document.location.href = '/main'
+              document.location.href = '{{dir}}/main'
             }else {
               $('#add_db').prop('disabled', false);
               notify_error(data.message)

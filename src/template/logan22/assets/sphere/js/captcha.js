@@ -6,7 +6,7 @@
     function get_captcha() {
         $.ajax({
             type: "POST",
-            url: "/captcha",
+            url: baseHref + "/captcha",
             async: true,
         }).done(function (data) {
             $(".captcha_img").attr("src", data);

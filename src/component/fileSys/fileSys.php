@@ -11,6 +11,22 @@ use Ofey\Logan22\component\lang\lang;
 
 class fileSys {
 
+    private static $root_dir = null;
+
+    public static function set_root_dir($root) {
+        self::$root_dir = $root;
+    }
+
+    public static function get_dir($dir = null): string {
+        if($dir !== null) {
+            if($dir[0] !== "/") {
+                $dir = "/" . $dir;
+            }
+        }
+        $dirname = self::$root_dir . $dir;
+        return $dirname;
+    }
+
     /**
      * @param $file
      * @param $content
@@ -146,6 +162,11 @@ class fileSys {
         if($dir == null)
             return false;
         return array_values(array_diff(scandir($dir), ['.', '..']));
+    }
+
+    public static function localdir($l = null): string {
+        $root_dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', self::$root_dir);
+        return $root_dir . $l;
     }
 
 }

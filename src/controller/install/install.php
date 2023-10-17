@@ -6,7 +6,9 @@
 namespace Ofey\Logan22\controller\install;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\version\version;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
@@ -19,8 +21,8 @@ class install {
      * Установка, вывод правил, соглашения
      */
     public static function rules(): void {
-        if (\Ofey\Logan22\model\install\install::exist_admin() and file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
-            header("Location: /");
+        if (\Ofey\Logan22\model\install\install::exist_admin() and file_exists(fileSys::get_dir('/src/config/db.php'))) {
+            redirect::location("/");
             die();
         }
         tpl::addVar(["need_min_version_php" => version::MIN_PHP_VERSION(),
@@ -62,7 +64,7 @@ class install {
     private static function checkFolderPermissions($dir = []): array {
         $dirPer = [];
         foreach ($dir as $folder) {
-            $permissions = fileperms($_SERVER['DOCUMENT_ROOT'] . $folder);
+            $permissions = fileperms(fileSys::get_dir($folder));
             $ownerPermissions = ($permissions & 0o700) >> 6;
             $groupPermissions = ($permissions & 0o070) >> 3;
             $otherPermissions = $permissions & 0o007;
@@ -131,8 +133,8 @@ class install {
 
     public static function db() {
         version::check_version_php();
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
-            header("Location: /install/admin");
+        if (file_exists(fileSys::get_dir('/src/config/db.php'))) {
+            redirect::location("/install/admin");
             die();
         }
         tpl::display("install/install_db.html");
@@ -141,8 +143,8 @@ class install {
     //Проверка соединения с базой данных
     public static function db_connect() {
         version::check_version_php();
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
-            header("Location: /");
+        if (file_exists(fileSys::get_dir('/src/config/db.php'))) {
+            redirect::location("/");
             die();
         }
         self::connect_test_db(false);
@@ -161,8 +163,8 @@ class install {
         $name = $_POST['name'];
         $pdo = \Ofey\Logan22\model\install\install::test_connect_mysql($host, $port, $user, $password, $name);
         if ($pdo) {
-            self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/uploads/sql/struct/*.sql");
-            self::install_sql_struct($pdo, $_SERVER["DOCUMENT_ROOT"] . "/uploads/sql/data/*.sql");
+            self::install_sql_struct($pdo, fileSys::get_dir("/uploads/sql/struct/*.sql"));
+            self::install_sql_struct($pdo, fileSys::get_dir("/uploads/sql/data/*.sql"));
             \Ofey\Logan22\model\install\install::saveConfig($host, $port, $user, $password, $name);
             board::notice(true, 'Next install');
         } else {
@@ -180,7 +182,7 @@ class install {
 
     public static function admin() {
         if (\Ofey\Logan22\model\install\install::exist_admin()) {
-            header("Location: /");
+            redirect::location("/");
             die();
         }
         tpl::display("install/install_admin.html");

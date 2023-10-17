@@ -15,6 +15,7 @@ use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\estate\castle;
 use Ofey\Logan22\component\estate\clanhall;
 use Ofey\Logan22\component\estate\fort;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\microtime;
@@ -102,40 +103,61 @@ class tpl {
             self::$ajaxLoad = true;
         }
 
-        $__ROOT__ = $_SERVER['DOCUMENT_ROOT'];
         self::$templatePath = "/src/template/logan22";
         if (self::$categoryCabinet) {
             self::$templatePath = "/template/" . config::get_template();
-            self::lang_template_load($__ROOT__ . self::$templatePath . "/lang.php");
+            self::lang_template_load(fileSys::get_dir(self::$templatePath . "/lang.php"));
         }
-        if (!file_exists($__ROOT__ . self::$templatePath . "/" . $tplName) AND !file_exists($__ROOT__ . "/src/component/plugins/" . $tplName)) {
+        $filePath = fileSys::get_dir(self::$templatePath . "/" . $tplName);
+
+        //Проверка существования папки с плагинами
+        if (!is_dir(fileSys::get_dir("/src/component/plugins"))) {
+            $pluginOFF = false;
+        }else{
+            if(!file_exists(fileSys::get_dir("/src/component/plugins/" . $tplName))){
+                $pluginOFF = false;
+            }
+        }
+        if (!file_exists($filePath) ) {
+           $fileOFF = false;
+        }
+
+        if(isset($pluginOFF) && isset($fileOFF)) {
+            self::$categoryCabinet = false;
             if (self::$ajaxLoad) {
                 self::display("page/error.html");
                 die();
             }
             self::display("page/error.html");
-            echo "Не найден шаблон: " . $__ROOT__ . self::$templatePath . "/" . $tplName;
+            echo "Не найден шаблон: " . $filePath;
             die();
         }
+
+
         $loader = new FilesystemLoader([
-            $__ROOT__ . self::$templatePath,
-            $__ROOT__ . "/src/component/plugins"
+            fileSys::get_dir(self::$templatePath),
+            fileSys::get_dir("/src/component/plugins")
         ]);
 
-        include "src/config/cache.php";
+//        if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
+//            $loader->addPath(fileSys::get_dir("/src/component/plugins"));
+//        }
+
+        include fileSys::get_dir("src/config/cache.php");
         $arrTwigConfig = [];
         if ($enable_cache_template) {
-            $arrTwigConfig['cache'] = $__ROOT__ . "/uploads/cache/template";
+            $arrTwigConfig['cache'] = fileSys::get_dir("/uploads/cache/template");
         }
         $arrTwigConfig['auto_reload'] = $auto_reload;
         $arrTwigConfig['debug'] = $debug_template;
         $twig = new Environment($loader, $arrTwigConfig);
 
-
         $twig->addExtension(new DebugExtension());
         $twig = self::generalfunc($twig);
         $twig = self::user_var_func($twig);
-        self::$allTplVars['template'] = self::$templatePath;
+
+        self::$allTplVars['dir'] = fileSys::localdir();
+        self::$allTplVars['template'] = str_replace($_SERVER['DOCUMENT_ROOT'], '', fileSys::get_dir(self::$templatePath));
         self::$allTplVars['pointTime'] = microtime::pointTime();
         return $twig;
     }
@@ -144,6 +166,9 @@ class tpl {
      * Загрузка языкового пакета шаблона
      */
     public static function lang_template_load($tpl) {
+        if(!is_dir(dirname($tpl))) {
+            return;
+        }
         if (!file_exists($tpl)) {
             return;
         }
@@ -156,7 +181,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('template', function ($var = null) {
             return str_replace(["//",
                 "\\",
-            ], "/", self::$templatePath . $var);
+            ], "/", fileSys::localdir(self::$templatePath . $var) );
         }));
 
         $twig->registerUndefinedFunctionCallback(function ($name) {
@@ -198,7 +223,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('prefix_info', function () {
-            return require "src/config/prefix_suffix.php";
+            return require fileSys::get_dir("src/config/prefix_suffix.php");
         }));
 
         $twig->addFunction(new TwigFunction('google_secret_key', function () {
@@ -292,7 +317,11 @@ class tpl {
             return statistic_model::timeHasPassed($num, $onlyHour);
         }));
 
-        $twig->addFunction(new TwigFunction('formatSeconds', function ($secs) {
+        $twig->addFunction(new TwigFunction('formatSeconds', function ($secs = 0) {
+            if (!is_numeric($secs)) {
+                return 'Некорректное значение';
+            }
+
             $lang = lang::lang_user_default() == "ru" ? 0 : 1;
             $times_values = [
                 ['сек.', 'sec.'],
@@ -311,9 +340,6 @@ class tpl {
             }
             return round($secs) . ' ' . $times_values[0][$lang];
         }));
-
-
-
 
         $twig->addFunction(new TwigFunction('get_class', function ($class_id) {
             return race_class::get_class($class_id);
@@ -425,33 +451,34 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('grade_img', function ($crystal_type): string {
             $grade_img = '';
+            $dirGrade = fileSys::localdir("/uploads/images/grade");
             switch ($crystal_type) {
                 case 'd':
-                    $grade_img = '<img src="/uploads/images/grade/d.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/d.png' style='width:20px'>";
                     break;
                 case 'c':
-                    $grade_img = '<img src="/uploads/images/grade/c.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/c.png' style='width:20px'>";
                     break;
                 case 'b':
-                    $grade_img = '<img src="/uploads/images/grade/b.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/b.png' style='width:20px'>";
                     break;
                 case 'a':
-                    $grade_img = '<img src="/uploads/images/grade/a.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/a.png' style='width:20px'>";
                     break;
                 case 's':
-                    $grade_img = '<img src="/uploads/images/grade/s.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/s.png' style='width:20px'>";
                     break;
                 case 'r':
-                    $grade_img = '<img src="/uploads/images/grade/r.png" style="width:20px">';
+                    $grade_img = "<img src='{$dirGrade}/r.png' style='width:20px'>";
                     break;
                 case 'r95':
-                    $grade_img = '<img src="/uploads/images/grade/r95.png" style="width:35px">';
+                    $grade_img = "<img src='{$dirGrade}/r95.png' style='width:35px'>";
                     break;
                 case 'r99':
-                    $grade_img = '<img src="/uploads/images/grade/r99.png" style="width:35px">';
+                    $grade_img = "<img src='{$dirGrade}/r99.png' style='width:35px'>";
                     break;
                 case 'r110':
-                    $grade_img = '<img src="/uploads/images/grade/r110.png" style="width:40px">';
+                    $grade_img = "<img src='{$dirGrade}/r110.png' style='width:40px'>";
                     break;
             }
             return $grade_img;
@@ -475,9 +502,9 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('is_screenshot', function ($file = null) {
             if (file_exists('uploads/screenshots/' . $file)) {
-                return '/uploads/screenshots/' . $file;
+                return fileSys::get_dir('/uploads/screenshots/' . $file);
             } else {
-                return "/src/template/logan22/assets/images/not-found.png";
+                return fileSys::get_dir("/src/template/logan22/assets/images/not-found.png");
             }
         }));
 
@@ -566,7 +593,7 @@ class tpl {
 
         //Есть ли бонус для персонажа за привлеченного пользователя
         $twig->addFunction(new TwigFunction('is_referral_bonus', function ($referrals) {
-            require_once 'src/config/referral.php';
+            require_once fileSys::get_dir('src/config/referral.php');
             foreach ($referrals as $account) {
                 if ($account['done'] || !isset($account['characters'])) {
                     continue;
@@ -630,23 +657,23 @@ class tpl {
         $twig->addFunction(new TwigFunction('referral_link', function () {
             $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https://' : 'http://';
             $name = auth::get_name() ?: auth::get_id();
-            return $scheme . $_SERVER['HTTP_HOST'] . "/registration/user/ref/" . mb_strtolower($name);
+            return $scheme . $_SERVER['HTTP_HOST'] . fileSys::localdir() . "/registration/user/ref/" . mb_strtolower($name);
         }));
 
         $twig->addFunction(new TwigFunction('currency_exchange_info', function () {
-            return json_encode(require 'src/config/donate.php');
+            return json_encode(require fileSys::get_dir('src/config/donate.php'));
         }));
 
         $twig->addFunction(new TwigFunction('get_buffs_registry', function () {
             if (self::$get_buffs_registry === false) {
-                self::$get_buffs_registry = include "src/config/forum/buff.php";
+                self::$get_buffs_registry = include fileSys::get_dir("src/config/forum/buff.php");
             }
             return self::$get_buffs_registry;
         }));
 
         $twig->addFunction(new TwigFunction('random_skill_buff_registry', function () {
             if (self::$get_buffs_registry === false) {
-                self::$get_buffs_registry = include "src/config/forum/buff.php";
+                self::$get_buffs_registry = include fileSys::get_dir("src/config/forum/buff.php");
             }
             $buffs = self::$get_buffs_registry['buff'];
             return $buffs[array_rand($buffs)];

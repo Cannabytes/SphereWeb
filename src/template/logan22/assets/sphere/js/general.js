@@ -1,7 +1,9 @@
+var baseHref = $('base').attr('href');
+
 $(document).on("change", "#server_set_default", function () {
     $.ajax({
         type: "POST",
-        url: "/user/change/default/server",
+        url: baseHref + "/user/change/default/server",
         data: {
             server_id: $(this).val(),
         },
@@ -19,7 +21,7 @@ $(document).on("change", "#server_set_default", function () {
 $(document).on("new_account_word", 'click', function () {
     $.ajax({
         type: "POST",
-        url: "/generation/account",
+        url: baseHref + "/generation/account",
         encode: true,
     }).done(function (data) {
         $("input[name*='login']").val(data);
@@ -29,7 +31,7 @@ $(document).on("new_account_word", 'click', function () {
 $(document).on('#new_password_word', 'click', function () {
     $.ajax({
         type: "POST",
-        url: "/generation/password",
+        url: baseHref + "/generation/password",
         encode: true,
     }).done(function (data) {
         $("input[name*='password']").val(data);
@@ -78,7 +80,7 @@ $(document).on("click", ".buttonBuffListPost", function () {
     $("#showBuffListPostPanel").modal("show");
     $.ajax({
         type: "POST",
-        url: "/forum/post/like/get",
+        url: baseHref + "/forum/post/like/get",
         data: {
             post_id: post_id,
         },
@@ -117,7 +119,7 @@ $(document).on('submit', '.formBuffMessage', function(event) {
 $(document).on('click', '.theme', function(event) {
     $.ajax({
         type: "POST",
-        url: "/user/change/theme",
+        url: baseHref + "/user/change/theme",
         data: {
             theme: $("#page-container").hasClass("dark-mode"),
         },
@@ -138,7 +140,7 @@ function bonuscode(response, form){
 $(document).on('click', '#page-header-notifications', function(event) {
     $.ajax({
         type: "POST",
-        url: "/user/notification/read",
+        url: baseHref + "/user/notification/read",
         data: {
             server_id: $(this).val(),
         },
@@ -155,7 +157,7 @@ $(document).on('click', '#page-header-notifications', function(event) {
 $(document).on('click', ".forbiddenToView",function(e) {
     $.ajax({
         type: "POST",
-        url: "/account/info/change/characters/info/forbidden",
+        url: baseHref + "/account/info/change/characters/info/forbidden",
         dataType: "json",
         data: {
             account: $(this).data('account'),
@@ -179,7 +181,7 @@ $(document).on('click', ".forbiddenToView",function(e) {
 
 $(document).on("click", ".generation_password", function () {
     $.ajax({
-        url: "/generation/password",
+        url: baseHref + "/generation/password",
         type: "POST",
         dataType: "html",
         success: function (password) {

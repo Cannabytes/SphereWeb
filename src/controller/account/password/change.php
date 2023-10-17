@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\controller\account\password;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\player\change_password;
@@ -20,7 +21,7 @@ class change {
         validation::user_protection();
         $exist_account_inside = player_account::exist_account_inside($login, $server_id);
         if(!$exist_account_inside) {
-            header('Location: /main');
+            redirect::location("/main");
             die();
         }
         tpl::addVar([

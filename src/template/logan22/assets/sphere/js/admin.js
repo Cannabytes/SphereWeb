@@ -7,7 +7,7 @@ function get_collection() {
     let base_source = $("#sql_base_source").data("base_source");
     $.ajax({
         type: "POST",
-        url: "/admin/options/server/client/protocol",
+        url: baseHref + "/admin/options/server/client/protocol",
         dataType: "json",
         data: {
             chronicle_name: chronicle_name,
@@ -48,7 +48,7 @@ function basename(str) {
 
 $(document).on('click', '#getDBNameLogin', function (event) {
     $.ajax({
-        url: "/admin/option/server/db/connect/select/name",
+        url: baseHref + "/admin/option/server/db/connect/select/name",
         type: "POST",
         data: {
             "host": $("#db_login_host").val(),
@@ -77,7 +77,7 @@ $(document).on('click', '#getDBNameLogin', function (event) {
 
 $(document).on('click', '#getDBNameGame', function (event) {
     $.ajax({
-        url: "/admin/option/server/db/connect/select/name",
+        url: baseHref + "/admin/option/server/db/connect/select/name",
         type: "POST",
         data: {
             "host": $("#db_game_host").val(),
@@ -108,7 +108,7 @@ $(document).on('click', '#check_connect_mysql_login', function (e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: "/admin/option/server/db/connect",
+        url: baseHref + "/admin/option/server/db/connect",
         dataType: "json",
         data: {
             host: $("input[name=db_login_host]").val(),
@@ -135,7 +135,7 @@ $(document).on('click', '#check_connect_mysql_game', function (e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: "/admin/option/server/db/connect",
+        url: baseHref + "/admin/option/server/db/connect",
         dataType: "json",
         data: {
             host: $("input[name=db_game_host]").val(),
@@ -162,14 +162,14 @@ $(document).on('click', '#removeServer', function (e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: "/admin/option/server/remove",
+        url: baseHref + "/admin/option/server/remove",
         dataType: "json",
         data: {
             server_id: $("input[name=server_id]").val(),
         },
         success: function (result) {
             if (result.ok) {
-                document.location.href = '/admin/options/server/list'
+                document.location.href = baseHref + '/admin/options/server/list'
             } else {
                 notify_error(result.message);
             }
@@ -186,7 +186,7 @@ $(document).on('change', '.radio-switch', function (event) {
         var $this = $(this);
         $.ajax({
             type: "POST",
-            url: "/admin/options/server/description/default",
+            url: baseHref + "/admin/options/server/description/default",
             data: {
                 page_id: $this.val(),
                 lang: $this.data("lang"),
@@ -207,7 +207,7 @@ $(document).on('change', '.radio-switch', function (event) {
 $(document).on('click', '.removeDonateItem', function (e) {
     $.ajax({
         type: "POST",
-        url: "/admin/donate/remove",
+        url: baseHref + "/admin/donate/remove",
         data: {
             productId: $(this).data("object-id"),
         },
@@ -242,7 +242,7 @@ $('#itemIDDonate').on('input', function () {
     };
     $.ajax({
         type: 'POST',
-        url: '/admin/client/info',
+        url: baseHref + '/admin/client/info',
         dataType: 'json',
         data: dataToSend,
         success: function (response) {
@@ -276,18 +276,18 @@ function readme() {
     $("#description").text("");
     $.ajax({
         type: "POST",
-        url: "/admin/template/readme",
+        url: baseHref + "/admin/template/readme",
         dataType: "json",
         data: {
             template: $("#template").val()
         },
         success: function (result) {
             if (result.screen) {
-                $("#screen").attr("src", "/template/" + $("#template").val() + "/" + result.screen);
-                $("#screen_href").attr("href", "/template/" + $("#template").val() + "/" + result.screen);
+                $("#screen").attr("src", baseHref + "/template/" + $("#template").val() + "/" + result.screen);
+                $("#screen_href").attr("href", baseHref + "/template/" + $("#template").val() + "/" + result.screen);
             } else {
-                $("#screen").attr("src", "/src/template/logan22/assets/images/none.png");
-                $("#screen_href").attr("href", "/src/template/logan22/assets/images/none.png");
+                $("#screen").attr("src", baseHref + "/src/template/logan22/assets/images/none.png");
+                $("#screen_href").attr("href", baseHref + "/src/template/logan22/assets/images/none.png");
             }
             $("#version").text(result.version ?? "0.0");
             $("#author").text(result.author ?? "-");
@@ -367,7 +367,7 @@ $(document).on("click", ".remove_section", function () {
 $(document).on("click", ".button_close", function () {
     var section_id = $(this).data('section-id');
     var is_close = $(this).data('is-close');
-    AjaxSend("/admin/forum/section/close", "POST", {
+    AjaxSend(baseHref + "/admin/forum/section/close", "POST", {
         id: section_id,
         is_close: is_close,
      });

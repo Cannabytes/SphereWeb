@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
@@ -35,7 +36,7 @@ class update_cache {
         $cache['referral'] = (int)request::setting('referral', new request_config(minValue: 30, isNumber: true));
 
         $file = "<?php\n\n\$cache_timeout = " . var_export($cache, true) . ';';
-        file_put_contents('src/config/cache.php', $file);
+        file_put_contents(fileSys::get_dir('src/config/cache.php'), $file);
         board::notice(true,  lang::get_phrase(217));
     }
 

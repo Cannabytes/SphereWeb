@@ -20,7 +20,7 @@ use ReflectionMethod;
 class Route extends Router {
 
     function __addingPlugin() {
-        $dir = "src/component/donate/";
+        $dir = fileSys::get_dir("src/component/donate/");
         $payments = fileSys::file_list($dir);
         foreach($payments as $payment) {
             if(file_exists($dir . $payment . "/route.php")) {
@@ -38,20 +38,22 @@ class Route extends Router {
             }
         }
 
-        $dir = "src/component/plugins/";
-        $plugins = fileSys::file_list($dir);
-        foreach($plugins as $plugin) {
-            if(file_exists($dir . $plugin . "/route.php")) {
-                include_once $dir . $plugin . "/route.php";
-                foreach($routes as $route) {
-                    include_once $dir . $plugin . "/" . $route['file'];
-                    $method = "POST";
-                    if($route['method'] == "GET") {
-                        $method = "GET";
+        $dir = fileSys::get_dir("src/component/plugins/");
+        if (is_dir($dir)) {
+            $plugins = fileSys::file_list($dir);
+            foreach($plugins as $plugin) {
+                if(file_exists($dir . $plugin . "/route.php")) {
+                    include_once $dir . $plugin . "/route.php";
+                    foreach($routes as $route) {
+                        include_once $dir . $plugin . "/" . $route['file'];
+                        $method = "POST";
+                        if($route['method'] == "GET") {
+                            $method = "GET";
+                        }
+                        $this->$method($route['pattern'], function(...$var) use ($route) {
+                            $route['call'](...$var);
+                        });
                     }
-                    $this->$method($route['pattern'], function(...$var) use ($route) {
-                        $route['call'](...$var);
-                    });
                 }
             }
         }
@@ -100,9 +102,16 @@ class Route extends Router {
     }
 
     private function add_alias($alias, $pattern) {
+        $scriptUrl = $_SERVER["REQUEST_URI"];
+        $subFolder = '';
+        if ($scriptUrl !== null) {
+            $folderName = dirname($scriptUrl);
+            $parts = explode("/", $folderName);
+            $subFolder = isset($parts[1]) ? "/" . $parts[1]  : '';
+        }
         self::$aliases[] = [
             'alias'   => $alias,
-            'pattern' => $pattern,
+            'pattern' => $subFolder . $pattern,
         ];
     }
 

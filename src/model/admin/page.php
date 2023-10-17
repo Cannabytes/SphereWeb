@@ -8,7 +8,9 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\page\page as page_model;
@@ -177,7 +179,7 @@ class page {
                         board::alert([
                             'type' => 'notice',
                             'ok' => true,
-                            'redirect' => "/page/" . $id,
+                            'redirect' => fileSys::localdir("/page/" . $id),
                         ]);
                     }
                 }
@@ -206,7 +208,7 @@ class page {
             board::alert([
                 'type' => 'notice',
                 'ok' => true,
-                'redirect' => "/page/" . $id,
+                'redirect' => fileSys::localdir("/page/" . $id),
             ]);
         }
         board::notice(false, self::get_page(145));
@@ -220,7 +222,7 @@ class page {
 
     public static function trash_send($id) {
         sql::run('DELETE FROM `pages` WHERE `id` = ?', [$id]);
-        header("Location: /admin/pages");
+        redirect::location("/admin/pages");
         die();
     }
 

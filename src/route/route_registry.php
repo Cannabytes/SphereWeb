@@ -11,7 +11,7 @@ $route = new Ofey\Logan22\route\Route();
 $route->get("user/change/lang/{lang}", 'Ofey\Logan22\component\lang\lang::set_lang');
 
 //TODO: сейчас при каждом запросе идет подключение к бд на проверку админа. Нужно пересмотреть.
-if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists($_SERVER['DOCUMENT_ROOT'] . '/src/config/db.php')) {
+if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Logan22\component\fileSys\fileSys::get_dir('/src/config/db.php'))) {
     $route->get("/", "Ofey\Logan22\controller\install\install::rules");
     $route->get("/install", "Ofey\Logan22\controller\install\install::rules");
     $route->get("/install/db", "Ofey\Logan22\controller\install\install::db");

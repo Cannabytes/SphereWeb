@@ -7,10 +7,12 @@
 
 namespace Ofey\Logan22\component;
 
+use Ofey\Logan22\component\fileSys\fileSys;
+
 class redirect {
 
-    static public function location($url){
-        header("Location: $url");
+    public static function location($url){
+        header("Location: ".fileSys::localdir($url));
         die();
     }
 

@@ -16,9 +16,9 @@
                     <th scope="col">#</th>
                     <th scope="col">{{phrase(93)}}</th>
                     <th scope="col">{{phrase(100)}}</th>
-                    <th scope="col"><a class="ajaxload" href="/statistic/pvp">PvP</a> / <a class="ajaxload" href="/statistic/pk">PK</a></th>
-                    <th scope="col"><a class="ajaxload" href="/statistic/clan">{{phrase(94)}}</a></th>
-                    <th scope="col"><a class="ajaxload" href="/statistic/online/time">{{phrase(95)}}</a></th>
+                    <th scope="col"><a class="ajaxload" href="{{dir}}/statistic/pvp">PvP</a> / <a class="ajaxload" href="{{dir}}/statistic/pk">PK</a></th>
+                    <th scope="col"><a class="ajaxload" href="{{dir}}/statistic/clan">{{phrase(94)}}</a></th>
+                    <th scope="col"><a class="ajaxload" href="{{dir}}/statistic/online/time">{{phrase(95)}}</a></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,14 +26,14 @@
                 <tr>
                     <th scope="row">{{ i+1 }}</th>
                     <td>{% if player['alliance_crest']!=null%}<img src="data:image/png;base64, {{player['alliance_crest'] }}">{% endif %}{% if player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{% endif %}
-                        <a class="ajaxload" href="/statistic/char/{{ player['player_name']|url_encode }}">{{ player['player_name'] }}</a>
+                        <a class="ajaxload" href="{{dir}}/statistic/char/{{ player['player_name']|url_encode }}">{{ player['player_name'] }}</a>
                     </td>
                     <td>{{ player['level'] }}</td>
                     <td><strong class="text-success">{{ player['pvp'] }}</strong> / {{ player['pk'] }}</td>
                     <td>{% if player['castle_id'] != 0 %}
                         <span data-toggle="tooltip" data-placement="top" title="" data-original-title="{{phrase(96)}}: {{ get_castle(player['castle_id']) }}" class="badge badge-light shadow-light m-1">{{ player['clan_name'] }}</span>
                         {% else %}
-                        <a class="ajaxload" href="/statistic/clan/{{ player['clan_name']|url_encode }}">{{ player['clan_name'] }}</a>
+                        <a class="ajaxload" href="{{dir}}/statistic/clan/{{ player['clan_name']|url_encode }}">{{ player['clan_name'] }}</a>
                         {% endif %}
                     </td>
                     <td>{{ timeHasPassed(player['time_in_game']) }}</td>

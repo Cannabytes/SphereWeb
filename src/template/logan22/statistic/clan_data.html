@@ -18,7 +18,7 @@
                             <th scope="row">{{phrase(101)}}:</th>
                             <td>
                                 {% if clan_info.player_forbidden %}
-                                <a href="/statistic/char/{{ clan_info.player_name_leader_clan|url_encode }}">{{clan_info.player_name_leader_clan}}</a>
+                                <a href="{{dir}}/statistic/char/{{ clan_info.player_name_leader_clan|url_encode }}">{{clan_info.player_name_leader_clan}}</a>
                                 {% else %}
                                 {{clan_info.player_name_leader_clan}}
                                 {% endif %}
@@ -70,7 +70,7 @@
 
                         {% for skill in clan_skills %}
                         <div class="py-2">
-                            <img class="img-avatar" src="/uploads/images/skills/{{skill.icon}}.webp" alt="">
+                            <img class="img-avatar" src="{{dir}}/uploads/images/skills/{{skill.icon}}.webp" alt="">
                             <div class="mt-2 fw-semibold">{{skill.name_en}}</div>
                             <div class="fs-sm text-muted">{{skill.skill_level}} lvl</div>
                         </div>
@@ -87,7 +87,7 @@
     <div class="row">
         {% for player in clan_players %}
         <div class="col-6 col-md-4 col-xl-2">
-            <a class="block block-rounded block-bordered block-link-shadow text-center {% if player['forbidden']==false %}ajaxload{%endif%}" href="{% if player['forbidden'] == false %}/statistic/char/{{ player.player_name|url_encode }}{%else%}javascript:void(0){%endif%}">
+            <a class="block block-rounded block-bordered block-link-shadow text-center {% if player['forbidden']==false %}ajaxload{%endif%}" href="{% if player['forbidden'] == false %}{{dir}}/statistic/char/{{ player.player_name|url_encode }}{%else%}javascript:void(0){%endif%}">
                 <div class="block-content">
                     {% if player['forbidden'] %}
                         <p class="fw-semibold">{{player.player_name}}  {% if player.online %}<span class="text-success">•</span>{% endif %}<br>{{player.pvp}} / {{player.pk}}</p>

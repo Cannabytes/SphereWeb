@@ -193,7 +193,7 @@ $(document).on('click', '.change_avatar', function (e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: "/user/change/avatar",
+        url: baseHref + "/user/change/avatar",
         dataType: "json",
         data: {
             avatar: $(this).data('avatar')
@@ -229,6 +229,6 @@ function AjaxSend(url, method, data) {
 }
 
 function updateInventory(){
-    AjaxSend("/bonus/inventory/update", "POST", {})
+    AjaxSend(baseHref + "/bonus/inventory/update", "POST", {})
 }
 

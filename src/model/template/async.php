@@ -2,6 +2,7 @@
 
 namespace Ofey\Logan22\model\template;
 
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\template\tpl;
 
 class async {
@@ -44,6 +45,7 @@ class async {
     }
 
     public function SetURL($url): void {
+        $url = fileSys::localdir($url);
         $this->JSCode[] = "window.history.pushState(null, null, '{$url}');";
     }
 

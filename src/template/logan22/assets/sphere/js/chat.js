@@ -17,7 +17,7 @@ $(document).on("click", "#chatDownScroll", function () {
 
 $(document).on("click", "#enableChatScrolling", function () {
     let enableChatScrolling = $('#enableChatScrolling').is(':checked');
-    AjaxSend("/user/variable/set", "POST", {
+    AjaxSend(baseHref + "/user/variable/set", "POST", {
         var: "chat_scrolling",
         val: enableChatScrolling,
     });
@@ -37,7 +37,7 @@ function connectUserChat() {
         }
 
         $.ajax({
-            url: "/chat",
+            url: baseHref + "/chat",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({

@@ -21,7 +21,7 @@ function connect() {
             return;
         }
         $.ajax({
-            url: "/chat",
+            url: baseHref + "/chat",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({
@@ -93,7 +93,7 @@ $(document).on('click', '#search_message_text', function (event) {
     stopChat = true
     text_message = $("#text_message").val().trim();
     $.ajax({
-        url : '/admin/chat/find/message',
+        url : baseHref + '/admin/chat/find/message',
         type : 'POST',
         data : {
             'message' : text_message,
@@ -127,7 +127,7 @@ $(document).on('click', '#search_user_message', function (event) {
     stopChat = true
     user_message = $("#user_message").val().trim();
     $.ajax({
-        url : '/admin/chat/find/player',
+        url : baseHref + '/admin/chat/find/player',
         type : 'POST',
         data : {
             'player' : user_message,

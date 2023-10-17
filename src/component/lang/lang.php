@@ -27,7 +27,7 @@ class lang {
 
     //Смена языка
     public static function set_lang($lang): void {
-        $allowLang = include 'src/config/lang.php';
+        $allowLang = include fileSys::get_dir('src/config/lang.php');
         if (in_array($lang, $allowLang)) {
             if (self::name($lang)) {
                 session::add("lang", $lang);
@@ -41,7 +41,7 @@ class lang {
             error_log("Language name is empty");
             return null;
         }
-        $filename = $_SERVER['DOCUMENT_ROOT'] . "/src/component/lang/package/{$lang}.php";
+        $filename = fileSys::get_dir("/src/component/lang/package/{$lang}.php");
         if(!empty($filename) && file_exists($filename)) {
             $lang_array = include $filename;
             return $lang_array['lang_name'] ?? null;
@@ -52,7 +52,7 @@ class lang {
 
     public static function load_package(): void {
         $lang = $_SESSION['lang'] ?? 'ru';
-        self::$lang_array = require $_SERVER['DOCUMENT_ROOT'] . "/src/component/lang/package/{$lang}.php";
+        self::$lang_array = require fileSys::get_dir("/src/component/lang/package/{$lang}.php");
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\model\forum;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
@@ -300,7 +301,7 @@ WHERE
                     'type' => 'notice',
                     'ok' => true,
                     'message' => lang::get_phrase(509),
-                    "redirect" => "/forum",
+                    "redirect" => fileSys::localdir("/forum"),
                 ]);
             }
         }

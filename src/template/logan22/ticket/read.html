@@ -10,7 +10,7 @@
             <div class="block-content block-content-full">
                 <div class="d-flex">
                     <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
-                         src="/uploads/avatar/{{ ticket.avatar }}" alt="">
+                         src="{{dir}}/uploads/avatar/{{ ticket.avatar }}" alt="">
                     <div class="flex-grow-1">
                         <p class="mb-1">
                             <a class="fw-semibold" href="javascript:void(0)">{% if ticket.name == null %} <span
@@ -29,8 +29,8 @@
                                 {% for img in ticket.images %}
                                 <div class="col-6 col-lg-2 animated fadeIn">
                                     <a class="img-link img-link-zoom-in img-thumb img-lightbox"
-                                       href="/uploads/tickets/{{img.image}}">
-                                        <img class="img-fluid" src="/uploads/tickets/thumb_{{img.image}}" alt="">
+                                       href="{{dir}}/uploads/tickets/{{img.image}}">
+                                        <img class="img-fluid" src="{{dir}}/uploads/tickets/thumb_{{img.image}}" alt="">
                                     </a>
                                 </div>
                                 {% endfor %}
@@ -47,7 +47,7 @@
             <div class="block-content block-content-full border-top">
                 <div class="d-flex">
                     <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
-                         src="/uploads/avatar/{{ comment.avatar }}" alt="">
+                         src="{{dir}}/uploads/avatar/{{ comment.avatar }}" alt="">
                     <div class="flex-grow-1">
                         <p class="mb-1">
                             <a class="fw-semibold" href="javascript:void(0)">{{comment.name}}</a>
@@ -62,8 +62,8 @@
                                 {% for img in comment.images %}
                                 <div class="col-6 col-lg-2 animated fadeIn">
                                     <a class="img-link img-link-zoom-in img-thumb img-lightbox"
-                                       href="/uploads/tickets/{{img.image}}">
-                                        <img class="img-fluid" src="/uploads/tickets/thumb_{{img.image}}" alt="">
+                                       href="{{dir}}/uploads/tickets/{{img.image}}">
+                                        <img class="img-fluid" src="{{dir}}/uploads/tickets/thumb_{{img.image}}" alt="">
                                     </a>
                                 </div>
                                 {% endfor %}
@@ -79,7 +79,7 @@
         <div class="block block-rounded">
 
             <div class="block-content">
-                <form action="/ticket/add/comment" method="POST" onsubmit="return false;" enctype="multipart/form-data">
+                <form action="{{dir}}/ticket/add/comment" method="POST" onsubmit="return false;" enctype="multipart/form-data">
                     <input name="ticketID" type="hidden" value="{{ticket.id}}">
                     <div class="row">
                         <div class="col-md-10">
