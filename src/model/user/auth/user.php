@@ -25,8 +25,7 @@ class user {
     }
 
     public static function All(): array {
-        $sql = "SELECT * FROM users";
-        return sql::getRows($sql);
+        return sql::getRows("SELECT * FROM users");
     }
 
     public static function edit($id, $email = null, $name = "", $donate = 0, $password = "", $group = "user"): bool {

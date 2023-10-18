@@ -5,6 +5,7 @@
 {% block content %}
 
 <div class="content">
+    {% if DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE %}
     <div class="block block-rounded">
         <div class="block-content text-center">
             <p>
@@ -12,6 +13,7 @@
             </p>
         </div>
     </div>
+    {% endif %}
     <div class="row">
 
         {% if products|length > 0 %}

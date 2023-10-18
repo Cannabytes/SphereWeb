@@ -213,20 +213,29 @@ $(document).on('click', '.change_avatar', function (e) {
     });
 });
 
-function AjaxSend(url, method, data) {
-    $.ajax({
-        url: url,
-        type: method,
-        data: data,
-        dataType: 'json',
-        success: function (response) {
-            responseAnalysis(response)
-        },
-        error: function (xhr, status, error) {
-            console.error('Ошибка при выполнении AJAX-запроса:', error);
-        }
+function AjaxSend(url, method, data, isReturn = false) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            url: url,
+            type: method,
+            data: data,
+            dataType: 'json',
+            success: function (response) {
+                if (isReturn) {
+                    resolve(response);
+                } else {
+                    responseAnalysis(response);
+                    resolve();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Ошибка при выполнении AJAX-запроса:', error);
+                reject(error);
+            }
+        });
     });
 }
+
 
 function updateInventory(){
     AjaxSend(baseHref + "/bonus/inventory/update", "POST", {})

@@ -314,20 +314,22 @@ function readme() {
     });
 }
 
-$(document).on('click', '.user_edit_button', function (event) {
+$(document).on('click', '.add_donate_point', function (event) {
+    let id = $(this).data("user-id");
+    $("#donate_user_id").val(id);
+});
 
+$(document).on('click', '.user_edit_button', function (event) {
     let id = $(this).data("user-id");
     let email = $(this).data("email");
     let name = $(this).data("name");
     let donate = $(this).data("donate");
     let access_level = $(this).data("group");
-
     $("#edit_user_id").val(id);
     $("#edit_user_email").val(email);
     $("#edit_user_name").val(name);
     $("#edit_user_donate_point").val(donate);
     $("#edit_user_access_level option[value=" + access_level + "]").prop('selected', true);
-
 });
 
 $(document).on("click", ".edit_category", function () {
@@ -373,4 +375,32 @@ $(document).on("click", ".button_close", function () {
      });
 });
 
+function is_add_donate(param){
+    let user_id = param.user_id;
+    let donate = param.donate;
+    $(".donate_point_" + user_id).text(donate);
+}
 
+$(document).on("click", ".get_donate_history", function () {
+    AjaxSend(baseHref + "/admin/donate/get/history/pay", "POST", {
+        user_id: $(this).data("user-id"),
+    }, true)
+        .then(function(info) {
+            // Код, который обрабатывает результат AJAX-запроса
+            $("#donate_pay_history_table").empty();
+            info.forEach(function (item, index) {
+                $("#donate_pay_history_table").append(`
+                <tr>
+                    <td>${item.point}</td>
+                    <td>${item.pay_system}</td>
+                    <td>${item.date}</td>
+                </tr>
+            `);
+            });
+            console.log(info);
+        })
+        .catch(function(error) {
+            // Обработка ошибки, если AJAX-запрос не удался
+            console.error("Ошибка при выполнении AJAX-запроса: " + error);
+        });
+});

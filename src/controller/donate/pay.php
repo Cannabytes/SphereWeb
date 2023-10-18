@@ -52,10 +52,11 @@ class pay {
         $donateInfo = require_once 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
-            if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT']){
+            if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
                 $point = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
             }
         }
+        tpl::addVar("DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE", $donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']);
         tpl::addVar("procentProductDiscount", $point);
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());

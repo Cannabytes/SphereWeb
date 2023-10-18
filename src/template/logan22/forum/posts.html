@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="block block-rounded text-center">
-                            <div class="block-content block-content-full">
+                            <div class="block-content block-content-full ">
 
                                 <!-- Если аватарка называется на user_ тогда...! -->
                                 {% if post.avatar|slice(0, 5) == "user_" %}
@@ -73,18 +73,14 @@
                                     </a>
                                 </div>
                                 {% else %}
-                                <img class='img-fluid img-avatar img-avatar128' src='{{dir}}/uploads/avatar/{{post.avatar}}' alt=''>
+                                <img class='img-fluid img-avatar img-avatar128' src='{{dir}}/uploads/avatar/{{post.avatar ?? "none.jpeg"}}' alt=''>
                                 {% endif %}
 
-
-
-
                             </div>
-                            <div class="block-content block-content-full block-content-sm bg-body-light">
-                                <div class="fw-semibold mb-1"><span
-                                        class="badge bg-{{class_group_color(post.access_level)}}">{{post.name}}</span>
-                                </div>
-                                <div class="fs-sm fw-medium text-muted">{{post.access_level}}</div>
+                            <div class="block-content block-content-full block-content-sm bg-body-light mb-1">
+                                <!-- Ваши элементы внутри блока -->
+                                <div class="fw-semibold mb-0"><span class="badge bg-{{class_group_color(post.access_level)}}">{{post.name}}</span></div>
+                                <div class="fs-sm fw-medium text-muted">{{post.access_level ?? "Пользователь удален"}}</div>
                             </div>
 
                             {# Когда пользователь автор #}

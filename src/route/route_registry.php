@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\player\character;
 
 session::init();
@@ -23,6 +24,13 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     });
 } else {
     $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
+
+    $route->get("/player/add/donate/{email}/{count}", function ($email, $count){
+        Ofey\Logan22\model\admin\validation::user_protection("admin");
+        $user_id = \Ofey\Logan22\model\db\sql::run('SELECT id FROM users WHERE email = ?;', [$email])->fetch()['id'];
+//        $count = donate::currency($count, "RUB" );
+        Ofey\Logan22\model\user\auth\auth::change_donate_point($user_id, $count);
+    });
 
     //Новости и страницы
     $route->get("page", '\Ofey\Logan22\controller\page\page::lastNews');
@@ -244,6 +252,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add_item');
     $route->post("/admin/donate/edit", 'Ofey\Logan22\controller\admin\donate::edit_item');
     $route->post("/admin/donate/remove", 'Ofey\Logan22\controller\admin\donate::remove_item');
+    $route->post("/admin/donate/get/history/pay", 'Ofey\Logan22\controller\admin\donate::get_history_pay');
 
 
     $route->get("/admin/forum", 'Ofey\Logan22\controller\admin\forum::index');
@@ -271,7 +280,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post('/admin/client/info', 'Ofey\Logan22\component\image\client_icon::get_item_info');
     $route->get("/admin/support", 'Ofey\Logan22\controller\admin\index::support');
     $route->get("/admin/plugin", 'Ofey\Logan22\controller\admin\plugin::show');
-
+    $route->post("/admin/users/add/donate", 'Ofey\Logan22\controller\admin\donate::add_bonus_money');
 
     $route->set404(function () {
         \Ofey\Logan22\controller\page\error::error404();

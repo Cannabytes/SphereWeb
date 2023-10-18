@@ -435,7 +435,7 @@ class auth {
         return false;
     }
 
-    public static function change_donate_point(int $user_id, float|int $amount): void {
+    public static function change_donate_point(int $user_id, float|int $amount): false|array {
         $user = self::exist_user_id($user_id);
         if (!$user) {
             //TODO: Тут возможно сделать ошибку с записью в файл
@@ -443,11 +443,10 @@ class auth {
         }
 
         $donate = include 'src/config/donate.php';
-        if ($donate['DONATE_DISCOUNT_TYPE_STORAGE']) {
-            $bonus_procent = donate::getBonusDiscount($user_id, $donate['discount']['table']);
-            $amount = ($bonus_procent / 100) * $amount;
-            if ($amount == 0) return;
-        }
+
+        $begin_donate = sql::getRow("SELECT `donate_point` FROM `users` WHERE `id` = ?", [$user_id])['donate_point'];
+        $bonus_procent = 0;
+        $bonus = 0;
 
         sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
             $amount,
@@ -462,19 +461,32 @@ class auth {
             time::mysql(),
         ]);
 
-        sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
-            $amount,
-            $user_id,
-        ]);
-        sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
-            $user_id,
-            $amount,
-            "+{$bonus_procent}% Бонус за пожертвование",
-            time::mysql(),
-            1, //Означает что это зачисление от sphere
-        ]);
+        if ($donate['DONATE_DISCOUNT_TYPE_STORAGE']) {
+            $bonus_procent = donate::getBonusDiscount($user_id, $donate['discount']['table']);
+            $bonus = ($bonus_procent / 100) * $amount;
+            if ($bonus != 0) {
+                sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+                    $bonus,
+                    $user_id,
+                ]);
+                sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
+                    $user_id,
+                    $bonus,
+                    "+{$bonus_procent}% Бонус за пожертвование",
+                    time::mysql(),
+                    1, //Означает что это зачисление от sphere
+                ]);
+            }
+        }
 
+        return [
+            "begin_donate" => $begin_donate,
+            "end_donate" => $begin_donate + $amount + $bonus,
+            "bonus" => $bonus,
+            "bonus_procent" => $bonus_procent,
+        ];
     }
+
 
     public static function exist_user_id($id) {
         self::$userInfo['id'] ??= '';

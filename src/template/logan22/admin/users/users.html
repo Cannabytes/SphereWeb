@@ -4,6 +4,67 @@
 
 {% block content %}
 
+
+<div class="modal fade" id="get_donate_history" tabindex="-1" role="dialog" aria-labelledby="get_donate_history" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-popout" role="document">
+        <div class="modal-content">
+        <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">История зачислений</h3>
+        </div>
+            <div class="block-content">
+                <table class="table table-sm table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 25%;">{{phrase("Sphere-Coin")}}</th>
+                        <th>pay_system</th>
+                        <th class="d-none d-sm-table-cell" style="width: 25%;">date</th>
+                    </tr>
+                    </thead>
+                    <tbody id="donate_pay_history_table">
+                    </tbody>
+                </table>
+            </div>
+         </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="add_donate_point" tabindex="-1" role="dialog" aria-labelledby="add_donate_point" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-popout" role="document">
+        <div class="modal-content">
+            <form action="{{dir}}/admin/users/add/donate" method="POST" class="block block-rounded shadow-none mb-0" data-function="is_add_donate">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Добавить пользователю {{phrase("Sphere-Coin")}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <input type="hidden" class="form-control" id="donate_user_id" name="id" value="" >
+                    <div class="col-lg-12 col-xl-12">
+
+                        <div class="mb-4">
+                            <label class="form-label" for="donate_user_email">Сколько добавить пользователю {{phrase("Sphere-Coin")}} ?</label>
+                            <input type="number" class="form-control" id="donate_user_email" name="point" value="0" >
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button id="save_add_donate_point_user" type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase("apply")}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user" aria-hidden="true">
     <div class="modal-dialog modal-dialog-popout" role="document">
         <div class="modal-content">
@@ -69,7 +130,7 @@
     <!-- Full Table -->
     <div class="block block-rounded">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Full Table</h3>
+            <h3 class="block-title">Пользователи</h3>
         </div>
         <div class="block-content">
             <div class="table-responsive">
@@ -94,16 +155,22 @@
                         </td>
                         <td>{{user.email}}</td>
                         <td class="fw-semibold">{{user.name}}</td>
-                        <td class="fw-semibold">{{user.donate_point}}</td>
+                        <td class="fw-semibold donate_point_{{user.id}}" >{{user.donate_point}}
+                            <button data-user-id="{{user.id}}" data-email="{{user.email}}" data-name="{{user.name}}" data-donate="{{user.donate_point}}" data-group="{{user.access_level}}" data-bs-toggle="modal" data-bs-target="#get_donate_history" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled get_donate_history" >
+                                <i class="fa fa-circle-question"></i>
+                            </button>
+                        </td>
                         <td>
                             <span class="badge bg-{% if user.access_level=='admin' %}danger{% elseif user.access_level=='user' %}info{% elseif user.access_level=='moderator' %}success{% endif %}">{{user.access_level}}</span>
                         </td>
                         <td class="text-center">
-                            <div class="btn-group">
+                                <button data-user-id="{{user.id}}" data-email="{{user.email}}" data-name="{{user.name}}" data-donate="{{user.donate_point}}" data-group="{{user.access_level}}" data-bs-toggle="modal" data-bs-target="#add_donate_point" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled add_donate_point" >
+                                    <i class="fa fa-handshake"></i>
+                                </button>
+
                                 <button data-user-id="{{user.id}}" data-email="{{user.email}}" data-name="{{user.name}}" data-donate="{{user.donate_point}}" data-group="{{user.access_level}}" data-bs-toggle="modal" data-bs-target="#modal-edit-user" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled user_edit_button" >
                                     <i class="fa fa-pencil-alt"></i>
                                 </button>
-                            </div>
                         </td>
                     </tr>
                     {% endfor %}

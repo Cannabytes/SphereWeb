@@ -403,24 +403,20 @@ ORDER BY
 
     static public function account_players(): string {
         return 'SELECT
-                    characters.account_name,
-                    characters.charId AS player_id,
-                    characters.char_name AS player_name,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    characters.title,
-                    characters.sex,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    clan_data.clan_name,
-                    characters.base_class AS class_id,
-                    characters.`level`,
-                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
-                    ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
-                FROM
-                    characters
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id 
-                WHERE
-                    characters.account_name = ?;';
+            characters.account_name, 
+            characters.charId AS player_id, 
+            characters.char_name AS player_name, 
+            characters.pvpkills AS pvp, 
+            characters.pkkills AS pk, 
+              characters.title,
+              characters.sex,
+            characters.clanid, 
+            characters.classid, 
+            characters.base_class AS class_id, 
+            characters.`online`, 
+            characters.onlinetime AS time_in_game
+        FROM
+            characters
+        WHERE  characters.account_name = ?;';
     }
 }

@@ -13,6 +13,7 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
 class donate {
@@ -66,4 +67,23 @@ class donate {
         }
         board::notice(false, "error");
     }
+
+
+    public static function add_bonus_money() {
+        validation::user_protection("admin");
+        $user_id = $_POST['id'];
+        $point = $_POST['point'];
+        $info = auth::change_donate_point($user_id, $point);
+        board::alert( [
+            "user_id" => $user_id,
+            "donate" => $info["end_donate"],
+        ]);
+    }
+
+    public static function get_history_pay(){
+        validation::user_protection("admin");
+        $user_id = $_POST['user_id'];
+        echo json_encode(\Ofey\Logan22\model\donate\donate::donate_history_pay_self($user_id));
+    }
+
 }

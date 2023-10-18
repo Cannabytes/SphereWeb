@@ -27,9 +27,12 @@ class donate {
      * @throws Exception
      * История платежей пользователя
      */
-    static public function donate_history() {
+    static public function donate_history($user_id = null) {
+        if (!$user_id){
+            $user_id = auth::get_id();
+        }
         $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC", [
-            auth::get_id(),
+            $user_id,
             auth::get_default_server(),
         ]);
 
@@ -228,7 +231,10 @@ class donate {
         ]);
     }
 
-    public static function donate_history_pay_self() {
+    public static function donate_history_pay_self($user_id = null): array {
+        if (!$user_id){
+            $user_id = auth::get_id();
+        }
         $pays = sql::getRows("SELECT
                                 donate_history_pay.point, 
                                 donate_history_pay.pay_system, 
@@ -239,7 +245,7 @@ class donate {
                                 donate_history_pay.user_id = ?
                             ORDER BY
                                 donate_history_pay.id DESC", [
-            auth::get_id(),
+            $user_id,
         ]);
         $trs = sql::getRows("SELECT
                                         log_transfer_spherecoin.*, 
@@ -257,7 +263,7 @@ class donate {
                                         user_sender = ? OR
                                         user_receiving = ?
                                     ORDER BY
-                                        log_transfer_spherecoin.id DESC", [auth::get_id(), auth::get_id()]);
+                                        log_transfer_spherecoin.id DESC", [$user_id, $user_id]);
         $result = array_merge($pays, $trs);
         usort($result, function ($a, $b) {
             return $a['date'] <=> $b['date'];

@@ -102,16 +102,9 @@ class Route extends Router {
     }
 
     private function add_alias($alias, $pattern) {
-        $scriptUrl = $_SERVER["REQUEST_URI"];
-        $subFolder = '';
-        if ($scriptUrl !== null) {
-            $folderName = dirname($scriptUrl);
-            $parts = explode("/", $folderName);
-            $subFolder = isset($parts[1]) ? "/" . $parts[1]  : '';
-        }
         self::$aliases[] = [
             'alias'   => $alias,
-            'pattern' => $subFolder . $pattern,
+            'pattern' => $pattern,
         ];
     }
 
