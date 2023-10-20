@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\component\alert;
 
 use Exception;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 
@@ -15,7 +16,7 @@ class logs {
 
         $sing = var_export($sing, true);
 
-        $directory = "uploads/logs/transaction/{$payName}/{$username}/";
+        $directory = fileSys::get_dir("uploads/logs/transaction/{$payName}/{$username}/");
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }

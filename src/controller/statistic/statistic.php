@@ -104,6 +104,7 @@ class statistic {
         }
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
         $sub_class = statistic_model::get_player_info_sub_class($char_name, $get_player_info['player_id']);
+
         tpl::addVar("player", $get_player_info);
         tpl::addVar("inventory", $inventory);
         tpl::addVar("sub_class", $sub_class);

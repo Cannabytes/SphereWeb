@@ -285,24 +285,24 @@ class L2jLovely implements structure {
 
     public static function statistic_player_info_sub_class(): string {
         return 'SELECT
-                        character_subclasses.class_id, 
-                        character_subclasses.`level`
+                    character_subclasses.class_id,
+                    character_subclasses.`level`
                     FROM
-                        character_subclasses
+                    character_subclasses
                     WHERE
-                        character_subclasses.char_obj_id = ? AND character_subclasses.isBase = 0';
+                    character_subclasses.charId = ?';
     }
 
     public static function statistic_player_inventory_info(): string {
         return 'SELECT
-                    items.item_type AS `item_id`,
-                    items.amount as `count`,
-                    items.location as `loc`,
-                    items.enchant as `enchant_level` 
+                    items.item_id AS `item_id`,
+                    items.count as `count`,
+                    items.loc as `loc`,
+                    items.enchant_level as `enchant_level` 
                 FROM
                     items 
                 WHERE
-                    ( items.location = "PAPERDOLL" OR items.location = "INVENTORY" ) 
+                    ( items.loc = "PAPERDOLL" OR items.loc = "INVENTORY" ) 
                     AND items.owner_id = ?';
     }
 
@@ -341,7 +341,7 @@ class L2jLovely implements structure {
     }
 
     public static function is_player(): string {
-        return 'SELECT `account_name` AS `login`, obj_Id as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
+        return 'SELECT `account_name` AS `login`, charId as player_id, online FROM characters WHERE char_name = ? LIMIT 1';
     }
 
     // Если need_logout_player_for_item_add = false тогда НЕ используется этот метод
@@ -365,7 +365,7 @@ class L2jLovely implements structure {
      * @return string
      */
     public static function add_item(): string {
-        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'SphereWeb')";
+        return "INSERT INTO `character_items` (`owner_id`, `item_id`, `count`, `enchant_level`) VALUES (?, ?, ?, ?)";
     }
 
     public static function count_online_player(): string {
@@ -374,31 +374,20 @@ class L2jLovely implements structure {
 
     public static function account_players(): string {
         return 'SELECT
-                    characters.account_name,
-                    characters.charId AS player_id,
-                    characters.char_name AS player_name,
-                    characters.karma,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    characters.createtime,
-                    characters.title,
-                    characters.sex,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    character_subclasses.class_id,
-                    character_subclasses.`level`,
-                    character_subclasses.isBase,
-                    clan_data.crest AS clan_crest,
-                    ally_data.crest AS alliance_crest,
-                    clan_subpledges.`name` AS `clan_name` 
-                FROM
-                    characters
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                    LEFT JOIN character_subclasses ON characters.charId = character_subclasses.char_obj_id
-                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
-                WHERE
-                    characters.account_name = ? 
-                    AND character_subclasses.isBase = 1';
+            characters.account_name, 
+            characters.charId AS player_id, 
+            characters.char_name AS player_name, 
+            characters.pvpkills AS pvp, 
+            characters.pkkills AS pk, 
+            characters.title,
+            characters.sex,
+            characters.clanid, 
+            characters.classid, 
+            characters.level,
+            characters.base_class AS class_id, 
+            characters.online, 
+            characters.onlinetime AS time_in_game
+             FROM characters WHERE 
+            characters.account_name = ?';
     }
 }
