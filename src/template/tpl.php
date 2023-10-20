@@ -134,14 +134,14 @@ class tpl {
         }
 
 
+
         $loader = new FilesystemLoader([
             fileSys::get_dir(self::$templatePath),
-            fileSys::get_dir("/src/component/plugins")
         ]);
 
-//        if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
-//            $loader->addPath(fileSys::get_dir("/src/component/plugins"));
-//        }
+        if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
+            $loader->addPath(fileSys::get_dir("/src/component/plugins"));
+        }
 
         include fileSys::get_dir("src/config/cache.php");
         $arrTwigConfig = [];
