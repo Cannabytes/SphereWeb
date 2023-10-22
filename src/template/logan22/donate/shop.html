@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <div class="content">
     {% if DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE %}
     <div class="block block-rounded">
@@ -24,7 +25,7 @@
                     <div class="fw-semibold">{{ grade_img(product['crystal_type'])|raw }} {{product['name']}}</div>
                 </div>
                 <div class="block-content block-content-full bg-body-light">
-                    <img class="img-avatar img-avatar-thumb img-avatar-rounded" src="{{ icon( product.icon ) }}" alt="">
+                    <img class="img-avatar img-avatar-thumb img-avatar-rounded " src="{{ icon( product.icon ) }}" alt="">
                 </div>
                 <div class="block-content block-content-full">
 
@@ -40,7 +41,7 @@
                         </tr>
                         <tr>
                             <td class="fw-medium">
-                                {{phrase(72)}}
+                                {{phrase(72)}} <label id="discount_item_{{product.id}}"></label>
                             </td>
                             <td class="text-center">
                                 <span id="product_cost_{{product.id}}" class="fw-semibold text-success">{%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase('Sphere-Coin')}}" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">{%endif%}
@@ -67,11 +68,11 @@
                    {% else %}
                     <div class="input-group">
                         <div class="form-floating">
-                            <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                            <input data-item-id="{{product.item_id}}" id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
                                    data-default_cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-id="{{product.id}}" type="number" min="1" class="count form-control" placeholder="{{phrase(71)}}">
                             <label for="user_value_{{product.id}}">{{phrase("how_much_to_buy")}}</label>
                         </div>
-                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
+                        <button data-item-id="{{product.item_id}}" data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
                             {{phrase(74)}}
                         </button>
                     </div>
@@ -148,6 +149,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}

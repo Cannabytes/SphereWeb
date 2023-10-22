@@ -112,11 +112,27 @@ class donate {
 
         //Проверка на скидку по товару
         $donateInfo = require_once 'src/config/donate.php';
+
         if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
             $procentDiscount = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
             $decrease_factor = 1 - ($procentDiscount / 100);
             $cost_product *= $decrease_factor;
         }
+
+        if($donateInfo['DONATE_DISCOUNT_COUNT_ENABLE']){
+            $discount_count_product_table = $donateInfo["discount_count_product"]['table'] ?? [];
+            $discount_count_product_items = $donateInfo["discount_count_product"]['items'] ?? [];
+            if(in_array($donat_info['item_id'], $discount_count_product_items) or empty($discount_count_product_items)){
+                $procentDiscount = self::findValueForN($user_value, $discount_count_product_table);
+                if($procentDiscount){
+                    $decrease_factor = 1 - ($procentDiscount / 100);
+                    $cost_product *= $decrease_factor;
+                }
+            }
+        }
+
+        //$cost_product округлить в меньшую сторону
+        $cost_product = floor($cost_product);
 
         if ($cost_product > auth::get_donate_point()) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
@@ -310,5 +326,22 @@ class donate {
             }
         }
     }
+
+    //Возвращает % скидки
+    private static function findValueForN($inputN, $keyValueObject = 0) {
+        if(!is_array($keyValueObject)){
+            return 0;
+        }
+        $result = null;
+        foreach ($keyValueObject as $key => $value) {
+            $currentKey = (int)$key;
+            if ($currentKey > $inputN) {
+                break;
+            }
+            $result = $value;
+        }
+        return $result;
+    }
+
 
 }

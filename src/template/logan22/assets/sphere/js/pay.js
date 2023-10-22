@@ -5,21 +5,62 @@ $("#countValue").val( ( currency_exchange.min_donate_bonus_coin+currency_exchang
 
 
 $(".count").change(function () {
-    id = $(this).data("id");
-    default_count = $(this).data("default_count");
-    default_cost = $(this).data("default_cost");
-    user_value = $(this).val();
+    let id = $(this).data("id");
+    let item_id = $(this).data("item-id");
+    let default_count = $(this).data("default_count");
+    let default_cost = $(this).data("default_cost");
+    let user_value = $(this).val();
     if (user_value <= 0) {
         $(this).val(1);
         return;
     }
-    count = default_count * user_value;
-    $("#product_count_" + id).text(count.toLocaleString('de-DE', {maximumFractionDigits: 2}));
-    $("#product_cost_" + id).text(default_cost * user_value);
+    let count = default_count * user_value;
+    let cost = default_cost * user_value;
+    if (currency_exchange.DONATE_DISCOUNT_COUNT_ENABLE) {
+        let obj = currency_exchange.discount_count_product.table;
+        let items = currency_exchange.discount_count_product.items;
+
+        if (items.length === 0 || items.includes(item_id)) {
+            let discount = findValueForN(user_value, obj);
+
+            if (discount) {
+                cost = reduceByPercentage(cost, discount);
+                $("#discount_item_" + id).text("(-" + discount + "%)");
+            } else {
+                $("#discount_item_" + id).text("");
+            }
+        }
+    }
+
+    $("#product_count_" + id).text(count);
+    $("#product_cost_" + id).text(Math.floor(cost));
 });
+
+function reduceByPercentage(number, percentage) {
+    if (percentage >= 0 && percentage <= 100) {
+        return number * (1 - percentage / 100);
+    } else {
+        console.log('Error: Percentage should be in the range from 0 to 100.');
+        return number;
+    }
+}
+
+function findValueForN(inputN, keyValueObject) {
+    let result = null;
+    for (const key in keyValueObject) {
+        const currentKey = parseInt(key);
+        if (currentKey > inputN) {
+            break;
+        }
+        result = keyValueObject[key];
+    }
+    return result;
+}
+
 
 $(document).on("click", ".openWindowBuy", function () {
     id = $(this).data("product-id");
+    let item_id = $(this).data("item-id");
 
     name = $(this).data("product-name");
     count = $(this).data("product-count");
@@ -31,6 +72,24 @@ $(document).on("click", ".openWindowBuy", function () {
     if (user_value == 0) {
         user_value = $("#user_value_" + id).val();
     }
+
+    if (currency_exchange.DONATE_DISCOUNT_COUNT_ENABLE) {
+        let obj = currency_exchange.discount_count_product.table;
+        let items = currency_exchange.discount_count_product.items;
+
+        if (items.length === 0 || items.includes(item_id)) {
+            let discount = findValueForN(user_value, obj);
+
+            if (discount) {
+                cost = reduceByPercentage(cost, discount);
+                $("#discount_item_" + id).text("(-" + discount + "%)");
+            } else {
+                $("#discount_item_" + id).text("");
+            }
+        }
+    }
+
+
     $("#user_count_buy").text(count*user_value);
     $("#user_worth_buy").text(cost*user_value);
 

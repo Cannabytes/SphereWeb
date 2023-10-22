@@ -57,6 +57,9 @@ class pay {
             }
         }
         tpl::addVar("DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE", $donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']);
+        tpl::addVar("DONATE_DISCOUNT_COUNT_ENABLE", $donateInfo['DONATE_DISCOUNT_COUNT_ENABLE']);
+        tpl::addVar("discount_count_product_table", $donateInfo["discount_count_product"]['table']);
+        tpl::addVar("discount_count_product_items", $donateInfo["discount_count_product"]['items']);
         tpl::addVar("procentProductDiscount", $point);
         tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
