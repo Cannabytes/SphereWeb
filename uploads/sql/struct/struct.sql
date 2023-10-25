@@ -489,13 +489,14 @@ CREATE TABLE `tickets_image`  (
 DROP TABLE IF EXISTS `user_variables`;
 CREATE TABLE `user_variables`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `server_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  `var` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `val` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `var` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `val` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   `date_create` datetime NULL DEFAULT current_timestamp(),
   `date_update` datetime NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`, `user_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for users

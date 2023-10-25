@@ -53,7 +53,7 @@ class auth {
     //bonus
     private static ?bool $ban_gallery = false;
     private static ?array $bonus = [];
-    private static array $user_variables = [];
+    public static array $user_variables = [];
 
     public static function get_user_variables($var, $default = null): mixed {
         return self::$user_variables[$var] ?? ($default ?? false);
@@ -306,9 +306,16 @@ class auth {
             }
             return;
         }
-        $vars = sql::getRows("SELECT * FROM `user_variables` WHERE `user_id` = ?", [self::get_id(),]);
+
+        $vars = sql::getRows("SELECT * FROM `user_variables` WHERE `user_id` = ? AND (`server_id` IS NULL OR `server_id` = ?)", [self::get_id(),
+            self::get_default_server()
+        ]);
+        if (!$vars) {
+            return;
+        }
+
         foreach ($vars as $var) {
-            self::$user_variables[$var['var']] = $var;
+           self::$user_variables[$var['var']] = $var;
         }
     }
 

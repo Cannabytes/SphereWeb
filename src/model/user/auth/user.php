@@ -7,10 +7,15 @@ use Ofey\Logan22\model\db\sql;
 
 class user {
 
+    public static function get_variable($var) {
+        auth::get_user_variables($var);
+    }
+
     //Установка простого значения переменной пользователя
-    public static function set_variable($var, $val) {
-        sql::run("DELETE FROM `user_variables` WHERE `var` = ? AND `user_id` = ?", [$var, auth::get_id()]);
-        sql::run("INSERT INTO `user_variables` (`user_id`, `var`, `val`) VALUES (?, ?, ?)", [auth::get_id(), $var, $val]);
+    //Если server_id не указан, то устанавливается значение для всех серверов, в основном нужен для плагинов, где важен учет сервера
+    public static function set_variable($var, $val, $server_id = null) {
+        sql::run("DELETE FROM `user_variables` WHERE `var` = ? AND `user_id` = ? AND `server_id` = ?", [$var, auth::get_id(), $server_id]);
+        sql::run("INSERT INTO `user_variables` (`server_id`,`user_id`, `var`, `val`) VALUES (?, ?, ?, ?)", [$server_id, auth::get_id(), $var, $val]);
     }
 
     public static function getUsersByName($name) {
