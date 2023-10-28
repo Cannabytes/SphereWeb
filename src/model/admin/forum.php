@@ -41,4 +41,17 @@ class forum {
     public static function closeSection($close, $id): false|PDOStatement|null {
         return sql::run("UPDATE `forum_section` SET `is_close` = ? WHERE `id` = ?", [$close, $id], true, false);
     }
+
+    public static function closeTopic(int $close, int $id): false|PDOStatement|null {
+        return sql::run("UPDATE `forum_topics` SET `is_close` = ? WHERE `id` = ?", [$close, $id], true, false);
+    }
+
+    public static function pinTopic(int $pin, int $id): false|PDOStatement|null {
+        return sql::run("UPDATE `forum_topics` SET `pin` = ? WHERE `id` = ?", [$pin, $id], true, false);
+    }
+
+    public static function topicMove(mixed $topic_move, mixed $topic_id) {
+        return sql::run("UPDATE `forum_topics` SET `section_id` = ? WHERE `id` = ?", [$topic_move, $topic_id], true, false);
+    }
+
 }

@@ -23,6 +23,9 @@
                         </div>
                     </div>
 
+
+
+
                     <div class="col-lg-12 ">
                         <div class="mb-4">
                             <textarea class="form-control writepanel" id="js-ckeditor" name="message" placeholder="" rows="8"></textarea>
@@ -30,9 +33,29 @@
                     </div>
                 </div>
 
+                {% if user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+                <hr>
+                <div class="row">
+                <div class="col-lg-2">
+                    <p class="text-muted">
+                        Вы можете указать ссылку вместо темы обсуждения
+                    </p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="mb-4">
+                        <input type="text" class="js-maxlength form-control"
+                               name="link" placeholder="" >
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+
+                <hr>
+
+
                 <div class="mb-4">
                     <button type="submit" class="btn btn-alt-primary">
-                        <i class="fa fa-reply opacity-50 me-1"></i> Reply
+                        <i class="fa fa-reply opacity-50 me-1"></i> Создать
                     </button>
                 </div>
 

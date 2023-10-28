@@ -1,0 +1,419 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://game-updater.online/tpl/css/dir.css?v1">
+
+<div class="content">
+
+    <div class="block block-rounded">
+                <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                    <div>
+                        <button id="startLauncher" type="button" class="btn btn-sm btn-secondary me-1 mb-1" >
+                            Запустить лаунчер
+                        </button>
+                    </div>
+                    <div class="text-end">
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user d-sm-none"></i>
+                                <div id="loaderConnect" class="spinner-border spinner-border-sm text-danger" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <span class="d-none d-sm-inline-block fw-semibold text-white " id="launcherConnectStatusName" data-phrase="launcher">Лаунчер</span>
+                                <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                                <div class="px-2 py-3 bg-body-light rounded-top">
+                                    <h5 class="h6 text-center mb-0 " data-phrase="setting">
+                                        Настройки
+                                    </h5>
+                                </div>
+                                <div class="p-2">
+
+                                    <label role="button" data-bs-toggle="modal" data-bs-target="#settings" class="dropdown-item d-flex align-items-center justify-content-between space-x-1" >
+                                        <span data-phrase="setting">Настройки</span>
+                                        <i class="fa fa-cogs opacity-25"></i>
+                                    </label>
+
+                                    <label id="getClientWay" role="button" data-bs-toggle="modal" data-bs-target="#settingWay" class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
+                                        <span data-phrase="way_to_game">Пути к игре</span>
+                                        <i class="fa fa-folder-open opacity-25"></i>
+                                    </label>
+                                    <div class="dropdown-divider"></div>
+
+                                    <!-- Toggle Side Overlay -->
+                                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                    <label role="button" data-bs-toggle="modal" data-bs-target="#isNeedUpdate" class="dropdown-item d-flex align-items-center justify-content-between space-x-1 isCheckUpdate">
+                                        <span data-phrase="updates">Обновления</span>
+                                        <i class="fa fa-tachometer opacity-25"></i>
+                                    </label>
+
+                                    <label role="button" class="dropdown-item d-flex align-items-center justify-content-between space-x-1" >
+                                        <span><a target="_blank" href="https://raw.githubusercontent.com/Cannabytes/cannabytes.github.io/main/updater/Launcher.exe" data-phrase="download_launcher">Скачать Launcher</a></span>
+                                        <i class="fa fa-download opacity-25"></i>
+                                    </label>
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <label role="button" data-bs-toggle="modal" data-bs-target="#launcherAbout" class="dropdown-item d-flex align-items-center justify-content-between space-x-1" >
+                                        <span data-phrase="about_launcher">О программе</span>
+                                        <i class="fa fa-info-circle opacity-25"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   </div>
+
+
+
+
+
+    <div id="msgUpdLauncher" class="alert alert-danger d-none" role="alert">
+        <div class="d-flex justify-content-between">
+            <p class="mb-0" id="textMsgUpdateLauncher">
+                Ваш лаунчер устарел. Вам необходимо обновиться.
+            </p>
+            <button type="button" class="btn btn-success btn-sm launcherUpdateStart">Обновить</button>
+        </div>
+    </div>
+
+    <div class="row" id="contentMain"></div>
+    <hr>
+
+    <div class="row">
+        <div class="col-xl-12 align-items-stretch">
+            <div class="block block-rounded block-themed block-mode-loading-dark block-transparent bg-image w-100" style="background-image: url('/src/component/plugins/launcher/tpl/img/loadlineage.jpg');">
+                <div class="block-header bg-black-50">
+                    <h1 class="h1 fw-extrabold mb-1" id="processRunLevel">0<small class="text-white">%</small></h1>
+
+                    <label id="processName"></label>
+                    <div class="block-options">
+                        <div class="mb-4">
+                            <div class="input-group">
+                        <span class="input-group-text cursor-pointer" role="button" data-bs-toggle="modal" data-bs-target="#selectDirClient">
+                          <i class="fa fa-folder-open"></i>
+                        </span>
+                                <select class="form-select" id="selectClient" ></select>
+                                <button type="button" class="btn btn-secondary" data-phrase="start_update" data-toggle="click-ripple" id="startUpdateGame" >Начать обновиться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-content bg-black-50 p-4" id="progressBarData">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Row #3 -->
+        <div class="col-md-12">
+            <div class="block block-rounded block-bordered">
+                <div class="block-header block-header-default border-bottom">
+                    <h3 class="block-title" data-phrase="logs">...</h3>
+                </div>
+                <div class="block-content">
+                    <table class="table table-borderless table-striped">
+                        <tbody id="eventNotification">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="selectDirClient" tabindex="-1" role="dialog" aria-labelledby="selectDirClient" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title" id="dirfullpath"></h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm" id="dirlist">
+                    </div>
+                    <div class="block-content block-content-full block-content-sm  border-top">
+                        <div class="block block-rounded block-link-shadow mb-3" href="javascript:void(0)">
+                            <p class="fs-sm fw-medium text-muted float-sm-end mb-1">
+                                <button type="button" class="btn btn-alt-primary saveDirClient " data-bs-dismiss="modal" data-phrase="apply">
+                                    Применить
+                                </button>
+
+                            </p>
+                            <div class="text-start ">
+                                <label data-phrase="need_select_client_dir">Выберите папку клиента для 1232 </label> <b class="chronicle">High Five</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="settings" tabindex="-1" role="dialog" aria-labelledby="settings" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title " data-phrase="setting_launcher">Настройки лаунчера</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm">
+
+
+                        <div class="block block-rounded row g-0 overflow-hidden">
+                            <ul class="nav nav-tabs nav-tabs-block flex-md-column col-md-3 rounded-0" role="tablist">
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 active " data-phrase="files" id="btabs-vertical-home-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-home" role="tab" aria-controls="btabs-vertical-home" aria-selected="true">
+                                        Файлы
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="autoload" id="btabs-vertical-profile-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-profile" role="tab" aria-controls="btabs-vertical-profile" aria-selected="false">
+                                        Автозагрузка
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="autoupdate_launcher" id="btabs-vertical-settings-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-settings" role="tab" aria-controls="btabs-vertical-settings" aria-selected="false">
+                                        Автообновление
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="stream" id="btabs-vertical-stream-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-stream" role="tab" aria-controls="btabs-vertical-stream" aria-selected="false">
+                                        Потоки
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-maxSizeFile-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-maxSizeFile" role="tab" aria-controls="btabs-vertical-maxSizeFile" aria-selected="false">
+                                        Сравнение файлов
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-blacklistfiles-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-blacklistfiles" role="tab" aria-controls="btabs-vertical-blacklistfiles" aria-selected="false">
+                                        Черный список файлов
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content col-md-9">
+                                <div class="block-content tab-pane active" id="btabs-vertical-home" role="tabpanel" aria-labelledby="btabs-vertical-home-tab" tabindex="0">
+                                    <h4 class="fw-semibold">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" value="" id="isClientFilesArchive" name="isClientFilesArchive" checked>
+                                            <label class="form-check-label " data-phrase="is_save_loading_file" for="isClientFilesArchive">Сохранять загруженные файлы</label>
+                                        </div>
+                                    </h4>
+                                    <p class="fs-sm " data-phrase="is_save_loading_file_desc">
+                                        Если "Да", лаунчер будет сохранять файлы патчей, для того чтоб не загружать их в будущем в случае если когда-то ранее Вы его уже загружали.
+                                        Данная опция может сократить время загрузки.
+                                    </p>
+                                </div>
+                                <div class="block-content tab-pane" id="btabs-vertical-profile" role="tabpanel" aria-labelledby="btabs-vertical-profile-tab" tabindex="0">
+                                    <h4 class="fw-semibold">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" value="" id="autoStartLauncher" name="autoStartLauncher">
+                                            <label class="form-check-label" for="autoStartLauncher" data-phrase="autoload">Автозагрузка</label>
+                                        </div>
+
+                                    </h4>
+                                    <p class="fs-sm" data-phrase="autoload_desc">
+                                        Лаунчер не нужно будет запускать, он не потербляет память. После старта Windows, лаунчер будет загружен в память, и срабатывать только при обращении к нему.
+                                    </p>
+                                </div>
+                                <div class="block-content tab-pane" id="btabs-vertical-settings" role="tabpanel" aria-labelledby="btabs-vertical-settings-tab" tabindex="0">
+                                    <h4 class="fw-semibold">
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" value="" id="autoUpdateLauncher" name="autoUpdateLauncher">
+                                            <label class="form-check-label" for="autoUpdateLauncher" data-phrase="autoupdate_launcher">Автообновление</label>
+                                        </div>
+
+                                    </h4>
+                                    <p class="fs-sm" data-phrase="autoupdate_launcher_desc">
+                                        Лаунчер будет периодически проверять обновление, и обновляться если вышла новая версия.
+                                    </p>
+                                </div>
+
+                                <div class="block-content tab-pane" id="btabs-vertical-stream" role="tabpanel" aria-labelledby="btabs-vertical-stream-tab" tabindex="0">
+
+                                    <label class="form-check-label" for="countStream" data-phrase="countStream">Кол-во потоков загрузки</label>
+                                    <input type="number" min="1" class="form-control" value="5" id="countStream" name="countStream">
+                                    <p class="fs-sm" data-phrase="countStream_description">
+                                        Если у Вас мощный процессор и широкий канал инетернета, можете увеличить.
+                                    </p>
+                                    <p class="fs-sm" id="countStreamRecommended"></p>
+                                </div>
+
+                                <div class="block-content tab-pane" id="btabs-vertical-maxSizeFile" role="tabpanel" aria-labelledby="btabs-vertical-maxSizeFile-tab" tabindex="0">
+
+                                    <label class="form-check-label" for="countStream" >Макс. размер файла для сравнения по хэшу</label>
+                                    <input type="number" min="1" class="form-control" value="20" id="maxSizeFile" name="maxSizeFile">
+                                    <p class="fs-sm" >
+                                        По умолчанию: 20MB<br>
+                                        Работает так: Во время нажатия обновление патча, идет сверка файлов Вашего игрового клиента и файлов патча сервера.<br>
+                                        Большие файлы, можно сравнивать по кол-во их размеру, Вам необходимо указать размер больших файлов.
+                                    </p>
+                                </div>
+
+                                <div class="block-content tab-pane" id="btabs-vertical-blacklistfiles" role="tabpanel" aria-labelledby="btabs-vertical-blacklistfiles-tab" tabindex="0">
+
+                                    <label class="form-label" for="save_file_black_list">Черный список файлов</label>
+                                    <textarea class="form-control valid" id="fileslist" name="val-suggestions" rows="5" placeholder="options.ini" aria-describedby="val-suggestions-error" aria-invalid="false"></textarea>
+
+                                    <br>
+                                    <button id="save_file_black_list" type="submit" class="btn btn-primary">Применить</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-end border-top">
+                        <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal" data-phrase="close">
+                            Закрыть
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="settingWay" tabindex="-1" role="dialog" aria-labelledby="settingWay" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title" data-phrase="setting_way_to_game">Настройка путей</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm">
+                        <div class="tab-content col-md-12 col-xxl-12" id="settingWayTableInfo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="isNeedUpdate" tabindex="-1" role="dialog" aria-labelledby="isNeedUpdate" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title" data-phrase="update">Обновление</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm">
+                        <div id="isNeedUpdateInfo">Обновление не требуется.</div><br>
+                        Ваша версия лаунчера: <strong class="launcherVersion">0.0</strong><br>
+                        Последняя версия лаунчера: <strong class="lastLauncherVersion">0.0</strong>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-end border-top">
+                        <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" data-phrase="apply">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="launcherAbout" tabindex="-1" role="dialog" aria-labelledby="launcherAbout" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title" data-phrase="about_launcher">О программе</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content fs-sm" data-phrase="launcher_description">
+                        Web-Launcher - это программа для обновления и загрузки файлов игры.<br>
+                        Лаунчер использует передовые технологии, для обеспечения максимальной скорости и удобства использования.<br>
+                        Моя цель - сделать один простой, функциональный лаунчер, на всё комьюнити Lineage 2.<br>
+                        Чтоб игроку не приходилось под каждый сервер иметь свою программу для обновления игры.<br>
+                        <br>
+                    </div>
+                    <div class="block-content block-content-full block-content-sm text-end border-top">
+                        <button type="button" class="btn btn-alt-primary saveDirClient" data-bs-dismiss="modal" data-phrase="ok">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+{% endblock %}
+
+{% block js %}
+
+
+<script>
+    $("#startLauncher").click(function() {
+        window.location.href = "web-launcher://open";
+    });
+
+    var domain = window.location.hostname;
+
+    try {
+        var serverInfo = JSON.parse(`{    "id": 9,    "chronicle": "Interlude",    "name": "anygame Interlude+",    "list": "https:\\/\\/testlk.acepvp.net\\/updater\\/acePvPsave\\/client.csv",    "storage": "https:\\/\\/testlk.acepvp.net\\/updater\\/acePvPsave\\/",    "forumLink": "",    "registrationLink": "",    "descriptionLink": "",    "enable": 1,    "application": [        {            "id": 9,            "l2exe": "\\/system\\/l2.exe",            "args": null,            "background": "uploads\\/button\\/lineage2_load_2.jpg",            "name": {                "ru": "Запустить игру",                "en": "Launch game",                "es": "Abrir juego",                "pt": "Iniciar jogo",                "tr": "Oyunu başlat"            },            "description": {                "ru": null,                "en": null,                "es": null,                "pt": null,                "tr": null            }        }    ]}`);
+    } catch (error) {
+        alert('Ошибка при парсинге JSON:', error);
+    }
+    console.log(serverInfo.application)
+    var serverID =  serverInfo.id;
+    var chronicle = serverInfo.chronicle;
+    var name = serverInfo.name;
+    var domain = serverInfo.domain;
+    var application = serverInfo.application;
+    var listPatch = serverInfo.list;
+    var storage = serverInfo.storage;
+    var enabledLauncher = Boolean(serverInfo.enable);
+
+</script>
+
+<script src="/src/component/plugins/launcher/tpl/js/lang.js?v2"></script>
+<script src="/src/component/plugins/launcher/tpl/js/general.js?v5"></script>
+<script src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v5"></script>
+<script src="/src/component/plugins/launcher/tpl/js/ajaxrequest.js?v5"></script>
+
+
+{% endblock %}

@@ -207,15 +207,16 @@ WHERE
         }
     }
 
-    public static function addTopic(mixed $section, mixed $topicName, mixed $message) {
-        $sql = sql::sql("INSERT INTO `forum_topics` (`section_id`, `name`, `last_post_user_id`, `last_post_user_name`, `author_id`, `author_user_name`) VALUES (?, ?, ?, ?, ?, ?)",
+    public static function addTopic(mixed $section, mixed $topicName, mixed $message, $link = null) {
+        $sql = sql::sql("INSERT INTO `forum_topics` (`section_id`, `name`, `last_post_user_id`, `last_post_user_name`, `author_id`, `author_user_name`, `link`) VALUES (?, ?, ?, ?, ?, ?, ?)",
             [
                 $section,
                 $topicName,
                 auth::get_id(),
                 auth::get_name(),
                 auth::get_id(),
-                auth::get_name()
+                auth::get_name(),
+                $link
             ]);
         $lastIDTopic = sql::lastInsertId();
 

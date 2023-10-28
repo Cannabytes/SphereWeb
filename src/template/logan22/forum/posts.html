@@ -5,15 +5,76 @@
 {% block content %}
 <div class="content">
 
+    {% if user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+    <div class="block block-rounded overflow-hidden">
+        <ul class="nav nav-tabs nav-tabs-block" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="btabs-animated-fade-home-tab" data-bs-toggle="tab" data-bs-target="#btabs-animated-fade-home" role="tab" aria-controls="btabs-animated-fade-home" aria-selected="true">Настройки темы</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="btabs-animated-fade-profile-tab" data-bs-toggle="tab" data-bs-target="#btabs-animated-fade-profile" role="tab" aria-controls="btabs-animated-fade-profile" aria-selected="false" tabindex="-1">Переместить</button>
+            </li>
+            <li class="nav-item ms-auto" role="presentation">
+                <button class="nav-link" id="btabs-animated-fade-settings-tab" data-bs-toggle="tab" data-bs-target="#btabs-animated-fade-settings" role="tab" aria-controls="btabs-animated-fade-settings" aria-selected="false" tabindex="-1">
+                    <i class="si si-settings"></i>
+                </button>
+            </li>
+        </ul>
+        <div class="block-content tab-content overflow-hidden">
+            <div class="tab-pane fade active show" id="btabs-animated-fade-home" role="tabpanel" aria-labelledby="btabs-animated-fade-home-tab" tabindex="0">
+                {# Модер панель #}
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" value="" data-is-close="{{topic.is_close}}" data-topic-id="{{topic.id}}" id="topic_close" name="topic_close" {% if topic.is_close %}checked=""{% endif %}>
+                    <label class="form-check-label" for="topic_close">Закрыть тему</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" value="" data-topic-id="{{topic.id}}" id="topic_pin" name="topic_pin" {% if topic.pin %}checked=""{% endif %}>
+                    <label class="form-check-label" for="topic_pin">Закрепить тему</label>
+                </div>
+                <br>
+            </div>
+            <div class="tab-pane fade" id="btabs-animated-fade-profile" role="tabpanel" aria-labelledby="btabs-animated-fade-profile-tab" tabindex="0">
+
+                <div class="mb-4">
+                    <label class="form-label">В какой раздел перенести тему?</label>
+                    <div class="row">
+
+                    <div class="col-4">
+                        <select id="topic_select" data-topic-id="{{topic.id}}" class="form-select form-control-lg valid" aria-describedby="be-contact-subject-error" aria-invalid="false">
+                            {% for data in all_sections_data %}
+                            <option disabled>{{data.name}}</option>
+                            {% for datasect in data.sections %}
+                            <option value="{{datasect.id}}" {% if datasect.id == section.id %}selected{% endif %}>- {{datasect.name}}</option>
+                            {% endfor %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <button data-topic-id="{{topic.id}}" data-section-id="{{section.id}}" data-topic-page="{{currentPage}}" id="topic_move" type="button" class="btn btn-info">Переместить</button>
+                    </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="btabs-animated-fade-settings" role="tabpanel" aria-labelledby="btabs-animated-fade-settings-tab" tabindex="0">
+                <h4 class="fw-normal">Settings Content</h4>
+                <p>Content fades in..</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <nav class="breadcrumb push bg-body-extra-light rounded-pill px-4 py-2">
         <a class="breadcrumb-item ajaxload" href="{{dir}}/forum">{{phrase(62)}}</a>
         <a class="breadcrumb-item ajaxload" href="{{dir}}/forum/threads/{{section.id}}">{{section.name}}</a>
-        <span class="breadcrumb-item active">{{topic.name}}</span>
+        <span class="breadcrumb-item active">{% if topic.is_close %}<i class="fa fa-lock opacity-50"></i>{% endif %} {{topic.name}}</span>
     </nav>
 
     <div class="block block-rounded">
         <div class="block-header block-header-default">
-            <h3 class="block-title">{{topic.name}}</h3>
+            <h3 class="block-title">{% if topic.is_close %}<i class="fa fa-lock opacity-50"></i>{% endif %} {{topic.name}}</h3>
             <div class="block-options">
                 {% if countPages > 1 %}
                 <nav aria-label="Page navigation">
@@ -195,7 +256,7 @@
 
 
     {% if user_info('get_is_auth') %}
-    {% if section.is_close == 0 or user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+    {% if (topic.is_close == 0) or user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
     <div class="block block-rounded">
         <ul class="list list-activity ">
             <li class="timeline-event">

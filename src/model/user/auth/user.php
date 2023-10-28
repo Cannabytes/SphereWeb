@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\model\user\auth;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 
 class user {
@@ -15,7 +16,11 @@ class user {
     //Если server_id не указан, то устанавливается значение для всех серверов, в основном нужен для плагинов, где важен учет сервера
     public static function set_variable($var, $val, $server_id = null) {
         sql::run("DELETE FROM `user_variables` WHERE `var` = ? AND `user_id` = ? AND `server_id` = ?", [$var, auth::get_id(), $server_id]);
-        sql::run("INSERT INTO `user_variables` (`server_id`,`user_id`, `var`, `val`) VALUES (?, ?, ?, ?)", [$server_id, auth::get_id(), $var, $val]);
+        sql::run("INSERT INTO `user_variables` (`server_id`,`user_id`, `var`, `val`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?)",
+            [
+                $server_id, auth::get_id(), $var, $val, time::mysql(), time::mysql()
+            ]);
+        return sql::lastInsertId();
     }
 
     public static function getUsersByName($name) {

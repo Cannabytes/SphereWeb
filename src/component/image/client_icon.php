@@ -28,7 +28,7 @@ class client_icon {
     }
 
     public static function get_item_info($item_id = 0, $json = true){
-        validation::user_protection("admin");
+        validation::user_protection();
         if($item_id === 0) {
             $item_id = $_POST['itemID'] ?? null;
             if($item_id === null) {

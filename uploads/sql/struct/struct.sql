@@ -172,16 +172,18 @@ CREATE TABLE `forum_topics`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `section_id` int(11) NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `post_id` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `data_create` datetime NULL DEFAULT current_timestamp(),
+  `post_id` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `data_create` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `replies` int(11) NULL DEFAULT 1,
   `last_post_id` int(11) NULL DEFAULT NULL,
   `last_post_user_id` int(11) NULL DEFAULT NULL,
   `last_post_user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `date_update` datetime NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
+  `date_update` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `pin` int(11) NULL DEFAULT 0,
   `author_id` int(11) NULL DEFAULT NULL,
   `author_user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `is_close` int(11) NULL DEFAULT 0,
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 

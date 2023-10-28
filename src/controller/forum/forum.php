@@ -138,16 +138,17 @@ class forum {
         $section_id = $_POST['sectionID'] ?? board::notice(false, lang::get_phrase(501));
         $topicName = $_POST['topicName'] ?? "";
         $message = $_POST['message'] ?? "";
-
+        $link = null;
         if (auth::get_access_level() != "admin" && auth::get_access_level() != "moderator") {
             if( (time() - ((int)auth::get_user_variables("last_time_forum_topic_add")['val'] ?? 0) )  < 60){
                 board::error("Вы слишком часто создаете темы");
             }
             \Ofey\Logan22\model\user\auth\user::set_variable("last_time_forum_topic_add", time());
+        }else{
+            $link = $_POST['link'] ?? null;
         }
-
         $msgTrims = trim(htmlspecialchars_decode(strip_tags($message)), " &nbsp;\t\n\r\0\x0B\xC2\xA0");
-        if (empty($msgTrims)) {
+        if (empty($msgTrims) and $link == null) {
             board::notice(false, lang::get_phrase(502));
         }
 
@@ -159,7 +160,7 @@ class forum {
             }
         }
 
-        $topicIDs = internal::addTopic($section_id, $topicName, $message);
+        $topicIDs = internal::addTopic($section_id, $topicName, $message, $link);
         $section = internal::getSectionInfo($section_id);
         if ($section['is_close']) {
             board::notice(false, lang::get_phrase(503));
@@ -209,11 +210,16 @@ class forum {
     }
 
     public static function getPosts($sectionID, $topicID, $currentPage): void {
-        $section = internal::getSectionInfo($sectionID);
         $topicInfo = internal::getTopic($topicID);
         if (!$topicInfo) {
             redirect::location("/forum");
         }
+        if($topicInfo['link']!=null){
+            redirect::location($topicInfo['link']);
+        }
+        $section = $topicInfo['section_id'];
+        $section = internal::getSectionInfo($section);
+
         $totalPosts = sql::getRow("SELECT COUNT(*) AS `count` FROM forum_posts WHERE topic_id = ?", [$topicID])['count'];
         if ($currentPage == 0) {
             $totalPages = ceil($totalPosts / self::$perPage);
@@ -226,6 +232,16 @@ class forum {
         }
         $countPages = ceil($totalPosts / self::$perPage);
         $lastMessageID = max(array_column($posts, 'id'));
+
+        //Если пользователь админ или модератор
+        if (auth::get_access_level() == "admin" || auth::get_access_level() == "moderator") {
+            $sectionData = internal::getCategoryInfo();
+            foreach($sectionData as &$v){
+                $v['sections'] = sql::getRows("SELECT * FROM forum_section WHERE category_id = ?", [$v['id']]);
+            }
+            tpl::addVar("all_sections_data", $sectionData);
+        }
+
         tpl::addVar("lastMessageID", $lastMessageID);
         tpl::addVar("section", $section);
         tpl::addVar("currentPage", $currentPage);
@@ -268,7 +284,16 @@ class forum {
             return preg_replace('/\$1/', $html, $replacement, 1);
         }, $message);
 
-        $section_id = internal::getTopic($topicID)['section_id'];
+        $topic = internal::getTopic($topicID);
+        if(!$topic){
+            board::notice(false, "Тема не найдена");
+        }
+        if (auth::get_access_level() != "admin" && auth::get_access_level() != "moderator") {
+            if ($topic['is_close'] == 1) {
+                board::error("Тема закрыта");
+            }
+        }
+        $section_id = $topic['section_id'];
         $section = internal::getSectionInfo($section_id);
         if (auth::get_access_level() == "user") {
             if ($section['is_close']) {
@@ -321,5 +346,6 @@ class forum {
         tpl::addVar("topics", $topics);
         tpl::display("/forum/topics.html");
     }
+
 
 }

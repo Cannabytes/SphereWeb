@@ -168,18 +168,20 @@ function responseAnalysis(response, form) {
             eval(code);
         });
 
-        form.find(':input:not(:hidden)').val('');
+        if (form !== undefined) {
+            form.find(':input:not(:hidden)').val('');
+        }
+
         preload()
-
-
 
     }
 
-
-    var func = form.attr("data-function");
-    if (func !== undefined) {
-        window[func](response, form);
-        return;
+    if (form !== undefined) {
+        var func = form.attr("data-function");
+        if (func !== undefined) {
+            window[func](response, form);
+            return;
+        }
     }
 
 }

@@ -55,8 +55,9 @@
         <i class="si si-pin fa-2x"></i>
     </td>{% endif %}
     <td {% if topic.pin == false %}colspan="2"{% endif %}>
+        {% if topic.is_close %}<i class="fa fa-lock opacity-50"></i>{% endif %}
         <a class="fw-semibold ajaxload" href="{{dir}}/forum/threads/{{section.id}}/{{ topic.id }}">{{ topic.name }}</a>
-        <div class="fs-sm text-muted mt-1"> {{phrase("last_message_author")}}
+        <div class="fs-sm text-muted mt-1">{{phrase("last_message_author")}}
             <a href="#">{{topic.last_post_user_name}}</a>
         </div>
     </td>

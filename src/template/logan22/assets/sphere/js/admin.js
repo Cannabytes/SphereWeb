@@ -399,8 +399,40 @@ $(document).on("click", ".get_donate_history", function () {
             });
             console.log(info);
         })
-        .catch(function(error) {
+        .catch(function (error) {
             // Обработка ошибки, если AJAX-запрос не удался
             console.error("Ошибка при выполнении AJAX-запроса: " + error);
         });
+});
+
+
+$(document).on("click", "#topic_close", function () {
+    topic_id = $(this).data('topic-id');
+    is_close = $("#topic_close").prop("checked");
+    AjaxSend(baseHref + "/admin/forum/topic/close", "POST", {
+        topic_id: topic_id,
+        is_close: is_close,
+    });
+});
+$(document).on("click", "#topic_pin", function () {
+    topic_id = $(this).data('topic-id');
+    is_pin = $("#topic_pin").prop("checked");
+    AjaxSend(baseHref + "/admin/forum/topic/pin", "POST", {
+        topic_id: topic_id,
+        is_pin: is_pin,
+    });
+});
+$(document).on("click", "#topic_move", function () {
+    topic_move = $("#topic_select").val();
+    topic_id   = $(this).data('topic-id');
+    section_id = $(this).data('section-id');
+    topic_page = $(this).data('topic-page');
+
+   AjaxSend(baseHref + "/admin/forum/topic/move", "POST", {
+        topic_move: topic_move,
+        topic_id: topic_id,
+        section_id: section_id,
+        topic_page: topic_page,
+    });
+
 });

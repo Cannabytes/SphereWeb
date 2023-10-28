@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
+use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\player\character;
 
@@ -264,6 +265,10 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("/admin/forum/edit/section", 'Ofey\Logan22\controller\admin\forum::editSection');
     $route->post("/admin/forum/remove/section", 'Ofey\Logan22\controller\admin\forum::removeSection');
     $route->post("/admin/forum/section/close", 'Ofey\Logan22\controller\admin\forum::closeSection');
+    $route->post("/admin/forum/topic/close", 'Ofey\Logan22\controller\admin\forum::closeTopic');
+    $route->post("/admin/forum/topic/pin", 'Ofey\Logan22\controller\admin\forum::pinTopic');
+    $route->post("/admin/forum/topic/move", 'Ofey\Logan22\controller\admin\forum::topicMove');
+
 
     $route->get("/admin/chat", '\Ofey\Logan22\controller\admin\chat::show');
     $route->post("/admin/chat/find/message", '\Ofey\Logan22\controller\admin\chat::find_message');
@@ -277,7 +282,10 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->post("/chat", 'Ofey\Logan22\controller\chat\chat::show');
 
-    $route->post('/admin/client/info', 'Ofey\Logan22\component\image\client_icon::get_item_info');
+    $route->post('/admin/client/info', function (){
+        validation::user_protection("admin");
+        Ofey\Logan22\component\image\client_icon::get_item_info();
+    });
     $route->get("/admin/support", 'Ofey\Logan22\controller\admin\index::support');
     $route->get("/admin/plugin", 'Ofey\Logan22\controller\admin\plugin::show');
     $route->post("/admin/users/add/donate", 'Ofey\Logan22\controller\admin\donate::add_bonus_money');
