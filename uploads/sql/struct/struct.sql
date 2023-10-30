@@ -23,16 +23,16 @@ CREATE TABLE `bonus`  (
 DROP TABLE IF EXISTS `bonus_code`;
 CREATE TABLE `bonus_code`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET latin1 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `server_id` int(11) NULL DEFAULT NULL,
   `item_id` int(11) NULL DEFAULT NULL,
   `count` int(11) NULL DEFAULT 1,
   `enchant` int(11) NULL DEFAULT 0,
-  `phrase` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `phrase` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `start_date_code` datetime NULL DEFAULT NULL,
   `end_date_code` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for chat
@@ -40,13 +40,14 @@ CREATE TABLE `bonus_code`  (
 DROP TABLE IF EXISTS `chat`;
 CREATE TABLE `chat`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` int(11) NULL DEFAULT NULL,
+  `type` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `message` varchar(1200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `player` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `date` datetime NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `server` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
 
 -- ----------------------------
 -- Table structure for donate
