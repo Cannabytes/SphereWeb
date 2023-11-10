@@ -216,9 +216,14 @@ let phrase = {
 
 };
 
-function getPhrase(fphrase, lang){
-    return phrase[lang][fphrase] ?? `No Phrase ${fphrase}`;
+function getPhrase(fphrase, lang) {
+    if (phrase && phrase[lang] && phrase[lang][fphrase]) {
+        return phrase[lang][fphrase];
+    } else {
+        return `No Phrase ${fphrase}`;
+    }
 }
+
 
 var word_need_start_launcher;
 var word_no_download;
@@ -232,9 +237,6 @@ var word_not_dir;
 var word_file_upload;
 var word_file_comparison;
 var word_launcher;
-
-var userLang = "en";
-
 
 loadWorld()
 
@@ -258,12 +260,4 @@ function loadWorld() {
     word_file_upload = getPhrase("file_upload", userLang);
     word_file_comparison = getPhrase("file_comparison", userLang);
     word_launcher = getPhrase("launcher", userLang);
-}
-
-
-function loadUserLang() {
-    userLang = getCookie("lang")
-    if (userLang === null) {
-        userLang = setLangNavigator()
-    }
 }

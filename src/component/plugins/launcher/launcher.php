@@ -19,6 +19,9 @@ class launcher {
         if (!server::get_server_info()) {
             tpl::display("error/not_server.html");
         }
+        $config = include __DIR__ . "/config.php";
+        tpl::addVar('userLang', lang::lang_user_default());
+        tpl::addVar("code", base64_encode(json_encode($config['server'][1])));
 
         tpl::displayPlugin("/launcher/tpl/show.html");
     }

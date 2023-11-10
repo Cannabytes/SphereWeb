@@ -1,0 +1,35 @@
+figure {
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    margin-right: 10px; /* Задайте желаемое значение для расстояния между изображениями */
+}
+
+figure:hover .name {
+    color: red; /* Задайте желаемый цвет текста при наведении */
+}
+
+figcaption {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+figcaption.name {
+    max-width: 80px; /* Задайте желаемую ширину для обрезки текста */
+    white-space: nowrap; /* Запретить перенос текста на новую строку */
+    overflow: hidden; /* Скрыть выходящий за пределы области текст */
+    text-overflow: ellipsis; /* Добавить многоточие (...) для обозначения обрезанного текста */
+}
+
+figcaption.name:hover {
+    color: red; /* Задайте желаемый цвет текста при наведении */
+}
+
+.linkdir:hover {
+    color: red;
+    cursor: pointer;
+}

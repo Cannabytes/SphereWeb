@@ -413,6 +413,18 @@ class tpl {
             return lang::lang_user_default();
         }));
 
+        $twig->addFunction(new TwigFunction('strip_html_tags', function ($text) {
+            return strip_tags($text);
+        }));
+
+
+
+        //Удаление сообщения тегов форума из текста
+        $twig->addFunction(new TwigFunction('forum_message_clear_tag', function ($message) {
+            $pattern = '/\[(.*?)\]/s';
+            return preg_replace($pattern, '', $message);
+        }));
+
         $twig->addFunction(new TwigFunction('last_forum_message', function ($last_message = 10) {
             return forum::get_last_message($last_message);
         }));

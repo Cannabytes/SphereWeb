@@ -1,0 +1,335 @@
+.footer {
+	padding-top: 65px;
+
+	.box {
+		position: relative;
+		display: grid;
+		width: 100%;
+		grid-template-columns: 1fr auto 1fr;
+		grid-gap: 25px;
+		align-items: center;
+		padding-top: 40px;
+		overflow: hidden;
+
+		.text {
+			position: relative;
+			display: block;
+			color: $w11;
+			font-size: 11px;
+
+			a {
+				position: relative;
+				display: inline-block;
+				color: $w;
+
+				@include s-min(x1000) {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		.logo {
+			position: relative;
+			display: block;
+			width: 168px;
+
+			a {
+				position: relative;
+				display: block;
+				width: 100%;
+				top: -40px;
+
+				img {
+					position: relative;
+					display: block;
+					width: 100%;
+					height: auto;
+					@include transition(0.2s);
+				}
+
+				@include s-min(x1000) {
+					&:hover {
+						img {
+							transform: scale(0.9);
+						}
+					}
+				}
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 600px;
+				height: 1px;
+				background: $c1;
+				top: 0;
+				right: calc(100% + 35px);
+				pointer-events: none;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 600px;
+				height: 1px;
+				background: $c1;
+				top: 0;
+				left: calc(100% + 35px);
+				pointer-events: none;
+			}
+		}
+
+		.navi {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+
+			ul {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+
+				li {
+					position: relative;
+					display: block;
+
+					a {
+						position: relative;
+						display: inline-block;
+						color: $w11;
+						font-size: 14px;
+
+						@include s-min(x1000) {
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+
+			.coolness {
+				position: relative;
+				display: block;
+				width: 104px;
+				height: 27px;
+				background: url(../images/coolness.png) no-repeat;
+				margin: 26px 0 0 auto;
+
+				@include s-min(x1000) {
+					&:hover {
+						opacity: 0.7;
+					}
+				}
+			}
+		}
+	}
+
+	@include s-max(x1100) {
+		padding-bottom: 30px;
+
+		.box {
+			grid-template-columns: 1fr;
+
+			.logo {
+				grid-row: 1;
+				margin: 0 auto -50px;
+			}
+
+			.text {
+				grid-row: 2;
+				text-align: center;
+			}
+
+			.navi {
+				grid-row: 3;
+
+				ul {
+					flex-wrap: wrap;
+					max-width: 600px;
+					margin: 0 auto;
+					justify-content: center;
+
+					li {
+						margin: 5px 15px;
+					}
+				}
+
+				.coolness {
+					margin: 27px auto 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+.vote-box {
+	position: fixed;
+	display: block;
+	width: 100%;
+	max-width: 1920px;
+	height: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 90;
+
+	.wrapper {
+		position: absolute;
+		display: block;
+		width: 63px;
+		bottom: 13px;
+		left: 0;
+		@include transition(0.2s);
+
+		ul {
+			position: relative;
+			display: block;
+
+			li {
+				position: relative;
+				display: block;
+				
+				& + li {
+					margin-top: 13px;
+				}
+
+				a {
+					position: relative;
+					display: flex;
+					width: 63px;
+					min-height: 45px;
+					padding: 5px 1px;
+					color: $w;
+					font-size: 12px;
+					line-height: 11px;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					z-index: 1;
+
+					&:before {
+						content: '';
+						position: absolute;
+						display: block;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						z-index: -1;
+						@include transition(0.2s);
+						background-size: 100% 100% !important;
+					}
+
+					&:hover {
+						width: 80px;
+					}
+				}
+
+				&:nth-child(7n - 0) a:before {
+					background: url(../images/vote-1.png) no-repeat center;
+				}
+				&:nth-child(7n - 1) a:before {
+					background: url(../images/vote-2.png) no-repeat center;
+				}
+				&:nth-child(7n - 2) a:before {
+					background: url(../images/vote-3.png) no-repeat center;
+				}
+				&:nth-child(7n - 3) a:before {
+					background: url(../images/vote-4.png) no-repeat center;
+				}
+				&:nth-child(7n - 4) a:before {
+					background: url(../images/vote-5.png) no-repeat center;
+				}
+				&:nth-child(7n - 5) a:before {
+					background: url(../images/vote-6.png) no-repeat center;
+				}
+				&:nth-child(7n - 6) a:before {
+					background: url(../images/vote-7.png) no-repeat center;
+				}
+			}
+		}
+
+		.btn {
+			position: absolute;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			color: $w;
+			font-size: 14px;
+			line-height: 16px;
+			width: 30px;
+			padding: 10px 0;
+			box-shadow: 0px 5px 4px 0px rgba(39, 155, 255, 0.08);
+			@include rad(0 3px 3px 0);
+			bottom: 0;
+			left: calc(100% + 3px);
+			flex-direction: column;
+			overflow: hidden;
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				background-image: -moz-linear-gradient( 90deg, #1031ff 0%, rgb(13,204,255) 100%);
+				background-image: -webkit-linear-gradient( 90deg, #1031ff 0%, rgb(13,204,255) 100%);
+				background-image: -ms-linear-gradient( 90deg, #1031ff 0%, rgb(13,204,255) 100%);
+				-webkit-animation-name: vote;
+				-webkit-animation-duration: 2s;
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-direction: inherit;
+				-webkit-animation-timing-function: ease-in-out;
+				top: 50%;
+				left: 50%;
+				margin: -50px 0 0 -50px;
+			}
+
+			span {
+				position: relative;
+				display: block;
+			}
+		}
+
+		@include s-max(x1400) {
+			transform: translateX(-100%);
+
+			&.toggle {
+				transform: translateX(0%);
+			}
+
+			.btn {
+				display: flex;
+			}
+		}
+	}
+}
+
+
+@-webkit-keyframes vote {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+@-moz-keyframes vote {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+@-o-keyframes vote {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+@keyframes vote {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}

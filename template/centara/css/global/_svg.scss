@@ -1,0 +1,20 @@
+@mixin svg($name) {
+    mask: url(../images/svg/#{$name}.svg) no-repeat center / contain;
+    -webkit-mask: url(../images/svg/#{$name}.svg) no-repeat center / contain;
+}
+
+i.svg {
+    position: relative;
+    display: block;
+    background-color: $w;
+    width: 20px;
+    height: 20px;
+    flex: none;
+
+    &.telegram{@include svg(telegram);}
+    &.vk{@include svg(vk);}
+    &.enter{@include svg(enter);}
+    &.dollar{@include svg(dollar);}
+    &.right-arrow{@include svg(right-arrow);}
+    &.chatting{@include svg(chatting);}
+}

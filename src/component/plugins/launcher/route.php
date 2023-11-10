@@ -9,6 +9,14 @@ $routes = [
                 (new launcher\launcher())->show();
             },
        ],
+       [
+            "method"  => "GET",
+            "pattern" => "/launcher/{name}",
+            "file"    => "launcher.php",
+            "call"    => function() {
+                (new launcher\launcher())->show();
+            },
+       ],
 
         [
             "method"  => "GET",

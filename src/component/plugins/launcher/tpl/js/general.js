@@ -14,9 +14,8 @@ $(".chronicle").text(chronicle)
 
 var url = new URL("https://" + domain);
 $(".mainDomain").text(url.hostname);
-$('title').text(word_launcher + ' ' + url.hostname + ' ' + chronicle);
+$('title').text(word_launcher + " " + chronicle);
 
-loadUserLang()
 showButtonStartGame()
 $(document).on('click', '#getClientWay', function () {
     if (isConnectSocket) {
@@ -190,7 +189,7 @@ $(document).on('click', '.startL2', function () {
 
 $('.modal').on('show.bs.modal', function (event) {
     var targetModal = $(event.relatedTarget).data('bs-target');
-    if (targetModal === '#launcherAbout') {
+    if (targetModal === '#launcherAbout' || targetModal === "#modal-start-launcher") {
         return true;
     }
     if (isConnectSocket === false && isConnectAjax === false) {
@@ -210,7 +209,7 @@ $("#dirlist").on("click", ".direction", function () {
     direction(allPath)
 });
 
-$(document).on(".launcherUpdateStart", "click", function () {
+$(document).on( "click", ".launcherUpdateStart", function () {
     if (isConnectAjax === false && isConnectSocket === false) {
         errorMessage(word_need_start_launcher)
         return;

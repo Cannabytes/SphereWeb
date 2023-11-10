@@ -20,7 +20,8 @@ function AJAX_checkConnection() {
     }
     AJAX_sendToLauncher(obj)
         .then(function (response) {
-            $("#startLauncher").hide()
+            $("#block_start_launcher").hide()
+            // $("#startLauncher").hide()
             console.log("Успешное соединение с ajax")
             isConnectAjax = true;
             AJAX_firstRequest();
@@ -168,8 +169,10 @@ function AJAX_responseMessage(response) {
     AJAX_ResponseGetChronicleDirectory(response);
     AJAX_ResponseGetAllConfig(response);
     AJAX_ResponseGetVersionLauncher(response);
+    AJAX_ResponseNeedClientUpdate(response);
     AJAX_ResponseError(response)
     AJAX_ResponseGetClientWay(response)
+
 }
 
 function AJAX_ResponseisConnectAjax(response) {
@@ -420,6 +423,11 @@ function AJAX_ResponseGetVersionLauncher(response) {
         }
     }
 
+}
+
+function AJAX_ResponseNeedClientUpdate(response) {
+    if (response.command !== "needClientUpdate") return;
+    errorMessage(response.message)
 }
 
 function AJAX_ResponseError(response) {

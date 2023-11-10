@@ -1,0 +1,518 @@
+.menu {
+	position: fixed;
+	display: block;
+	width: 100%;
+	max-width: 1920px;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 100;
+
+	&.fixed {
+		background: rgba($bg, 0.9) !important;
+
+		.wrapper {
+			height: 70px !important;
+		}
+	}
+
+	@include s-max(x1100) {
+		background: rgba($bg, 0.9) !important;
+
+		.wrapper {
+			height: 70px !important;
+			padding: 0 15px;
+		}
+	}
+
+	.wrapper {
+		position: relative;
+		display: flex;
+		width: calc(100% - 10px);
+		max-width: 1200px;
+		margin: 0 auto;
+		height: 120px;
+		align-items: center;
+
+		@include s-min(x1100) {
+			ul {
+				position: relative;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				max-width: 950px;
+				margin-right: 20px;
+
+				li {
+					position: relative;
+					display: block;
+
+					& + li {
+						margin-left: 48px;
+					}
+
+					& > a {
+						position: relative;
+						display: flex;
+						color: $w;
+						font-size: 16px;
+
+						&.yellow {
+							color: $y;
+							z-index: 1;
+
+							&:before {
+								content: '';
+								position: absolute;
+								display: block;
+								top: -11px;
+							    left: -23px;
+							    right: -23px;
+							    bottom: -11px;
+								border: 2px solid $y;
+								@include transition(0.2s);
+								z-index: -1;
+							}
+						}
+
+						&:hover {
+							color: $y;
+
+							&.yellow {
+								color: $b;
+
+								&:before {
+									background: $y;
+								}
+							}
+						}
+					}
+
+					&.children {
+						& > a {
+							&:after {
+								content: '';
+								position: absolute;
+								display: block;
+								width: 6px;
+								height: 5px;
+								-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+								clip-path: polygon(0 0, 100% 0, 50% 100%);
+								top: 50%;
+								left: calc(100% + 8px);
+								transform: translateY(-50%);
+								background: $y;
+							}
+						}
+
+						.sub {
+							position: absolute;
+							display: block !important;
+							width: 250px;
+							left: 50%;
+							transform: translateX(-50%);
+							top: 100%;
+							padding-top: 30px;
+							pointer-events: none;
+
+							a {
+								position: relative;
+								display: flex;
+								width: 100%;
+								height: 36px;
+								align-items: center;
+								justify-content: center;
+								text-align: center;
+								color: $b;
+								z-index: 1;
+								font-size: 14px;
+								transform: translateY(10px);
+								visibility: hidden;
+								opacity: 0;
+
+								& + a {
+									margin-top: 3px;
+								}
+
+								&:nth-child(1) {transition-delay: 0s;}
+								&:nth-child(2) {transition-delay: 0.05s;}
+								&:nth-child(3) {transition-delay: 0.1s;}
+								&:nth-child(4) {transition-delay: 0.15s;}
+								&:nth-child(5) {transition-delay: 0.2s;}
+								&:nth-child(6) {transition-delay: 0.25s;}
+								&:nth-child(7) {transition-delay: 0.3s;}
+								&:nth-child(8) {transition-delay: 0.35s;}
+								&:nth-child(9) {transition-delay: 0.4s;}
+								&:nth-child(10) {transition-delay: 0.45s;}
+								
+								&:after {
+									content: '';
+									position: absolute;
+									display: block;
+									width: 100%;
+									height: 100%;
+									border: 1px solid $y;
+									background: rgba($y, 0.8);
+									top: 0;
+									left: 0;
+									transform: skew(-15deg);
+									z-index: -1;
+									@include transition(0.2s);
+								}
+
+								@include s-min(x1000) {
+									&:hover {
+										&:after {
+											background: rgba($y, 1);
+										}
+									}
+								}
+							}
+						}
+
+						&:hover {
+							.sub {
+								pointer-events: visible;
+
+								a {
+									transform: translateY(0px);
+									visibility: visible;
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include s-max(x1100) {
+			ul {
+				position: fixed;
+				display: flex;
+				width: 100%;
+				height: calc(100% - 70px);
+				top: 70px;
+				left: 0;
+				background: rgba($bg, 0.9);
+				overflow: hidden auto;
+				padding: 10px;
+				flex-direction: column;
+				visibility: hidden;
+				opacity: 0;
+				transform: translateY(40px);
+				pointer-events: none;
+				@include transition(0.2s);
+
+				&.toggle {
+					visibility: visible;
+					opacity: 1;
+					transform: translateY(0px);
+					pointer-events: visible;
+				}
+
+				li {
+					position: relative;
+					display: block;
+					width: 100%;
+					max-width: 320px;
+					margin: 0 auto;
+					flex: none;
+
+					& + li {
+						margin-top: 5px;
+					}
+
+					&:first-child {
+						margin-top: auto;
+					}
+
+					&:last-child {
+						margin-bottom: auto;
+					}
+					
+					a {
+						position: relative;
+						display: flex;
+						width: 100%;
+						height: 44px;
+						font-size: 16px;
+						background: $y;
+						color: $b1;
+						align-items: center;
+						justify-content: center;
+						text-align: center;
+					}
+
+					&.children > a {
+						padding: 0 15px;
+
+						&:after {
+							content: '';
+							position: absolute;
+							display: block;
+							width: 8px;
+							height: 7px;
+							-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+							clip-path: polygon(0 0, 100% 0, 50% 100%);
+							top: 50%;
+							right: 10px;
+							transform: translateY(-50%);
+							background: $b;
+						}
+					}
+
+					.sub {
+						position: relative;
+						display: none;
+						width: 100%;
+						padding: 0 0 0 5px;
+						border-left: 1px solid $y;
+						margin-top: 5px;
+
+						a {
+							padding-left: 25px;
+							text-align: left;
+							justify-content: flex-start;
+
+							&:before {
+								content: '';
+								position: absolute;
+								display: block;
+								width: 10px;
+								height: 12px;
+								background: $b;
+								-webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
+								clip-path: polygon(0 0, 100% 50%, 0 100%);
+								top: 50%;
+								transform: translateY(-50%);
+								left: 0;
+							}
+
+
+							& + a {
+								margin-top: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.lang {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: 15px;
+			cursor: pointer;
+
+			@include s-max(x1100) {
+				margin-right: 5px;
+			}
+
+			.current {
+				position: relative;
+				display: flex;
+				align-items: center;
+
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+					width: 6px;
+					height: 5px;
+					-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+					clip-path: polygon(0 0, 100% 0, 50% 100%);
+					top: 50%;
+					left: calc(100% + 8px);
+					transform: translateY(-50%);
+					background: $y;
+				}
+
+				.type {
+					position: relative;
+					display: block;
+					color: $w1;
+					font-size: 14px;
+					margin-right: 8px;
+				}
+
+				.ico {
+					position: relative;
+					display: flex;
+					width: 30px;
+					height: 30px;
+					border: 1px solid $y;
+					@include rad(50%);
+
+					img {
+						position: relative;
+						display: block;
+						width: 24px;
+						height: 24px;
+						margin: auto;
+						@include rad(50%);
+					}
+				}
+			}
+
+			.sub {
+				position: absolute;
+				display: block;
+				width: 30px;
+				right: 0;
+				top: 100%;
+				padding-top: 10px;
+				pointer-events: none;
+
+				a {
+					position: relative;
+					display: flex;
+					width: 30px;
+					height: 30px;
+					transform: translateY(10px);
+					visibility: hidden;
+					opacity: 0;
+
+					& + a {
+						margin-top: 5px;
+					}
+
+					&:nth-child(1) {transition-delay: 0s;}
+					&:nth-child(2) {transition-delay: 0.05s;}
+					&:nth-child(3) {transition-delay: 0.1s;}
+					&:nth-child(4) {transition-delay: 0.15s;}
+					&:nth-child(5) {transition-delay: 0.2s;}
+					&:nth-child(6) {transition-delay: 0.25s;}
+					&:nth-child(7) {transition-delay: 0.3s;}
+					&:nth-child(8) {transition-delay: 0.35s;}
+					&:nth-child(9) {transition-delay: 0.4s;}
+					&:nth-child(10) {transition-delay: 0.45s;}
+					
+					.ico {
+						position: relative;
+						display: flex;
+						width: 30px;
+						height: 30px;
+						border: 1px solid $y;
+						@include rad(50%);
+
+						img {
+							position: relative;
+							display: block;
+							width: 24px;
+							height: 24px;
+							margin: auto;
+							@include rad(50%);
+							@include transition(0.2s);
+							opacity: 0.7;
+						}
+					}
+
+					@include s-min(x1000) {
+						&:hover {
+							.ico {
+								img {
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&:hover {
+				.sub {
+					pointer-events: visible;
+
+					a {
+						transform: translateY(0px);
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.show-menu {
+			position: relative;
+			display: none;
+			width: 30px;
+			height: 21px;
+			margin-right: auto;
+			flex: none;
+
+			@include s-max(x1100) {
+				display: block;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 3px;
+				background: $w1;
+				top: 0;
+				left: 0;
+				@include transition(0.2s);
+				-webkit-transform: rotate(0deg) translate(0, 0);
+			    -ms-transform: rotate(0deg) translate(0, 0);
+			    transform: rotate(0deg) translate(0, 0);
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 3px;
+				background: $w1;
+				bottom: 0;
+				left: 0;
+				@include transition(0.2s);
+				-webkit-transform: rotate(0deg) translate(0, 0);
+			    -ms-transform: rotate(0deg) translate(0, 0);
+			    transform: rotate(0deg) translate(0, 0);
+			}
+
+			span {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 3px;
+				background: $w1;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				@include transition(0.2s);
+			}
+
+			&.toggle {
+				&:before {
+					-webkit-transform: rotate(45deg) translate(1px, -50%);
+				    -ms-transform: rotate(45deg) translate(1px, -50%);
+				    transform: rotate(45deg) translate(1px, -50%);
+				    top: 50%;
+				}
+
+				&:after {
+					-webkit-transform: rotate(-45deg) translate(1px, 50%);
+				    -ms-transform: rotate(-45deg) translate(1px, 50%);
+				    transform: rotate(-45deg) translate(1px, 50%);
+				    top: 50%;
+				}
+
+				span {
+					-webkit-transform: scale(0);
+				    -ms-transform: scale(0);
+				    transform: scale(0);
+				    visibility: hidden;
+				    opacity: 0;
+				}
+			}
+		}
+	}
+}

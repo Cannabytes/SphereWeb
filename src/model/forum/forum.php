@@ -13,13 +13,14 @@ use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\model\db\fdb;
+use Ofey\Logan22\model\db\sql;
 
 class forum {
 
-    static private string $engine = '';
-    static private string $url    = '';
+    private static string $engine = '';
+    private static string $url    = '';
 
-    static public function forum_enable(): bool {
+    public static function forum_enable(): bool {
         return config::get_forum_enable();
     }
 
@@ -28,7 +29,7 @@ class forum {
      *
      * @return string
      */
-    static public function get_engine(): string {
+    public static function get_engine(): string {
         if(self::$engine == '') {
             include_once 'src/config/forum.php';
             self::$engine = FORUM_ENGINE;
@@ -36,7 +37,7 @@ class forum {
         return self::$engine;
     }
 
-    static public function get_url($link = ''): string {
+    public static function get_url($link = ''): string {
         if(self::$url == '') {
             include_once 'src/config/forum.php';
             self::$url = FORUM_URL;
@@ -52,21 +53,30 @@ class forum {
      * @return array|bool|mixed|void
      * @throws Exception
      */
-    static public function get_last_message(int $n = 10) {
-        if(!self::forum_enable()) {
+    public static function get_last_message(int $n = 10) {
+        if (!self::forum_enable()) {
             return false;
         }
-        $actualCache = cache::read(dir::forum->show(), second: timeout::forum->time());
-        if($actualCache)
-            return $actualCache;
-        if(fdb::$error != null) {
-            return fdb::$error;
+
+        if(self::get_engine()=="sphere") {
+            return self::get_sphere_last_message($n);
         }
+
         $last_message = match (self::get_engine()) {
             "xenforo" => self::get_xenforo_last_message($n),
             "ipb" => self::get_ipb_last_message($n),
         };
-        if(fdb::$error) {
+
+//        var_dump($last_message);exit;
+
+        $actualCache = cache::read(dir::forum->show(), second: timeout::forum->time());
+        if ($actualCache) {
+            return $actualCache;
+        }
+        if (fdb::$error != null) {
+            return fdb::$error;
+        }
+        if (fdb::$error) {
             echo fdb::$messageError;
             return fdb::$error;
         }
@@ -77,7 +87,7 @@ class forum {
     /**
      * @throws Exception
      */
-    static private function get_xenforo_last_message(int $n = 10): bool|string|array {
+    private static function get_xenforo_last_message(int $n = 10): bool|string|array {
         $query = fdb::run('SELECT
                                 xf_post.username as username, 
                                 xf_post.post_date as post_date, 
@@ -97,7 +107,7 @@ class forum {
         return $query->fetchAll();
     }
 
-    static private function get_ipb_last_message(int $n = 10): bool|string|array {
+    private static function get_ipb_last_message(int $n = 10): bool|string|array {
         $query = fdb::run("SELECT
                         tid AS thread_id, 
                         title as title, 
@@ -117,7 +127,7 @@ class forum {
         return $query->fetchAll();
     }
 
-    static public function get_last_thread(int $n = 10) {
+    public static function get_last_thread(int $n = 10) {
         if(!self::forum_enable()) {
             return false;
         }
@@ -144,7 +154,7 @@ class forum {
      *
      * @return bool|array
      */
-    static public function get_xenforo_last_thread(int $n = 10): bool|array {
+    public static function get_xenforo_last_thread(int $n = 10): bool|array {
         $query = fdb::run('SELECT
                                     xf_thread.thread_id, 
                                     xf_thread.reply_count, 
@@ -169,42 +179,78 @@ class forum {
         return $query->fetchAll();
     }
 
-    static public function get_ipb_last_thread(int $n = 10): bool {
+    public static function get_ipb_last_thread(int $n = 10): bool {
         return false;
     }
 
     /**
      * Создание ссылки на форум
      */
-    static public function get_link($forum): string {
+    public static function get_link($forum): string {
         return match (self::get_engine()) {
             'xenforo' => self::link_xenforo($forum),
             'ipb' => self::link_ipb($forum),
+            'sphere' => self::link_sphere($forum),
             default => 'No Link',
         };
     }
 
-    static private function link_xenforo($forum): string {
+    private static function link_xenforo($forum): string {
         $thread_id = $forum['thread_id'];
         $post_id = $forum['post_id'];
         return sprintf("%s/index.php?threads/%s/#post-%s", self::get_url(), $thread_id, $post_id);
     }
 
-    static private function link_ipb($forum): string {
+    private static function link_ipb($forum): string {
         $id = $forum['id'];
         $title = $forum['title_seo'];
         return sprintf("%s/index.php?/topic/%s-%s/", self::get_url(), $id, $title);
     }
 
-    static public function user_avatar($user_id): string {
+    private static function link_sphere($forum): string {
+        $id = $forum['id'];
+        $section_id = $forum['section_id'];
+        $topic_id = $forum['topic_id'];
+        return sprintf("%s/forum/threads/{{message.section_id}}/{{ message.topic_id }}#{{message.id}}", "/forum", $section_id, $topic_id, $id);
+    }
+
+    public static function user_avatar($user_id): string {
         $image = match (self::get_engine()) {
             'xenforo' => sprintf("%s/data/avatars/m/0/%d.jpg", self::get_url(), $user_id),
             'ipb' => 'uploads/avatar/none.jpeg',
             default => 'No Link',
         };
-		if (!file_exists($image)) {
-			return 'uploads/avatar/none.jpeg';
-		}
-		return $image;
-     }
+        if (!file_exists($image)) {
+            return 'uploads/avatar/none.jpeg';
+        }
+        return $image;
+    }
+
+    private static function get_sphere_last_message(int $n): bool|array {
+        $query = sql::run('SELECT
+	forum_posts.id, 
+	forum_posts.topic_id, 
+	forum_posts.post, 
+	forum_posts.date_create, 
+	users.`name`, 
+	users.avatar, 
+	forum_topics.section_id
+FROM
+	forum_posts
+	INNER JOIN
+	users
+	ON 
+		forum_posts.user_id = users.id
+	INNER JOIN
+	forum_topics
+	ON 
+		forum_posts.topic_id = forum_topics.id
+ORDER BY
+	id DESC
+LIMIT ?', [$n,]);
+        if (sql::$error) {
+            return sql::$error;
+        }
+        return $query->fetchAll();
+    }
 }

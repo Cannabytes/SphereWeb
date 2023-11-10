@@ -32,7 +32,8 @@ function initWebSocket() {
 }
 
 function isConnectSocketed() {
-    $("#startLauncher").hide()
+    // $("#startLauncher").hide()
+    $("#block_start_launcher").hide()
     $("#loaderConnect").hide();
     $('#launcherConnectStatusName').removeClass('text-danger')
     $('#launcherConnectStatusName').addClass('text-white')
@@ -40,7 +41,8 @@ function isConnectSocketed() {
 }
 
 function isDisConnectSocketed() {
-    $("#startLauncher").show();
+    $("#block_start_launcher").show();
+    // $("#startLauncher").show();
     $("#loaderConnect").show();
     $('#launcherConnectStatusName').removeClass('text-white')
     $('#launcherConnectStatusName').addClass('text-danger')
@@ -100,7 +102,7 @@ function responseMessage(event) {
     ResponseGetChronicleDirectory(response);
     ResponseGetAllConfig(response);
     ResponseGetVersionLauncher(response);
-    // ResponseNeedClientUpdate(response);
+    ResponseNeedClientUpdate(response);
     ResponseError(response)
     ResponseGetClientWay(response)
     ResponseFilesList(response)
@@ -272,7 +274,7 @@ function ResponseDirection(response) {
     }
     if (response.folders != null) {
         response.folders.forEach(function (elem) {
-            $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/tpl/assets/media/dir/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
+            $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/src/component/plugins/launcher/tpl/img/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
         });
     } else {
         $("#dirlist").html(word_not_dir)
@@ -338,6 +340,11 @@ function ResponseGetVersionLauncher(response) {
 
 function ResponseError(response) {
     if (response.command !== "error") return;
+    errorMessage(response.message)
+}
+
+function ResponseNeedClientUpdate(response) {
+    if (response.command !== "needClientUpdate") return;
     errorMessage(response.message)
 }
 

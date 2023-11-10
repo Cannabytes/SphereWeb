@@ -1,0 +1,278 @@
+.stat-list {
+	position: relative;
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 20px auto 0;
+
+	a {
+		position: relative;
+		display: flex;
+		width: max-content;
+		height: 34px;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: $w8;
+		background: none;
+		border: 1px solid $y;
+		font-size: 14px;
+		@include transition(0.2s);
+		cursor: pointer;
+		font-family: $ff;
+		padding: 0 20px;
+		margin: 2px;
+
+		@include s-min(x1000) {
+			&:hover {
+				background: $y;
+				color: $b;
+			}
+		}
+
+		&.activ {
+			background: $y;
+			color: $b;
+		}
+	}
+}
+
+.stat-menu {
+	position: relative;
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 10px auto 0;
+
+	li {
+		position: relative;
+		display: block;
+		margin: 3px;
+
+		a {
+
+			&.activ {
+				background: $y;
+				color: $b;
+			}
+		}
+	}
+}
+
+.stats-title {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+	font-size: 14px;
+	margin: 15px auto;
+	text-transform: uppercase;
+
+	span {
+		color: $y;
+	}
+}
+
+.l2title {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: $y;
+	font-size: 14px;
+	margin: 15px auto;
+	text-transform: uppercase;
+}
+
+.raits-stats {
+	position: relative;
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(auto-fit, 70px);
+	grid-gap: 10px;
+	justify-content: center;
+
+	.item {
+		position: relative;
+		display: block;
+
+		span {
+			position: relative;
+			display: flex;
+			width: 50px;
+			height: 50px;
+			@include rad(50%);
+			align-items: center;
+			justify-content: center;
+			color: $y;
+			border: 2px solid $y;
+			font-size: 26px;
+			margin: 0 auto;
+		}
+
+		p {
+			position: relative;
+			display: flex;
+			width: 100%;
+			white-space: nowrap;
+			justify-content: center;
+			color: #9b9288;
+			font-size: 14px;
+			margin: 7px auto 0;
+		}
+	}
+}
+
+.stats-stats {
+	position: relative;
+	display: flex;
+	width: 100%;
+	grid-gap: 2px;
+
+	.item {
+		position: relative;
+		display: block;
+		width: 100%;
+		white-space: nowrap;
+		margin: 1px;
+
+		span {
+			position: relative;
+			display: block;
+			width: 100%;
+			padding: 7px 2px;
+			color: $b;
+			font-size: 12px;
+			background: $y;
+			text-align: center;
+		}
+
+		p {
+			position: relative;
+			display: block;
+			text-align: center;
+			border: 1px solid #483d37;
+			border-top: none;
+			color: $w;
+			font-size: 16px;
+			padding: 10px 5px;
+		}
+	}
+}
+
+#l2top {
+	width: 100%;
+	border-collapse: separate;
+    border-spacing: 2px 2px;
+
+    thead {
+    	tr {
+			background: $y;
+
+			th {
+				padding: 7px 2px;
+				color: $b;
+				font-size: 12px;
+				font-weight: normal;
+
+				&.name {
+					text-align: left;
+					padding-left: 15px;
+				}
+			}
+    	}
+    }
+
+    tbody {
+    	tr {
+			background: $b4;
+
+			td {
+				padding: 7px 2px;
+				color: $w;
+				font-size: 14px;
+				font-weight: normal;
+				text-align: center;
+				font-family: $ff;
+
+				&.name {
+					text-align: left;
+					padding-left: 15px;
+
+					small {
+						font-size: 10px;
+						color: $y;
+					}
+
+					b {
+						font-family: $ff;
+						font-weight: normal;
+					}
+				}
+
+				a {
+					color: #ff5e56;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				.l2offline {
+					color: #f00;
+				}
+				.l2online {
+					color: #0f0;
+				}
+			}
+    	}
+    }
+}
+
+#l2castle {
+	width: 100%;
+	border-collapse: separate;
+    border-spacing: 2px 5px;
+
+	tbody {
+    	tr {
+			background: $b4;
+
+			td {
+				padding: 7px 2px;
+				color: $w;
+				font-size: 14px;
+				font-weight: normal;
+				font-family: $ff;
+
+				&.l2left {
+					width: 180px;
+					text-align: center;
+					padding: 7px;
+				}
+
+				&.l2right {
+					padding: 7px 15px;
+				}
+
+				a {
+					color: #ff5e56;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				.l2offline {
+					color: #f00;
+				}
+				.l2online {
+					color: #0f0;
+				}
+			}
+    	}
+    }
+}

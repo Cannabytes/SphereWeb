@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{url}/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Description" content="stress, lineage2, la2, stressweb.ru">
+    <meta name="Keywords" content="stress, lineage2, la2, stressweb.ru">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{template}}/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="{{template}}/css/animate.css" rel="stylesheet" type="text/css"/>
+
+    <script src="{{template}}/js/jquery-3.2.1.min.js"></script>
+    <script src="{{template}}/js/js.js"></script>
+</head>
+<body>
+<div class="menu">
+    <div class="wrapper">
+        <a class="show-menu" onclick="showMenu();"><span></span></a>
+        <ul>
+            <li><a href="/">{{phrase("home")}}</a></li>
+            <li><a href="/registration/user">{{phrase("registration")}}</a></li>
+            <li><a href="/about">{{phrase("about server")}}</a></li>
+            <li><a href="/donate" class="yellow">{{phrase("donation")}}</a></li>
+            <li class="children">
+                <a href="#">{{phrase("community")}}</a>
+                <div class="sub">
+                    <a href="#">{{phrase("community_1")}}</a>
+                    <a href="#">{{phrase("community_2")}}</a>
+                    <a href="#">{{phrase("community_3")}}</a>
+                    <a href="#">{{phrase("community_4")}}</a>
+                </div>
+            </li>
+            <li><a href="#">{{phrase("download_patch")}}</a></li>
+        </ul>
+        <div class="lang">
+
+            {# Выводим список языков #}
+            {% for lang in lang_list() %}
+            {# Если нужно вывести где-то активный язык пользователя (установленый им/браузером) #}
+            {% if lang['isActive']==true %}
+            <div class="current">
+                <div class="type">{{lang['lang'] }}</div>
+                <div class="ico"><img src="/uploads/images/flags/{{lang['lang'] }}.png" alt=""></div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            {# Выводим список языков #}
+            {% for lang in lang_list() %}
+            {# Тут стоит false для того чтоб вывести языки, который пользователь может выбрать и из выбранных языков нет
+            языка интерфейса на данный момент #}
+            {% if lang['isActive']==false %}
+            <div class="sub">
+                <a href="/user/change/lang/{{lang['lang'] }}">
+                    <div class="ico"><img src="/uploads/images/flags/{{lang['lang'] }}.png" alt=""></div>
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<div id="main-content">
+    <header class="wrapper header">
+        <div class="inner">
+            <div class="box">
+                <div class="status">
+                    {% for server in server_online_status() %}
+                    <div class="item">
+                        <div class="desc">{% if server.connect_game %}ON{% else %}OFF{% endif %}</div>
+                        <div class="st">
+                            <svg width="113" height="113" class="progress" data-set="{{server.player_count_online}}">
+                                <defs>
+                                    <pattern id="image" patternUnits="userSpaceOnUse" height="113" width="113">
+                                        <image x="0" y="0" height="113" width="113"
+                                               xlink:href="{template}/images/st-2.png"></image>
+                                    </pattern>
+                                </defs>
+                                <circle stroke-width="10" fill="none" stroke="url(#image)" class="circle"/>
+                            </svg>
+                            <div class="text">
+                                <span>{{server.name}}</span>
+                                <p>x{{server.rate_exp}}</p>
+                                <p>{{server.chronicle}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="link"><a href="/statistic/pvp">{{phrase("statistic_server")}}</a></div>
+                </div>
+                <div class="logo">
+                    <a href="/"><span>LINEAGE 2 GAME PROJECT</span></a>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="side left">
+                    <a href="#" class="link-1">
+                        <i class="svg telegram"></i>
+                        <span>TELEGRAM</span>
+                    </a>
+                    <a href="#" class="link-2">
+                        <i class="svg enter"></i>
+                        <span>{{phrase("lk")}}</span>
+                    </a>
+                </div>
+                <a href="/startgame" class="start"><span>{{phrase("start_game")}}</span></a>
+                <div class="side right">
+                    <a href="#" class="link-2">
+                        <i class="svg dollar"></i>
+                        <span>{{phrase("donation")}}</span>
+                    </a>
+
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="flex">
+                    <div class="child item active">
+                        <div class="frame">
+                            <iframe src="https://www.youtube.com/embed/PhhDp0WQub8" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                    <div class="child item">
+                        <div class="frame"></div>
+                    </div>
+                </div>
+                <a onclick="galPrev()" class="prev"><i class="svg right-arrow"></i><span>Stream prev</span></a>
+                <a onclick="galNext()" class="next toggle"><span>Stream next</span><i class="svg right-arrow"></i></a>
+            </div>
+            <div class="gallery-text">{{phrase("stream_info")|raw}}</div>
+        </div>
+    </header>
+    <section class="wrapper content">
+        <div class="inner">
+            <div class="content-flex">
+                <div class="flex-left">
+
+                    <div class="shares-box">
+                        {% for news in last_news() %}
+                        <a class="item" href="/page/{{news.id}}">
+                            <span class="frame">
+                            <span style="background-image: url(/uploads/images/news/{{news.poster}});"></span></span>
+                            <span class="date">{{news.date_create|date("d.m.Y")}}</span>
+                            <span class="title">{{news.name}}</span>
+                            <span class="text">{{news.description|raw}}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="forum-box">
+                        <div class="main-title">{{phrase("messages_forum")}}</div>
+                        <div class="block">
+                            {% for message in last_forum_message() %}
+                            <div class="item">
+                                <a href="{{get_forum_link(message)}}">
+                                    <div class="ico"><i class="svg chatting"></i></div>
+                                    <div class="title">{{forum_message_clear_tag(message.message)}}</div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-right">
+                    <div class="side-item">
+                        <div class="main-title">{{phrase("top_players")}}</div>
+                        <div class="side-body">
+                            <div class="top-box">
+                                <ul class="tabs" data-rel-tabs="top-players-tabs">
+                                    {% for i, server in server_online_status() %}
+                                    <li><a data-href="top-{{server.id}}" class="all-btn {% if i==0 %}active{% endif %}">{{server.name}}
+                                        x{{server.rate_exp}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                {% for server in server_online_status() %}
+                                <div class="top-body" data-top-body="top-players-tabs">
+                                    <div class="block active" data-tab="top-{{server.id}}">
+                                        {% for i, char in statistic_get_pvp(server.id, 10) %}
+                                        <div class="item animated05 flipInY">
+                                            <div class="ch-1">
+                                                <div class="num">{{i+1}}</div>
+                                                <div class="name">{% if char.alliance_crest %}<img
+                                                        src="data:image/jpeg;base64,{{char.alliance_crest}}">{% endif
+                                                    %}{% if char.clan_crest %}<img
+                                                            src="data:image/jpeg;base64,{{char.clan_crest}}">{% endif
+                                                    %}{{ char.player_name }}
+                                                </div>
+                                            </div>
+                                            <div class="ch-2">{{ char.pvp }} / {{ char.pk }}</div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <div class="main-title">{{phrase("top_clans")}}</div>
+                        <div class="side-body">
+                            <div class="top-box">
+                                <ul class="tabs" data-rel-tabs="top-clans-tabs">
+                                    {% for i, server in server_online_status() %}
+                                    <li><a data-href="top-{{server.id}}" class="all-btn {% if i==0 %}active{% endif %}">{{server.name}}
+                                        x{{server.rate_exp}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                {% for i,server in server_online_status() %}
+
+                                <div class="top-body" data-top-body="top-clans-tabs">
+                                    <div class="block {% if i==0 %}active{% endif %}" data-tab="top-{{server.id}}">
+                                        {% for i, clan in statistic_get_clans(server.id, 10) %}
+                                        <div class="item animated05 flipInY">
+                                            <div class="ch-1">
+                                                <div class="num">{{i+1}}</div>
+                                                <div class="name">{{clan.clan_name}}</div>
+                                            </div>
+                                            <div class="ch-2">{{clan.clan_level}} LVL</div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <div class="main-title">{{phrase("quick_links")}}</div>
+                        <div class="side-body">
+                            <ul class="fast-links">
+                                <li><a href="#">• КАК НАЧАТЬ ИГРАТЬ НА СЕРВЕРЕ?</a></li>
+                                <li><a href="#">• НЕ МОГУ ЗАРЕГИСТРИРОВАТЬСЯ</a></li>
+                                <li><a href="#">• КАК СВЯЗАТЬСЯ САДМИНИСТРАЦИЕЙ?</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="wrapper footer">
+        <div class="inner">
+            <div class="box">
+                <div class="text">
+                    © 2021 Game portal <a href="/">worldcentara.com</a>
+                    <br><br>
+                    THIS SERVER IS A TEST VERSION OF LINEAGE II AND IS INTENDED ONLY TO KNOW PLAYERS. ALL RIGHTS
+                    RESERVED BY NCSOFT.
+                </div>
+                <div class="logo"><a href="/"><img src="{{template}}/images/logo.png" alt=""></a></div>
+                <div class="navi">
+                    <ul>
+                        <li><a href="/register">Регистрация</a></li>
+                        <li><a href="/download">Скачать файлы</a></li>
+                        <li><a href="#">Логин</a></li>
+                        <li><a href="#">Забыли пароль?</a></li>
+                        <li><a href="#">Форум</a></li>
+                    </ul>
+                    <a href="https://coolness.su" class="coolness" target="blank_"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="vote-box">
+    <div class="wrapper">
+        <a onclick="showVote();" class="btn">
+            <span>V</span>
+            <span>O</span>
+            <span>T</span>
+            <span>E</span>
+        </a>
+        <ul>
+            <li><a href="#">NETWORK</a></li>
+            <li><a href="#">TOP 100</a></li>
+            <li><a href="#">HOP<br>ZONE</a></li>
+            <li><a href="#">L2j<br>BRAZIL</a></li>
+            <li><a href="#">MMTOP<br>200</a></li>
+            <li><a href="#">MMOTOP</a></li>
+            <li><a href="#">L2TOP</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

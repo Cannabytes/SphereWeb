@@ -1,0 +1,74 @@
+@mixin transition($tr) {
+	-webkit-transition: all $tr ease; 
+	-o-transition: all $tr ease; 
+	-moz-transition:all $tr ease; 
+	transition: all $tr ease;
+}
+
+@mixin scale($scale) {
+	-webkit-transform: scale($scale); 
+	-moz-transform: scale($scale); 
+	-o-transform: scale($scale);
+	transform: scale($scale);
+}
+
+@mixin rad($rad) {
+	-webkit-border-radius: $rad;
+	-moz-border-radius: $rad;
+	border-radius: $rad;
+}
+
+$breakpoints: (
+  	x400: 400px,
+  	x500: 500px,
+  	x600: 600px,
+  	x700: 700px,
+  	x800: 800px,
+  	x900: 900px,
+    x1000: 1000px,
+  	x1100: 1100px,
+  	x1200: 1200px,
+  	x1300: 1300px,
+  	x1400: 1400px,
+  	x1500: 1500px,
+  	x1600: 1600px
+);
+
+@mixin s-min($breakpoint) {
+  	@if map-has-key($breakpoints, $breakpoint) {
+    	$breakpoint-value: map-get($breakpoints, $breakpoint);
+	    @media (min-width: $breakpoint-value) {
+	      @content;
+	    }
+  	} @else {
+    	@warn 'Invalid breakpoint: #{$breakpoint}.';
+  	}
+}
+
+@mixin s-max($breakpoint) {
+  	@if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+	    @media (max-width: ($breakpoint-value - 0)) {
+	      @content;
+	    }
+  	} @else {
+    	@warn 'Invalid breakpoint: #{$breakpoint}.';
+  	}
+}
+
+@mixin s-all($lower, $upper) {
+  	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    	$lower-breakpoint: map-get($breakpoints, $lower);
+    	$upper-breakpoint: map-get($breakpoints, $upper);
+    	@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 0)) {
+      		@content;
+    	}
+  	} @else {
+	    @if (map-has-key($breakpoints, $lower) == false) {
+	      	@warn 'Your lower breakpoint was invalid: #{$lower}.';
+	    }
+	    @if (map-has-key($breakpoints, $upper) == false) {
+	      	@warn 'Your upper breakpoint was invalid: #{$upper}.';
+	    }
+  	}
+}

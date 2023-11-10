@@ -1,0 +1,160 @@
+// ОБЩИЕ НАСТРОЙКИ
+$color: $y;
+$background: rgba(#242835, 0.5);
+$border: #545484;
+$size: 14px;
+$font: $ff;
+
+input[type="text"], input[type="password"], input[type="date"], 
+input[type="datetime"], input[type="number"], input[type="search"], 
+input[type="tel"], input[type="time"], input[type="url"], 
+input[type="month"], input[type="week"] {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
+	background: $background;
+	border: 1px solid $border;
+	color: $color;
+	font-size: $size;
+	padding: 0 15px;
+	font-family: $font;
+
+
+	&::-webkit-input-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&:-moz-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&::-moz-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+
+	&:focus::-webkit-input-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus:-moz-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus::-moz-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus:-ms-input-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0;
+	}
+}
+
+select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
+	background: $background;
+	border: 1px solid $border;
+	color: $color;
+	font-size: $size;
+	padding: 0 15px;
+	font-family: $font;
+}
+
+textarea {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
+	background: $background;
+	border: 1px solid $border;
+	color: $color;
+	font-size: $size;
+	padding: 0 15px;
+	font-family: $font;
+
+	&::-webkit-input-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&:-moz-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&::-moz-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+		@include transition(0.2s);
+	}
+
+	&:focus::-webkit-input-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus:-moz-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus::-moz-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0; 
+	}
+	&:focus:-ms-input-placeholder { 
+		transform: translateY(-100%);
+		visibility: hidden;
+		opacity:0;
+	}
+}
+
+div, section {
+	position: relative;
+	display: block;
+}
+
+b, th, strong, h1, h2, h3, h4, h5, h6 {
+	
+}
+// ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ
+.all-btn {
+	position: relative;
+	display: flex;
+	width: max-content;
+	height: 34px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: $w8;
+	background: none;
+	border: 1px solid $y;
+	font-size: 14px;
+	@include transition(0.2s);
+	cursor: pointer;
+	font-family: $ff;
+	padding: 0 20px;
+	@include rad(3px);
+
+	@include s-min(x1000) {
+		&:hover {
+			background: $y !important;
+			color: $b !important;
+		}
+	}
+}

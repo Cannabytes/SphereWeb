@@ -83,7 +83,7 @@ const __config = {
                                 <div class="lang__link lang__link_select" data-lang-active>
                                    {% for lang in lang_list() %}
                                       {% if lang['isActive']==true %}
-                                        <img class="lang__img lang__img_select" src="{{template}}/images/lang/lang__{{lang['lang'] }}.png" />
+                                        <img class="lang__img lang__img_select" src="/uploads/images/flags/{{lang['lang'] }}.png" />
                                       {% endif %}
                                    {% endfor %}
                                     <div class="lang__arrow"></div>
@@ -92,7 +92,8 @@ const __config = {
 
                                    {% for lang in lang_list() %}
                                    {% if lang['isActive']==false %}
-                                       <a href="/user/change/lang/{{lang.lang}}" data-google-lang="{{lang.lang}}" class="lang__link lang__link_sub lang__link_translate"><img class="lang__img" src="{{template}}/images/lang/lang__{{lang.lang}}.png" alt="{{lang.lang}}"></a>
+                                       <a href="/user/change/lang/{{lang.lang}}" data-google-lang="{{lang.lang}}" class="lang__link lang__link_sub lang__link_translate">
+                                          <img class="lang__img" src="/uploads/images/flags/{{lang.lang}}.png" alt="{{lang.lang}}"></a>
                                    {% endif %}
                                    {% endfor %}
 
