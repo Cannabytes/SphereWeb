@@ -20,19 +20,19 @@ CREATE TABLE `bonus`  (
 -- ----------------------------
 -- Table structure for bonus_code
 -- ----------------------------
-DROP TABLE IF EXISTS `bonus_code`;
-CREATE TABLE `bonus_code`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) CHARACTER SET latin1 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `server_id` int(11) NULL DEFAULT NULL,
-  `item_id` int(11) NULL DEFAULT NULL,
-  `count` int(11) NULL DEFAULT 1,
-  `enchant` int(11) NULL DEFAULT 0,
-  `phrase` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `start_date_code` datetime NULL DEFAULT NULL,
-  `end_date_code` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+DROP TABLE IF EXISTS bonus_code;
+CREATE TABLE bonus_code  (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  code varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  server_id int(11) NULL DEFAULT NULL,
+  item_id int(11) NULL DEFAULT NULL,
+  count int(11) NULL DEFAULT 1,
+  enchant int(11) NULL DEFAULT 0,
+  phrase varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  start_date_code datetime NULL DEFAULT NULL,
+  end_date_code datetime NULL DEFAULT NULL,
+  PRIMARY KEY (id) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for chat
