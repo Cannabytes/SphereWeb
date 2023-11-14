@@ -128,6 +128,7 @@ class forum {
     }
 
     public static function get_last_thread(int $n = 10) {
+
         if(!self::forum_enable()) {
             return false;
         }
@@ -137,10 +138,13 @@ class forum {
         if(fdb::$error != null) {
             return fdb::$error;
         }
+
         $last_message = match (self::get_engine()) {
             "xenforo" => self::get_xenforo_last_thread($n),
             "ipb" => self::get_ipb_last_thread($n),
+            "sphere" => self::get_sphere_last_thread($n),
         };
+
         if(fdb::$error) {
             echo fdb::$messageError;
             return fdb::$error;
@@ -179,6 +183,29 @@ class forum {
         return $query->fetchAll();
     }
 
+    public static function get_sphere_last_thread(int $n = 10): bool|array {
+
+        $query = sql::run('SELECT
+        	forum_topics.id AS `topic_id`,
+            forum_topics.`name`, 
+            forum_topics.section_id, 
+            forum_topics.last_post_id, 
+            forum_topics.last_post_user_id, 
+            forum_topics.last_post_user_name, 
+            forum_topics.date_update
+        FROM
+            forum_topics
+        ORDER BY
+            forum_topics.date_update DESC
+        LIMIT ?', [$n,]);
+        if(sql::$error) {
+            return sql::$error;
+        }
+
+        return $query->fetchAll();
+    }
+
+
     public static function get_ipb_last_thread(int $n = 10): bool {
         return false;
     }
@@ -208,10 +235,10 @@ class forum {
     }
 
     private static function link_sphere($forum): string {
-        $id = $forum['id'];
         $section_id = $forum['section_id'];
         $topic_id = $forum['topic_id'];
-        return sprintf("%s/forum/threads/{{message.section_id}}/{{ message.topic_id }}#{{message.id}}", "/forum", $section_id, $topic_id, $id);
+        $id = $forum['last_post_user_id'];
+        return sprintf("%s/threads/%s/%s#%s", "/forum", $section_id, $topic_id, $id);
     }
 
     public static function user_avatar($user_id): string {

@@ -308,7 +308,7 @@ CREATE TABLE `page_comments`  (
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages`
 (
-    `id`          int(11)   NOT NULL,
+    `id`          int(11)   NOT NULL AUTO_INCREMENT,
     `is_news`     int(11)                                 DEFAULT '0',
     `name`        varchar(140) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `description` mediumtext COLLATE utf8mb4_unicode_ci,

@@ -174,6 +174,7 @@
                         <div class="main-title">{{phrase("messages_forum")}}</div>
                         <div class="block">
                             {% for message in last_forum_message() %}
+                            
                             <div class="item">
                                 <a href="{{get_forum_link(message)}}">
                                     <div class="ico"><i class="svg chatting"></i></div>
@@ -195,9 +196,10 @@
                                         x{{server.rate_exp}}</a></li>
                                     {% endfor %}
                                 </ul>
-                                {% for server in server_online_status() %}
+
+                                {% for i,server in server_online_status() %}
                                 <div class="top-body" data-top-body="top-players-tabs">
-                                    <div class="block active" data-tab="top-{{server.id}}">
+                                    <div class="block {% if i == 0 %}active{% endif %}" data-tab="top-{{server.id}}">
                                         {% for i, char in statistic_get_pvp(server.id, 10) %}
                                         <div class="item animated05 flipInY">
                                             <div class="ch-1">

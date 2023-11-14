@@ -92,7 +92,7 @@ class L2jLucera3 implements structure {
                         LEFT JOIN
                         clan_subpledges
                         ON 
-                            characters.clanid = clan_subpledges.clan_id
+                            characters.clanid = clan_subpledges.clan_id and clan_subpledges.type = 0
                     WHERE
                         character_subclasses.active = 1
                     ORDER BY
@@ -136,9 +136,9 @@ class L2jLucera3 implements structure {
                         LEFT JOIN
                             clan_subpledges
                             ON 
-                                characters.clanid = clan_subpledges.clan_id
+                                characters.clanid = clan_subpledges.clan_id and clan_subpledges.type = 0
                     WHERE
-                        character_subclasses.active = 1
+                        character_subclasses.active = 1 
                     ORDER BY
                         pkkills DESC, 
                         time_in_game DESC
@@ -293,7 +293,7 @@ class L2jLucera3 implements structure {
                     characters
                     LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
                     INNER JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
+                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id and clan_subpledges.type = 0
                 WHERE
                     characters.accesslevel < 0';
     }
@@ -321,7 +321,7 @@ FROM
 	characters
 	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
 	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
+	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id and clan_subpledges.type = 0
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
 	character_subclasses.isBase = 1 
@@ -353,7 +353,7 @@ FROM
 	characters
 	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
 	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id
+	LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id and clan_subpledges.type = 0
 	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
 WHERE
   characters.char_name = ? AND character_subclasses.isBase = 1';
@@ -492,7 +492,7 @@ WHERE
                     LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
-                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
+                    LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id  and clan_subpledges.type = 0
                 WHERE
                     characters.account_name = ? 
                     AND character_subclasses.isBase = 1';
