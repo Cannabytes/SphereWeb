@@ -317,10 +317,13 @@ CREATE TABLE `pages`
     `date_update` timestamp NULL                          DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `trash`       int(11)   NOT NULL                      DEFAULT '0',
     `lang`        varchar(10) COLLATE utf8mb4_unicode_ci  DEFAULT 'ru',
-    `poster`      varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+    `poster`      varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
+
+
 
 -- ----------------------------
 -- Table structure for player_accounts
