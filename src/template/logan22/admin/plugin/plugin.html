@@ -20,7 +20,7 @@
                     <tbody>
                     {% for plugin in plugins %}
                     <tr>
-                        <td><a href="{{dir}}{{plugin['PLUGIN_ADMIN_PAGE']}}" class="ajaxload">{{plugin['PLUGIN_ADMIN_PAGE_NAME']}}</a></td>
+                        <td><a href="{{plugin['PLUGIN_ADMIN_PAGE']}}" class="ajaxload">{{plugin['PLUGIN_ADMIN_PAGE_NAME']}}</a></td>
                         <td>{{plugin['PLUGIN_DESCRIPTION']}}</td>
                         <td>{{plugin['PLUGIN_VERSION']}}</td>
                     </tr>

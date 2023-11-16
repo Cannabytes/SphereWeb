@@ -27,7 +27,7 @@
                         <td>
                             {% if player['forbidden'] == false %}
                             <a class="btn btn-primary btn-block waves-effect waves-light mt-0 ajaxload"
-                               href="{{dir}}/statistic/char/{{ player['player_name']|url_encode }}">
+                               href="/statistic/char/{{ player['player_name']|url_encode }}">
                                 {% if player['alliance_crest']!=null%}<img
                                     src="data:image/png;base64, {{ player['alliance_crest'] }}">{% endif %}{% if
                                 player['clan_crest']!=null%}<img src="data:image/png;base64, {{player['clan_crest']}}">{%
@@ -48,7 +48,7 @@
                                  <img class="img-avatar img-avatar48 {% if player['online'] %}img-avatar-thumb-online{% else %}img-avatar-thumb-offline{% endif %}"
                                       src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}">
                               </span>
-                            <a class="ajaxload" href="{{dir}}/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
+                            <a class="ajaxload" href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
                         <td>{{ timeHasPassed(player['time_in_game']) }}</td>
                     </tr>
                     {% endfor %}

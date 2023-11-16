@@ -12,7 +12,7 @@ use Ofey\Logan22\component\fileSys\fileSys;
 class redirect {
 
     public static function location($url){
-        header("Location: ".fileSys::localdir($url));
+        header("Location: ". ($url));
         die();
     }
 

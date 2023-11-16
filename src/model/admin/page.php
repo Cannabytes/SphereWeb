@@ -30,48 +30,56 @@ class page {
 
         //Проверка данных
         self::check_data($title, $content);
-
         $poster = "";
 
         if (!is_dir(dirname("uploads/images/news"))) {
             mkdir("uploads/images/news", 0777, true);
         }
-
         $files = $_FILES['files'] ?? null;
-        //проверка на наличие файлов
         if ($files) {
-            board::notice(false, 'Произошла ошибка');
-        //Из массива $files оставляем только первый массив
-        $file = array_map(function ($file) {
-            return $file[0];
-        }, $files);
+            $file = array_map(function ($file) {
+                return $file[0];
+            }, $files);
 
-        $handle = new Upload($file['tmp_name']);
-        if ($handle->uploaded) {
-            $handle->allowed = ['image/*'];
-            $handle->mime_check = true;
-            $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
+            $handle = new Upload($file['tmp_name']);
+            if ($handle->uploaded) {
+                $handle->allowed = ['image/*'];
+                $handle->mime_check = true;
+                $handle->file_max_size = 5 * 1024 * 1024; // Разрешенная максимальная загрузка 4mb
 
-            $filename = md5(mt_rand(1, 100000) + time());
-            $handle->file_new_name_body = $filename;
-            $handle->image_resize = true;
-            $handle->image_x = 1200;
-            $handle->image_ratio_y = true;
-            $handle->image_convert = 'webp';
-            $handle->webp_quality = 95;
-            $handle->process('./uploads/images/news');
-            if ($handle->processed) {
-                $handle->clean();
-                $poster = $filename . ".webp";
+                $filename = md5(mt_rand(1, 100000) + time());
+
+                $handle->file_new_name_body = $filename;
+                $handle->image_resize = true;
+                $handle->image_x = 450;
+                $handle->image_ratio_y = true;
+                $handle->file_name_body_pre = 'thumb_';
+                $handle->image_convert = 'webp';
+                $handle->webp_quality = 95;
+                $handle->process('uploads/images/news');
+                if (!$handle->processed) {
+                    board::notice(false, $handle->error);
+                }
+
+                $handle->file_new_name_body = $filename;
+                $handle->image_resize = true;
+                $handle->image_x = 1200;
+                $handle->image_ratio_y = true;
+                $handle->image_convert = 'webp';
+                $handle->webp_quality = 95;
+                $handle->process('uploads/images/news');
+                if ($handle->processed) {
+                    $handle->clean();
+                    $poster = $filename . ".webp";
+                }
+                if ($handle->error) {
+                    $fileName = $files['name'];
+                    $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
+                    board::notice(false, $msg);
+                }
+            } else {
+                board::notice(false, $handle->error);
             }
-            if ($handle->error) {
-                $fileName = $files['name'];
-                $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;
-                board::notice(false, $msg);
-            }
-        } else {
-            board::notice(false, $handle->error);
-        }
         }
 
 

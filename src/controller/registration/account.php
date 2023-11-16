@@ -22,7 +22,6 @@ use SimpleCaptcha\Builder;
 class account {
 
     public static function newAccount($server_id = null) {
-//        validation::user_protection();
         if (!server::get_server_info()) {
             tpl::addVar("title", lang::get_phrase(131));
             tpl::display("error/not_server.html");
@@ -34,7 +33,6 @@ class account {
     }
 
     public static function requestNewAccount() {
-//        validation::user_protection();
         $login = request::setting('login', new request_config(min: 4, max: 16, rules: "/^[a-zA-Z0-9_]+$/"));
         if($_POST['prefix'] != "off_prefix"){
             $prefixInfo = require "src/config/prefix_suffix.php";

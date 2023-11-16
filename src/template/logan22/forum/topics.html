@@ -5,7 +5,7 @@
 {% block content %}
 <div class="content">
     <nav class="breadcrumb push bg-body-extra-light rounded-pill px-4 py-2">
-        <a class="breadcrumb-item ajaxload" href="{{dir}}/forum">{{phrase(62)}}</a>
+        <a class="breadcrumb-item ajaxload" href="/forum">{{phrase(62)}}</a>
         <span class="breadcrumb-item active">{{section.name}}</span>
     </nav>
     <div class="block block-rounded">
@@ -15,7 +15,7 @@
                 {% if user_info('get_is_auth') %}
                 {% if section.is_close == false %}
                 {% endif %}
-                <a type="button" class="btn-block-option ajaxload" href="{{dir}}/forum/topic/add/{{section.id}}">
+                <a type="button" class="btn-block-option ajaxload" href="/forum/topic/add/{{section.id}}">
                     <i class="fa fa-plus"></i> {{phrase("new_topic")}}
                 </a>
                 {% endif %}
@@ -56,7 +56,7 @@
     </td>{% endif %}
     <td {% if topic.pin == false %}colspan="2"{% endif %}>
         {% if topic.is_close %}<i class="fa fa-lock opacity-50"></i>{% endif %}
-        <a class="fw-semibold ajaxload" href="{{dir}}/forum/threads/{{section.id}}/{{ topic.id }}">{{ topic.name }}</a>
+        <a class="fw-semibold ajaxload" href="/forum/threads/{{section.id}}/{{ topic.id }}">{{ topic.name }}</a>
         <div class="fs-sm text-muted mt-1">{{phrase("last_message_author")}}
             <a href="#">{{topic.last_post_user_name}}</a>
         </div>

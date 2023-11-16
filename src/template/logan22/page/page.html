@@ -9,13 +9,13 @@
               {% for short in last_news() %}
               <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                  <h3 class="block-title"><a class="ajaxload" href="{{dir}}/page/{{short.id}}">{{short.name}}</a></h3>
+                  <h3 class="block-title"><a class="ajaxload" href="/page/{{short.id}}">{{short.name}}</a></h3>
                   <div class="block-options">
                     <div class="block-options-item">{{short.date_create|date("F d, Y")}}</div>
                   </div>
                 </div>
                 <div class="block-content">
-                  <a class="fs-sm link-fx fw-semibold ajaxload" href="{{dir}}/page/{{short.id}}">
+                  <a class="fs-sm link-fx fw-semibold ajaxload" href="/page/{{short.id}}">
                   <p> {{short.description|raw|replace({'<p>': '', '</p>': '', '<b>': '', '</b>': '', '<br>': ''})|raw}}</p>
                   </a>
                 </div>

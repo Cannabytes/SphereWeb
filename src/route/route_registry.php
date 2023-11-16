@@ -29,7 +29,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->get("/player/add/donate/{email}/{count}", function ($email, $count){
         Ofey\Logan22\model\admin\validation::user_protection("admin");
         $user_id = \Ofey\Logan22\model\db\sql::run('SELECT id FROM users WHERE email = ?;', [$email])->fetch()['id'];
-//        $count = donate::currency($count, "RUB" );
         Ofey\Logan22\model\user\auth\auth::change_donate_point($user_id, $count);
     });
 
@@ -42,9 +41,9 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->post("ajax/get/news", '\Ofey\Logan22\controller\page\page::get_news_ajax');
     $route->get("main", 'Ofey\Logan22\controller\main\main::index')->alias("home")->alias("main");
-    $route->get("registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");
-    $route->get("registration/account/server/(\d+)", 'Ofey\Logan22\controller\registration\account::newAccount');
-    $route->post("registration/account", 'Ofey\Logan22\controller\registration\account::requestNewAccount');
+    $route->get("/registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");
+    $route->get("/registration/account/server/(\d+)", 'Ofey\Logan22\controller\registration\account::newAccount');
+    $route->post("/registration/account", 'Ofey\Logan22\controller\registration\account::requestNewAccount');
 
     $route->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
     $route->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');

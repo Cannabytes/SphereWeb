@@ -30,13 +30,13 @@
                         {% if clan['castle_id'] != 0 %}
                         <span data-toggle="tooltip" data-placement="top" title="" data-original-title="{{phrase(96)}}: {{ get_castle(clan['castle_id']) }}" class="badge badge-light shadow-light m-1"><a class="ajaxload" href="/statistic/clan/{{ clan['clan_name']|url_encode }}">{{ clan['clan_name'] }}</a></span>
                         {% else %}
-                        <a class="ajaxload" href="{{dir}}/statistic/clan/{{ clan['clan_name']|url_encode }}">{{ clan['clan_name'] }}</a>
+                        <a class="ajaxload" href="/statistic/clan/{{ clan['clan_name']|url_encode }}">{{ clan['clan_name'] }}</a>
                         {% endif %}
                     </td>
                     <td>{{ clan['clan_level'] }}</td>
                     <td>
                         {% if clan['forbidden'] == false %}
-                        <a class="btn btn-primary btn-block waves-effect waves-light mt-0 ajaxload" href="{{dir}}/statistic/char/{{ clan['player_name']|url_encode }}">
+                        <a class="btn btn-primary btn-block waves-effect waves-light mt-0 ajaxload" href="/statistic/char/{{ clan['player_name']|url_encode }}">
                             {{ clan['player_name'] }}
                         </a>
                         {% else %}

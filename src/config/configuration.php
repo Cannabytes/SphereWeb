@@ -1,6 +1,6 @@
 <?php
 
-const template = 'centara';
+const template = 'Worldofaden';
 
 const timeout_statistic = 60;
 

@@ -27,12 +27,14 @@ class lang {
 
     //Смена языка
     public static function set_lang($lang): void {
-        $allowLang = include fileSys::get_dir('src/config/lang.php');
+        $allowLang = include fileSys::get_dir('/src/config/lang.php');
         if (in_array($lang, $allowLang)) {
             if (self::name($lang)) {
                 session::add("lang", $lang);
             }
         }
+//        $link = $_SERVER['HTTP_REFERER'] ?? "/main";
+//        header("Location: {$link}");
         redirect::location($_SERVER['HTTP_REFERER'] ?? "/main");
     }
 

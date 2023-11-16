@@ -157,7 +157,7 @@ class tpl {
         $twig = self::user_var_func($twig);
 
         self::$allTplVars['dir'] = fileSys::localdir();
-        self::$allTplVars['template'] = str_replace($_SERVER['DOCUMENT_ROOT'], '', fileSys::get_dir(self::$templatePath));
+        self::$allTplVars['template'] = "https://" . $_SERVER["SERVER_NAME"] . self::$templatePath;
         self::$allTplVars['pointTime'] = microtime::pointTime();
         return $twig;
     }

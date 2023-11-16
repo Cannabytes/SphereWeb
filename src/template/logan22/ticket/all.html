@@ -35,7 +35,7 @@
                                     <td> {% if ticket.private == true and ticket.user_id != user_info('get_id') and user_info('get_access_level')!="admin" %}
                                         {{phrase("hide_private")}}
                                         {% else %}
-                                        <a href="{{dir}}/ticket/{{ticket.id}}" class="ajaxload">{{ ticket.content }}</a>
+                                        <a href="/ticket/{{ticket.id}}" class="ajaxload">{{ ticket.content }}</a>
                                         {% endif %}
                                     </td>
 
@@ -51,7 +51,7 @@
                 {% if user_info('get_is_auth') %}
 
                 <div class="tab-pane fade fade-up" id="ticket_create" role="tabpanel" aria-labelledby="ticket_create-tab" tabindex="0">
-                        <form action="{{dir}}/ticket/add" method="POST" onsubmit="return false;" enctype="multipart/form-data">
+                        <form action="/ticket/add" method="POST" onsubmit="return false;" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="mb-4">

@@ -33,7 +33,7 @@
                         {% endif %}
                         <tr>
                             <th scope="row">{{phrase(109)}}:</th>
-                            <td><a href="{{dir}}/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
+                            <td><a href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
                             </td>
                         </tr>
                         {% if player.createtime %}
@@ -49,7 +49,7 @@
                         <tr>
                             <th scope="row">{{phrase(94)}}:</th>
                             {% if player.clan_name %}
-                            <td><a href="{{dir}}/statistic/clan/{{ player.clan_name|url_encode }}">
+                            <td><a href="/statistic/clan/{{ player.clan_name|url_encode }}">
                                 {% if player.alliance_crest !=null%}<img
                                     src="data:image/png;base64, {{player.alliance_crest  }}">{% endif %}{% if
                                 player.clan_crest !=null%}<img src="data:image/png;base64, {{player.clan_crest }}">{%
@@ -74,7 +74,7 @@
                         <tbody>
                             {% for player in sub_class %}
                             <tr>
-                                <td><a href="{{dir}}/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
+                                <td><a href="/statistic/class/{{get_class(player['class_id'])}}">{{get_class(player['class_id'])}}</a>
                                 </td>
                                 <td>{{player.level}}</td>
                             </tr>

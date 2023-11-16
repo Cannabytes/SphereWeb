@@ -33,7 +33,7 @@
 <div class="modal fade" id="add_donate_point" tabindex="-1" role="dialog" aria-labelledby="add_donate_point" aria-hidden="true">
     <div class="modal-dialog modal-dialog-popout" role="document">
         <div class="modal-content">
-            <form action="{{dir}}/admin/users/add/donate" method="POST" class="block block-rounded shadow-none mb-0" data-function="is_add_donate">
+            <form action="/admin/users/add/donate" method="POST" class="block block-rounded shadow-none mb-0" data-function="is_add_donate">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Добавить пользователю {{phrase("Sphere-Coin")}}</h3>
                     <div class="block-options">
@@ -68,7 +68,7 @@
 <div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user" aria-hidden="true">
     <div class="modal-dialog modal-dialog-popout" role="document">
         <div class="modal-content">
-            <form action="{{dir}}/admin/users/edit" method="POST" class="block block-rounded shadow-none mb-0">
+            <form action="/admin/users/edit" method="POST" class="block block-rounded shadow-none mb-0">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">{{phrase("rechanged_profile")}}</h3>
                     <div class="block-options">
@@ -151,7 +151,7 @@
                     {% for user in users %}
                     <tr>
                         <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="{{dir}}/uploads/avatar/{{ user.avatar }}" alt="">
+                            <img class="img-avatar img-avatar48" src="/uploads/avatar/{{ user.avatar }}" alt="">
                         </td>
                         <td>{{user.email}}</td>
                         <td class="fw-semibold">{{user.name}}</td>
