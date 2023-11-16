@@ -318,6 +318,7 @@ CREATE TABLE `pages`
     `trash`       int(11)   NOT NULL                      DEFAULT '0',
     `lang`        varchar(10) COLLATE utf8mb4_unicode_ci  DEFAULT 'ru',
     `poster`      varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `link`        varchar(1200)                           DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

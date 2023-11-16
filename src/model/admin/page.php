@@ -27,6 +27,7 @@ class page {
         $enable_comment = (int)filter_var(isset($_POST['comment']), FILTER_VALIDATE_BOOLEAN);
         $content = $_POST['content'];
         $lang = $_POST['lang'];
+        $link = $_POST['link'] ?? null;
 
         //Проверка данных
         self::check_data($title, $content);
@@ -84,7 +85,7 @@ class page {
 
 
         //Запись в базу
-        $request = sql::run('INSERT INTO `pages` (`is_news`, `name`, `description`, `comment`, `date_create`, `lang`, `poster`) VALUES (?, ?, ?, ?, ?, ?, ?)', [
+        $request = sql::run('INSERT INTO `pages` (`is_news`, `name`, `description`, `comment`, `date_create`, `lang`, `poster`, `link`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
             $is_news,
             $title,
             $content,
@@ -92,6 +93,7 @@ class page {
             time::mysql(),
             $lang,
             $poster,
+            $link,
         ]);
         //Проверка результата вставки
         if ($request) {

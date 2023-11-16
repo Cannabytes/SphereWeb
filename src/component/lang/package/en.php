@@ -814,5 +814,8 @@ return [
     521 => "Do you really want to delete the message?",
     522 => "Comment",
     523 => "My notifications",
+    "link" => "Link",
+    "poster"=>"Poster"
+
 
 ];
