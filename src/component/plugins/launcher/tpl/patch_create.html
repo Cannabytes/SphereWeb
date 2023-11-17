@@ -1,0 +1,235 @@
+﻿{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/src/component/plugins/launcher/tpl/css/dir.css">
+
+
+<div class="modal fade" id="modal-start-launcher" tabindex="-1" role="dialog" aria-labelledby="modal-start-launcher" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideright" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Запуск лаунчера</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <p>Скачайте лаунчер и больше Вам не придется иметь под каждый сервер лаунчер.</p>
+
+                    <p>Если вы ранее загруружали лаунчер то просто запустите его.
+                        <button id="startLauncher" type="button" class="btn btn-sm btn-secondary me-1 mb-1 text-success">
+                            Запустить лаунчер
+                        </button>
+                    </p>
+                    <p>Если у Вас нет лаунчера, скачайте его.
+                        <br>
+                        <button type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
+                            Скачайте лаунчер
+                        </button>
+                    </p>
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div data-input-name="" class="modal" id="selectDirClient" tabindex="-1" role="dialog" aria-labelledby="selectDirClient"
+     aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title" id="dirfullpath"></h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm" id="dirlist">
+                </div>
+                <div class="block-content block-content-full block-content-sm  border-top">
+                    <div class="block block-rounded block-link-shadow mb-3" href="javascript:void(0)">
+                        <p class="fs-sm fw-medium text-muted float-sm-end mb-1">
+                            <button type="button" class="btn btn-alt-primary saveDirClient " data-bs-dismiss="modal" data-phrase="apply">
+                                Применить
+                            </button>
+                        </p>
+                        <div class="text-start ">
+                            <label data-phrase="need_select_client_dir">Выберите папку с патчем или клиентом игры</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main id="main-container">
+
+    <div class="content">
+
+        <h2 class="content-heading">Создание патча</h2>
+
+        <div class="block block-rounded" id="block_start_launcher">
+            <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                <div>
+                    <button data-bs-toggle="modal" data-bs-target="#modal-start-launcher" type="button" class="btn btn-secondary me-1 mb-1">
+                        Запустить лаунчер
+                    </button>
+                </div>
+                <div>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">У Вас нет лаунчера?</a>
+                    <a type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
+                        Скачайте лаунчер
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="msgUpdLauncher" class="alert alert-danger d-none" role="alert">
+            <div class="d-flex justify-content-between">
+                <p class="mb-0" id="textMsgUpdateLauncher">
+                    Ваш лаунчер устарел. Вам необходимо обновиться.
+                </p>
+                <button type="button" class="btn btn-success btn-sm launcherUpdateStart">Обновить лаунчер</button>
+            </div>
+        </div>
+
+        <div class="row" id="contentMain"></div>
+
+
+        <div class="row items-push">
+            <div class="col-md-6">
+                <!-- Default Lock -->
+                <div class="block block-rounded h-100 mb-0">
+                    <div class="block-content">
+                        <div>
+                            <div class="mb-4">
+                                <label class="form-label" for="clientDirectory">Папка с патчем игры</label>
+                                <input type="text" class="form-control" id="clientDirectory" name="lock1-password" placeholder="C:/games/mypatch">
+                            </div>
+                            <div class="mb-4">
+                                <button id="buttonOpenDirPath" type="submit" class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#selectDirClient">
+                                    <i class="fa fa-folder-open opacity-50 me-1"></i> Указать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Default Lock -->
+            </div>
+            <div class="col-md-6">
+                <!-- Floating Labels Lock -->
+                <div class="block block-rounded h-100 mb-0">
+
+
+                    <div class="block-content">
+                        <div >
+                            <div class="mb-4">
+                                <label class="form-label" for="saveArchiveDirectory">Место сохранения архивов</label>
+                                <input type="text" class="form-control" id="saveArchiveDirectory" name="lock1-password" placeholder="C:/games/archive">
+                            </div>
+                            <div class="mb-4">
+                                <button id="buttonOpenDirSavePath" type="submit" class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#selectDirClient">
+                                    <i class="fa fa-folder-open opacity-50 me-1"></i> Указать
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Floating Labels Lock -->
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+        <div class="block block-rounded mb-0">
+            <div class="block-content block-content-full">
+                <div class="py-3 text-center">
+                    <div class="progress push" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div id="styleLoad" class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 0%;">
+                            <span class="progress-bar-label fs-sm fw-semibold" id="procentLoad">0%</span>
+                        </div>
+                    </div>
+                    <h2 class="fs-sm fw-medium text-muted mb-0">
+                        <button id="startCreatePatch" type="button" class="btn btn-secondary js-click-ripple-enabled" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">Начать</button>
+                        <button id="stopGenerationArchive" type="button" class="btn btn-secondary js-click-ripple-enabled d-none" data-toggle="click-ripple" style="overflow: hidden; position: relative; z-index: 1;">Прервать</button>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="col-xl-12">
+            <div class="block fs-lg p-4 block-rounded">
+                <div class="block-content">
+                    <h3>Инструкция создания патча</h3>
+                    <p>Для создания патча, необходимо запустить лаунчер.<br>
+                        Указать папку с клиентом или патчем игры.<br>
+                        Указать папку сохранения архивации.<br>
+                        После нажатия на кнопку "Начать" будет запущен процесс архивации и вычисления хэшэй файлов.<br>
+                        После завершения, в папке с патчем будет файл <label class="text-success">client.csv</label> и архивы в папках.<br>
+                        Загрузите всё содержимое себе на сайт, например по такому адресу <label class="text-success">https://example.com/updater/patch/</label>.<br>
+
+                    <p class="fw-semibold">Далее передайте в телеграмм <a target="_blank" href="https://t.me/Cannabytes">@Cannabytes</a> ссылки на патч лист и клиент.</p>
+                    <ul class="fa-ul list list-simple-mini push">
+                        <li>
+                            <i class="fa fa-check fa-li text-success"></i>
+                            Ссылку на патч лист: <label class="text-success">https://example.com/updater/patch/client.csv</label>
+                        </li>
+                        <li>
+                            <i class="fa fa-check fa-li text-success"></i>
+                            Ссылку на местохранение патча: <label class="text-success">https://example.com/updater/patch/</label>.
+                        </li>
+                    </ul>
+
+                    <p>Это необходимо для безопастности и активации в системе.</p>
+
+                    <p class="alert alert-success fw-semibold text-center">
+                        <i class="fa fa-thumbs-up"></i> Congratulations! Ура, если всё получилось.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</main>
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $("#startLauncher").click(function () {
+        window.location.href = "web-launcher://open";
+    });
+
+</script>
+
+
+
+<script src="/src/component/plugins/launcher/tpl/js/patch_create.js"></script>
+
+
+{% endblock %}

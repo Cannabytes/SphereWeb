@@ -26,15 +26,12 @@ class launcher {
         tpl::displayPlugin("/launcher/tpl/show.html");
     }
 
-    public function add() {
-        if (!server::get_server_info()) {
-            tpl::display("error/not_server.html");
-        }
+    public function admin() {
+        validation::user_protection("admin");
+        tpl::addVar('userLang', lang::lang_user_default());
+        tpl::displayPlugin("/launcher/tpl/patch_create.html");
 
-        tpl::displayPlugin("/launcher/tpl/add.html");
     }
-
-
 
 
 }

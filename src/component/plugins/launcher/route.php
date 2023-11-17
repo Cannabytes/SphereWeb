@@ -20,10 +20,10 @@ $routes = [
 
         [
             "method"  => "GET",
-            "pattern" => "/admin/launcher/add",
+            "pattern" => "/admin/launcher",
             "file"    => "launcher.php",
             "call"    => function() {
-                (new launcher\launcher())->add();
+                (new launcher\launcher())->admin();
             },
         ]
 

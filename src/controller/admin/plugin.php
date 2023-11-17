@@ -18,8 +18,10 @@ class plugin {
         foreach ($plugins as $key => $value) {
             $setting = include "src/component/plugins/$value/settings.php";
             if (isset($setting['PLUGIN_HIDE'])){
-                unset($plugins[$key]);
-                continue;
+                if ($setting['PLUGIN_HIDE']){
+                    unset($plugins[$key]);
+                    continue;
+                }
             }
             $plugins[$key] = $setting;
         }

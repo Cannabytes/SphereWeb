@@ -29,6 +29,7 @@ $(document).on('click', '#getClientWay', function () {
     }
 });
 
+
 $(document).on('click', '#startUpdateGame', function () {
     if (isConnectSocket) {
         startUpdate()
