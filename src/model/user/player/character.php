@@ -68,9 +68,9 @@ class character {
         $cache = cache::read(dir::characters->show_dynamic($server_id, $login), second: 60);
         if ($cache)
             return $cache;
-        if (server::get_server_info($server_id)['rest_api_enable']?? false) {
+        if (server::get_server_info($server_id)['rest_api_enable']) {
             $data = restapi::Send(
-                $server_id,
+                server::get_server_info($server_id),
                 "account_players",
                 $login,
             );

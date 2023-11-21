@@ -31,16 +31,21 @@ class server {
         $date_start = date("Y-m-d");
         $time_start = date("H:i");
 
+        $rest_api_enable = isset($_POST['rest_api_enable']) ?: 0;
+
         //Данные БД для логина
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
         $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : "";
         $db_login_password = $_POST['db_login_password'];
         $db_login_port = $_POST['db_login_port'] ?? 3306;
 
+        $db_login_name = "";
         if (isset($_POST['db_login_name'])) {
             $db_login_name = trim($_POST['db_login_name']);
         } else {
-            board::notice(false, "Не выбрана БД логина");
+            if(!$rest_api_enable){
+                board::notice(false, "Не выбрана БД логина");
+            }
         }
 
         //Данные БД для гейма
@@ -49,10 +54,13 @@ class server {
         $db_game_password = $_POST['db_game_password'];
         $db_game_port = $_POST['db_game_port'] ?? 3306;
 
+        $db_game_name = "";
         if (isset($_POST['db_game_name'])) {
             $db_game_name = trim($_POST['db_game_name']);
         } else {
-            board::notice(false, "Не выбрана БД сервера");
+            if(!$rest_api_enable) {
+                board::notice(false, "Не выбрана БД сервера");
+            }
         }
 
 
@@ -72,12 +80,14 @@ class server {
         $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
         $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
 
-        //Проверяем соединение с БД перед тем как добавить
-        if(!install::test_connect_mysql($db_login_host, $db_login_port, $db_login_user, $db_login_password, $db_login_name)) {
-            board::notice(false, lang::get_phrase(223));
-        }
-        if(!install::test_connect_mysql($db_game_host, $db_game_port, $db_game_user, $db_game_password, $db_game_name)) {
-            board::notice(false, lang::get_phrase(223));
+        if(!$rest_api_enable) {
+            //Проверяем соединение с БД перед тем как добавить
+            if(!install::test_connect_mysql($db_login_host, $db_login_port, $db_login_user, $db_login_password, $db_login_name)) {
+                board::notice(false, lang::get_phrase(223));
+            }
+            if(!install::test_connect_mysql($db_game_host, $db_game_port, $db_game_user, $db_game_password, $db_game_name)) {
+                board::notice(false, lang::get_phrase(223));
+            }
         }
 
         $sql = "INSERT INTO `server_list` (`name`, `rate_exp`, `rate_sp`, `rate_adena`, `rate_drop_item`, `rate_spoil`, `date_start_server`, `chronicle`, `login_host`, `login_port`, `login_user`, `login_password`, `login_name`, `game_host`, `game_port`, `game_user`, `game_password`, `game_name`, `collection_sql_base_name`, `check_server_online`,  `check_loginserver_online_host`, `check_loginserver_online_port`, `check_gameserver_online_host`, `check_gameserver_online_port`, `chat_game_enabled` , `launcher_enabled`, `rest_api_enable`, `rest_api_hostname`, `rest_api_port`, `rest_api_key` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -142,6 +152,7 @@ class server {
         //Данные БД для логина
         $db_login_host = !empty($_POST['db_login_host']) ? trim($_POST['db_login_host']) : "";
         $db_login_port = $_POST['db_login_port'] ?? 3306;
+
         $db_login_user = !empty($_POST['db_login_user']) ? trim($_POST['db_login_user']) : "";
         $db_login_password = $_POST['db_login_password'];
         $db_login_name = !empty($_POST['db_login_name']) ? trim($_POST['db_login_name']) : "";
@@ -164,6 +175,7 @@ class server {
         $rest_api_ip = !empty($_POST['rest_api_ip']) ? trim($_POST['rest_api_ip']) : "127.0.0.1";
         $rest_api_port = !empty($_POST['rest_api_port']) ? trim($_POST['rest_api_port']) : 3333;
         $rest_api_key = !empty($_POST['rest_api_key']) ? trim($_POST['rest_api_key']) : "";
+
 
         $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
         $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;

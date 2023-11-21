@@ -146,7 +146,7 @@
                                                 <div class="col-6">
                                                     <div class="form-floating mb-4">
                                                         <input type="text" class="form-control" name="db_login_port"
-                                                               id="db_login_port" value="3306">
+                                                               id="db_login_port" value="{{ server['login_port'] }}">
                                                         <label class="form-label" for="db_login_port">Port</label>
                                                     </div>
                                                 </div>
@@ -215,7 +215,7 @@
                                                 <div class="col-6">
                                                     <div class="form-floating mb-4">
                                                         <input type="text" class="form-control" name="db_game_port"
-                                                               id="db_game_port" value="3306">
+                                                               id="db_game_port" value="{{ server['game_port'] }}">
                                                         <label class="form-label" for="db_game_port">Port</label>
                                                     </div>
                                                 </div>

@@ -12,6 +12,7 @@ use PDOException;
 class sdb {
 
     public static string $host, $user, $pass, $name;
+    public static string $port = ":3306";
     /**
      * @var null
      */
@@ -53,11 +54,12 @@ class sdb {
         self::$type = $type;
     }
 
-    public static function set_connect($host, $user, $pass, $name) {
+    public static function set_connect($host, $user, $pass, $name, $port = ":3306") {
         self::$host = $host;
         self::$user = $user;
         self::$pass = $pass ?? "";
         self::$name = $name;
+        self::$port = $port;
         return self::connect();
     }
 
@@ -69,7 +71,7 @@ class sdb {
     public static function connect() {
         if (self::$instance === null) {
             try {
-                self::$db[self::get_server_id()][self::get_type()] = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$name, self::$user, self::$pass, $options = [
+                self::$db[self::get_server_id()][self::get_type()] = new PDO('mysql:host=' . self::$host . self::$port . ';dbname=' . self::$name, self::$user, self::$pass, $options = [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",

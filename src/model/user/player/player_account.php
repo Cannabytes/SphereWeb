@@ -83,10 +83,10 @@ class player_account {
         sdb::set_server_id($server_id);
         if ($gameServer == "login") {
             sdb::set_type('login');
-            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name']);
+            sdb::set_connect($info['login_host'], $info['login_user'], $info['login_password'], $info['login_name'], $info['login_port']);
         } else {
             sdb::set_type('game');
-            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name']);
+            sdb::set_connect($info['game_host'], $info['game_user'], $info['game_password'], $info['game_name'], $info['game_port']);
         }
         return sdb::run($sqlQuery, $prepare, $notice);
     }

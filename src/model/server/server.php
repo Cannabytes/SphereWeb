@@ -146,10 +146,10 @@ class server {
         }
         if ($inGameDBQuery == "login") {
             sdb::set_type('login');
-            $ok = sdb::set_connect($server_info['login_host'], $server_info['login_user'], $server_info['login_password'], $server_info['login_name']);
+            $ok = sdb::set_connect($server_info['login_host'], $server_info['login_user'], $server_info['login_password'], $server_info['login_name'], $server_info['login_port']);
         } else {
             sdb::set_type('game');
-            $ok = sdb::set_connect($server_info['game_host'], $server_info['game_user'], $server_info['game_password'], $server_info['game_name']);
+            $ok = sdb::set_connect($server_info['game_host'], $server_info['game_user'], $server_info['game_password'], $server_info['game_name'], $server_info['game_port']);
         }
         if (!$ok)
             return $ok;
