@@ -83,6 +83,7 @@ class L2jMobiusClassic implements structure {
                         LIMIT 100';
     }
 
+    #[db('game')]
     static public function statistic_top_pk(): string {
         return 'SELECT
                         characters.charId AS player_id,

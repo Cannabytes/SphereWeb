@@ -1,0 +1,211 @@
+﻿{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Анализ SQL запросов</h3>
+        </div>
+        <div class="block-content block-content-full">
+            <div id="requestManager" class="row-cols-lg-auto g-3 align-items-center">
+                <div class="row">
+                    <div class="col-lg-8 ">
+                        <select class="form-select" id="serverData" name="serverData">
+                            {% for server, server_info in get_server_info() %}
+                            <option value="{{server_info.id}}">{{ server_info.name }} x{{ server_info.rate_exp }} |
+                                {{server_info.collection_sql_base_name}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div>
+                            <button id="requestManagerButton" class="btn btn-primary">Загрузить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% for base in l2jBases %}
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Method Name: {{ base.method_name }}</h3>
+            <div class="block-options">
+                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle"
+                        data-action-mode="demo">
+                    <i class="si si-refresh"></i>
+                </button>
+                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle">
+                    <i class="si si-arrow-up"></i></button>
+            </div>
+        </div>
+        <div class="block-content">
+            <div class="query">
+                <input type="hidden" name="method_name" value="{{base.method_name}}">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-4">
+                            <textarea class="form-control form-control-lg" name="sql_query" rows="10" placeholder="SQL">{{ base.sql }}</textarea>
+                        </div>
+                    </div>
+                    {% if base.params is not empty %}
+                    <div class="col-md-3">
+                        {% for param in base.params %}
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <label class="form-label">{{param}}</label>
+                                <input type="text" name="{{param}}" class="form-control form-control-lg" placeholder="">
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="col-md-2">
+                        {% for param in base.required_params %}
+                        <div class="col-6">
+                            <label class="form-label">{{param}}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-check opacity-50 me-1"></i> Check SQL Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 d-none" id="error_{{ base.method_name }}">
+            <div class="alert alert-danger" role="alert">
+                <p class="mb-0" id="error_message_{{ base.method_name }}"></p>
+            </div>
+        </div>
+
+        <div class="col-md-12 d-none" id="success_{{ base.method_name }}">
+            <div class="alert alert-success" role="alert">
+                <p class="mb-0" id="success_message_{{ base.method_name }}"></p>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-sm table-vcenter table-bordered" id="table_{{ base.method_name }}">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+    $(document).ready(function () {
+        $('#requestManagerButton').on('click', function () {
+            var params = {};
+            $("#serverData").find('option:selected').each(function () {
+                params['server'] = $(this).val();
+            });
+            //Сделай редирект по ссылке с параметрами params
+            window.location.href = '/admin/request/manager/server/' + params.server;
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('.query').on('click', 'button', function () {
+            var method_name = $(this).closest('.query').find('input[name="method_name"]').val();
+            $("#error_" + method_name).addClass('d-none');
+            $("#success_" + method_name).addClass('d-none');
+
+            var query = $(this).closest('.query');
+            var sql_query = query.find('textarea[name="sql_query"]').val();
+            var params = {};
+            query.find('input').each(function () {
+                if ($(this).val() !== method_name) {
+                    params[$(this).attr('name')] = $(this).val();
+                }
+            });
+            $.ajax({
+                url: '/admin/request/manager/query',
+                type: 'POST',
+                data: {
+                    sql_query: sql_query,
+                    params: params,
+                    server_id: "{{server.id}}"
+                },
+                success: function (data) {
+                    data = JSON.parse(data);
+
+                    if(data.type === 'notice'){
+                        $("#error_message_" + method_name).html(data.message);
+                        $("#error_" + method_name).removeClass('d-none');
+                        return;
+                    }
+
+                    if (data.type === 'success') {
+
+                        if(data.data.length === 0){
+                            $("#success_message_" + method_name).html("Изменено " + data.rows + " строк");
+                            $("#success_" + method_name).removeClass('d-none');
+                            return;
+                        }
+
+                        var table = $('#table_' + method_name);
+                        table.find('thead tr').html('');
+                        table.find('tbody').html('');
+                        //Заполнить заголовок
+                        $.each(data.table_structure, function (key, value) {
+                            table.find('thead tr').append('<th>' + value + '</th>');
+                        });
+
+                        //Заполнить таблицу
+                        $.each(data.data, function (key, value) {
+                            var tr = '<tr>';
+                            $.each(value, function (column, value) {
+                                // Если clan_crest не пустой, то вставить картинку
+                                if (column === 'clan_crest' || column === 'alliance_crest') {
+                                    if (value === null) {
+                                        tr += '<td>' + value + '</td>';
+                                        return;
+                                    }
+                                    tr += '<td><img src="data:image/png;base64, ' + value + '"></td>';
+                                    return;
+                                }
+                                tr += '<td>' + value + '</td>';
+                            });
+                            tr += '</tr>';
+                            table.find('tbody').append(tr);
+                        });
+
+                    } else if (data.type === 'error') {
+                        $("#error_message_" + method_name).html(data.message);
+                        $("#error_" + method_name).removeClass('d-none');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+{% endblock %}

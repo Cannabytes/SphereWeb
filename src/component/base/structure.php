@@ -14,7 +14,7 @@ interface structure {
      *
      * @return string
      */
-    static public function hash(): string;
+    public static function hash(): string;
 
     /**
      * TODO: Пока не используется, возможно будет удалено
@@ -22,7 +22,7 @@ interface structure {
      *
      * @return mixed
      */
-    static public function chronicle(): mixed;
+    public static function chronicle(): mixed;
 
     /**
      * На некоторых сборка есть таблица items_delayed, используется для выдачи игрокам предмета, которые в онлайне.
@@ -31,7 +31,7 @@ interface structure {
      *
      * @return mixed
      */
-    static public function need_logout_player_for_item_add(): bool;
+    public static function need_logout_player_for_item_add(): bool;
 
     /**
      * Проверка существования игрового аккаунта
@@ -39,21 +39,21 @@ interface structure {
      * @return mixed
      *
      */
-    static public function account_is_exist(): string;
+    public static function account_is_exist(): string;
 
     /**
      * Добавление в БД сервера нового аккаунта
      *
      * @return mixed
      */
-    static public function account_registration(): string;
+    public static function account_registration(): string;
 
     /**
      * Смена пароля аккаунта
      *
      * @return mixed
      */
-    static public function account_change_password(): string;
+    public static function account_change_password(): string;
 
     //TODO:Deprecated
     /**
@@ -62,133 +62,133 @@ interface structure {
      *
      * @return mixed
      */
-    static public function accounts_email(): string;
+    public static function accounts_email(): string;
 
     /**
      * Статистика PvP
      *
      * @return mixed
      */
-    static public function statistic_top_pvp(): string;
+    public static function statistic_top_pvp(): string;
 
     /**
      * Статистика PK
      *
      * @return mixed
      */
-    static public function statistic_top_pk(): string;
+    public static function statistic_top_pk(): string;
 
     /**
      * Статистика Кланов
      *
      * @return mixed
      */
-    static public function statistic_top_clan(): string;
+    public static function statistic_top_clan(): string;
 
     /**
      * Информация о клане
      *
      * @return mixed
      */
-    static public function statistic_clan_data(): string;
+    public static function statistic_clan_data(): string;
 
     /**
      * Скиллы клана
      *
      * @return mixed
      */
-    static public function statistic_clan_skills(): string;
+    public static function statistic_clan_skills(): string;
 
     /**
      * Игроки клана
      *
      * @return mixed
      */
-    static public function statistic_clan_players(): string;
+    public static function statistic_clan_players(): string;
 
     /**
      * ТОП игроков
      *
      * @return mixed
      */
-    static public function statistic_top_player(): string;
+    public static function statistic_top_player(): string;
 
     /**
      * ТОП героев
      *
      * @return mixed
      */
-    static public function statistic_top_heroes(): string;
+    public static function statistic_top_heroes(): string;
 
     /**
      * Данные о замках
      *
      * @return mixed
      */
-    static public function statistic_top_castle(): string;
+    public static function statistic_top_castle(): string;
 
     /**
      * Данные о заблокированных пользователях
      *
      * @return mixed
      */
-    static public function statistic_top_block(): string;
+    public static function statistic_top_block(): string;
 
     /**
      * Статистика топ онлайна игроков
      *
      * @return mixed
      */
-    static public function statistic_top_onlinetime(): string;
+    public static function statistic_top_onlinetime(): string;
 
     /**
      * Данные о персонаже
      *
      * @return mixed
      */
-    static public function statistic_player_info(): string;
+    public static function statistic_player_info(): string;
 
     /**
      * Саб классы игрока
      *
      * @return string
      */
-    static public function statistic_player_info_sub_class(): string;
+    public static function statistic_player_info_sub_class(): string;
 
     /**
      * Инвентарь игрока
      *
      * @return string
      */
-    static public function statistic_player_inventory_info(): string;
+    public static function statistic_player_inventory_info(): string;
 
     /**
      * Числовые данные статистики
      *
      * @return mixed
      */
-    static public function statistic_top_counter(): string;
+    public static function statistic_top_counter(): string;
 
     /**
      * ТОП персонажей N класса
      *
      * @return string
      */
-    static public function statistic_top_class(): string;
+    public static function statistic_top_class(): string;
 
     /**
      * Получение ID персонажа
      *
      * @return mixed
      */
-    static public function is_player(): string;
+    public static function is_player(): string;
 
     /**
      * Возращает последний ID объекта таблицы items
      *
      * @return mixed
      */
-    static public function max_value_item_object(): string;
+    public static function max_value_item_object(): string;
 
     /**
      * Проверка существования у игрока предмета
@@ -197,26 +197,26 @@ interface structure {
      *
      * @return mixed
      */
-    static public function check_item_player(): string;
+    public static function check_item_player(): string;
 
     /**
      * Изменение кол-во предмета по ID объекту
      *
      * @return mixed
      */
-    static public function update_item_count_player(): string;
+    public static function update_item_count_player(): string;
 
     /**
      * Добавление предмета
      *
      * @return mixed
      */
-    static public function add_item(): string;
+    public static function add_item(): string;
 
     /**
      * @return mixed
      */
-    static public function count_online_player(): string;
+    public static function count_online_player(): string;
 
-    static public function account_players(): string;
+    public static function account_players(): string;
 }

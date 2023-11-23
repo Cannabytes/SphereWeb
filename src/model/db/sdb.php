@@ -133,6 +133,8 @@ class sdb {
             return $stmt;
         } catch (PDOException $e) {
             if(!$notice){
+                self::$error = true;
+                self::$errorMessage = $e->getMessage();
                 return false;
             }
             if (self::isShowErrorPage()) {
