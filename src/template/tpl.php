@@ -157,7 +157,10 @@ class tpl {
         $twig = self::user_var_func($twig);
 
         self::$allTplVars['dir'] = fileSys::localdir();
-        self::$allTplVars['template'] = "https://" . $_SERVER["SERVER_NAME"] . self::$templatePath;
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . self::$templatePath;
+        self::$allTplVars['protocol'] = $protocol;
+        self::$allTplVars['template'] = $self;
         self::$allTplVars['pointTime'] = microtime::pointTime();
         return $twig;
     }
