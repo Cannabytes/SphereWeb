@@ -1,0 +1,49 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="block-content">
+
+    {% include "/sphere_statistic/tpl/menu.html" %}
+
+
+
+    <div class="col-md-12">
+        <div class="block block-rounded block-bordered">
+            <div class="block-header block-header-default border-bottom">
+                <h3 class="block-title">Купленых {{phrase("Sphere-Coin")}} - {{total}}</h3>
+            </div>
+            <div class="block-content">
+                <table class="table table-borderless table-striped">
+                    <thead>
+                    <tr>
+                        <th style="">Страна</th>
+                        <th>Куплено {{phrase("Sphere-Coin")}}</th>
+                        <th class="d-none d-sm-table-cell text-end">Кол-во Донатеров</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for donate in country_donate %}
+                    <tr>
+                        <td>
+                           {{donate.country ?? "Unknown"}} [{{donate.users_count}}]
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            <span>{{donate.total_donations}}</span>
+                        </td>
+                        <td class="d-none d-sm-table-cell text-end">
+                            {{donate.donating_users_count}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

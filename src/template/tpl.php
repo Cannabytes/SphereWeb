@@ -715,6 +715,27 @@ class tpl {
             return notification::get_self_notification($bool);
         }));
 
+        //Список плагинов, которые показываем в меню пользователю
+        $twig->addFunction(new TwigFunction("show_plugins", function () {
+            $plugins = fileSys::dir_list("src/component/plugins");
+            foreach ($plugins as $key => $value) {
+                if(!file_exists("src/component/plugins/$value/settings.php")){
+                    unset($plugins[$key]);
+                }
+            }
+            foreach ($plugins as $key => $value) {
+                $setting = include "src/component/plugins/$value/settings.php";
+                if (isset($setting['PLUGIN_HIDE'])){
+                    if ($setting['PLUGIN_HIDE']){
+                        unset($plugins[$key]);
+                        continue;
+                    }
+                }
+                $plugins[$key] = $setting;
+            }
+            return $plugins;
+        }));
+
         function basename_php($str) {
             $base = substr($str, strrpos($str, '\\') + 1);
             if (strrpos($base, "\\") !== false) {

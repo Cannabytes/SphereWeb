@@ -1,0 +1,98 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(238)}}{% endblock %}
+
+{% block content %}
+<div class="block-content">
+
+    {% include "/sphere_statistic/tpl/menu.html" %}
+
+
+    <div class="row">
+        <div class="">
+
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Диаграмма регистраций пользователей по странам</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                            <i class="si si-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content block-content-full text-center">
+                    <canvas id="js-chartjs-bars" style="width: 80%;"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    !(function () {
+        class t {
+            static initChartsChartJS() {
+                (Chart.defaults.color = "#818d96"),
+                    (Chart.defaults.scale.grid.color = "rgba(0,0,0,.04)"),
+                    (Chart.defaults.scale.grid.zeroLineColor = "rgba(0,0,0,.1)"),
+                    (Chart.defaults.scale.beginAtZero = !0),
+                    (Chart.defaults.elements.line.borderWidth = 2),
+                    (Chart.defaults.elements.point.radius = 5),
+                    (Chart.defaults.elements.point.hoverRadius = 7),
+                    (Chart.defaults.plugins.tooltip.radius = 3),
+                    (Chart.defaults.plugins.legend.labels.boxWidth = 12);
+                let a,
+                    s = document.getElementById("js-chartjs-bars"),
+                    u = {
+                        labels: [{% for country in countries %}"{{ country.country_name }}",{% endfor %}],
+                        datasets: [
+                            {
+                                label: "Users",
+                                fill: !0,
+                                backgroundColor: "rgba(2, 132, 199, .75)",
+                                borderColor: "rgba(2, 132, 199, 1)",
+                                pointBackgroundColor: "rgba(2, 132, 199, 1)",
+                                pointBorderColor: "#fff",
+                                pointHoverBackgroundColor: "#fff",
+                                pointHoverBorderColor: "rgba(2, 132, 199, 1)",
+                                data: [{% for country in countries %}"{{ country.count }}",{% endfor %}],
+                            }
+                        ],
+                    },
+                    h = {
+                        labels: ["Earnings", "Sales", "Tickets"],
+                        datasets: [
+                            { data: [50, 25, 25], backgroundColor: ["rgba(101, 163, 13, 1)", "rgba(217, 119, 6, 1)", "rgba(220, 38, 38, 1)"], hoverBackgroundColor: ["rgba(101, 163, 13, .5)", "rgba(217, 119, 6, .5)", "rgba(220, 38, 38, .5)"] },
+                        ],
+                    };
+                null !== s && (a = new Chart(s, { type: "bar", data: u, options: { responsive: !0, maintainAspectRatio: !1 } }));
+            }
+            static initRandomEasyPieChart() {
+                document.querySelectorAll(".js-pie-randomize").forEach((t) => {
+                    t.addEventListener("click", (a) => {
+                        t.closest(".block")
+                            .querySelectorAll(".pie-chart")
+                            .forEach((t) => {
+                                jQuery(t)
+                                    .data("easyPieChart")
+                                    .update(Math.floor(100 * Math.random() + 1));
+                            });
+                    });
+                });
+            }
+            static init() {
+                this.initRandomEasyPieChart(), this.initChartsChartJS();
+            }
+        }
+        Codebase.onLoad(() => t.init());
+    })();
+
+</script>
+
+<!-- Page JS Helpers (Easy Pie Chart + jQuery Sparkline Plugins) -->
+<script>Codebase.helpersOnLoad(['jq-easy-pie-chart', 'jq-sparkline']);</script>
+{% endblock %}

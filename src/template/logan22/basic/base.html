@@ -330,7 +330,23 @@
                                 <span class="nav-main-link-name">{{phrase(62)}}</span>
                             </a>
                         </li>
+
+
                         <li class="nav-main-heading">{{phrase("other")}}</li>
+
+                        {% for plugin in show_plugins() %}
+                        {% if user_info('get_access_level') in plugin.PLUGIN_USER_PAGE_ACCESS %}
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{plugin.PLUGIN_USER_PAGE}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                <i class="nav-main-link-icon fa {{plugin.PLUGIN_USER_PAGE_ICON}}"></i>
+                                <span class="nav-main-link-name">{{plugin.PLUGIN_USER_PAGE_NAME}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+
+
+
                         {% if user_info('get_access_level') == "admin" %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="/admin" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
