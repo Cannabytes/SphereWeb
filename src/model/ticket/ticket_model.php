@@ -55,8 +55,9 @@ class ticket_model {
     }
 
     public static function add() {
+        include "src/config/forum.php";
         if ($count = self::countCreateLastTime(auth::get_id(), 1)) {
-            if ($count >= 5) {
+            if ($count >= MAX_COUNT_CREATE_THREAD_IN_HOUR) {
                 board::notice(false, lang::get_phrase(457));
             }
         }
@@ -86,7 +87,7 @@ class ticket_model {
         if ($files !== null) {
             self::processFiles($files, $ticket_ID, false);
         }
-        notification::toAdmin("New ticket", "/ticket/{$ticket_ID}");
+        notification::toAdmin("New ticket", "ticket/{$ticket_ID}");
         $ticket = ticket_model::get_info($ticket_ID);
         tpl::addVar([
             "ticket" => $ticket,
