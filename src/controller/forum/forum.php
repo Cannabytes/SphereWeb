@@ -162,8 +162,10 @@ class forum {
 
         $topicIDs = internal::addTopic($section_id, $topicName, $message, $link);
         $section = internal::getSectionInfo($section_id);
-        if ($section['is_close']) {
-            board::notice(false, lang::get_phrase(503));
+        if (auth::get_access_level() == "user") {
+            if ($section['is_close']) {
+                board::notice(false, lang::get_phrase(503));
+            }
         }
         $topic = internal::getTopic($topicIDs['lastIdTopic']);
         $posts = internal::getPosts($topic['id'], self::$perPage, 1);
@@ -187,6 +189,10 @@ class forum {
     }
 
     public static function checkCloseTopic($is_close): void {
+        //Если пользователь админ или модератор
+        if (auth::get_access_level() == "admin" || auth::get_access_level() == "moderator") {
+            return;
+        }
         if ($is_close) {
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 board::notice(false, lang::get_phrase(503));
