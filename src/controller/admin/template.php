@@ -27,7 +27,6 @@ class template {
             $demo = json_decode($jsonContents, true);
             $img = "/template/{$template}/{$demo['screen']}";
         }
-
         tpl::addVar("title", lang::get_phrase(230));
         tpl::addVar('template_list', fileSys::dir_list("template"));
         tpl::addVar("demo", $demo);

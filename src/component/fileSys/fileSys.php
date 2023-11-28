@@ -142,7 +142,7 @@ class fileSys {
     /**
      * Список папок
      */
-    static public function dir_list($dir = null): array|false {
+    public static function dir_list($dir = null): array|false {
         if($dir == null || !is_dir($dir)) {
             return false;
         }
@@ -150,10 +150,9 @@ class fileSys {
         if($dirList === false) {
             return false;
         }
-        $dirList = array_filter($dirList, fn($name) => $name !== '.' && $name !== '..');
+        $dirList = array_filter($dirList, fn($name) => is_dir($dir . DIRECTORY_SEPARATOR . $name) && $name !== '.' && $name !== '..');
         return array_values($dirList);
     }
-
 
     /**
      * Список файлов в папке
