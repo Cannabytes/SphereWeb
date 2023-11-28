@@ -247,7 +247,6 @@ class forum {
             }
             tpl::addVar("all_sections_data", $sectionData);
         }
-
         tpl::addVar("lastMessageID", $lastMessageID);
         tpl::addVar("section", $section);
         tpl::addVar("currentPage", $currentPage);

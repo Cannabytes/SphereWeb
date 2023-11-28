@@ -2,6 +2,8 @@
 
 namespace Ofey\Logan22\template;
 
+use DateTime;
+use DateTimeZone;
 use Exception;
 use InvalidArgumentException;
 use Ofey\Logan22\component\account\generation;
@@ -666,6 +668,17 @@ class tpl {
         //Проверка на наличие возможности просматривать чужим своего персонажа
         $twig->addFunction(new TwigFunction("is_forbidden", function ($charnames) {
             return character::is_forbidden($charnames);
+        }));
+
+        $twig->addFunction(new TwigFunction("timezone", function ($time = null) {
+            if ($time === null) {
+                return 'Не указано время';
+            }
+            $timezone = auth::get_timezone();
+
+            $date = new DateTime($time);
+            $date->setTimezone(new DateTimeZone($timezone));
+            return $date->format('Y-m-d H:i:s');
         }));
 
 

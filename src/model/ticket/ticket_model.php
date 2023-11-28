@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\ticket;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\notification\notification;
 use Ofey\Logan22\model\template\async;
@@ -76,10 +77,11 @@ class ticket_model {
         if(isset($_POST['private']) && $_POST['private'] === 'on'){
             $private = 0;
         }
-        sql::run("INSERT INTO `tickets` (`user_id`, `content`, `private`) VALUES (?, ?, ?)", [
+        sql::run("INSERT INTO `tickets` (`user_id`, `content`, `private`, `date`) VALUES (?, ?, ?, ?)", [
             auth::get_id(),
             $content,
             $private,
+            time::mysql(),
         ]);
 
         $ticket_ID = sql::lastInsertId();
@@ -155,10 +157,11 @@ class ticket_model {
                             $filename . ".webp",
                         ]);
                     } else {
-                        sql::run("INSERT INTO `tickets_image` (`user_id`, `image`, `ticket_id`) VALUES (?, ?, ?)", [
+                        sql::run("INSERT INTO `tickets_image` (`user_id`, `image`, `ticket_id`, `date`) VALUES (?, ?, ?, ?)", [
                             auth::get_id(),
                             $filename . ".webp",
                             $ticketID,
+                            time::mysql(),
                         ]);
                     }
                 }

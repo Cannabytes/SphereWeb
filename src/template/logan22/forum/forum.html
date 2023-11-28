@@ -54,7 +54,7 @@
                     <td class="d-none d-md-table-cell text-center">{{section.posts_count}}</td>
                     <td class="d-none d-md-table-cell">
                         {% if section.topics_count > 0 %}
-                        <span class="fs-sm">{{phrase("from")}} <a href="#">{{section.user_name}}</a><br>в {{section.date_update|date("H:i")}}</span>
+                        <span class="fs-sm">{{phrase("from")}} <a href="#">{{section.user_name}}</a><br>в {{timezone(section.date_update)|date("H:i")}}</span>
                         {% endif %}
                     </td>
                 </tr>

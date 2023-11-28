@@ -40,7 +40,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        {{ ticket.date|date("h:i d.m.Y") }}
+                                        {{ timezone(ticket.date|date("H:i d.m.Y")) }}
                                     </td>
                                 </tr>
                                 {% endfor %}

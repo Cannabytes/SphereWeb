@@ -5,6 +5,7 @@ namespace Ofey\Logan22\model\forum;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use PDOStatement;
@@ -197,7 +198,8 @@ WHERE
     }
 
     public static function addPost($topicID, $message, $isAttached) {
-        sql::run("INSERT INTO `forum_posts` (`topic_id`, `user_id`, `post`, `is_attached`) VALUES (?, ?, ?, ?)", [$topicID, auth::get_id(), $message, $isAttached]);
+        $time = time::mysql();
+        sql::run("INSERT INTO `forum_posts` (`topic_id`, `user_id`, `post`, `is_attached`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?)", [$topicID, auth::get_id(), $message, $isAttached, $time, $time]);
         return sql::lastInsertId();
     }
 
@@ -244,22 +246,25 @@ WHERE
     // Увеличиваем счетчик постов в секции
     public static function incrSectionTopicAndPost($section_id, $last_post_id, $topicID, $incr_topic_count_posts = false): false|PDOStatement|null {
         $add_topic_count = ($incr_topic_count_posts) ? 1 : 0;
-        return sql::run("UPDATE forum_section SET posts_count = posts_count+1, topics_count = topics_count+?, `last_post_id` = ?, `topic_id` = ?, `user_id` = ?, `user_name` = ? WHERE id = ?;", [
+        return sql::run("UPDATE forum_section SET posts_count = posts_count+1, topics_count = topics_count+?, `last_post_id` = ?, `topic_id` = ?, `user_id` = ?, `user_name` = ?, `date_update` = ? WHERE id = ?;", [
             $add_topic_count,
             $last_post_id,
             $topicID,
             auth::get_id(),
             auth::get_name(),
+            time::mysql(),
             $section_id,
         ]);
     }
 
     //Увеличение счетчиков постов в разделе
     public static function incrTopicCounter($last_post_id, $topicID): void {
-        sql::sql("UPDATE forum_topics SET replies = replies+1, `last_post_id` = ?, `last_post_user_id` = ?, `last_post_user_name` = ? WHERE id = ?;", [
+        sql::sql("UPDATE forum_topics SET replies = replies+1, `last_post_id` = ?, `last_post_user_id` = ?, `last_post_user_name` = ?, `data_create` = ?, `date_update` = ? WHERE id = ?;", [
             $last_post_id,
             auth::get_id(),
             auth::get_name(),
+            time::mysql(),
+            time::mysql(),
             $topicID,
         ]);
     }

@@ -65,7 +65,7 @@
         {{topic.replies}}
     </td>
     <td class="d-none d-md-table-cell">
-        <span class="fs-sm">{{phrase("from")}} <a href="#">{{topic.author_user_name}}</a><br>{{phrase("date_create")}} {{topic.data_create}}</span>
+        <span class="fs-sm">{{phrase("from")}} <a href="#">{{topic.author_user_name}}</a><br>{{phrase("date_create")}} {{timezone(topic.data_create)}}</span>
     </td>
 </tr>
 {% endblock %}
