@@ -71,12 +71,16 @@ class ticket_model {
             board::notice(false, lang::get_phrase(341));
             return;
         }
-        $private = isset($_POST['private']) && $_POST['private'] === 'on';
-        sql::run("INSERT INTO `tickets` (`user_id`, `content`, `private`, `hide`) VALUES (?, ?, ?, 1)", [
+        $private = 1;
+        if(isset($_POST['private']) && $_POST['private'] === 'on'){
+            $private = 0;
+        }
+        sql::run("INSERT INTO `tickets` (`user_id`, `content`, `private`) VALUES (?, ?, ?)", [
             auth::get_id(),
             $content,
             $private,
         ]);
+
         $ticket_ID = sql::lastInsertId();
 
         if ($files !== null) {
