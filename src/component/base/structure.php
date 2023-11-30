@@ -62,7 +62,7 @@ interface structure {
      *
      * @return mixed
      */
-    public static function accounts_email(): string;
+    public static function accounts_email(): string|bool;
 
     /**
      * Статистика PvP

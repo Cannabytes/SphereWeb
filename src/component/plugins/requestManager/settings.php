@@ -1,7 +1,7 @@
 <?php
 return [
 "PLUGIN_HIDE" => false,
-"PLUGIN_ENABLE" => false,
+"PLUGIN_ENABLE" => true,
 "PLUGIN_NAME" => "SQL request manager",
 "PLUGIN_VERSION" => "1.0.0",
 "PLUGIN_AUTHOR" => "Logan22",

@@ -125,6 +125,9 @@ class structL2j {
     }
 
     static function parse_sql_query(string $sql): array {
+        if(empty($sql)) {
+            return [];
+        }
         preg_match('/^\s*([^\s]+)/', $sql, $matches);
         $sqlType = $matches[1];
         return match ($sqlType) {
