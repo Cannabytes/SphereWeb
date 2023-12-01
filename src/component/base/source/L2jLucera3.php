@@ -275,7 +275,6 @@ class L2jLucera3 implements structure {
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
                     LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id
-                    WHERE clan_subpledges.type = 0   
                  ';
     }
 
