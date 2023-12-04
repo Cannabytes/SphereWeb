@@ -11,7 +11,7 @@ class launcher {
 
     public function show() {
         if (!server::get_server_info()) {
-            tpl::display("error/not_server.html");
+            tpl::display("page/error.html");
         }
         $config = include __DIR__ . "/config.php";
         tpl::addVar('userLang', lang::lang_user_default());

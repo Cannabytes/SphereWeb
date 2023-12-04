@@ -63,7 +63,8 @@ class donate {
     static public function products() {
         $server_id = auth::get_default_server();
         if (!$server_id) {
-            tpl::display("error/not_server.html");
+            tpl::addVar("message", "Not Server");
+            tpl::display("page/error.html");
         }
         $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC" , [
             $server_id,

@@ -24,7 +24,8 @@ class account {
     public static function newAccount($server_id = null) {
         if (!server::get_server_info()) {
             tpl::addVar("title", lang::get_phrase(131));
-            tpl::display("error/not_server.html");
+            tpl::addVar("message", "Not Server");
+            tpl::display("page/error.html");
         }
         tpl::addVar([
             'server_id' => $server_id,
