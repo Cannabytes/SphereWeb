@@ -116,7 +116,7 @@ class action {
         if ($link !== false && count($params) > 0) {
             $link = vsprintf($link, $params);
         }
-        $link = sprintf("/%s/%s", fileSys::getSubDir(), $link);
+        $link = sprintf("%s/%s", fileSys::getSubDir(), $link);
         return str_replace(['//', '\\'], '/', $link);
     }
 
