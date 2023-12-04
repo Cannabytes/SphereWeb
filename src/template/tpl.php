@@ -188,7 +188,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('path', function ($link = "/") {
-            $link = sprintf("/%s/%s", fileSys::getSubDir(), $link );
+            $link = sprintf("%s/%s", fileSys::getSubDir(), $link );
             return str_replace(['//', '\\'], '/', $link);
         }));
 
