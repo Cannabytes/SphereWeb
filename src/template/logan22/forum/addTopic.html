@@ -8,7 +8,7 @@
         <div class="block-content block-content-full">
             <h2 class="content-heading">Создание новой темы</h2>
 
-            <form action="/forum/topic/add" method="POST" onsubmit="return false;">
+            <form action="{{action('create_topic')}}" method="POST" onsubmit="return false;">
                 <input type="hidden" value="{{sectionID}}" name="sectionID">
                 <div class="row">
                     <div class="col-lg-2">

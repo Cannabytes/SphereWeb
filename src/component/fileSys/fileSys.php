@@ -12,9 +12,11 @@ use Ofey\Logan22\component\lang\lang;
 class fileSys {
 
     private static $root_dir = null;
+    private static $sub_dir = "";
 
     public static function set_root_dir($root) {
         self::$root_dir = $root;
+        self::$sub_dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER["SCRIPT_FILENAME"]));
     }
 
     public static function get_dir($dir = null): string {
@@ -157,15 +159,45 @@ class fileSys {
     /**
      * Список файлов в папке
      */
-    public static function file_list($dir): false|array {
-        if($dir == null)
+    public static function file_list($dir, $fileFormats = []): false|array {
+        if ($dir == null) {
             return false;
-        return array_values(array_diff(scandir($dir), ['.', '..']));
+        }
+
+        $files = scandir($dir);
+        if ($files === false) {
+            return false;
+        }
+
+        if (empty($fileFormats)) {
+            $filteredFiles = array_values(array_diff($files, ['.', '..']));
+        } else {
+            $filteredFiles = [];
+            foreach ($files as $file) {
+                if ($file !== '.' && $file !== '..') {
+                    $fileExt = pathinfo($file, PATHINFO_EXTENSION);
+                    if (in_array($fileExt, $fileFormats)) {
+                        $filteredFiles[] = $file;
+                    }
+                }
+            }
+        }
+
+        return array_values($filteredFiles);
     }
 
-    public static function localdir($l = null): string {
-        $root_dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', self::$root_dir);
+
+
+    public static function localdir($l = null, $root = false): string {
+        if($root){
+            return self::$root_dir . $l;
+        }
+        $root_dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', self::$sub_dir);
         return $root_dir . $l;
+    }
+
+    public static function getSubDir(): string {
+        return self::$sub_dir;
     }
 
 }

@@ -219,7 +219,7 @@ return [
     151 => "Character '%s' not found",
     152 => "Product not found",
     153 => "The character '%s' must not be in the game",
-    154 => "You need to create a database connection first.<br><a href='/install/db'>Click to install the connection</a>",
+    154 => "You need to create a database connection first.<br><a href=" . Ofey\Logan22\component\fileSys\fileSys::localdir("/install/db") . ">Click to install the connection</a>",
     155 => "Admin already exists",
     156 => "No connection to db",
     157 => "Admin profile created",

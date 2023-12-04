@@ -15,7 +15,7 @@
         <!-- Sign In Form -->
         <div class="row justify-content-center px-1">
             <div class="col-sm-8 col-md-6 col-xl-4">
-                <form class="js-validation-signin" action="/auth/forget/send/password" method="POST"
+                <form class="js-validation-signin" action="{{action('forget_send_password')}}" method="POST"
                       data-function="captchaToken">
                     <div class="form-floating mb-4">
                         <input type="email" class="form-control" id="email" disabled name="email" placeholder="" value="{{email}}">
@@ -54,12 +54,12 @@
                             </button>
                         </div>
                         <div class="col-sm-6 mb-1">
-                            <a class="btn btn-alt-secondary w-100 ajaxload" href="/registration/user">
+                            <a class="btn btn-alt-secondary w-100 ajaxload" href="{{action('registration_user')}}">
                                 {{phrase("menu_registration")}}
                             </a>
                         </div>
                         <div class="col-sm-6 mb-1">
-                            <a class="btn btn-alt-secondary w-100 ajaxload" href="/auth">
+                            <a class="btn btn-alt-secondary w-100 ajaxload" href="{{action('auth')}}">
                                 {{phrase("enter")}}
                             </a>
                         </div>

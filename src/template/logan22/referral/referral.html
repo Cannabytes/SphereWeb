@@ -27,7 +27,7 @@
 
         <div class="col-12">
             <div class="block block-rounded">
-                <form method="POST" action="/referral" class="block-content">
+                <form method="POST" action="{{action('menu_referral')}}" class="block-content">
 
                     <ul class="list-unstyled">
                         <li class="text-center">{{phrase(310)}} : {{referral_count.completed+referral_count.continues}}</li>
@@ -38,7 +38,7 @@
                             <a data-toggle="tooltip" data-placement="top"
                                title="{{phrase(314)}}" class="copy" onclick="return false;" href="{{referral_link()}}">{{referral_link()}}</a>
                             {% else %}
-                            <a href="/user/change">{{phrase(315)}}</a>
+                            <a href="{{action('menu_change')}}">{{phrase(315)}}</a>
                             {% endif %}
                         </li>
                     </ul>

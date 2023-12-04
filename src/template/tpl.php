@@ -20,6 +20,7 @@ use Ofey\Logan22\component\estate\fort;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\links\action;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\launcher;
@@ -105,38 +106,13 @@ class tpl {
             self::$ajaxLoad = true;
         }
 
-        self::$templatePath = "/src/template/logan22";
+        $relativePath = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER["SCRIPT_FILENAME"]));
+
+        self::$templatePath =  "/src/template/logan22";
         if (self::$categoryCabinet) {
             self::$templatePath = "/template/" . config::get_template();
             self::lang_template_load(fileSys::get_dir(self::$templatePath . "/lang.php"));
         }
-        $filePath = fileSys::get_dir(self::$templatePath . "/" . $tplName);
-
-        //Проверка существования папки с плагинами
-        if (!is_dir(fileSys::get_dir("/src/component/plugins"))) {
-            $pluginOFF = false;
-        }else{
-            if(!file_exists(fileSys::get_dir("/src/component/plugins/" . $tplName))){
-                $pluginOFF = false;
-            }
-        }
-        if (!file_exists($filePath) ) {
-           $fileOFF = false;
-        }
-
-        if(isset($pluginOFF) && isset($fileOFF)) {
-            self::$categoryCabinet = false;
-            if (self::$ajaxLoad) {
-                self::display("page/error.html");
-                die();
-            }
-            self::display("page/error.html");
-            echo "Не найден шаблон: " . $filePath;
-            die();
-        }
-
-
-
         $loader = new FilesystemLoader([
             fileSys::get_dir(self::$templatePath),
         ]);
@@ -144,7 +120,6 @@ class tpl {
         if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
             $loader->addPath(fileSys::get_dir("/src/component/plugins"));
         }
-
         include fileSys::get_dir("src/config/cache.php");
         $arrTwigConfig = [];
         if ($enable_cache_template) {
@@ -160,8 +135,11 @@ class tpl {
 
         self::$allTplVars['dir'] = fileSys::localdir();
         $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . self::$templatePath;
+//        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . fileSys::localdir(self::$templatePath) ;
+        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . $relativePath . self::$templatePath ;
+
         self::$allTplVars['protocol'] = $protocol;
+        self::$allTplVars['path'] = $relativePath;
         self::$allTplVars['template'] = $self;
         self::$allTplVars['pointTime'] = microtime::pointTime();
         return $twig;
@@ -207,6 +185,11 @@ class tpl {
                 default:
                     return "info";
             }
+        }));
+
+        $twig->addFunction(new TwigFunction('path', function ($link = "/") {
+            $link = sprintf("/%s/%s", fileSys::getSubDir(), $link );
+            return str_replace(['//', '\\'], '/', $link);
         }));
 
         $twig->addFunction(new TwigFunction('cache_timeout', function ($var = null) {
@@ -450,6 +433,39 @@ class tpl {
             return config::show_image_sphere_coin();
         }));
 
+        $twig->addFunction(new TwigFunction('get_avatar' , function ($img = "none.jpeg", $thumb = false){
+            if($thumb){
+                if (mb_substr($img, 0, 5) == "user_") {
+                    $img = "thumb_" . $img;
+                }
+            }
+            return fileSys::localdir(sprintf("/uploads/avatar/%s", $img));
+        }));
+
+        $twig->addFunction(new TwigFunction('get_skill' , function ($img = "none.jpeg"){
+            return fileSys::localdir(sprintf("/uploads/images/skills/%s", $img));
+        }));
+
+        $twig->addFunction(new TwigFunction('get_icon' , function ($img = "none.jpeg"){
+            return fileSys::localdir(sprintf("/uploads/images/skills/%s", $img));
+        }));
+
+        $twig->addFunction(new TwigFunction('get_forum_img' , function ($img = "none.jpeg", $thumb = false){
+            if($thumb){
+                if (mb_substr($img, 0, 5) == "user_") {
+                    $img = "thumb_" . $img;
+                }
+            }
+            return fileSys::localdir(sprintf("/uploads/images/forum/%s", $img));
+        }));
+
+        $twig->addFunction(new TwigFunction('get_ticket_img' , function ($img = "none.jpeg", $thumb = false){
+            if($thumb){
+                $img = "thumb_" . $img;
+            }
+            return fileSys::localdir(sprintf("/uploads/tickets/%s", $img));
+        }));
+
         $twig->addFunction(new TwigFunction('forum_user_avatar', function ($user_id = 0) {
             return forum::user_avatar($user_id);
         }));
@@ -681,7 +697,6 @@ class tpl {
             return $date->format('Y-m-d H:i:s');
         }));
 
-
         $twig->addFunction(new TwigFunction('referral_link', function () {
             $scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https://' : 'http://';
             $name = auth::get_name() ?: auth::get_id();
@@ -706,6 +721,15 @@ class tpl {
             $buffs = self::$get_buffs_registry['buff'];
             return $buffs[array_rand($buffs)];
         }));
+
+        $twig->addFunction(new TwigFunction('action', function ($name, array $params = []) {
+            if (!empty($params)) {
+                return action::get($name, ...$params);
+            } else {
+                return action::get($name);
+            }
+        }));
+
 
 
         $twig->addFunction(new TwigFunction('get_collection', function ($chronicle_name) {

@@ -57,7 +57,7 @@
                 </div>
                 <!-- END Heading -->
 
-                <form class="js-validation-installation" action="/install/db/connect/test" method="POST">
+                <form class="js-validation-installation" action="{{action('install_connect_test_db')}}" method="POST">
                   <div class="block block-rounded block-fx-shadow">
                     <!-- Database section -->
                     <div class="block-content">
@@ -126,14 +126,14 @@
           $('#add_db').prop('disabled', true);
           $.ajax({
             type: "POST",
-            url: "/install/db/connect/test",
+            url: "{{action('install_connect_test_db')}}",
             data: $(this).serialize(),
             dataType: "json",
             encode: true,
           }).done(function (data) {
             if (data.ok){
               notify_success(data.message)
-              document.location.href = '/install/admin'
+              document.location.href = '{{action("install_admin")}}';
             }else {
               $('#add_db').prop('disabled', false);
               notify_error(data.message)

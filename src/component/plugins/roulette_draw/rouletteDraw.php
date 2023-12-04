@@ -19,7 +19,8 @@ class rouletteDraw {
     public function show_roulette_draw() {
         validation::user_protection();
         if (!server::get_server_info()) {
-            tpl::display("error/not_server.html");
+            tpl::addVar("message", "Not Server");
+            tpl::display("page/error.html");
         }
         $config = include __DIR__ . "/config.php";
 

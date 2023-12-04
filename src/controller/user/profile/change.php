@@ -48,7 +48,7 @@ class change {
 
     public static function show_avatar_page(): void {
         validation::user_protection();
-        $avatarList = fileSys::file_list('uploads/avatar');
+        $avatarList = fileSys::file_list('uploads/avatar', ['jpeg']);
         foreach ($avatarList as $key => $value) {
             if (mb_substr($value, 0, 5) == "user_") {
                 unset($avatarList[$key]);
@@ -79,7 +79,6 @@ class change {
         if ($files == null) {
             return;
         }
-        include "src/config/general.php";
 
         if (PRICE_CHANGE_AVATAR > auth::get_donate_point()) {
             board::error("У Вас недостаточно денег. Стоимость смены аватарки " . PRICE_CHANGE_AVATAR . " " . lang::get_phrase("Sphere-Coin") . ".");
@@ -161,18 +160,19 @@ class change {
     public static function save_avatar(): void {
         validation::user_protection();
         $avatar = $_POST['avatar'] ?? null;
+//        var_dump(fileSys::localdir("/uploads/avatar/" . $avatar, true));exit();
         if ($avatar == null) {
             board::notice(false, lang::get_phrase(194));
         }
         if (62 < mb_strlen($avatar))
             board::notice(false, lang::get_phrase(195));
-        if (!file_exists("uploads/avatar/" . $avatar))
+        if (!file_exists(fileSys::localdir("/uploads/avatar/" . $avatar, true)))
             board::notice(false, lang::get_phrase(196));
         \Ofey\Logan22\model\user\profile\change::set_avatar($avatar);
         board::alert([
             'ok' => true,
             'message' => lang::get_phrase(197),
-            'src' => "/uploads/avatar/" . $avatar,
+            'src' => fileSys::localdir("/uploads/avatar/" . $avatar),
         ]);
     }
 

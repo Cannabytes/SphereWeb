@@ -29,8 +29,8 @@
                         {% endif %}
 
                     </td>
-                    <td><a class="ajaxload" href="/account/info/{{ player.login }}">{{phrase(203)}}</a></td>
-                    <td><a class="ajaxload" href="/account/password/change/{{player.login}}/server/{{player.server_id}}">{{phrase(485)}}</a></td>
+                    <td><a class="ajaxload" href="{{action('account_info', [player.login]) }}">{{phrase(203)}}</a></td>
+                    <td><a class="ajaxload" href="{{action('account_change_password', [player.login, player.server_id] ) }}">{{phrase(485)}}</a></td>
                 </tr>
                 {% endif %}
 

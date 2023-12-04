@@ -8,12 +8,13 @@
 
     <meta name="description"
           content="{{meta_description}}">
-    <base href="">
+    <base href="{{path}}">
     <meta name="author" content="Logan22">
     <meta name="robots" content="noindex, nofollow">
     <meta name="server_default" content="{{user_info('get_default_server')}}"/>
     <meta name="server_chronicle" content="{{get_server_info(user_info('get_default_server'))['chronicle']}}"/>
 
+    <meta name="sub-dir" content="{{path}}">
     <meta name="get_captcha_version" content="{{ get_captcha_version() }}"/>
 
     {% if user_info('get_is_auth') == false %}
@@ -69,9 +70,10 @@
             <!-- User Avatar -->
             <a class="img-link me-2" href="#">
                 <img class="img-avatar img-avatar32"
-                     src="/uploads/avatar/{{ user_info('get_avatar') }}" alt="">
+                     src="{{ get_avatar( user_info('get_avatar'), true ) }}" alt="">
             </a>
             <!-- END User Avatar -->
+
 
             <!-- User Info -->
             <a class="link-fx text-white fw-semibold fs-sm" href="#">
@@ -118,7 +120,7 @@
                                 <img data-bonus-id="{{bonus.id}}"
                                      class="{% if bonus.enchant > 0 %}player-inventory-enchant {% endif %}"
                                      data-toggle="tooltip" data-placement="top" title=""
-                                     src="/uploads/images/icon/{{bonus.icon}}.webp"
+                                     src="{{icon( bonus.icon )}}"
                                      data-original-title="{{bonus.name}}">
                                 <div>{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if
                                     bonus.count > 1 %}({{bonus.count}}){% endif %}
@@ -147,7 +149,7 @@
               <span class="smini-visible fw-bold tracking-wide fs-lg">
                 c<span class="text-primary">b</span>
               </span>
-                    <a class="link-fx fw-bold tracking-wide mx-auto ajaxload" href="/main">
+                    <a class="link-fx fw-bold tracking-wide mx-auto ajaxload" href="{{action('main')}}">
                 <span class="smini-hidden">
                   <i class="fa fa-fire text-primary"></i>
                   {{phrase('sphere_project_name')|raw}}
@@ -201,13 +203,13 @@
                 <div class="content-side content-side-full">
                     <ul class="nav-main">
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/main">
+                            <a class="nav-main-link ajaxload" href="{{action('main')}}">
                                 <i class="nav-main-link-icon fa fa-house-user"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_main")}}</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/page" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('page')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-newspaper"></i>
                                 <span class="nav-main-link-name">{{phrase("news")}}</span>
                             </a>
@@ -221,12 +223,12 @@
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/registration/account" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('account_registration')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(40)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/accounts" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('accounts')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(43)}}</span>
                                     </a>
                                 </li>
@@ -235,13 +237,13 @@
                         </li>
                         {% else %}
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/auth" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('auth')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-sign-in"></i>
                                 <span class="nav-main-link-name">{{phrase("authorization")}}</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="{{alias('registration_user')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action( 'registration_user' )}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-address-book"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_registration")}}</span>
                             </a>
@@ -250,57 +252,56 @@
 
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/donate/pay" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('menu_donate_pay')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">{{phrase(486)}}</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/donate" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('menu_donate')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-cart-shopping"></i>
                                 <span class="nav-main-link-name">{{phrase(215)}}</span>
                             </a>
                         </li>
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                               aria-expanded="true" href="#">
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                 <i class="nav-main-link-icon fa fa-star"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_statistics")}}</span>
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/pvp" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_pvp')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(317)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/pk" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_pk')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(318)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/clan" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_clan')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(49)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/castle" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_castle')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(50)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/heroes" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_heroes')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(51)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/online/time" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_online_time')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(52)}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link ajaxload" href="/statistic/block" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                                    <a class="nav-main-link ajaxload" href="{{action('statistic_block')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                         <span class="nav-main-link-name">{{phrase(53)}}</span>
                                     </a>
                                 </li>
@@ -309,7 +310,7 @@
 
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/ticket" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('menu_ticket')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-message"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_ticket")}}</span>
                             </a>
@@ -317,7 +318,7 @@
 
                         {% if user_info('get_is_auth') %}
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/referral" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('menu_referral')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-people-arrows"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_referrals")}}</span>
                             </a>
@@ -325,7 +326,7 @@
                         {% endif %}
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/forum" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('forum')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-comments"></i>
                                 <span class="nav-main-link-name">{{phrase(62)}}</span>
                             </a>
@@ -337,7 +338,7 @@
                         {% for plugin in show_plugins() %}
                         {% if user_info('get_access_level') in plugin.PLUGIN_USER_PAGE_ACCESS %}
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{plugin.PLUGIN_USER_PAGE}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link" href="{{path(plugin.PLUGIN_USER_PAGE)}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa {{plugin.PLUGIN_USER_PAGE_ICON}}"></i>
                                 <span class="nav-main-link-name">{{plugin.PLUGIN_USER_PAGE_NAME}}</span>
                             </a>
@@ -349,14 +350,14 @@
 
                         {% if user_info('get_access_level') == "admin" %}
                         <li class="nav-main-item">
-                            <a class="nav-main-link ajaxload" href="/admin" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link ajaxload" href="{{action('admin')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-door-open"></i>
                                 <span class="nav-main-link-name">{{phrase(221)}}</span>
                             </a>
                         </li>
                         {% endif %}
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="/" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
+                            <a class="nav-main-link" href="{{path('/')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-arrow-left"></i>
                                 <span class="nav-main-link-name">{{phrase("return_demo_page")}}</span>
                             </a>
@@ -373,7 +374,7 @@
                             <div class="pt-1">
                                 {% set pageID = get_default_page(online['name'], online['id']) %}
                                 {% if pageID %}
-                                <a data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}" class="btn btn-sm btn-alt-success ajaxload" href="/page/{{pageID}}">
+                                <a data-toggle="tooltip" data-placement="top" data-original-title="{{phrase(336)}}" class="btn btn-sm btn-alt-success ajaxload" href="{{action('get_page', [pageID])}}">
                                     {{online['name']}} x{{online['rate_exp']}}
                                 </a>
                                 {% else %}
@@ -461,26 +462,26 @@
                         </div>
                         <div class="p-2">
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/donate/pay">
+                               href="{{action('menu_donate_pay')}}">
                                 <span>{{phrase("refill")}}</span>
                                 {%if show_image_sphere_coin()%}
                                 <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
                                 {% endif %}
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
-                               href="/user/notification">
+                               href="{{action('menu_notification')}}">
                                 <span>{{phrase("notification")}}</span>
                                 <i class="fa fa-fw fa-envelope-open opacity-25"></i>
                             </a>
 
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change/avatar">
+                               href="{{action('menu_change_avatar')}}">
                                 <span>{{phrase(65)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change/avatar/self">
+                               href="{{action('menu_change_avatar_self')}}">
                                 <span>{{phrase(525)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
@@ -488,14 +489,14 @@
 
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change">
+                               href="{{action('menu_change')}}">
                                 <span>{{phrase("settings")}}</span>
                                 <i class="fa fa-fw fa-wrench opacity-25"></i>
                             </a>
 
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
-                               href="/auth/logout">
+                               href="{{action('logout')}}">
                                 <span>{{phrase("logout")}}</span>
                                 <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
                             </a>
@@ -514,7 +515,8 @@
                         <i class="fa fa-user d-sm-none"></i>
 
                         <img class="img-avatar img-avatar48 user_self_avatar"
-                             src="/uploads/avatar/{{ user_info('get_avatar') }}" alt="">
+                             src="{{get_avatar( user_info('get_avatar'), true ) }}"
+                             alt="">
 
                         <span class="d-none d-sm-inline-block fw-semibold">{{ user_info('get_name') }}
                         <span class="nav-main-link-badge badge rounded-pill bg-primary count_sphere_coin">{{ user_info('get_donate_point') }}</span></span>
@@ -529,39 +531,39 @@
                         </div>
                         <div class="p-2">
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/donate/pay">
+                               href="{{action('menu_donate_pay')}}">
                                 <span>{{phrase("refill")}}</span>
                                 {%if show_image_sphere_coin()%}
                                 <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1" src="{{template}}/assets/images/coin/sphere-coin_16.png">
                                 {% endif %}
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload"
-                               href="/user/notification">
+                               href="{{action('menu_notification')}}">
                                 <span>{{phrase("notification")}}</span>
                                 <i class="fa fa-fw fa-envelope-open opacity-25"></i>
                             </a>
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change/avatar">
+                               href="{{action('menu_change_avatar')}}">
                                 <span>{{phrase(65)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change/avatar/self">
+                               href="{{action('menu_change_avatar_self')}}">
                                 <span>{{phrase(525)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="/user/change">
+                               href="{{action('menu_change')}}">
                                 <span>{{phrase("settings")}}</span>
                                 <i class="fa fa-fw fa-wrench opacity-25"></i>
                             </a>
 
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
-                               href="/auth/logout">
+                               href="{{action('logout')}}">
                                 <span>{{phrase("logout")}}</span>
                                 <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
                             </a>
@@ -588,19 +590,19 @@
                         </div>
                         <div class="p-2">
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="{{alias('login')}}">
+                               href="{{action('auth')}}">
                                 <span>{{phrase("authorization")}}</span>
                                 <i class="fa fa-fw fa-user opacity-25"></i>
                             </a>
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="{{alias('registration_user')}}">
+                               href="{{action('registration_user')}}">
                                 <span>{{phrase(131)}}</span>
                                 <i class="fa fa-fw fa-envelope-open opacity-25"></i>
                             </a>
 
 
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1 ajaxload"
-                               href="{{alias('forget')}}">
+                               href="{{action('auth_forget')}}">
                                 <span>{{phrase(67)}}</span>
                                 <i class="fa fa-fw fa-file opacity-25"></i>
                             </a>
@@ -629,7 +631,7 @@
                             </h5>
                         </div>
                         <div class="p-2">
-                            <form class="row row-cols-lg-auto g-1 align-items-center " action="/bonus/receiving" method="POST" onsubmit="return false;">
+                            <form class="row row-cols-lg-auto g-1 align-items-center " action="{{path('/bonus/receiving')}}" method="POST" onsubmit="return false;">
                                 <div class="col-lg-12 col-xl-12">
                                     <input type="text" class="form-control" id="code" name="code" placeholder="{{phrase('code_bonus')}}">
                                 </div>
@@ -668,7 +670,7 @@
                         <ul class="nav-items my-2 fs-sm">
                             {% for notification in get_self_notification() %}
                             <li>
-                                <a class="text-dark d-flex py-2" href="/{{notification.link}}">
+                                <a class="text-dark d-flex py-2" href="{{path('{{notification.link}}')}}">
                                     <div class="flex-grow-1 pe-2 me-2 ms-3">
                                         <p class="fw-medium mb-1">{{notification.message}}</p>
                                         <div class="text-muted">{{ProhloVremya(notification.date)}}</div>
@@ -712,7 +714,7 @@
                         {% for lang in lang_list(lang_user_default()) %}
                         <div class="p-1">
                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
-                               href="/user/change/lang/{{lang.lang}}">
+                               href="{{action('user_lang', [lang.lang])}}">
                                 <span>{{lang.name}}</span>
                             </a>
                         </div>
@@ -782,7 +784,7 @@
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-popout" role="document">
             <div class="modal-content">
-                <form action="/bonus/inventory/addplayer" method="POST" class="block block-rounded shadow-none mb-0">
+                <form action="{{action('menu_bonus_inventory_add')}}" method="POST" class="block block-rounded shadow-none mb-0">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">{{phrase("submitting_an_item")}}</h3>
                         <div class="block-options">

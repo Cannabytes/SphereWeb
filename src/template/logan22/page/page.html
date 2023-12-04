@@ -13,7 +13,7 @@
                     {% if short.link %}
                     <a target="_blank" href="{{short.link}}">{{short.name}}</a>
                     {% else %}
-                    <a class="ajaxload" href="/page/{{short.id}}">{{short.name}}</a>
+                    <a class="ajaxload" href="{{action('get_page', [short.id])}}">{{short.name}}</a>
                     {% endif %}
                   </h3>
                   <div class="block-options">
@@ -24,7 +24,7 @@
                   {% if short.link %}
                   <a target="_blank" href="{{short.link}}">
                   {% else %}
-                  <a class="fs-sm link-fx fw-semibold ajaxload" href="/page/{{short.id}}">
+                  <a class="fs-sm link-fx fw-semibold ajaxload" href="{{action('get_page', [short.id])}}">
                   {% endif %}
                   <p> {{short.description|raw|replace({'<p>': '', '</p>': '', '<b>': '', '</b>': '', '<br>': ''})|raw}}</p>
                   </a>
