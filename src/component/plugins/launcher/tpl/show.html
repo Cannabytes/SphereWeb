@@ -69,10 +69,42 @@
             <button type="button" class="btn btn-success btn-sm launcherUpdateStart">Обновить лаунчер</button>
         </div>
     </div>
-
+    {% if (show_accounts) %}
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Автовход</h3>
+            <div class="block-options">
+                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+             </div>
+        </div>
+        <div class="block-content">
+            {% for account_name, accounts in accounts_list %}
+            <div>{{account_name}}</div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row items-push text-center">
+                        {% for player in accounts.players %}
+                        <div class="col-md-3">
+                            <div class="form-check form-block">
+                                <input data-login="{{account_name}}" data-player="{{player}}" data-password="{{accounts.password}}" type="radio" class="form-check-input launcherAccountsPlayer" id="example-radio-block1_{{account_name}}_{{player}}"
+                                       name="example-radio-block">
+                                <label class="form-check-label" for="example-radio-block1_{{account_name}}_{{player}}">
+                                    <span class="d-block fw-normal text-center my-0">
+                                      <span class="fs-4 fw-semibold">{{player}}</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
     <div class="row" id="contentMain"></div>
     <hr>
-
     <div class="row">
         <div class="col-xl-12 align-items-stretch">
             <div class="block block-rounded block-themed block-mode-loading-dark block-transparent bg-image w-100"

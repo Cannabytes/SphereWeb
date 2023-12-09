@@ -111,7 +111,6 @@ function hideShowButtonLoad(){
 }
 
 function ResponseDirection(response) {
-    alert("TEST")
     if (response.command !== "directry") return;
     $("#dirfullpath").text(response.directory)
     $('.saveDirClient').attr('data-client-dir-path', response.directory)

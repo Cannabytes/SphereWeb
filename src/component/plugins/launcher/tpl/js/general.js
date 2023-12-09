@@ -163,19 +163,35 @@ function sendMaxSizePathFile() {
 
 
 $(document).on('click', '.startL2', function () {
+
+    let login = "";
+    let password = "";
+    let player = "";
+
+    selectedPlayer = $('.launcherAccountsPlayer:checked');
+
+    if (selectedPlayer.length > 0) {
+         login = String(selectedPlayer.data('login'));
+         password = String(selectedPlayer.data('password'));
+         player = String(selectedPlayer.data('player'));
+    }
+
     if (isConnectAjax === false && isConnectSocket === false) {
         errorMessage(word_need_start_launcher)
         return;
     }
-
     if ($("#selectClient").val() === null) {
         $("#selectDirClient").modal('show');
         return
     }
+
     obj = {
         command: 'startGame',
         application: $(this).data("exe"),
         args: $(this).data("args"),
+        login: login,
+        password: password,
+        player: player,
         dirID: parseInt($("#selectClient").val()),
         uid: domain,
     }

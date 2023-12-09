@@ -8,7 +8,7 @@ return [
             "application" => [
                 [
                     "l2exe" => "/system/l2.exe",
-                    "args" => null,
+                    "args" => "AutoLoginEnable=1 Login=%login% Pass=%pass% Server=Infinity x20 CharName=%player% SecPass=",
                     "background" => "src/component/plugins/launcher/tpl/img/l2_button.jpg",
                     "name" => [
                         "ru" => "Запустить игру",
@@ -26,6 +26,7 @@ return [
                     ],
                 ],
             ],
+            "show_accounts" => true,
         ],
     ],
 ];

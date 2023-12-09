@@ -11,7 +11,7 @@ return [
      */
     'list_of_draws' => [
         [
-            "server_id" => 1,
+            "server_id" => 12,
             "items" => [
                 [
                     // ID предмета
