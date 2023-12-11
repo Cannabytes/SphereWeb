@@ -177,8 +177,8 @@ class L2jEternity implements structure {
                         characters.title AS player_title, 
                         characters.`online`, 
                         characters.onlinetime AS time_in_game,
-                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.crest_id LIMIT 1 ) AS clan_crest,
-                        ( SELECT `data` FROM crests WHERE crest_id = clan_data.ally_crest_id LIMIT 1 ) AS alliance_crest 
+                        ( SELECT `data` FROM crests WHERE crest_id = characters.clanid LIMIT 1 ) AS clan_crest,
+                        ( SELECT `data` FROM crests WHERE crest_id = characters.clanid LIMIT 1 ) AS alliance_crest 
                     FROM
                         characters
                     WHERE
