@@ -11,7 +11,6 @@ var countStream = 5;
 var numCPU = 1;
 
 $(".chronicle").text(chronicle)
-alert(chronicle)
 
 var url = new URL("https://" + domain);
 $(".mainDomain").text(url.hostname);
