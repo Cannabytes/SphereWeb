@@ -3,7 +3,7 @@
 return [
     'server' => [
         1 => [
-            "chronicle" => "Interlude",
+            "chronicle" => "High Five",
             "name" => "MyGame",
             "application" => [
                 [
@@ -26,7 +26,7 @@ return [
                     ],
                 ],
             ],
-            "show_accounts" => true,
+            "show_accounts" => false,
         ],
     ],
 ];
