@@ -164,7 +164,7 @@ class install {
         $pdo = \Ofey\Logan22\model\install\install::test_connect_mysql($host, $port, $user, $password, $name);
         if ($pdo) {
             self::install_sql_struct($pdo, fileSys::get_dir("/uploads/sql/struct/*.sql"));
-            self::install_sql_struct($pdo, fileSys::get_dir("/uploads/sql/data/*.sql"));
+//            self::install_sql_struct($pdo, fileSys::get_dir("/uploads/sql/data/*.sql"));
             \Ofey\Logan22\model\install\install::saveConfig($host, $port, $user, $password, $name);
             board::notice(true, 'Next install');
         } else {
