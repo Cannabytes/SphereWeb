@@ -13,6 +13,7 @@ use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\captcha\google;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\fileSys\fileSys;
+use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\request\request;
@@ -562,10 +563,19 @@ class auth {
      * @param array|null $bonus
      */
     public static function setBonus(): void {
-        self::$bonus = sql::getRows("SELECT bonus.id, bonus.item_id, bonus.count, bonus.enchant, bonus.phrase, items_data.icon,  items_data.`name`
-             FROM bonus LEFT JOIN items_data ON bonus.item_id = items_data.item_id WHERE server_id = ? AND user_id = ? AND issued = 0", [
+        $bonusActive = sql::getRows("SELECT bonus.id, bonus.item_id, bonus.count, bonus.enchant, bonus.phrase
+             FROM bonus WHERE server_id = ? AND user_id = ? AND issued = 0", [
             self::get_default_server(),
             self::get_id(),
         ]);
+        foreach($bonusActive AS &$item){
+            $itemInfo = client_icon::get_item_info($item['item_id'], false, false);
+            if(!$itemInfo){
+                var_dump("ERR", $item);exit;
+            }
+            $item['icon'] = $itemInfo['icon'];
+            $item['name'] = $itemInfo['name'];
+        }
+        self::$bonus = $bonusActive;
     }
 }

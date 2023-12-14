@@ -39,8 +39,13 @@ class donate {
         if (empty($donate))
             return [];
 
+        $lex = [];
         $item_id_list = array_column($donate, 'item_id');
-        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN (" . implode(',', $item_id_list) . ");");
+        foreach($item_id_list AS $item){
+            $lex[] = client_icon::get_item_info($item, false);
+        }
+//        var_dump($lex);exit;
+//        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN (" . implode(',', $item_id_list) . ");");
 
         $items = [];
         foreach ($donate as $item) {
@@ -69,15 +74,10 @@ class donate {
         $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC" , [
             $server_id,
         ])->fetchAll();
-        $item_id_list = [];
+        $lex = [];
         foreach ($donate as $item) {
-            $item_id_list[] = $item['item_id'];
+            $lex[] = client_icon::get_item_info($item['item_id'], false, false);
         }
-        if (empty($item_id_list))
-            return $item_id_list;
-        $list = implode(', ', $item_id_list);
-        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list}); ");
-
         $items = [];
         foreach ($donate as $item) {
             $item_id = $item['item_id'];

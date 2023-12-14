@@ -13,6 +13,7 @@ use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\chronicle\race_class;
+use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
@@ -268,14 +269,14 @@ class statistic {
     public static function get_player_inventory_info($player_name, $char_object_id, $server_id = 0): ?array {
         $inventory = self::get_data_statistic_player(dir::statistic_player_inventory_info, 'statistic_player_inventory_info', player_name: $player_name, server_id: $server_id, prepare: [$char_object_id], second: timeout::statistic_player_inventory_info->time());
         if($inventory != null) {
-            //Объединяем данные о скиллах клана и название, иконку клана
-            $item_id_list = [];
+            $lex = [];
             foreach($inventory as $item) {
-                $item_id_list[] = $item['item_id'];
+                $itemInfo = client_icon::get_item_info($item['item_id'], false, false);
+                if(!$itemInfo){
+                    continue;
+                }
+                $lex[] = $itemInfo;
             }
-            $list = implode(', ', $item_id_list);
-            $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list});");
-
             foreach($inventory as &$item) {
                 $item_id = $item['item_id'];
                 foreach($lex as $row) {
@@ -362,21 +363,10 @@ class statistic {
         $clan_skills = self::get_data_statistic_clan(dir::statistic_clan_skills, 'statistic_clan_skills', clan_name: $clan_name, server_id: $server_id, crest_convert: false, prepare: [$clan_info["clan_id"]], second: timeout::statistic_clan_skills->time());
 
         if($clan_skills != null) {
-            //Объединяем данные о скиллах клана и название, иконку клана
-            $skill_id_list = [];
-            foreach($clan_skills as $skill) {
-                $skill_id_list[] = $skill['skill_id'];
-            }
-            $list = implode(', ', $skill_id_list);
-            $lex = sql::getRows("SELECT * FROM skills_data WHERE `skill_id` IN ({$list});");
-
             foreach($clan_skills as &$skill) {
-                $skill_id = $skill['skill_id'];
-                foreach($lex as $row) {
-                    if($skill_id == $row['skill_id']) {
-                        $skill = array_merge($skill, $row);
-                    }
-                }
+                $skill_level = $skill['skill_level'];
+                $skill = client_icon::get_skill_info($skill['skill_id']);
+                $skill['skill_level'] = $skill_level;
             }
         }
         return [

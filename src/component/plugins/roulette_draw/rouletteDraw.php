@@ -5,6 +5,7 @@ namespace Ofey\Logan22\component\plugins\roulette_draw;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\bonus\bonus;
@@ -23,7 +24,9 @@ class rouletteDraw {
             tpl::display("page/error.html");
         }
         $config = include __DIR__ . "/config.php";
-
+        if(!$config['PLUGIN_ENABLE']){
+           redirect::location("/main");
+        }
         $item_id_list = [];
         $list_of_draws = [];
         foreach ($config['list_of_draws'] as $draw) {
@@ -51,8 +54,9 @@ class rouletteDraw {
         if (empty($item_id_list))
             return $item_id_list;
 
-        $list = implode(', ', $item_id_list);
-        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN ({$list}); ");
+        foreach($item_id_list AS $item){
+            $lex[] = client_icon::get_item_info($item, false);
+        }
 
         $full_item_info_draws = [];
         foreach ($list_of_draws as $item) {
@@ -73,9 +77,10 @@ class rouletteDraw {
     //Начать розыгрыш
     public function start_roulette_draw() {
         validation::user_protection();
-
         $config = include __DIR__ . "/config.php";
-
+        if(!$config['PLUGIN_ENABLE']){
+            return false;
+        }
         $rouletteDraw_count = 0;
         $vRD = auth::get_user_variables("rouletteDraw");
         if ($vRD) {

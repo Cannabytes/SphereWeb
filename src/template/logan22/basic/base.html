@@ -120,7 +120,7 @@
                                 <img data-bonus-id="{{bonus.id}}"
                                      class="{% if bonus.enchant > 0 %}player-inventory-enchant {% endif %}"
                                      data-toggle="tooltip" data-placement="top" title=""
-                                     src="{{icon( bonus.icon )}}"
+                                     src="{{( bonus.icon )}}"
                                      data-original-title="{{bonus.name}}">
                                 <div>{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if
                                     bonus.count > 1 %}({{bonus.count}}){% endif %}

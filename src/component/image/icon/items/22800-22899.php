@@ -1,0 +1,727 @@
+<?php return [
+  22800 => 
+  [
+    'item_id' => 22800,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Not used',
+    'additionalname' => 'Not used',
+    'description' => 'Not used',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22801 => 
+  [
+    'item_id' => 22801,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Not used',
+    'additionalname' => 'Not used',
+    'description' => 'Not used',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22802 => 
+  [
+    'item_id' => 22802,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Not used',
+    'additionalname' => 'Not used',
+    'description' => 'Not used',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22803 => 
+  [
+    'item_id' => 22803,
+    'icon' => 'g_glacierin_i00',
+    'name' => 'Freya\'s Staff - Cleverness (PvP]',
+    'additionalname' => '',
+    'description' => 'Increases damage inflicted during PvP. Has a chance of recovering CP during an attack.
+No Soul Crystal option.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22804 => 
+  [
+    'item_id' => 22804,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Freya\'s Staff - Cleverness (PvP] - Magic Hold',
+    'additionalname' => '',
+    'description' => 'Masterwork Item with chance of MP absorption.
+<Special Option>
+Two-handed magic blunt with special powers used by Freya. A 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. Has a chance of increasing Casting Spd. when attacked.
+No Soul Crystal option.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22805 => 
+  [
+    'item_id' => 22805,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Freya\'s Staff - Cleverness (PvP] - Empower',
+    'additionalname' => '',
+    'description' => 'Masterwork Item with chance of MP absorption.
+<Special Option>
+Two-handed magic blunt with special powers used by Freya. M. Atk. Increases by 177. Increases damage inflicted during PvP. Has a chance of increasing Casting Spd. when attacked.
+No Soul Crystal option.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22806 => 
+  [
+    'item_id' => 22806,
+    'icon' => 'g_glacierin_i01',
+    'name' => 'Freya\'s Staff - Cleverness (PvP] - MP Regeneration',
+    'additionalname' => '',
+    'description' => 'Masterwork Item with chance of MP absorption.
+<Special Option>
+Two-handed magic blunt with special powers used by Freya. MP Recovery Rate is raised. Increases damage inflicted during PvP. Has a chance of increasing Casting Spd. when attacked.
+No Soul Crystal option.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 's80',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22807 => 
+  [
+    'item_id' => 22807,
+    'icon' => 'g_spacia_claw_i00',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => '',
+    'description' => 'Fist weapon with special powers used by Spezion. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22808 => 
+  [
+    'item_id' => 22808,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Focus',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. Critical increases by 76. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22809 => 
+  [
+    'item_id' => 22809,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Damage Up',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. P. Atk. Increases by 332. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22810 => 
+  [
+    'item_id' => 22810,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Haste',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22811 => 
+  [
+    'item_id' => 22811,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Focus + Damage',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. Critical increases by 78.9. P. Atk. Increases by 332. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22812 => 
+  [
+    'item_id' => 22812,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Damage Up + Haste',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. P. Atk. Increases by 332. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22813 => 
+  [
+    'item_id' => 22813,
+    'icon' => 'g_spacia_claw_i01',
+    'name' => 'Spezion\'s Claw',
+    'additionalname' => 'Haste + Focus',
+    'description' => '<Soul Crystal Enhancement>
+Fist weapon with special powers used by Spezion. Atk. Spd. Increases by about 15%. Critical increases by 76. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. and P. Atk. also increase.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22814 => 
+  [
+    'item_id' => 22814,
+    'icon' => 'g_melisa_stormer_i00',
+    'name' => 'Maliss Stormer',
+    'additionalname' => '',
+    'description' => 'Spear used by Maliss. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22815 => 
+  [
+    'item_id' => 22815,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'HP Drain',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. Recovers 4% of standard physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22816 => 
+  [
+    'item_id' => 22816,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. Accuracy increases by 7.6. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22817 => 
+  [
+    'item_id' => 22817,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'Damage Up',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. P. Atk. Increases by 288. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22818 => 
+  [
+    'item_id' => 22818,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'HP Drain + Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Accuracy increases by 7.6. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22819 => 
+  [
+    'item_id' => 22819,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'Guidance + Damage Up',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. Accuracy increases by 7.6. P. Atk. Increases by 288. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22820 => 
+  [
+    'item_id' => 22820,
+    'icon' => 'g_melisa_stormer_i01',
+    'name' => 'Maliss Stormer',
+    'additionalname' => 'Damage Up + HP Drain',
+    'description' => '<Soul Crystal Enhancement>
+Spear used by Maliss. P. Atk. Increases by 288. Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack also increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22821 => 
+  [
+    'item_id' => 22821,
+    'icon' => 'g_dainsleif_i00',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => '',
+    'description' => 'Dagger used by Steregos. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22822 => 
+  [
+    'item_id' => 22822,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Accuracy increases by 7.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22823 => 
+  [
+    'item_id' => 22823,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Haste',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22824 => 
+  [
+    'item_id' => 22824,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Focus ',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Critical increases by 82.3. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22825 => 
+  [
+    'item_id' => 22825,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Guidance + Haste',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Accuracy increases by 7.9. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22826 => 
+  [
+    'item_id' => 22826,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Haste + Focus',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Atk. Spd. Increases by about 15%. Critical increases by 82.3. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22827 => 
+  [
+    'item_id' => 22827,
+    'icon' => 'g_dainsleif_i01',
+    'name' => 'Steregos\' Dagger',
+    'additionalname' => 'Focus + Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Dagger used by Steregos. Critical increases by 82.3. Accuracy increases by 7.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22828 => 
+  [
+    'item_id' => 22828,
+    'icon' => 'g_urukmash_i00',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => '',
+    'description' => 'Dual blunt with special powers used by Ron. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22829 => 
+  [
+    'item_id' => 22829,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Focus',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. Critical increases by 78.9. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22830 => 
+  [
+    'item_id' => 22830,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. Accuracy increases by 7.8. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22831 => 
+  [
+    'item_id' => 22831,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Damage Up',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. P. Atk. Increases by 377. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22832 => 
+  [
+    'item_id' => 22832,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Focus + Guidance',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. Critical increases by 79.2. Accuracy increases by 7.8. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22833 => 
+  [
+    'item_id' => 22833,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Guidance + Damage Up',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. Accuracy increases by 7.7. P. Atk. Increases by 377. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22834 => 
+  [
+    'item_id' => 22834,
+    'icon' => 'g_urukmash_i01',
+    'name' => 'Ron\'s Dual Blunt Weapon',
+    'additionalname' => 'Damage Up + Focus ',
+    'description' => '<Soul Crystal Enhancement>
+Dual blunt with special powers used by Ron. P. Atk. Increases by 377. Critical increases by 78.9. Increases damage inflicted during PvP. When enchanted to + 4, also increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'r95',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22882 => 
+  [
+    'item_id' => 22882,
+    'icon' => 'g_bless_wp_processing_stone_r',
+    'name' => 'Hair Accessory Restoration Stone',
+    'additionalname' => '',
+    'description' => 'Restores the original appearance of a modified hair accessory. Double-click to use.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22883 => 
+  [
+    'item_id' => 22883,
+    'icon' => 'g_scrl_vitality_point_up',
+    'name' => 'Scroll: Replenish Vitality',
+    'additionalname' => '',
+    'description' => 'Replenishes 1 Vitality slot when used. Cooldown is 60 min. ',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22884 => 
+  [
+    'item_id' => 22884,
+    'icon' => 'g_scrl_vitality_point_up_2',
+    'name' => 'Scroll: Replenish Vitality (High-grade]',
+    'additionalname' => '',
+    'description' => 'Replenishes 2 Vitality slots when used. Cooldown is 60 min.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22885 => 
+  [
+    'item_id' => 22885,
+    'icon' => 'g_scrl_vitality_point_up_3',
+    'name' => 'Scroll: Replenish Vitality (Top-grade]',
+    'additionalname' => '',
+    'description' => 'Replenishes Vitality to maximum when used. Cooldown is 60 min. ',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22886 => 
+  [
+    'item_id' => 22886,
+    'icon' => 'g_ring_of_uthanka',
+    'name' => 'Uthanka\'s Ring',
+    'additionalname' => '',
+    'description' => 'Ring acquired when you mourn for Pirate Captain Uthanka\'s spirit. Use it to turn into Pirate Captain Uthanka.',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22887 => 
+  [
+    'item_id' => 22887,
+    'icon' => 'g_pi_transformation_unicorn',
+    'name' => 'Mount - Unicorn',
+    'additionalname' => '',
+    'description' => 'Can ride a unicorn when equipped.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_normal',
+  ],
+  22888 => 
+  [
+    'item_id' => 22888,
+    'icon' => 'bm_soulshot_purple',
+    'name' => 'Mysterious Soulshot (R-grade]',
+    'additionalname' => '',
+    'description' => 'Dimensional Item
+The power of a spirit is bestowed upon a weapon, momentarily increasing its P. Atk. significantly. Can be used with an R-grade weapon. Cannot be exchanged or dropped. Can be stored in a private warehouse. Can be shared within an account through the Dimensional Merchant.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22889 => 
+  [
+    'item_id' => 22889,
+    'icon' => 'bm_spell_shot_purple',
+    'name' => 'Mysterious Blessed Spiritshot (R-grade]',
+    'additionalname' => '',
+    'description' => 'Dimensional Item
+The power of a higher-level spirit is bestowed upon a weapon, momentarily increasing its M. Atk. significantly. Can be used with an R-grade weapon. Cannot be exchanged or dropped. Can be stored in a private warehouse. Can be shared within an account through the Dimensional Merchant.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'r',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22890 => 
+  [
+    'item_id' => 22890,
+    'icon' => 'br_cash_pack_of_soulshot_r_i00',
+    'name' => 'Mysterious Blessed Soulshot Pack (10000] (R-grade]',
+    'additionalname' => '',
+    'description' => 'Pack containing 10,000 Mysterious Soulshots (R-grade].',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22891 => 
+  [
+    'item_id' => 22891,
+    'icon' => 'br_cash_pack_of_soulshot_r_i00',
+    'name' => 'Mysterious Blessed Soulshot Pack (5000] (R-grade]',
+    'additionalname' => '',
+    'description' => 'Pack containing 5,000 Mysterious Soulshots (R-grade].',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22892 => 
+  [
+    'item_id' => 22892,
+    'icon' => 'br_cash_pack_of_spiritshot_r_i00',
+    'name' => 'Mysterious Blessed Spiritshot Pack (10000] (R-grade]',
+    'additionalname' => '',
+    'description' => 'Wrapped Pack containing 10,000 Mysterious Blessed Spiritshots (R-grade].',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22893 => 
+  [
+    'item_id' => 22893,
+    'icon' => 'br_cash_pack_of_spiritshot_r_i00',
+    'name' => 'Mysterious Blessed Spiritshot Pack (5000] (R-grade]',
+    'additionalname' => '',
+    'description' => 'Wrapped Pack containing 5,000 Mysterious Blessed Spiritshots (R-grade].',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22894 => 
+  [
+    'item_id' => 22894,
+    'icon' => 'etc_alphabet_w_i00',
+    'name' => 'Letter - W',
+    'additionalname' => '',
+    'description' => 'Item for the Lineage II 8th Anniversary event. Combine with other letters to create a special word and bring it to Angel Cat to receive a great gift!',
+    'is_trade' => 1,
+    'is_drop' => 1,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22895 => 
+  [
+    'item_id' => 22895,
+    'icon' => 'g_record_of_cartia',
+    'name' => 'Ancient Kartia\'s Labyrinth Chronicle',
+    'additionalname' => '',
+    'description' => 'Bring the Ancient Kartia\'s Labyrinth Chronicle to the Kartia Researcher to receive a reward.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22896 => 
+  [
+    'item_id' => 22896,
+    'icon' => 'g_scroll_of_cartia_85',
+    'name' => 'Ancient Kartia\'s Labyrinth Origins',
+    'additionalname' => 'Stage 1',
+    'description' => 'Item that allows you to acquire 1,200,000,000 XP and 360,000 SP. Cooldown is 2 days. Lv. 85 - 89.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22897 => 
+  [
+    'item_id' => 22897,
+    'icon' => 'g_scroll_of_cartia_90',
+    'name' => 'Ancient Kartia\'s Labyrinth Origins',
+    'additionalname' => 'Stage 2',
+    'description' => 'Item that allows you to acquire 1,675,000,000 XP and 500,000 SP. Cooldown is 2 days. Lv. 90 - 94.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22898 => 
+  [
+    'item_id' => 22898,
+    'icon' => 'g_scroll_of_cartia_95',
+    'name' => 'Ancient Kartia\'s Labyrinth Origins',
+    'additionalname' => 'Stage 3',
+    'description' => 'Item that allows you to acquire 2,425,000,000 XP and 700,000 SP. Cooldown is 2 days. Lv. 95 - 99.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+  22899 => 
+  [
+    'item_id' => 22899,
+    'icon' => 'etc_penalty_recovery_i02',
+    'name' => 'Scroll: Decrease Vitality',
+    'additionalname' => '',
+    'description' => 'Decreases the number of vitality items that can be used per week by 1. For test.',
+    'is_trade' => 0,
+    'is_drop' => 0,
+    'is_destruct' => 1,
+    'crystal_type' => 'none',
+    'consume_type' => 'consume_type_stackable',
+  ],
+];

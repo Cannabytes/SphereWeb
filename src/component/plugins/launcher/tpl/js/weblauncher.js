@@ -1,10 +1,10 @@
 loadWorld()
 HtmlAddProgressBar()
 
-initWebSocket();
+//initWebSocket();
 
 // Создаем функцию для инициализации соединения с сервером
-function initWebSocket() {
+/*function initWebSocket() {
     const serverUrl = 'ws://localhost:17580/ws';
     socket = new WebSocket(serverUrl);
     function connect() {
@@ -29,7 +29,35 @@ function initWebSocket() {
     }
     connect();
     return socket;
-}
+}*/
+
+const ws = new WebSocketClient({
+	url: 'ws://localhost:17580/ws',
+	maxConnectionAttempts: 5,
+	timeout: 1000
+});
+
+ws.on('open', () => {
+	isConnectSocket = true;
+	isConnectSocketed();
+	firstRequest();
+});
+
+ws.on('message', ({data}) => {
+	responseMessage(data)
+});
+
+ws.on('close', () => { 
+	isDisConnectSocketed() 
+});
+
+//window.addEventListener('load', (e) => {
+    ws.connect()
+//});
+
+/*window.addEventListener('unload', (e) => {
+    ws.disconnect()
+});*/
 
 function isConnectSocketed() {
     // $("#startLauncher").hide()
@@ -77,7 +105,8 @@ function firstRequest() {
 
 
 function sendToLauncher(obj) {
-    socket.send(JSON.stringify(obj));
+    //socket.send(JSON.stringify(obj));
+	ws.send(obj);
 }
 
 function getPathDirectoryChronicle() {
@@ -91,8 +120,10 @@ function getPathDirectoryChronicle() {
 }
 
 
-function responseMessage(event) {
-    let response = JSON.parse(event.data);
+//function responseMessage(event) {
+function responseMessage(data) {	
+    //let response = JSON.parse(event.data);
+	let response = JSON.parse(data);
     console.log(response)
     ResponseStatus(response);
     ResponseEvent(response);
@@ -146,7 +177,7 @@ function ResponseGetClientWay(response) {
 
 function ResponseFilesList(response) {
     if (response.command !== "filesList") return;
-    response.files.forEach((file) => {
+	response.files?.forEach((file) => {
         all = $("#fileslist").val() + "\n"
         if (all.trim() === "") {
             all = ""

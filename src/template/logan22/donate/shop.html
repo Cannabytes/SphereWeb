@@ -16,7 +16,6 @@
     </div>
     {% endif %}
     <div class="row">
-
         {% if products|length > 0 %}
         {% for product in products %}
         <div class="col-md-6 col-xl-3">
@@ -25,7 +24,7 @@
                     <div class="fw-semibold">{{ grade_img(product['crystal_type'])|raw }} {{product['name']}}</div>
                 </div>
                 <div class="block-content block-content-full bg-body-light">
-                    <img class="img-avatar img-avatar-thumb img-avatar-rounded " src="{{ icon( product.icon ) }}" alt="">
+                    <img class="img-avatar img-avatar-thumb img-avatar-rounded " src="{{ product.icon }}" alt="">
                 </div>
                 <div class="block-content block-content-full">
 

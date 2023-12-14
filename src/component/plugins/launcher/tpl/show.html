@@ -239,7 +239,7 @@
 
                             </p>
                             <div class="text-start ">
-                                <label data-phrase="need_select_client_dir">Выберите папку клиента для </label> <b class="chronicle">High Five</b>
+                                <label data-phrase="need_select_client_dir">Выберите папку клиента для 1232 </label> <b class="chronicle">High Five</b>
                             </div>
                         </div>
                     </div>
@@ -488,6 +488,8 @@
 
     $("#startLauncher").click(function () {
         window.location.href = "web-launcher://open";
+		
+		ws.connect()
     });
 
     var domain = window.location.hostname;
@@ -516,8 +518,9 @@
 
 <script src="/src/component/plugins/launcher/tpl/js/lang.js?v2"></script>
 <script src="/src/component/plugins/launcher/tpl/js/general.js?v5"></script>
-<script src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v5"></script>
-<script src="/src/component/plugins/launcher/tpl/js/ajaxrequest.js?v5"></script>
+<script src="/src/component/plugins/launcher/tpl/js/ws-client.js?v6"></script>
+<script src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v6"></script>
+<!--<script src="/src/component/plugins/launcher/tpl/js/ajaxrequest.js?v5"></script>-->
 
 
 {% endblock %}

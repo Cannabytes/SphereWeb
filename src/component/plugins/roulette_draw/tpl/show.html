@@ -59,7 +59,7 @@
             {% for i,item in list_of_draws %}
             <div class="col-4 col-md-3 col-xl-2 py-4 item-id_{{i}}">
                 <div class="item item-rounded mx-auto bg-primary-lighter push">
-                    <img class="img-avatar img-avatar-thumb img-avatar-rounded" src="{{icon(item.icon)}}" alt="">
+                    <img class="img-avatar img-avatar-thumb img-avatar-rounded" src="{{(item.icon)}}" alt="">
                 </div>
                 <h5 class="mb-0">{% if item.enchant %}+{{item.enchant}}{% endif %} {{item.name}} {% if item.item_count.min != item.item_count.max %}<br>{{item.item_count.min}}-{{item.item_count.max}}{% endif %}</h5>
             </div>

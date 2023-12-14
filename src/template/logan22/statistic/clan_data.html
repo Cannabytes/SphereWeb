@@ -70,7 +70,7 @@
 
                         {% for skill in clan_skills %}
                         <div class="py-2">
-                            <img class="img-avatar" src="{{path('/uploads/images/skills/'~ skill.icon ~'.webp')}}" alt="">
+                            <img class="img-avatar" src="{{skill.icon}}" alt="">
                             <div class="mt-2 fw-semibold">{{skill.name_en}}</div>
                             <div class="fs-sm text-muted">{{skill.skill_level}} lvl</div>
                         </div>
