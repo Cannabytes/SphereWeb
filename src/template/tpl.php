@@ -120,13 +120,12 @@ class tpl {
         if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
             $loader->addPath(fileSys::get_dir("/src/component/plugins"));
         }
-        include fileSys::get_dir("src/config/cache.php");
         $arrTwigConfig = [];
-        if ($enable_cache_template) {
+        if (ENABLE_CACHE_TEMPLATE) {
             $arrTwigConfig['cache'] = fileSys::get_dir("/uploads/cache/template");
         }
-        $arrTwigConfig['auto_reload'] = $auto_reload;
-        $arrTwigConfig['debug'] = $debug_template;
+        $arrTwigConfig['auto_reload'] = AUTO_RELOAD;
+        $arrTwigConfig['debug'] = DEBUG_TEMPLATE;
         $twig = new Environment($loader, $arrTwigConfig);
 
         $twig->addExtension(new DebugExtension());

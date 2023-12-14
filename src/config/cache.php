@@ -19,8 +19,3 @@ $cache_timeout = array (
   'statistic_counter' => 60,
   'referral' => 60,
 );
-
-// true / false - включить / отключить кэширование шаблонов
-$enable_cache_template = false;
-$debug_template = true;
-$auto_reload = true;

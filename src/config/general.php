@@ -11,3 +11,11 @@ const PRICE_CHANGE_AVATAR = 5;
 const MODE_TEMPLATE = "dark";
 
 
+// true / false - включить / отключить кэширование шаблонов
+const ENABLE_CACHE_TEMPLATE = false;
+
+// Дебаг шаблонов
+const DEBUG_TEMPLATE = true;
+
+// Автоперезагрузка шаблонов
+const AUTO_RELOAD = true;
