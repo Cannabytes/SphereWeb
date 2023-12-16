@@ -24,7 +24,7 @@ class error {
 
     static public function error404($message = null) {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            board::notice(false, "POST REQUEST NOT FOUND");
+            board::notice(false, $message ?? "POST REQUEST NOT FOUND");
         }
         if($message == null) {
             $message = lang::get_phrase(239);

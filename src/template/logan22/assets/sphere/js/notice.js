@@ -8,6 +8,10 @@ function ResponseNotice(response) {
     }
     console.log(response);
 
+    if(response.donate_bonus!==undefined){
+        $(".count_sphere_coin").text(response.donate_bonus)
+    }
+
     let icon = response.ok ? "check" : "exclamation-triangle"
     Codebase.helpers('jq-notify', {
         align: 'center',
@@ -76,6 +80,7 @@ function notify_error(message) {
         align: 'center',
         from: 'top',
         icon: "fa fa-check me-2",
+        type: "danger",
         message: message
     });
 }

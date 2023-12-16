@@ -38,6 +38,7 @@ use Ofey\Logan22\model\user\player\character;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\model\user\profile\other;
 use Ofey\Logan22\route\Route;
+use ReflectionMethod;
 use RuntimeException;
 use Throwable;
 use Twig\Environment;
@@ -132,10 +133,42 @@ class tpl {
         $twig = self::generalfunc($twig);
         $twig = self::user_var_func($twig);
 
+        //Ищем в плагинах все дополнительные функции, которые дополняют шаблоны
+        $all_plugins_dir = fileSys::get_dir_files(fileSys::get_dir("/src/component/plugins"), [
+            'fetchAll' => true,
+        ]);
+        $twigCustomFile = "custom_twig.php";
+        foreach ($all_plugins_dir as $pluginDir) {
+            $filePath = $pluginDir . '/' . $twigCustomFile;
+            if (is_readable($filePath)) {
+                require_once $filePath;
+                $fileContent = file_get_contents($filePath);
+                if (preg_match('/\bnamespace\s+([^\s;]+)/', $fileContent, $matches)) {
+                    $namespace = $matches[1];
+                    $className = pathinfo($filePath, PATHINFO_FILENAME);
+                    $className = $namespace . "\\" .$className;
+                    if (class_exists($className)) {
+                        $customTwig = new $className();
+                        $methods = get_class_methods($customTwig);
+                        foreach ($methods as $method) {
+                            if (is_callable([$customTwig, $method]) && (new ReflectionMethod($customTwig, $method))->isPublic()) {
+                                $twig->addFunction(new \Twig\TwigFunction($method, [$customTwig, $method]));
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+
         self::$allTplVars['dir'] = fileSys::localdir();
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-//        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . fileSys::localdir(self::$templatePath) ;
-        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . $relativePath . self::$templatePath ;
+        $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+        if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+            $protocol = 'https';
+        }
+        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . $relativePath . self::$templatePath;
 
         self::$allTplVars['protocol'] = $protocol;
         self::$allTplVars['path'] = $relativePath;
@@ -441,16 +474,20 @@ class tpl {
             return fileSys::localdir(sprintf("/uploads/avatar/%s", $img));
         }));
 
-        $twig->addFunction(new TwigFunction('get_skill' , function ($img = "none.jpeg"){
+        $twig->addFunction(new TwigFunction('get_skill', function ($img = "none.jpeg") {
             return fileSys::localdir(sprintf("/uploads/images/skills/%s", $img));
         }));
 
-        $twig->addFunction(new TwigFunction('get_icon' , function ($img = "none.jpeg"){
+        $twig->addFunction(new TwigFunction('get_icon', function ($img = "none.jpeg") {
             return fileSys::localdir(sprintf("/uploads/images/skills/%s", $img));
         }));
 
-        $twig->addFunction(new TwigFunction('get_forum_img' , function ($img = "none.jpeg", $thumb = false){
-            if($thumb){
+        $twig->addFunction(new TwigFunction('get_item_info', function ($item_id) {
+            return client_icon::get_item_info($item_id, false, false);
+        }));
+
+        $twig->addFunction(new TwigFunction('get_forum_img', function ($img = "none.jpeg", $thumb = false) {
+            if ($thumb) {
                 if (mb_substr($img, 0, 5) == "user_") {
                     $img = "thumb_" . $img;
                 }
@@ -804,22 +841,27 @@ class tpl {
     public static function display($tplName) {
         $twig = self::preload($tplName);
         try {
-            //Если загрузка идет через аякс, то возвращаем только контент, используется при переходе по ссылкам
+            // Если загрузка идет через аякс, то возвращаем только контент, используется при переходе по ссылкам
             if (self::$ajaxLoad) {
                 $template = $twig->load($tplName);
-                $html = $template->renderBlock("content", self::$allTplVars);
-                $title = $template->renderBlock("title");
-                board::html($html, $title);
+                if ($template->hasBlock("content")) {
+                    $html = $template->renderBlock("content", self::$allTplVars);
+                    $title = $template->hasBlock("title") ? $template->renderBlock("title") : null;
+                    board::html($html, $title);
+                } else {
+                    // Обработка отсутствия блока "content"
+                    // Можно добавить действия по умолчанию или обработку ошибки здесь
+                    // Например: board::html("Default content", "Default title");
+                }
             } else {
                 $template = $twig->load($tplName);
                 echo $template->render(self::$allTplVars);
             }
-        } catch (Exception  $e) {
+        } catch (Exception $e) {
             $txt = "<h4>TEMPLATE ERROR</h4>";
             $txt .= "Message: " . $e->getMessage() . "<br>";
             $txt .= "File: " . $e->getFile() . "<br>";
-            $txt .= "Line: " . $e->getLine();
-            "<br>";
+            $txt .= "Line: " . $e->getLine() . "<br>";
             $txt .= "Code: ";
             $file = fopen($e->getFile(), "r");
             if ($file) {
@@ -833,11 +875,11 @@ class tpl {
                 $txt .= htmlspecialchars($line);
             }
             echo $txt;
-            logs::loggerError(preg_replace('/<h4[^>]*>|<\/h4>|<br[^>]*>/', "
-", $txt));
+            logs::loggerError(preg_replace('/<h4[^>]*>|<\/h4>|<br[^>]*>/', "\n", $txt));
         }
         exit();
     }
+
 
     private static function user_var_func(Environment $twig = null): Environment {
         $twig->addFunction(new TwigFunction('get_user_variables', function ($varName) {

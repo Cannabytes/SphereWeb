@@ -21,9 +21,8 @@ class client_icon {
      * @throws Exception
      */
     public static function is_stack($item_id): bool {
-//        $consume_type = sql::run("SELECT `consume_type` FROM items_data WHERE item_id = ? LIMIT 1", [$item_id], true)->fetchColumn();
-        $consume_type = self::get_item_info($item_id);
-        if ($consume_type === "consume_type_asset" || $consume_type === "consume_type_stackable") {
+        $type = self::get_item_info($item_id);
+        if ($type['consume_type'] === "consume_type_asset" || $type['consume_type'] === "consume_type_stackable") {
             return true;
         }
         return false;
@@ -59,7 +58,7 @@ class client_icon {
         }
     }
 
-    public static function get_item_info($item_id = 0, $json = true, $protected = true) {
+    public static function get_item_info($item_id = 0, $json = false, $protected = true) {
         if ($protected) {
             validation::user_protection();
         }
