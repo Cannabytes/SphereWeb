@@ -346,13 +346,6 @@
                                     {{ phrase(383) }}
                                 </div>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <div class="nav-link" id="web-launcher-tab" data-bs-toggle="tab"
-                                     data-bs-target="#web-launcher" role="tab"
-                                     aria-controls="web-launcher" aria-selected="false" tabindex="-1">
-                                    {{ phrase("menu_launcher") }}
-                                </div>
-                            </li>
 
                         </ul>
                         <div class="block-content tab-content">
@@ -423,19 +416,7 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane" id="web-launcher" role="tabpanel"
-                                 aria-labelledby="web-launcher-tab" tabindex="0">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="launcher_enabled"
-                                           name="launcher_enabled" {% if server.launcher_enabled %}checked="" {%endif%}>
-                                    <label class="form-check-label" for="launcher_enabled">{{ phrase(384) }}</label>
-                                    <br>
-                                    <div class="form-group row">
-                                        <label class="col-sm-12 col-form-label">{{phrase(388)}}<br>
-                                            {{ phrase(389) }}: <a target="_blank" href="https://cannabytes.github.io">https://cannabytes.github.io</a></label>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

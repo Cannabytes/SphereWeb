@@ -71,7 +71,8 @@ class sdb {
     public static function connect() {
         if (self::$instance === null) {
             try {
-                self::$db[self::get_server_id()][self::get_type()] = new PDO('mysql:host=' . self::$host.':'. self::$port . ';dbname=' . self::$name, self::$user, self::$pass, $options = [
+                $dsn = 'mysql:host=' . self::$host . ';dbname=' . self::$name . ';port=' . self::$port;
+                self::$db[self::get_server_id()][self::get_type()] = new PDO($dsn, self::$user, self::$pass, $options = [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
@@ -83,7 +84,7 @@ class sdb {
                 return false;
             }
         }
-        return self::$instance;
+
     }
 
     public static function lastInsertId() {

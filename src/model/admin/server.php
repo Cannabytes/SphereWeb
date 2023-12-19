@@ -78,7 +78,7 @@ class server {
         $rest_api_key = $_POST['rest_api_key'] ?? "";
 
         $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
-        $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
+        $launcher_enabled = 0;
 
         if(!$rest_api_enable) {
             //Проверяем соединение с БД перед тем как добавить
@@ -178,7 +178,7 @@ class server {
 
 
         $chat_game_enabled = isset($_POST['chat_game_enabled']) ?: 0;
-        $launcher_enabled = isset($_POST['launcher_enabled']) ?: 0;
+        $launcher_enabled = 0;
 
         $sql = "UPDATE `server_list` SET
                          `name` = ?,
