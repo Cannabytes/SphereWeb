@@ -28,7 +28,7 @@ class donate {
      * История платежей пользователя
      */
     static public function donate_history($user_id = null) {
-        if (!$user_id){
+        if (!$user_id) {
             $user_id = auth::get_id();
         }
         $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC", [
@@ -41,7 +41,7 @@ class donate {
 
         $lex = [];
         $item_id_list = array_column($donate, 'item_id');
-        foreach($item_id_list AS $item){
+        foreach ($item_id_list as $item) {
             $lex[] = client_icon::get_item_info($item, false);
         }
 //        var_dump($lex);exit;
@@ -71,7 +71,7 @@ class donate {
             tpl::addVar("message", "Not Server");
             tpl::display("page/error.html");
         }
-        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC" , [
+        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC", [
             $server_id,
         ])->fetchAll();
         $lex = [];
@@ -93,7 +93,7 @@ class donate {
     /*
      * Покупка предмета, передача предмета игровому персонажу
      */
-    static public function transaction() {
+    static public function transaction(): void {
         $id = $_POST['id'];
         $server_id = filter_input(INPUT_POST, 'server_id', FILTER_VALIDATE_INT);
         $user_value = filter_input(INPUT_POST, 'user_value', FILTER_VALIDATE_INT);
@@ -114,18 +114,18 @@ class donate {
         //Проверка на скидку по товару
         $donateInfo = require_once 'src/config/donate.php';
 
-        if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
+        if ($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']) {
             $procentDiscount = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
             $decrease_factor = 1 - ($procentDiscount / 100);
             $cost_product *= $decrease_factor;
         }
 
-        if($donateInfo['DONATE_DISCOUNT_COUNT_ENABLE']){
+        if ($donateInfo['DONATE_DISCOUNT_COUNT_ENABLE']) {
             $discount_count_product_table = $donateInfo["discount_count_product"]['table'] ?? [];
             $discount_count_product_items = $donateInfo["discount_count_product"]['items'] ?? [];
-            if(in_array($donat_info['item_id'], $discount_count_product_items) or empty($discount_count_product_items)){
+            if (in_array($donat_info['item_id'], $discount_count_product_items) or empty($discount_count_product_items)) {
                 $procentDiscount = self::findValueForN($user_value, $discount_count_product_table);
-                if($procentDiscount){
+                if ($procentDiscount) {
                     $decrease_factor = 1 - ($procentDiscount / 100);
                     $cost_product *= $decrease_factor;
                 }
@@ -249,7 +249,7 @@ class donate {
     }
 
     public static function donate_history_pay_self($user_id = null): array {
-        if (!$user_id){
+        if (!$user_id) {
             $user_id = auth::get_id();
         }
         $pays = sql::getRows("SELECT
@@ -330,7 +330,7 @@ class donate {
 
     //Возвращает % скидки
     private static function findValueForN($inputN, $keyValueObject = 0) {
-        if(!is_array($keyValueObject)){
+        if (!is_array($keyValueObject)) {
             return 0;
         }
         $result = null;
@@ -342,6 +342,19 @@ class donate {
             $result = $value;
         }
         return $result;
+    }
+
+
+    public static function findReplenishmentBonus($amount, $bonusTable) {
+        $matchingKey = 0; // Изначально устанавливаем значение 0
+        foreach ($bonusTable as $key => $value) {
+            if ($amount >= $key) {
+                $matchingKey = $value;
+            } else {
+                break;
+            }
+        }
+        return $matchingKey;
     }
 
 

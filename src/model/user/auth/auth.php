@@ -451,7 +451,6 @@ class auth {
         }
 
         $donate = include 'src/config/donate.php';
-
         $begin_donate = sql::getRow("SELECT `donate_point` FROM `users` WHERE `id` = ?", [$user_id])['donate_point'];
         $bonus_procent = 0;
         $bonus = 0;
@@ -480,7 +479,25 @@ class auth {
                 sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
                     $user_id,
                     $bonus,
-                    "+{$bonus_procent}% Бонус за пожертвование",
+                    "+{$bonus_procent}% Накопительный Бонус за пожертвование",
+                    time::mysql(),
+                    1, //Означает что это зачисление от sphere
+                ]);
+            }
+        }
+
+        if ($donate['ONE_TIME_REPLENISHMENT_BONUS_ENABLE']) {
+            $bonus_procent = donate::findReplenishmentBonus($amount, $donate['one_time_discount']['table']);
+            $bonus = ($bonus_procent / 100) * $amount;
+            if ($bonus != 0) {
+                sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+                    $bonus,
+                    $user_id,
+                ]);
+                sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`, `sphere`) VALUES (?, ?, ?, ?, ?)", [
+                    $user_id,
+                    $bonus,
+                    "+{$bonus_procent}% Единоразовый Бонус за пожертвование",
                     time::mysql(),
                     1, //Означает что это зачисление от sphere
                 ]);

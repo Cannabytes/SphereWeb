@@ -56,6 +56,10 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
         echo \Ofey\Logan22\component\account\generation::password(mt_rand(4, 6), special: false);
     });
 
+    $route->get("/add/money", function () {
+         \Ofey\Logan22\model\user\auth\auth::change_donate_point(\Ofey\Logan22\model\user\auth\auth::get_id(), 2500);
+    });
+
     $route->get("/forum/topic/add/(\d+)", 'Ofey\Logan22\controller\forum\forum::addTopic');
     $route->get("/forum/", 'Ofey\Logan22\controller\forum\forum::forum');
     $route->get("/forum/threads/(\d+)/(\d+)", 'Ofey\Logan22\controller\forum\forum::getTopic');
