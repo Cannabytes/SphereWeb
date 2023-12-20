@@ -3,10 +3,9 @@
   [
     'item_id' => 18700,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Blessed Requiem Dual Dagger',
+    'name' => 'Blessed Requiem Dual Daggers',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.6. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.6. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -17,10 +16,9 @@ Increases Accuracy by 7.6. Increases damage inflicted during PvP. Increases P. C
   [
     'item_id' => 18701,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Blessed Requiem Dual Blunt Weapon',
+    'name' => 'Blessed Requiem Dual Blunt Weapons',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.5. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.5. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -31,10 +29,9 @@ Increases Critical by 79.5. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18702,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Blessed Requiem Dual Blunt Weapon',
+    'name' => 'Blessed Requiem Dual Blunt Weapons',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.6. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.6. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -45,10 +42,9 @@ Increases Accuracy by 7.6. Increases damage inflicted during PvP. Increases P. S
   [
     'item_id' => 18703,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Blessed Requiem Dual Blunt Weapon',
+    'name' => 'Blessed Requiem Dual Blunt Weapons',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 288. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +288. Increases PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -61,8 +57,7 @@ P. Atk. + 288. Increases damage inflicted during PvP. Increases P. Skill Power a
     'icon' => 'weapon_phasian_i01',
     'name' => 'Apocalypse Shaper',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -75,8 +70,7 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. C
     'icon' => 'weapon_phasian_i01',
     'name' => 'Apocalypse Shaper',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Damage for standard attacks when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -89,8 +83,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_phasian_i01',
     'name' => 'Apocalypse Shaper',
     'additionalname' => 'Focus ',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +82.3. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -103,8 +96,7 @@ Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_pasis_i01',
     'name' => 'Apocalypse Cutter',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases P. Accuracy and Critical Rate for standard attacks when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -117,8 +109,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_pasis_i01',
     'name' => 'Apocalypse Cutter',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -131,8 +122,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Acc
     'icon' => 'weapon_pasis_i01',
     'name' => 'Apocalypse Cutter',
     'additionalname' => 'Health',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. Increases P. Accuracy and Critical Rate for standard attacks when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -145,8 +135,7 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accura
     'icon' => 'weapon_volver_i01',
     'name' => 'Apocalypse Slasher',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -159,8 +148,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_volver_i01',
     'name' => 'Apocalypse Slasher',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -173,8 +161,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enc
     'icon' => 'weapon_volver_i01',
     'name' => 'Apocalypse Slasher',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -187,8 +174,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Apocalypse Avenger',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Damage for standard attacks when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -201,8 +187,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Apocalypse Avenger',
     'additionalname' => 'Critical Damage',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +1158 after a critical attack. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -215,8 +200,7 @@ P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. 
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Apocalypse Avenger',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -229,8 +213,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_kirche_i01',
     'name' => 'Apocalypse Fighter',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +76. Deals additional PvP damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -243,8 +226,7 @@ Increases Critical by 76. Increases damage inflicted during PvP. Increases Atk. 
     'icon' => 'weapon_kirche_i01',
     'name' => 'Apocalypse Fighter',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -257,8 +239,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Atk. Spd. and P.
     'icon' => 'weapon_kirche_i01',
     'name' => 'Apocalypse Fighter',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -271,8 +252,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_grave_i01',
     'name' => 'Apocalypse Stormer',
     'additionalname' => 'HP Drain',
-    'description' => '<Soul Crystal Enhancement>
-Absorbs 4% of standard melee damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4.',
+    'description' => '<Soul Crystal properties> A chance to absorb 4% of the inflicted damage as HP. Increases PvP damage. When enchanted to +4, increases the number of targets hit with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -285,8 +265,7 @@ Absorbs 4% of standard melee damage inflicted upon the enemy as HP. Increases da
     'icon' => 'weapon_grave_i01',
     'name' => 'Apocalypse Stormer',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4.',
+    'description' => '<Soul Crystal properties> P. Accuracy +7.7. Increases PvP damage. When enchanted to +4, increases the number of targets hit with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -299,8 +278,7 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases Mult
     'icon' => 'weapon_grave_i01',
     'name' => 'Apocalypse Stormer',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -313,8 +291,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
     'icon' => 'weapon_spina_i01',
     'name' => 'Apocalypse Thrower',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -327,8 +304,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power w
     'icon' => 'weapon_spina_i01',
     'name' => 'Apocalypse Thrower',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -341,8 +317,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_spina_i01',
     'name' => 'Apocalypse Thrower',
     'additionalname' => 'Long Blow',
-    'description' => '<Soul Crystal Enhancement>
-Increases the attack range. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Increases the attack range. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -353,10 +328,9 @@ Increases the attack range. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18725,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Apocalypse Shooter',
+    'name' => 'Apocalypse Guardian',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -367,10 +341,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 18726,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Apocalypse Shooter',
+    'name' => 'Apocalypse Guardian',
     'additionalname' => 'Critical Slow',
-    'description' => '<Soul Crystal Enhancement>
-Has a chance of casting Slow on the target during a Critical Attack. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Has a chance of casting Slow on the target after a Critical Attack. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -381,10 +354,9 @@ Has a chance of casting Slow on the target during a Critical Attack. Increases d
   [
     'item_id' => 18727,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Apocalypse Shooter',
+    'name' => 'Apocalypse Guardian',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -397,8 +369,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_imerose_i01',
     'name' => 'Apocalypse Buster',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -411,8 +382,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_imerose_i01',
     'name' => 'Apocalypse Buster',
     'additionalname' => 'Magic Hold',
-    'description' => '<Soul Crystal Enhancement>
-Has a 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Deals additional PvP damage. Has a certain chance to increase Casting Spd. when the character is attacked. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -425,8 +395,7 @@ Has a 20% chance of casting Dryad Root on the target during magic use. Increases
     'icon' => 'weapon_imerose_i01',
     'name' => 'Apocalypse Buster',
     'additionalname' => 'Mana Up',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max MP by 30%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Max MP +30%. Increases PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -439,8 +408,7 @@ Increases Max MP by 30%. Increases damage inflicted during PvP. Increases M. Acc
     'icon' => 'weapon_yuke_i01',
     'name' => 'Apocalypse Caster',
     'additionalname' => 'Empower',
-    'description' => '<Soul Crystal Enhancement>
-M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> M. Atk. +322. Deals additional PvP damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -453,8 +421,7 @@ M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Accuracy and 
     'icon' => 'weapon_yuke_i01',
     'name' => 'Apocalypse Caster',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -467,8 +434,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_yuke_i01',
     'name' => 'Apocalypse Caster',
     'additionalname' => 'Magic Hold',
-    'description' => '<Soul Crystal Enhancement>
-Has a 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> A 20% chance to inflict Dryad Root on the target after using M. skills. Increases PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -481,8 +447,7 @@ Has a 20% chance of casting Dryad Root on the target during magic use. Increases
     'icon' => 'weapon_herencia_i01',
     'name' => 'Apocalypse Retributer',
     'additionalname' => 'MP Regeneration',
-    'description' => '<Soul Crystal Enhancement>
-Increases MP Recovery Rate. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Increases MP Recovery Rate and PvP damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -495,8 +460,7 @@ Increases MP Recovery Rate. Increases damage inflicted during PvP. Increases M. 
     'icon' => 'weapon_herencia_i01',
     'name' => 'Apocalypse Retributer',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -509,8 +473,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_herencia_i01',
     'name' => 'Apocalypse Retributer',
     'additionalname' => 'Empower',
-    'description' => '<Soul Crystal Enhancement>
-M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> M. Atk. +322. Deals additional PvP damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -521,10 +484,9 @@ M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Atk., M. Crit
   [
     'item_id' => 18737,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Apocalypse Dualsword',
+    'name' => 'Apocalypse Dual Swords',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Rate for standard attacks and P. Atk. when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -535,10 +497,9 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
   [
     'item_id' => 18738,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Apocalypse Dualsword',
+    'name' => 'Apocalypse Dual Swords',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Atk. and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -549,10 +510,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Rate
   [
     'item_id' => 18739,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Apocalypse Dualsword',
+    'name' => 'Apocalypse Dual Swords',
     'additionalname' => 'Health',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. Increases Critical Rate for standard attacks Rate and P. Atk. when enchanted to +4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -563,10 +523,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Increases P. Cri
   [
     'item_id' => 18740,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Apocalypse Dual Dagger',
+    'name' => 'Apocalypse Dual Daggers',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Atk. and Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -577,12 +536,11 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Dama
   [
     'item_id' => 18741,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Apocalypse Dual Dagger',
+    'name' => 'Apocalypse Dual Daggers',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -591,12 +549,11 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18742,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Apocalypse Dual Dagger',
+    'name' => 'Apocalypse Dual Daggers',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -605,12 +562,11 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. C
   [
     'item_id' => 18743,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Apocalypse Dual Blunt Weapon',
+    'name' => 'Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -619,12 +575,11 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18744,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Apocalypse Dual Blunt Weapon',
+    'name' => 'Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -633,12 +588,11 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. S
   [
     'item_id' => 18745,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Apocalypse Dual Blunt Weapon',
+    'name' => 'Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -649,8 +603,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power a
     'icon' => 'weapon_phasian_i01',
     'name' => 'Bound Apocalypse Shaper',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -663,8 +616,7 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. C
     'icon' => 'weapon_phasian_i01',
     'name' => 'Bound Apocalypse Shaper',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -677,8 +629,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_phasian_i01',
     'name' => 'Bound Apocalypse Shaper',
     'additionalname' => 'Focus ',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +82.3. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -691,8 +642,7 @@ Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_pasis_i01',
     'name' => 'Bound Apocalypse Cutter',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -705,8 +655,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_pasis_i01',
     'name' => 'Bound Apocalypse Cutter',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -719,8 +668,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Acc
     'icon' => 'weapon_pasis_i01',
     'name' => 'Bound Apocalypse Cutter',
     'additionalname' => 'Health',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -733,8 +681,7 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accura
     'icon' => 'weapon_volver_i01',
     'name' => 'Bound Apocalypse Slasher',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Critical Rate +79.2. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -747,8 +694,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_volver_i01',
     'name' => 'Bound Apocalypse Slasher',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +332. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -761,8 +707,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enc
     'icon' => 'weapon_volver_i01',
     'name' => 'Bound Apocalypse Slasher',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Atk. Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -775,8 +720,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Bound Apocalypse Avenger',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -789,8 +733,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Bound Apocalypse Avenger',
     'additionalname' => 'Critical Damage',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +1158 after a critical attack. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -803,8 +746,7 @@ P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. 
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Bound Apocalypse Avenger',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -817,8 +759,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_kirche_i01',
     'name' => 'Bound Apocalypse Fighter',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Critical Rate +76. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -831,8 +772,7 @@ Increases Critical by 76. Increases damage inflicted during PvP. Increases Atk. 
     'icon' => 'weapon_kirche_i01',
     'name' => 'Bound Apocalypse Fighter',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +332. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases P. Atk. and Atk. Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -845,8 +785,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Atk. Spd. and P.
     'icon' => 'weapon_kirche_i01',
     'name' => 'Bound Apocalypse Fighter',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Atk. Spd. and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Atk. Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases P. Atk. and Atk. Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -859,8 +798,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_grave_i01',
     'name' => 'Bound Apocalypse Stormer',
     'additionalname' => 'HP Drain',
-    'description' => '<Soul Crystal Enhancement>
-Absorbs 4% of standard melee damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item. Increases Multi Attack when enchanted to + 4. Cannot be exchanged or dropped. Can be stored in a private warehouse.',
+    'description' => '<Soul Crystal enhancement> A chance to absorb 4% of the inflicted damage as HP. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases the number of targets attacked with a spear. Cannot be exchanged or dropped. Can be stored in the private warehouse.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -873,8 +811,7 @@ Absorbs 4% of standard melee damage inflicted upon the enemy as HP. Increases da
     'icon' => 'weapon_grave_i01',
     'name' => 'Bound Apocalypse Stormer',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Accuracy +7.7. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -887,8 +824,7 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases Mult
     'icon' => 'weapon_grave_i01',
     'name' => 'Bound Apocalypse Stormer',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +332. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -901,8 +837,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
     'icon' => 'weapon_spina_i01',
     'name' => 'Bound Apocalypse Thrower',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +332. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases P. Skill Power.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -915,8 +850,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power w
     'icon' => 'weapon_spina_i01',
     'name' => 'Bound Apocalypse Thrower',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Critical Rate +79.2. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -929,8 +863,7 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_spina_i01',
     'name' => 'Bound Apocalypse Thrower',
     'additionalname' => 'Long Blow',
-    'description' => '<Soul Crystal Enhancement>
-Increases the attack range. Increases damage inflicted during PvP. Can use an Unbind Scroll to change this item into a Standard item. Increases P. Skill Power when enchanted to + 4.',
+    'description' => '<Soul Crystal enhancement> Increases attack range and PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases P. Skill Power.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -941,10 +874,9 @@ Increases the attack range. Increases damage inflicted during PvP. Can use an Un
   [
     'item_id' => 18767,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Bound Apocalypse Shooter',
+    'name' => 'Bound Apocalypse Guardian',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Critical Rate +79.2. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -955,10 +887,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 18768,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Bound Apocalypse Shooter',
+    'name' => 'Bound Apocalypse Guardian',
     'additionalname' => 'Critical Slow',
-    'description' => '<Soul Crystal Enhancement>
-Has a chance of casting Slow on the target during a Critical Attack. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> A chance of slowing the target after a critical attack. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -969,10 +900,9 @@ Has a chance of casting Slow on the target during a Critical Attack. Increases d
   [
     'item_id' => 18769,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Bound Apocalypse Shooter',
+    'name' => 'Bound Apocalypse Guardian',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Atk. Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, additionally increases Atk. Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -985,8 +915,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_imerose_i01',
     'name' => 'Bound Apocalypse Buster',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -999,8 +928,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_imerose_i01',
     'name' => 'Bound Apocalypse Buster',
     'additionalname' => 'Magic Hold',
-    'description' => '<Soul Crystal Enhancement>
-Has a 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> A 20% chance to inflict Dryad Root on the target after using M. skills. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1013,8 +941,7 @@ Has a 20% chance of casting Dryad Root on the target during magic use. Increases
     'icon' => 'weapon_imerose_i01',
     'name' => 'Bound Apocalypse Buster',
     'additionalname' => 'Mana Up',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max MP by 30%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Max MP +30%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1027,8 +954,7 @@ Increases Max MP by 30%. Increases damage inflicted during PvP. Increases M. Acc
     'icon' => 'weapon_yuke_i01',
     'name' => 'Bound Apocalypse Caster',
     'additionalname' => 'Empower',
-    'description' => '<Soul Crystal Enhancement>
-M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> M. Atk. +322. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1041,8 +967,7 @@ M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Accuracy and 
     'icon' => 'weapon_yuke_i01',
     'name' => 'Bound Apocalypse Caster',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1055,8 +980,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_yuke_i01',
     'name' => 'Bound Apocalypse Caster',
     'additionalname' => 'Magic Hold',
-    'description' => '<Soul Crystal Enhancement>
-Has a 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> A 20% chance to inflict Dryad Root on the target after using M. skills. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1069,8 +993,7 @@ Has a 20% chance of casting Dryad Root on the target during magic use. Increases
     'icon' => 'weapon_herencia_i01',
     'name' => 'Bound Apocalypse Retributer',
     'additionalname' => 'MP Regeneration',
-    'description' => '<Soul Crystal Enhancement>
-Increases MP Recovery Rate. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Increases MP Recovery Rate and PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1083,8 +1006,7 @@ Increases MP Recovery Rate. Increases damage inflicted during PvP. Increases M. 
     'icon' => 'weapon_herencia_i01',
     'name' => 'Bound Apocalypse Retributer',
     'additionalname' => 'Acumen',
-    'description' => '<Soul Crystal Enhancement>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> Casting Spd. +15%. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1097,8 +1019,7 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
     'icon' => 'weapon_herencia_i01',
     'name' => 'Bound Apocalypse Retributer',
     'additionalname' => 'Empower',
-    'description' => '<Soul Crystal Enhancement>
-M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> M. Atk. +322. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1109,10 +1030,9 @@ M. Atk. + 322. Increases damage inflicted during PvP. Increases M. Atk., M. Crit
   [
     'item_id' => 18779,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Bound Apocalypse Dualsword',
+    'name' => 'Bound Apocalypse Dual Swords',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Rate for standard attacks and P. Atk. when enchanted to +4. Use an Unbind Scroll to change this item into a Standard item.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1123,10 +1043,9 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
   [
     'item_id' => 18780,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Bound Apocalypse Dualsword',
+    'name' => 'Bound Apocalypse Dual Swords',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. Increases Critical Rate for standard attacks and P. Atk. when enchanted to +4. Use an Unbind Scroll to change this item into a Standard item.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1137,10 +1056,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Critical Rate
   [
     'item_id' => 18781,
     'icon' => 'weapon_r_dualsword_i21',
-    'name' => 'Bound Apocalypse Dualsword',
+    'name' => 'Bound Apocalypse Dual Swords',
     'additionalname' => 'Health',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Increases P. Critical Rate and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. Increases Critical Rate for standard attacks and P. Atk. when enchanted to +4. Use an Unbind Scroll to change this item into a Standard item.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1151,10 +1069,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Increases P. Cri
   [
     'item_id' => 18782,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Bound Apocalypse Dual Dagger',
+    'name' => 'Bound Apocalypse Dual Daggers',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. P. Critical Damage and P. Atk. Increases when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. Increases Critical Damage for standard attacks and P. Atk. when enchanted to +4. Use an Unbind Scroll to change this item into a Standard item.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1165,10 +1082,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. P. Critical Damage and P. 
   [
     'item_id' => 18783,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Bound Apocalypse Dual Dagger',
+    'name' => 'Bound Apocalypse Dual Daggers',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1179,10 +1095,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18784,
     'icon' => 'weapon_r_dualdagger_i21',
-    'name' => 'Bound Apocalypse Dual Dagger',
+    'name' => 'Bound Apocalypse Dual Daggers',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Critical Damage and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1193,10 +1108,9 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. C
   [
     'item_id' => 18785,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Bound Apocalypse Dual Blunt Weapon',
+    'name' => 'Bound Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Critical Rate +79.2. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1207,10 +1121,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 18786,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Bound Apocalypse Dual Blunt Weapon',
+    'name' => 'Bound Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Accuracy +7.7. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1221,10 +1134,9 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. S
   [
     'item_id' => 18787,
     'icon' => 'weapon_r_dualblunt_i21',
-    'name' => 'Bound Apocalypse Dual Blunt Weapon',
+    'name' => 'Bound Apocalypse Dual Blunt Weapons',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power and P. Atk. when enchanted to + 4. Can use an Unbind Scroll to change this item into a Standard item.',
+    'description' => '<Soul Crystal enhancement> P. Atk. +332. Increases PvP Damage. Use Unbind Scroll to change it into a Standard item. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1237,8 +1149,7 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Skill Power a
     'icon' => 'weapon_phasian_i01',
     'name' => 'Blessed Apocalypse Shaper',
     'additionalname' => 'Guidance',
-    'description' => '<Soul Crystal Enhancement>
-Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Accuracy +7.7. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1251,10 +1162,9 @@ Increases Accuracy by 7.7. Increases damage inflicted during PvP. Increases P. C
     'icon' => 'weapon_phasian_i01',
     'name' => 'Blessed Apocalypse Shaper',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Damage for standard attacks when enchanted to +4.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1265,10 +1175,9 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_phasian_i01',
     'name' => 'Blessed Apocalypse Shaper',
     'additionalname' => 'Focus ',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +82.3. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1279,10 +1188,9 @@ Increases Critical by 82.3. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_pasis_i01',
     'name' => 'Blessed Apocalypse Cutter',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases P. Accuracy and Critical Rate for standard attacks when enchanted to +4.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1293,8 +1201,7 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_pasis_i01',
     'name' => 'Blessed Apocalypse Cutter',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1307,10 +1214,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases Acc
     'icon' => 'weapon_pasis_i01',
     'name' => 'Blessed Apocalypse Cutter',
     'additionalname' => 'Health',
-    'description' => '<Soul Crystal Enhancement>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. Increases P. Accuracy and Critical Rate for standard attacks when enchanted to +4.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1321,10 +1227,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Increases Accura
     'icon' => 'weapon_volver_i01',
     'name' => 'Blessed Apocalypse Slasher',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1335,10 +1240,9 @@ Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. 
     'icon' => 'weapon_volver_i01',
     'name' => 'Blessed Apocalypse Slasher',
     'additionalname' => 'Damage Up',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Atk. +332. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1349,10 +1253,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases P. Atk. when enc
     'icon' => 'weapon_volver_i01',
     'name' => 'Blessed Apocalypse Slasher',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Atk. when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. When enchanted to +4, increases P. Atk.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1363,10 +1266,9 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Blessed Apocalypse Avenger',
     'additionalname' => 'Haste',
-    'description' => '<Soul Crystal Enhancement>
-Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> Atk. Spd. +15%. Deals additional PvP damage. Increases Critical Damage for standard attacks when enchanted to +4.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1377,10 +1279,9 @@ Increases Atk. Spd. by about 15%. Increases damage inflicted during PvP. Increas
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Blessed Apocalypse Avenger',
     'additionalname' => 'Critical Damage',
-    'description' => '<Soul Crystal Enhancement>
-P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Atk. +1158 after a critical attack. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',
@@ -1391,10 +1292,9 @@ P. Atk. + 1158 during a Critical Attack. Increases damage inflicted during PvP. 
     'icon' => 'weapon_raksilion_i01',
     'name' => 'Blessed Apocalypse Avenger',
     'additionalname' => 'Focus',
-    'description' => '<Soul Crystal Enhancement>
-Increases Critical by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4.',
-    'is_trade' => 0,
-    'is_drop' => 0,
+    'description' => '<Soul Crystal Enhancement> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks.',
+    'is_trade' => 1,
+    'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'r',
     'consume_type' => 'consume_type_normal',

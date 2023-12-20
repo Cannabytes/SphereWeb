@@ -3,9 +3,9 @@
   [
     'item_id' => 53170,
     'icon' => 'etc_powder_gray_i00',
-    'name' => '',
-    'additionalname' => '',
-    'description' => '',
+    'name' => NULL,
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,

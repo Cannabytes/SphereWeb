@@ -3,9 +3,9 @@
   [
     'item_id' => 23900,
     'icon' => 'g_agathion_anakim',
-    'name' => 'Agathion - Anakim',
-    'additionalname' => '',
-    'description' => 'Equip to summon the Anakim Agathion.',
+    'name' => 'Agathion Anakim',
+    'additionalname' => NULL,
+    'description' => 'Summons Agathion Anakim.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -16,9 +16,9 @@
   [
     'item_id' => 23901,
     'icon' => 'g_premium_dye_attribute_unholy',
-    'name' => 'Mysterious Dark Resistance Dye',
-    'additionalname' => 'Dark Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Dark Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Dark Resistance Dye',
+    'additionalname' => 'Dark Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Dark Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -29,9 +29,9 @@
   [
     'item_id' => 23902,
     'icon' => 'g_premium_dye_attribute_holy',
-    'name' => 'Mysterious Holy Resistance Dye',
-    'additionalname' => 'Holy Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Holy Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Holy Resistance Dye',
+    'additionalname' => 'Holy Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Holy Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -42,9 +42,9 @@
   [
     'item_id' => 23903,
     'icon' => 'g_premium_dye_attribute_fire',
-    'name' => 'Mysterious Fire Resistance Dye',
-    'additionalname' => 'Fire Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Fire Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Fire Resistance Dye',
+    'additionalname' => 'Fire Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Fire Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -55,9 +55,9 @@
   [
     'item_id' => 23904,
     'icon' => 'g_premium_dye_attribute_water',
-    'name' => 'Mysterious Water Resistance Dye',
-    'additionalname' => 'Water Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Water Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Water Resistance Dye',
+    'additionalname' => 'Water Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Water Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -68,9 +68,9 @@
   [
     'item_id' => 23905,
     'icon' => 'g_premium_dye_attribute_wind',
-    'name' => 'Mysterious Wind Resistance Dye',
-    'additionalname' => 'Wind Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Wind Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Wind Resistance Dye',
+    'additionalname' => 'Wind Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Wind Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -81,9 +81,9 @@
   [
     'item_id' => 23906,
     'icon' => 'g_premium_dye_attribute_earth',
-    'name' => 'Mysterious Earth Resistance Dye',
-    'additionalname' => 'Earth Resistance, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Earth Resistance + 120 when fighting normal monsters]. All classes.',
+    'name' => 'Wondrous Earth Resistance Dye',
+    'additionalname' => 'Earth Resistance / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Earth Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -94,9 +94,9 @@
   [
     'item_id' => 23907,
     'icon' => 'g_premium_dye_etc_debuff',
-    'name' => 'Mysterious Abnormal State Resistance Dye',
-    'additionalname' => 'Abnormal State/ Buff Cancellation Resistance, Abnormal State Reflect, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (Hold, Sleep, Paralysis, Mental Attack, Poison, Bleed, Stun Resistance + 20 / Buff-canceling Attack Resistance + 20 / 5% chance of reflecting physical and magical abnormal status]. All classes.',
+    'name' => 'Wondrous Debuff Resistance Dye',
+    'additionalname' => 'Buff Cancel Resistance / Debuff Resistance / Debuff Reflection / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Infection/ Stupor/ Confusion/ Obstruction Resistance +20, Buff Cancel Resistance +20, P./ M. Debuff Reflection Rate +5%]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -107,9 +107,9 @@
   [
     'item_id' => 23908,
     'icon' => 'g_premium_dye_etc_buff',
-    'name' => 'Mysterious Invincibility Boost Dye',
-    'additionalname' => 'Invincibility Duration Increase, 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (normal hit and duration of invincibility against skills + 50%]. All classes.',
+    'name' => 'Wondrous Invincibility Boost Dye',
+    'additionalname' => 'Invincibility Duration Increase / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (basic attack/ skill invincibility duration +50%]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -120,9 +120,9 @@
   [
     'item_id' => 23909,
     'icon' => 'g_premium_dye_boss_normal',
-    'name' => 'Mysterious World Boss Defense Dye',
-    'additionalname' => 'P. Def., M. Def., 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (P. Def. and M. Def. + 15% when fighting Antharas, Valakas, or Lindvior]. All classes.',
+    'name' => 'Wondrous Boss Defense Dye',
+    'additionalname' => 'P. Def. / M. Def. / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (Earth Resistance +120 when fighting common monsters]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -133,9 +133,9 @@
   [
     'item_id' => 23910,
     'icon' => 'g_premium_dye_boss_antaras',
-    'name' => 'Mysterious Antharas Defense Dye',
-    'additionalname' => 'P. Def., M. Def., 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (P. Def. and M. Def. + 20% when fighting Antharas]. All classes.',
+    'name' => 'Wondrous Antharas Defense Dye',
+    'additionalname' => 'P. Def. / M. Def. / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (P./ M. Def. +20% when fighting Antharas]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -146,9 +146,9 @@
   [
     'item_id' => 23911,
     'icon' => 'g_premium_dye_boss_valakas',
-    'name' => 'Mysterious Valakas Defense Dye',
-    'additionalname' => 'P. Def., M. Def., 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (P. Def. and M. Def.+ 20% when fighting Valakas]. All classes.',
+    'name' => 'Wondrous Valakas Defense Dye',
+    'additionalname' => 'P. Def. / M. Def. / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (P./ M. Def. +20% when fighting Valakas]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -159,9 +159,9 @@
   [
     'item_id' => 23912,
     'icon' => 'g_premium_dye_boss_lindvior',
-    'name' => 'Mysterious Lindvior Defense Dye',
-    'additionalname' => 'P. Def., M. Def., 7-day',
-    'description' => 'Bring this to the village symbol maker to imprint a 7-day magic symbol that boosts stats (P. Def. and M. Def. + 20% when fighting Lindvior]. All classes.',
+    'name' => 'Wondrous Lindvior Defense Dye',
+    'additionalname' => 'P. Def. / M. Def. / 7-day',
+    'description' => 'Take it to the Dye Merchant in town to get a 7-day tattoo that grants certain bonuses (P./ M. Def. +20% when fighting Lindvior]. Requirements: all classes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -171,10 +171,10 @@
   23913 => 
   [
     'item_id' => 23913,
-    'icon' => 'g_tears_sword_i00',
-    'name' => 'Tears One-handed Sword',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. One-handed sword type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_sword_i00',
+    'name' => 'One-handed Sword of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -184,10 +184,10 @@
   23914 => 
   [
     'item_id' => 23914,
-    'icon' => 'g_tears_dagger_i00',
-    'name' => 'Tears Dagger',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Dagger type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_dagger_i00',
+    'name' => 'Dagger of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -197,10 +197,10 @@
   23915 => 
   [
     'item_id' => 23915,
-    'icon' => 'g_tears_twohand_sword_i00',
-    'name' => 'Tears Two-handed Sword',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Two-handed sword type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_twohand_sword_i00',
+    'name' => 'Two-handed Sword of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -210,10 +210,10 @@
   23916 => 
   [
     'item_id' => 23916,
-    'icon' => 'g_tears_dualfist_i00',
-    'name' => 'Tears Fist Weapon',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Fist weapon type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_dualfist_i00',
+    'name' => 'Fist Weapon of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -223,10 +223,10 @@
   23917 => 
   [
     'item_id' => 23917,
-    'icon' => 'g_tears_pole_i00',
-    'name' => 'Tears Spear',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Spear type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_pole_i00',
+    'name' => 'Spear of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -236,10 +236,10 @@
   23918 => 
   [
     'item_id' => 23918,
-    'icon' => 'g_tears_bow_i00',
-    'name' => 'Tears Bow',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Bow type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_bow_i00',
+    'name' => 'Bow of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -249,10 +249,10 @@
   23919 => 
   [
     'item_id' => 23919,
-    'icon' => 'g_tears_twohand_crossbow_i00',
-    'name' => 'Tears Crossbow',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Crossbow type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_twohand_crossbow_i00',
+    'name' => 'Crossbow of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -262,10 +262,10 @@
   23920 => 
   [
     'item_id' => 23920,
-    'icon' => 'g_tears_blunt_i00',
-    'name' => 'Tears One-handed Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. One-handed blunt weapon type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_blunt_i00',
+    'name' => 'One-handed Blunt Weapon of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -275,10 +275,10 @@
   23921 => 
   [
     'item_id' => 23921,
-    'icon' => 'g_tears_magic_sword_i00',
-    'name' => 'Tears Magic Sword',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. One-handed magic sword type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_magic_sword_i00',
+    'name' => 'Magic Sword of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -288,10 +288,10 @@
   23922 => 
   [
     'item_id' => 23922,
-    'icon' => 'g_tears_magic_blunt_i00',
-    'name' => 'Tears One-handed Magic Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. One-handed magic blunt weapon type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_magic_blunt_i00',
+    'name' => 'One-handed Staff of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -301,10 +301,10 @@
   23923 => 
   [
     'item_id' => 23923,
-    'icon' => 'g_tears_magic_twohand_blunt_i00',
-    'name' => 'Tears Two-handed Magic Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Two-handed magic blunt weapon type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_magic_twohand_blunt_i00',
+    'name' => 'Two-handed Staff of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -314,10 +314,10 @@
   23924 => 
   [
     'item_id' => 23924,
-    'icon' => 'g_tears_dual_i00',
-    'name' => 'Tears Dualsword',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Dualsword type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_dual_i00',
+    'name' => 'Dual Swords of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -327,10 +327,10 @@
   23925 => 
   [
     'item_id' => 23925,
-    'icon' => 'g_tears_dualdagger_i00',
-    'name' => 'Tears Dual Dagger',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Dual Dagger type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_dualdagger_i00',
+    'name' => 'Dual Daggers of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -340,10 +340,10 @@
   23926 => 
   [
     'item_id' => 23926,
-    'icon' => 'g_tears_dualblunt_i00',
-    'name' => 'Tears Dual Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Dual Blunt Weapon type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_dualblunt_i00',
+    'name' => 'Dual Blunt Weapons of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -353,10 +353,10 @@
   23927 => 
   [
     'item_id' => 23927,
-    'icon' => 'g_tears_shield_i00',
-    'name' => 'Tears Shield',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Shield type. Weapon Appearance Basic.',
+    'icon' => '.iconWeapon.g_tears_shield_i00',
+    'name' => 'Shield of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -367,9 +367,9 @@
   [
     'item_id' => 23928,
     'icon' => 'g_tears_sigil_i00',
-    'name' => 'Tears Sigil',
-    'additionalname' => '',
-    'description' => 'Russia\'s weapon crafting contest finalist. Sigil type. Weapon Appearance Basic.',
+    'name' => 'Sigil of Tears',
+    'additionalname' => NULL,
+    'description' => 'Russias weapon crafting contest finalist. A prototype for Appearance Stone.',
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -380,230 +380,230 @@
   [
     'item_id' => 23929,
     'icon' => 'g_shape_shifting_sword',
-    'name' => 'Tears One-handed Sword Appearance Stone',
+    'name' => 'Appearance Stone: One-handed Sword of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a one-handed sword to that of a Tears One-handed Sword. 7-day.',
+    'description' => 'Changes the appearance of a one-handed sword to that of One-handed Sword of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23930 => 
   [
     'item_id' => 23930,
     'icon' => 'g_shape_shifting_dagger',
-    'name' => 'Tears Dagger Appearance Stone',
+    'name' => 'Appearance Stone: Dagger of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a dagger to that of a Tears Dagger. 7-day.',
+    'description' => 'Changes the appearance of a dagger to that of Dagger of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23931 => 
   [
     'item_id' => 23931,
     'icon' => 'g_shape_shifting_twohand_sword',
-    'name' => 'Tears Two-handed Sword Appearance Stone',
+    'name' => 'Appearance Stone: Two-handed Sword of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a two-handed sword to that of a Tears Two-handed Sword. 7-day.',
+    'description' => 'Changes the appearance of a two-handed sword to that of Two-handed Sword of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23932 => 
   [
     'item_id' => 23932,
     'icon' => 'g_shape_shifting_dualfist',
-    'name' => 'Tears Fist Weapon Appearance Stone',
+    'name' => 'Appearance Stone: Fist Weapon of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a fist weapon to that of a Tears Fist Weapon. 7-day.',
+    'description' => 'Changes the appearance of a fist weapon to that of Fist Weapon of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23933 => 
   [
     'item_id' => 23933,
     'icon' => 'g_shape_shifting_pole',
-    'name' => 'Tears Spear Appearance Stone',
+    'name' => 'Appearance Stone: Spear of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a spear to that of a Tears Spear. 7-day.',
+    'description' => 'Changes the appearance of a spear to that of Spear of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23934 => 
   [
     'item_id' => 23934,
     'icon' => 'g_shape_shifting_bow',
-    'name' => 'Tears Bow Appearance Stone',
+    'name' => 'Appearance Stone: Bow of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a bow to that of a Tears Bow. 7-day.',
+    'description' => 'Changes the appearance of a bow to that of Bow of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23935 => 
   [
     'item_id' => 23935,
     'icon' => 'g_shape_shifting_twohand_crossbow',
-    'name' => 'Tears Crossbow Appearance Stone',
+    'name' => 'Appearance Stone: Crossbow of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a crossbow to that of a Tears Crossbow. 7-day.',
+    'description' => 'Changes the appearance of a crossbow to that of Crossbow of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23936 => 
   [
     'item_id' => 23936,
     'icon' => 'g_shape_shifting_blunt',
-    'name' => 'Tears One-handed Blunt Weapon Appearance Stone',
+    'name' => 'Appearance Stone: One-handed Blunt Weapon of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a one-handed blunt weapon to that of a Tears One-handed Blunt Weapon. 7-day.',
+    'description' => 'Changes the appearance of a one-handed blunt weapon to that of One-handed Blunt Weapon of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23937 => 
   [
     'item_id' => 23937,
     'icon' => 'g_shape_shifting_twohand_blunt',
-    'name' => 'Tears Magic Sword Appearance Stone',
+    'name' => 'Appearance Stone: Magic Sword of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a two-handed blunt weapon to that of a Tears Two-handed Blunt Weapon. 7-day.',
+    'description' => 'Changes the appearance of a magic sword to that of Magic Sword of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23938 => 
   [
     'item_id' => 23938,
     'icon' => 'g_shape_shifting_magic_blunt',
-    'name' => 'Tears One-handed Magic Blunt Weapon Appearance Stone',
+    'name' => 'Appearance Stone: One-handed Staff of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a one-handed blunt weapon to that of a Tears Magic Blunt Weapon. 7-day.',
+    'description' => 'Changes the appearance of a one-handed staff to that of One-handed Staff of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23939 => 
   [
     'item_id' => 23939,
     'icon' => 'g_shape_shifting_magic_twohand_blunt',
-    'name' => 'Tears Two-handed Magic Blunt Weapon Appearance Stone',
+    'name' => 'Appearance Stone: Two-handed Staff of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a two-handed blunt weapon to that of a Tears Two-handed Magic Blunt Weapon. 7-day.',
+    'description' => 'Changes the appearance of a two-handed blunt weapon to that of Two-handed Staff of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23940 => 
   [
     'item_id' => 23940,
     'icon' => 'g_shape_shifting_dual',
-    'name' => 'Tears Dualsword Appearance Stone',
+    'name' => 'Appearance Stone: Dual Swords of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a dualsword to that of a Tears Dualsword. 7-day.',
+    'description' => 'Changes the appearance of dual swords to that of Dual Swords of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23941 => 
   [
     'item_id' => 23941,
     'icon' => 'g_shape_shifting_dualdagger',
-    'name' => 'Tears Dual Dagger Appearance Stone',
+    'name' => 'Appearance Stone: Dual Daggers of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a dual dagger to that of a Tears Dual Dagger. 7-day.',
+    'description' => 'Changes the appearance of dual daggers to that of Dual Daggers of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23942 => 
   [
     'item_id' => 23942,
     'icon' => 'g_shape_shifting_dualblunt',
-    'name' => 'Tears Dual Blunt Weapon Appearance Stone',
+    'name' => 'Appearance Stone: Dual Blunt Weapons of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a dual blunt weapon to that of a Tears Dual Blunt Weapon. 7-day.',
+    'description' => 'Changes the appearance of dual blunt weapons to that of Dual Blunt Weapons of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23943 => 
   [
     'item_id' => 23943,
     'icon' => 'g_shape_shifting_shield',
-    'name' => 'Tears Shield Appearance Stone',
+    'name' => 'Appearance Stone: Shield of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a shield to that of a Tears Shield. 7-day.',
+    'description' => 'Changes the appearance of a shield to that of Shield of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23944 => 
   [
     'item_id' => 23944,
     'icon' => 'g_shape_shifting_sigil',
-    'name' => 'Tears Sigil Appearance Stone',
+    'name' => 'Appearance Stone: Sigil of Tears',
     'additionalname' => '7-day',
-    'description' => 'Changes the appearance of a sigil to that of a Tears Sigil. 7-day.',
+    'description' => 'Changes the appearance of a sigil to that of Sigil of Tears. Duration: 7 d.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23945 => 
   [
     'item_id' => 23945,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Prestige Rune 100% Pack',
+    'name' => 'Package: High-grade Maphrs Rune 100%',
     'additionalname' => '3-hour',
-    'description' => 'Wrapped Pack containing Prestige Rune 100% (3-hour].',
+    'description' => 'Double-click to obtain High-grade Maphrs Rune 100% (3-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23946 => 
   [
     'item_id' => 23946,
     'icon' => 'etc_pi_gift_box_i04',
-    'name' => 'XP Rune II (Lv. 1-95] 100% Pack (1-hour]',
-    'additionalname' => '',
-    'description' => 'Pack containing XP Rune II (Lv. 1-95] 100% (1-hour].',
+    'name' => 'Nevits Rune Box (Dragon Rising] 100% (1-hour]',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Nevits Rune 100% (1-hour]. Required level: 1-95.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -615,7 +615,7 @@
     'item_id' => 23947,
     'icon' => 'aphros_key',
     'name' => 'Kamaloka Secret Chest Key',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Key to opening treasure chests in the Infernal and Lunatic Kamaloka. Use 5 to open a Secret Chest, and 2 to open a normal Chest.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -628,7 +628,7 @@
     'item_id' => 23948,
     'icon' => 'etc_old_key_i01',
     'name' => 'Kamaloka Chest Key',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Key to opening treasure chests in the Infernal and Lunatic Kamaloka. Use 5 to open a Secret Chest, and 2 to open a normal Chest.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -640,61 +640,61 @@
   [
     'item_id' => 23949,
     'icon' => 'cube_event_i02',
-    'name' => 'Returning Hero\'s Wondrous Cubic',
-    'additionalname' => '',
-    'description' => 'Double-click to obtain either a Vitality Replenishing Potion (30-minute], Feather of Blessing, Heavenly Cocktail x 2, Scroll of Escape Pack: Village, or MP Recovery Potion. Once a day.',
+    'name' => 'Returning Heros Wondrous Cubic',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain either a Vitality Replenishing Potion (30-min.], Feather of Blessing, Heavenly Cocktail x 2, Scroll of Escape Pack: Village, or MP Recovery Potion. Once a day.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   23950 => 
   [
     'item_id' => 23950,
     'icon' => 'present_of_destination_event',
-    'name' => 'Returning Hero\'s Gold Chest',
+    'name' => 'Returning Heros Gold Chest',
     'additionalname' => 'Event',
-    'description' => 'Wrapped Pack containing Returning Hero\'s Mark x 250, a Returning Hero\'s Potion Pack, and a Returning Hero\'s Support Box.',
+    'description' => 'Double-click to obtain Returning Heros Mark x 250, a Returning Heros Potion Pack, and a Returning Heros Support Box.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23951 => 
   [
     'item_id' => 23951,
     'icon' => 'etc_pi_gift_box_i00',
-    'name' => 'Returning Hero\'s Support Box',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Rerturning Hero\'s Shirt, Returning Hero\'s Belt, and a Returning Hero\'s Wondrous Cubic.',
+    'name' => 'Returning Heros Support Box',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Rerturning Heros Shirt, Returning Heros Belt, and a Returning Heros Wondrous Cubic.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23952 => 
   [
     'item_id' => 23952,
     'icon' => 'etc_ticket_red_i00',
-    'name' => 'Extra Pass: Infernal/Lunatic Kamaloka',
-    'additionalname' => '',
+    'name' => 'Extra Pass: Infernal/ Lunatic Kamaloka',
+    'additionalname' => NULL,
     'description' => 'Entry Pass to Infernal and Lunatic Kamaloka. Use to reset cooldown and enter the dungeon up to 5 times within the cooldown.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   23953 => 
   [
     'item_id' => 23953,
     'icon' => 'accessory_archer_hat2_i00',
-    'name' => '2014 World Olympiad Hero\'s Accessory',
-    'additionalname' => '',
-    'description' => 'Hair Accessory worn by the hero of the 2014 World Olympiad. Equip for a boost of + 5 on all stats.',
+    'name' => '2014 World Olympiad Heros Accessory',
+    'additionalname' => NULL,
+    'description' => 'A head accessory of the victor of the 2014 World Olympiad. A symbol of the strongest hero of all servers. When equipped, all stats +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -705,9 +705,9 @@
   [
     'item_id' => 23954,
     'icon' => 'accessory_archer_hat2_i00',
-    'name' => '2014 World Olympiad Semifinalist\'s Accessory',
-    'additionalname' => '',
-    'description' => 'Hair Accessory worn by the semifinalist of the 2014 World Olympiad. Equip for a boost of + 2 on all stats.',
+    'name' => '2014 World Olympiad Semifinalists Accessory ',
+    'additionalname' => NULL,
+    'description' => 'A head accessory of the runner-up of the 2014 World Olympiad. A symbol of the 2nd strongest hero of all servers. When equipped, all stats +2.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -719,8 +719,8 @@
     'item_id' => 23955,
     'icon' => 'present_of_destination_event',
     'name' => 'Kamaloka Secret Chest',
-    'additionalname' => '',
-    'description' => 'Identical to the Kamaloka Secret Chest found in Infernal and Lunatic Kamaloka. Has a chance of obtaining either a Dark/Bloody Amaranthine Enhancement Stone, Dark/Bloody Eternal Enhancement Stone, Life Stone Instilled with Giant\'s Power, Scroll of Blessing: Weapon/Armor (R99-grade], Top-grade Life Stone (R/R95/R99-grade], Giant\'s Scroll: Enchant Weapon/Armor (R-grade], an Attribute Stone (+ 60], or Gemstone (R-grade].',
+    'additionalname' => NULL,
+    'description' => 'Kamaloka Secret Chest found in Infernal and Lunatic Kamaloka. Double-click to obtain one of the following items: Dark/ Bloody Helios Enhancement Stone, Dark/ Bloody Eternal Enhancement Stone, Life Stone: Giants Power, Scroll of Blessing: R99-grade Weapon/ Armor, Top-grade R/ R95/ R99-grade Life Stone, Giants Scroll: Enchant R-grade Weapon/ Armor, Attribute Stone (+60], R-grade Gemstone.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -732,8 +732,8 @@
     'item_id' => 23956,
     'icon' => 'present_of_destination_event',
     'name' => 'Kamaloka Chest',
-    'additionalname' => '',
-    'description' => 'Identical to the Kamaloka Chest found in Infernal and Lunatic Kamaloka. Has a chance of obtaining either a Blessed Scroll: Enchant Weapon/Armor (R-grade], High-grade Life Stone (R/R95/R99-grade], Scroll: Enchant Weapon/Armor (R-grade], an Attribute Stone, or Blessed Scroll of Resurrection.',
+    'additionalname' => NULL,
+    'description' => 'Identical to the Kamaloka Chest found in Infernal and Lunatic Kamaloka. Has a chance of obtaining either a Blessed Scroll: Enchant R-grade Weapon/ Armor, High-grade R/ R95/ R99-grade Life Stone, Scroll: Enchant R-grade Weapon/ Armor, an Attribute Stone, or Blessed Scroll of Resurrection.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -743,9 +743,9 @@
   23957 => 
   [
     'item_id' => 23957,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 1',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -756,9 +756,9 @@
   23958 => 
   [
     'item_id' => 23958,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 2',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -769,9 +769,9 @@
   23959 => 
   [
     'item_id' => 23959,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 3',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -782,9 +782,9 @@
   23960 => 
   [
     'item_id' => 23960,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 4',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -795,9 +795,9 @@
   23961 => 
   [
     'item_id' => 23961,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 5',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -808,9 +808,9 @@
   23962 => 
   [
     'item_id' => 23962,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 6',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -821,9 +821,9 @@
   23963 => 
   [
     'item_id' => 23963,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 7',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -834,9 +834,9 @@
   23964 => 
   [
     'item_id' => 23964,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 8',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -847,9 +847,9 @@
   23965 => 
   [
     'item_id' => 23965,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 9',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -860,9 +860,9 @@
   23966 => 
   [
     'item_id' => 23966,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 10',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -873,9 +873,9 @@
   23967 => 
   [
     'item_id' => 23967,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 11',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -886,9 +886,9 @@
   23968 => 
   [
     'item_id' => 23968,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 12',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -899,9 +899,9 @@
   23969 => 
   [
     'item_id' => 23969,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 13',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -912,9 +912,9 @@
   23970 => 
   [
     'item_id' => 23970,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 14',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -925,9 +925,9 @@
   23971 => 
   [
     'item_id' => 23971,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 15',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -938,9 +938,9 @@
   23972 => 
   [
     'item_id' => 23972,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 16',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -951,9 +951,9 @@
   23973 => 
   [
     'item_id' => 23973,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 17',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -964,9 +964,9 @@
   23974 => 
   [
     'item_id' => 23974,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 18',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -977,9 +977,9 @@
   23975 => 
   [
     'item_id' => 23975,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 19',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -990,9 +990,9 @@
   23976 => 
   [
     'item_id' => 23976,
-    'icon' => '',
+    'icon' => NULL,
     'name' => 'Illusion 20',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => '',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1004,22 +1004,22 @@
   [
     'item_id' => 23977,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Agathion - Pegasus Pack',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Agathion - Pegasus.',
+    'name' => 'Package: Agathion Pegasus',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Agathion Pegasus.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23978 => 
   [
     'item_id' => 23978,
     'icon' => 'br_aga_pegasus_i00',
-    'name' => 'Agathion - Pegasus',
-    'additionalname' => '',
-    'description' => 'Can summon Pegasus when equipped.',
+    'name' => 'Agathion Pegasus',
+    'additionalname' => NULL,
+    'description' => 'A bracelet for summoning Agathion Pegasus.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1030,9 +1030,9 @@
   [
     'item_id' => 23979,
     'icon' => 'g_scrl_change_chest',
-    'name' => 'Vampire Top Appearance Stone',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of a top to that of a Vampire Outfit. Abilities do not change after modification. Can be used regardless of material. Can be stored in the clan warehouse.',
+    'name' => 'Appearance Stone: Vampire Top',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of a top to that of a Vampire Outfit. No change in stats. All armor types. Can be stored in the clan warehouse.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1043,9 +1043,9 @@
   [
     'item_id' => 23980,
     'icon' => 'g_scrl_change_legs',
-    'name' => 'Vampire Pants Appearance Stone',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of pants to those of a Vampire Outfit. Abilities do not change after modification. Can be used regardless of material. Can be stored in the clan warehouse.',
+    'name' => 'Appearance Stone: Vampire Pants',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of pants to those of a Vampire Outfit. No change in stats. All armor types. Can be stored in the clan warehouse.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1056,9 +1056,9 @@
   [
     'item_id' => 23981,
     'icon' => 'g_scrl_change_gloves',
-    'name' => 'Vampire Gloves Appearance Stone',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of gloves to those of a Vampire Outfit. Abilities do not change after modification. Can be stored in the clan warehouse.',
+    'name' => 'Appearance Stone: Vampire Gloves',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of gloves to those of a Vampire Outfit. No change in stats. All armor types. Can be stored in the clan warehouse.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1069,9 +1069,9 @@
   [
     'item_id' => 23982,
     'icon' => 'g_scrl_change_feet',
-    'name' => 'Vampire Shoes Appearance Stone',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of shoes to those of a Vampire Outfit. Abilities do not change after modification. Can be stored in the clan warehouse.',
+    'name' => 'Appearance Stone: Vampire Shoes',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of shoes to those of a Vampire Outfit. No change in stats. All armor types. Can be stored in the clan warehouse.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1082,9 +1082,9 @@
   [
     'item_id' => 23983,
     'icon' => 'g_shape_shifting_hair2',
-    'name' => 'Vampire Hair Accessory Appearance Stone',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of a hair accessory into that of a Vampire Outfit. Can be used only on hair accessories that take up 2 slots. Can be stored in the clan warehouse.',
+    'name' => 'Appearance Stone: Vampire Head Accessory',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of a head accessory into that of Vampire Head Accessory. Can only be used on head accessories equipped in 2 slots. Can be stored in the clan warehouse.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1095,54 +1095,52 @@
   [
     'item_id' => 23984,
     'icon' => 'g_ev_magic_powder',
-    'name' => 'Traces of Ancient Kartia\'s Labyrinth',
-    'additionalname' => '',
-    'description' => 'Maybe the Kartia Researcher can tell you more about it. Cannot be exchanged, dropped, or sold. Can be stored in the private warehouse. Deleted after event.',
+    'name' => 'Traces of Ancient Kartias Labyrinth',
+    'additionalname' => 'PA Event',
+    'description' => 'Obtained for PA points. Perhaps, a Kartia Researcher may know more about it. Cannot be exchanged, dropped, or sold. Can be stored in the private warehouse. ',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23985 => 
   [
     'item_id' => 23985,
     'icon' => 'etc_ticket_red_i00',
-    'name' => 'Extra Pass: Ancient Kartia\'s Labyrinth',
-    'additionalname' => '',
-    'description' => 'Resets the cooldown to Ancient Kartia\'s Labyrinth. Cannot be exchanged, dropped, or sold. Can be stored in the private warehouse. Deleted after event.',
+    'name' => 'Extra Pass: Ancient Kartias Labyrinth',
+    'additionalname' => 'PA Event',
+    'description' => 'Obtained for PA points. Resets the cooldown to Ancient Kartias Labyrinth. Cannot be exchanged, dropped, or sold. Can be stored in the private warehouse. ',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23986 => 
   [
     'item_id' => 23986,
     'icon' => 'ev_charge_box',
-    'name' => 'Rune of Bountiful Growth Pack',
-    'additionalname' => '',
-    'description' => 'Dimensional Item Pack
-Wrapped Pack containing a Rune of Bountiful Growth (30-day]. Cannot be exchanged, dropped, destroyed, auctioned, or sold in a private store. Can be stored in a private warehouse. Can be shared within an account through the Dimensional Merchant.',
+    'name' => 'Growth Rune Pack',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Growth Rune (30-day].',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23987 => 
   [
     'item_id' => 23987,
     'icon' => 'ev_charge_run',
-    'name' => 'Rune of Bountiful Growth (30-day]',
-    'additionalname' => '',
-    'description' => 'Dimensional Item
-Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked with XP Rune I (Lv. 1-85] and XP Rune II (Lv. 1-95] 100%. When used with Emperor\'s Rune, only the Emperor\'s Rune takes effect. Cannot be exchanged, dropped, destroyed, or sold in the private store. Can be stored in a private warehouse.',
+    'name' => 'Growth Rune (30-day]',
+    'additionalname' => NULL,
+    'description' => 'When in inventory, Acquired XP/ SP +20%. Can be stacked with all XP/ SP bonus effects with the exception of Emperors Rune.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   23988 => 
@@ -1150,25 +1148,21 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
     'item_id' => 23988,
     'icon' => 'ev_charge_scroll',
     'name' => 'Wondrous Wind Scroll',
-    'additionalname' => '',
-    'description' => 'For 60min., Max HP/MP/CP + 30%, P./M. Def. + 30%, P. Atk. + 10%, M. Atk. + 20%, and Wind Attack/Resistance + 20. Skill Cooldown - 10%. Cannot be exchanged, dropped, auctioned, sold in a private store, or used in the Olympiad. Can be stored in a private warehouse. Cannot be stacked with Art of Seduction. Deleted after event.',
+    'additionalname' => NULL,
+    'description' => 'For 60 min., Max HP/ MP/ CP +30%, P./ M. Def. +30%, P. Atk. +10%, M. Atk. +20%, Wind Atk./ Resistance +20. Skill Cooldown -10%. Cannot be used in the Olympiad. Does not stack with Art of Seduction. The effect remains after death.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   23989 => 
   [
     'item_id' => 23989,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 1',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 2250 sec.]
-2. Attribute Enchant: Attribute Atk./Resistance + 5.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 1',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 37 min. 30 sec.2. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1178,15 +1172,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23990 => 
   [
     'item_id' => 23990,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 2',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 2100 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 5.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 2',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 35 min.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1196,15 +1185,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23991 => 
   [
     'item_id' => 23991,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 3',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1950 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 10.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 3',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 32 min. 30 sec.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1214,15 +1198,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23992 => 
   [
     'item_id' => 23992,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 4',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1800 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 10.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 4',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 30 min.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1232,15 +1211,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23993 => 
   [
     'item_id' => 23993,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 5',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1650 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 15.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 5',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 27 min. 30 sec.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1250,15 +1224,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23994 => 
   [
     'item_id' => 23994,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 6',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1500 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 15.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 6',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 25 min.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1268,15 +1237,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23995 => 
   [
     'item_id' => 23995,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 7',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1350 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 20.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 7',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 22 min. 30 sec.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1286,15 +1250,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23996 => 
   [
     'item_id' => 23996,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 8',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1200 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 20.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 8',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 20 min.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1304,15 +1263,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23997 => 
   [
     'item_id' => 23997,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 9',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 1050 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 25.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 9',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 17 min. 30 sec.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1322,15 +1276,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23998 => 
   [
     'item_id' => 23998,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 10',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 900 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 25.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 10',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 15 min.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1340,15 +1289,10 @@ Keep this in your inventory to gain SP/XP + 20% when hunting. Can be stacked wit
   23999 => 
   [
     'item_id' => 23999,
-    'icon' => 'accessary_sign_agathion_april_aug_i00',
-    'name' => 'Agathion - Virgo',
-    'additionalname' => 'Stage 11',
-    'description' => 'Can summon Virgo when equipped.
-
-<Active Skill>
-1. Healing Light: Restores entire party\'s HP/MP/CP with a chance to cancel debuffs. (Cooldown is 750 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Atk./Resistance + 30.',
+    'icon' => 'accessary_lbracelet_sign_agathion_aug_i00',
+    'name' => 'Agathion Virgo',
+    'additionalname' => 'Lv. 11',
+    'description' => 'A bracelet for summoning Agathion Virgo.<Active skills>1. Healing Light: Restores entire partys HP/ MP/ CP with a chance to cancel debuffs. Cooldown: 12 min. 30 sec.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,

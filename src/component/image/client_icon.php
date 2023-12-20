@@ -58,12 +58,13 @@ class client_icon {
         }
     }
 
-    public static function get_item_info($item_id = 0, $json = false, $protected = true) {
+    public static function get_item_info($item_id = null, $json = false, $protected = true) {
         if ($protected) {
             validation::user_protection();
         }
-        if ($item_id === 0) {
+        if ($item_id === null) {
             $item_id = $_POST['itemID'] ?? null;
+            $file = self::includeFileByRange($item_id);
             if ($item_id === null) {
                 board::notice(false, "Не передано значение ID предмета");
             }
@@ -78,7 +79,12 @@ class client_icon {
         $file = self::includeFileByRange($item_id);
         if (!$file) {
             if ($json) {
-                board::notice(false, "Файл с информацией об предмете не найден");
+                echo json_encode([
+                    "item_id" => $item_id,
+                    "name" => "The item does not exist!",
+                    "icon" => fileSys::localdir("/uploads/images/icon/NOIMAGE.webp"),
+                ]);
+                exit;
             } else {
                 return false;
             }
@@ -94,7 +100,12 @@ class client_icon {
             return $item;
         } else {
             if ($json) {
-                board::notice(false, "Предмет не найден");
+                echo json_encode([
+                    "item_id" => $item_id,
+                    "name" => "The item does not exist",
+                    "icon" => fileSys::localdir("/uploads/images/icon/NOIMAGE.webp"),
+                ]);
+                exit;
             } else {
                 return [
                     "item_id" => $item_id,
@@ -110,7 +121,7 @@ class client_icon {
     }
 
     private static function includeFileByRange($number, $object = "items"): string|false {
-        $range = floor(($number - 1) / 100) * 100;
+        $range = floor(($number ) / 100) * 100;
         if ($range < 0) {
             $range = 0;
         }

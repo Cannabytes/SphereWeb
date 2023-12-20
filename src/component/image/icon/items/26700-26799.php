@@ -4,8 +4,8 @@
     'item_id' => 26700,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'INT + P. Atk.',
-    'description' => 'INT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'INT +P. Atk.',
+    'description' => 'INT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -17,8 +17,8 @@
     'item_id' => 26701,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'WIT + P. Atk.',
-    'description' => 'WIT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'WIT +P. Atk.',
+    'description' => 'WIT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -30,8 +30,8 @@
     'item_id' => 26702,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'STR + M. Atk.',
-    'description' => 'STR + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'STR +M. Atk.',
+    'description' => 'STR +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -43,8 +43,8 @@
     'item_id' => 26703,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'DEX + M. Atk.',
-    'description' => 'DEX + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'DEX +M. Atk.',
+    'description' => 'DEX +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -56,8 +56,8 @@
     'item_id' => 26704,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'CON + M. Atk.',
-    'description' => 'CON + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'CON +M. Atk.',
+    'description' => 'CON +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -69,8 +69,8 @@
     'item_id' => 26705,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'MEN + M. Atk.',
-    'description' => 'MEN + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'MEN +M. Atk.',
+    'description' => 'MEN +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -82,8 +82,8 @@
     'item_id' => 26706,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'INT + M. Atk.',
-    'description' => 'INT + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'INT +M. Atk.',
+    'description' => 'INT +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -95,8 +95,8 @@
     'item_id' => 26707,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'WIT + M. Atk.',
-    'description' => 'WIT + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'WIT +M. Atk.',
+    'description' => 'WIT +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -108,8 +108,8 @@
     'item_id' => 26708,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'STR + Accuracy',
-    'description' => 'STR + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'STR +Accuracy',
+    'description' => 'STR +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -121,8 +121,8 @@
     'item_id' => 26709,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'DEX + Accuracy',
-    'description' => 'DEX + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'DEX +Accuracy',
+    'description' => 'DEX +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -134,8 +134,8 @@
     'item_id' => 26710,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'CON + Accuracy',
-    'description' => 'CON + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'CON +Accuracy',
+    'description' => 'CON +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -147,8 +147,8 @@
     'item_id' => 26711,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'MEN + Accuracy',
-    'description' => 'MEN + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'MEN +Accuracy',
+    'description' => 'MEN +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -160,8 +160,8 @@
     'item_id' => 26712,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'INT + Accuracy',
-    'description' => 'INT + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'INT +Accuracy',
+    'description' => 'INT +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -173,8 +173,8 @@
     'item_id' => 26713,
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
-    'additionalname' => 'WIT + Accuracy',
-    'description' => 'WIT + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'WIT +Accuracy',
+    'description' => 'WIT +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -184,10 +184,10 @@
   26714 => 
   [
     'item_id' => 26714,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + Critical Rate',
-    'description' => 'STR + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'STR +Critical Rate',
+    'description' => 'When equipped, STR +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -197,10 +197,10 @@
   26715 => 
   [
     'item_id' => 26715,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + Critical Rate',
-    'description' => 'DEX + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'DEX +Critical Rate',
+    'description' => 'When equipped, DEX +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -210,10 +210,10 @@
   26716 => 
   [
     'item_id' => 26716,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + Critical Rate',
-    'description' => 'CON + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'CON +Critical Rate',
+    'description' => 'When equipped, CON +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -223,10 +223,10 @@
   26717 => 
   [
     'item_id' => 26717,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + Critical Rate',
-    'description' => 'MEN + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'MEN +Critical Rate',
+    'description' => 'When equipped, MEN +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -236,10 +236,10 @@
   26718 => 
   [
     'item_id' => 26718,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + Critical Rate',
-    'description' => 'INT + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'INT +Critical Rate',
+    'description' => 'When equipped, INT +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -249,10 +249,10 @@
   26719 => 
   [
     'item_id' => 26719,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + Critical Rate',
-    'description' => 'WIT + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'WIT +Critical Rate',
+    'description' => 'When equipped, WIT +3, Critical Rate for basic attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -262,10 +262,10 @@
   26720 => 
   [
     'item_id' => 26720,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + Critical Damage',
-    'description' => 'STR + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'STR +Critical Damage',
+    'description' => 'When equipped, STR +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -275,10 +275,10 @@
   26721 => 
   [
     'item_id' => 26721,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + Critical Damage',
-    'description' => 'DEX + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'DEX +Critical Damage',
+    'description' => 'When equipped, DEX +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -288,10 +288,10 @@
   26722 => 
   [
     'item_id' => 26722,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + Critical Damage',
-    'description' => 'CON + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'CON +Critical Damage',
+    'description' => 'When equipped, CON +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -301,10 +301,10 @@
   26723 => 
   [
     'item_id' => 26723,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + Critical Damage',
-    'description' => 'MEN + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'MEN +Critical Damage',
+    'description' => 'When equipped, MEN +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -314,10 +314,10 @@
   26724 => 
   [
     'item_id' => 26724,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + Critical Damage',
-    'description' => 'INT + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'INT +Critical Damage',
+    'description' => 'When equipped, INT +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -327,10 +327,10 @@
   26725 => 
   [
     'item_id' => 26725,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + Critical Damage',
-    'description' => 'WIT + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'WIT +Critical Damage',
+    'description' => 'When equipped, WIT +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -340,10 +340,10 @@
   26726 => 
   [
     'item_id' => 26726,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + P. Def.',
-    'description' => 'STR + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'STR +P. Def.',
+    'description' => 'STR +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -353,10 +353,10 @@
   26727 => 
   [
     'item_id' => 26727,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + P. Def.',
-    'description' => 'DEX + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'DEX +P. Def.',
+    'description' => 'DEX +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -366,10 +366,10 @@
   26728 => 
   [
     'item_id' => 26728,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + P. Def.',
-    'description' => 'CON + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'CON +P. Def.',
+    'description' => 'CON +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -379,10 +379,10 @@
   26729 => 
   [
     'item_id' => 26729,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + P. Def.',
-    'description' => 'MEN + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'MEN +P. Def.',
+    'description' => 'MEN +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -392,10 +392,10 @@
   26730 => 
   [
     'item_id' => 26730,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + P. Def.',
-    'description' => 'INT + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'INT +P. Def.',
+    'description' => 'INT +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -405,10 +405,10 @@
   26731 => 
   [
     'item_id' => 26731,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + P. Def.',
-    'description' => 'WIT + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'WIT +P. Def.',
+    'description' => 'WIT +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -418,10 +418,10 @@
   26732 => 
   [
     'item_id' => 26732,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + M. Def.',
-    'description' => 'STR + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'STR +M. Def.',
+    'description' => 'STR +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -431,10 +431,10 @@
   26733 => 
   [
     'item_id' => 26733,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + M. Def.',
-    'description' => 'DEX + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'DEX +M. Def.',
+    'description' => 'DEX +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -444,10 +444,10 @@
   26734 => 
   [
     'item_id' => 26734,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + M. Def.',
-    'description' => 'CON + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'CON +M. Def.',
+    'description' => 'When equipped, CON +3, M. Def. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -457,10 +457,10 @@
   26735 => 
   [
     'item_id' => 26735,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + M. Def.',
-    'description' => 'MEN + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'MEN +M. Def.',
+    'description' => 'MEN +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -470,10 +470,10 @@
   26736 => 
   [
     'item_id' => 26736,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + M. Def.',
-    'description' => 'INT + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'INT +M. Def.',
+    'description' => 'INT +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -483,10 +483,10 @@
   26737 => 
   [
     'item_id' => 26737,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + M. Def.',
-    'description' => 'WIT + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'WIT +M. Def.',
+    'description' => 'WIT +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -496,10 +496,10 @@
   26738 => 
   [
     'item_id' => 26738,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + Evasion',
-    'description' => 'STR + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'STR +Evasion',
+    'description' => 'STR +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -509,10 +509,10 @@
   26739 => 
   [
     'item_id' => 26739,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + Evasion',
-    'description' => 'DEX + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'DEX +Evasion',
+    'description' => 'DEX +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -522,10 +522,10 @@
   26740 => 
   [
     'item_id' => 26740,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + Evasion',
-    'description' => 'CON + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'CON +Evasion',
+    'description' => 'CON +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -535,10 +535,10 @@
   26741 => 
   [
     'item_id' => 26741,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + Evasion',
-    'description' => 'MEN + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'MEN +Evasion',
+    'description' => 'MEN +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -548,10 +548,10 @@
   26742 => 
   [
     'item_id' => 26742,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + Evasion',
-    'description' => 'INT + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'INT +Evasion',
+    'description' => 'INT +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -561,10 +561,10 @@
   26743 => 
   [
     'item_id' => 26743,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + Evasion',
-    'description' => 'WIT + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'WIT +Evasion',
+    'description' => 'WIT +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -574,10 +574,10 @@
   26744 => 
   [
     'item_id' => 26744,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + P. Atk.',
-    'description' => 'STR + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'STR +P. Atk.',
+    'description' => 'STR +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -587,10 +587,10 @@
   26745 => 
   [
     'item_id' => 26745,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + P. Atk.',
-    'description' => 'DEX + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'DEX +P. Atk.',
+    'description' => 'DEX +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -600,10 +600,10 @@
   26746 => 
   [
     'item_id' => 26746,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + P. Atk.',
-    'description' => 'CON + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'CON +P. Atk.',
+    'description' => 'CON +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -613,10 +613,10 @@
   26747 => 
   [
     'item_id' => 26747,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + P. Atk.',
-    'description' => 'MEN + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'MEN +P. Atk.',
+    'description' => 'MEN +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -626,10 +626,10 @@
   26748 => 
   [
     'item_id' => 26748,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + P. Atk.',
-    'description' => 'INT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'INT +P. Atk.',
+    'description' => 'INT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -639,10 +639,10 @@
   26749 => 
   [
     'item_id' => 26749,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + P. Atk.',
-    'description' => 'WIT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'WIT +P. Atk.',
+    'description' => 'WIT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -652,10 +652,10 @@
   26750 => 
   [
     'item_id' => 26750,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + M. Atk.',
-    'description' => 'STR + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'STR +M. Atk.',
+    'description' => 'STR +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -665,10 +665,10 @@
   26751 => 
   [
     'item_id' => 26751,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + M. Atk.',
-    'description' => 'DEX + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'DEX +M. Atk.',
+    'description' => 'DEX +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -678,10 +678,10 @@
   26752 => 
   [
     'item_id' => 26752,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + M. Atk.',
-    'description' => 'CON + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'CON +M. Atk.',
+    'description' => 'CON +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -691,10 +691,10 @@
   26753 => 
   [
     'item_id' => 26753,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + M. Atk.',
-    'description' => 'MEN + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'MEN +M. Atk.',
+    'description' => 'MEN +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -704,10 +704,10 @@
   26754 => 
   [
     'item_id' => 26754,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + M. Atk.',
-    'description' => 'INT + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'INT +M. Atk.',
+    'description' => 'INT +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -717,10 +717,10 @@
   26755 => 
   [
     'item_id' => 26755,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + M. Atk.',
-    'description' => 'WIT + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'WIT +M. Atk.',
+    'description' => 'WIT +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -730,10 +730,10 @@
   26756 => 
   [
     'item_id' => 26756,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'STR + Accuracy',
-    'description' => 'STR + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'STR +Accuracy',
+    'description' => 'STR +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -743,10 +743,10 @@
   26757 => 
   [
     'item_id' => 26757,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'DEX + Accuracy',
-    'description' => 'DEX + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'DEX +Accuracy',
+    'description' => 'DEX +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -756,10 +756,10 @@
   26758 => 
   [
     'item_id' => 26758,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'CON + Accuracy',
-    'description' => 'CON + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'CON +Accuracy',
+    'description' => 'CON +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -769,10 +769,10 @@
   26759 => 
   [
     'item_id' => 26759,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'MEN + Accuracy',
-    'description' => 'MEN + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'MEN +Accuracy',
+    'description' => 'MEN +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -782,10 +782,10 @@
   26760 => 
   [
     'item_id' => 26760,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'INT + Accuracy',
-    'description' => 'INT + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'INT +Accuracy',
+    'description' => 'INT +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -795,10 +795,10 @@
   26761 => 
   [
     'item_id' => 26761,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
-    'additionalname' => 'WIT + Accuracy',
-    'description' => 'WIT + 3 and Accuracy + 5 when equipped.',
+    'additionalname' => 'WIT +Accuracy',
+    'description' => 'WIT +3 and P. Accuracy +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -808,10 +808,10 @@
   26762 => 
   [
     'item_id' => 26762,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + Critical Rate',
-    'description' => 'STR + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'STR +Critical Rate',
+    'description' => 'When equipped, STR +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -821,10 +821,10 @@
   26763 => 
   [
     'item_id' => 26763,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + Critical Rate',
-    'description' => 'DEX + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'DEX +Critical Rate',
+    'description' => 'When equipped, DEX +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -834,10 +834,10 @@
   26764 => 
   [
     'item_id' => 26764,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + Critical Rate',
-    'description' => 'CON + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'CON +Critical Rate',
+    'description' => 'When equipped, CON +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -847,10 +847,10 @@
   26765 => 
   [
     'item_id' => 26765,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + Critical Rate',
-    'description' => 'MEN + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'MEN +Critical Rate',
+    'description' => 'When equipped, MEN +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -860,10 +860,10 @@
   26766 => 
   [
     'item_id' => 26766,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + Critical Rate',
-    'description' => 'INT + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'INT +Critical Rate',
+    'description' => 'When equipped, INT +3 and Critical Rate for standard attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -873,10 +873,10 @@
   26767 => 
   [
     'item_id' => 26767,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + Critical Rate',
-    'description' => 'WIT + 3 and Critical Rate + 50 when equipped.',
+    'additionalname' => 'WIT +Critical Rate',
+    'description' => 'When equipped, WIT +3, Critical Rate for basic attacks +50.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -886,10 +886,10 @@
   26768 => 
   [
     'item_id' => 26768,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + Critical Damage',
-    'description' => 'STR + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'STR +Critical Damage',
+    'description' => 'When equipped, STR +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -899,10 +899,10 @@
   26769 => 
   [
     'item_id' => 26769,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + Critical Damage',
-    'description' => 'DEX + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'DEX +Critical Damage',
+    'description' => 'When equipped, DEX +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -912,10 +912,10 @@
   26770 => 
   [
     'item_id' => 26770,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + Critical Damage',
-    'description' => 'CON + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'CON +Critical Damage',
+    'description' => 'When equipped, CON +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -925,10 +925,10 @@
   26771 => 
   [
     'item_id' => 26771,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + Critical Damage',
-    'description' => 'MEN + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'MEN +Critical Damage',
+    'description' => 'When equipped, MEN +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -938,10 +938,10 @@
   26772 => 
   [
     'item_id' => 26772,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + Critical Damage',
-    'description' => 'INT + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'INT +Critical Damage',
+    'description' => 'When equipped, INT +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -951,10 +951,10 @@
   26773 => 
   [
     'item_id' => 26773,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + Critical Damage',
-    'description' => 'WIT + 3, P. Critical Damage + 90, and M. Critical Damage + 68 when equipped.',
+    'additionalname' => 'WIT +Critical Damage',
+    'description' => 'When equipped, WIT +3, Critical Damage for standard attacks +90 and M. Critical Damage +68.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -964,10 +964,10 @@
   26774 => 
   [
     'item_id' => 26774,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + P. Def.',
-    'description' => 'STR + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'STR +P. Def.',
+    'description' => 'STR +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -977,10 +977,10 @@
   26775 => 
   [
     'item_id' => 26775,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + P. Def.',
-    'description' => 'DEX + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'DEX +P. Def.',
+    'description' => 'DEX +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -990,10 +990,10 @@
   26776 => 
   [
     'item_id' => 26776,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + P. Def.',
-    'description' => 'CON + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'CON +P. Def.',
+    'description' => 'CON +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1003,10 +1003,10 @@
   26777 => 
   [
     'item_id' => 26777,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + P. Def.',
-    'description' => 'MEN + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'MEN +P. Def.',
+    'description' => 'MEN +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1016,10 +1016,10 @@
   26778 => 
   [
     'item_id' => 26778,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + P. Def.',
-    'description' => 'INT + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'INT +P. Def.',
+    'description' => 'INT +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1029,10 +1029,10 @@
   26779 => 
   [
     'item_id' => 26779,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + P. Def.',
-    'description' => 'WIT + 3 and P. Def. + 5% when equipped.',
+    'additionalname' => 'WIT +P. Def.',
+    'description' => 'WIT +3 and P. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1042,10 +1042,10 @@
   26780 => 
   [
     'item_id' => 26780,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + M. Def.',
-    'description' => 'STR + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'STR +M. Def.',
+    'description' => 'STR +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1055,10 +1055,10 @@
   26781 => 
   [
     'item_id' => 26781,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + M. Def.',
-    'description' => 'DEX + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'DEX +M. Def.',
+    'description' => 'DEX +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1068,10 +1068,10 @@
   26782 => 
   [
     'item_id' => 26782,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + M. Def.',
-    'description' => 'CON + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'CON +M. Def.',
+    'description' => 'When equipped, CON +3, M. Def. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1081,10 +1081,10 @@
   26783 => 
   [
     'item_id' => 26783,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + M. Def.',
-    'description' => 'MEN + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'MEN +M. Def.',
+    'description' => 'MEN +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1094,10 +1094,10 @@
   26784 => 
   [
     'item_id' => 26784,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + M. Def.',
-    'description' => 'INT + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'INT +M. Def.',
+    'description' => 'INT +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1107,10 +1107,10 @@
   26785 => 
   [
     'item_id' => 26785,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + M. Def.',
-    'description' => 'WIT + 3 and M. Def. + 5% when equipped.',
+    'additionalname' => 'WIT +M. Def.',
+    'description' => 'WIT +3 and M. Def. +5% when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1120,10 +1120,10 @@
   26786 => 
   [
     'item_id' => 26786,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + Evasion',
-    'description' => 'STR + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'STR +Evasion',
+    'description' => 'STR +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1133,10 +1133,10 @@
   26787 => 
   [
     'item_id' => 26787,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + Evasion',
-    'description' => 'DEX + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'DEX +Evasion',
+    'description' => 'DEX +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1146,10 +1146,10 @@
   26788 => 
   [
     'item_id' => 26788,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + Evasion',
-    'description' => 'CON + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'CON +Evasion',
+    'description' => 'CON +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1159,10 +1159,10 @@
   26789 => 
   [
     'item_id' => 26789,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + Evasion',
-    'description' => 'MEN + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'MEN +Evasion',
+    'description' => 'MEN +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1172,10 +1172,10 @@
   26790 => 
   [
     'item_id' => 26790,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + Evasion',
-    'description' => 'INT + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'INT +Evasion',
+    'description' => 'INT +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1185,10 +1185,10 @@
   26791 => 
   [
     'item_id' => 26791,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + Evasion',
-    'description' => 'WIT + 3 and Evasion + 5 when equipped.',
+    'additionalname' => 'WIT +Evasion',
+    'description' => 'WIT +3 and P. Evasion +5 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1198,10 +1198,10 @@
   26792 => 
   [
     'item_id' => 26792,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + P. Atk.',
-    'description' => 'STR + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'STR +P. Atk.',
+    'description' => 'STR +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1211,10 +1211,10 @@
   26793 => 
   [
     'item_id' => 26793,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + P. Atk.',
-    'description' => 'DEX + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'DEX +P. Atk.',
+    'description' => 'DEX +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1224,10 +1224,10 @@
   26794 => 
   [
     'item_id' => 26794,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'CON + P. Atk.',
-    'description' => 'CON + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'CON +P. Atk.',
+    'description' => 'CON +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1237,10 +1237,10 @@
   26795 => 
   [
     'item_id' => 26795,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'MEN + P. Atk.',
-    'description' => 'MEN + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'MEN +P. Atk.',
+    'description' => 'MEN +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1250,10 +1250,10 @@
   26796 => 
   [
     'item_id' => 26796,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'INT + P. Atk.',
-    'description' => 'INT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'INT +P. Atk.',
+    'description' => 'INT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1263,10 +1263,10 @@
   26797 => 
   [
     'item_id' => 26797,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'WIT + P. Atk.',
-    'description' => 'WIT + 3 and P. Atk. + 5% when equipped.',
+    'additionalname' => 'WIT +P. Atk.',
+    'description' => 'WIT +3, P. Atk. +5%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1276,10 +1276,10 @@
   26798 => 
   [
     'item_id' => 26798,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'STR + M. Atk.',
-    'description' => 'STR + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'STR +M. Atk.',
+    'description' => 'STR +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1289,10 +1289,10 @@
   26799 => 
   [
     'item_id' => 26799,
-    'icon' => 'Accessary_demon_circlet_i00',
+    'icon' => 'accessary_demon_circlet_i00',
     'name' => 'Demon Circlet',
-    'additionalname' => 'DEX + M. Atk.',
-    'description' => 'DEX + 3 and M. Atk. + 10% when equipped.',
+    'additionalname' => 'DEX +M. Atk.',
+    'description' => 'DEX +3, M. Atk. +10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

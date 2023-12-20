@@ -2,10 +2,10 @@
   400 => 
   [
     'item_id' => 400,
-    'icon' => 'armor_t63_u_i00',
-    'name' => 'Theca Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t63_u_i00.webp',
+    'name' => 'Theca Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -15,10 +15,10 @@
   401 => 
   [
     'item_id' => 401,
-    'icon' => 'armor_t21_ul_i00',
-    'name' => 'Drake Leather Armor',
-    'additionalname' => '',
-    'description' => 'Full body armor.',
+    'icon' => 'armor_t21_ul_i00.webp',
+    'name' => 'Drake Armor',
+    'additionalname' => NULL,
+    'description' => 'One-piece armor.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -28,10 +28,10 @@
   402 => 
   [
     'item_id' => 402,
-    'icon' => 'armor_composite_armor_i02',
+    'icon' => 'armor_composite_armor_i02.webp',
     'name' => 'Chain Mail of Silence',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -41,10 +41,10 @@
   403 => 
   [
     'item_id' => 403,
-    'icon' => 'armor_composite_armor_i02',
+    'icon' => 'armor_composite_armor_i02.webp',
     'name' => 'Gust Chain Mail',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -54,10 +54,10 @@
   404 => 
   [
     'item_id' => 404,
-    'icon' => 'armor_mithril_banded_mail_i00',
-    'name' => 'Prairie Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_mail_i00.webp',
+    'name' => 'Prairie Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -67,10 +67,10 @@
   405 => 
   [
     'item_id' => 405,
-    'icon' => 'armor_mithril_banded_mail_i00',
-    'name' => 'Leather Armor of Underworld',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_mail_i00.webp',
+    'name' => 'Armor of Underworld',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -80,10 +80,10 @@
   406 => 
   [
     'item_id' => 406,
-    'icon' => 'armor_composite_armor_i02',
-    'name' => 'Leather Armor of Concentration',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_composite_armor_i02.webp',
+    'name' => 'Armor of Concentration',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -93,10 +93,10 @@
   407 => 
   [
     'item_id' => 407,
-    'icon' => 'armor_composite_armor_i02',
-    'name' => 'Ace\'s Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_composite_armor_i02.webp',
+    'name' => 'Aces Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -106,10 +106,10 @@
   408 => 
   [
     'item_id' => 408,
-    'icon' => 'armor_mithril_banded_mail_i00',
-    'name' => 'Guardian\'s Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_mail_i00.webp',
+    'name' => 'Guardians Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -119,10 +119,10 @@
   409 => 
   [
     'item_id' => 409,
-    'icon' => 'armor_mithril_banded_mail_i00',
-    'name' => 'Marksman\'s Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_mail_i00.webp',
+    'name' => 'Marksmans Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -132,10 +132,10 @@
   410 => 
   [
     'item_id' => 410,
-    'icon' => 'armor_composite_armor_i02',
-    'name' => 'Unicorn Leather Armor',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_composite_armor_i02.webp',
+    'name' => 'Unicorn Armor',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -145,9 +145,9 @@
   411 => 
   [
     'item_id' => 411,
-    'icon' => 'armor_t45_ul_i00',
-    'name' => 'Dragon Leather Armor',
-    'additionalname' => '',
+    'icon' => 'armor_t45_ul_i00.webp',
+    'name' => 'Dragon Armor',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -158,10 +158,10 @@
   412 => 
   [
     'item_id' => 412,
-    'icon' => 'armor_t07_l_i00',
+    'icon' => 'armor_t07_l_i00.webp',
     'name' => 'Cotton Pants',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -171,10 +171,10 @@
   413 => 
   [
     'item_id' => 413,
-    'icon' => 'armor_t09_l_i00',
+    'icon' => 'armor_t09_l_i00.webp',
     'name' => 'Puma Skin Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -184,10 +184,10 @@
   414 => 
   [
     'item_id' => 414,
-    'icon' => 'armor_t18_l_i00',
+    'icon' => 'armor_t18_l_i00.webp',
     'name' => 'Lion Skin Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -197,10 +197,10 @@
   415 => 
   [
     'item_id' => 415,
-    'icon' => 'armor_t10_l_i00',
+    'icon' => 'armor_t10_l_i00.webp',
     'name' => 'Mithril Banded Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -210,10 +210,10 @@
   416 => 
   [
     'item_id' => 416,
-    'icon' => 'armor_t13_l_i00',
-    'name' => 'Reinforced Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t13_l_i00.webp',
+    'name' => 'Reinforced Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -223,10 +223,10 @@
   417 => 
   [
     'item_id' => 417,
-    'icon' => 'armor_t42_l_i00',
+    'icon' => 'armor_t42_l_i00.webp',
     'name' => 'Manticore Skin Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -236,10 +236,10 @@
   418 => 
   [
     'item_id' => 418,
-    'icon' => 'armor_t47_l_i00',
-    'name' => 'Plated Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t47_l_i00.webp',
+    'name' => 'Plated Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -249,10 +249,10 @@
   419 => 
   [
     'item_id' => 419,
-    'icon' => 'armor_t49_l_i00',
-    'name' => 'Rind Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t49_l_i00.webp',
+    'name' => 'Rind Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -262,10 +262,10 @@
   420 => 
   [
     'item_id' => 420,
-    'icon' => 'armor_t63_l_i00',
-    'name' => 'Theca Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t63_l_i00.webp',
+    'name' => 'Theca Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -275,10 +275,10 @@
   421 => 
   [
     'item_id' => 421,
-    'icon' => 'armor_mithril_banded_gaiters_i00',
-    'name' => 'Prairie Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_gaiters_i00.webp',
+    'name' => 'Prairie Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -288,10 +288,10 @@
   422 => 
   [
     'item_id' => 422,
-    'icon' => 'armor_mithril_banded_gaiters_i00',
+    'icon' => 'armor_mithril_banded_gaiters_i00.webp',
     'name' => 'Gaiters of Underworld',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -301,10 +301,10 @@
   423 => 
   [
     'item_id' => 423,
-    'icon' => 'armor_mithril_banded_gaiters_i00',
-    'name' => 'Guardian\'s Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_gaiters_i00.webp',
+    'name' => 'Guardians Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -314,10 +314,10 @@
   424 => 
   [
     'item_id' => 424,
-    'icon' => 'armor_mithril_banded_gaiters_i00',
-    'name' => 'Marksman\'s Leather Gaiters',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_mithril_banded_gaiters_i00.webp',
+    'name' => 'Marksmans Gaiters',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -327,10 +327,10 @@
   425 => 
   [
     'item_id' => 425,
-    'icon' => 'armor_t01_u_i00',
-    'name' => 'Apprentice\'s Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t01_u_i00.webp',
+    'name' => 'Apprentices Tunic',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -340,10 +340,10 @@
   426 => 
   [
     'item_id' => 426,
-    'icon' => 'armor_t03_u_i00',
+    'icon' => 'armor_t03_u_i00.webp',
     'name' => 'Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -353,9 +353,9 @@
   427 => 
   [
     'item_id' => 427,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Cotton Robe',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -366,10 +366,10 @@
   428 => 
   [
     'item_id' => 428,
-    'icon' => 'armor_t52_u_i00',
+    'icon' => 'armor_t52_u_i00.webp',
     'name' => 'Feriotic Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -379,10 +379,10 @@
   429 => 
   [
     'item_id' => 429,
-    'icon' => 'armor_t05_u_i00',
-    'name' => 'Leather Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t05_u_i00.webp',
+    'name' => 'Tunic',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -392,9 +392,9 @@
   430 => 
   [
     'item_id' => 430,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Robe of Devotion',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -405,9 +405,9 @@
   431 => 
   [
     'item_id' => 431,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Robe of Magic',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -418,10 +418,10 @@
   432 => 
   [
     'item_id' => 432,
-    'icon' => 'armor_t14_u_i00',
+    'icon' => 'armor_t14_u_i00.webp',
     'name' => 'Cursed Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -431,10 +431,10 @@
   433 => 
   [
     'item_id' => 433,
-    'icon' => 'armor_t11_u_i00',
+    'icon' => 'armor_t11_u_i00.webp',
     'name' => 'Elven Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -444,10 +444,10 @@
   434 => 
   [
     'item_id' => 434,
-    'icon' => 'armor_t16_u_i00',
+    'icon' => 'armor_t16_u_i00.webp',
     'name' => 'White Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -457,10 +457,10 @@
   435 => 
   [
     'item_id' => 435,
-    'icon' => 'armor_t17_u_i00',
+    'icon' => 'armor_t17_u_i00.webp',
     'name' => 'Wizard Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -470,10 +470,10 @@
   436 => 
   [
     'item_id' => 436,
-    'icon' => 'armor_t41_u_i00',
+    'icon' => 'armor_t41_u_i00.webp',
     'name' => 'Tunic of Knowledge',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -483,10 +483,10 @@
   437 => 
   [
     'item_id' => 437,
-    'icon' => 'armor_t51_u_i00',
+    'icon' => 'armor_t51_u_i00.webp',
     'name' => 'Mithril Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -496,9 +496,9 @@
   438 => 
   [
     'item_id' => 438,
-    'icon' => 'armor_t44_ul_i00',
-    'name' => 'Sage\'s Rags',
-    'additionalname' => '',
+    'icon' => 'armor_t44_ul_i00.webp',
+    'name' => 'Sages Rags',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -509,10 +509,10 @@
   439 => 
   [
     'item_id' => 439,
-    'icon' => 'armor_t53_u_i00',
+    'icon' => 'armor_t53_u_i00.webp',
     'name' => 'Karmian Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -522,9 +522,9 @@
   440 => 
   [
     'item_id' => 440,
-    'icon' => 'armor_t44_ul_i00',
+    'icon' => 'armor_t44_ul_i00.webp',
     'name' => 'Robe of Seal',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -535,10 +535,10 @@
   441 => 
   [
     'item_id' => 441,
-    'icon' => 'armor_t54_u_i00',
-    'name' => 'Demon\'s Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t54_u_i00.webp',
+    'name' => 'Demons Tunic',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -548,10 +548,10 @@
   442 => 
   [
     'item_id' => 442,
-    'icon' => 'armor_t57_u_i00',
+    'icon' => 'armor_t57_u_i00.webp',
     'name' => 'Divine Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -561,10 +561,10 @@
   443 => 
   [
     'item_id' => 443,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Tunic of Mana',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -574,9 +574,9 @@
   444 => 
   [
     'item_id' => 444,
-    'icon' => 'armor_cotton_robe_i02',
-    'name' => 'Sage\'s Robe',
-    'additionalname' => '',
+    'icon' => 'armor_cotton_robe_i02.webp',
+    'name' => 'Sages Robe',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -587,10 +587,10 @@
   445 => 
   [
     'item_id' => 445,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Paradia Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -600,10 +600,10 @@
   446 => 
   [
     'item_id' => 446,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Inferno Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -613,10 +613,10 @@
   447 => 
   [
     'item_id' => 447,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Tunic of Solar Eclipse',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -626,9 +626,9 @@
   448 => 
   [
     'item_id' => 448,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Black Ore Robe',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -639,10 +639,10 @@
   449 => 
   [
     'item_id' => 449,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Summoning Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -652,9 +652,9 @@
   450 => 
   [
     'item_id' => 450,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Otherworldly Robe',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -665,10 +665,10 @@
   451 => 
   [
     'item_id' => 451,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Elemental Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -678,10 +678,10 @@
   452 => 
   [
     'item_id' => 452,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Tunic of Phantom',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -691,10 +691,10 @@
   453 => 
   [
     'item_id' => 453,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Tunic of Grace',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -704,9 +704,9 @@
   454 => 
   [
     'item_id' => 454,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Robe of Holy Spirit',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -717,10 +717,10 @@
   455 => 
   [
     'item_id' => 455,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Phoenix Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -730,10 +730,10 @@
   456 => 
   [
     'item_id' => 456,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Cerberus Tunic',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -743,10 +743,10 @@
   457 => 
   [
     'item_id' => 457,
-    'icon' => 'armor_tunic_of_knowledge_i00',
+    'icon' => 'armor_tunic_of_knowledge_i00.webp',
     'name' => 'Tunic of Aid',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -756,9 +756,9 @@
   458 => 
   [
     'item_id' => 458,
-    'icon' => 'armor_cotton_robe_i02',
+    'icon' => 'armor_cotton_robe_i02.webp',
     'name' => 'Robe of Blessing',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -769,9 +769,9 @@
   459 => 
   [
     'item_id' => 459,
-    'icon' => 'armor_cotton_robe_i02',
-    'name' => 'Dasparion\'s Robe',
-    'additionalname' => '',
+    'icon' => 'armor_cotton_robe_i02.webp',
+    'name' => 'Dasparions Robe',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -782,9 +782,9 @@
   460 => 
   [
     'item_id' => 460,
-    'icon' => 'armor_t44_ul_i00',
+    'icon' => 'armor_t44_ul_i00.webp',
     'name' => 'The Robe',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'One-piece upper and lower body armor. Additional lower body armor cannot be worn while wearing this.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -795,10 +795,10 @@
   461 => 
   [
     'item_id' => 461,
-    'icon' => 'armor_t01_l_i00',
-    'name' => 'Apprentice\'s Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t01_l_i00.webp',
+    'name' => 'Apprentices Stockings',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -808,10 +808,10 @@
   462 => 
   [
     'item_id' => 462,
-    'icon' => 'armor_t03_l_i00',
+    'icon' => 'armor_t03_l_i00.webp',
     'name' => 'Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -821,10 +821,10 @@
   463 => 
   [
     'item_id' => 463,
-    'icon' => 'armor_t52_l_i00',
+    'icon' => 'armor_t52_l_i00.webp',
     'name' => 'Feriotic Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -834,10 +834,10 @@
   464 => 
   [
     'item_id' => 464,
-    'icon' => 'armor_t05_l_i00',
-    'name' => 'Leather Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t05_l_i00.webp',
+    'name' => 'Stockings',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -847,10 +847,10 @@
   465 => 
   [
     'item_id' => 465,
-    'icon' => 'armor_t14_l_i00',
+    'icon' => 'armor_t14_l_i00.webp',
     'name' => 'Cursed Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -860,10 +860,10 @@
   466 => 
   [
     'item_id' => 466,
-    'icon' => 'armor_t11_l_i00',
+    'icon' => 'armor_t11_l_i00.webp',
     'name' => 'Elven Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -873,10 +873,10 @@
   467 => 
   [
     'item_id' => 467,
-    'icon' => 'armor_t16_l_i00',
+    'icon' => 'armor_t16_l_i00.webp',
     'name' => 'Dark Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -886,10 +886,10 @@
   468 => 
   [
     'item_id' => 468,
-    'icon' => 'armor_t17_l_i00',
+    'icon' => 'armor_t17_l_i00.webp',
     'name' => 'Wizard Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -899,10 +899,10 @@
   469 => 
   [
     'item_id' => 469,
-    'icon' => 'armor_t41_l_i00',
+    'icon' => 'armor_t41_l_i00.webp',
     'name' => 'Stockings of Knowledge',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -912,10 +912,10 @@
   470 => 
   [
     'item_id' => 470,
-    'icon' => 'armor_t51_l_i00',
+    'icon' => 'armor_t51_l_i00.webp',
     'name' => 'Mithril Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -925,10 +925,10 @@
   471 => 
   [
     'item_id' => 471,
-    'icon' => 'armor_t53_l_i00',
+    'icon' => 'armor_t53_l_i00.webp',
     'name' => 'Karmian Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -938,10 +938,10 @@
   472 => 
   [
     'item_id' => 472,
-    'icon' => 'armor_t54_l_i00',
-    'name' => 'Demon\'s Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t54_l_i00.webp',
+    'name' => 'Demons Stockings',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -951,10 +951,10 @@
   473 => 
   [
     'item_id' => 473,
-    'icon' => 'armor_t57_l_i00',
+    'icon' => 'armor_t57_l_i00.webp',
     'name' => 'Divine Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -964,10 +964,10 @@
   474 => 
   [
     'item_id' => 474,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Stockings of Mana',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -977,10 +977,10 @@
   475 => 
   [
     'item_id' => 475,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Paradia Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -990,10 +990,10 @@
   476 => 
   [
     'item_id' => 476,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Inferno Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1003,10 +1003,10 @@
   477 => 
   [
     'item_id' => 477,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Stockings of Solar Eclipse',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1016,10 +1016,10 @@
   478 => 
   [
     'item_id' => 478,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Summoning Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1029,10 +1029,10 @@
   479 => 
   [
     'item_id' => 479,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Elemental Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1042,10 +1042,10 @@
   480 => 
   [
     'item_id' => 480,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Stockings of Phantom',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1055,10 +1055,10 @@
   481 => 
   [
     'item_id' => 481,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Stockings of Grace',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1068,10 +1068,10 @@
   482 => 
   [
     'item_id' => 482,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Phoenix Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1081,10 +1081,10 @@
   483 => 
   [
     'item_id' => 483,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Cerberus Stockings',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1094,10 +1094,10 @@
   484 => 
   [
     'item_id' => 484,
-    'icon' => 'armor_leather_hose_i00',
+    'icon' => 'armor_hose_i00.webp',
     'name' => 'Stockings of Aid',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1107,10 +1107,10 @@
   485 => 
   [
     'item_id' => 485,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Power',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1120,10 +1120,10 @@
   486 => 
   [
     'item_id' => 486,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Fire',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1133,10 +1133,10 @@
   487 => 
   [
     'item_id' => 487,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Resolve',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1146,10 +1146,10 @@
   488 => 
   [
     'item_id' => 488,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Flame',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1159,10 +1159,10 @@
   489 => 
   [
     'item_id' => 489,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Bravery',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1172,10 +1172,10 @@
   490 => 
   [
     'item_id' => 490,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Blood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1185,10 +1185,10 @@
   491 => 
   [
     'item_id' => 491,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Absolute',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1198,10 +1198,10 @@
   492 => 
   [
     'item_id' => 492,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Soul',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1211,10 +1211,10 @@
   493 => 
   [
     'item_id' => 493,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Avadon',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1224,10 +1224,10 @@
   494 => 
   [
     'item_id' => 494,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Doom',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1237,10 +1237,10 @@
   495 => 
   [
     'item_id' => 495,
-    'icon' => 'item_normal03',
-    'name' => 'Tattoo of Pledge',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'item_normal03.webp',
+    'name' => 'Pattern of Duty',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1250,10 +1250,10 @@
   496 => 
   [
     'item_id' => 496,
-    'icon' => 'weapon_voodoo_doll_i00',
+    'icon' => 'weapon_voodoo_doll_i00.webp',
     'name' => 'Tattoo of Divine',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1263,10 +1263,10 @@
   497 => 
   [
     'item_id' => 497,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Chain Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1276,10 +1276,10 @@
   498 => 
   [
     'item_id' => 498,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Steel Plate Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1289,10 +1289,10 @@
   499 => 
   [
     'item_id' => 499,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Mithril Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

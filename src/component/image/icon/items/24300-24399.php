@@ -3,14 +3,9 @@
   [
     'item_id' => 24300,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 5',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 1650 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 5',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 27 min. 30 sec.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -21,14 +16,9 @@
   [
     'item_id' => 24301,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 6',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 1500 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 6',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 25 min.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -39,14 +29,9 @@
   [
     'item_id' => 24302,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 7',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 1350 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 7',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 22 min. 30 sec.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -57,14 +42,9 @@
   [
     'item_id' => 24303,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 8',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 1200 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 8',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 20 min.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -75,14 +55,9 @@
   [
     'item_id' => 24304,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 9',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 1050 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 9',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 17 min. 30 sec.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -93,14 +68,9 @@
   [
     'item_id' => 24305,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 10',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 900 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 10',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 15 min.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -111,14 +81,9 @@
   [
     'item_id' => 24306,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 11',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 750 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 11',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 12 min. 30 sec.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -129,14 +94,9 @@
   [
     'item_id' => 24307,
     'icon' => 'accessary_lbracelet_sign_agathion_feb_i00',
-    'name' => 'Agathion - Twinkling Pisces',
-    'additionalname' => 'Stage 12',
-    'description' => 'Can summon Pisces when equipped.
-
-<Active Skill>
-1. Slippery Scale: For 60 sec., defends against debuffs 5 times. (Cooldown is 600 sec.]
-2. Balanced Power: STR/INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Pisces',
+    'additionalname' => 'Lv. 12',
+    'description' => 'A bracelet for summoning Agathion Pisces.<Active skills>1. Slippery Scale: For 60 sec., protects against debuffs 5 times. Cooldown: 10 min.2. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -147,13 +107,9 @@
   [
     'item_id' => 24308,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 1',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 6750 sec.]
-2. Attribute Enchant: Attribute Resistance + 5.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 1',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 52 min. 30 sec.2. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -164,14 +120,9 @@
   [
     'item_id' => 24309,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 2',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 6300 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 5.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 2',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 45 min.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -182,14 +133,9 @@
   [
     'item_id' => 24310,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 3',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 5850 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 10.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 3',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 37 min. 30 sec.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -200,14 +146,9 @@
   [
     'item_id' => 24311,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 4',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 5400 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 10.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 4',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 30 min.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -218,14 +159,9 @@
   [
     'item_id' => 24312,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 5',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 4950 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 5',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 22 min. 30 sec.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -236,14 +172,9 @@
   [
     'item_id' => 24313,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 6',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 4500 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 6',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 15 min.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -254,14 +185,9 @@
   [
     'item_id' => 24314,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 7',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 4050 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 7',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h. 7 min. 30 sec.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -272,14 +198,9 @@
   [
     'item_id' => 24315,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 8',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 3600 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 8',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 1 h.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -290,14 +211,9 @@
   [
     'item_id' => 24316,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 9',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 3150 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 9',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 52 min. 30 sec.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -308,14 +224,9 @@
   [
     'item_id' => 24317,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 10',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 2700 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 10',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 45 min.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -326,14 +237,9 @@
   [
     'item_id' => 24318,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 11',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 2250 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 11',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 37 min. 30 sec.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -344,14 +250,9 @@
   [
     'item_id' => 24319,
     'icon' => 'accessary_lbracelet_sign_agathion_nov_i00',
-    'name' => 'Agathion - Twinkling Sagittarius',
-    'additionalname' => 'Stage 12',
-    'description' => 'Can summon Sagittarius when equipped.
-
-<Active Skill>
-1. Archer\'s Call: Summons all party members to you. (Cooldown is 1800 sec.]
-2. Balanced Power: STR/INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Sagittarius',
+    'additionalname' => 'Lv. 12',
+    'description' => 'A bracelet for summoning Agathion Sagittarius.<Active skills>1. Archers Call: Summons all party members to you. Cooldown: 30 min.2. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -362,13 +263,9 @@
   [
     'item_id' => 24320,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 1',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 4500 sec.]
-2. Attribute Enchant: Attribute Resistance + 5.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 1',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 1 h. 15 min.2. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -379,14 +276,9 @@
   [
     'item_id' => 24321,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 2',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 4200 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 5.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 2',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 1 h. 10 min.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +5.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -397,14 +289,9 @@
   [
     'item_id' => 24322,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 3',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 3900 sec.]
-2. Balanced Power: MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 10.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 3',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 1 h. 5 min.2. Balanced Power: MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -415,14 +302,9 @@
   [
     'item_id' => 24323,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 4',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 3600 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 10.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 4',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 1 h.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +10.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -433,14 +315,9 @@
   [
     'item_id' => 24324,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 5',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 3300 sec.]
-2. Balanced Power: CON/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 5',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 55 min.2. Balanced Power: CON/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -451,14 +328,9 @@
   [
     'item_id' => 24325,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 6',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 3000 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 15.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 6',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 50 min.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +15.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -469,14 +341,9 @@
   [
     'item_id' => 24326,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 7',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 2700 sec.]
-2. Balanced Power: CON/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 7',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 45 min.2. Balanced Power: CON/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -487,14 +354,9 @@
   [
     'item_id' => 24327,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 8',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 2400 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 20.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 8',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 40 min.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +20.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -505,14 +367,9 @@
   [
     'item_id' => 24328,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 9',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 2100 sec.]
-2. Balanced Power: CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 9',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 35 min.2. Balanced Power: CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -523,14 +380,9 @@
   [
     'item_id' => 24329,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 10',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 1800 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 25.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 10',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 30 min.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +25.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -541,14 +393,9 @@
   [
     'item_id' => 24330,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 11',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 1500 sec.]
-2. Balanced Power: INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 11',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 25 min.2. Balanced Power: INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -559,14 +406,9 @@
   [
     'item_id' => 24331,
     'icon' => 'accessary_lbracelet_sign_agathion_june_i00',
-    'name' => 'Agathion - Twinkling Cancer',
-    'additionalname' => 'Stage 12',
-    'description' => 'Can summon Cancer when equipped.
-
-<Active Skill>
-1. Exoskeletal Shield: For 20 min., reflects 20% of received damage. (Cooldown is 1200 sec.]
-2. Balanced Power: STR/INT/CON/DEX/WIT/MEN + 1.
-2. Attribute Enchant: Attribute Resistance + 30.',
+    'name' => 'Agathion Twinkling Cancer',
+    'additionalname' => 'Lv. 12',
+    'description' => 'A bracelet for summoning Agathion Cancer.<Active skills>1. Exoskeletal Shield: Reflects 20% of the received damage. Cooldown: 20 min.2. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.3. Attribute Enchant: Attribute Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -578,21 +420,21 @@
     'item_id' => 24332,
     'icon' => 'etc_sign_agathion_feed_yellow_i00',
     'name' => 'Starlight Jar',
-    'additionalname' => '',
-    'description' => 'Stars twinkle inside a star-shaped jar. Ingredient to crafting a Zodiac Agathion bracelet.',
+    'additionalname' => NULL,
+    'description' => 'A material for compounding Starlight Agathion Bracelet.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
     'crystal_type' => 'none',
-    'consume_type' => 'consume_type_normal',
+    'consume_type' => 'consume_type_stackable',
   ],
   24333 => 
   [
     'item_id' => 24333,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'La Vie En Rose\'s Jewelry Box',
-    'additionalname' => '',
-    'description' => 'Double-click to acquire 1 of La Vie En Rose\'s jewels. Cannot be used in the auction house.',
+    'name' => 'La Vie En Roses Jewelry Box',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain a La Vie En Roses Jewel Pack.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -603,39 +445,39 @@
   [
     'item_id' => 24334,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'La Vie En Rose\'s Jewelry Pack',
-    'additionalname' => '',
-    'description' => 'Double-click to acquire 10 La Vie En Rose\'s Jewelry Boxes. Cannot be used in the auction house.',
+    'name' => 'La Vie En Roses Jewelry Kit (10 pcs.]',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 10 La Vie En Roses Jewelry Boxes.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24335 => 
   [
     'item_id' => 24335,
     'icon' => 'etc_pi_box_wish_pack',
-    'name' => 'La Vie En Rose\'s Noble Brooch',
-    'additionalname' => '',
-    'description' => 'Double-click to acquire 30 La Vie En Rose\'s Jewelry Boxes and 1 Noble Brooch Chest. Cannot be used in the auction house.',
+    'name' => 'Kit: Enhanced La Vie En Roses Brooch',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 30 La Vie En Roses Jewelry Boxes and Enhanced Brooch Pack.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24336 => 
   [
     'item_id' => 24336,
     'icon' => 'etc_pi_box_love_pack',
-    'name' => 'La Vie En Rose\'s Brilliant Brooch',
-    'additionalname' => '',
-    'description' => 'Double-click to acquire 55 La Vie En Rose\'s Jewelry Boxes and 1 Noble Brooch Chest. Cannot be used in the auction house.',
+    'name' => 'Kit: La Vie En Roses Brooch Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 30 La Vie En Roses Jewelry Boxes and La Vie En Roses Brooch Pack Lv. 1.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24337 => 
@@ -643,25 +485,25 @@
     'item_id' => 24337,
     'icon' => 'etc_bm_jewelbox_main_i00',
     'name' => 'Starlight Jar Pouch',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Double-click to acquire a Starlight Jar. Cannot be used in the auction house.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24338 => 
   [
     'item_id' => 24338,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Starlight Jar Pack',
-    'additionalname' => '',
+    'name' => 'Starlight Jar Kit',
+    'additionalname' => NULL,
     'description' => 'Double-click to acquire 10 Starlight Jar Pouches. Cannot be used in the auction house.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24339 => 
@@ -669,165 +511,164 @@
     'item_id' => 24339,
     'icon' => 'etc_bm_jewelbox_main_i00',
     'name' => 'Starlight Jar Pouch',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Double-click to acquire a Starlight Jar. Cannot be used in the auction house.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24340 => 
   [
     'item_id' => 24340,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Starlight Jar Pack',
-    'additionalname' => '',
+    'name' => 'Starlight Jar Kit',
+    'additionalname' => NULL,
     'description' => 'Double-click to acquire 10 Starlight Jar Pouches. Cannot be used in the auction house.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24341 => 
   [
     'item_id' => 24341,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Blessed Giant\'s Lucky Enchant Stone: Weapon Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Blessed Giant\'s Lucky Enchant Stone: Weapon (R-grade].',
+    'name' => 'Package: Blessed Giants Stone: Enchant R-grade Weapon',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Blessed Giants Stone: Enchant R-grade Weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24342 => 
   [
     'item_id' => 24342,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Blessed Giant\'s Lucky Enchant Stone: Armor Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Blessed Giant\'s Lucky Enchant Stone: Armor (R-grade].',
+    'name' => 'Package: Blessed Giants Stone: Enchant R-grade Armor',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Blessed Giants Stone: Enchant R-grade Armor.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24343 => 
   [
     'item_id' => 24343,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Blessed Lucky Enchant Stone: Weapon Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Blessed Lucky Enchant Stone: Weapon (R-grade].',
+    'name' => 'Package: Blessed Stone: Enchant R-grade Weapon',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Blessed Stone: Enchant R-grade Weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24344 => 
   [
     'item_id' => 24344,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Lesser Giant\'s Lucky Enchant Stone: Weapon Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Lesser Giant\'s Lucky Enchant Stone: Weapon (R-grade].',
+    'name' => 'Package: Lesser Giants Stone: Enchant R-grade Weapon',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Lesser Giants Stone: Enchant R-grade Weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24345 => 
   [
     'item_id' => 24345,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Blessed Lucky Enchant Stone: Armor Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Blessed Lucky Enchant Stone: Armor (R-grade].',
+    'name' => 'Package: Blessed Stone: Enchant R-grade Armor',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Blessed Stone: Enchant R-grade Armor.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24346 => 
   [
     'item_id' => 24346,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Lesser Giant\'s Lucky Enchant Stone: Armor Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Lesser Giant\'s Lucky Enchant Stone: Armor (R-grade].',
+    'name' => 'Package: Lesser Giants Stone: Enchant R-grade Armor',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Lesser Giants Stone: Enchant R-grade Armor.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24347 => 
   [
     'item_id' => 24347,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Scroll: Enchant Weapon Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Scroll: Enchant Weapon (R-grade] with 10% increase in enchant success rate.',
+    'name' => 'Package: Scroll: Enchant R-grade Weapon',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain a Scroll: Enchant R-grade Weapon that increases enchant success rate by 10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24348 => 
   [
     'item_id' => 24348,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Scroll: Enchant Armor Pack (R-grade]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Scroll: Enchant Armor (R-grade] with 10% increase in enchant success rate.',
+    'name' => 'Package: Scroll: Enchant R-grade Armor',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain Scroll: Enchant R-grade Armor that increases enchant success rate by 10%.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24349 => 
   [
     'item_id' => 24349,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'XP Rune III (Lv. 1-100+] 100% Pack (30-day]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing XP Rune III (Lv. 1-100+] 100% (30-day].',
+    'name' => 'Package: XP Rune 100% (30-day]',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain XP Rune 100% (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24350 => 
   [
     'item_id' => 24350,
     'icon' => 'br_four_leaf_clover_box_i00',
-    'name' => 'Prestige Rune 100% Pack',
+    'name' => 'Package: High-grade Maphrs Rune 100%',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing a Prestige Rune 100% (30-day].',
+    'description' => 'Double-click to obtain High-grade Maphrs Rune 100% (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24351 => 
   [
     'item_id' => 24351,
     'icon' => 'g_twilight_gem',
-    'name' => 'Talisman - Hunter',
+    'name' => 'Talisman of Hunter',
     'additionalname' => 'Abundance / 3-day',
-    'description' => 'P. Atk. + 231, M. Atk. + 271, P./M. Evasion + 7, Attribute Resistance + 15, Debuff Resistance + 13%, P./M. Critical Rate + 13%. Received Critical Damage -15%, Received Skill Damage during PVP - 15%. Extra defense against skill damage in PvP.
-Note: Equipping 2 will give the effect of 1.',
+    'description' => 'P. Atk. +231, M. Atk. +271, P./ M. Evasion +7, 6 Attribute Resistance +15, Debuff Resistance +13%, P./ M. Critical Rate +13%, received Critical Damage -15%, received skill damage in PvP -15%. Additionally, decreases received PvP damage.Note!Effects of two identical talismans do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -838,10 +679,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24352,
     'icon' => 'g_twilight_gem',
-    'name' => 'Talisman - Slaughterer',
+    'name' => 'Talisman of Soultaker',
     'additionalname' => 'Abundance / 3-day',
-    'description' => 'P. Atk. + 231, M. Atk. + 271, P./M. Evasion + 7, Attribute Resistance + 15, Debuff Resistance + 13%, Max HP/MP/CP + 490, HP/MP/CP Recovery Bonus + 7.
-Note: Equipping 2 will give the effect of 1.',
+    'description' => 'P. Atk. +231, M. Atk. +271, P./ M. Evasion +7, 6 Attribute Resistance +15, Debuff Resistance +13%, Max HP/ MP/ CP +490, HP/ MP/ CP Recovery Rate +7.Note!Effects of two identical talismans do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -852,10 +692,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24353,
     'icon' => 'g_twilight_gem',
-    'name' => 'Talisman - Conquerer',
+    'name' => 'Talisman of Conqueror',
     'additionalname' => 'Abundance / 3-day',
-    'description' => 'P. Atk. + 231, M. Atk. + 271, P./M. Evasion + 7, P./M. Critical Rate + 13%, Max HP/MP/CP + 490, HP/MP/CP Recovery Bonus + 7. Received Critical Damage -15%, Received Skill Damage during PVP - 15%.
-Note: Equipping 2 will give the effect of 1.',
+    'description' => 'P. Atk. +231, M. Atk. +271, P./ M. Evasion +7, P./ M. Critical Rate +13%, Max HP/ MP/ CP +490, HP/ MP/ CP Recovery Rate +7, received Critical Damage -15%, received skill damage in PvP -15%.Note!Effects of two identical talismans do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -866,10 +705,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24354,
     'icon' => 'g_twilight_gem',
-    'name' => 'Talisman - Outlaw',
+    'name' => 'Talisman of Outlaw',
     'additionalname' => 'Abundance / 3-day',
-    'description' => 'Attribute Resistance + 15, Debuff Resistance + 13%, P./M. Critical Rate + 13%, Max HP/MP/CP + 490, HP/MP/CP Recovery Bonus + 7. Received Critical Damage -15%, Received Skill Damage during PVP - 15%.
-Note: Equipping 2 will give the effect of 1.',
+    'description' => '6 Attribute Resistance +15, Debuff Resistance +13%, P./ M. Critical Rate +13%, Max HP/ MP/ CP +490, HP/ MP/ CP Recovery Rate +7, received Critical Damage -15%, received skill damage in PvP -15%.Note!Effects of two identical talismans do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -880,22 +718,22 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24355,
     'icon' => 'br_rosalia_rose_blue_i00',
-    'name' => 'Premium Account: Art of Seduction',
-    'additionalname' => '',
-    'description' => 'For 30 min., Max HP/MP/CP + 30%, P./M. Def. + 30%, P./Atk. + 10%, M. Atk. + 20%. Effect disappears if active while receiving Art of Seduction. Cannot be exchanged, dropped, or used in the Olympiad. Can be used in the Ceremony of Chaos. Can be stored in the private warehouse.',
+    'name' => 'PA - Enhanced Rosy Seduction',
+    'additionalname' => NULL,
+    'description' => 'For 30 min., Max HP/ MP/ CP +30%, P./ M. Def. +30%, P. Atk. +10%, M. Atk. +20%. Effect disappears if active while receiving Art of Seduction. Cannot be used in the Olympiad. Can be used in the Ceremony of Chaos. Cooldown: 5 min.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24356 => 
   [
     'item_id' => 24356,
     'icon' => 'etc_ev_draco_hair_acc',
-    'name' => 'Draco\'s Hat: Wizard',
+    'name' => 'Dracos Hat: Warrior',
     'additionalname' => '7-day',
-    'description' => 'Cute Draco Hat. 7-day. STR/DEX/CON + 2. Can use Blessed Resurrection. Cooldown is 1 hr. Cannot be used in the Olympiad. Can be destroyed and sold in a private warehouse.',
+    'description' => 'Cute Draco Hat. 7-day. STR/ DEX/ CON +2. Can use Blessed Resurrection. Cooldown is 1 h. Cannot be used in the Olympiad. Can be destroyed and sold in a private warehouse.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -906,9 +744,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24357,
     'icon' => 'etc_ev_draco_hair_acc',
-    'name' => 'Draco\'s Hat: Warrior',
+    'name' => 'Dracos Hat: Wizard',
     'additionalname' => '7-day',
-    'description' => 'Cute Draco Hat. 7-day. INT/WIT/MEN + 2. Can use Blessed Resurrection. Cooldown is 1 hr. Cannot be used in the Olympiad. Can be destroyed and sold in a private warehouse.',
+    'description' => 'Cute Draco Hat. 7-day. INT/ WIT/ MEN +2. Can use Blessed Resurrection. Cooldown is 1 h. Cannot be used in the Olympiad. Can be destroyed and sold in a private warehouse.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -919,22 +757,22 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24358,
     'icon' => 'etc_potion_gold_i00',
-    'name' => 'Premium Account: Quick Healing Potion',
-    'additionalname' => '',
-    'description' => 'Rerstores 1250 HP, and remaining power restores CP. No duration. Cannot be exchanged, dropped, sold, used in the Olympiad, or used in the Ceremony of Chaos. Can be stored in the private warehouse.',
+    'name' => 'PA - Quick HP Replenishing Potion',
+    'additionalname' => NULL,
+    'description' => 'Rerstores 1250 HP, and remaining power restores CP. No cooldown. Cannot be exchanged, dropped, sold, used in the Olympiad, or used in the Ceremony of Chaos. Can be stored in the private warehouse.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24359 => 
   [
     'item_id' => 24359,
     'icon' => 'accessory_earring_of_antaras_i00',
-    'name' => 'Antharas\' Earring',
+    'name' => 'Antharas Earring',
     'additionalname' => '3-day',
-    'description' => 'MP + 37, Bleed Resistance + 40%, Bleed Attack Rate + 40%, Heal Amount increase, Vampiric Rage Effect, Stun/Mental Resistance + 30%, Stun/Mental Attack Rate + 30% , MP Consumption decrease, Earth Resistance increase. Equipping 2 will give the effect of 1. Cannot be used in the Olympiad. Can be stored in the private warehouse.',
+    'description' => 'Time-limited item. MP +37, Infection Atk. Rate and Resistance +40%, Confusion Atk. Rate and Resistance +30%. Increases Received Healing and Earth Resistance, grants Vampiric Rage effect, decreases MP Consumption. Effects of two identical earrings do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -945,9 +783,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24360,
     'icon' => 'accessory_necklace_of_valakas_i00',
-    'name' => 'Valakas\' Necklace',
+    'name' => 'Valakas Necklace',
     'additionalname' => '3-day',
-    'description' => 'MP + 50, Sleep Resistance + 40% , Sleep Attack Rate + 40%, HP + 445, Cooldown decrease, P./M. Atk. increase, Wild Magic Effect, Damage Shield Effect, Fire Resistance increase. Equipping 2 will give the effect of 1. Cannot be used in the Olympiad. Can be stored in the private warehouse.',
+    'description' => 'Time-limited item. MP +50, Stupor Atk. Rate and Resistance +40%, HP +445, decreases Skill Cooldown, increases P. Atk. and M. Atk. Applies the Wild Magic and Damage Reflection effects, increases Fire Resistance.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -958,9 +796,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24361,
     'icon' => 'accessory_earring_of_zaken_i00',
-    'name' => 'Zaken\'s Earring',
+    'name' => 'Zakens Earring',
     'additionalname' => '3-day',
-    'description' => 'MP + 31, Bleed Resistance + 30%, Bleed Attack Rate + 30%, Heal Amount increase, Vampiric Rage Effect, Stun/Mental Resistance + 20% , Stun/Mental Attack Rate + 20%. Equipping 2 will give the effect of 1. Cannot be used in the Olympiad. Can be stored in the private warehouse.',
+    'description' => 'Time-limited item. MP +31, Infection Atk. Rate and Resistance +30%, Confusion Atk. Rate and Resistance +20%. Increases Received Healing, grants Vampiric Rage effect. Effects of two identical earrings do not stack. When equipped with Blessed Zakens Earring, only the effect of the latter is applied.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -971,9 +809,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24362,
     'icon' => 'accessory_ring_of_queen_ant_i00',
-    'name' => 'Queen Ant\'s Ring',
+    'name' => 'Queen Ants Ring',
     'additionalname' => '3-day',
-    'description' => 'MP + 21, Poison Resistance + 30%, Poison Attack Rate + 30% , Accuracy increase, Critical Damage increase, Hold Resistance + 20% , Hold Attack Rate + 20%. Equipping 2 will give the effect of 1. Cannot be used in the Olympiad.',
+    'description' => 'Time-limited item. MP +21, Infection Atk. Rate and Resistance +30%, Obstruction Atk. Rate and Resistance +20%. Increases P. Accuracy, Critical Damage. Effects of two identical rings do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -984,9 +822,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24363,
     'icon' => 'accessory_ring_of_baium_i00',
-    'name' => 'Baium\'s Ring',
+    'name' => 'Baiums Ring',
     'additionalname' => '3-day',
-    'description' => 'MP + 21, Poison Resistance + 40% , Poison Attack Rate + 40% , Accuracy increase, Critical Damage increase, Hold Resistance + 30%, Hold Attack Rate + 30%, P. Atk. increase, and Casting Spd. increase. Equipping 2 will give the effect of 1. Cannot be used in the Olympiad.',
+    'description' => 'Time-limited item. MP +21, MP +21, Poison Resistance +40%, Poison Atk. Rate +40%, accuracy +2, Critical Damage for basic attacks +15%, Hold Resistance +30%, Hold Atk. Rate +30%, atk. Spd. +4%, Casting Spd. +4%. Effects of two identical rings do not stack.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -998,8 +836,8 @@ Note: Equipping 2 will give the effect of 1.',
     'item_id' => 24364,
     'icon' => 'dark_assassin',
     'name' => 'Dark Assassin Suit',
-    'additionalname' => '',
-    'description' => 'When equipped, armor is unequipped and cannot be used. Hair accessories, weapons, and magic armor remain equipped. ',
+    'additionalname' => NULL,
+    'description' => 'Dark Assassin Suit. Equipped instead of armor. Head accessories, weapons, and accessories remain equipped.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1011,8 +849,8 @@ Note: Equipping 2 will give the effect of 1.',
     'item_id' => 24365,
     'icon' => 'g_scrl_change_chest',
     'name' => 'Appearance Stone: Dark Assassin Suit',
-    'additionalname' => '',
-    'description' => 'Changes the appearance of your appearance into that of a Dark Assassin Suit. Can use Dark Assassin\'s Move after appearance modification. Tops and one-pieces only. Modified armor can be restored to their original appearance with a Restoration Stone.',
+    'additionalname' => NULL,
+    'description' => 'Changes the appearance of the entire armor to that of Dark Assassin Suit. Used with upper or full-body armor. Allows use of Dark Assassins Move after modification. Modified armor can be restored to its original appearance with Restoration Stone.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1023,9 +861,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24366,
     'icon' => 'event_big_july_seven_park_i00',
-    'name' => 'Luck Box 1',
+    'name' => 'Wondrous Casket',
     'additionalname' => 'Gemini',
-    'description' => 'Has a chance of obtaining either a Sealed Talisman - Longing, Immortal Scroll, Talisman - Abundance, Elycum, Energy of Destruction 20-unit Pack, Giant\'s Energy, Top-grade Augmentation Pack (R95-grade], Top-grade Augmentation Pack (R99-grade], or Agathion - Gemini.',
+    'description' => 'Double-click to obtain one of following items: Sealed Talisman of Longing, Immortal Scroll, Talisman of Abundance, Elcyum, Destructive Energy 20-unit Pack, Giants Energy, Package: Top-grade R95-grade Augmenting Stone, Package: Top-grade R99-grade Augmenting Stone, Agathion Gemini.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1036,9 +874,9 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24367,
     'icon' => 'event_big_july_seven_park_i00',
-    'name' => 'Luck Box 2',
+    'name' => 'Wondrous Casket',
     'additionalname' => 'Cancer',
-    'description' => 'Has a chance of obtaining either a Sealed Talisman - Longing, Immortal Scroll, Talisman - Abundance, Elycum, Energy of Destruction 20-unit Pack, Giant\'s Energy, Top-grade Augmentation Pack (R95-grade], Top-grade Augmentation Pack (R99-grade], or Agathion - Cancer.',
+    'description' => 'Double-click to obtain one of following items: Sealed Talisman of Longing, Immortal Scroll, Talisman of Abundance, Elcyum, Destructive Energy 20-unit Pack, Giants Energy, Package: Top-grade R95-grade Augmenting Stone, Package: Top-grade R99-grade Augmenting Stone, Agathion Cancer.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1049,416 +887,416 @@ Note: Equipping 2 will give the effect of 1.',
   [
     'item_id' => 24368,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Growth',
-    'additionalname' => 'Stage 1',
-    'description' => '10-min. When possessed, XP gain + 1%.',
+    'name' => 'Sayhas Rune - Growth',
+    'additionalname' => 'Lv. 1',
+    'description' => 'For 10 min., acquired XP +1%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24369 => 
   [
     'item_id' => 24369,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Growth',
-    'additionalname' => 'Stage 2',
-    'description' => '10-min. When possessed, XP gain + 3%.',
+    'name' => 'Sayhas Rune - Growth',
+    'additionalname' => 'Lv. 2',
+    'description' => 'For 10 min., acquired XP +3%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24370 => 
   [
     'item_id' => 24370,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Growth',
-    'additionalname' => 'Stage 3',
-    'description' => '10-min. When possessed, XP gain + 6%.',
+    'name' => 'Sayhas Rune - Growth',
+    'additionalname' => 'Lv. 3',
+    'description' => 'For 10 min., acquired XP +6%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24371 => 
   [
     'item_id' => 24371,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Growth',
-    'additionalname' => 'Stage 4',
-    'description' => '10-min. When possessed, XP gain + 10%.',
+    'name' => 'Sayhas Rune - Growth',
+    'additionalname' => 'Lv. 4',
+    'description' => '10-min. When possessed, XP gain +10%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24372 => 
   [
     'item_id' => 24372,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Skill',
-    'additionalname' => 'Stage 1',
-    'description' => '10-min. When possessed, SP gain + 1%.',
+    'name' => 'Sayhas Rune - Skill',
+    'additionalname' => 'Lv. 1',
+    'description' => 'For 10 min., acquired SP +1%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24373 => 
   [
     'item_id' => 24373,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Skill',
-    'additionalname' => 'Stage 2',
-    'description' => '10-min. When possessed, SP gain + 3%.',
+    'name' => 'Sayhas Rune - Skill',
+    'additionalname' => 'Lv. 2',
+    'description' => '10-min. When possessed, SP gain +3%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24374 => 
   [
     'item_id' => 24374,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Skill',
-    'additionalname' => 'Stage 3',
-    'description' => '10-min. When possessed, SP gain + 6%.',
+    'name' => 'Sayhas Rune - Skill',
+    'additionalname' => 'Lv. 3',
+    'description' => '10-min. When possessed, SP gain +6%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24375 => 
   [
     'item_id' => 24375,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Skill',
-    'additionalname' => 'Stage 4',
-    'description' => '10-min. When possessed, SP gain + 10%.',
+    'name' => 'Sayhas Rune - Skill',
+    'additionalname' => 'Lv. 4',
+    'description' => '10-min. When possessed, SP gain +10%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24376 => 
   [
     'item_id' => 24376,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Luck',
-    'additionalname' => 'Stage 1',
-    'description' => '10-min. When possessed, drop rate during hunting + 1%.',
+    'name' => 'Sayhas Rune - Luck',
+    'additionalname' => 'Lv. 1',
+    'description' => '10-min. When possessed, drop rate during hunting +1%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24377 => 
   [
     'item_id' => 24377,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Luck',
-    'additionalname' => 'Stage 2',
-    'description' => '10-min. When possessed, drop rate during hunting + 3%.',
+    'name' => 'Sayhas Rune - Luck',
+    'additionalname' => 'Lv. 2',
+    'description' => '10-min. When possessed, drop rate during hunting +3%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24378 => 
   [
     'item_id' => 24378,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Luck',
-    'additionalname' => 'Stage 3',
-    'description' => '10-min. When possessed, drop rate during hunting + 6%.',
+    'name' => 'Sayhas Rune - Luck',
+    'additionalname' => 'Lv. 3',
+    'description' => '10-min. When possessed, drop rate during hunting +6%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24379 => 
   [
     'item_id' => 24379,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune: Luck',
-    'additionalname' => 'Stage 4',
-    'description' => '10-min. When possessed, drop rate during hunting + 10%.',
+    'name' => 'Sayhas Rune - Luck',
+    'additionalname' => 'Lv. 4',
+    'description' => '10-min. When possessed, drop rate during hunting +10%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24380 => 
   [
     'item_id' => 24380,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune',
-    'additionalname' => 'Stage 1',
-    'description' => '10-min. When possessed, XP/SP/Drop Rate + 1%.',
+    'name' => 'Sayhas Rune',
+    'additionalname' => 'Lv. 1',
+    'description' => '10-min. When possessed, XP/ SP/ Drop Rate +1%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24381 => 
   [
     'item_id' => 24381,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune',
-    'additionalname' => 'Stage 2',
-    'description' => '10-min. When possessed, XP/SP/Drop Rate + 3%.',
+    'name' => 'Sayhas Rune',
+    'additionalname' => 'Lv. 2',
+    'description' => '10-min. When possessed, XP/ SP/ Drop Rate +3%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24382 => 
   [
     'item_id' => 24382,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune',
-    'additionalname' => 'Stage 3',
-    'description' => '10-min. When possessed, XP/SP/Drop Rate + 6%.',
+    'name' => 'Sayhas Rune',
+    'additionalname' => 'Lv. 3',
+    'description' => '10-min. When possessed, XP/ SP/ Drop Rate +6%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24383 => 
   [
     'item_id' => 24383,
     'icon' => 'br_cash_rune_of_feather_i00',
-    'name' => 'Sayha\'s Rune',
-    'additionalname' => 'Stage 4',
-    'description' => '10-min. When possessed, XP/SP/Drop Rate + 10%.',
+    'name' => 'Sayhas Rune',
+    'additionalname' => 'Lv. 4',
+    'description' => '10-min. When possessed, XP/ SP/ Drop Rate +10%.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   24384 => 
   [
     'item_id' => 24384,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Growth Pack Stage 1',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Growth Stage 1.',
+    'name' => 'Package: Sayhas Rune - Growth Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Growth Lv. 1.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24385 => 
   [
     'item_id' => 24385,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Growth Pack Stage 2',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Growth Stage 2.',
+    'name' => 'Package: Sayhas Rune - Growth Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Growth Lv. 2.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24386 => 
   [
     'item_id' => 24386,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Growth Pack Stage 3',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Growth Stage 3.',
+    'name' => 'Package: Sayhas Rune - Growth Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Growth Lv. 3.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24387 => 
   [
     'item_id' => 24387,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Growth Pack Stage 4',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Growth Stage 4.',
+    'name' => 'Package: Sayhas Rune - Growth Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Growth Lv. 4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24388 => 
   [
     'item_id' => 24388,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Skill Pack Stage 1',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Skill Stage 1.',
+    'name' => 'Package: Sayhas Rune - Skill Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Skill Lv. 1.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24389 => 
   [
     'item_id' => 24389,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Skill Pack Stage 2',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Skill Stage 2.',
+    'name' => 'Package: Sayhas Rune - Skill Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Skill Lv. 2.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24390 => 
   [
     'item_id' => 24390,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Skill Pack Stage 3',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Skill Stage 3.',
+    'name' => 'Package: Sayhas Rune - Skill Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Skill Lv. 3.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24391 => 
   [
     'item_id' => 24391,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Skill Pack Stage 4',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Skill Stage 4.',
+    'name' => 'Package: Sayhas Rune - Skill Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Skill Lv. 4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24392 => 
   [
     'item_id' => 24392,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Luck Pack Stage 1',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Luck Stage 1.',
+    'name' => 'Package: Sayhas Rune - Luck Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Luck Lv. 1.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24393 => 
   [
     'item_id' => 24393,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Luck Pack Stage 2',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Luck Stage 2.',
+    'name' => 'Package: Sayhas Rune - Luck Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Luck Lv. 2.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24394 => 
   [
     'item_id' => 24394,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Luck Pack Stage 3',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Luck Stage 3.',
+    'name' => 'Package: Sayhas Rune - Luck Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Luck Lv. 3.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24395 => 
   [
     'item_id' => 24395,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune: Luck Pack Stage 4',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Luck Stage 4.',
+    'name' => 'Package: Sayhas Rune - Luck Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune - Luck Lv. 4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24396 => 
   [
     'item_id' => 24396,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune Pack Stage 1',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Stage 1.',
+    'name' => 'Package: Sayhas Rune Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune Lv. 1.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24397 => 
   [
     'item_id' => 24397,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune Pack Stage 2',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Stage 2.',
+    'name' => 'Package: Sayhas Rune Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune Lv. 2.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24398 => 
   [
     'item_id' => 24398,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune Pack Stage 3',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Stage 3.',
+    'name' => 'Package: Sayhas Rune Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune Lv. 3.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   24399 => 
   [
     'item_id' => 24399,
     'icon' => 'etc_bm_jewelbox_main_i00',
-    'name' => 'Sayha\'s Rune Pack Stage 4',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing Sayha\'s Rune: Stage 4.',
+    'name' => 'Package: Sayhas Rune Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'Double-click to obtain 1 Sayhas Rune Lv. 4.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
 ];

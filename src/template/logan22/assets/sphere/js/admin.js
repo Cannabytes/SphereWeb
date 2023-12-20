@@ -236,7 +236,7 @@ $(document).on('click', '.editDonateButton', function (event) {
 
 
 $('#itemIDDonate').on('input', function () {
-    var newItemID = $(this).val();
+    var newItemID = $(this).val().toString();
     var dataToSend = {
         itemID: newItemID
     };
@@ -248,11 +248,8 @@ $('#itemIDDonate').on('input', function () {
         success: function (response) {
             $("#editImgSrc").attr("src", response.icon);
             $("#itemNameDonate").text(response.name);
-            // Обработка успешного ответа от сервера
-            console.log('Запрос выполнен успешно:', response);
         },
         error: function (xhr, status, error) {
-            // Обработка ошибки
             console.error('Произошла ошибка:', error);
         }
     });

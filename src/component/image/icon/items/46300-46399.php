@@ -3,9 +3,9 @@
   [
     'item_id' => 46300,
     'icon' => 'etc_xmas_talisman_i00',
-    'name' => 'Christmas Talisman: M. Def.',
+    'name' => 'Christmas Talisman - M. Def.',
     'additionalname' => '1-hour',
-    'description' => 'Event item. M. Def. + 7% when equipped. Effect does not stack with additional Talismans of the same type. 1-hour.',
+    'description' => 'M. Def. +7%. Effects of two identical talismans do not stack. Duration: 1 h.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -16,9 +16,9 @@
   [
     'item_id' => 46301,
     'icon' => 'etc_xmas_talisman_i00',
-    'name' => 'Christmas Talisman: Attribute Defense',
+    'name' => 'Christmas Talisman - Attribute Resistance',
     'additionalname' => '1-hour',
-    'description' => 'Event item. All Attributes Defense + 30 when equipped. Effect does not stack with additional Talismans of the same type. 1-hour.',
+    'description' => 'attribute Resistance +30. Effects of two identical talismans do not stack. Duration: 1 h.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -31,11 +31,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'P. Skill Critical Damage',
-    'description' => 'Double-click to get a Christmas Talisman: P. Skill Critical Damage (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - P. Skill Critical Damage (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46303 => 
@@ -44,11 +44,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'M. Skill Critical Damage',
-    'description' => 'Double-click to get a Christmas Talisman: M. Skill Critical Damage (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - M. Skill Critical Damage (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46304 => 
@@ -57,11 +57,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'Ultimate Defense',
-    'description' => 'Double-click to get a Christmas Talisman: Ultimate Defense (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - Ultimate Defense (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46305 => 
@@ -70,11 +70,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'Debuff Resistance',
-    'description' => 'Double-click to get a Christmas Talisman: Debuff Resistance (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - Debuff Resistance (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46306 => 
@@ -83,11 +83,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'P. Atk.',
-    'description' => 'Double-click to get a Christmas Talisman: P. Atk. (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - P. Atk. (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46307 => 
@@ -96,11 +96,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'M. Atk.',
-    'description' => 'Double-click to get a Christmas Talisman: M. Atk. (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - M. Atk. (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46308 => 
@@ -109,11 +109,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'P. Def.',
-    'description' => 'Double-click to get a Christmas Talisman: P. Def. (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - P. Def. (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46309 => 
@@ -122,11 +122,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'M. Def.',
-    'description' => 'Double-click to get a Christmas Talisman: M. Def. (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - M. Def. (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46310 => 
@@ -135,11 +135,11 @@
     'icon' => 'etc_box_of_adventure_4_i00',
     'name' => 'Christmas Talisman Pack',
     'additionalname' => 'Attribute Resistance',
-    'description' => 'Double-click to get a Christmas Talisman: Attribute Defense (1-hour]. Will be deleted after the event.',
+    'description' => 'Double-click to obtain Christmas Talisman - Attribute Resistance (1-hour].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46311 => 
@@ -147,12 +147,12 @@
     'item_id' => 46311,
     'icon' => 'etc_dragon_flute_i00',
     'name' => 'Emergency Whistle - Adolph',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Send a signal to Adolph, who will use the Protection of Faith skill. The whistle disappears after 2 uses.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46312 => 
@@ -160,12 +160,12 @@
     'item_id' => 46312,
     'icon' => 'etc_dragon_flute_i00',
     'name' => 'Emergency Whistle - Barton',
-    'additionalname' => '',
-    'description' => 'Send a signal to Barton, who will use the Berserker skill. Using the Berserker skill will increase Barton\'s Debuff Resistance/Speed/P. Atk./P. Accuracy/P. Def./Atk. Spd./Critical Damage. Recovre 20% of HP when killing the opponent. Additionally, P. Atk. + 10% and Critical Rate + 100 when HP is below 60%. P. Atk. + 30% and Critical Rate + 300 when HP is below 30%. The whistle disappears after 2 uses.',
+    'additionalname' => NULL,
+    'description' => 'Send a signal to Barton, who will use the Berserker skill. Using the Berserker skill will increase Bartons Debuff Resistance/ Speed/ P. Atk./ P. Accuracy/ P. Def./ Atk. Spd./ Critical Damage. Recovre 20% of HP when killing the opponent. Additionally, P. Atk. +10% and Critical Rate +100 when HP is below 60%. P. Atk. +30% and Critical Rate +300 when HP is below 30%. The whistle disappears after 2 uses.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46313 => 
@@ -173,25 +173,25 @@
     'item_id' => 46313,
     'icon' => 'etc_dragon_flute_i00',
     'name' => 'Emergency Whistle - Hayuk',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Send a signal to Hayuk, who will use the Phoenix Arrow skill. The whistle disappears after 2 uses.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46314 => 
   [
     'item_id' => 46314,
     'icon' => 'etc_dragon_flute_i00',
-    'name' => 'Emergency Whistle - Elise',
-    'additionalname' => '',
+    'name' => 'Emergency Whistle - Elise ',
+    'additionalname' => NULL,
     'description' => 'Send a signal to Elise, who will use the Celestial Party Protection skill. The whistle disappears after 2 uses.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46315 => 
@@ -199,12 +199,12 @@
     'item_id' => 46315,
     'icon' => 'etc_dragon_flute_i00',
     'name' => 'Emergency Whistle - Eliyah',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Send a signal to Eliyah, who will use the Shadow Hell skill. The whistle disappears after 2 uses.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46316 => 
@@ -212,12 +212,12 @@
     'item_id' => 46316,
     'icon' => 'etc_dark_key_i00',
     'name' => 'System Control Room Key',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Key to get to Core in the Cruma Tower. Key to the System Control Room.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46317 => 
@@ -225,14 +225,12 @@
     'item_id' => 46317,
     'icon' => 'weapon_shadow_dagger',
     'name' => 'Shadow Shaper',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46318 => 
@@ -240,14 +238,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46318,
     'icon' => 'weapon_shadow_onehand_sword',
     'name' => 'Shadow Cutter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46319 => 
@@ -255,14 +251,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46319,
     'icon' => 'weapon_shadow_twohand_sword',
     'name' => 'Shadow Slasher',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46320 => 
@@ -270,14 +264,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46320,
     'icon' => 'weapon_shadow_fist',
     'name' => 'Shadow Fighter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46321 => 
@@ -285,14 +277,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46321,
     'icon' => 'weapon_shadow_spear',
     'name' => 'Shadow Stormer',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46322 => 
@@ -300,29 +290,25 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46322,
     'icon' => 'weapon_shadow_bow',
     'name' => 'Shadow Thrower',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46323 => 
   [
     'item_id' => 46323,
     'icon' => 'weapon_shadow_crossbow',
-    'name' => 'Shadow Shooter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'name' => 'Shadow Guardian',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46324 => 
@@ -330,14 +316,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46324,
     'icon' => 'weapon_shadow_magic_sword',
     'name' => 'Shadow Buster',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46325 => 
@@ -345,29 +329,25 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46325,
     'icon' => 'weapon_shadow_magic_blunt',
     'name' => 'Shadow Retributer',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46326 => 
   [
     'item_id' => 46326,
     'icon' => 'weapon_shadow_dual_sword',
-    'name' => 'Shadow Dualsword',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Can only be enchanted up to + 10 with a Scroll: Enchant Shadow Weapon. 
-Soul Crystal enhancement, augmentation, crystallization, modification is impossible.',
+    'name' => 'Shadow Dual Swords',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries.   <Enchanting> Can be enchanted up to +10 with a Scroll: Enchant Shadow Weapon only.  Cannot be endued with special characteristics, augmented, crystallized, appearance modified.  <Enhancing> Take the weapon enchanted to +10 and Shadow Ingot to Neti in Gludio to get a Shadow weapon available for exchange.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46327 => 
@@ -375,14 +355,12 @@ Soul Crystal enhancement, augmentation, crystallization, modification is impossi
     'item_id' => 46327,
     'icon' => 'weapon_shadow_dagger',
     'name' => 'Shadow Shaper',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Damage + 10%, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Damage for standard attacks +10%, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46328 => 
@@ -390,14 +368,12 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46328,
     'icon' => 'weapon_shadow_onehand_sword',
     'name' => 'Shadow Cutter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Rate + 100, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Rate for standard attacks +100, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46329 => 
@@ -405,14 +381,12 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46329,
     'icon' => 'weapon_shadow_twohand_sword',
     'name' => 'Shadow Slasher',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Rate + 100, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Rate for standard attacks +100, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46330 => 
@@ -420,14 +394,12 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46330,
     'icon' => 'weapon_shadow_fist',
     'name' => 'Shadow Fighter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Rate + 100, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Rate for standard attacks +100, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46331 => 
@@ -435,14 +407,12 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46331,
     'icon' => 'weapon_shadow_spear',
     'name' => 'Shadow Stormer',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Rate + 100, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Rate for standard attacks +100, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46332 => 
@@ -450,29 +420,25 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46332,
     'icon' => 'weapon_shadow_bow',
     'name' => 'Shadow Thrower',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Damage + 10%, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Damage for standard attacks +10%, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46333 => 
   [
     'item_id' => 46333,
     'icon' => 'weapon_shadow_crossbow',
-    'name' => 'Shadow Shooter',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Damage + 10%, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'name' => 'Shadow Guardian',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Damage for standard attacks +10%, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46334 => 
@@ -480,14 +446,12 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46334,
     'icon' => 'weapon_shadow_magic_sword',
     'name' => 'Shadow Buster',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Casting Spd. + 15%, M. Critical Rate + 100, Max HP/MP + 15%, M. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, M. Atk. +7%, M. Skill Critical Rate +100, Atk. Spd. +15%.  Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46335 => 
@@ -495,29 +459,25 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46335,
     'icon' => 'weapon_shadow_magic_blunt',
     'name' => 'Shadow Retributer',
-    'additionalname' => '',
-    'description' => 'A weapon of the Ashen Shadow Revolutionaries.
-When equipped, Atk. Spd. +15%, Casting Spd. +15%, P. Critical Damage +10%, M. Critical Damage +10%, Max HP/MP +15%, P. Atk. +7%, M. Atk. +7%, NPC Damage +10%.
-Enchantment, Augment, Crystallization, Appearance Modification not possible. Can bestow 1 Special Soul Crystal.',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P./ M. Atk. +7%, P. Critical Damage/ M. Skill Critical Damage +10%, Atk./ Casting Spd. +15%.  Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46336 => 
   [
     'item_id' => 46336,
     'icon' => 'weapon_shadow_dual_sword',
-    'name' => 'Shadow Dualsword',
-    'additionalname' => '',
-    'description' => 'Weapon of the Ashen Shadow Revolutionaries. 
-Atk. Spd. + 15%, P. Critical Rate + 100, Max HP/MP + 15%, P. Atk. + 7%, NPC Damage + 10% when equipped. 
-Augmentation, crystallization, modification is impossible. Can bestow 1 Special Soul Crystal.',
+    'name' => 'Shadow Dual Swords',
+    'additionalname' => NULL,
+    'description' => 'Weapon of the Ashen Shadow Revolutionaries. PvE Damage +10%, Max HP/ MP +15%, P. Atk. +7%, Critical Rate for standard attacks +100, Atk. Spd. +15%. Cannot be enchanted, augmented, crystallized, appearance modified. One special Soul Crystal can be inserted.  <Enhancing> Take the weapon and Enhanced Shadow Ingot to Neti in Gludio to get an enhanced Shadow weapon.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'r',
+    'crystal_type' => 'r99',
     'consume_type' => 'consume_type_normal',
   ],
   46337 => 
@@ -525,21 +485,21 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46337,
     'icon' => 'weapon_shadow_ench_wp',
     'name' => 'Scroll: Enchant Shadow Weapon',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'A scroll to enchant a Shadow Weapon that can be obtained from the Ashen Shadow Revolutionaries. Cannot be used on regular weapons.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46338 => 
   [
     'item_id' => 46338,
     'icon' => 'g_co_sf_u',
-    'name' => 'Sigel Knight Transformation Appearance',
-    'additionalname' => '',
-    'description' => 'Sigel Knight Transformation appearance.',
+    'name' => 'Sigel Knight Transformation Appearance ',
+    'additionalname' => NULL,
+    'description' => 'Sigel Knight Transformation Appearance ',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -551,7 +511,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46339,
     'icon' => 'g_co_sf_u',
     'name' => 'Tyrr Warrior Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Tyrr Warrior Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -564,7 +524,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46340,
     'icon' => 'g_co_sf_u',
     'name' => 'Othell Rogue Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Othell Rogue Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -577,7 +537,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46341,
     'icon' => 'g_co_sf_u',
     'name' => 'Yul Archer Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Yul Archer Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -590,7 +550,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46342,
     'icon' => 'g_co_sf_u',
     'name' => 'Feoh Wizard Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Feoh Wizard Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -603,7 +563,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46343,
     'icon' => 'g_co_sf_u',
     'name' => 'Iss Enchanter Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Iss Enchanter Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -616,7 +576,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46344,
     'icon' => 'g_co_sf_u',
     'name' => 'Wynn Summoner Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Wynn Summoner Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -629,7 +589,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46345,
     'icon' => 'g_co_sf_u',
     'name' => 'Aeore Healer Transformation Appearance',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Aeore Healer Transformation appearance.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -641,16 +601,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46346,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Virgo',
+    'name' => 'Agathion Blessed Virgo',
     'additionalname' => '30-day',
-    'description' => 'Can summon Virgo.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine. (Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. and Def. each increase by 30.',
+    'description' => 'Summons Agathion Virgo.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -661,16 +614,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46347,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Capricorn',
+    'name' => 'Agathion Blessed Capricorn',
     'additionalname' => '30-day',
-    'description' => 'Summons Capricorn.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Capricorn.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -681,16 +627,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46348,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Libra',
+    'name' => 'Agathion Blessed Libra',
     'additionalname' => '30-day',
-    'description' => 'Summons Libra.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Libra.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -701,16 +640,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46349,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Aries',
+    'name' => 'Agathion Blessed Aries',
     'additionalname' => '30-day',
-    'description' => 'Summons Aries.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Aries.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -721,16 +653,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46350,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Taurus',
+    'name' => 'Agathion Blessed Taurus',
     'additionalname' => '30-day',
-    'description' => 'Summons Taurus.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Taurus.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -741,16 +666,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46351,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Leo',
+    'name' => 'Agathion Blessed Leo',
     'additionalname' => '30-day',
-    'description' => 'Summons Leo.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Leo.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -761,16 +679,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46352,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Gemini',
+    'name' => 'Agathion Blessed Gemini',
     'additionalname' => '30-day',
-    'description' => 'Summons Gemini.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Gemini.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -781,16 +692,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46353,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Scorpio',
+    'name' => 'Agathion Blessed Scorpio',
     'additionalname' => '30-day',
-    'description' => 'Summons Scorpio.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Scorpio.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -801,16 +705,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46354,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Aquarius',
+    'name' => 'Agathion Blessed Aquarius',
     'additionalname' => '30-day',
-    'description' => 'Summons Aquarius.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Aquarius.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -821,16 +718,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46355,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Sagittarius',
+    'name' => 'Agathion Blessed Sagittarius',
     'additionalname' => '30-day',
-    'description' => 'Summons Sagittarius.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Sagittarius.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -841,16 +731,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46356,
     'icon' => 'agathion_magmeld_teleport',
-    'name' => 'Agathion - Blessed Cancer',
+    'name' => 'Agathion Blessed Cancer',
     'additionalname' => '30-day',
-    'description' => 'Summons Cancer.
-
-<Active Skill>
-1. Agathion Teleport: Town of Aden/Town of Rune/Town of Giran/Heine.(Cooldown is 30min.]
-
-<Item Skill>
-1. Balanced Power: STR/INT/CON/DEX/WIT/MEN increases by 1.
-2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy  Atk. and Def. each increases by 30.',
+    'description' => 'Summons Agathion Cancer.<Active Skill>1. Agathion Teleport: Teleports you to the Town of Aden/ Town of Rune/ Town of Giran/ Heine. (Cooldown: 30min.]<Item Skill>1. Balanced Power: STR/ INT/ CON/ DEX/ WIT/ MEN +1.2. Attribute Enchant: Fire/ Water/ Earth/ Wind/ Dark/ Holy Atk. Rate and Resistance +30.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -861,169 +744,169 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46357,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Virgo Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Virgo (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46358 => 
   [
     'item_id' => 46358,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Capricorn Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Capricorn (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46359 => 
   [
     'item_id' => 46359,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Libra Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Libra (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46360 => 
   [
     'item_id' => 46360,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Aries Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Aries (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46361 => 
   [
     'item_id' => 46361,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Taurus Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Taurus (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46362 => 
   [
     'item_id' => 46362,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Leo Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Leo (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46363 => 
   [
     'item_id' => 46363,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Gemini Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Gemini (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46364 => 
   [
     'item_id' => 46364,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Scorpio Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Scorpio (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46365 => 
   [
     'item_id' => 46365,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Aquarius Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Aquarius (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46366 => 
   [
     'item_id' => 46366,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Pisces Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Pisces (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46367 => 
   [
     'item_id' => 46367,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Sagittarius Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Sagittarius (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46368 => 
   [
     'item_id' => 46368,
     'icon' => 'etc_exchange_box_i00',
-    'name' => 'Agathion - Blessed Cancer Pack',
+    'name' => 'Superior Seed Bracelet Pack',
     'additionalname' => '30-day',
-    'description' => 'Wrapped Pack containing Agathion - Blessed Cancer (30-day].',
+    'description' => 'Double-click to obtain Superior Seed Bracelet (30-day].',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46369 => 
   [
     'item_id' => 46369,
     'icon' => 'etc_treasure_box_i05',
-    'name' => 'Blessed Zodiac Agathion Pack (30-day]',
-    'additionalname' => '',
-    'description' => 'Wrapped Pack containing a Blessed Zodiac Agathion (30-day].',
+    'name' => 'Superior Seed Bracelet Pack',
+    'additionalname' => '30-day',
+    'description' => 'Double-click to obtain Superior Seed Bracelet Pack (30-day].',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   46370 => 
@@ -1032,7 +915,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'icon' => 'etc_letter_envelope_i00',
     'name' => 'Christmas Card',
     'additionalname' => 'Event',
-    'description' => 'Christmas Card given by Santa Claus. Only given to people who have been good for a year. Will be deleted after the event.',
+    'description' => 'Christmas Card given by Santa Claus. Only given to people who have been good for a year. ',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1044,7 +927,7 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46371,
     'icon' => 'etc_scroll_gray_i00',
     'name' => 'Ashen Certificate',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Certificate of the Revolutionaries that Refugee Neti has requested.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1056,9 +939,9 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46372,
     'icon' => 'etc_piece_of_paper_gray_i00',
-    'name' => 'Revolutionaries\' Strategic Map Piece',
-    'additionalname' => '',
-    'description' => 'Part of the map that shows the strategy of the Ashen Shadow Revolutionaries. If you\'ve collected them all, take them to Sir Klaus Vasper.',
+    'name' => 'Revolutionaries Strategic Map Piece',
+    'additionalname' => NULL,
+    'description' => 'Part of the map that shows the strategy of the Ashen Shadow Revolutionaries. If Youve collected them all, take them to Sir Klaus Vasper.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1070,8 +953,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46373,
     'icon' => 'etc_treasure_box_i03',
     'name' => 'Transport Goods',
-    'additionalname' => '',
-    'description' => 'Goods that Blacksmith Kluto has requested from you. If you\'ve collected them all, take them to Blacksmith Kluto.',
+    'additionalname' => NULL,
+    'description' => 'Goods that Blacksmith Kluto has requested from you. If Youve collected them all, take them to Blacksmith Kluto.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1083,8 +966,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46374,
     'icon' => 'etc_broken_crystal_silver_i00',
     'name' => 'Destroyed Mark Fragment',
-    'additionalname' => '',
-    'description' => 'Proof that you\'ve completed that Yuyuria has requested from you. If you\'ve collected them all, take them to Wanderer Yuyuria.',
+    'additionalname' => NULL,
+    'description' => 'Proof that Youve completed that Yuyuria has requested from you. If Youve collected them all, take them to Wanderer Yuyuria.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1095,8 +978,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46375,
     'icon' => 'etc_treasure_box_i02',
-    'name' => 'Gludin Hero\'s Reward Box',
-    'additionalname' => '',
+    'name' => 'Gludin Heros Reward Box',
+    'additionalname' => NULL,
     'description' => 'Reward box given in exchange for saving Gludin from danger. Double-click to use.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1108,8 +991,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   [
     'item_id' => 46376,
     'icon' => 'br_weddin_ticket_i00',
-    'name' => 'Shadow Weapon Coupon',
-    'additionalname' => '',
+    'name' => 'Shadow Weapon Exchange Coupon',
+    'additionalname' => NULL,
     'description' => 'Coupon you can trade in for a Shadow Weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1120,10 +1003,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46377 => 
   [
     'item_id' => 46377,
-    'icon' => 'g_tears_sword_i00',
+    'icon' => '.iconWeapon.g_tears_sword_i00',
     'name' => 'Frozen One-handed Sword',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1133,10 +1016,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46378 => 
   [
     'item_id' => 46378,
-    'icon' => 'g_tears_dagger_i00',
+    'icon' => '.iconWeapon.g_tears_dagger_i00',
     'name' => 'Frozen Dagger',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1146,10 +1029,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46379 => 
   [
     'item_id' => 46379,
-    'icon' => 'g_tears_twohand_sword_i00',
+    'icon' => '.iconWeapon.g_tears_twohand_sword_i00',
     'name' => 'Frozen Two-handed Sword',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1159,10 +1042,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46380 => 
   [
     'item_id' => 46380,
-    'icon' => 'g_tears_dualfist_i00',
+    'icon' => '.iconWeapon.g_tears_dualfist_i00',
     'name' => 'Frozen Fist Weapon',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1172,10 +1055,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46381 => 
   [
     'item_id' => 46381,
-    'icon' => 'g_tears_pole_i00',
+    'icon' => '.iconWeapon.g_tears_pole_i00',
     'name' => 'Frozen Spear',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1185,10 +1068,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46382 => 
   [
     'item_id' => 46382,
-    'icon' => 'g_tears_bow_i00',
+    'icon' => '.iconWeapon.g_tears_bow_i00',
     'name' => 'Frozen Bow',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1198,10 +1081,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46383 => 
   [
     'item_id' => 46383,
-    'icon' => 'g_tears_twohand_crossbow_i00',
+    'icon' => '.iconWeapon.g_tears_twohand_crossbow_i00',
     'name' => 'Frozen Crossbow',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1211,10 +1094,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46384 => 
   [
     'item_id' => 46384,
-    'icon' => 'g_tears_blunt_i00',
+    'icon' => '.iconWeapon.g_tears_blunt_i00',
     'name' => 'Frozen One-handed Blunt Weapon',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1224,10 +1107,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46385 => 
   [
     'item_id' => 46385,
-    'icon' => 'g_tears_magic_sword_i00',
-    'name' => 'Frozen Two-handed Blunt Weapon',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_magic_sword_i00',
+    'name' => 'Frozen Magic Sword',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1237,10 +1120,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46386 => 
   [
     'item_id' => 46386,
-    'icon' => 'g_tears_magic_blunt_i00',
-    'name' => 'Frozen One-handed Magic Blunt Weapon',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_magic_blunt_i00',
+    'name' => 'Frozen One-handed Staff',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1250,10 +1133,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46387 => 
   [
     'item_id' => 46387,
-    'icon' => 'g_tears_magic_twohand_blunt_i00',
-    'name' => 'Frozen Two-handed Magic Blunt Weapon',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_magic_twohand_blunt_i00',
+    'name' => 'Frozen Two-handed Staff',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1263,10 +1146,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46388 => 
   [
     'item_id' => 46388,
-    'icon' => 'g_tears_dual_i00',
-    'name' => 'Frozen Dualsword',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_dual_i00',
+    'name' => 'Frozen Dual Swords',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1276,10 +1159,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46389 => 
   [
     'item_id' => 46389,
-    'icon' => 'g_tears_dualdagger_i00',
-    'name' => 'Frozen Dual Dagger',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_dualdagger_i00',
+    'name' => 'Frozen Dual Daggers',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1289,10 +1172,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46390 => 
   [
     'item_id' => 46390,
-    'icon' => 'g_tears_dualblunt_i00',
-    'name' => 'Frozen Dual Blunt',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => '.iconWeapon.g_tears_dualblunt_i00',
+    'name' => 'Frozen Dual Blunt Weapons',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1302,10 +1185,10 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
   46391 => 
   [
     'item_id' => 46391,
-    'icon' => 'g_tears_shield_i00',
+    'icon' => '.iconWeapon.g_tears_shield_i00',
     'name' => 'Frozen Shield',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1317,8 +1200,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46392,
     'icon' => 'g_tears_sigil_i00',
     'name' => 'Frozen Sigil',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1330,8 +1213,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46393,
     'icon' => 'armor_back04',
     'name' => 'NPC Ashen Shadow Revolutionary Cloak',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1343,8 +1226,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46394,
     'icon' => 'etc_party_mask_i00',
     'name' => 'NPC Ashen Shadow Revolutionary Mask',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1356,8 +1239,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46395,
     'icon' => 'etc_lump_yellow_i00',
     'name' => 'Shadow Ingot',
-    'additionalname' => '',
-    'description' => 'Item needed to craft a Shadow Weapon. Take a + 10 Shadow Weapon and 10 Shadow Ingots to Neti in Gludio to get an enhanced Shadow weapon.',
+    'additionalname' => NULL,
+    'description' => 'Required for enhancing Shadow weapons. Take a +10 Shadow weapon and 10 Shadow Ingots to Neti in Gludio to obtain an enhanced Shadow weapon. ',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1369,8 +1252,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46396,
     'icon' => 'armor_back04',
     'name' => 'NPC Sigel Knight Transformation Cloak',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1382,8 +1265,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46397,
     'icon' => 'armor_back04',
     'name' => 'NPC Tyrr Warrior Transformation Cloak',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1395,8 +1278,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46398,
     'icon' => 'armor_back04',
     'name' => 'NPC Othell Rogue Transformation Cloak',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1408,8 +1291,8 @@ Augmentation, crystallization, modification is impossible. Can bestow 1 Special 
     'item_id' => 46399,
     'icon' => 'armor_back04',
     'name' => 'NPC Yul Archer Transformation Cloak',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

@@ -3,10 +3,9 @@
   [
     'item_id' => 34500,
     'icon' => 'weapon_vesper_fighter_i01',
-    'name' => 'Player Commendation - Vesper Fighter (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Fighter (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Fighter (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Fighter (Fire], upgrade options are limited. <Special Option> P. Critical Rate +123. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -17,10 +16,9 @@ Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Ca
   [
     'item_id' => 34501,
     'icon' => 'weapon_vesper_fighter_i01',
-    'name' => 'Player Commendation - Vesper Fighter (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Fighter (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Fighter (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Fighter (Holy], upgrade options are limited. <Special Option> P. Critical Rate +123. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -31,10 +29,9 @@ Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Ca
   [
     'item_id' => 34502,
     'icon' => 'weapon_vesper_fighter_i01',
-    'name' => 'Player Commendation - Vesper Fighter (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Fighter (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Fighter (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Fighter (Dark], upgrade options are limited. <Special Option> P. Critical Rate +123. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -45,12 +42,9 @@ Critical increases by 123. Increases damage inflicted during PvP. Expiratory. Ca
   [
     'item_id' => 34503,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Earth], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -61,12 +55,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34504,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Water] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Water], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -77,12 +68,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34505,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Wind], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -93,12 +81,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34506,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Fire], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -109,12 +94,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34507,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Holy], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -125,12 +107,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34508,
     'icon' => 'weapon_vesper_pincer_i01',
-    'name' => 'Player Commendation - Vesper Pincer (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Vesper Pincer (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 131.
-Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Vesper Pincer (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Vesper Pincer (Dark], upgrade options are limited. <Special Option> P. Critical Rate +131. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -141,10 +120,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34509,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Earth] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Earth] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Earth] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Earth], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -155,10 +133,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34510,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Water] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Water] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Water] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Water], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -169,10 +146,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34511,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Wind] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Wind] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Wind] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Wind], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -183,10 +159,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34512,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Fire] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Fire] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Fire] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Fire], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -197,10 +172,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34513,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Holy] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Holy] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Holy] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Holy], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -211,10 +185,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34514,
     'icon' => 'weapon_herencia_i01',
-    'name' => 'Player Commendation - Apocalypse Retributer (Dark] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Retributer (Dark] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Retributer (Dark] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Retributer (Dark], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -225,10 +198,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34515,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Earth] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Earth] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Atk., M. Critical Damage, and Casting Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Earth] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Earth], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -239,10 +211,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34516,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Water] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Water] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Water] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Water], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -253,10 +224,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34517,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Wind] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Wind] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Wind] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Wind], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -267,10 +237,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34518,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Fire] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Fire] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Fire] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Fire], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -281,10 +250,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34519,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Holy] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Holy] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Holy] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Holy], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -295,10 +263,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34520,
     'icon' => 'weapon_imerose_i01',
-    'name' => 'Player Commendation - Apocalypse Buster (Dark] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Buster (Dark] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Buster (Dark] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Buster (Dark], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -309,10 +276,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34521,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Earth], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -323,10 +289,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34522,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Water] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Water], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -337,10 +302,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34523,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Wind], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -351,10 +315,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34524,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Fire], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -365,10 +328,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34525,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Holy], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -379,10 +341,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34526,
     'icon' => 'weapon_phasian_i01',
-    'name' => 'Player Commendation - Apocalypse Shaper (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shaper (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Shaper (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Shaper (Dark], upgrade options are limited. <Special Option> P. Critical Rate +82.3. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -393,10 +354,9 @@ Critical increases by 82.3. Increases damage inflicted during PvP. Expiratory. C
   [
     'item_id' => 34527,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Earth], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -407,10 +367,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34528,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Water] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Water], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -421,10 +380,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34529,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Wind], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -435,10 +393,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34530,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Fire], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -449,10 +406,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34531,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Holy], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -463,10 +419,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34532,
     'icon' => 'weapon_medianox_i01',
-    'name' => 'Player Commendation - Apocalypse Shooter (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Shooter (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Guardian (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Guardian (Dark], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Inflicts additional PvP damage. When enchanted to +4, increases Atk. Spd. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -477,10 +432,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34533,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk. Spd. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Earth], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -491,10 +445,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Atk
   [
     'item_id' => 34534,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Water] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Water], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -505,10 +458,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34535,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Wind], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -519,10 +471,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34536,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Fire], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -533,10 +484,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34537,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Holy], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -547,10 +497,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34538,
     'icon' => 'weapon_spina_i01',
-    'name' => 'Player Commendation - Apocalypse Thrower (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Thrower (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Skill Power when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Thrower (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Thrower (Dark], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -561,10 +510,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34539,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Earth] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Earth] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Earth] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Earth], upgrade options are limited. <Special properties> P. Atk. +332. Increases PvP damage. When enchanted to +4, increases the number of targets hit with a spear. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -575,10 +523,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34540,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Water] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Water] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Water] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Water], upgrade options are limited. <Special Abilities> P. Atk. +332. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear. Temporary item. Cannot be crystallized. Cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -589,10 +536,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34541,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Wind] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Wind] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Wind] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Wind], upgrade options are limited. <Special Abilities> P. Atk. +332. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear. Temporary item. Cannot be crystallized. Cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -603,10 +549,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34542,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Fire] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Fire] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Fire] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Fire], upgrade options are limited. <Special Abilities> P. Atk. +332. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear. Temporary item. Cannot be crystallized. Cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -617,10 +562,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34543,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Holy] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Holy] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Holy] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Holy], upgrade options are limited. <Special Abilities> P. Atk. +332. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear. Temporary item. Cannot be crystallized. Cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -631,10 +575,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34544,
     'icon' => 'weapon_grave_i01',
-    'name' => 'Player Commendation - Apocalypse Stormer (Dark] - Damage Up',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Stormer (Dark] with limited ability enhancement. <Special Option>
-P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Stormer (Dark] - Damage Up',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Stormer (Dark], upgrade options are limited. <Special Abilities> P. Atk. +332. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear. Temporary item. Cannot be crystallized. Cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -645,10 +588,9 @@ P. Atk. + 332. Increases damage inflicted during PvP. Increases Multi Attack whe
   [
     'item_id' => 34545,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Earth], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -659,10 +601,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34546,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Water] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Water], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -673,10 +614,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34547,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Wind], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -687,10 +627,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34548,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Fire], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -701,10 +640,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34549,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Holy], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -715,10 +653,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34550,
     'icon' => 'weapon_volver_i01',
-    'name' => 'Player Commendation - Apocalypse Slasher (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Slasher (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Slasher (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Slasher (Dark], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -729,10 +666,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34551,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Earth], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -743,10 +679,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Additionally 
   [
     'item_id' => 34552,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Water] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Water], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -757,10 +692,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34553,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Wind], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -771,10 +705,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34554,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Fire], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -785,10 +718,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34555,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Holy], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -799,10 +731,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34556,
     'icon' => 'weapon_raksilion_i01',
-    'name' => 'Player Commendation - Apocalypse Avenger (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Avenger (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Avenger (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Avenger (Dark], upgrade options are limited. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. When enchanted to +4, increases Critical Damage for standard attacks. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -813,10 +744,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases P. 
   [
     'item_id' => 34557,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Earth] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Earth] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Earth] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Earth], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -827,10 +757,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34558,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Water] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Water] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Water] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Water], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -841,10 +770,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34559,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Wind] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Wind] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Wind] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Wind], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -855,10 +783,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34560,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Fire] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Fire] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Fire] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Fire], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -869,10 +796,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34561,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Holy] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Holy] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Holy] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Holy], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -883,10 +809,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34562,
     'icon' => 'weapon_yuke_i01',
-    'name' => 'Player Commendation - Apocalypse Caster (Dark] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Caster (Dark] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases M. Accuracy and M. Critical Damage when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Caster (Dark] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Caster (Dark], upgrade options are limited. <Special Option> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -897,10 +822,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Increases 
   [
     'item_id' => 34563,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Earth], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Deals additional PvP damage. Starting from +4, increases P. Accuracy and Critical Rate for basic attacks. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -911,10 +835,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34564,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Water] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Water], upgrade options are limited. <Special properties> P. Critical Rate +79.2. Deals additional PvP damage. Starting from +4, increases P. Accuracy and Critical Rate for basic attacks. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -925,10 +848,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34565,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Wind] with limited ability enhancement. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. Increases P. Accuracy and P. Critical Rate for standard attacks when enchanted to +4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -939,10 +861,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34566,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Fire] with limited ability enhancement. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. Increases P. Accuracy and P. Critical Rate for standard attacks when enchanted to +4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -953,10 +874,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34567,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Holy] with limited ability enhancement. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. Increases P. Accuracy and P. Critical Rate for standard attacks when enchanted to +4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -967,10 +887,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34568,
     'icon' => 'weapon_pasis_i01',
-    'name' => 'Player Commendation - Apocalypse Cutter (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Cutter (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 79.2. Increases damage inflicted during PvP. Increases Accuracy and P. Critical Rate when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Cutter (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Cutter (Dark] with limited ability enhancement. <Special Option> P. Critical Rate +79.2. Deals additional PvP damage. Increases P. Accuracy and P. Critical Rate for standard attacks when enchanted to +4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -981,10 +900,9 @@ Critical increases by 79.2. Increases damage inflicted during PvP. Increases Acc
   [
     'item_id' => 34569,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Earth], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -995,10 +913,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34570,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Water] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Water], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1009,10 +926,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34571,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Wind], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1023,10 +939,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34572,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Fire], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1037,10 +952,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34573,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Holy], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1051,10 +965,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34574,
     'icon' => 'weapon_kirche_i01',
-    'name' => 'Player Commendation - Apocalypse Fighter (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Apocalypse Fighter (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. Spd. and additionally increases M. Atk. when enchanted to + 4. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Apocalypse Fighter (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Apocalypse Fighter (Dark], upgrade options are limited. <Special Option> P. Critical Rate +76. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1065,86 +978,86 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34575,
     'icon' => 'etc_scroll_of_enchant_weapon_i04',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (A-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the A-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA Scroll: Enchant A-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the A-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34576 => 
   [
     'item_id' => 34576,
     'icon' => 'etc_scroll_of_enchant_weapon_i03',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (B-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the B-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA Scroll: Enchant B-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the B-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34577 => 
   [
     'item_id' => 34577,
     'icon' => 'etc_scroll_of_enchant_weapon_i02',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (C-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the C-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA Scroll: Enchant C-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the C-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34578 => 
   [
     'item_id' => 34578,
     'icon' => 'etc_scroll_of_enchant_weapon_i01',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (D-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the D-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA Scroll: Enchant D-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the D-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34579 => 
   [
     'item_id' => 34579,
     'icon' => 'scroll_of_enchant_weapon_i06',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (R-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the R-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA Scroll: Enchant R-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the R-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34580 => 
   [
     'item_id' => 34580,
     'icon' => 'etc_scroll_of_enchant_weapon_i05',
-    'name' => 'Player Commendation - Scroll: Enchant Weapon (S-grade]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Scroll to enchant the S-grade weapons for Player Commendation. Impossible to use for other weapons.',
+    'name' => 'PA - Scroll: Enchant S-grade Weapon',
+    'additionalname' => 'PA',
+    'description' => 'Scroll to enchant the S-grade weapons for PA. Impossible to use for other weapons.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   34581 => 
   [
     'item_id' => 34581,
     'icon' => 'r85_talisman_md_up_active',
-    'name' => 'Player Commendation - Talisman - M. Def. (Active]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - M. Def. (Active] ',
+    'additionalname' => 'PA',
     'description' => 'M. Def. Increases by 63 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1156,8 +1069,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34582,
     'icon' => 'r85_talisman_md_up_passive',
-    'name' => 'Player Commendation - Talisman - M. Def. (Passive]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - M. Def. (Passive] ',
+    'additionalname' => 'PA',
     'description' => 'M. Def. Increases by 21 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1169,9 +1082,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34583,
     'icon' => 'r85_talisman_ma_up_active',
-    'name' => 'Player Commendation - Talisman - M. Atk. (Active]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'M. Atk. + 111 when used. Shadow weapon.',
+    'name' => 'PA Talisman - M. Atk. (Active] ',
+    'additionalname' => 'PA',
+    'description' => 'M. Atk. +111 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1182,9 +1095,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34584,
     'icon' => 'r85_talisman_ma_up_passive',
-    'name' => 'Player Commendation - Talisman - M. Atk. (Passive]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'M. Atk. + 37 when equipped. Shadow weapon.',
+    'name' => 'PA Talisman - M. Atk. (Passive] ',
+    'additionalname' => 'PA',
+    'description' => 'M. Atk. +37 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1195,9 +1108,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34585,
     'icon' => 'r85_talisman_pa_up_active',
-    'name' => 'Player Commendation - Talisman - P. Atk. (Active]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Physical P. Atk. + 111 when used. Shadow weapon.',
+    'name' => 'PA Talisman - P. Atk. (Active] ',
+    'additionalname' => 'PA',
+    'description' => 'P. Atk. +111. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1208,9 +1121,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34586,
     'icon' => 'r85_talisman_pa_up_passive',
-    'name' => 'Player Commendation - Talisman - P. Atk. (Passive]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Physical P. Atk. + 37 when equipped. Shadow weapon.',
+    'name' => 'PA Talisman - P. Atk. (Passive] ',
+    'additionalname' => 'PA',
+    'description' => 'P. Atk. +37. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1221,9 +1134,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34587,
     'icon' => 'r85_talisman_pd_up_active',
-    'name' => 'Player Commendation - Talisman - P. Def. (Active]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'P. Def. Increases by 114 when used. Shadow weapon.',
+    'name' => 'PA Talisman - P. Def. (Active] ',
+    'additionalname' => 'PA',
+    'description' => 'P. Def. increases by 114 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1234,9 +1147,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34588,
     'icon' => 'r85_talisman_pd_up_passive',
-    'name' => 'Player Commendation - Talisman - P. Def. (Passive]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'P. Def. Increases by 38 when equipped. Shadow weapon.',
+    'name' => 'PA Talisman - P. Def. (Passive] ',
+    'additionalname' => 'PA',
+    'description' => 'P. Def. increases by 38 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1247,8 +1160,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34589,
     'icon' => 'r85_talisman_cp_up_active',
-    'name' => 'Player Commendation - Talisman - CP (Active]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - CP (Active] ',
+    'additionalname' => 'PA',
     'description' => 'Max CP increases by 297 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1260,8 +1173,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34590,
     'icon' => 'r85_talisman_cp_up_passive',
-    'name' => 'Player Commendation - Talisman - CP (Passive]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - CP (Passive] ',
+    'additionalname' => 'PA',
     'description' => 'Max CP increases by 99 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1273,8 +1186,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34591,
     'icon' => 'r85_talisman_hp_up_active',
-    'name' => 'Player Commendation - Talisman - HP (Active]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - HP (Active] ',
+    'additionalname' => 'PA',
     'description' => 'HP increases by 657 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1286,8 +1199,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34592,
     'icon' => 'r85_talisman_hp_up_passive',
-    'name' => 'Player Commendation - Talisman - HP (Passive]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - HP (Passive] ',
+    'additionalname' => 'PA',
     'description' => 'Max HP increases by 219 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1299,8 +1212,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34593,
     'icon' => 'r85_talisman_mp_up_active',
-    'name' => 'Player Commendation - Talisman - MP (Active]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - MP (Active] ',
+    'additionalname' => 'PA',
     'description' => 'Increases Max MP by 327 when used. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1312,8 +1225,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34594,
     'icon' => 'r85_talisman_mp_up_passive',
-    'name' => 'Player Commendation - Talisman - MP (Passive]',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA Talisman - MP (Passive] ',
+    'additionalname' => 'PA',
     'description' => 'MP increases by 109 when equipped. Shadow weapon.',
     'is_trade' => 0,
     'is_drop' => 0,
@@ -1325,9 +1238,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34595,
     'icon' => 'etc_rbracelet_aga_agit_i00',
-    'name' => 'Player Commendation - Agathion - Propeller',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bracelet that can summon a Propeller Agathion. Can teleport party members to town after summoning an Agathion. 30-day.',
+    'name' => 'PA - Agathion Propeller',
+    'additionalname' => 'PA',
+    'description' => 'Summons Agathion Propeller. Can use a skill that teleports party members back to town after summoning the agathion. 30-day.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1338,9 +1251,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34596,
     'icon' => 'etc_rbracelet_aga_agit_i00',
-    'name' => 'Player Commendation - Agathion - Magical Girl',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bracelet that can summon a Propeller Agathion. Can teleport party members to town after summoning an Agathion. 30-day.',
+    'name' => 'PA - Agathion Magical Girl',
+    'additionalname' => 'PA',
+    'description' => 'Summons Agathion Magical Girl. Can use a skill that teleports party members back to town after summoning the agathion. 30-day.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1351,9 +1264,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34597,
     'icon' => 'etc_rbracelet_aga_agit_i00',
-    'name' => 'Player Commendation - Agathion - Cobra',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bracelet that can summon a Propeller Agathion. Can teleport party members to town after summoning an Agathion. 30-day.',
+    'name' => 'PA - Agathion Cobra',
+    'additionalname' => 'PA',
+    'description' => 'Summons Agathion Cobra. Can use a skill that teleports party members back to town after summoning the agathion. 30-day.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1364,9 +1277,9 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34598,
     'icon' => 'etc_rbracelet_aga_agit_i00',
-    'name' => 'Player Commendation - Agathion - Baby Ufa',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bracelet that can summon a Propeller Agathion. Can teleport party members to town after summoning an Agathion. 30-day.',
+    'name' => 'PA - Agathion Baby Ufa',
+    'additionalname' => 'PA',
+    'description' => 'Summons Agathion Baby Ufa. Can use a skill that teleports party members back to town after summoning the agathion. 30-day.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -1377,8 +1290,8 @@ Critical increases by 76. Increases damage inflicted during PvP. Increases Atk. 
   [
     'item_id' => 34599,
     'icon' => 'etc_rbracelet_aga_agit_i00',
-    'name' => 'Player Commendation - Mount: Black Bear',
-    'additionalname' => 'PC-exclusive',
+    'name' => 'PA - Agathion Black Bear',
+    'additionalname' => 'PA',
     'description' => 'Bracelet that summons a black bear that the character can ride. 30-day.',
     'is_trade' => 0,
     'is_drop' => 0,

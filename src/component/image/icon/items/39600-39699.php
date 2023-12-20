@@ -4,12 +4,12 @@
     'item_id' => 39600,
     'icon' => 'etc_crystal_ball_silver_i00',
     'name' => 'Grieving Soul',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   39601 => 
@@ -17,12 +17,12 @@
     'item_id' => 39601,
     'icon' => 'etc_crystal_ball_silver_i00',
     'name' => 'Soul Bottle',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_normal',
   ],
   39602 => 
@@ -30,15 +30,8 @@
     'item_id' => 39602,
     'icon' => 'weapon_antaras_dagger_i01',
     'name' => 'Dimensional Antharas Shaper',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -50,15 +43,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39603,
     'icon' => 'weapon_antaras_twohand_sword_i01',
     'name' => 'Dimensional Antharas Slasher',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -70,15 +56,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39604,
     'icon' => 'weapon_antaras_bow_i01',
     'name' => 'Dimensional Antharas Thrower',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -90,15 +69,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39605,
     'icon' => 'weapon_antaras_onehand_magic_sword_i01',
     'name' => 'Dimensional Antharas Buster',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Casting Spd. + 1999, M. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'Top-grade Dragon Weapon. <Item skill> PvP Damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1999, M. Skill Critical Rate +500, damage to dragons +300%. <Active Skills> 1. Protection: For 2 min., Speed +100, immunity to debuffs. Consumes 1 Dragon Blood. Cooldown is 10 min. 2. Antharas Breath: Nearby enemies Atk./ Casting Spd. and Speed -90%, also slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown is 5 min. 3. Antharas Tail Blow: Destroys nearby enemies CP. Cooldown is 5 min. Cannot be used in the Olympiad/ Ceremony of Chaos. Cannot be appearance modified, crystallized, enchanted, or assigned with attributes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -110,15 +82,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39606,
     'icon' => 'weapon_antaras_onehand_sword_i01',
     'name' => 'Dimensional Antharas Cutter',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -130,15 +95,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39607,
     'icon' => 'weapon_antaras_spear_i01',
     'name' => 'Dimensional Antharas Stormer',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -150,15 +108,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39608,
     'icon' => 'weapon_antaras_fist_i01',
     'name' => 'Dimensional Antharas Fighter',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -170,15 +121,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39609,
     'icon' => 'weapon_antaras_onehand_blunt_i01',
     'name' => 'Dimensional Antharas Avenger',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -189,16 +133,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39610,
     'icon' => 'weapon_antaras_dual_blunt_i01',
-    'name' => 'Dimensional Antharas Dual Blunt',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'name' => 'Dimensional Antharas Dual Blunt Weapon',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -209,16 +146,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39611,
     'icon' => 'weapon_antaras_dual_sword_i01',
-    'name' => 'Dimensional Antharas Dualsword',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Antharas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Antharas\' Tail Blow: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'name' => 'Dimensional Antharas Dual Sword',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Antharas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Antharas Lash: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -230,15 +160,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39612,
     'icon' => 'weapon_valrakas_dagger_i01',
     'name' => 'Dimensional Valakas Shaper',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Valakas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Valakas Meteor Storm: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -250,15 +173,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39613,
     'icon' => 'weapon_valrakas_onehand_sword_i01',
     'name' => 'Dimensional Valakas Cutter',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Valakas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Valakas Meteor Storm: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -270,15 +186,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39614,
     'icon' => 'weapon_valrakas_twohand_sword_i01',
     'name' => 'Dimensional Valakas Slasher',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Valakas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Valakas Meteor Storm: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -290,15 +199,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39615,
     'icon' => 'weapon_valrakas_bow_i01',
     'name' => 'Dimensional Valakas Thrower',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Valakas Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Valakas Meteor Storm: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -310,15 +212,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39616,
     'icon' => 'weapon_valrakas_onehand_magic_sword_i01',
     'name' => 'Dimensional Valakas Buster',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Casting Spd. + 1999, M. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'Top-grade Dragon Weapon. <Item skill> PvP Damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1999, M. Skill Critical Rate +500, damage to dragons +300%. <Active Skill> 1. Protection: For 2 min., Speed +100, immunity to debuffs. Consumes 1 Dragon Blood. Cooldown is 10 min. 2. Valakas Breath: Nearby enemies Atk./ Casting Spd. and Speed -90%, also slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown is 5 min. 3. Valakas Meteor: Destroys nearby enemies CP. Cooldown is 5 min. Cannot be used in the Olympiad/ Ceremony of Chaos. Cannot be appearance modified, crystallized, enchanted, or assigned with attributes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -330,15 +225,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39617,
     'icon' => 'weapon_valrakas_onehand_magic_blunt_i01',
     'name' => 'Dimensional Valakas Caster',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Casting Spd. + 1999, M. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'Top-grade Dragon Weapon. <Item skill> PvP Damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1999, M. Skill Critical Rate +500, damage to dragons +300%. <Active Skill> 1. Protection: For 2 min., Speed +100, immunity to debuffs. Consumes 1 Dragon Blood. Cooldown is 10 min. 2. Valakas Breath: Nearby enemies Atk./ Casting Spd. and Speed -90%, also slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown is 5 min. 3. Valakas Meteor: Destroys nearby enemies CP. Cooldown is 5 min. Cannot be used in the Olympiad/ Ceremony of Chaos. Cannot be appearance modified, crystallized, enchanted, or assigned with attributes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -350,15 +238,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39621,
     'icon' => 'weapon_valrakas_twohand_magic_blunt_i01',
     'name' => 'Dimensional Valakas Retributer',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Casting Spd. + 1999, M. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Valakas\' Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Valakas\' Meteor: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'Top-grade Dragon Weapon. <Item skill> PvP Damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1999, M. Skill Critical Rate +500, damage to dragons +300%. <Active Skill> 1. Protection: For 2 min., Speed +100, immunity to debuffs. Consumes 1 Dragon Blood. Cooldown is 10 min. 2. Valakas Breath: Nearby enemies Atk./ Casting Spd. and Speed -90%, also slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown is 5 min. 3. Valakas Meteor: Destroys nearby enemies CP. Cooldown is 5 min. Cannot be used in the Olympiad/ Ceremony of Chaos. Cannot be appearance modified, crystallized, enchanted, or assigned with attributes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -370,15 +251,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39622,
     'icon' => 'weapon_lind_dagger_i01',
     'name' => 'Dimensional Lindvior Shaper',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -390,15 +264,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39623,
     'icon' => 'weapon_lind_bow_i01',
     'name' => 'Dimensional Lindvior Thrower',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -410,15 +277,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39624,
     'icon' => 'weapon_lind_twohand_sword_i01',
     'name' => 'Dimensional Lindvior Slasher',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -430,15 +290,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39625,
     'icon' => 'weapon_lind_onehand_magic_blunt_i01',
     'name' => 'Dimensional Lindvior Caster',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Casting Spd. + 1999, M. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'Top-grade Dragon Weapon. <Item skill> PvP Damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1999, M. Skill Critical Rate +500, damage to dragons +300%. <Active Skill> 1. Protection: For 2 min., Speed +100, immunity to debuffs. Consumes 1 Dragon Blood. Cooldown is 10 min. 2. Lindviors Breath: Nearby enemies Atk./ Casting Spd. and Speed -90%, also slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown is 5 min. 3. Lindviors Wingbeat: Destroys nearby enemies CP. Cooldown is 5 min. Cannot be used in the Olympiad/ Ceremony of Chaos. Cannot be appearance modified, crystallized, enchanted, or assigned with attributes.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -450,15 +303,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39626,
     'icon' => 'weapon_lind_onehand_sword_i01',
     'name' => 'Dimensional Lindvior Cutter',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -469,16 +315,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39627,
     'icon' => 'weapon_lind_crossbow_i01',
-    'name' => 'Dimensional Lindvior Shooter',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'name' => 'Dimensional Lindvior Guardian',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -490,15 +329,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39628,
     'icon' => 'weapon_lind_dual_dagger_i01',
     'name' => 'Dimensional Lindvior Dual Dagger',
-    'additionalname' => '',
-    'description' => 'Top-grade Dragon Weapon.
-<Passive Skill>
-PvP Damage + 30%, HP/MP + 100%, CP + 200%, Atk. Spd. + 1500, P. Critical Rate + 500, Damage against dragons + 300%.
-<Active Skill>
-1. Protection: For 2 min., Speed + 100, invincible to debuffs. Consumes 1 unit of Dragon Blood. Cooldown is 10 min.
-2. Lindvior\'s Breath: Decreases nearby enemies\' Atk./Casting Spd. and Speed by 90% and slowly paralyzes them for 10 sec. Consumes 1 unit of Dragon Blood. Cooldown is 5 min.
-3. Lindvior\'s Wingbeat: Destroys nearby enemies\' CP. Cooldown is 5 min.
-Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystallized, enchanted, or assigned an attribute.',
+    'additionalname' => NULL,
+    'description' => 'A top-grade dragon weapon. <Item skill> PvP damage +30%, HP/ MP +100%, CP +200%, Atk. Spd. +1500, Critical Rate for standard attacks +500, damage to dragons +300%. <Active skills> 1. Protection: For 2 min., Speed +100, grants immunity to debuffs. Consumes 1 Dragon Blood. Cooldown: 10 min. 2. Lindviors Breath: Nearby enemies Atk. Spd./ Casting Spd./ Speed -90%, slowly paralyzes them for 10 sec. Consumes 1 Dragon Blood. Cooldown: 5 min. 3. Lindviors Wingbeat: Drains nearby enemies CP. Consumes 1 Dragon Blood. Cooldown: 5 min. Cannot be used in the Olympiad or the Ceremony of Chaos. The items appearance cannot be modified. Cannot be crystallized, enchanted, or assigned an attribute.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 0,
@@ -509,74 +341,74 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39629,
     'icon' => 'etc_lucky_pocket_i00',
-    'name' => 'Fortune Pocket - Stage 1',
-    'additionalname' => '',
-    'description' => 'Use to obtain 400000 XP. Go to Pelu the Grocer in Faeron Village to combine to 2 Stage 1 Pockets. Under Lv. 85 only. Cannot be used by Chaotic characters.',
+    'name' => 'Fortune Pocket Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'Double-click to acquire +40 XP. Required level: 1-85. Cannot be used by chaotic characters. Cannot be obtained from monsters. Can be sold to a shop for some adena.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   39630 => 
   [
     'item_id' => 39630,
     'icon' => 'etc_lucky_pocket_i00',
-    'name' => 'Fortune Pocket - Stage 2',
-    'additionalname' => '',
-    'description' => 'Use to obtain 1600000 XP. Go to Pelu the Grocer in Faeron Village to combine to 2 Stage 2 Pockets. Under Lv. 85 only. Cannot be used by Chaotic characters.',
+    'name' => 'Fortune Pocket Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'Double-click to acquire +160 XP. Required level: 1-85. Cannot be used by chaotic characters. Can be sold to a shop for some adena.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   39631 => 
   [
     'item_id' => 39631,
     'icon' => 'etc_lucky_pocket_i00',
-    'name' => 'Fortune Pocket - Stage 3',
-    'additionalname' => '',
-    'description' => 'Use to obtain 6400000 XP, plus a little something else. Go to Pelu the Grocer in Faeron Village to combine to 2 Stage 3 Pockets. Under Lv. 85 only. Cannot be used by Chaotic characters.',
+    'name' => 'Fortune Pocket Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'Double-click to acquire +640 XP and anything else. Required level: 1-85. Cannot be used by chaotic characters. Can be sold to a shop for some adena.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   39632 => 
   [
     'item_id' => 39632,
     'icon' => 'etc_lucky_pocket_i00',
-    'name' => 'Fortune Pocket - Stage 4',
-    'additionalname' => '',
-    'description' => 'Use to obtain 80000 SP. Go to Pelu the Grocer in Faeron Village to combine to 2 Stage 4 Pockets. Lv. 85 or above. Cannot be used by Chaotic characters.',
+    'name' => 'Fortune Pocket Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'Double-click to acquire +8 SP. Required level: 85+. Cannot be used by chaotic characters. Can be sold to a shop for some adena.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   39633 => 
   [
     'item_id' => 39633,
     'icon' => 'etc_lucky_pocket_i00',
-    'name' => 'Fortune Pocket - Stage 5',
-    'additionalname' => '',
-    'description' => 'Use to obtain 256000 SP, plus a little something else. Lv. 85 or above. Cannot be used by Chaotic characters.',
+    'name' => 'Fortune Pocket Lv. 5',
+    'additionalname' => NULL,
+    'description' => 'Double-click to acquire +25 SP and anything else. Required level: 85+. Cannot be used by chaotic characters. Can be sold to a shop for some adena.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   39634 => 
   [
     'item_id' => 39634,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 1',
-    'description' => 'MEN + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 1',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -587,9 +419,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39635,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 2',
-    'description' => 'MEN/WIT + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 2',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -600,9 +432,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39636,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 3',
-    'description' => 'MEN/WIT/CON + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 3',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -613,9 +445,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39637,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 4',
-    'description' => 'MEN/WIT/CON/INT + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 4',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -626,9 +458,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39638,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 5',
-    'description' => 'MEN/WIT/CON/INT/DEX + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 5',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -639,9 +471,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39639,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 6',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 6',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -652,9 +484,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39640,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 7',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 7',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -665,9 +497,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39641,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 8',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 8',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -678,9 +510,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39642,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 9',
-    'description' => 'MEN + 2, WIT/CON/INT/DEX/STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 9',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN +2, WIT/ CON/ INT/ DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -691,9 +523,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39643,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 10',
-    'description' => 'MEN/WIT + 2, CON/INT/DEX/STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 10',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT +2, CON/ INT/ DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -704,9 +536,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39644,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 11',
-    'description' => 'MEN/WIT/CON + 2, INT/DEX/STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 11',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON +2, INT/ DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -717,9 +549,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39645,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 12',
-    'description' => 'MEN/WIT/CON/INT + 2, DEX/STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 12',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT +2, DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -730,9 +562,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39646,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 13',
-    'description' => 'MEN/WIT/CON/INT/DEX + 2, STR/LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 13',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX +2, STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -743,9 +575,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39647,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 14',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR+ 2, LUC/CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 14',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR +2, LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -756,9 +588,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39648,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 15',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC + 2, CHA + 1. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 15',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC +2, CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -769,9 +601,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39649,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 16',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 16',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -782,9 +614,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39650,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 17',
-    'description' => 'MEN + 3, WIT/CON/INT/DEX/STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 17',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN +3, WIT/ CON/ INT/ DEX/ STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -795,9 +627,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39651,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 18',
-    'description' => 'MEN/WIT + 3, CON/INT/DEX/STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 18',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT +3, CON/ INT/ DEX/ STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -808,9 +640,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39652,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 19',
-    'description' => 'MEN/WIT/CON + 3, INT/DEX/STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 19',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON +3, INT/ DEX/ STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -821,9 +653,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39653,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 20',
-    'description' => 'MEN/WIT/CON/INT + 3, DEX/STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 20',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT +3, DEX/ STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -834,9 +666,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39654,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 21',
-    'description' => 'MEN/WIT/CON/INT/DEX + 3, STR/LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 21',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX +3, STR/ LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -847,9 +679,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39655,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 22',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR + 3, LUC/CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 22',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR +3, LUC/ CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -860,9 +692,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39656,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 23',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC + 3, CHA + 2. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 23',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC +3, CHA +2. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compounding with Venirs Talisman of the same level.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -873,9 +705,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39657,
     'icon' => 'etc_allstat_talisman_i02',
-    'name' => 'Venir\'s Talisman',
-    'additionalname' => 'Stage 24',
-    'description' => 'MEN/WIT/CON/INT/DEX/STR/LUC/CHA + 3. Equipping 2 or more Venir\'s Talismans gives the effect of the highest-level talisman.',
+    'name' => 'Venirs Talisman Lv. 24',
+    'additionalname' => NULL,
+    'description' => 'A talisman crafted with magic and arcane knowledge by Venir, the leader of Ertheia delegation. MEN/ WIT/ CON/ INT/ DEX/ STR/ LUC/ CHA +1. Effects of two identical talismans do not stack, the higher-level talisman takes precedence.<Enchanting>Compound with Soul Shard to obtain Soul Talisman.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -887,8 +719,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39658,
     'icon' => 'etc_hairacc_pandent_i00',
     'name' => 'LUC Pendant',
-    'additionalname' => '',
-    'description' => 'You can bestow LUC + 3 when one of the following are equipped: Rabbit Ears, Raccoon Ears, Cat Ears, Lady\'s Hairpin, Party Mask, Monocle, Maiden\'s Hairpin, Forget-me-not Hairpin, Daisy Hairpin,  Little Angel Wings, Fairy Antennae, Artisan\'s Goggles, Arrow-pierced Apple, Chapeau, Romantic Chapeau, Angel Circlet, Demon Circlet, Pirate\'s Eyepatch, Outlaw\'s Eyepatch, Eyepatch, Party Hat, Refined Angel Ring, Refined Devil Horn, Red Horns, or 9th Anniversary Rocket Gun Hat.',
+    'additionalname' => NULL,
+    'description' => 'Bonus LUC +3 to the following items: Rabbit Ears, Raccoon Ears, Cat Ears, Ladys Hairpin, Party Mask, Monocle, Maidens Hairpin, Forget-me-not Hairpin, Daisy Hairpin, Little Angel Wings, Fairy Antennae, Artisans Goggles, Arrow-pierced Apple, Chapeau, Romantic Chapeau, Angel Circlet, Demon Circlet, Pirates Eyepatch, Outlaws Eyepatch, Eyepatch, Party Hat, Refined Angel Ring, Refined Devil Horn, Red Horns, Rocket Gun Hat, Buff Helmet, Santa Hat, Blue Dynasty Circlet.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -900,8 +732,8 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'item_id' => 39659,
     'icon' => 'etc_hairacc_pandent_i00',
     'name' => 'CHA Pendant',
-    'additionalname' => '',
-    'description' => 'You can bestow CHA + 3 when one of the following are equipped: Rabbit Ears, Raccoon Ears, Cat Ears, Lady\'s Hairpin, Party Mask, Monocle, Maiden\'s Hairpin, Forget-me-not Hairpin, Daisy Hairpin,  Little Angel Wings, Fairy Antennae, Artisan\'s Goggles, Arrow-pierced Apple, Chapeau, Romantic Chapeau, Angel Circlet, Demon Circlet, Pirate\'s Eyepatch, Outlaw\'s Eyepatch, Eyepatch, Party Hat, Refined Angel Ring, Refined Devil Horn, Red Horns, or 9th Anniversary Rocket Gun Hat.',
+    'additionalname' => NULL,
+    'description' => 'Bonus CHA +3 to the following items: Rabbit Ears, Raccoon Ears, Cat Ears, Ladys Hairpin, Party Mask, Monocle, Maidens Hairpin, Forget-me-not Hairpin, Daisy Hairpin, Little Angel Wings, Fairy Antennae, Artisans Goggles, Arrow-pierced Apple, Chapeau, Romantic Chapeau, Angel Circlet, Demon Circlet, Pirates Eyepatch, Outlaws Eyepatch, Eyepatch, Party Hat, Refined Angel Ring, Refined Devil Horn, Red Horns, Rocket Gun Hat, Buff Helmet, Santa Hat, Blue Dynasty Circlet.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -914,7 +746,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_rabbit_ear_i00',
     'name' => 'Rabbit Ears',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -927,7 +759,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_rabbit_ear_i00',
     'name' => 'Rabbit Ears',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -940,7 +772,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_racoon_ear_i00',
     'name' => 'Raccoon Ears',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -953,7 +785,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_racoon_ear_i00',
     'name' => 'Raccoon Ears',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -966,7 +798,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_cat_ear_i00',
     'name' => 'Cat Ears',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -979,7 +811,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_cat_ear_i00',
     'name' => 'Cat Ears',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -992,7 +824,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1005,7 +837,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_romantic_chaperon_i00',
     'name' => 'Romantic Chapeau',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1015,10 +847,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39668 => 
   [
     'item_id' => 39668,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1028,10 +860,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39669 => 
   [
     'item_id' => 39669,
-    'icon' => 'Accessary_angel_circlet_i00',
+    'icon' => 'accessary_angel_circlet_i00',
     'name' => 'Angel Circlet',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1041,10 +873,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39670 => 
   [
     'item_id' => 39670,
-    'icon' => 'Accessary_demon_circlet_i00',
-    'name' => 'Devil Circlet',
+    'icon' => 'accessary_demon_circlet_i00',
+    'name' => 'Demon Circlet',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1054,10 +886,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39671 => 
   [
     'item_id' => 39671,
-    'icon' => 'Accessary_demon_circlet_i00',
-    'name' => 'Devil Circlet',
+    'icon' => 'accessary_demon_circlet_i00',
+    'name' => 'Demon Circlet',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1068,9 +900,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39672,
     'icon' => 'accessory_eye_bandage_i00',
-    'name' => 'Pirate\'s Eyepatch',
+    'name' => 'Pirates Eyepatch',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1081,9 +913,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39673,
     'icon' => 'accessory_eye_bandage_i00',
-    'name' => 'Pirate\'s Eyepatch',
+    'name' => 'Pirates Eyepatch',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1094,9 +926,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39674,
     'icon' => 'accessory_outlaw_eyepatch_i00',
-    'name' => 'Outlaw\'s Eyepatch',
+    'name' => 'Outlaws Eyepatch',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1107,9 +939,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39675,
     'icon' => 'accessory_outlaw_eyepatch_i00',
-    'name' => 'Outlaw\'s Eyepatch',
+    'name' => 'Outlaws Eyepatch',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1119,10 +951,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39676 => 
   [
     'item_id' => 39676,
-    'icon' => 'Accessary_one_eye_i00',
+    'icon' => 'accessary_one_eye_i00',
     'name' => 'Eyepatch',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1132,10 +964,10 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   39677 => 
   [
     'item_id' => 39677,
-    'icon' => 'Accessary_one_eye_i00',
+    'icon' => 'accessary_one_eye_i00',
     'name' => 'Eyepatch',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1148,7 +980,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_party_hat_i00',
     'name' => 'Party Hat',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1161,7 +993,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_party_hat_i00',
     'name' => 'Party Hat',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1174,7 +1006,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_angel_ring_i00',
     'name' => 'Refined Angel Ring',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1187,7 +1019,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_angel_ring_i00',
     'name' => 'Refined Angel Ring',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1200,7 +1032,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_devil_horn_i00',
     'name' => 'Refined Devil Horn',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1213,7 +1045,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_devil_horn_i00',
     'name' => 'Refined Devil Horn',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1226,7 +1058,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'london_olympic_hair',
     'name' => 'Red Horns',
     'additionalname' => 'LUC (Event]',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1239,7 +1071,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'london_olympic_hair',
     'name' => 'Red Horns',
     'additionalname' => 'CHA (Event]',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1252,7 +1084,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'br_rocket_cap_i00',
     'name' => '9th Anniversary Rocket Gun Hat: Chain Fireworks',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1265,7 +1097,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'br_rocket_cap_i00',
     'name' => '9th Anniversary Rocket Gun Hat: Chain Fireworks',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1276,9 +1108,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39688,
     'icon' => 'accessory_hairpin_i00',
-    'name' => 'Lady\'s Hairpin',
+    'name' => 'Ladys Hairpin',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1289,9 +1121,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39689,
     'icon' => 'accessory_hairpin_i00',
-    'name' => 'Lady\'s Hairpin',
+    'name' => 'Ladys Hairpin',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1304,7 +1136,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'etc_party_mask_i00',
     'name' => 'Party Mask',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1317,7 +1149,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'etc_party_mask_i00',
     'name' => 'Party Mask',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1330,7 +1162,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_glasses_i00',
     'name' => 'Monocle',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1343,7 +1175,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_glasses_i00',
     'name' => 'Monocle',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1354,9 +1186,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39694,
     'icon' => 'accessory_maidens_hairpin_i00',
-    'name' => 'Maiden\'s Hairpin',
+    'name' => 'Maidens Hairpin',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1367,9 +1199,9 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
   [
     'item_id' => 39695,
     'icon' => 'accessory_maidens_hairpin_i00',
-    'name' => 'Maiden\'s Hairpin',
+    'name' => 'Maidens Hairpin',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1382,7 +1214,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_forget_me_not_hairpin_i00',
     'name' => 'Forget-me-not Hairpin',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1395,7 +1227,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_forget_me_not_hairpin_i00',
     'name' => 'Forget-me-not Hairpin',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1408,7 +1240,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_daisy_hairpin_i00',
     'name' => 'Daisy Hairpin',
     'additionalname' => 'LUC',
-    'description' => 'LUC + 3.',
+    'description' => 'LUC +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1421,7 +1253,7 @@ Cannot be used in the Olympiad or Ceremony of Chaos. Cannot be modified, crystal
     'icon' => 'accessory_daisy_hairpin_i00',
     'name' => 'Daisy Hairpin',
     'additionalname' => 'CHA',
-    'description' => 'CHA + 3.',
+    'description' => 'CHA +3 when equipped.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

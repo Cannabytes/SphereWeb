@@ -3,9 +3,9 @@
   [
     'item_id' => 35100,
     'icon' => 'weapon_R99_spear_pvp_i10',
-    'name' => 'Dark Amaranthine Stormer',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Multi-attack additionally increases.',
+    'name' => 'Dark Helios Stormer',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -16,9 +16,9 @@
   [
     'item_id' => 35101,
     'icon' => 'weapon_R99_bow_pvp_i10',
-    'name' => 'Dark Amaranthine Thrower',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Skill Power increases.',
+    'name' => 'Dark Helios Thrower',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -29,9 +29,9 @@
   [
     'item_id' => 35102,
     'icon' => 'weapon_R99_crossbow_pvp_i10',
-    'name' => 'Dark Amaranthine Shooter',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Atk. Spd. Increases.',
+    'name' => 'Dark Helios Guardian',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -42,9 +42,9 @@
   [
     'item_id' => 35103,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i10',
-    'name' => 'Dark Amaranthine Buster',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'name' => 'Dark Helios Buster',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -55,9 +55,9 @@
   [
     'item_id' => 35104,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i10',
-    'name' => 'Dark Amaranthine Caster',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'name' => 'Dark Helios Caster',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -68,9 +68,9 @@
   [
     'item_id' => 35105,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i10',
-    'name' => 'Dark Amaranthine Retributer',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'name' => 'Dark Helios Retributer',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -81,9 +81,9 @@
   [
     'item_id' => 35106,
     'icon' => 'weapon_R99_dual_sword_pvp_i10',
-    'name' => 'Dark Amaranthine Dualsword',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'name' => 'Dark Helios Dual Swords',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -94,9 +94,9 @@
   [
     'item_id' => 35107,
     'icon' => 'weapon_R99_dual_dagger_pvp_i10',
-    'name' => 'Dark Amaranthine Dual Dagger',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'name' => 'Dark Helios Dual Daggers',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -107,9 +107,9 @@
   [
     'item_id' => 35108,
     'icon' => 'weapon_R99_dual_blunt_pvp_i10',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'name' => 'Dark Helios Dual Blunt Weapons',
+    'additionalname' => NULL,
+    'description' => 'PvP damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -120,10 +120,9 @@
   [
     'item_id' => 35109,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -134,10 +133,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35110,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -148,10 +146,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35111,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Focus ',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 81.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +81.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -162,10 +159,9 @@ Critical increases by 81.9. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35112,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP enchant type item. When equipped, PvP Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%%. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -176,10 +172,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35113,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -190,10 +185,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35114,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Health',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP enchant type item. When equipped, PvP Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -204,10 +198,9 @@ Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35115,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -218,10 +211,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35116,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -232,10 +224,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35117,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -246,10 +237,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35118,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
+    'name' => 'Dark Helios Avenger',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -260,10 +250,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35119,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
+    'name' => 'Dark Helios Avenger',
     'additionalname' => 'Critical Damage',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +1232 after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -274,10 +263,9 @@ P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted d
   [
     'item_id' => 35120,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
+    'name' => 'Dark Helios Avenger',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -288,10 +276,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35121,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 75.5. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +75.5. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -302,10 +289,9 @@ Critical increases by 75.5. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35122,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -316,10 +302,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35123,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -330,10 +315,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35124,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'HP Drain',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Recovers 4% of standard physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance to absorb 4% of the inflicted damage as HP. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -344,10 +328,9 @@ Recovers 4% of standard physical damage inflicted upon the enemy as HP. Increase
   [
     'item_id' => 35125,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -358,10 +341,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35126,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -372,10 +354,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35127,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
+    'name' => 'Dark Helios Thrower',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -386,10 +367,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35128,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
+    'name' => 'Dark Helios Thrower',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -400,10 +380,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35129,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
+    'name' => 'Dark Helios Thrower',
     'additionalname' => 'Long Blow',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Attack range increases. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases the attack range. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -414,10 +393,9 @@ Attack range increases. Increases damage inflicted during PvP. When enchanted to
   [
     'item_id' => 35130,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -428,10 +406,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35131,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Critical Slow',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Chance of casting Slow during a Critical Attack. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement>  Has a chance to inflict Slow on the target after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -442,10 +419,9 @@ Chance of casting Slow during a Critical Attack. Increases damage inflicted duri
   [
     'item_id' => 35132,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -456,10 +432,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35133,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -470,10 +445,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35134,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Magic Hold',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
- 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. With a certain chance, increases Casting Spd. when the character is attacked. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -484,10 +458,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35135,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Mana Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max MP +30%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -498,10 +471,9 @@ Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35136,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Empower',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -512,10 +484,9 @@ M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35137,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -526,10 +497,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35138,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Magic Hold',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
- 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -540,10 +510,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35139,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'MP Regeneration',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-MP Recovery Rate increases. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases MP Recovery Rate. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -554,10 +523,9 @@ MP Recovery Rate increases. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35140,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -568,10 +536,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35141,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'Empower',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -582,10 +549,9 @@ M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35142,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -596,10 +562,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35143,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -610,10 +575,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35144,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Health',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -624,10 +588,9 @@ Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35145,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -638,10 +601,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35146,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -652,10 +614,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35147,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -666,10 +627,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35148,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -680,10 +640,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35149,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -694,10 +653,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35150,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -708,10 +666,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35151,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Guidance + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 8. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +8, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -722,10 +679,9 @@ Accuracy increases by 8. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35152,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 81.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Critical Rate +81.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -736,10 +692,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 81.9. Increases damage i
   [
     'item_id' => 35153,
     'icon' => 'weapon_R99_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Shaper',
+    'name' => 'Dark Helios Shaper',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -750,10 +705,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35154,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. Increases +15%. P. Critical Rate +78.7. Increases damage inflicted during PvP. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -764,10 +718,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35155,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Focus + Health',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 75.4. Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +75.4. Max HP +25%. Increases damage inflicted during PvP. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -778,10 +731,9 @@ Critical increases by 75.4. Max HP increases by 25%. Increases damage inflicted 
   [
     'item_id' => 35156,
     'icon' => 'weapon_R99_onehand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Cutter',
+    'name' => 'Dark Helios Cutter',
     'additionalname' => 'Health + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -792,10 +744,9 @@ Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35157,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Focus + Damage',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -806,10 +757,9 @@ Critical increases by 78.7. P. Atk. Increases by 415. Increases damage inflicted
   [
     'item_id' => 35158,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Damage Up + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -820,10 +770,9 @@ P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inf
   [
     'item_id' => 35159,
     'icon' => 'weapon_R99_twohand_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Slasher',
+    'name' => 'Dark Helios Slasher',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -834,10 +783,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35160,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
-    'additionalname' => 'Haste + Critical Damage',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'name' => 'Dark Helios Avenger',
+    'additionalname' => 'Guidance + Critical Damage',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Atk. +1232 after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -848,10 +796,9 @@ Atk. Spd. Increases by about 15%. P. Atk. Increases by 1232 during a critical at
   [
     'item_id' => 35161,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
+    'name' => 'Dark Helios Avenger',
     'additionalname' => 'Critical Damage + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 1232 during a critical attack. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +1232 after a critical attack. P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -862,10 +809,9 @@ P. Atk. Increases by 1232 during a critical attack. Critical increases by 78.7. 
   [
     'item_id' => 35162,
     'icon' => 'weapon_R99_onehand_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Avenger',
+    'name' => 'Dark Helios Avenger',
     'additionalname' => 'Focus + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -876,10 +822,9 @@ Critical increases by 78.7. Atk. Spd. Increases by about 15%. Increases damage i
   [
     'item_id' => 35163,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Focus + Damage',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 81.9. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +81.9. P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -890,10 +835,9 @@ Critical increases by 81.9. P. Atk. Increases by 415. Increases damage inflicted
   [
     'item_id' => 35164,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Damage Up + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -904,10 +848,9 @@ P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inf
   [
     'item_id' => 35165,
     'icon' => 'weapon_R99_fist_pvp_i11',
-    'name' => 'Dark Amaranthine Fighter',
+    'name' => 'Dark Helios Fighter',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 75.5. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Critical Rate +75.5. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -918,10 +861,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 75.5. Increases damage i
   [
     'item_id' => 35166,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'HP Drain + Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance to absorb 4% of the inflicted damage as HP. P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -932,10 +874,9 @@ Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Ac
   [
     'item_id' => 35167,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'Guidance + Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.8, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -946,10 +887,9 @@ Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35168,
     'icon' => 'weapon_R99_spear_pvp_i11',
-    'name' => 'Dark Amaranthine Stormer',
+    'name' => 'Dark Helios Stormer',
     'additionalname' => 'Damage Up + HP Drain',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvP Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Turns 4% of inflicted physical damage to HP. Inflicts additional PvP Damage. When enchanted to +4, lets you attack multiple enemies.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -960,10 +900,9 @@ P. Atk. Increases by 415. Recovers 4% of standard melee physical damage inflicte
   [
     'item_id' => 35169,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
+    'name' => 'Dark Helios Thrower',
     'additionalname' => 'Damage Up + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -974,10 +913,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35170,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
+    'name' => 'Dark Helios Thrower',
     'additionalname' => 'Focus + Long Blow',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Attack range increases. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Increases the attack range. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -988,10 +926,9 @@ Critical increases by 78.7. Attack range increases. Increases damage inflicted d
   [
     'item_id' => 35171,
     'icon' => 'weapon_R99_bow_pvp_i11',
-    'name' => 'Dark Amaranthine Thrower',
-    'additionalname' => 'Long Blow + Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Attack range increases. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'name' => 'Dark Helios Thrower',
+    'additionalname' => 'Long Blow +Damage Up',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases the attack range. P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1002,10 +939,9 @@ Attack range increases. P. Atk. Increases by 415. Increases damage inflicted dur
   [
     'item_id' => 35172,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Focus + Critical Slow',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Chance of casting Slow during a Critical Attack. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Has a chance to inflict Slow the target after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1016,10 +952,9 @@ Critical increases by 78.7. Chance of casting Slow during a Critical Attack. Inc
   [
     'item_id' => 35173,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Critical Slow + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Chance of casting Slow during a Critical Attack. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance to inflict Slow the target after a critical attack. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1030,10 +965,9 @@ Chance of casting Slow during a Critical Attack. Atk. Spd. Increases by about 15
   [
     'item_id' => 35174,
     'icon' => 'weapon_R99_crossbow_pvp_i11',
-    'name' => 'Dark Amaranthine Shooter',
+    'name' => 'Dark Helios Guardian',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1044,10 +978,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35175,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Acumen + Magic Hold',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1058,10 +991,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35176,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Magic Hold + Mana Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-20% chance of casting Dryad Root on the target during magic use. Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Max MP +30%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1072,10 +1004,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35177,
     'icon' => 'weapon_R99_onehand_magic_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Buster',
+    'name' => 'Dark Helios Buster',
     'additionalname' => 'Mana Up + Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max MP increases by 30%. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max MP +30%. Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1086,10 +1017,9 @@ Max MP increases by 30%. Magic Casting Spd. Increases by 15%. Increases damage i
   [
     'item_id' => 35178,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Empower + Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460, Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1100,10 +1030,9 @@ M. Atk. Increases by 460. Magic Casting Spd. Increases by 15%. Increases damage 
   [
     'item_id' => 35179,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Acumen + Magic Hold',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1114,10 +1043,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35180,
     'icon' => 'weapon_R99_onehand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Caster',
+    'name' => 'Dark Helios Caster',
     'additionalname' => 'Magic Hold + Empower',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-20% chance of casting Dryad Root on the target during magic use. M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1128,10 +1056,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35181,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'MP Regeneration + Acumen',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-MP Recovery Rate increases. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases MP Recovery Rate. Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1142,10 +1069,9 @@ MP Recovery Rate increases. Magic Casting Spd. Increases by 15%. Increases damag
   [
     'item_id' => 35182,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'Acumen + Empower',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1156,10 +1082,9 @@ Casting Spd. Increases by 15%. M. Atk. Increases by 460. Increases damage inflic
   [
     'item_id' => 35183,
     'icon' => 'weapon_R99_twohand_magic_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Retributer',
+    'name' => 'Dark Helios Retributer',
     'additionalname' => 'Empower + MP Regeneration',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 322. MP Recovery rate increases. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +322. Increases MP Recovery Rate. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1170,10 +1095,9 @@ M. Atk. Increases by 322. MP Recovery rate increases. Increases damage inflicted
   [
     'item_id' => 35184,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Haste + Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1184,10 +1108,9 @@ Atk. Spd. Increases by about 15%. P. Atk. Increases by 415. Increases damage inf
   [
     'item_id' => 35185,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Damage Up + Health',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1198,10 +1121,9 @@ P. Atk. Increases by 415. Max HP increases by 25%. Increases damage inflicted du
   [
     'item_id' => 35186,
     'icon' => 'weapon_R99_dual_sword_pvp_i11',
-    'name' => 'Dark Amaranthine Dualsword',
+    'name' => 'Dark Helios Dual Swords',
     'additionalname' => 'Health + Haste',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1212,10 +1134,9 @@ Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35187,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Damage Up + Focus',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1226,10 +1147,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35188,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1240,10 +1160,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35189,
     'icon' => 'weapon_R99_dual_dagger_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Dagger',
+    'name' => 'Dark Helios Dual Daggers',
     'additionalname' => 'Guidance + Damage Up ',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9, P. Atk. Increases by +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1254,10 +1173,9 @@ Accuracy increases by 7.9. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35190,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1268,10 +1186,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35191,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Guidance + Damage Up',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.8, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1282,10 +1199,9 @@ Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35192,
     'icon' => 'weapon_R99_dual_blunt_pvp_i11',
-    'name' => 'Dark Amaranthine Dual Blunt Weapon',
+    'name' => 'Dark Helios Dual Blunt Weapons',
     'additionalname' => 'Damage Up + Focus ',
-    'description' => 'PvP enchant type item. When equipped, damage to a PC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvP damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1296,9 +1212,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35193,
     'icon' => 'weapon_R99_dagger_pve_i00',
-    'name' => 'Bloody Amaranthine Shaper',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Critical Damage increases.',
+    'name' => 'Bloody Helios Shaper',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1309,9 +1225,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35194,
     'icon' => 'weapon_R99_onehand_sword_pve_i00',
-    'name' => 'Bloody Amaranthine Cutter',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'name' => 'Bloody Helios Cutter',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1322,9 +1238,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35195,
     'icon' => 'weapon_R99_twohand_sword_pve_i00',
-    'name' => 'Bloody Amaranthine Slasher',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Atk. additionally increases.',
+    'name' => 'Bloody Helios Slasher',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1335,9 +1251,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35196,
     'icon' => 'weapon_R99_onehand_blunt_pve_i00',
-    'name' => 'Bloody Amaranthine Avenger',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Critical Damage increases.',
+    'name' => 'Bloody Helios Avenger',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1348,9 +1264,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35197,
     'icon' => 'weapon_R99_fist_pve_i00',
-    'name' => 'Bloody Amaranthine Fighter',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'name' => 'Bloody Helios Fighter',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1361,9 +1277,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35198,
     'icon' => 'weapon_R99_spear_pve_i00',
-    'name' => 'Bloody Amaranthine Stormer',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Multi-attack additionally increases.',
+    'name' => 'Bloody Helios Stormer',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1374,9 +1290,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35199,
     'icon' => 'weapon_R99_bow_pve_i00',
-    'name' => 'Bloody Amaranthine Thrower',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal.When enchanted to + 4, P. Skill Power increases.',
+    'name' => 'Bloody Helios Thrower',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

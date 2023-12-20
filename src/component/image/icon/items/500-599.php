@@ -2,10 +2,10 @@
   500 => 
   [
     'item_id' => 500,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Great Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -15,10 +15,10 @@
   501 => 
   [
     'item_id' => 501,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Armet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -28,10 +28,10 @@
   502 => 
   [
     'item_id' => 502,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Close Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -41,10 +41,10 @@
   503 => 
   [
     'item_id' => 503,
-    'icon' => 'armor_helmet_i00',
-    'name' => 'Zubei\'s Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_helmet_i00.webp',
+    'name' => 'Zubeis Helmet',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -54,10 +54,10 @@
   504 => 
   [
     'item_id' => 504,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Dragon Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -67,10 +67,10 @@
   505 => 
   [
     'item_id' => 505,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Wolf Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -80,10 +80,10 @@
   506 => 
   [
     'item_id' => 506,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Shining Dragon Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -93,10 +93,10 @@
   507 => 
   [
     'item_id' => 507,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helmet of Victory',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -106,10 +106,10 @@
   508 => 
   [
     'item_id' => 508,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helmet of Valor',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -119,10 +119,10 @@
   509 => 
   [
     'item_id' => 509,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Glorious Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -132,10 +132,10 @@
   510 => 
   [
     'item_id' => 510,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Red Flame Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -145,10 +145,10 @@
   511 => 
   [
     'item_id' => 511,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Elven Crystal Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -158,10 +158,10 @@
   512 => 
   [
     'item_id' => 512,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Dark Crystal Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -171,10 +171,10 @@
   513 => 
   [
     'item_id' => 513,
-    'icon' => 'armor_leather_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Implosion Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -184,10 +184,10 @@
   514 => 
   [
     'item_id' => 514,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Dark Dragon Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -197,10 +197,10 @@
   515 => 
   [
     'item_id' => 515,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Elven Vagian Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -210,10 +210,10 @@
   516 => 
   [
     'item_id' => 516,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Dark Vagian Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -223,10 +223,10 @@
   517 => 
   [
     'item_id' => 517,
-    'icon' => 'armor_leather_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Compound Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -236,10 +236,10 @@
   518 => 
   [
     'item_id' => 518,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Twilight Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -249,10 +249,10 @@
   519 => 
   [
     'item_id' => 519,
-    'icon' => 'armor_leather_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Art of Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -262,10 +262,10 @@
   520 => 
   [
     'item_id' => 520,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Masterpiece Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -275,10 +275,10 @@
   521 => 
   [
     'item_id' => 521,
-    'icon' => 'armor_leather_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helmet of Silence',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -288,10 +288,10 @@
   522 => 
   [
     'item_id' => 522,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Gust Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -301,10 +301,10 @@
   523 => 
   [
     'item_id' => 523,
-    'icon' => 'armor_leather_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Prairie Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -314,10 +314,10 @@
   524 => 
   [
     'item_id' => 524,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helm of Underworld',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -327,10 +327,10 @@
   525 => 
   [
     'item_id' => 525,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Helmet of Concentration',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -340,10 +340,10 @@
   526 => 
   [
     'item_id' => 526,
-    'icon' => 'armor_circlet_i00',
-    'name' => 'Ace\'s Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_circlet_i00.webp',
+    'name' => 'Aces Helmet',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -353,10 +353,10 @@
   527 => 
   [
     'item_id' => 527,
-    'icon' => 'armor_helmet_i00',
-    'name' => 'Guardian\'s Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_helmet_i00.webp',
+    'name' => 'Guardians Helmet',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -366,10 +366,10 @@
   528 => 
   [
     'item_id' => 528,
-    'icon' => 'armor_circlet_i00',
+    'icon' => 'armor_circlet_i00.webp',
     'name' => 'Marksman Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -379,10 +379,10 @@
   529 => 
   [
     'item_id' => 529,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Cap of Mana',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -392,10 +392,10 @@
   530 => 
   [
     'item_id' => 530,
-    'icon' => 'armor_cloth_helmet_i00',
-    'name' => 'Sage\'s Cap',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_cloth_helmet_i00.webp',
+    'name' => 'Sages Cap',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -405,10 +405,10 @@
   531 => 
   [
     'item_id' => 531,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Paradia Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -418,10 +418,10 @@
   532 => 
   [
     'item_id' => 532,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Inferno Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -431,10 +431,10 @@
   533 => 
   [
     'item_id' => 533,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Solar Eclipse',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -444,10 +444,10 @@
   534 => 
   [
     'item_id' => 534,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Black Ore Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -457,10 +457,10 @@
   535 => 
   [
     'item_id' => 535,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Summoning Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -470,10 +470,10 @@
   536 => 
   [
     'item_id' => 536,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Otherworldly Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -483,10 +483,10 @@
   537 => 
   [
     'item_id' => 537,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Elemental Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -496,10 +496,10 @@
   538 => 
   [
     'item_id' => 538,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Phantom',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -509,10 +509,10 @@
   539 => 
   [
     'item_id' => 539,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Grace',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -522,10 +522,10 @@
   540 => 
   [
     'item_id' => 540,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Holy Spirit',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -535,10 +535,10 @@
   541 => 
   [
     'item_id' => 541,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Phoenix Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -548,10 +548,10 @@
   542 => 
   [
     'item_id' => 542,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Cerberus Hood',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -561,10 +561,10 @@
   543 => 
   [
     'item_id' => 543,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Aid',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -574,10 +574,10 @@
   544 => 
   [
     'item_id' => 544,
-    'icon' => 'armor_cloth_helmet_i00',
+    'icon' => 'armor_cloth_helmet_i00.webp',
     'name' => 'Hood of Blessing',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -587,10 +587,10 @@
   545 => 
   [
     'item_id' => 545,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Flame Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -600,10 +600,10 @@
   546 => 
   [
     'item_id' => 546,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helm of Bravery',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -613,10 +613,10 @@
   547 => 
   [
     'item_id' => 547,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Tallum Helmet',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -626,10 +626,10 @@
   548 => 
   [
     'item_id' => 548,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Absolute Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -639,10 +639,10 @@
   549 => 
   [
     'item_id' => 549,
-    'icon' => 'armor_helmet_i00',
-    'name' => 'Helm of Avadon',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_helmet_i00.webp',
+    'name' => 'Avadon Helm',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -652,10 +652,10 @@
   550 => 
   [
     'item_id' => 550,
-    'icon' => 'armor_helmet_i00',
-    'name' => 'Helm of Doom',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_helmet_i00.webp',
+    'name' => 'Doom Helmet',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -665,10 +665,10 @@
   551 => 
   [
     'item_id' => 551,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Helmet of Pledge',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -678,10 +678,10 @@
   552 => 
   [
     'item_id' => 552,
-    'icon' => 'armor_helmet_i00',
+    'icon' => 'armor_helmet_i00.webp',
     'name' => 'Divine Helm',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -691,10 +691,10 @@
   553 => 
   [
     'item_id' => 553,
-    'icon' => 'armor_t10_b_i00',
+    'icon' => 'armor_t10_b_i00.webp',
     'name' => 'Iron Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -704,10 +704,10 @@
   554 => 
   [
     'item_id' => 554,
-    'icon' => 'armor_t64_b_i02',
-    'name' => 'Sealed Zubei\'s Boots',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t64_b_i02.webp',
+    'name' => 'Sealed Zubeis Boots',
+    'additionalname' => NULL,
+    'description' => 'Old and not very useful equipment.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -717,10 +717,10 @@
   555 => 
   [
     'item_id' => 555,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Dragon Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -730,10 +730,10 @@
   556 => 
   [
     'item_id' => 556,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Wolf Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -743,10 +743,10 @@
   557 => 
   [
     'item_id' => 557,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Shining Dragon Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -756,10 +756,10 @@
   558 => 
   [
     'item_id' => 558,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Victory',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -769,10 +769,10 @@
   559 => 
   [
     'item_id' => 559,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Valor',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -782,10 +782,10 @@
   560 => 
   [
     'item_id' => 560,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Glorious Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -795,10 +795,10 @@
   561 => 
   [
     'item_id' => 561,
-    'icon' => 'armor_t14_b_i00',
+    'icon' => 'armor_t14_b_i00.webp',
     'name' => 'Red Flame Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -808,10 +808,10 @@
   562 => 
   [
     'item_id' => 562,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Elven Crystal Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -821,10 +821,10 @@
   563 => 
   [
     'item_id' => 563,
-    'icon' => 'armor_t15_b_i00',
+    'icon' => 'armor_t15_b_i00.webp',
     'name' => 'Dark Crystal Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -834,10 +834,10 @@
   564 => 
   [
     'item_id' => 564,
-    'icon' => 'armor_t68_b_i00',
+    'icon' => 'armor_t68_b_i00.webp',
     'name' => 'Implosion Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -847,10 +847,10 @@
   565 => 
   [
     'item_id' => 565,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Dark Dragon Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -860,10 +860,10 @@
   566 => 
   [
     'item_id' => 566,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Elven Vagian Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -873,10 +873,10 @@
   567 => 
   [
     'item_id' => 567,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Dark Vagian Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -886,10 +886,10 @@
   568 => 
   [
     'item_id' => 568,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => '_',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -899,10 +899,10 @@
   569 => 
   [
     'item_id' => 569,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Twilight Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -912,10 +912,10 @@
   570 => 
   [
     'item_id' => 570,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Art of Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -925,10 +925,10 @@
   571 => 
   [
     'item_id' => 571,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Masterpiece Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -938,10 +938,10 @@
   572 => 
   [
     'item_id' => 572,
-    'icon' => 'armor_t65_b_i00',
+    'icon' => 'armor_t65_b_i00.webp',
     'name' => 'Boots of Silence',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -951,10 +951,10 @@
   573 => 
   [
     'item_id' => 573,
-    'icon' => 'armor_t45_b_i00',
+    'icon' => 'armor_t45_b_i00.webp',
     'name' => 'Gust Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -964,10 +964,10 @@
   574 => 
   [
     'item_id' => 574,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Prairie Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -977,10 +977,10 @@
   575 => 
   [
     'item_id' => 575,
-    'icon' => 'armor_t10_b_i00',
+    'icon' => 'armor_t10_b_i00.webp',
     'name' => 'Boots of Underworld',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -990,10 +990,10 @@
   576 => 
   [
     'item_id' => 576,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Concentration',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1003,10 +1003,10 @@
   577 => 
   [
     'item_id' => 577,
-    'icon' => 'armor_iron_boots_i00',
-    'name' => 'Ace\'s Boots',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_iron_boots_i00.webp',
+    'name' => 'Aces Boots',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1016,10 +1016,10 @@
   578 => 
   [
     'item_id' => 578,
-    'icon' => 'armor_t67_b_i00',
-    'name' => 'Guardian\'s Boots',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_t67_b_i00.webp',
+    'name' => 'Guardians Boots',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1029,10 +1029,10 @@
   579 => 
   [
     'item_id' => 579,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Marksman Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1042,10 +1042,10 @@
   580 => 
   [
     'item_id' => 580,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Mana',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1055,10 +1055,10 @@
   581 => 
   [
     'item_id' => 581,
-    'icon' => 'armor_iron_boots_i00',
-    'name' => 'Sage\'s Boots',
-    'additionalname' => '',
-    'description' => '',
+    'icon' => 'armor_iron_boots_i00.webp',
+    'name' => 'Sages Boots',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1068,10 +1068,10 @@
   582 => 
   [
     'item_id' => 582,
-    'icon' => 'armor_t68_b_i00',
+    'icon' => 'armor_t68_b_i00.webp',
     'name' => 'Paradia Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1081,10 +1081,10 @@
   583 => 
   [
     'item_id' => 583,
-    'icon' => 'armor_t45_b_i00',
+    'icon' => 'armor_t45_b_i00.webp',
     'name' => 'Majestic Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1094,10 +1094,10 @@
   584 => 
   [
     'item_id' => 584,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Solar Eclipse',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1107,10 +1107,10 @@
   585 => 
   [
     'item_id' => 585,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Black Ore Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1120,10 +1120,10 @@
   586 => 
   [
     'item_id' => 586,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Summoning Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1133,10 +1133,10 @@
   587 => 
   [
     'item_id' => 587,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Otherworldly Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1146,10 +1146,10 @@
   588 => 
   [
     'item_id' => 588,
-    'icon' => 'armor_t71_b_i00',
+    'icon' => 'armor_t71_b_i00.webp',
     'name' => 'Elemental Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1159,10 +1159,10 @@
   589 => 
   [
     'item_id' => 589,
-    'icon' => 'armor_t45_b_i00',
+    'icon' => 'armor_t45_b_i00.webp',
     'name' => 'Boots of Phantom',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1172,10 +1172,10 @@
   590 => 
   [
     'item_id' => 590,
-    'icon' => 'armor_t71_b_i00',
+    'icon' => 'armor_t71_b_i00.webp',
     'name' => 'Boots of Grace',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1185,10 +1185,10 @@
   591 => 
   [
     'item_id' => 591,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Holy Spirit',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1198,10 +1198,10 @@
   592 => 
   [
     'item_id' => 592,
-    'icon' => 'armor_t44_b_i00',
+    'icon' => 'armor_t44_b_i00.webp',
     'name' => 'Phoenix Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1211,10 +1211,10 @@
   593 => 
   [
     'item_id' => 593,
-    'icon' => 'armor_t44_b_i00',
+    'icon' => 'armor_t44_b_i00.webp',
     'name' => 'Cerberus Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1224,10 +1224,10 @@
   594 => 
   [
     'item_id' => 594,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Aid',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1237,10 +1237,10 @@
   595 => 
   [
     'item_id' => 595,
-    'icon' => 'armor_t56_b_i00',
+    'icon' => 'armor_t56_b_i00.webp',
     'name' => 'Boots of Blessing',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1250,10 +1250,10 @@
   596 => 
   [
     'item_id' => 596,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Flame Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1263,10 +1263,10 @@
   597 => 
   [
     'item_id' => 597,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Boots of Bravery',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1276,10 +1276,10 @@
   598 => 
   [
     'item_id' => 598,
-    'icon' => 'armor_t45_b_i00',
+    'icon' => 'armor_t45_b_i00.webp',
     'name' => 'Tallum Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1289,10 +1289,10 @@
   599 => 
   [
     'item_id' => 599,
-    'icon' => 'armor_iron_boots_i00',
+    'icon' => 'armor_iron_boots_i00.webp',
     'name' => 'Absolute Boots',
-    'additionalname' => '',
-    'description' => '',
+    'additionalname' => NULL,
+    'description' => NULL,
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

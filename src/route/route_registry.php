@@ -283,7 +283,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->post('/admin/client/info', function (){
         validation::user_protection("admin");
-        Ofey\Logan22\component\image\client_icon::get_item_info($_POST['itemID'], true);
+        Ofey\Logan22\component\image\client_icon::get_item_info(json: true);
     });
     $route->get("/admin/support", 'Ofey\Logan22\controller\admin\index::support');
     $route->get("/admin/plugin", 'Ofey\Logan22\controller\admin\plugin::show');

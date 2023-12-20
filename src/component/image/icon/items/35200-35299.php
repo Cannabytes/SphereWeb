@@ -3,9 +3,9 @@
   [
     'item_id' => 35200,
     'icon' => 'weapon_R99_crossbow_pve_i00',
-    'name' => 'Bloody Amaranthine Shooter',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Atk. Spd. Increases.',
+    'name' => 'Bloody Helios Guardian',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -16,9 +16,9 @@
   [
     'item_id' => 35201,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i00',
-    'name' => 'Bloody Amaranthine Buster',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'name' => 'Bloody Helios Buster',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -29,9 +29,9 @@
   [
     'item_id' => 35202,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i00',
-    'name' => 'Bloody Amaranthine Caster',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'name' => 'Bloody Helios Caster',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -42,9 +42,9 @@
   [
     'item_id' => 35203,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i00',
-    'name' => 'Bloody Amaranthine Retributer',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'name' => 'Bloody Helios Retributer',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -55,9 +55,9 @@
   [
     'item_id' => 35204,
     'icon' => 'weapon_R99_dual_sword_pve_i00',
-    'name' => 'Bloody Amaranthine Dualsword',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'name' => 'Bloody Helios Dual Swords',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -68,9 +68,9 @@
   [
     'item_id' => 35205,
     'icon' => 'weapon_R99_dual_dagger_pve_i00',
-    'name' => 'Bloody Amaranthine Dual Dagger',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'name' => 'Bloody Helios Dual Daggers',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -81,9 +81,9 @@
   [
     'item_id' => 35206,
     'icon' => 'weapon_R99_dual_blunt_pve_i00',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
-    'additionalname' => '',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. Can bestow 2 regular Soul Crystals and 1 Special Soul Crystal. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
+    'additionalname' => NULL,
+    'description' => 'PvE damage +15%, Max HP/ MP/ CP +10%. 2 regular Soul Crystals and 1 special Soul Crystal can be inserted. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -94,10 +94,9 @@
   [
     'item_id' => 35207,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -108,10 +107,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35208,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -122,10 +120,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35209,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Focus ',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 81.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +81.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -136,10 +133,9 @@ Critical increases by 81.9. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35210,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'When equipped, PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%%. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -150,10 +146,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35211,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -164,10 +159,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35212,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Health',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'When equipped, PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -178,10 +172,9 @@ Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35213,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -192,10 +185,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35214,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -206,10 +198,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35215,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -220,10 +211,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35216,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
+    'name' => 'Bloody Helios Avenger',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -234,10 +224,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35217,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
+    'name' => 'Bloody Helios Avenger',
     'additionalname' => 'Critical Damage',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +1232 after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -248,10 +237,9 @@ P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted d
   [
     'item_id' => 35218,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
+    'name' => 'Bloody Helios Avenger',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -262,10 +250,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35219,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 75.5. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +75.5. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -276,10 +263,9 @@ Critical increases by 75.5. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35220,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -290,10 +276,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35221,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -304,10 +289,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35222,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'HP Drain',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Recovers 4% of standard physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance to absorb 4% of the inflicted damage as HP. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -318,10 +302,9 @@ Recovers 4% of standard physical damage inflicted upon the enemy as HP. Increase
   [
     'item_id' => 35223,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -332,10 +315,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35224,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -346,10 +328,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35225,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
+    'name' => 'Bloody Helios Thrower',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -360,10 +341,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35226,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
+    'name' => 'Bloody Helios Thrower',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -374,10 +354,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35227,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
+    'name' => 'Bloody Helios Thrower',
     'additionalname' => 'Long Blow',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Attack range increases. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases the attack range. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -388,10 +367,9 @@ Attack range increases. Increases damage inflicted during PvP. When enchanted to
   [
     'item_id' => 35228,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -402,10 +380,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35229,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Critical Slow',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Chance of casting Slow during a Critical Attack. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance of casting Slow after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -416,10 +393,9 @@ Chance of casting Slow during a Critical Attack. Increases damage inflicted duri
   [
     'item_id' => 35230,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -430,10 +406,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35231,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -444,10 +419,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35232,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Magic Hold',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
- 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. With a certain chance, increases Casting Spd. when the character is attacked. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -458,10 +432,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35233,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Mana Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max MP +30%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -472,10 +445,9 @@ Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35234,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Empower',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -486,10 +458,9 @@ M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35235,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -500,10 +471,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35236,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Magic Hold',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
- 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -514,10 +484,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35237,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'MP Regeneration',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-MP Recovery Rate increases. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases MP Recovery Rate. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -528,10 +497,9 @@ MP Recovery Rate increases. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35238,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -542,10 +510,9 @@ Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When encha
   [
     'item_id' => 35239,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'Empower',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -556,10 +523,9 @@ M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35240,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -570,10 +536,9 @@ Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When en
   [
     'item_id' => 35241,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -584,10 +549,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35242,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Health',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -598,10 +562,9 @@ Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted t
   [
     'item_id' => 35243,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -612,10 +575,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35244,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -626,10 +588,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35245,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -640,10 +601,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35246,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -654,10 +614,9 @@ Critical increases by 78.7. Increases damage inflicted during PvP. When enchante
   [
     'item_id' => 35247,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -668,10 +627,9 @@ Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted
   [
     'item_id' => 35248,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -682,10 +640,9 @@ P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted 
   [
     'item_id' => 35249,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Guidance + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 8. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +8, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -696,10 +653,9 @@ Accuracy increases by 8. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35250,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 81.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Critical Rate +81.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -710,10 +666,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 81.9. Increases damage i
   [
     'item_id' => 35251,
     'icon' => 'weapon_R99_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Shaper',
+    'name' => 'Bloody Helios Shaper',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -724,10 +679,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35252,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Critical Rate +78.7. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -738,10 +692,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35253,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Focus + Health',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 75.4. Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +75.4. Max HP +25%. Deals additional PvP damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -752,10 +705,9 @@ Critical increases by 75.4. Max HP increases by 25%. Increases damage inflicted 
   [
     'item_id' => 35254,
     'icon' => 'weapon_R99_onehand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Cutter',
+    'name' => 'Bloody Helios Cutter',
     'additionalname' => 'Health + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Accuracy and P. Critical Rate increase.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Accuracy and Critical Rate for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -766,10 +718,9 @@ Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35255,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Focus + Damage',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -780,10 +731,9 @@ Critical increases by 78.7. P. Atk. Increases by 415. Increases damage inflicted
   [
     'item_id' => 35256,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Damage Up + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -794,10 +744,9 @@ P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inf
   [
     'item_id' => 35257,
     'icon' => 'weapon_R99_twohand_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Slasher',
+    'name' => 'Bloody Helios Slasher',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -808,10 +757,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35258,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
-    'additionalname' => 'Haste + Critical Damage',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. P. Atk. Increases by 1232 during a critical attack. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'name' => 'Bloody Helios Avenger',
+    'additionalname' => 'Guidance + Critical Damage',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%. P. Atk. +1232 after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -822,10 +770,9 @@ Atk. Spd. Increases by about 15%. P. Atk. Increases by 1232 during a critical at
   [
     'item_id' => 35259,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
+    'name' => 'Bloody Helios Avenger',
     'additionalname' => 'Critical Damage + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 1232 during a critical attack. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +1232 after a critical attack. P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -836,10 +783,9 @@ P. Atk. Increases by 1232 during a critical attack. Critical increases by 78.7. 
   [
     'item_id' => 35260,
     'icon' => 'weapon_R99_onehand_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Avenger',
+    'name' => 'Bloody Helios Avenger',
     'additionalname' => 'Focus + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -850,10 +796,9 @@ Critical increases by 78.7. Atk. Spd. Increases by about 15%. Increases damage i
   [
     'item_id' => 35261,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Focus + Damage',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 81.9. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +81.9, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -864,10 +809,9 @@ Critical increases by 81.9. P. Atk. Increases by 415. Increases damage inflicted
   [
     'item_id' => 35262,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Damage Up + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -878,10 +822,9 @@ P. Atk. Increases by 415. Atk. Spd. Increases by about 15%. Increases damage inf
   [
     'item_id' => 35263,
     'icon' => 'weapon_R99_fist_pve_i01',
-    'name' => 'Bloody Amaranthine Fighter',
+    'name' => 'Bloody Helios Fighter',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 75.5. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Critical Rate +75.5. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd. and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -892,10 +835,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 75.5. Increases damage i
   [
     'item_id' => 35264,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'HP Drain + Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9, absorbs 4% of the inflicted damage as HP. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -906,10 +848,9 @@ Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Ac
   [
     'item_id' => 35265,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'Guidance + Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.8, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases the number of targets attacked with a spear.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -920,10 +861,9 @@ Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35266,
     'icon' => 'weapon_R99_spear_pve_i01',
-    'name' => 'Bloody Amaranthine Stormer',
+    'name' => 'Bloody Helios Stormer',
     'additionalname' => 'Damage Up + HP Drain',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Recovers 4% of standard melee physical damage inflicted upon the enemy as HP. Increases damage inflicted during PvP. When enchanted to + 4, Multi-attack additionally increases.',
+    'description' => 'PvE Damage +15%, Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415. Turns 4% of inflicted physical damage to HP. Inflicts additional PvP Damage. When enchanted to +4, lets you attack multiple enemies.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -934,10 +874,9 @@ P. Atk. Increases by 415. Recovers 4% of standard melee physical damage inflicte
   [
     'item_id' => 35267,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
+    'name' => 'Bloody Helios Thrower',
     'additionalname' => 'Damage Up + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -948,10 +887,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35268,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
+    'name' => 'Bloody Helios Thrower',
     'additionalname' => 'Focus + Long Blow',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Attack range increases. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7, increases the attack range. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -962,10 +900,9 @@ Critical increases by 78.7. Attack range increases. Increases damage inflicted d
   [
     'item_id' => 35269,
     'icon' => 'weapon_R99_bow_pve_i01',
-    'name' => 'Bloody Amaranthine Thrower',
-    'additionalname' => 'Long Blow + Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Attack range increases. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases.',
+    'name' => 'Bloody Helios Thrower',
+    'additionalname' => 'Long Blow +Damage Up',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases the attack range. P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -976,10 +913,9 @@ Attack range increases. P. Atk. Increases by 415. Increases damage inflicted dur
   [
     'item_id' => 35270,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Focus + Critical Slow',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 78.7. Chance of casting Slow during a Critical Attack. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +78.7. Has a chance to inflict Slow after a critical attack. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -990,10 +926,9 @@ Critical increases by 78.7. Chance of casting Slow during a Critical Attack. Inc
   [
     'item_id' => 35271,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Critical Slow + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Chance of casting Slow during a Critical Attack. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a chance to inflict Slow on the target after a critical attack. Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1004,10 +939,9 @@ Chance of casting Slow during a Critical Attack. Atk. Spd. Increases by about 15
   [
     'item_id' => 35272,
     'icon' => 'weapon_R99_crossbow_pve_i01',
-    'name' => 'Bloody Amaranthine Shooter',
+    'name' => 'Bloody Helios Guardian',
     'additionalname' => 'Haste + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, Atk. Spd. Increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Atk. Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1018,10 +952,9 @@ Atk. Spd. Increases by about 15%. Critical increases by 78.7. Increases damage i
   [
     'item_id' => 35273,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Acumen + Magic Hold',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1032,10 +965,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35274,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Magic Hold + Mana Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-20% chance of casting Dryad Root on the target during magic use. Max MP increases by 30%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. Max MP +30%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1046,10 +978,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35275,
     'icon' => 'weapon_R99_onehand_magic_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Buster',
+    'name' => 'Bloody Helios Buster',
     'additionalname' => 'Mana Up + Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max MP increases by 30%. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Rate increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max MP +30%. Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Rate.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1060,10 +991,9 @@ Max MP increases by 30%. Magic Casting Spd. Increases by 15%. Increases damage i
   [
     'item_id' => 35276,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Empower + Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 460. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +460, Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1074,10 +1004,9 @@ M. Atk. Increases by 460. Magic Casting Spd. Increases by 15%. Increases damage 
   [
     'item_id' => 35277,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Acumen + Magic Hold',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target during magic use. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. Has a 20% chance of casting Dryad Root on the target after magic use. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1088,10 +1017,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35278,
     'icon' => 'weapon_R99_onehand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Caster',
+    'name' => 'Bloody Helios Caster',
     'additionalname' => 'Magic Hold + Empower',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-20% chance of casting Dryad Root on the target during magic use. M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, Magical Accuracy and M. Critical Damage increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Has a 20% chance of casting Dryad Root on the target after magic use. M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Accuracy and M. Skill Critical Damage.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1102,10 +1030,9 @@ Casting Spd. Increases by 15%. 20% chance of casting Dryad Root on the target du
   [
     'item_id' => 35279,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'MP Regeneration + Acumen',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-MP Recovery Rate increases. Magic Casting Spd. Increases by 15%. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Increases MP Recovery Rate. Casting Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1116,10 +1043,9 @@ MP Recovery Rate increases. Magic Casting Spd. Increases by 15%. Increases damag
   [
     'item_id' => 35280,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'Acumen + Empower',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Casting Spd. Increases by 15%. M. Atk. Increases by 460. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Casting Spd. +15%. M. Atk. +460. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1130,10 +1056,9 @@ Casting Spd. Increases by 15%. M. Atk. Increases by 460. Increases damage inflic
   [
     'item_id' => 35281,
     'icon' => 'weapon_R99_twohand_magic_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Retributer',
+    'name' => 'Bloody Helios Retributer',
     'additionalname' => 'Empower + MP Regeneration',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-M. Atk. Increases by 322. MP Recovery rate increases. Increases damage inflicted during PvP. When enchanted to + 4, M. Atk. M. Critical Damage, and Casting Spd. Increase.',
+    'description' => 'PvE Damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> M. Atk. +322. Increases MP Recovery Rate. Inflicts additional PvP Damage. When enchanted to +4, increases M. Atk., M. Skill Critical Damage, and Casting Spd.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1144,10 +1069,9 @@ M. Atk. Increases by 322. MP Recovery rate increases. Increases damage inflicted
   [
     'item_id' => 35282,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Haste + Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Atk. Spd. Increases by about 15%. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Atk. Spd. +15%, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1158,10 +1082,9 @@ Atk. Spd. Increases by about 15%. P. Atk. Increases by 415. Increases damage inf
   [
     'item_id' => 35283,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Damage Up + Health',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Max HP increases by 25%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1172,10 +1095,9 @@ P. Atk. Increases by 415. Max HP increases by 25%. Increases damage inflicted du
   [
     'item_id' => 35284,
     'icon' => 'weapon_R99_dual_sword_pve_i01',
-    'name' => 'Bloody Amaranthine Dualsword',
+    'name' => 'Bloody Helios Dual Swords',
     'additionalname' => 'Health + Haste',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Rate increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> Max HP +25%, Atk. Spd. +15%. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Rate for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1186,10 +1108,9 @@ Max HP increases by 25%. Atk. Spd. Increases by about 15%. Increases damage infl
   [
     'item_id' => 35285,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Damage Up + Focus',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1200,10 +1121,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35286,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1214,10 +1134,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35287,
     'icon' => 'weapon_R99_dual_dagger_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Dagger',
+    'name' => 'Bloody Helios Dual Daggers',
     'additionalname' => 'Guidance + Damage Up ',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.9. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Critical Damage increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.9, P. Atk. Increases by +415. Inflicts additional PvP Damage. When enchanted to +4, increases Critical Damage for standard attacks and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1228,10 +1147,9 @@ Accuracy increases by 7.9. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35288,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Focus + Guidance',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Critical Rate +79.2, P. Accuracy +7.9. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1242,10 +1160,9 @@ Critical increases by 79.2. Accuracy increases by 7.9. Increases damage inflicte
   [
     'item_id' => 35289,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Guidance + Damage Up',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Accuracy +7.8, P. Atk. +415. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1256,10 +1173,9 @@ Accuracy increases by 7.8. P. Atk. Increases by 415. Increases damage inflicted 
   [
     'item_id' => 35290,
     'icon' => 'weapon_R99_dual_blunt_pve_i01',
-    'name' => 'Bloody Amaranthine Dual Blunt Weapon',
+    'name' => 'Bloody Helios Dual Blunt Weapons',
     'additionalname' => 'Damage Up + Focus ',
-    'description' => 'PvE enchant type item. When equipped, damage to an NPC + 15% and Max HP/MP/CP + 10%. <Soul Crystal Enhancement>
-P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted during PvP. When enchanted to + 4, P. Skill Power increases and P. Atk. additionally increases.',
+    'description' => 'PvE damage +15% and Max HP/ MP/ CP +10%.  <Soul Crystal Enhancement> P. Atk. +415, P. Critical Rate +78.7. Inflicts additional PvP Damage. When enchanted to +4, increases P. Skill Power and P. Atk.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1271,7 +1187,7 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
     'item_id' => 35291,
     'icon' => 'honor_shirt_i00',
     'name' => 'Glorious T-shirt',
-    'additionalname' => '',
+    'additionalname' => NULL,
     'description' => 'Glorious T-shirt. HP increases by 465.',
     'is_trade' => 1,
     'is_drop' => 1,
@@ -1283,22 +1199,22 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35292,
     'icon' => 'etc_scroll_of_return_i00',
-    'name' => 'Scroll of Escape: Guillotine Fortress',
-    'additionalname' => '',
+    'name' => 'Scroll of Escape: Guillotine Fortress',
+    'additionalname' => NULL,
     'description' => 'Magical scroll that relocates you to the Guillotine Fortress. Cannot be sold in shops.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
-    'crystal_type' => 'none',
+    'crystal_type' => 'crystal_free',
     'consume_type' => 'consume_type_stackable',
   ],
   35293 => 
   [
     'item_id' => 35293,
     'icon' => 'accessory_bracelet_of_tauti_i01',
-    'name' => 'Tauti\'s Bracelet',
-    'additionalname' => '',
-    'description' => 'MP + 216. Activates 5 talisman slots when equipped.',
+    'name' => 'Tautis Bracelet',
+    'additionalname' => NULL,
+    'description' => 'MP +216, unlocks 5 talisman slots.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1309,9 +1225,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35294,
     'icon' => 'accessory_bangel_of_tauti_i01',
-    'name' => 'Enhanced Tauti\'s Bracelet',
-    'additionalname' => '',
-    'description' => 'Tauti\'s Bracelet with refined abilities. Activates 5 talisman slots when equipped. MP + 216, Str + 1, Int + 1.',
+    'name' => 'Enhanced Tautis Bracelet',
+    'additionalname' => NULL,
+    'description' => 'Enhanced Tautis Bracelet. Unlocks 5 talisman slots when equipped. MP +216, STR +1, INT +1.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1322,9 +1238,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35295,
     'icon' => 'etc_fruit_juice_glass_bottle_i08',
-    'name' => 'Bottle of Tauti\'s Soul',
-    'additionalname' => '',
-    'description' => 'Bottle containing Tauti\'s Soul. Tauti\'s Soul can be bestowed on Tauti\'s Bracelet.',
+    'name' => 'Bottle of Tautis Soul',
+    'additionalname' => NULL,
+    'description' => 'Bottle containing Tautis Soul. Tautis Soul can be bestowed on Tautis Bracelet.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1335,9 +1251,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35296,
     'icon' => 'etc_vesper_shaper_piece_i00',
-    'name' => 'Specter Shaper Fragment',
-    'additionalname' => '',
-    'description' => 'Main ingredient for making a Specter Shaper.',
+    'name' => 'Corroded Specter Shaper Fragment',
+    'additionalname' => NULL,
+    'description' => 'Not used anymore. Can be sold to any shop.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1348,9 +1264,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35297,
     'icon' => 'etc_vesper_cutter_piece_i00',
-    'name' => 'Specter Cutter Fragment',
-    'additionalname' => '',
-    'description' => 'Main ingredient for making a Specter Cutter.',
+    'name' => 'Corroded Specter Cutter Fragment',
+    'additionalname' => NULL,
+    'description' => 'Not used anymore. Can be sold to any shop.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1361,9 +1277,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35298,
     'icon' => 'etc_vesper_slasher_piece_i00',
-    'name' => 'Specter Slasher Fragment',
-    'additionalname' => '',
-    'description' => 'Main ingredient for making a Specter Slasher.',
+    'name' => 'Corroded Specter Slasher Fragment',
+    'additionalname' => NULL,
+    'description' => 'Not used anymore. Can be sold to any shop.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,
@@ -1374,9 +1290,9 @@ P. Atk. Increases by 415. Critical increases by 78.7. Increases damage inflicted
   [
     'item_id' => 35299,
     'icon' => 'etc_vesper_avenger_piece_i00',
-    'name' => 'Specter Avenger Fragment',
-    'additionalname' => '',
-    'description' => 'Main ingredient for making a Specter Avenger.',
+    'name' => 'Corroded Specter Avenger Fragment',
+    'additionalname' => NULL,
+    'description' => 'Not used anymore. Can be sold to any shop.',
     'is_trade' => 1,
     'is_drop' => 1,
     'is_destruct' => 1,

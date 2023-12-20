@@ -3,11 +3,9 @@
   [
     'item_id' => 34300,
     'icon' => 'weapon_colichemarde_i01',
-    'name' => 'Player Commendation - Colichemarde (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Colichemarde (Water] with limited ability enhancement. <Special Option>
-Critical increases by 64.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Colichemarde (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Colichemarde (Water], upgrade options are limited. <Special Option> P. Critical Rate +64. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -18,11 +16,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34301,
     'icon' => 'weapon_colichemarde_i01',
-    'name' => 'Player Commendation - Colichemarde (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Colichemarde (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 64.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Colichemarde (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Colichemarde (Wind], upgrade options are limited. <Special Option> P. Critical Rate +64. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -33,11 +29,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34302,
     'icon' => 'weapon_colichemarde_i01',
-    'name' => 'Player Commendation - Colichemarde (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Colichemarde (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 64.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Colichemarde (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Colichemarde (Fire], upgrade options are limited. <Special Option> P. Critical Rate +64. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -48,11 +42,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34303,
     'icon' => 'weapon_colichemarde_i01',
-    'name' => 'Player Commendation - Colichemarde (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Colichemarde (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 64.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Colichemarde (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Colichemarde (Holy], upgrade options are limited. <Special Option> P. Critical Rate +64. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -63,11 +55,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34304,
     'icon' => 'weapon_colichemarde_i01',
-    'name' => 'Player Commendation - Colichemarde (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Colichemarde (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 64.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Colichemarde (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Colichemarde (Dark], upgrade options are limited. <Special Option> P. Critical Rate +64. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -78,10 +68,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34305,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Earth] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Earth] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Earth] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Earth], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -92,10 +81,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34306,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Water] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Water] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Water] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Water], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -106,10 +94,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34307,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Wind] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Wind] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Wind] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Wind], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -120,10 +107,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34308,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Fire] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Fire] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Fire] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Fire], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -134,10 +120,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34309,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Holy] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Holy] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Holy] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Holy], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -148,10 +133,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34310,
     'icon' => 'weapon_tears_of_wizard_i01',
-    'name' => 'Player Commendation - Wizard\'s Tear (Dark] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Wizard\'s Tear (Dark] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Wizards Tear (Dark] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Wizards Tear (Dark], upgrade options are limited. <Special properties> Casting Spd. +15%. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -162,10 +146,9 @@ Increases Casting Spd. by 15%. Expiratory. Cannot be crystallized or granted fun
   [
     'item_id' => 34311,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Earth] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Earth] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Earth] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Earth], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -176,10 +159,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34312,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Water] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Water] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Water] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Water], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -190,10 +172,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34313,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Wind] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Wind] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Wind] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Wind], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -204,10 +185,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34314,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Fire] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Fire] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Fire] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Fire], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -218,10 +198,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34315,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Holy] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Holy] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Holy] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Holy], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -232,10 +211,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34316,
     'icon' => 'weapon_hazard_bow_i01',
-    'name' => 'Player Commendation - Bow of Peril (Dark] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Bow of Peril (Dark] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Bow of Peril (Dark] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Bow of Peril (Dark], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -246,10 +224,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34317,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Earth] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Earth] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Earth] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Earth], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -260,10 +237,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34318,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Water] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Water] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Water] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Water], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -274,10 +250,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34319,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Wind] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Wind] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Wind] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Wind], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -288,10 +263,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34320,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Fire] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Fire] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Fire] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Fire], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -302,10 +276,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34321,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Holy] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Holy] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Holy] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Holy], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -316,10 +289,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34322,
     'icon' => 'weapon_hell_hound_i01',
-    'name' => 'Player Commendation - Hell Hound (Dark] - Quick Recovery',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Hell Bound (Dark] with limited ability enhancement. <Special Option>
-Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Hell Hound (Dark] - Quick Recovery',
+    'additionalname' => 'PA',
+    'description' => 'Hell Hound (Dark], upgrade options are limited. <Special Option> Skill Cooldown is about -13%. Expiratory. Cannot be crystallized. Can be enchanted only.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -330,10 +302,9 @@ Cooldown decreases by about 13%. Expiratory. Cannot be crystallized or granted f
   [
     'item_id' => 34323,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Earth] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Earth] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Earth] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Earth] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -344,10 +315,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34324,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Water] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Water] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Water] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Water] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -358,10 +328,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34325,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Wind] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Wind] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Wind] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Wind] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -372,10 +341,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34326,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Fire] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Fire] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Fire] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Fire] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -386,10 +354,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34327,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Holy] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Holy] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Holy] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Holy] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -400,10 +367,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34328,
     'icon' => 'weapon_naga_storm_i01',
-    'name' => 'Player Commendation - Naga Storm (Dark] - Critical Damage',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Naga Storm (Dark] with limited ability enhancement. <Special Option>
-P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Nagas Storm (Dark] - Critical Damage',
+    'additionalname' => 'PA',
+    'description' => 'Nagas Storm (Dark] with limited ability enhancement. <Special Option> P. Atk. +200 after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -414,10 +380,9 @@ P. Atk. + 200 during a Critical Attack. Increases damage inflicted during PvP. E
   [
     'item_id' => 34329,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Earth] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Earth] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Earth] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Earth], upgrade options are limited. <Special properties> Casting Spd. +15%. Deals additional PvP damage. Time-limited item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -428,10 +393,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34330,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Water] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Water] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Water] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Water] with limited ability enhancement. <Special Option> Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -442,10 +406,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34331,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Wind] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Wind] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Wind] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Wind] with limited ability enhancement. <Special Option> Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -456,10 +419,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34332,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Fire] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Fire] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Fire] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Fire] with limited ability enhancement. <Special Option> Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -470,10 +432,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34333,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Holy] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Holy] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Holy] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Holy] with limited ability enhancement. <Special Option> Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -484,10 +445,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34334,
     'icon' => 'weapon_crystal_of_deamon_i01',
-    'name' => 'Player Commendation - Daimon Crystal (Dark] - Acumen',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Daimon Crystal (Dark] with limited ability enhancement. <Special Option>
-Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Daimon Crystal (Dark] - Acumen',
+    'additionalname' => 'PA',
+    'description' => 'Daimon Crystal (Dark] with limited ability enhancement. <Special Option> Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -498,10 +458,9 @@ Increases Casting Spd. by 15%. Increases damage inflicted during PvP. Expiratory
   [
     'item_id' => 34335,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Earth], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -512,10 +471,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34336,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Water] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Water], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -526,10 +484,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34337,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Wind], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -540,10 +497,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34338,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Fire], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -554,10 +510,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34339,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Holy], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -568,10 +523,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34340,
     'icon' => 'weapon_barakiel_axe_i01',
-    'name' => 'Player Commendation - Barakiel\'s Axe (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Barakiel\'s Axe (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Barakiels Axe (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Barakiels Axe (Dark], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -582,10 +536,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34341,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Earth], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -596,10 +549,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34342,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Water] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Water], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -610,10 +562,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34343,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Wind], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -624,10 +575,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34344,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Fire], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -638,10 +588,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34345,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Holy], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -652,10 +601,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34346,
     'icon' => 'weapon_soul_shooter_i01',
-    'name' => 'Player Commendation - Screaming Vengeance (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Screaming Vengeance (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Screaming Vengeance (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Screaming Vengeance (Dark], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -666,10 +614,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34347,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Earth], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -680,10 +627,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34348,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Water] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Water], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -694,10 +640,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34349,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Wind], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -708,10 +653,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34350,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Fire], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -722,10 +666,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34351,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Holy], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -736,10 +679,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34352,
     'icon' => 'weapon_death_bringer_i01',
-    'name' => 'Player Commendation - Durendal (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Durendal (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Durendal (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Durendal (Dark], upgrade options are limited. <Special properties> P. Critical Rate +61. Inflicts additional PvP damage. Time-limited. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -750,10 +692,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34353,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Earth] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Earth] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Earth] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Earth] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -764,10 +705,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34354,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Water] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Water] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Water] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Water] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -778,10 +718,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34355,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Wind] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Wind] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Wind] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Wind] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -792,10 +731,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34356,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Fire] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Fire] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Fire] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Fire] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -806,10 +744,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34357,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Holy] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Holy] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Holy] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Holy] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -820,10 +757,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34358,
     'icon' => 'weapon_tuning_fork_of_behemoth_i01',
-    'name' => 'Player Commendation - Behemoth\' Tuning Fork (Dark] - Health',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Behemoth\' Tuning Fork (Dark] with limited ability enhancement. <Special Option>
-Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Behemoth Tuning Fork (Dark] - Health',
+    'additionalname' => 'PA',
+    'description' => 'Behemoth Tuning Fork (Dark] with limited ability enhancement. <Special Option> Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -834,10 +770,9 @@ Increases Max HP by 25%. Increases damage inflicted during PvP. Expiratory. Cann
   [
     'item_id' => 34359,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Earth], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -848,10 +783,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34360,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Water] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Water], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -862,10 +796,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34361,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Wind], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -876,10 +809,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34362,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Fire], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -890,10 +822,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34363,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Holy], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -904,10 +835,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34364,
     'icon' => 'weapon_shyid_bow_i01',
-    'name' => 'Player Commendation - Shyeed\'s Bow (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Shyeed\'s Bow (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Shyeeds Bow (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Shyeeds Bow (Dark], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -918,10 +848,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34365,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Earth] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Earth] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Earth] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Earth], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -932,10 +861,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34366,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Water] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Water] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Water] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Water], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -946,10 +874,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34367,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Wind] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Wind] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Wind] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Wind], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -960,10 +887,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34368,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Fire] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Fire] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Fire] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Fire], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -974,10 +900,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34369,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Holy] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Holy] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Holy] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Holy], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -988,10 +913,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34370,
     'icon' => 'weapon_sword_of_ipos_i01',
-    'name' => 'Player Commendation - Sword of Ipos (Dark] - Focus',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sword of Ipos (Dark] with limited ability enhancement. <Special Option>
-Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sword of Ipos (Dark] - Focus',
+    'additionalname' => 'PA',
+    'description' => 'Sword of Ipos (Dark], upgrade options are limited. <Special Option> P. Critical Rate +61. Inflicts additional PvP Damage. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1002,10 +926,9 @@ Critical increases by 61. Increases damage inflicted during PvP. Expiratory. Can
   [
     'item_id' => 34371,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Earth] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Earth] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Earth] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Earth] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1016,10 +939,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34372,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Water] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Water] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Water] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Water] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1030,10 +952,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34373,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Wind] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Wind] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Wind] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Wind] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1044,10 +965,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34374,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Fire] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Fire] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Fire] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Fire] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1058,10 +978,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34375,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Holy] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Holy] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Holy] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Holy] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1072,10 +991,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34376,
     'icon' => 'weapon_sobekk_hurricane_i01',
-    'name' => 'Player Commendation - Sobekk\'s Hurricane (Dark] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sobekk\'s Hurricane (Dark] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sobekks Hurricane (Dark] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sobekks Hurricane (Dark] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1086,10 +1004,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34377,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Earth] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Earth] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Earth] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Earth] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1100,10 +1017,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34378,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Water] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Water] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Water] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Water] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1114,10 +1030,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34379,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Wind] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Wind] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Wind] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Wind] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1128,10 +1043,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34380,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Fire] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Fire] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Fire] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Fire] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1142,10 +1056,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34381,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Holy] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Holy] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Holy] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Holy] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1156,10 +1069,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34382,
     'icon' => 'weapon_sirr_blade_i01',
-    'name' => 'Player Commendation - Sirra\'s Blade (Dark] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Sirra\'s Blade (Dark] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Sirras Blade (Dark] - Haste',
+    'additionalname' => 'PA',
+    'description' => 'Sirras Blade (Dark] with limited ability enhancement. <Special Option> Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1170,11 +1082,9 @@ Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP. Expirato
   [
     'item_id' => 34383,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Earth] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Earth] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Earth] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Earth], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1185,11 +1095,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34384,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Water] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Water] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Water] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Water], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1200,11 +1108,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34385,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Wind] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Wind] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Wind] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Wind], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1215,11 +1121,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34386,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Fire] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Fire] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Fire] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Fire], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1230,11 +1134,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34387,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Holy] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Holy] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Holy] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Holy], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1245,11 +1147,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34388,
     'icon' => 'weapon_greed_stinger_i01',
-    'name' => 'Player Commendation - Éclair Bijou (Dark] - Haste',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Éclair Bijou (Dark] with limited ability enhancement. <Special Option>
-Increases Atk. Spd. by about 6%. Increases damage inflicted during PvP.
-When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and received healing amount, and decreasing MP consumption for skill use for you and your party members during a Critical Attack. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - ?clair Bijou (Dark] - Haste',
+    'additionalname' => 'PA',
+    'description' => '?clair Bijou (Dark], upgrade options are limited. <Special Option> Atk. Spd. +6%. Inflicts additional PvP Damage. When enchanted to +4 or higher, it has a chance to increase P./ M. Atk., Received Healing, and decrease Skill MP consumption for you and your party members after a critical attack. Expiratory. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1260,10 +1160,9 @@ When enchanted to 4 or more, it Has a chance of increasing P. Atk., M. Atk., and
   [
     'item_id' => 34389,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Earth] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Earth] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Earth] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Earth] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1274,10 +1173,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34390,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Water] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Water] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Water] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Water] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1288,10 +1186,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34391,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Wind] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Wind] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Wind] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Wind] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1302,10 +1199,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34392,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Fire] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Fire] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Fire] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Fire] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1316,10 +1212,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34393,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Holy] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Holy] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Holy] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Holy] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1330,10 +1225,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34394,
     'icon' => 'weapon_tiphon_spear_i01',
-    'name' => 'Player Commendation - Tiphon\'s Spear (Dark] - Critical Stun',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tiphon\'s Spear (Dark] with limited ability enhancement. <Special Option>
-Has about a 25% chance Stunning the target during a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tiphons Spear (Dark] - Critical Stun',
+    'additionalname' => 'PA',
+    'description' => 'Tiphons Spear (Dark] with limited ability enhancement. <Special Option> Has about a 25% chance Stunning the target after a Critical Attack. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with PA Enchant Scrolls.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1344,9 +1238,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34395,
     'icon' => 'weapon_dual_sword_i00',
-    'name' => 'Player Commendation - Tallum Blade*Damascus (Earth]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tallum Blade*Damascus (Earth] with limited ability enhancement. P. Atk. Increases more when enchanted with a two-handed sword, two-handed blunt, or fist weapon rather than with a regular one-handed sword. When enchanted to 4 or more, increases Atk. Spd. by 8%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tallum Blade Damascus Sword (Earth]',
+    'additionalname' => 'PA',
+    'description' => 'Tallum Blade Damascus Sword (Earth], upgrade options are limited. When enchanting dual swords, two-handed swords/ blunts, and fists, the P. Atk. bonus is higher than that of one-handed weapons. Starting from +4, Atk. Spd. +8%, PvP damage is increased. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1357,9 +1251,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34396,
     'icon' => 'weapon_dual_sword_i00',
-    'name' => 'Player Commendation - Tallum Blade*Damascus (Water]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tallum Blade*Damascus (Water] with limited ability enhancement. P. Atk. Increases more when enchanted with a two-handed sword, two-handed blunt, or fist weapon rather than with a regular one-handed sword. When enchanted to 4 or more, increases Atk. Spd. by 8%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tallum Blade Damascus Sword (Water]',
+    'additionalname' => 'PA',
+    'description' => 'Tallum Blade Damascus Sword (Water], upgrade options are limited. When enchanting dual swords, two-handed swords/ blunts, and fists, the P. Atk. bonus is higher than that of one-handed weapons. Starting from +4, Atk. Spd. +8%, PvP damage is increased. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1370,9 +1264,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34397,
     'icon' => 'weapon_dual_sword_i00',
-    'name' => 'Player Commendation - Tallum Blade*Damascus (Wind]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tallum Blade*Damascus (Wind] with limited ability enhancement. P. Atk. Increases more when enchanted with a two-handed sword, two-handed blunt, or fist weapon rather than with a regular one-handed sword. When enchanted to 4 or more, increases Atk. Spd. by 8%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tallum Blade Damascus Sword (Wind]',
+    'additionalname' => 'PA',
+    'description' => 'Tallum Blade Damascus Sword (Wind], upgrade options are limited. When enchanting dual swords, two-handed swords/ blunts, and fists, the P. Atk. bonus is higher than that of one-handed weapons. Starting from +4, Atk. Spd. +8%, PvP damage is increased. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1383,9 +1277,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34398,
     'icon' => 'weapon_dual_sword_i00',
-    'name' => 'Player Commendation - Tallum Blade*Damascus (Fire]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tallum Blade*Damascus (Fire] with limited ability enhancement. P. Atk. Increases more when enchanted with a two-handed sword, two-handed blunt, or fist weapon rather than with a regular one-handed sword. When enchanted to 4 or more, increases Atk. Spd. by 8%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tallum Blade Damascus Sword (Fire]',
+    'additionalname' => 'PA',
+    'description' => 'Tallum Blade Damascus Sword (Fire], upgrade options are limited. When enchanting dual swords, two-handed swords/ blunts, and fists, the P. Atk. bonus is higher than that of one-handed weapons. Starting from +4, Atk. Spd. +8%, PvP damage is increased. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
@@ -1396,9 +1290,9 @@ Has about a 25% chance Stunning the target during a Critical Attack. Increases d
   [
     'item_id' => 34399,
     'icon' => 'weapon_dual_sword_i00',
-    'name' => 'Player Commendation - Tallum Blade*Damascus (Holy]',
-    'additionalname' => 'PC-exclusive',
-    'description' => 'Tallum Blade*Damascus (Holy] with limited ability enhancement. P. Atk. Increases more when enchanted with a two-handed sword, two-handed blunt, or fist weapon rather than with a regular one-handed sword. When enchanted to 4 or more, increases Atk. Spd. by 8%. Increases damage inflicted during PvP. Expiratory. Cannot be crystallized or granted functions besides enchantment. This item cannot be enhanced except with Destiny Enchant Scrolls.',
+    'name' => 'PA - Tallum Blade Damascus Sword (Holy]',
+    'additionalname' => 'PA',
+    'description' => 'Tallum Blade Damascus Sword (Holy], upgrade options are limited. When enchanting dual swords, two-handed swords/ blunts, and fists, the P. Atk. bonus is higher than that of one-handed weapons. Starting from +4, Atk. Spd. +8%, PvP damage is increased. Temporary item. Cannot be crystallized. Can only be enchanted.',
     'is_trade' => 0,
     'is_drop' => 0,
     'is_destruct' => 1,
