@@ -181,7 +181,7 @@ class tpl {
      * Загрузка языкового пакета шаблона
      */
     public static function lang_template_load($tpl) {
-        if(!is_dir(dirname($tpl))) {
+        if (!is_dir(dirname($tpl))) {
             return;
         }
         if (!file_exists($tpl)) {
@@ -190,13 +190,19 @@ class tpl {
         lang::load_template_lang_packet($tpl);
     }
 
+    private static $pluginsLoad = null;
+
     private static function generalfunc(Environment $twig = null): Environment {
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));
+        $twig->addFilter(new TwigFilter('file_exists', function ($filePath) {
+            return file_exists($filePath);
+        }));
+
 
         $twig->addFunction(new TwigFunction('template', function ($var = null) {
             return str_replace(["//",
                 "\\",
-            ], "/", fileSys::localdir(self::$templatePath . $var) );
+            ], "/", fileSys::localdir(self::$templatePath . $var));
         }));
 
         $twig->registerUndefinedFunctionCallback(function ($name) {
@@ -219,8 +225,41 @@ class tpl {
             }
         }));
 
+        $twig->addFunction(new TwigFunction('get_plugins_include', function ($includeName) {
+            if (self::$pluginsLoad == null) {
+                $plugins = fileSys::dir_list("src/component/plugins");
+                foreach ($plugins as $key => $value) {
+                    if (!file_exists("src/component/plugins/$value/settings.php")) {
+                        unset($plugins[$key]);
+                    }
+                }
+                foreach ($plugins as $key => $value) {
+                    $setting = include "src/component/plugins/$value/settings.php";
+                    if (isset($setting['PLUGIN_HIDE'])) {
+                        if ($setting['PLUGIN_HIDE']) {
+                            unset($plugins[$key]);
+                            continue;
+                        }
+                    }
+                    if (!isset($setting['INCLUDES'])) {
+                        unset($plugins[$key]);
+                        continue;
+                    }
+                    self::$pluginsLoad = $setting;
+                }
+            }
+            $templates = [];
+            foreach (self::$pluginsLoad['INCLUDES'] as $key => $value) {
+                if($key==$includeName){
+                    $templates[] = $value;
+                }
+            }
+            return $templates;
+        }));
+
+
         $twig->addFunction(new TwigFunction('path', function ($link = "/") {
-            $link = sprintf("%s/%s", fileSys::getSubDir(), $link );
+            $link = sprintf("%s/%s", fileSys::getSubDir(), $link);
             return str_replace(['//', '\\'], '/', $link);
         }));
 
