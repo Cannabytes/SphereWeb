@@ -715,7 +715,7 @@ return [
     "list_code" => "List of generated bonus codes",
     "how_much_codes" => "How many codes do you want to generate?",
     "how_much_to_buy" => "How much to buy?",
-    "no_products " => "Unfortunately, there are no products in this store yet.",
+    "no_products" => "Unfortunately, there are no products in this store yet.",
     "empty" => "Empty",
     "cancel" => "Cancel",
     "rechanged_profile" => "Profile data change",
