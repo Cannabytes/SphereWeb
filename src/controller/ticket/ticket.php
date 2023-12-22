@@ -21,28 +21,28 @@ use Ofey\Logan22\template\tpl;
 class ticket {
 
     public static function all(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         tpl::addVar("tickets", ticket_model::all());
         tpl::addVar("category", "all");
         tpl::display("ticket/all.html");
     }
 
     public static function getOpenTickets(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         tpl::addVar("tickets", ticket_model::all("open"));
         tpl::addVar("category", "open");
         tpl::display("ticket/all.html");
     }
 
     public static function getCloseTickets(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         tpl::addVar("tickets", ticket_model::all("close"));
         tpl::addVar("category", "close");
         tpl::display("ticket/all.html");
     }
 
     public static function get($id) {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         $ticket = ticket_model::get_info($id);
         if(!$ticket){
             error::error404();
@@ -58,7 +58,7 @@ class ticket {
     }
 
     public static function search($word = ""): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         $error = "";
         if(empty($word)) {
             $error = lang::get_phrase(343);
@@ -78,53 +78,57 @@ class ticket {
     }
 
     public static function create(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         tpl::display("ticket/create.html");
     }
 
     public static function edit($ticket_id, $comment_id = null): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         $ticket = ticket_model::get_ticket($ticket_id);
         if($ticket == null) {
             redirect::location("/ticket");
         }
-        if($ticket['user_id'] != auth::get_id()) {
-            error::error404("Страница Вам недоступна.");
-        }
+
         tpl::addVar("ticket", ticket_model::get_info($ticket_id, false));
         if($comment_id != null) {
-            tpl::addVar("comment", ticket_model::get_comment($ticket_id, $comment_id));
+
+            $comment = ticket_model::get_comment($ticket_id, $comment_id);
+            if($comment['user_id'] != auth::get_id() AND auth::get_access_level()!="admin") {
+                error::error404("Страница Вам недоступна.");
+            }
+
+            tpl::addVar("comment", $comment);
             tpl::display("ticket/editcomment.html");
         }
         tpl::display("ticket/editticket.html");
     }
 
     public static function removeImage() {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         validation::user_protection();
         ticket_model::removeImage();
     }
 
     public static function add(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         ticket_model::add();
     }
 
     public static function addComment(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         ticket_model::addComment();
     }
 
     public static function close(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         $ticket_id = $_POST['ticketID'] ?? null;
@@ -141,7 +145,7 @@ class ticket {
     }
 
     public static function open(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         validation::user_protection();
         $ticket_id = $_POST['ticketID'] ?? null;
         if($ticket_id === null) {
@@ -157,14 +161,14 @@ class ticket {
     }
 
     public static function editComment(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         ticket_model::editComment();
     }
 
     public static function editTicket(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection();
         ticket_model::editTicket();
@@ -172,7 +176,7 @@ class ticket {
 
 
     public static function remove(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection("admin");
         $ticketID = $_POST['ticketID'] ?? null;
@@ -187,7 +191,7 @@ class ticket {
     }
 
     public static function removeComment(): void {
-        if(!config::getEnableReferral()) error::error404("Disabled");
+        if(!config::getEnableTicket()) error::error404("Disabled");
         if(auth::get_ban_ticket()) board::notice(false, "You are not allowed to do this");
         validation::user_protection("admin");
         $ticketID = $_POST['commentID'] ?? null;

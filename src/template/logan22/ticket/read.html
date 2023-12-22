@@ -36,14 +36,34 @@
                                 {% endfor %}
                             </div>
                         </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% if ticket.user_id == user_info('get_id') or user_info('get_access_level')=="admin" %}
+            <div class="block-content py-3 bg-body-light flex-grow-0">
+                <div class="row g-0 fs-sm text-center">
+                    <div class="col-4">
+                        <a class="text-muted fw-semibold ajaxload" href="/ticket/edit/{{ticket.id}}">
+                            <i class="fa fa-pencil-alt"></i> Редактировать
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a class="text-muted fw-semibold" data-bs-toggle="modal" data-bs-target="#removeTicket" data-ticket-id="{{ticket.id}}" href="javascript:void(0)">
+                            <i class="fa fa-times"></i> Удалить
+                        </a>
                     </div>
 
                 </div>
             </div>
-
+            {% endif %}
 
             {% for comment in ticket.comments %}
             {% block contentCommentTicket %}
+            <div class="commentBlock_{{comment.id}}" id="msg{{comment.id}}">
             <div class="block-content block-content-full border-top">
                 <div class="d-flex">
                     <img class="img-avatar img-avatar48 flex-shrink-0 me-3"
@@ -72,6 +92,27 @@
                     </div>
                 </div>
             </div>
+
+            {% if comment.user_id == user_info('get_id') or user_info('get_access_level')=="admin" %}
+            <div class="block-content py-3 bg-body-light flex-grow-0">
+                <div class="row g-0 fs-sm text-center">
+                    <div class="col-4">
+                        <a class="text-muted fw-semibold ajaxload" href="/ticket/edit/{{ticket.id}}/{{comment.id}}">
+                            <i class="fa fa-pencil-alt"></i> Редактировать
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a class="text-muted fw-semibold removeCommentTicket" data-bs-toggle="modal" data-bs-target="#removeCommentTicket" data-comment-id="{{comment.id}}" href="javascript:void(0)">
+                            <i class="fa fa-times"></i> Удалить
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endif %}
+
+            </div>
+
             {% endblock %}
             {% endfor %}
 
@@ -121,6 +162,63 @@
         </div>
 
 
+    </div>
+</div>
+
+
+<div class="modal fade" id="removeTicket" tabindex="-1" role="dialog" aria-labelledby="removeTicket" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Подтверждение</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content ">
+                    Вы действительно хотите удалить весь тикет
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Отмена
+                    </button>
+                    <button type="button" id="deleteTicket" data-ticket-id="{{ticket.id}}" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        Удалить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="removeCommentTicket" tabindex="-1" role="dialog" aria-labelledby="removeCommentTicket" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Подтверждение</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content ">
+                    Вы действительно хотите удалить сообщение?
+                </div>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Отмена
+                    </button>
+                    <button type="button" id="deleteTicketComment" data-comment-id="" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        Удалить
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

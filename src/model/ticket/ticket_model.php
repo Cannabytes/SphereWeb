@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\ticket;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\time\time;
@@ -68,7 +69,6 @@ class ticket_model {
         }
 
         $files = $_FILES['files'] ?? null;
-
         if ($content === null && $files === null) {
             board::notice(false, lang::get_phrase(341));
             return;
@@ -89,7 +89,7 @@ class ticket_model {
         if ($files !== null) {
             self::processFiles($files, $ticket_ID, false);
         }
-        notification::toAdmin("New ticket", "ticket/{$ticket_ID}");
+        notification::toAdmin("New Ticket", "/ticket/{$ticket_ID}");
         $ticket = ticket_model::get_info($ticket_ID);
         tpl::addVar([
             "ticket" => $ticket,
@@ -112,8 +112,8 @@ class ticket_model {
         $count = count($files['name']);
         if ($count > 5) {
             board::notice(false, lang::get_phrase(342));
-            return;
         }
+
         for ($i = 0; $i < $count; $i++) {
             $handle = new Upload($files['tmp_name'][$i]);
             if ($handle->uploaded) {
@@ -157,11 +157,10 @@ class ticket_model {
                             $filename . ".webp",
                         ]);
                     } else {
-                        sql::run("INSERT INTO `tickets_image` (`user_id`, `image`, `ticket_id`, `date`) VALUES (?, ?, ?, ?)", [
+                        sql::run("INSERT INTO `tickets_image` (`user_id`, `image`, `ticket_id`) VALUES (?, ?, ?)", [
                             auth::get_id(),
                             $filename . ".webp",
                             $ticketID,
-                            time::mysql(),
                         ]);
                     }
                 }
@@ -193,8 +192,14 @@ class ticket_model {
         if (sql::run("SELECT `ticket_id` FROM `tickets_comment` WHERE id=?", [$commentID])) {
             if ($images = sql::run("SELECT `image` FROM `tickets_comment_image` WHERE comment_id=?;", [$commentID])) {
                 foreach ($images as $src) {
-                    unlink("uploads/tickets/{$src['image']}");
-                    unlink("uploads/tickets/thumb_{$src['image']}");
+                    $file = fileSys::localdir("uploads/tickets/{$src['image']}");
+                    $thumb_file = fileSys::localdir("uploads/tickets/thumb_{$src['image']}");
+                    if (file_exists($file)) {
+                        unlink($file);
+                    }
+                    if (file_exists($thumb_file)) {
+                        unlink($thumb_file);
+                    }
                 }
             }
             sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$commentID]);
@@ -215,16 +220,16 @@ class ticket_model {
                 sql::run("DELETE FROM `tickets_comment` WHERE `ticket_id` = ?", [$ticket_id]);
                 $images = sql::run("SELECT `image` FROM `tickets_comment_image`;");
                 foreach ($images as $src) {
-                    unlink("uploads/tickets/{$src['image']}");
-                    unlink("uploads/tickets/thumb_{$src['image']}");
+                    unlink(fileSys::localdir("uploads/tickets/{$src['image']}"));
+                    unlink(fileSys::localdir("uploads/tickets/thumb_{$src['image']}"));
                 }
                 foreach ($comments as $comment) {
                     sql::run("DELETE FROM `tickets_comment_image` WHERE `comment_id` = ?", [$comment['id']]);
                 }
                 $images = sql::run("SELECT `image` FROM `tickets_image`;");
                 foreach ($images as $src) {
-                    unlink("uploads/tickets/{$src['image']}");
-                    unlink("uploads/tickets/thumb_{$src['image']}");
+                    unlink(fileSys::localdir("uploads/tickets/{$src['image']}"));
+                    unlink(fileSys::localdir("uploads/tickets/thumb_{$src['image']}"));
                 }
                 sql::run("DELETE FROM `tickets_image` WHERE `ticket_id` = ?", [$ticket_id]);
             }
@@ -309,6 +314,7 @@ class ticket_model {
             $images = self::processFiles($files, $comment_ID, true);
         }
         tpl::addVar([
+            "ticket" => $ticketInfo,
             "comment" => self::get_comment($ticketID, $comment_ID),
         ]);
 
@@ -340,6 +346,9 @@ class ticket_model {
             $ticket_id,
             $comment_id,
         ]);
+        if(!$data){
+            return false;
+        }
         $ticket_img = sql::getRows("SELECT * FROM tickets_comment_image WHERE comment_id = ?", [$comment_id]);
         $data['images'] = $ticket_img;
         return $data;
@@ -362,13 +371,16 @@ class ticket_model {
     //Если всё удалено - true
 
     public static function editComment(): void {
-        $ticket_id = $_POST['ticketID'];
-        $comment_id = $_POST['commentID'];
-        $content = $_POST['content'];
+        $ticket_id = $_POST['ticketID'] ?? board::error("Нет ticket ID");
+        $comment_id = $_POST['commentID'] ?? board::error("Нет comment ID");
+        $content = $_POST['content'] ?? board::error("Не отправлен контент");
         $files = $_FILES['files'] ?? null;
 
         $commentInfo = self::get_comment($ticket_id, $comment_id);
-        if ($commentInfo['user_id'] != auth::get_id()) {
+        if(!$commentInfo){
+            board::error("Возникла ошибка");
+        }
+        if ($commentInfo['user_id'] != auth::get_id() AND auth::get_access_level()!="admin") {
             board::notice(false, lang::get_phrase(366));
         }
 

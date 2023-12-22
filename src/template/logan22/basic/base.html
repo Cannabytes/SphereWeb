@@ -674,7 +674,7 @@
                         <ul class="nav-items my-2 fs-sm">
                             {% for notification in get_self_notification() %}
                             <li>
-                                <a class="text-dark d-flex py-2" href="{{action('{{notification.link}}')}}">
+                                <a class="text-dark d-flex py-2 ajaxload" href="{{dir}}{{ notification.link }}">
                                     <div class="flex-grow-1 pe-2 me-2 ms-3">
                                         <p class="fw-medium mb-1">{{notification.message}}</p>
                                         <div class="text-muted">{{ProhloVremya(notification.date)}}</div>

@@ -1,0 +1,55 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(355)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Block Tabs Animated Slide Up -->
+            <div class="block block-rounded overflow-hidden">
+
+                <div class="block-content tab-content overflow-hidden">
+                    <div >
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="mb-4">
+                                    <textarea class="form-control form-control-lg" id="content" placeholder="" rows="14">{{ticket.content}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                    <div>
+                                        <div class="block-content block-content-full">
+                                            <div class="row js-gallery img-fluid-100 g-sm">
+
+                                                {% for img in ticket.images %}
+                                                <div class="col-12 col-lg-6 animated fadeIn">
+                                                    <a class="img-link img-link-zoom-in img-thumb img-lightbox"
+                                                       href="{{get_ticket_img(img.image)}}">
+                                                        <img class="img-fluid" src="{{get_ticket_img(img.image, true)}}" alt="">
+                                                    </a>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="mb-4">
+                                <button id="saveEditTicket" data-ticket-id="{{ticket.id}}" type="button" class="btn btn-primary">
+                                    <i class="opacity-50 me-1"></i> {{phrase("apply")}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

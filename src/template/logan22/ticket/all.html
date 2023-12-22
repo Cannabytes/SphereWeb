@@ -29,7 +29,7 @@
                             <table class="table table-sm table-vcenter">
                                 {% for ticket in tickets %}
                                 <tr>
-                                    <td style="width: 50px;">
+                                    <td style="width: 0%;">
                                         {% if ticket.close %}<span class="badge bg-info">{{phrase(360)}}</span>{% endif %}
                                     </td>
                                     <td> {% if ticket.private == true and ticket.user_id != user_info('get_id') and user_info('get_access_level')!="admin" %}
@@ -100,5 +100,6 @@
     </div>
 </div>
 </div>
+
 
 {% endblock %}
