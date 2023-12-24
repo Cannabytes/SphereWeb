@@ -249,12 +249,14 @@ class tpl {
                 }
             }
             $templates = [];
-            foreach (self::$pluginsLoad['INCLUDES'] as $key => $value) {
-                if($key==$includeName){
-                    $templates[] = $value;
-                }
+            if(isset(self::$pluginsLoad['INCLUDES']) && is_array(self::$pluginsLoad['INCLUDES'])) {
+             foreach (self::$pluginsLoad['INCLUDES'] as $key => $value) {
+              if($key == $includeName){
+                 $templates[] = $value;
+              }
             }
-            return $templates;
+           }
+        return $templates;
         }));
 
 
