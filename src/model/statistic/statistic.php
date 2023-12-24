@@ -13,6 +13,7 @@ use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
 use Ofey\Logan22\component\chronicle\race_class;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
@@ -273,7 +274,11 @@ class statistic {
             foreach($inventory as $item) {
                 $itemInfo = client_icon::get_item_info($item['item_id'], false, false);
                 if(!$itemInfo){
-                    continue;
+                    $itemInfo = [
+                        "item_id" => $item['item_id'],
+                        "name" => "The item does not exist!",
+                        "icon" => fileSys::localdir("/uploads/images/icon/NOIMAGE.webp"),
+                    ];
                 }
                 $lex[] = $itemInfo;
             }

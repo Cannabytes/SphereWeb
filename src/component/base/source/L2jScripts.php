@@ -285,7 +285,7 @@ class L2jScripts implements structure {
                     LEFT JOIN clan_data ON castle.owner_id = clan_data.clan_id
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
-                    INNER JOIN characters ON clan_subpledges.leader_id = characters.obj_Id 
+                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id 
                 ORDER BY
                     clan_count_members DESC,
                     clan_data.reputation_score DESC 
@@ -415,35 +415,29 @@ character_subclasses.char_obj_id = ?';
 
     public static function statistic_top_class(): string {
         return 'SELECT
-                    characters.char_name AS player_name,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    clan_data.clan_level,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    clan_data.clan_id,
-                    ally_data.crest AS alliance_crest,
-                    clan_data.crest AS clan_crest,
-                    clan_data.reputation_score,
-                    characters.sex,
-                    characters.obj_Id AS player_id,
-                    character_subclasses.class_id,
-                    clan_subpledges.`name` AS clan_name 
-                FROM
-                    character_subclasses
-                    LEFT JOIN characters ON character_subclasses.char_obj_id = characters.obj_Id
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                    INNER JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
-                WHERE
-                    character_subclasses.class_id = ? AND
-                    character_subclasses.type = 0 AND
-                    characters.pvpkills > 0
-                GROUP BY
-                    characters.pvpkills 
-                ORDER BY
-                    characters.pvpkills DESC 
-                    LIMIT 100;';
+	characters.char_name AS player_name,
+	characters.pvpkills AS pvp,
+	characters.pkkills AS pk,
+	characters.onlinetime AS time_in_game,
+	character_subclasses.`level`,
+	clan_data.clan_id,
+	character_subclasses.class_id,
+	( ally_data.crest ) AS alliance_crest,
+	( clan_data.crest ) AS clan_crest,
+	( clan_data.reputation_score ) AS reputation_score 
+FROM
+	character_subclasses
+	LEFT JOIN characters ON character_subclasses.char_obj_id = characters.obj_Id
+	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+WHERE
+	character_subclasses.class_id = ? 
+ORDER BY
+	characters.pvpkills DESC,
+	character_subclasses.`level` DESC,
+	time_in_game DESC 
+	LIMIT 100;';
     }
 
     static public function is_player(): string {
@@ -472,39 +466,26 @@ character_subclasses.char_obj_id = ?';
 
     static public function account_players(): string {
         return 'SELECT
-                    characters.account_name AS account_name, 
-                    characters.char_name AS player_name, 
-                    characters.pvpkills AS pvp, 
-                    characters.pkkills AS pk, 
-                    clan_data.clan_level, 
-                    characters.`online`, 
-                    characters.onlinetime AS time_in_game, 
-                    clan_data.clan_id, 
-                    ally_data.crest AS alliance_crest, 
-                    clan_data.crest AS clan_crest, 
-                    clan_data.reputation_score, 
-                    characters.sex, 
-                    characters.obj_Id AS player_id, 
-                    character_subclasses.class_id, 
-                    clan_subpledges.`name` AS clan_name
+                    characters.account_name,
+                    characters.obj_id AS player_id,
+                    characters.char_name AS player_name,
+                    characters.karma,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.createtime,
+                    characters.title,
+                    characters.sex,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game,
+                    character_subclasses.class_id,
+                    character_subclasses.`level`,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest 
                 FROM
-                    character_subclasses
-                    LEFT JOIN
                     characters
-                    ON 
-                        character_subclasses.char_obj_id = characters.obj_Id
-                    LEFT JOIN
-                    clan_data
-                    ON 
-                        characters.clanid = clan_data.clan_id
-                    LEFT JOIN
-                    ally_data
-                    ON 
-                        clan_data.ally_id = ally_data.ally_id
-                    LEFT JOIN
-                    clan_subpledges
-                    ON 
-                        clan_data.clan_id = clan_subpledges.clan_id
+                    LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
                 WHERE
                     characters.account_name = ?;';
     }

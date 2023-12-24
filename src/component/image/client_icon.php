@@ -117,6 +117,9 @@ class client_icon {
     }
 
     public static function icon($fileIcon = null, $object = "icon") {
+        if ($fileIcon != null && pathinfo($fileIcon, PATHINFO_EXTENSION) === 'webp') {
+            $fileIcon = pathinfo($fileIcon, PATHINFO_FILENAME);
+        }
         return file_exists(fileSys::get_dir("/uploads/images/{$object}/" . $fileIcon . ".webp")) && $fileIcon != null ? fileSys::localdir("/uploads/images/{$object}/" . $fileIcon . ".webp") : fileSys::localdir("/uploads/images/icon/NOIMAGE.webp");
     }
 
