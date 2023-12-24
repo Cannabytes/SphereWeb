@@ -85,6 +85,9 @@ let phrase = {
         "not_dir": "There are no more folders here.<br>Click on the <Save> button and we will load the client here!",
         "file_upload": "File Upload",
         "file_comparison": "File comparison",
+        "stream": "Streams",
+        "countStream": "Number of streams",
+        "countStream_description": "Specify the number of files to download simultaneously",
     },
     "es": {
         "registration_account": "Registro de cuenta",
@@ -238,7 +241,7 @@ var word_file_upload;
 var word_file_comparison;
 var word_launcher;
 
-loadWorld()
+// loadWorld()
 
 function loadWorld() {
     let elementsWithDataPhrase = $('[data-phrase]');

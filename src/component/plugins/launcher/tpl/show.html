@@ -10,7 +10,7 @@
         <div class="modal-content">
             <div class="block block-rounded shadow-none mb-0">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Запуск лаунчера</h3>
+                    <h3 class="block-title">{{phrase("launch_game")}}</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
                             <i class="fa fa-times"></i>
@@ -18,23 +18,23 @@
                     </div>
                 </div>
                 <div class="block-content fs-sm">
-                    <p>Скачайте лаунчер и больше Вам не придется иметь под каждый сервер лаунчер.</p>
+                    <p>{{phrase("launcher_info")}}</p>
 
-                    <p>Если вы ранее загруружали лаунчер то просто запустите его.
+                    <p>{{phrase("launcher_info_2")}}
                     <button id="startLauncher" type="button" class="btn btn-sm btn-secondary me-1 mb-1 text-success">
-                        Запустить лаунчер
+                        {{phrase("start_launcher")}}
                     </button>
                     </p>
-                    <p>Если у Вас нет лаунчера, скачайте его.
+                    <p>{{phrase("if not launcher")}}
                         <br>
                         <button type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
-                            Скачайте лаунчер
+                            {{phrase("launcher_download")}}
                         </button>
                     </p>
                 </div>
                 <div class="block-content block-content-full block-content-sm text-end border-top">
                     <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
-                        Close
+                        {{phrase("close")}}
                     </button>
                 </div>
             </div>
@@ -48,13 +48,13 @@
         <div class="block-content block-content-full d-flex justify-content-between align-items-center">
             <div>
                 <button data-bs-toggle="modal" data-bs-target="#modal-start-launcher" type="button" class="btn btn-secondary me-1 mb-1">
-                    Запустить лаунчер
+                    {{phrase("launch_game")}}
                 </button>
             </div>
             <div>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">У Вас нет лаунчера?</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">{{phrase("dont have a launcher?")}}</a>
                 <a type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
-                Скачайте лаунчер
+                    {{phrase("launcher_download")}}
             </a>
             </div>
         </div>
@@ -234,12 +234,12 @@
                         <div class="block block-rounded block-link-shadow mb-3" href="javascript:void(0)">
                             <p class="fs-sm fw-medium text-muted float-sm-end mb-1">
                                 <button type="button" class="btn btn-alt-primary saveDirClient " data-bs-dismiss="modal" data-phrase="apply">
-                                    Применить
+                                    {{phrase("apply")}}
                                 </button>
 
                             </p>
                             <div class="text-start ">
-                                <label data-phrase="need_select_client_dir">Выберите папку клиента для 1232 </label> <b class="chronicle">High Five</b>
+                                <label data-phrase="need_select_client_dir">Выберите папку клиента для </label> <b class="chronicle">High Five</b>
                             </div>
                         </div>
                     </div>
@@ -267,33 +267,33 @@
                         <div class="block block-rounded row g-0 overflow-hidden">
                             <ul class="nav nav-tabs nav-tabs-block flex-md-column col-md-3 rounded-0" role="tablist">
                                 <li class="nav-item d-md-flex flex-md-column">
-                                    <button class="nav-link fs-sm text-md-start rounded-0 active " data-phrase="files" id="btabs-vertical-home-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-home" role="tab" aria-controls="btabs-vertical-home" aria-selected="true">
-                                        Файлы
+                                    <button class="nav-link fs-sm text-md-start rounded-0 active "  id="btabs-vertical-home-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-home" role="tab" aria-controls="btabs-vertical-home" aria-selected="true">
+                                        {{phrase("files")}}
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
-                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="autoload" id="btabs-vertical-profile-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-profile" role="tab" aria-controls="btabs-vertical-profile" aria-selected="false">
-                                        Автозагрузка
+                                    <button class="nav-link fs-sm text-md-start rounded-0 "  id="btabs-vertical-profile-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-profile" role="tab" aria-controls="btabs-vertical-profile" aria-selected="false">
+                                        {{phrase("autoload")}}
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
-                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="autoupdate_launcher" id="btabs-vertical-settings-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-settings" role="tab" aria-controls="btabs-vertical-settings" aria-selected="false">
-                                        Автообновление
+                                    <button class="nav-link fs-sm text-md-start rounded-0 "  id="btabs-vertical-settings-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-settings" role="tab" aria-controls="btabs-vertical-settings" aria-selected="false">
+                                        {{phrase("auto update")}}
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
-                                    <button class="nav-link fs-sm text-md-start rounded-0 " data-phrase="stream" id="btabs-vertical-stream-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-stream" role="tab" aria-controls="btabs-vertical-stream" aria-selected="false">
-                                        Потоки
+                                    <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-stream-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-stream" role="tab" aria-controls="btabs-vertical-stream" aria-selected="false">
+                                        {{phrase("streams")}}
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
                                     <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-maxSizeFile-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-maxSizeFile" role="tab" aria-controls="btabs-vertical-maxSizeFile" aria-selected="false">
-                                        Сравнение файлов
+                                        {{phrase("file comparison")}}
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
                                     <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-blacklistfiles-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-blacklistfiles" role="tab" aria-controls="btabs-vertical-blacklistfiles" aria-selected="false">
-                                        Черный список файлов
+                                        {{phrase("blacklist of files")}}
                                     </button>
                                 </li>
                             </ul>
@@ -349,22 +349,20 @@
 
                                 <div class="block-content tab-pane" id="btabs-vertical-maxSizeFile" role="tabpanel" aria-labelledby="btabs-vertical-maxSizeFile-tab" tabindex="0">
 
-                                    <label class="form-check-label" for="countStream" >Макс. размер файла для сравнения по хэшу</label>
+                                    <label class="form-check-label" for="countStream" >{{phrase("max_size_hash")}}</label>
                                     <input type="number" min="1" class="form-control" value="20" id="maxSizeFile" name="maxSizeFile">
                                     <p class="fs-sm" >
-                                        По умолчанию: 20MB<br>
-                                        Работает так: Во время нажатия обновление патча, идет сверка файлов Вашего игрового клиента и файлов патча сервера.<br>
-                                        Большие файлы, можно сравнивать по кол-во их размеру, Вам необходимо указать размер больших файлов.
+                                        {{phrase("comparison_files")|raw}}
                                     </p>
                                 </div>
 
                                 <div class="block-content tab-pane" id="btabs-vertical-blacklistfiles" role="tabpanel" aria-labelledby="btabs-vertical-blacklistfiles-tab" tabindex="0">
 
-                                    <label class="form-label" for="save_file_black_list">Черный список файлов</label>
+                                    <label class="form-label" for="save_file_black_list">{{phrase("blacklist of files")}}</label>
                                     <textarea class="form-control valid" id="fileslist" name="val-suggestions" rows="5" placeholder="options.ini" aria-describedby="val-suggestions-error" aria-invalid="false"></textarea>
 
                                     <br>
-                                    <button id="save_file_black_list" type="submit" class="btn btn-primary">Применить</button>
+                                    <button id="save_file_black_list" type="submit" class="btn btn-primary">{{phrase("apply")}}</button>
 
                                 </div>
 

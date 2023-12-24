@@ -58,6 +58,22 @@ return [
     "guest" => "Guest",
 
     "launch_game" => "Launch game",
+    "launcher_download" => "Download Launcher",
+    "dont have a launcher?" => "Don't have a launcher?",
+    "launcher_info" => "Download the launcher and you no longer have to have a launcher for each server.",
+    "launcher_info_2" => "If you previously downloaded the launcher, then simply launch it.",
+    "start_launcher" => "Start launcher",
+    "if not launcher" => "If you don't have a launcher, download it.",
+    "max_size_hash" => "Max. file size for hash comparison",
+    "comparison_files" => "Default: 20MB<br>
+            It works like this: When you click update patch, the files of your game client and the server patch files are compared.<br>
+            Large files can be compared by the number of their sizes, you need to indicate the size of large files.",
+    "blacklist of files" => "Blacklist of files",
+    "file comparison" => "File comparison",
+    "streams" => "Streams",
+    "auto update" => "Auto update",
+    "autoload" => "Autoload",
+    "files" => "Files",
 
     0 => "Description",
     1 => "Change game account password",

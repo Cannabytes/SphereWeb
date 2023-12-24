@@ -14,7 +14,7 @@ $(".chronicle").text(chronicle)
 
 var url = new URL("https://" + domain);
 $(".mainDomain").text(url.hostname);
-$('title').text(word_launcher + " " + chronicle);
+$('title').text("Launcher" + " " + chronicle);
 
 showButtonStartGame()
 $(document).on('click', '#getClientWay', function () {
