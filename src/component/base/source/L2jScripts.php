@@ -463,7 +463,7 @@ character_subclasses.char_obj_id = ?';
     }
 
     static public function add_item(): string {
-        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 1, 'SphereWeb')";
+        return "INSERT INTO `items_delayed` (`owner_id`, `item_id`, `count`, `enchant_level`, `payment_status`, `description`) VALUES (?, ?, ?, ?, 0, 'SphereWeb')";
     }
 
     static public function count_online_player(): string {
