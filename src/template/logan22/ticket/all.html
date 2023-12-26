@@ -80,7 +80,7 @@
                                     </div>
 
                                     <div class="form-check">
-                                        <input checked type="checkbox" class="form-check-input" id="private" name="private" value="on">
+                                        <input {% if IS_DEFAULT_PUBLIC_TICKET %}checked{% endif %} type="checkbox" class="form-check-input" id="private" name="private" value="on">
                                         <label class="form-check-label" for="private">{{phrase(459)}}</label>
                                     </div>
 

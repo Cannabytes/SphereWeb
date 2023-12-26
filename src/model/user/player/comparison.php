@@ -37,6 +37,10 @@ class comparison {
         $password_hide = $_POST['password_hide'] ?? false;
         $captcha = $_POST['captcha'] ?? null;
 
+        if(SAVE_ACCOUNT_PASSWORD){
+            $password_hide = SAVE_ACCOUNT_PASSWORD;
+        }
+
         if($server_id == null) {
             board::notice(false, lang::get_phrase(327));
         }

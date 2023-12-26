@@ -8,10 +8,9 @@
     <div class="block-header block-header-default">
         <h3 class="block-title">{{phrase("creating_bonus_codes")}}</h3>
         <div class="block-options">
-            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                <i class="si si-refresh"></i>
-            </button>
-            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+            <div class="block-options-item">
+                <a href="{{action('admin_bonus_code_show')}}" class="btn btn-sm btn-primary ajaxload">{{phrase(527)}}</a>
+            </div>
         </div>
     </div>
     <div class="block-content">

@@ -78,6 +78,7 @@ class action {
 
         'admin' => '/admin',
         'admin_bonus' => '/admin/bonuscode',
+        'admin_bonus_code_show' => '/admin/bonuscode/show',
         'admin_cache' => '/admin/options/server/cache',
         'admin_template_save' => '/admin/template/save',
         'admin_donate_edit' => '/admin/donate/edit',

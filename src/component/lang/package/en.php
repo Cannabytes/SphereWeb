@@ -722,6 +722,7 @@ return [
     "count_symbols" => "Number of symbols",
     "generate" => "Generate",
     "code" => "Code",
+    "date_start" => "Start date",
     "date_end" => "End date",
     "status" => "Status",
     "active" => "Active",
@@ -830,8 +831,13 @@ return [
     521 => "Do you really want to delete the message?",
     522 => "Comment",
     523 => "My notifications",
+    524=>"The cost of installing your avatar is %s %s",
+    525=>"Load avatar",
+    526=>"Setting your avatar",
     "link" => "Link",
-    "poster"=>"Poster"
-
+    "poster"=>"Poster",
+    527=> "Created bonus codes",
+    528=> "List of all bonus codes",
+    "enchant" => "Enchant",
 
 ];

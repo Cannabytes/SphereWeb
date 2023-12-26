@@ -357,7 +357,7 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function add_inside_account($login, $password, $email, $ip, $server_id, $password_hide) {
-        if ($password_hide) {
+        if ($password_hide AND !SAVE_ACCOUNT_PASSWORD) {
             $password = "";
         }
         return sql::run("INSERT INTO `player_accounts` (`login`, `password`, `email`, `ip`, `server_id`, `password_hide`, `date_create`, `date_update`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [

@@ -276,6 +276,9 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("/admin/users/edit", "\Ofey\Logan22\controller\admin\users::edit");
     $route->get("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::show");
     $route->post("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::genereate");
+    $route->get("/admin/bonuscode/show", '\Ofey\Logan22\controller\admin\bonuscode::show_code');
+    $route->post("/admin/bonuscode/remove", '\Ofey\Logan22\controller\admin\bonuscode::remove');
+
 
     $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
 

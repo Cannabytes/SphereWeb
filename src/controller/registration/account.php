@@ -53,6 +53,7 @@ class account {
         }
         $password = request::setting('password', new request_config(min: 4, max: 60));
         $password_hide = request::checkbox('password_hide');
+
         if (auth::get_is_auth()) {
             player_account::add($login, $password, $password_hide);
         } else {

@@ -127,6 +127,10 @@ class tpl {
         }
         $arrTwigConfig['auto_reload'] = AUTO_RELOAD;
         $arrTwigConfig['debug'] = DEBUG_TEMPLATE;
+
+        /** Дополнительные переменные */
+        $arrTwigConfig['IS_DEFAULT_PUBLIC_TICKET'] = IS_DEFAULT_PUBLIC_TICKET;
+
         $twig = new Environment($loader, $arrTwigConfig);
 
         $twig->addExtension(new DebugExtension());

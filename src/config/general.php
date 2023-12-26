@@ -10,12 +10,20 @@ const PRICE_CHANGE_AVATAR = 5;
 //не авторизованы и не выбрали предпочтительный цвет шаблона в настройках
 const MODE_TEMPLATE = "dark";
 
+//По умолчанию тикет считать открытым (true) или закрыты (false)
+const IS_DEFAULT_PUBLIC_TICKET = true;
 
 // true / false - включить / отключить кэширование шаблонов
+// На рабочих проектах - включить
 const ENABLE_CACHE_TEMPLATE = false;
 
 // Дебаг шаблонов
+// На рабочих проектах - выключить
 const DEBUG_TEMPLATE = true;
 
 // Автоперезагрузка шаблонов
 const AUTO_RELOAD = true;
+
+// Скрывать пароли игроков
+// Необходимо на случай, если у Вас клиент с автологином и вы используете лаунчер
+const SAVE_ACCOUNT_PASSWORD = false;
