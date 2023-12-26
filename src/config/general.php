@@ -35,3 +35,6 @@ const TECHNICAL_WORK = false;
 // Оповещение о времени, когда техническое обслуживание будет завершено
 // Можно текстом указать сообщение или false если не нужно выводить сообщение об оповещении возобновления работы
 const TECHNICAL_WORK_TIME_UP = "21:00 - 22.07.2025";
+
+//Лого проекта, это надпись или небольшое изображение, которое выводится в самом верху страницы слева.
+const LOGO_PROJECT = "<i class='fa fa-fire text-primary'></i><span class='fs-4 text-dual'>Sphere</span><span class='fs-4 text-primary'>Web</span>" ;

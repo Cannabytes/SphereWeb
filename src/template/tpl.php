@@ -182,6 +182,7 @@ class tpl {
         self::$allTplVars['path'] = $relativePath;
         self::$allTplVars['template'] = $self;
         self::$allTplVars['pointTime'] = microtime::pointTime();
+        self::$allTplVars['LOGO_PROJECT'] = LOGO_PROJECT;
         return $twig;
     }
 
