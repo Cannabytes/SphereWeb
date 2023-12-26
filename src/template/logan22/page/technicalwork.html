@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>TECHNICAL WORK</title>
+
+    <meta name="description" content="TECHNICAL_WORK">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:title" content="TECHNICAL_WORK">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="TECHNICAL_WORK">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="shortcut icon" href="{{template}}/assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{template}}/assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{template}}/assets/media/favicons/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" id="css-main" href="{{template}}/assets/css/codebase.min.css">
+  </head>
+
+  <body>
+
+  {% set mode_template = 'light' %}
+  {% if get_user_variables('theme')['val'] is null %}
+  {% set mode_template = MODE_TEMPLATE() %}
+  {% else %}
+  {% set mode_template = get_user_variables('theme')['val'] %}
+  {% endif %}
+    <div id="page-container" class="main-content-boxed {% if mode_template == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <div class="bg-body-light">
+          <div class="row g-0 justify-content-center">
+            <div class="hero-static col-lg-7">
+              <div class="content content-full overflow-hidden">
+                <!-- Heading -->
+                <div class="py-5 text-center">
+                  <a class="link-fx fw-bold" href="index.html">
+                    <i class="fa fa-fire"></i>
+                    <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>
+                  </a>
+                  <h1 class="h3 fw-extrabold mb-1 mt-4">{{phrase(530)}}</h1>
+                  <h2 class="fs-base fw-medium text-muted mb-0">{{phrase(531)}}</h2>
+                </div>
+                <!-- END Heading -->
+
+                <!-- Status -->
+                <div class="row g-0 d-flex justify-content-center">
+                  <div class="col-md-10 col-xl-7">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-between mb-3" role="alert">
+                      <div class="flex-fill me-2">
+                        <p class="mb-0">{{phrase("technical_work_message")|raw}}</p>
+                      </div>
+                      <div class="flex-shrink-0">
+                        <i class="fa fa-fw fa-2x fa-bug"></i>
+                      </div>
+                    </div>
+
+                    {% if TECHNICAL_WORK_TIME_UP %}
+                    <div class="alert alert-warning d-flex align-items-center justify-content-between mb-3" role="alert">
+                      <div class="flex-fill me-2">
+                        <p class="mb-0">{{phrase(529)}}: {{TECHNICAL_WORK_TIME_UP}}</p>
+                      </div>
+                      <div class="flex-shrink-0">
+                        <i class="fa fa-fw fa-2x fa-exclamation-triangle"></i>
+                      </div>
+                    </div>
+                    {% endif %}
+
+                   </div>
+                </div>
+                <!-- END Status -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Page Content -->
+
+      </main>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
+    <!--
+        Codebase JS
+
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="{{template}}/assets/js/codebase.app.min.js"></script>
+  </body>
+</html>

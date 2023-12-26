@@ -839,5 +839,13 @@ return [
     527=> "Created bonus codes",
     528=> "List of all bonus codes",
     "enchant" => "Enchant",
+    "technical_work_message" => "Unfortunately, the site is temporarily unavailable due to technical work and maintenance.<br>
+                           We are working hard to get back up and running as soon as possible and provide you with the best possible service.<br>
+                           We apologize for the temporary inconvenience.
+                           <br>Please stay with us and stay tuned for updates.
+                           <br>Thank you for your patience and understanding.",
+    529 => "Approximate renewal dates",
+    530 => "Technical work in progress",
+    531 => "Sorry, the site is undergoing maintenance.",
 
 ];

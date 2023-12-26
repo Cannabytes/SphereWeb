@@ -24,6 +24,19 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
         \Ofey\Logan22\component\redirect::location("/install");
     });
 } else {
+    //Если включен режим выполнения технических работ
+    if(\Ofey\Logan22\model\user\auth\auth::get_access_level()!="admin"){
+        if(TECHNICAL_WORK){
+            $route->get("/auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
+            $route->all('/(.*)', function () {
+                \Ofey\Logan22\template\tpl::addVar("TECHNICAL_WORK_TIME_UP", TECHNICAL_WORK_TIME_UP);
+                \Ofey\Logan22\template\tpl::display("/page/technicalwork.html");
+            });
+            $route->run();
+            return;
+        }
+    }
+
     $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
     $route->get("/player/add/donate/{email}/{count}", function ($email, $count){
