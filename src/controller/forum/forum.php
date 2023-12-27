@@ -152,6 +152,10 @@ class forum {
             board::notice(false, lang::get_phrase(502));
         }
 
+        if($link>=255){
+            board::notice(false, "Максимальная длина ссылки: 255 символов.");
+        }
+
         $message = str_replace(['<p><br></p>', '<div><br></div>', "<p>&nbsp;</p>"], "", $message);
         if ($topicName == "") {
             $topicName = mb_substr($msgTrims, 0, 80);
@@ -171,6 +175,21 @@ class forum {
         $posts = internal::getPosts($topic['id'], self::$perPage, 1);
 
         internal::incrSectionTopicAndPost($section_id, $topicIDs['postID'], $topicIDs['lastIdTopic'], true);
+
+        if($link != ""){
+            $section = internal::getSection($section_id);
+            $topicsPin = internal::getTopicsPin($section_id);
+            $topics = internal::getTopics($section_id);
+            tpl::addVar("section", $section);
+            tpl::addVar("topicsPin", $topicsPin);
+            tpl::addVar("topics", $topics);
+            $async = new async("forum/topics.html");
+            $async->block("main-container", "content", "update", true);
+            $async->block("title", "title");
+            $async->SetURL("/forum/threads/" . $section['id']);
+            $async->send();
+            return;
+        }
 
         $lastMessageID = max(array_column($posts, 'id'));
         tpl::addVar("lastMessageID", $lastMessageID);
@@ -220,9 +239,11 @@ class forum {
         if (!$topicInfo) {
             redirect::location("/forum");
         }
-        if($topicInfo['link']!=null){
+        if($topicInfo['link']!=null AND (auth::get_access_level()!="admin" AND auth::get_access_level()!="moderator")){
             redirect::location($topicInfo['link']);
         }
+        $topicInfo['link'] = urldecode($topicInfo['link']);
+
         $section = $topicInfo['section_id'];
         $section = internal::getSectionInfo($section);
 

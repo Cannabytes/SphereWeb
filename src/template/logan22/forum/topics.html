@@ -55,14 +55,30 @@
         <i class="si si-pin fa-2x"></i>
     </td>{% endif %}
     <td {% if topic.pin == false %}colspan="2"{% endif %}>
+        {% if topic.link is not empty %}
+            <i class="fa fa-link opacity-50"></i>
+            <a class="fw-semibold" target="_blank" href="{{topic.link}}">{{ topic.name }}</a>
+            {% if user_info('get_access_level') == "admin" or user_info('get_access_level') == "moderator" %}
+            <a class="fw-semibold ajaxload" href="{{action('get_topic', [section.id, topic.id]) }}"><i class="fa fa-cog fa-fw opacity-50"></i></a>
+            {% endif %}
+            <div class="fs-sm text-muted mt-1">{{phrase("last_message_author")}}
+                <a href="#">{{topic.last_post_user_name}}</a>
+            </div>
+        {% else %}
         {% if topic.is_close %}<i class="fa fa-lock opacity-50"></i>{% endif %}
-        <a class="fw-semibold ajaxload" href="{{action('get_topic', [section.id, topic.id]) }}">{{ topic.name }}</a>
-        <div class="fs-sm text-muted mt-1">{{phrase("last_message_author")}}
-            <a href="#">{{topic.last_post_user_name}}</a>
-        </div>
+            <a class="fw-semibold ajaxload" href="{{action('get_topic', [section.id, topic.id]) }}">{{ topic.name }}</a>
+            <div class="fs-sm text-muted mt-1">{{phrase("last_message_author")}}
+                <a href="#">{{topic.last_post_user_name}}</a>
+            </div>
+        {% endif %}
+
     </td>
     <td class="d-none d-md-table-cell text-center">
-        {{topic.replies}}
+        {% if topic.link is not empty %}
+            -
+        {% else %}
+          {{topic.replies}}
+        {% endif %}
     </td>
     <td class="d-none d-md-table-cell">
         <span class="fs-sm">{{phrase("from")}} <a href="#">{{topic.author_user_name}}</a><br>{{phrase("date_create")}} {{timezone(topic.data_create)}}</span>
