@@ -859,6 +859,19 @@ class tpl {
             return $plugins;
         }));
 
+        $twig->addFunction(new TwigFunction("get_plugin_config", function ($plugin_name, $config = "config.php") {
+            $pluginsPath = "src/component/plugins";
+            $pluginPath = "{$pluginsPath}/{$plugin_name}/{$config}";
+            $plugins = fileSys::dir_list($pluginsPath);
+            if (in_array($plugin_name, $plugins)) {
+                $configFile = fileSys::localdir($pluginPath);
+                if (file_exists($configFile)) {
+                    return require $configFile;
+                }
+            }
+            return false;
+        }));
+
         function basename_php($str) {
             $base = substr($str, strrpos($str, '\\') + 1);
             if (strrpos($base, "\\") !== false) {
