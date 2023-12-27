@@ -872,6 +872,9 @@ class tpl {
 
     public static function displayDemo(string $template) {
         self::$categoryCabinet = true;
+        if (file_exists(fileSys::localdir("template/".config::get_template()."/object.php"))){
+            self::$allTplVars = require fileSys::localdir("template/".config::get_template()."/object.php");
+        }
         self::display($template);
     }
 

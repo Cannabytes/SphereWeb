@@ -73,6 +73,16 @@ $(document).on('click', '#startCreatePatch', function () {
     })
 });
 
+$(document).on('click', '#stopGenerationArchive', function () {
+    if(!isConnectSocket){
+        errorMessage("Лаунчер не запущен")
+        return
+    }
+    sendToLauncher({
+        command: 'stopGenerationArchive',
+    })
+});
+
 function sendToLauncher(obj) {
     socket.send(JSON.stringify(obj));
 }
