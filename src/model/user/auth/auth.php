@@ -24,6 +24,8 @@ use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\route\Route;
+use Ofey\Logan22\template\tpl;
 use SimpleCaptcha\Builder;
 
 class auth {
@@ -212,8 +214,8 @@ class auth {
         if (isset($_SESSION['password'])) {
             $auth = self::exist_user($_SESSION['email']);
             if ($auth) {
+
                 if (password_verify($_SESSION['password'], $auth['password'])) {
-//                if ($auth['password'] == $_SESSION['password']) {
                     self::set_is_auth(true);
                     self::set_id($auth['id']);
                     self::set_email($auth['email']);
@@ -237,6 +239,21 @@ class auth {
                     self::setBonus();
 
                     self::set_user_variables();
+
+                    if ($auth['access_level'] == "admin" ) {
+                        include fileSys::localdir("src/config/admin.php");
+                        if(IS_ADMIN_CONFIRMATION_CODE){
+                            if (!isset($_SESSION['admin_code']) || !in_array($_SESSION['admin_code'], ADMIN_CODES_AUTH)) {
+                                if(isset($_POST)){
+                                    $route = new Route();
+                                    $route->get("(.*)", function (){});
+                                    $route->post("/auth/admin/code", 'Ofey\Logan22\controller\user\auth\auth::auth_admin_code');
+                                    $route->run();
+                                }
+                                tpl::display("admin/auth/auth_code.html");
+                            }
+                        }
+                    }
 
                     return;
                 }
@@ -595,4 +612,14 @@ class auth {
         }
         self::$bonus = $bonusActive;
     }
+
+    public static function auth_admin_code(){
+        $password = $_POST['password'] ?? "";
+        if(in_array($password, ADMIN_CODES_AUTH)){
+            $_SESSION['admin_code'] = $password;
+            board::success("Congratulation");
+        }
+        board::error("Password error");
+    }
+
 }

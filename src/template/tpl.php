@@ -529,7 +529,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('get_icon', function ($img = "none.jpeg") {
-            return fileSys::localdir(sprintf("/uploads/images/skills/%s", $img));
+            return fileSys::localdir(sprintf("/uploads/images/icon/%s", $img));
         }));
 
         $twig->addFunction(new TwigFunction('get_item_info', function ($item_id) {

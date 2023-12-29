@@ -8,6 +8,7 @@ use Ofey\Logan22\model\user\player\character;
 
 session::init();
 lang::load_package();
+
 date_default_timezone_set(DEFAULT_TIMEZONE);
 $route = new Ofey\Logan22\route\Route();
 $route->get("user/change/lang/{lang}", 'Ofey\Logan22\component\lang\lang::set_lang');
