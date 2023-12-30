@@ -122,7 +122,10 @@ class bonus {
         }
     }
 
-    public static function addBonusPlayer($object_id, $char_name) {
+    public static function addBonusPlayer($object_id, $char_name = null) {
+        if($char_name == null){
+            board::notice(false, "Нет ника");
+        }
         $bonusData = self::itemObjectData($object_id);
         if (!$bonusData) {
             board::notice(false, lang::get_phrase(488));
@@ -130,7 +133,9 @@ class bonus {
         if ($bonusData['user_id'] != auth::get_id()) {
             board::notice(false, lang::get_phrase(489));
         }
-
+        if($bonusData['issued']){
+            board::notice(false, lang::get_phrase(174));
+        }
         $server_id = $bonusData['server_id'];
         $item_id = $bonusData['item_id'];
         $item_count = $bonusData['count'];
@@ -186,6 +191,7 @@ class bonus {
             }
         }
         sql::run("UPDATE `bonus` SET `issued` = 1 WHERE `id` = ?", [$object_id]);
+//        sql::run("UPDATE `bonus` SET `issued` = 1 WHERE `id` = ?", [$object_id]);
         auth::setBonus();
         $async = new async("basic/base.html");
         $async->block("inventory", "inventory", "replace", true);
