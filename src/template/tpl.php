@@ -323,6 +323,43 @@ class tpl {
             return lang::lang_list($remove_lang);
         }));
 
+        //Вывести язык который сейчас включен
+        $twig->addFunction(new TwigFunction('lang_active', function ($isActive = true) {
+            $langs = lang::lang_list();
+            if($isActive){
+                foreach ($langs AS $lang){
+                    if ($lang['isActive']){
+                        return $lang;
+                    }
+                }
+                return false;
+            }else{
+                foreach ($langs as $key => $lang) {
+                    if ($lang['isActive']) {
+                        unset($langs[$key]);
+                    }
+                }
+            }
+            return $langs;
+        }));
+
+
+        //Возвращает полный список содержимого языкового пакета
+        $twig->addFunction(new TwigFunction('title_start_page', function () {
+            $lang = lang::lang_user_default();
+            return TITLE[$lang] ?? "[Not Set Title]";
+        }));
+
+        $twig->addFunction(new TwigFunction('description_start_page', function () {
+            $lang = lang::lang_user_default();
+            return DESCRIPTION[$lang] ?? "[Not Set Description]";
+        }));
+
+        $twig->addFunction(new TwigFunction('keywords_start_page', function () {
+            return KEYWORDS;
+        }));
+
+
         //Возвращает полный список содержимого языкового пакета
         $twig->addFunction(new TwigFunction('show_all_lang_package', function () {
             return lang::show_all_lang_package();
@@ -668,13 +705,56 @@ class tpl {
             return statistic_model::get_players_block($server_id);
         }));
 
+        $twig->addFunction(new TwigFunction('clan_icon', function ($data) {
+            $crest = "";
+            if(isset($data['alliance_crest'])){
+                $crest_base64 = $data['alliance_crest'];
+                if($data['alliance_crest']!=null){
+                    $crest = "<img src='data:image/jpeg;base64,{$crest_base64}'>";
+                }
+            }
+            if(isset($data['clan_crest'])){
+                $crest_base64 = $data['clan_crest'];
+                if($data['clan_crest']!=null){
+                    $crest .= "<img src='data:image/jpeg;base64,{$crest_base64}'>";
+                }
+            }
+            return $crest;
+        }));
+
         //Список последних новостей
         $twig->addFunction(new TwigFunction('last_news', function ($last_thread = 10) {
             return page::show_news_short(300, $last_thread, false);
         }));
 
+        $twig->addFunction(new TwigFunction('get_page', function ($id) {
+            return page::get_news($id);
+        }));
+
+        $twig->addFunction(new TwigFunction('news_poster', function ($image) {
+            $uploadsPath = "uploads/images/news/";
+            $imagePath = $uploadsPath . "thumb_" . $image;
+            $fullImagePath = fileSys::localdir($imagePath);
+            if (!file_exists($fullImagePath)) {
+                return fileSys::localdir("/src/template/logan22/assets/images/logo_news_d.jpg");
+            }
+            return $imagePath;
+        }));
+
+
+        $twig->addFunction(new TwigFunction('phrase_array', function ($arr) {
+            $userLang = lang::lang_user_default();
+            foreach($arr AS $lang => $phrase){
+                if($userLang == $lang){
+                    return $phrase;
+                }
+            }
+            return "[no phrase to lang: {$userLang}]";
+        }));
+
+
         $twig->addFunction(new TwigFunction('server_online_status', function () {
-            return online::server_online_status();
+            return array_reverse(online::server_online_status());
         }));
 
         $twig->addFunction(new TwigFunction('get_default_page', function ($str, $server_id) {

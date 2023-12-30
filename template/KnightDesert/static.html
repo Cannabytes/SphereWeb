@@ -1,0 +1,36 @@
+{% extends 'struct.html' %}
+
+{% block title %}{{title_start_page()}}{% endblock %}
+
+{% block content %}
+
+{# В GET[0], GET[1]... находится аргументы с роутера /(.*) ... #}
+
+{% set news = get_page(GET[0]) %}
+
+    {#
+    Если пользователь запросил страницу, которой не существует, либо это страница не новость, либо удалена тогда
+    отправляем его на главную
+    #}
+    {% if news == false or news.is_news == false or news.trash %}
+    <script>document.location.href = '/'</script>
+    {% endif %}
+
+    {# Если данная страница имеет ссылку, тогда перенаправляем его #}
+    {% if news.link %}
+    <script>document.location.href = '{{news.link}}'</script>
+    {% endif %}
+
+
+    <div class="static">
+        <div class="heading">
+            <h3 class="title mt mb">{{news.name}}</h3>
+        </div>
+        <div class="static__content">
+            {% if news.poster %}
+            <img src="{{news_poster(news.poster)}}" alt="cover" class="cover cover_mb" />
+            {% endif %}
+            {{news.description|raw}}
+        </div>
+    </div>
+{% endblock %}

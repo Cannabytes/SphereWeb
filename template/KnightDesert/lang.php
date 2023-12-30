@@ -1,0 +1,111 @@
+<?php
+/**
+ * Языковой пакет для собствененого шаблона
+ * В шаблоне вызывается {{ phrase('home') }}
+ */
+return [
+    'ru' => [
+        'home'                    => 'Главная',
+        'important_announcements' => 'ВАЖНЫЕ ОБЪЯВЛЕНИЯ',
+        'project_streamers'       => 'Стримеры проекта',
+        'last_news'               => 'Последние новости',
+        'messages_forum'          => 'Сообщения с форума',
+        'other news'              => 'Остальные новости',
+        'promotions_players'      => 'Акции для игроков',
+        'files'                   => 'Файлы',
+        'registration'            => 'Регистрация',
+        'about server'            => 'О сервере',
+        'servers'                 => 'Сервера',
+        'forum'                   => 'Форум',
+        'donation'                => 'Пожертвования',
+        'help'                    => 'Помощь',
+        'all_rights'              => 'Тестовые сервера. Все права принадлежат NCSoft',
+		'auth' 				  	  => 'Авторизация',
+		'statistic'	        	  => 'Статистика',
+		'bayka' 				  => 'Данный сервер является тестовым вариантом игры Lineage II и предназначен только для ознакомления игроков.',
+		'server_open' 			  => 'Сервер %s x%d успешно открыт!',
+		'start_game' 			  => 'Начать играть',
+		'stream' 				  => 'Стрим трансляции',
+		'client and registration' => 'Клиент и регистрация',
+		'download server patch'   => 'СКАЧАТЬ ПАТЧ СЕРВЕРА',
+		'faq troubleshooting'	  => 'FAQ РЕШЕНИЕ ПРОБЛЕМ',
+		'recommend' 			  => 'Советуем отключить Антивирус перед установкой всех файлов. т.к файлы защиты клиента могут определятся как вирус.',
+		'download_patch' 		  => 'Скачать патч',
+		'download_client' 		  => 'Скачать клиент',
+        'information'             => 'Информация',
+        'personal area'           => 'Личный кабинет',
+        'account'                 => 'Аккаунт',
+
+        'our servers' => 'Наши <span class="color-orange">сервера</span>',
+        'forum topics' => 'Темы <span class="color-orange">форума</span>',
+        'rating of the best' => 'Рейтинг <span class="color-orange">лучших</span>',
+        'live broadcasts' => 'Прямые <span class="color-orange">трансляции</span>',
+
+        'clan' => 'Клан',
+        'points' => 'Очки',
+        'name' => 'Имя',
+        'your stream' => 'Тут мог быть ваш стрим',
+        'add' => 'Добавить',
+        'add stream' => 'Добавить стрим',
+
+        'catch your luck' => "Поймай свою удачу!",
+        'gate of dion' => "Gate of Dion",
+        'farming katas with the entire server' => "Farming katas with the entire server!",
+        'upcoming events' => 'Ближайшие <span class="color-orange">события</span>',
+
+    ],
+
+    'en' => [
+        'home' => 'Home',
+        'important_announcements' => 'Important Announcements',
+        'project_streamers' => 'Project Streamers',
+        'last_news' => 'Last News',
+        'messages_forum' => 'Forum Messages',
+        'other news' => 'Other News',
+        'promotions_players' => 'Player Promotions',
+        'files' => 'Files',
+        'registration' => 'Registration',
+        'about server' => 'About Server',
+        'servers' => 'Servers',
+        'forum' => 'Forum',
+        'donation' => 'Donation',
+        'help' => 'Help',
+        'all_rights' => 'Test servers. All rights belong to NCSoft',
+        'auth' => 'Authorization',
+        'statistic' => 'Statistics',
+        'bayka' => 'This server is a test version of the Lineage II game and is intended for players’ acquaintance only.',
+        'server_open' => 'Server %s x%d successfully opened!',
+        'start_game' => 'Start Playing',
+        'stream' => 'Streaming Stream',
+        'client and registration' => 'Client and Registration',
+        'download server patch' => 'DOWNLOAD SERVER PATCH',
+        'faq troubleshooting' => 'FAQ TROUBLESHOOTING',
+        'recommend' => 'We recommend disabling antivirus before installing all files, as client protection files may be detected as viruses.',
+        'download_patch' => 'Download Patch',
+        'download_client' => 'Download Client',
+        'information' => 'Information',
+        'personal area' => 'Personal Area',
+        'account' => 'Account',
+
+        'our servers' => 'Our <span class="color-orange">Servers</span>',
+        'forum topics' => 'Forum <span class="color-orange">Topics</span>',
+        'rating of the best' => 'Rating of the <span class="color-orange">Best</span>',
+        'live broadcasts' => 'Live <span class="color-orange">Broadcasts</span>',
+
+        'clan' => 'Clan',
+        'points' => 'Points',
+        'name' => 'Name',
+        'your stream' => 'Your stream could be here',
+        'add' => 'Add',
+        'add stream' => 'Add Stream',
+
+        'catch your luck' => 'Catch Your Luck!',
+        'gate of dion' => 'Gate of Dion',
+        'farming katas with the entire server' => 'Farming Katas with the Entire Server!',
+        'upcoming events' => 'Upcoming <span class="color-orange">Events</span>',
+    ],
+
+
+
+];
+

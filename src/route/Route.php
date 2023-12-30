@@ -67,7 +67,8 @@ class Route extends Router {
         //Загрузка из шаблона указанных файлов
         if ($pages = tpl::template_design_route()) {
             foreach ($pages as $page => $template) {
-                parent::get($page, function () use ($template) {
+                parent::get($page, function (...$GET) use ($template) {
+                    tpl::addVar("GET", $GET);
                     tpl::displayDemo($template);
                 });
             }

@@ -1,0 +1,28 @@
+.fancybox-more {
+    position: absolute;
+    right: 47px;
+    top: 0;
+    width: 300px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(30, 30, 30, .6);
+    z-index: 99999;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s all;
+    opacity: 0;
+    color: rgb(204, 204, 204);
+}
+
+.fancybox-show-toolbar .fancybox-more {
+    opacity: 1;
+}
+
+.fancybox-more:hover {
+    /* background-color: rgba(184, 184, 184, 0.79); */
+    color: rgb(255, 255, 255);
+}
