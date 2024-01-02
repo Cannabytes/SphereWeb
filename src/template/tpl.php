@@ -731,14 +731,17 @@ class tpl {
             return page::get_news($id);
         }));
 
-        $twig->addFunction(new TwigFunction('news_poster', function ($image) {
+        $twig->addFunction(new TwigFunction('news_poster', function ($image, $full = false) {
             $uploadsPath = "uploads/images/news/";
-            $imagePath = $uploadsPath . "thumb_" . $image;
+            if(!$full){
+                $image = "thumb_" . $image;
+            }
+            $imagePath = $uploadsPath . $image;
             $fullImagePath = fileSys::localdir($imagePath);
-            if (!file_exists($fullImagePath)) {
+            if (!file_exists(fileSys::getSubDir() . $fullImagePath)) {
                 return fileSys::localdir("/src/template/logan22/assets/images/logo_news_d.jpg");
             }
-            return $imagePath;
+            return "/" . $fullImagePath;
         }));
 
 
@@ -965,11 +968,15 @@ class tpl {
 
     public static function displayDemo(string $template) {
         self::$categoryCabinet = true;
-        if (file_exists(fileSys::localdir("template/".config::get_template()."/object.php"))){
-            self::$allTplVars = require fileSys::localdir("template/".config::get_template()."/object.php");
+        if (file_exists(fileSys::localdir("template/" . config::get_template() . "/object.php"))) {
+            $additionalVars = require fileSys::localdir("template/" . config::get_template() . "/object.php");
+            if (is_array($additionalVars)) {
+                self::$allTplVars = array_merge(self::$allTplVars, $additionalVars);
+            }
         }
         self::display($template);
     }
+
 
     public static function displayPlugin($tplName){
         $twig = self::preload($tplName);

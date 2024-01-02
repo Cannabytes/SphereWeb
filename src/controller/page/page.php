@@ -5,6 +5,7 @@ namespace Ofey\Logan22\controller\page;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\page\page as page_model;
 use Ofey\Logan22\model\server\server;
@@ -26,7 +27,7 @@ class page {
         if(auth::get_ban_page()){
             board::notice(false, "You are not allowed to do this");
         }
-        $page_id = $_POST['id'];
+        $page_id = $_POST['id'] ?? 0;
         $comment = htmlentities($_POST['comment']);
         $page = page_model::get_news($page_id);
         if(!$page)
@@ -39,6 +40,8 @@ class page {
         if(3000 < mb_strlen($comment))
             board::notice(false, lang::get_phrase(242, mb_strlen($comment)));
         page_model::add_comment($page_id, $comment);
+
+        userlog::add("add_comment_page", 535, [auth::get_email(), "/page/" . $page_id]);
 
         tpl::addVar([
            "comment" =>  page_model::get_comment_id(sql::lastInsertId()),

@@ -97,6 +97,7 @@ class primepayments {
         $user_id = $_POST['innerID'];
         //Зачисление на пользовательский аккаунт средств
         $amount = \Ofey\Logan22\model\donate\donate::currency($_POST['sum'], $_POST['currency']);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }

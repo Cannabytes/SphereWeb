@@ -11,6 +11,7 @@ use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
@@ -81,6 +82,7 @@ class account {
                     $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                         [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
                 }
+                userlog::add("registration", 533, [$email, $login]);
                 board::response("notice_registration",
                     [
                         "ok" => true,

@@ -13,8 +13,10 @@ use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
+use Ofey\Logan22\model\user\auth\auth;
 
 class change_password {
 
@@ -35,6 +37,7 @@ class change_password {
                 self::change_password_server($server_id, $login, $password);
             }
         } else {
+            userlog::add("game_account_change_password", 534, [$login]);
             board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
         }
     }
@@ -56,6 +59,7 @@ class change_password {
                 //TODO: добавление в логирование ошибок
                 board::notice(false, lang::get_phrase(180));
             } else {
+                userlog::add("game_account_change_password", 534, [$login]);
                 board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
             }
         }

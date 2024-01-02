@@ -1675,7 +1675,7 @@ option:hover {
     box-sizing: border-box;
     padding: 0 10px;
     padding: 0 var(--margin);
-    /* border-left: 5px solid transparent; */
+     border-left: 5px solid transparent;
     transition: 0.2s all;
     position: relative;
     z-index: 0;
@@ -3172,7 +3172,7 @@ option:hover {
     }
 
     .menu__item:after {
-        display: none;
+        /*display: none;*/
     }
 
     .gw-burger_active~.menu__list {

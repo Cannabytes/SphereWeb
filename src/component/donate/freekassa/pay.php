@@ -101,7 +101,9 @@ class freekassa {
             die('wrong sign');
         }
 
-        $amount = donate::currency($amount, "RUB" );
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
+        $amount = donate::currency($amount, $this->currency_default);
+
         auth::change_donate_point($user_id, $amount);
         echo 'YES';
     }

@@ -106,6 +106,7 @@ class action {
         'admin_add_donate' => '/admin/users/add/donate',
         'admin_users_edit' => '/admin/users/edit',
         'admin_donate_add' => '/admin/donate/add',
+        'admin_log_user' => '/admin/logs/user',
 
         'install_admin' => '/install/admin',
         'install_connect_test_db' => '/install/db/connect/test',

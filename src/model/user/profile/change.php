@@ -11,6 +11,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\timezone;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\forum\internal;
 use Ofey\Logan22\model\user\auth\auth;
@@ -108,6 +109,7 @@ class change {
         if($isChangeName){
            internal::changeAllUserName(trim($_POST['name']), auth::get_name());
         }
+        userlog::add("change_profile", 549);
         board::notice(true, lang::get_phrase(183));
     }
 

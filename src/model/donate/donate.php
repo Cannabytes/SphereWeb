@@ -15,6 +15,7 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
@@ -199,6 +200,7 @@ class donate {
         }
 
         self::taking_money($cost_product, auth::get_id());
+        userlog::add("donate", 539, [$donat_info['item_id'], $addToUserItems, $cost_product, $char_name]);
         auth::set_donate_point(auth::get_donate_point() - $cost_product);
 
         sql::run("INSERT INTO `donate_history` (`user_id`, `item_id`, `amount`, `cost`, `char_name`, `server_id`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?)", [

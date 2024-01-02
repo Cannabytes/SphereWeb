@@ -55,7 +55,7 @@ class screenshot
             $filename = md5(mt_rand(1, 100000) + time());
             $handle->file_new_name_body = $filename;
             $handle->image_resize = true;
-            $handle->image_x = 250;
+            $handle->image_x = 450;
             $handle->image_ratio_y = true;
             $handle->file_name_body_pre = 'thumb_';
             $handle->image_convert = 'webp';

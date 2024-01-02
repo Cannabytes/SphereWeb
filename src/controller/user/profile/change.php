@@ -13,6 +13,7 @@ use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\timezone;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
@@ -101,7 +102,7 @@ class change {
 
                 $handle->file_new_name_body = $filename;
                 $handle->image_resize = true;
-                $handle->image_x = 250;
+                $handle->image_x = 450;
                 $handle->image_ratio_y = true;
                 $handle->file_name_body_pre = 'thumb_';
                 $handle->image_convert = 'webp';
@@ -128,7 +129,7 @@ class change {
                     auth::set_donate_point(auth::get_donate_point() - PRICE_CHANGE_AVATAR);
 
                     auth::set_avatar($filename . ".webp");
-
+                    userlog::add("new_avatar", 548);
                     \Ofey\Logan22\model\user\profile\change::set_avatar($filename . ".webp");
                     board::alert([
                         'type' => 'notice_set_avatar',
@@ -169,6 +170,7 @@ class change {
         if (!file_exists(fileSys::localdir("/uploads/avatar/" . $avatar, true)))
             board::notice(false, lang::get_phrase(196));
         \Ofey\Logan22\model\user\profile\change::set_avatar($avatar);
+        userlog::add("new_avatar", 547);
         board::alert([
             'ok' => true,
             'message' => lang::get_phrase(197),
@@ -233,6 +235,7 @@ class change {
                 board::error("Вы слишком часто переводите деньги");
             }
         }
+        userlog::add("money_transfer", 540, [$moneyCount, $userInfo['id']]);
         \Ofey\Logan22\model\user\profile\change::transfer_money($moneyCount, $userInfo['id']);
         sql::sql("INSERT INTO `log_transfer_spherecoin` (`user_sender`, `user_receiving`, `count`) VALUES (?, ?, ?)", [auth::get_id(), $userInfo['id'], $moneyCount]);
         \Ofey\Logan22\model\user\auth\user::set_variable("last_transfer_transaction", null);

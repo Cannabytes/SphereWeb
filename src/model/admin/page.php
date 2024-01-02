@@ -173,8 +173,10 @@ class page {
                 $handle->image_convert = 'webp';
                 $handle->webp_quality = 95;
                 $handle->process('./uploads/images/news');
+
+
+
                 if ($handle->processed) {
-                    $handle->clean();
                     $poster = $filename . ".webp";
                     $request = sql::run('UPDATE `pages` SET `is_news` = ?, `name` = ?, `description` = ?, `comment` = ?, `lang` = ? , `poster` = ?  WHERE `id` = ?', [
                         $is_news,
@@ -185,14 +187,28 @@ class page {
                         $poster,
                         $id,
                     ]);
+
                     if ($request) {
+                        $handle->image_convert = 'webp';
+                        $handle->image_resize = true;
+                        $handle->image_x = 450;
+                        $handle->image_ratio_y = true;
+                        $handle->file_new_name_body = 'thumb_' . $filename;
+                        $handle->process('./uploads/images/news');
+
+                        if ($handle->processed) {
+                            $handle->clean();
+                        }
+
                         board::alert([
                             'type' => 'notice',
                             'ok' => true,
+                            "message" => "Успешно обновлено",
                             'redirect' => fileSys::localdir("/page/" . $id),
                         ]);
                     }
                 }
+
                 if ($handle->error) {
                     $fileName = $files['name'];
                     $msg = lang::get_phrase(455) . " '" . $fileName . "'\n" . lang::get_phrase(456) . " : " . $handle->error;

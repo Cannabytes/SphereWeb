@@ -7,6 +7,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
@@ -98,6 +99,7 @@ class bonus {
         $itemInfo = client_icon::get_item_info($bonus['item_id'], false);
         sql::sql("DELETE FROM bonus_code WHERE id = ?", [$bonus['id']]);
         $name = $bonus['enchant'] ? $itemInfo['name'] . " +" . $bonus['enchant'] : $itemInfo['name'];
+        userlog::add("bonus_code_inventory", 541, [$code, $name, $bonus['count']]);
         board::response(
             "bonus",
             [
@@ -132,9 +134,6 @@ class bonus {
         }
         if ($bonusData['user_id'] != auth::get_id()) {
             board::notice(false, lang::get_phrase(489));
-        }
-        if($bonusData['issued']){
-            board::notice(false, lang::get_phrase(174));
         }
         $server_id = $bonusData['server_id'];
         $item_id = $bonusData['item_id'];
@@ -190,8 +189,8 @@ class bonus {
                 board::notice(false, lang::get_phrase("Отправка не произошла"));
             }
         }
-        sql::run("UPDATE `bonus` SET `issued` = 1 WHERE `id` = ?", [$object_id]);
-//        sql::run("UPDATE `bonus` SET `issued` = 1 WHERE `id` = ?", [$object_id]);
+        userlog::add("inventory_to_game",542, [$item_enchant, $item_id, $item_count, $char_name] );
+        sql::run("DELETE FROM `bonus` WHERE `id` = ?", [$object_id]);
         auth::setBonus();
         $async = new async("basic/base.html");
         $async->block("inventory", "inventory", "replace", true);

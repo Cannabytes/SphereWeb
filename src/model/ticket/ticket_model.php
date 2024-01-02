@@ -12,6 +12,7 @@ use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\time\time;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\notification\notification;
 use Ofey\Logan22\model\template\async;
@@ -89,6 +90,7 @@ class ticket_model {
         if ($files !== null) {
             self::processFiles($files, $ticket_ID, false);
         }
+        userlog::add("create_new_ticket", 543, ["/ticket/{$ticket_ID}"]);
         notification::toAdmin("New Ticket", "/ticket/{$ticket_ID}");
         $ticket = ticket_model::get_info($ticket_ID);
         tpl::addVar([
@@ -125,7 +127,7 @@ class ticket_model {
                 $imageFiles[] = $filename . ".webp";
                 $handle->file_new_name_body = $filename;
                 $handle->image_resize = true;
-                $handle->image_x = 250;
+                $handle->image_x = 450;
                 $handle->image_ratio_y = true;
                 $handle->file_name_body_pre = 'thumb_';
                 $handle->image_convert = 'webp';
@@ -307,6 +309,8 @@ class ticket_model {
             $content,
         ]);
         $comment_ID = sql::lastInsertId();
+
+        userlog::add("comment_new_ticket", 544, ["/ticket/{$ticketID}/#msg{$comment_ID}"]);
         notification::toAdmin("New ticket comment", "/ticket/{$ticketID}/#msg{$comment_ID}");
 
         $images = [];

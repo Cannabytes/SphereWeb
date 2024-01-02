@@ -21,6 +21,7 @@ use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\component\time\timezone;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\server\server;
@@ -520,7 +521,7 @@ class auth {
                 ]);
             }
         }
-
+        userlog::add("donate_bonus", 546, [$bonus]);
         return [
             "begin_donate" => $begin_donate,
             "end_donate" => $begin_donate + $amount + $bonus,

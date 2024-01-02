@@ -40,12 +40,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
-    $route->get("/player/add/donate/{email}/{count}", function ($email, $count){
-        Ofey\Logan22\model\admin\validation::user_protection("admin");
-        $user_id = \Ofey\Logan22\model\db\sql::run('SELECT id FROM users WHERE email = ?;', [$email])->fetch()['id'];
-        Ofey\Logan22\model\user\auth\auth::change_donate_point($user_id, $count);
-    });
-
     //Новости и страницы
     $route->get("page", '\Ofey\Logan22\controller\page\page::lastNews');
     $route->get("page/(\d+)", "Ofey\Logan22\controller\page\page::show");
@@ -292,6 +286,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::genereate");
     $route->get("/admin/bonuscode/show", '\Ofey\Logan22\controller\admin\bonuscode::show_code');
     $route->post("/admin/bonuscode/remove", '\Ofey\Logan22\controller\admin\bonuscode::remove');
+
+    $route->get("/admin/logs/user", '\Ofey\Logan22\controller\admin\userlog::all');
 
 
     $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');

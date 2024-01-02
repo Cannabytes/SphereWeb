@@ -37,7 +37,7 @@ class bonus {
 
     public static function addBonusPlayer(): void {
         validation::user_protection();
-        \Ofey\Logan22\model\bonus\bonus::addBonusPlayer($_POST['object_id'], $_POST['player_name'] ?? null);
+        \Ofey\Logan22\model\bonus\bonus::addBonusPlayer($_POST['object_id'] ?? 0, $_POST['player_name'] ?? null);
     }
 
 }

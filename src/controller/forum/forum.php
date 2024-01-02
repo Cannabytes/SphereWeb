@@ -10,6 +10,7 @@ namespace Ofey\Logan22\controller\forum;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\forum\internal;
@@ -100,6 +101,7 @@ class forum {
             $type = 1;
         }
         internal::addLikePost($post_id, $type, $skill_id, $comment);
+        userlog::add("add_like_forum", 538, []);
 
         $post = internal::getBuffPost($post_id);
         $post['id'] = $post_id;
@@ -192,6 +194,9 @@ class forum {
         }
 
         $lastMessageID = max(array_column($posts, 'id'));
+        $url = "/forum/threads/" . $section['id'] . "/" . $topicIDs['lastIdTopic'];
+        userlog::add("add_topic_forum", 537, [$url]);
+
         tpl::addVar("lastMessageID", $lastMessageID);
         tpl::addVar("posts", $posts);
         tpl::addVar("topicID", $topicIDs['lastIdTopic']);
@@ -202,7 +207,7 @@ class forum {
         $async = new async("forum/posts.html");
         $async->block("main-container", "content", "update", true);
         $async->block("title", "title");
-        $async->SetURL("/forum/threads/" . $section['id'] . "/" . $topicIDs['lastIdTopic']);
+        $async->SetURL($url);
         $async->send();
 
     }
@@ -349,6 +354,7 @@ class forum {
                 $post['attached'] = internal::getAttachedPost($post['id']);
             }
         }
+        userlog::add("add_comment_forum", 536, ["/forum/threads/$topicID/$postID"]);
         tpl::addVar("posts", $posts);
         tpl::addVar("topicID", $topicID);
         $async = new async("/forum/posts.html");

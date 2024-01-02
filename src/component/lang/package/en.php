@@ -740,6 +740,7 @@ return [
     "user_group_only_read" => "Silent user",
     "sphere_footer" => 'The Sphere project was created with <i class="fa fa-heart text-danger"></i> for all Lineage ][ lovers',
     "only_comers" => "(For commercial inquiries only)",
+    "log_user" => "Logging actions",
     "technical support" => "Technical support",
     "technical support_desc_1" => "If you encounter a problem and need assistance, there are several ways.",
     "technical support_desc_2" => 'On the <a href="https://mmo-dev.info" target="_blank">mmo-dev.info</a> forum, in the <u>Sphere CMS</u> section, create a topic, explain everything in detail, and wait for a response.',
