@@ -13,8 +13,10 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\user\auth\auth;
@@ -31,48 +33,35 @@ class comparison {
      * в во внутренний реестр аккаунтов профиля.
      */
     static public function sync() {
-        $server_id = $_POST['server'] ?? null;
-        $account_name = $_POST['login'] ?? null;
+        $server_id = auth::get_default_server();
+        $account_name = $_POST['account'] ?? null;
         $password = $_POST['password'] ?? null;
-        $password_hide = $_POST['password_hide'] ?? false;
-        $captcha = $_POST['captcha'] ?? null;
-
+        $password_hide = isset($_POST['password_hide']) ? 1 : 0;
         if(SAVE_ACCOUNT_PASSWORD){
             $password_hide = SAVE_ACCOUNT_PASSWORD;
         }
 
-        if($server_id == null) {
-            board::notice(false, lang::get_phrase(327));
-        }
         if($account_name == null) {
             board::notice(false, lang::get_phrase(328));
         }
         if($password == null) {
             board::notice(false, lang::get_phrase(329));
         }
-        if($captcha == null){
-            board::notice(false, lang::get_phrase(330));
-        }
-
-        $builder = new Builder();
-        if (!$builder->compare($captcha, $_SESSION['captcha'])) {
-            board::alert(['ok' => false, "message" => lang::get_phrase(295), "code" => 1]);
-        }
-        //Перегенерация капчи
-        captcha::generation();
-
 
         $player_info = sql::getRow("SELECT id,login,password,email,server_id FROM `player_accounts` WHERE login=?", [
             $account_name,
         ]);
+
         //Если находим такой же аккаунт во внутреннем реестре, тогда уходим...
         if($player_info) {
+            userlog::add("add_account_comparison", 550, [$account_name]);
             board::notice(false, lang::get_phrase(331));
         }
 
         //Теперь необходимо проверить аккаунт на сервере
         $server_info = server::server_info($server_id);
         if(!$server_info) {
+            userlog::add("add_account_comparison", 551, request: $_POST);
             board::notice(false, lang::get_phrase(150));
         }
         $account = player_account::account_is_exist($server_info, $account_name);
@@ -83,6 +72,7 @@ class comparison {
         }
         $account_server_info = $account->fetch();
         if(!$account_server_info) {
+            userlog::add("add_account_comparison", 553, [$account_name], request: $_POST);
             board::notice(false, lang::get_phrase(332));
         }
 
@@ -94,6 +84,7 @@ class comparison {
         //Добавление аккаунта во внутренюю БД
         $ok = player_account::add_inside_account($account_name, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         if($ok){
+            userlog::add("add_account_comparison", 552, [$account_name], request: $_POST);
             board::notice(true, lang::get_phrase(334));
         }
         board::notice(false, "Error");

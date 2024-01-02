@@ -86,8 +86,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->get("account/comparison/server/(\d+)", 'Ofey\Logan22\controller\account\comparison\comparison::call');
     $route->get("account/info/{account}", 'Ofey\Logan22\controller\account\info\info::player_list');
     $route->post("account/info/change/characters/info/forbidden", 'Ofey\Logan22\model\user\player\player_account::forbiddenViewPlayerData');
-    $route->get("registration/account/sync/server/(\d+)", 'Ofey\Logan22\controller\registration\account::sync');
-    $route->post("registration/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
+    $route->get("/account/sync", 'Ofey\Logan22\controller\registration\account::sync');
+    $route->post("/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
 
     /**
      * Авторизация

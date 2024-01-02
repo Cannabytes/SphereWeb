@@ -8,19 +8,21 @@ use Ofey\Logan22\model\user\auth\auth;
 
 class userlog {
 
-    public static function add($type, $phrase, $variable = []){
+    public static function add($type, $phrase, $variable = [], mixed $request = ""){
         $user_id = auth::get_id() ?? 0;
         $server_id = auth::get_default_server();
         $time = time::mysql();
         $variable = json_encode($variable);
-        $query = "INSERT INTO `logs_all` (`user_id`, `time`, `type`, `phrase`, `variables`, `server_id`) VALUES (?, ?, ?, ?, ?, ?)";
+        $request = json_encode($request);
+        $query = "INSERT INTO `logs_all` (`user_id`, `time`, `type`, `phrase`, `variables`, `server_id`, `request`) VALUES (?, ?, ?, ?, ?, ?, ?)";
         sql::run($query, [
             $user_id,
             $time,
             $type,
             $phrase,
             $variable,
-            $server_id
+            $server_id,
+            $request,
         ]);
     }
 
