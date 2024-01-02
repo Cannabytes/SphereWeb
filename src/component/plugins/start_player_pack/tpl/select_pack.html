@@ -1,0 +1,130 @@
+{% if start_player_select_pack() is not null %}
+<div class="content">
+    <h2 class="content-heading">Будь подготовлен к битве. <small>Покупай стартовый пак</small></h2>
+    <div class="row justify-content-center text-center">
+        {% for pack in start_player_select_pack() %}
+        {% set pathList = "" %}
+        <div class="col-md-6 col-xl-4 d-flex flex-column align-items-stretch">
+            <a class="block block-link-pop block-rounded block-bordered text-center d-flex flex-column h-100" href="javascript:void(0)">
+                <div class="block-header">
+                    <h3 class="block-title badge bg-black-25 text-uppercase fw-bold py-1 px-3">{{ pack.name }}</h3>
+                </div>
+                <div class="block-content bg-body-light">
+                    <div class="h1 fw-bold mb-3">
+                        {% if show_image_sphere_coin() %}
+                        <img data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sphere Coin" class="mb-1"
+                             src="{{template}}/assets/images/coin/sphere-coin_32.png">
+                        {% endif %}
+                        {{ pack.cost }}
+                    </div>
+                </div>
+                <div class="block-content">
+                    {% for item_id, data in pack.items %}
+                    <p class="m-0">
+                        {% set item = get_item_info(item_id) %}
+
+                        {% set icon_image = '<img class="img-avatar img-avatar32 rounded" src="'~item.icon~'">'%}
+                        {% set icon_image_mini = '<img class="img-avatar img-avatar16 rounded" src="'~item.icon~'">'%}
+
+                        {% set enchant = "" %}
+                        {% if data.enchant>0 %}
+                            {% set enchant = "+"~data.enchant %}
+                        {% endif %}
+                        {% set count = "" %}
+                        {% if data.count>0 %}
+                        {% set count = "("~data.count~")" %}
+                        {% endif %}
+
+                        {% if pathList is empty %}
+                            {% set pathList = icon_image_mini|raw ~ " " ~ enchant ~ " " ~ item.name ~ count %}
+                        {% else %}
+                            {% set pathList = pathList ~ ", " ~ icon_image_mini|raw ~ " " ~ enchant ~ " " ~ item.name ~ count %}
+                        {% endif %}
+
+                        {{icon_image|raw}}
+                        {% if data.enchant>0 %}+{{data.enchant}}{% endif %} {{item.name}}
+                        {% if data.count > 1 %}: <strong class="text-success">{{data.count}} {{phrase(299)|lower}}</strong>{% endif %}
+                    </p>
+                    <hr>
+                    {% endfor %}
+                </div>
+                <div class="block-content block-content-full bg-body-light mt-auto">
+                    <span data-pack-name="{{ pack.name }}" data-pack-list="{{pathList}}" data-cost="{{pack.cost}}" class="btn btn-success rounded-pill px-4 py-2 open_modal_pack">Купить</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="modal fade" id="modal_panel_apply" tabindex="-1" role="dialog" aria-labelledby="modal_panel_apply" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(75)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <p>{{phrase(76)}}</p>
+
+                    <div class="form-group row">
+                        <label for="char_name" class="col-sm-3 col-form-label">{{phrase(77)}}</label>
+                        <select id="char_name" class="form-control single-select">
+                            {% for account_name, players in get_account_players() %}
+                            <optgroup label="{{phrase(480)}}: {{account_name}}">
+                                {% for player in players %}
+                                <option value="{{player}}">{{player}}</option>
+                                {% endfor %}
+                            </optgroup>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <hr>
+                    <p>
+                        {{phrase(78)}}: <span id="user_count_buy"></span> <span id="user_name_buy"></span><br>
+                        {{phrase(72)}}: <span id="user_worth_buy"></span> {{phrase(68)}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i>
+                        {{phrase("cancel")}}
+                    </button>
+                    <button id="buyPack" data-server_id="{{ get_server_default().id }}" type="button" data-pack-name="" class="btn btn-success"><i class="fa fa-check-square-o"></i>
+                        {{phrase(81)}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.open_modal_pack', function() {
+            {% if user_info('get_is_auth') %}
+                $("#user_count_buy").html( $(this).data("pack-list") )
+                $("#user_worth_buy").html( $(this).data("cost") )
+                $("#buyPack").attr("data-pack-name", $(this).data("pack-name"))
+                $('#modal_panel_apply').modal('show');
+            {% else %}
+                notify_error("{{phrase(234)}}");
+            {% endif %}
+        });
+
+        $(document).on('click', '#buyPack', function() {
+            pn = $(this).attr("data-pack-name");
+            AjaxSend(baseHref + "/startpack/buy", "POST", {
+                packName: pn,
+                player: $("#char_name").val(),
+            });
+            $('#modal_panel_apply').modal('hide');
+        });
+    });
+</script>
+{% endif %}

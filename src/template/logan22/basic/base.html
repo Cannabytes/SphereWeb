@@ -330,8 +330,15 @@
                             </a>
                         </li>
 
+                        {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_5") %}
+                        {{ include(include_file) }}
+                        {% endfor %}
 
                         <li class="nav-main-heading">{{phrase("other")}}</li>
+
+                        {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_6") %}
+                        {{ include(include_file) }}
+                        {% endfor %}
 
                         {% for plugin in show_plugins() %}
                         {% if user_info('get_access_level') in plugin.PLUGIN_USER_PAGE_ACCESS %}
@@ -514,6 +521,7 @@
                         <span class="nav-main-link-badge badge rounded-pill bg-primary count_sphere_coin">{{ user_info('get_donate_point') }}</span></span>
                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                     </button>
+
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
                          aria-labelledby="page-header-user-dropdown">
                         <div class="px-2 py-3 bg-body-light rounded-top">
@@ -716,6 +724,10 @@
                     </div>
                 </div>
 
+                {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_3") %}
+                {{ include(include_file) }}
+                {% endfor %}
+
                 {% if user_info('get_is_auth') %}
                 <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
                         data-action="side_overlay_toggle">
@@ -758,6 +770,10 @@
     <main id="main-container" class="main-container">
         {% block content %}{% endblock %}
     </main>
+
+    {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_4") %}
+    {{ include(include_file) }}
+    {% endfor %}
 
     <footer id="page-footer" class="bg-body-extra-light">
         <div class="content py-3">
