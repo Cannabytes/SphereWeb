@@ -848,5 +848,38 @@ return [
     529 => "Approximate renewal dates",
     530 => "Technical work in progress",
     531 => "Sorry, the site is undergoing maintenance.",
+    532 => "User created an account %s",
+    533 => "Registered a new profile %s and created an account %s",
+    534 => "Changed the password for the game account %s",
+    535 => "Added a comment on the page %s",
+    536 => "Added a message on the forum: %s",
+    537 => "Created a new topic on the forum: %s",
+    538 => "Liked a post on the forum",
+    539 => "Purchased item ID: %s (%s pcs.) for %s SphereCoin and sent it to the character %s",
+    540 => "Transferred %s SphereCoin to the user ID: %s",
+    541 => "Used Bonus Code: %s and received %s (%s)",
+    542 => "Sent ENCHANT item: +%s ID: %s (%s pcs.) to the character %s",
+    543 => "User created a ticket: <a target='_blank' href='%s'>Link</a>",
+    544 => "User replied in the ticket: <a target='_blank' href='%s'>Link</a>",
+    545 => "Donated %s %s",
+    546 => "Received Sphere-Coin as donation bonuses: %s",
+    547 => "Selected an avatar",
+    548 => "Uploaded a new avatar",
+    549 => "Changed profile information",
+    550 => "Attempted to synchronize account %s, which is linked",
+    551 => "Attempted to synchronize an account to a server that does not exist",
+    552 => "Successfully synchronized account %s",
+    553 => "Attempted to synchronize account %s, which does not exist in the server's database",
+    554 => "Synchronized game account under %s x%s %s",
+    555 => "What is it and how does it work",
+    556 => 'If you already have a game account registered not through the personal account and you want to link it to your profile, please specify the data of your accounts for synchronization. This will allow you to manage your accounts.<br>
+                    <hr>
+                    <span class="text-danger">Note: The number of synchronization attempts is limited.<br>
+                        The server administration will be notified in case of:<br>
+                    <ol>
+                        <li>Attempt to guess the password for the account.</li>
+                        <li>If you try to add an account that is linked to another user.</li>
+                    </ol>
+                    </span>',
 
 ];
