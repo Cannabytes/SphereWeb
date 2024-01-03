@@ -246,7 +246,7 @@ $('#itemIDDonate').on('input', function () {
         dataType: 'json',
         data: dataToSend,
         success: function (response) {
-            $("#editImgSrc").attr("src", response.icon);
+            $("#AddImgSrc").attr("src", response.icon);
             $("#itemNameDonate").text(response.name);
         },
         error: function (xhr, status, error) {

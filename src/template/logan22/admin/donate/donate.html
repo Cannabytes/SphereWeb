@@ -12,33 +12,34 @@
                 <div class="block-header block-header-default">
                     <h3 class="block-title">
                         <i class="fa fa-fw fa-graduation-cap opacity-50"></i>
-                        Добавление нового предмета в магазин
+                        {{phrase(216)}}
                     </h3>
                 </div>
                 <form action="{{action('admin_donate_add')}}" method="POST" class="block-content block-content-full">
                     <div class="push">
-                        <img id="editImgSrc" class="img-thumb" src="{{path('/uploads/images/icon/NOIMAGE.webp')}}" alt="">
+                        <img class="img-thumb" id="AddImgSrc" src="{{path('/uploads/images/icon/NOIMAGE.webp')}}" alt="">
                     </div>
-                    <div id="itemNameDonate" class="fw-semibold mb-1">Нет предмета</div>
+                    <div id="itemNameDonate" class="fw-semibold mb-1"></div>
 
                     <div class="row">
                         <div class="col-4">
-                            <label class="form-label" for="itemIDDonate">Item ID</label>
+                            <label class="form-label" for="itemIDDonate">ID</label>
                             <input type="text" class="form-control form-control-lg" id="itemIDDonate" name="itemid">
                         </div>
                         <div class="col-4">
-                            <label class="form-label" for="count">Кол-во</label>
+                            <label class="form-label" for="count">{{phrase(71)}}</label>
                             <input type="text" class="form-control form-control-lg" id="count" name="count">
                         </div>
                         <div class="col-4">
-                            <label class="form-label" for="cost">Стоимость</label>
+                            <label class="form-label" for="cost">{{phrase(72)}}</label>
                             <input type="text" class="form-control form-control-lg" id="cost" name="cost">
                         </div>
 
                     </div>
 
                     <div class="block-content">
-                        <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i> Добавить</button>
+                        <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i>
+                            {{phrase(438)}}</button>
                     </div>
                 </form>
 
@@ -91,7 +92,7 @@
         <div class="modal-content">
             <div class="block block-rounded shadow-none mb-0">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Terms &amp; Conditions</h3>
+                    <h3 class="block-title">{{phrase(301)}}</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
                             <i class="fa fa-times"></i>
@@ -102,29 +103,29 @@
 
                     <form action="{{action('admin_donate_edit')}}" method="POST" class="block-content block-content-full">
                         <div class="push text-center">
-                            <img class="img-thumb" src="{{path('/uploads/images/icon/etc_adena_i00.webp')}}" alt="">
+                            <img class="img-thumb" id="editImgSrc" src="{{path('uploads/images/icon/NOIMAGE.webp')}}" alt="">
                         </div>
                         <div class="fw-semibold mb-1 text-center">Нет предмета</div>
                         <input type="hidden" class="form-control form-control-lg" id="edit_id" name="id">
 
                         <div class="row">
                             <div class="col-4">
-                                <label class="form-label" for="edit_itemID">Item ID</label>
+                                <label class="form-label" for="edit_itemID">ID</label>
                                 <input disabled type="text" class="form-control form-control-lg" id="edit_itemID" name="itemid">
                             </div>
                             <div class="col-4">
-                                <label class="form-label" for="count">Кол-во</label>
+                                <label class="form-label" for="count">{{phrase(71)}}</label>
                                 <input type="text" class="form-control form-control-lg" id="edit_count" name="count">
                             </div>
                             <div class="col-4">
-                                <label class="form-label" for="cost">Стоимость</label>
+                                <label class="form-label" for="cost">{{phrase(72)}}</label>
                                 <input type="text" class="form-control form-control-lg" id="edit_cost" name="cost">
                             </div>
 
                         </div>
 
                         <div class="block-content text-center">
-                            <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i> Сохранить</button>
+                            <button class="btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal"> <i class="fa fa-plus opacity-50 me-1"></i>{{phrase(89)}}</button>
                         </div>
                     </form>
 
