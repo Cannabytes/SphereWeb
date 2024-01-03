@@ -7,7 +7,7 @@
       "Ofey\\Logan22\\": "src/"
     },
     "files": [
-      "src/config/general.php"
+      "src/component/config/config_loader.php"
     ]
   },
   "authors": [

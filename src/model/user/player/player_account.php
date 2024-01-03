@@ -228,7 +228,6 @@ class player_account {
      * TODO: На будущее переделать, сначала проверить что N аккаунт пуст во внутренне БД и в БД сервера,
      * и только после этого производить регистрацию.
      *
-     * @param $server_id
      * @param $login
      * @param $password
      * @param $password_hide
@@ -236,6 +235,14 @@ class player_account {
      * @throws ExceptionAlias
      */
     public static function add($login, $password, $password_hide) {
+        if(MASS_REGISTRATION){
+            self::add_mass_players($login, $password, $password_hide);
+        }else{
+            self::add_one_player($login, $password, $password_hide);
+        }
+    }
+
+    public static function add_one_player($login, $password, $password_hide) {
         $server_id = auth::get_default_server();
         self::valid_login($login);
         self::valid_password($password);
@@ -243,27 +250,7 @@ class player_account {
             board::notice(false, lang::get_phrase(206));
         }
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
-        if ($get_server_info['rest_api_enable']) {
-            $err = self::account_registration($server_id, [
-                $login,
-                $password,
-                auth::get_email(),
-            ]);
-        } else {
-            sdb::setShowErrorPage(false);
-            $reQuest = self::getReQuest($server_id, $login);
-            $err = self::account_registration($reQuest, [
-                $login,
-                encrypt::server_password($password, $reQuest),
-                auth::get_email(),
-            ]);
-        }
-        if (is_array($err)) {
-            if (!$err['ok']) {
-                board::notice(false, $err['message']);
-            }
-        }
-        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
+        $reQuest = self::getQuest($get_server_info['rest_api_enable'], $server_id, $login, $password, $password_hide);
 
         $fileDownload = include_once "src/config/registration_download.php";
         $content = trim($fileDownload['content']) ?? "";
@@ -280,6 +267,38 @@ class player_account {
                 "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
                 "content" => $content,
             ]);
+    }
+
+    public static function add_mass_players($login, $password, $password_hide) {
+        $server_id = auth::get_default_server();
+        self::valid_login($login);
+        self::valid_password($password);
+        if (self::count_account($server_id) >= 20) {
+            board::notice(false, lang::get_phrase(206));
+        }
+        $get_server_info = \Ofey\Logan22\model\server\server::get_server_info();
+        foreach($get_server_info AS $info){
+            $server_id = $info['id'];
+            $reQuest = self::getQuest($info['rest_api_enable'], $server_id, $login, $password, $password_hide);
+        }
+
+        $fileDownload = include_once "src/config/registration_download.php";
+        $content = trim($fileDownload['content']) ?? "";
+        if ($fileDownload['enable']) {
+            $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
+                [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], auth::get_email(), $login, $password], $content);
+        }
+
+        userlog::add("registration", 532, [$login]);
+        board::response("notice_registration",
+            [
+                "ok" => true,
+                "message" => lang::get_phrase(207),
+                "isDownload" => $fileDownload['enable'],
+                "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
+                "content" => $content,
+            ]);
+
     }
 
     static function count_account($server_id) {
@@ -422,5 +441,39 @@ class player_account {
             $email,
             auth::get_default_server(),
         ]);
+    }
+
+    /**
+     * @param $rest_api_enable
+     * @param mixed $server_id
+     * @param $login
+     * @param $password
+     * @param $password_hide
+     * @return mixed|null
+     * @throws ExceptionAlias
+     */
+    private static function getQuest($rest_api_enable, mixed $server_id, $login, $password, $password_hide): mixed {
+        if ($rest_api_enable) {
+            $err = self::account_registration($server_id, [
+                $login,
+                $password,
+                auth::get_email(),
+            ]);
+        } else {
+            sdb::setShowErrorPage(false);
+            $reQuest = self::getReQuest($server_id, $login);
+            $err = self::account_registration($reQuest, [
+                $login,
+                encrypt::server_password($password, $reQuest),
+                auth::get_email(),
+            ]);
+        }
+        if (is_array($err)) {
+            if (!$err['ok']) {
+                board::notice(false, $err['message']);
+            }
+        }
+        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
+        return $reQuest;
     }
 }

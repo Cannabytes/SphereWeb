@@ -242,7 +242,6 @@ class auth {
                     self::set_user_variables();
 
                     if ($auth['access_level'] == "admin" ) {
-                        include fileSys::localdir("src/config/admin.php");
                         if(IS_ADMIN_CONFIRMATION_CODE){
                             if (!isset($_SESSION['admin_code']) || !in_array($_SESSION['admin_code'], ADMIN_CODES_AUTH)) {
                                 if(isset($_POST)){
