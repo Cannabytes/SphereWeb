@@ -20,7 +20,7 @@ class donate {
 
     static public function config() {
         validation::user_protection("admin");
-        include_once ('src/config/donate.php');
+        include ('src/config/donate.php');
         tpl::addVar([
             'title'       => lang::get_phrase(215),
             'server_list' => server::get_server_info(),

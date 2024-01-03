@@ -31,7 +31,6 @@ class forum {
      */
     public static function get_engine(): string {
         if(self::$engine == '') {
-            include_once 'src/config/forum.php';
             self::$engine = FORUM_ENGINE;
         }
         return self::$engine;
@@ -39,7 +38,6 @@ class forum {
 
     public static function get_url($link = ''): string {
         if(self::$url == '') {
-            include_once 'src/config/forum.php';
             self::$url = FORUM_URL;
         }
         return self::$url;

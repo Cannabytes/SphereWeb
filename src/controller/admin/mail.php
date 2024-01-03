@@ -17,7 +17,6 @@ class mail {
     static public function setting() {
         validation::user_protection("admin");
 
-        include_once 'src/config/email.php';
         tpl::addVar([
             'EMAIL_HOST' => EMAIL_HOST,
             'EMAIL_USERNAME' => EMAIL_USERNAME,

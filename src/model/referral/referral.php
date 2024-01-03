@@ -24,7 +24,6 @@ class referral {
         if (!$players_list) {
             board::notice(false, "Error");
         }
-        require_once 'src/config/referral.php';
         $f = false;
         foreach ($players_list as $players) {
             foreach ($players["characters"] as $character) {

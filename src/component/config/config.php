@@ -30,7 +30,6 @@ class config
 
     public static function open(): void
     {
-        require_once "src/config/configuration.php";
         self::$template = template;
         self::$timeout_statistic = timeout_statistic ?? self::$timeout_statistic;
         self::$language_default = language_default ?? self::$language_default;
@@ -45,7 +44,6 @@ class config
 
     //Загрузка включенных и выключенных функций
     private static function loadEnable(): void {
-        require_once 'src/config/enable.php';
         self::$enable_referral = ENABLE_REFERRAL;
         self::$enable_ticket = ENABLE_TICKET;
         self::$enable_gallery = ENABLE_GALLERY;
@@ -55,7 +53,6 @@ class config
     // Возвращает название используемой капчи
     public static function get_captcha_version($checkCaptchaName = null): string|bool|null {
         if(self::$captcha===null){
-            include 'src/config/captcha.php';
             if (defined('CAPTCHA')) {
                 self::$captcha = CAPTCHA;
             }

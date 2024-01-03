@@ -795,7 +795,6 @@ class tpl {
 
         //Есть ли бонус для персонажа за привлеченного пользователя
         $twig->addFunction(new TwigFunction('is_referral_bonus', function ($referrals) {
-            require_once fileSys::get_dir('src/config/referral.php');
             foreach ($referrals as $account) {
                 if ($account['done'] || !isset($account['characters'])) {
                     continue;

@@ -57,7 +57,6 @@ const CHARSET = 'utf8';
         $email = $_POST['email'];
         $ip = '127.0.0.1';
         $port = 3306;
-        require_once fileSys::get_dir("/src/config/db.php");
         $conn = self::test_connect_mysql(DB_HOST, $port, DB_USER, DB_PASSWORD, DB_NAME);
         if(!$conn) {
             board::notice(false, lang::get_phrase(156));
@@ -81,14 +80,12 @@ const CHARSET = 'utf8';
             return false;
         }
         $sql = 'SELECT * FROM users WHERE access_level = "admin"';
-        require_once fileSys::get_dir("/src/config/db.php");
         $conn = self::test_connect_mysql(DB_HOST, 3306,DB_USER, DB_PASSWORD, DB_NAME);
         return $conn->query($sql)->fetch();
     }
 
     private static function add_first_news(): void {
         $txt = lang::get_phrase(158);
-        require_once fileSys::get_dir("/src/config/db.php");
         $conn = self::test_connect_mysql(DB_HOST, 3306, DB_USER, DB_PASSWORD, DB_NAME);
         $smt = $conn->prepare('INSERT INTO `pages` (`is_news`, `name`, `description`) VALUES (1, ?, ?);');
         $smt->execute([

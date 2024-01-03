@@ -58,7 +58,6 @@ class ticket_model {
     }
 
     public static function add() {
-        include "src/config/forum.php";
         if ($count = self::countCreateLastTime(auth::get_id(), 1)) {
             if ($count >= MAX_COUNT_CREATE_THREAD_IN_HOUR) {
                 board::notice(false, lang::get_phrase(457));

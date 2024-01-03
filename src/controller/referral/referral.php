@@ -15,8 +15,6 @@ class referral {
 
     public static function show() {
         validation::user_protection();
-        require_once 'src/config/referral.php';
-        require_once 'src/config/enable.php';
         if (!ENABLE_REFERRAL){
            error::error404("Реферальная система отключена");
         }
@@ -32,7 +30,6 @@ class referral {
 
     public static function my_bonus() {
         validation::user_protection();
-        require_once 'src/config/enable.php';
         if (!ENABLE_REFERRAL){
             error::error404("Реферальная система отключена");
         }

@@ -31,7 +31,6 @@ class fdb {
                     echo 'Need create connect to forum db';
                     die();
                 }
-                require_once 'src/config/forum.php';
                 self::$db = new PDO('mysql:host=' . FORUM_HOST . ';dbname=' . FORUM_NAME, FORUM_USER, FORUM_PASSWORD, $options = [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_EMULATE_PREPARES   => false,

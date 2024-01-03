@@ -49,7 +49,6 @@ class online {
                 }
             }
 
-            include_once 'src/config/online_cheating.php';
             //Проверка на накрутку онлайна
             if($connect_game===true){
                 if (ONLINE_CHEATING_ENABLE) {

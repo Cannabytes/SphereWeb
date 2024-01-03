@@ -113,7 +113,7 @@ class donate {
         $cost_product = $donat_info_cost * $user_value;
 
         //Проверка на скидку по товару
-        $donateInfo = require_once 'src/config/donate.php';
+        $donateInfo = require 'src/config/donate.php';
 
         if ($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']) {
             $procentDiscount = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);

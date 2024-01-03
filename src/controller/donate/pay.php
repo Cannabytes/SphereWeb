@@ -30,7 +30,7 @@ class pay {
             }
         }
         if(!config::getEnableDonate()) error::error404("Отключено");
-        $donateInfo = require_once 'src/config/donate.php';
+        $donateInfo = require 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
             if($donateInfo['DONATE_DISCOUNT_TYPE_STORAGE']){
@@ -49,7 +49,7 @@ class pay {
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
 
-        $donateInfo = require_once 'src/config/donate.php';
+        $donateInfo = require 'src/config/donate.php';
         $point = 0;
         if(auth::get_is_auth()){
             if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
