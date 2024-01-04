@@ -3,12 +3,9 @@
  * Загружать ли пользователю файл с его данными после успешной регистрации
  */
 
-return [
-    //Включить true / false - выключить
-    'enable' => true,
+const ENABLE_REGISTRATION_FILE = true;
 
-    //Содержимое файла
-    'content' => "
+const REGISTRATION_FILE_CONTENT = "
 Site Server: %site_server%
 Server Name: %server_name%
 Rate Exp: %rate_exp%
@@ -18,5 +15,4 @@ Email: %email%
 ====== ACCOUNT =======
 Login: %login%
 Password: %password%
-"
-];
+";

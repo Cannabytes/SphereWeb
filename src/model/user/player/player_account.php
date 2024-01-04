@@ -252,9 +252,8 @@ class player_account {
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
         $reQuest = self::getQuest($get_server_info['rest_api_enable'], $server_id, $login, $password, $password_hide);
 
-        $fileDownload = include_once "src/config/registration_download.php";
-        $content = trim($fileDownload['content']) ?? "";
-        if ($fileDownload['enable']) {
+        $content = REGISTRATION_FILE_CONTENT;
+        if (ENABLE_REGISTRATION_FILE) {
             $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                 [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], auth::get_email(), $login, $password], $content);
         }
@@ -263,10 +262,28 @@ class player_account {
             [
                 "ok" => true,
                 "message" => lang::get_phrase(207),
-                "isDownload" => $fileDownload['enable'],
+                "isDownload" => ENABLE_REGISTRATION_FILE,
                 "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
-                "content" => $content,
+                "content" => trim($content),
             ]);
+    }
+
+    static private function removeDuplicates($array, $keys)
+    {
+        $uniqueKeys = [];
+        $result = array_filter($array, function ($item) use ($keys, &$uniqueKeys) {
+            $key = '';
+            foreach ($keys as $k) {
+                $key .= $item[$k];
+            }
+            if (!in_array($key, $uniqueKeys)) {
+                $uniqueKeys[] = $key;
+                return true;
+            }
+            return false;
+        });
+
+        return array_values($result);
     }
 
     public static function add_mass_players($login, $password, $password_hide) {
@@ -277,26 +294,24 @@ class player_account {
             board::notice(false, lang::get_phrase(206));
         }
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info();
-        foreach($get_server_info AS $info){
+        $unique_server_info = self::removeDuplicates($get_server_info, ['login_host', 'login_port', 'login_user', 'login_password']);
+        foreach($unique_server_info AS $info){
             $server_id = $info['id'];
             $reQuest = self::getQuest($info['rest_api_enable'], $server_id, $login, $password, $password_hide);
         }
-
-        $fileDownload = include_once "src/config/registration_download.php";
-        $content = trim($fileDownload['content']) ?? "";
-        if ($fileDownload['enable']) {
+        $content = REGISTRATION_FILE_CONTENT;
+        if (ENABLE_REGISTRATION_FILE) {
             $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                 [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], auth::get_email(), $login, $password], $content);
         }
-
         userlog::add("registration", 532, [$login]);
         board::response("notice_registration",
             [
                 "ok" => true,
                 "message" => lang::get_phrase(207),
-                "isDownload" => $fileDownload['enable'],
+                "isDownload" => ENABLE_REGISTRATION_FILE,
                 "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
-                "content" => $content,
+                "content" => trim($content),
             ]);
 
     }
@@ -329,11 +344,7 @@ class player_account {
             board::notice(false, lang::get_phrase(150));
         }
         if (self::exist_account_inside($login, $server_id)) {
-            board::alert([
-                'ok' => false,
-                'message' => lang::get_phrase(214),
-                'getCode' => 0,
-            ]);
+            board::error(lang::get_phrase(214));
         }
 
         $account = self::account_is_exist($server_info, $login);
@@ -342,19 +353,11 @@ class player_account {
         }
         if (gettype($account) != "object") {
             if (!$account['ok']) {
-                board::alert([
-                    'ok' => false,
-                    'message' => $account['message'],
-                    'getCode' => 0,
-                ]);
+                board::error($account['message']);
             }
         }
         if ($account->fetch()) {
-            board::alert([
-                'ok' => false,
-                'message' => lang::get_phrase(214),
-                'getCode' => 0,
-            ]);
+            board::error(lang::get_phrase(214));
         }
         return $server_info;
     }
