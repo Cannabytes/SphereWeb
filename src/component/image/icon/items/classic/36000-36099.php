@@ -1,0 +1,53 @@
+<?php
+return [
+  36079 => 
+  [
+    'id' => 36079,
+    'type' => 'etcitem',
+    'name' => 'Yum Yum Candy',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'etc_whiteday_candy_i05',
+    'is_clan_depositable' => 'false',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_commissionable' => 'false',
+    'is_private_storeable' => 'false',
+    'is_freightable' => true,
+    'etcitem_type' => 'encht_attr_rune',
+  ],
+  36080 => 
+  [
+    'id' => 36080,
+    'type' => 'etcitem',
+    'name' => 'Nom Nom Candy',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'etc_whiteday_candy_i06',
+    'is_clan_depositable' => 'false',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_commissionable' => 'false',
+    'is_private_storeable' => 'false',
+    'is_freightable' => true,
+    'etcitem_type' => 'encht_attr_rune',
+  ],
+  36081 => 
+  [
+    'id' => 36081,
+    'type' => 'etcitem',
+    'name' => 'Yummy Gift Box',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'etc_candy_basket_i04_1',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_depositable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_freightable' => true,
+    'handler' => 'itemskills',
+  ],
+];

@@ -10,6 +10,7 @@ namespace Ofey\Logan22\controller\admin;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\chronicle\client;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\servername\servername;
 use Ofey\Logan22\component\time\timezone;
@@ -18,6 +19,7 @@ use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\update_cache;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\install\install;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 use PDO;
 use PDOException;
@@ -33,6 +35,29 @@ class options {
             'server'                  => \Ofey\Logan22\model\server\server::get_server_info($server_id),
         ]);
         tpl::display("/admin/server/edit.html");
+    }
+
+    public static function additionally_server_show($server_id){
+        validation::user_protection("admin");
+        $items_dir = fileSys::get_dir_files("src/component/image/icon/items", [
+            "basename" => true,
+            "fetchAll" => true,
+        ]);
+        $server_data = server::get_server_data($server_id);
+        tpl::addVar([
+            "items_dir" => $items_dir,
+            "server_data" => $server_data,
+            "select_server_id" => $server_id,
+        ]);
+        tpl::display("/admin/server/additionally.html");
+    }
+
+    public static function additionally_save(){
+        validation::user_protection("admin");
+        $element = $_POST['element'] ?? board::error("Нет данных элемента");
+        $data = $_POST['data'] ?? board::error("Нет данных дата");
+        $select_server_id = $_POST['select_server_id'] ?? auth::get_default_server();
+        server::additionally_save($element, $data, $select_server_id);
     }
 
     static public function server_show() {

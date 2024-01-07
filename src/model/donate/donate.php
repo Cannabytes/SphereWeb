@@ -27,37 +27,9 @@ class donate {
      * @return array
      * @throws Exception
      * История платежей пользователя
+     * TODO: Удалил код, он устарел, требуется сделать историю покупок предметов (из страницы) /donate
      */
     static public function donate_history($user_id = null) {
-        if (!$user_id) {
-            $user_id = auth::get_id();
-        }
-        $donate = sql::getRows("SELECT user_id, item_id, amount, cost, char_name, date FROM donate_history WHERE user_id = ? AND server_id = ? ORDER BY id DESC", [
-            $user_id,
-            auth::get_default_server(),
-        ]);
-
-        if (empty($donate))
-            return [];
-
-        $lex = [];
-        $item_id_list = array_column($donate, 'item_id');
-        foreach ($item_id_list as $item) {
-            $lex[] = client_icon::get_item_info($item, false);
-        }
-//        var_dump($lex);exit;
-//        $lex = sql::getRows("SELECT * FROM items_data WHERE `item_id` IN (" . implode(',', $item_id_list) . ");");
-
-        $items = [];
-        foreach ($donate as $item) {
-            $item_id = $item['item_id'];
-            foreach ($lex as $row) {
-                if ($item_id == $row['item_id']) {
-                    $items[] = array_merge($item, $row);
-                }
-            }
-        }
-        return $items;
     }
 
     /**
@@ -72,30 +44,36 @@ class donate {
             tpl::addVar("message", "Not Server");
             tpl::display("page/error.html");
         }
-        $donate = sql::run("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC", [
+        $donate = sql::getRows("SELECT * FROM `donate` WHERE server_id = ? ORDER BY id DESC", [
             $server_id,
-        ])->fetchAll();
-        $lex = [];
-        foreach ($donate as $item) {
-            $lex[] = client_icon::get_item_info($item['item_id'], false, false);
-        }
-        $items = [];
-        foreach ($donate as $item) {
-            $item_id = $item['item_id'];
-            foreach ($lex as $row) {
-                if ($item_id == $row['item_id']) {
-                    $items[] = array_merge($item, $row);
+        ]);
+        foreach ($donate as &$item) {
+            //Если установлен пак
+            if($item['is_pack']){
+                $item['pack'] = [];
+                $packData = self::get_pack($item['id']);
+                foreach ($packData AS $pack_item){
+                    $item_info = client_icon::get_item_info($pack_item['item_id'], false, false);
+                    $item_info['count'] = $pack_item['count'];
+                    $item['pack'][] = $item_info;
                 }
+            }else{
+                $item_info = client_icon::get_item_info($item['item_id'], false, false);
+                $item = array_merge($item, $item_info);
             }
         }
-        return $items;
+        return $donate;
+    }
+
+    public static function get_pack($pack_id): array {
+       return sql::getRows("SELECT * FROM `donate_pack` WHERE pack_id = ?", [$pack_id]);
     }
 
     /*
      * Покупка предмета, передача предмета игровому персонажу
      */
     static public function transaction(): void {
-        $id = $_POST['id'];
+        $id = $_POST['id'] ?? board::error("Error");
         $server_id = filter_input(INPUT_POST, 'server_id', FILTER_VALIDATE_INT);
         $user_value = filter_input(INPUT_POST, 'user_value', FILTER_VALIDATE_INT);
         if ($user_value <= 0) {
@@ -108,6 +86,9 @@ class donate {
         $donat_info = self::donate_item_info($id, $server_id);
         if (!$donat_info) {
             board::notice(false, lang::get_phrase(152));
+        }
+        if(isset($donat_info['is_pack'])){
+            $user_value = 1;
         }
         $donat_info_cost = $donat_info['cost'];
         $cost_product = $donat_info_cost * $user_value;
@@ -152,7 +133,44 @@ class donate {
             board::notice(false, lang::get_phrase(151, $char_name));
         $player_id = $player_info["player_id"];
 
-        $is_stack = client_icon::is_stack($donat_info['item_id']);
+        //Если это пак
+        if(isset($donat_info['is_pack'])){
+            $pack_list = self::get_pack($donat_info['id']);
+            foreach ($pack_list AS $pack){
+                $is_stack = client_icon::is_stack($pack['item_id']);
+                $donat_info['item_id'] = $pack['item_id'];
+                $addToUserItems = $pack['count'] * $user_value;
+                self::sending_implementation($server_info, $player_info, $char_name, $player_id, $is_stack, $donat_info, $addToUserItems);
+            }
+        }else{
+            $is_stack = client_icon::is_stack($donat_info['item_id']);
+            self::sending_implementation($server_info, $player_info, $char_name, $player_id, $is_stack, $donat_info, $addToUserItems);
+        }
+
+
+        self::taking_money($cost_product, auth::get_id());
+        userlog::add("donate", 539, [$donat_info['item_id'], $addToUserItems, $cost_product, $char_name]);
+        auth::set_donate_point(auth::get_donate_point() - $cost_product);
+
+        sql::run("INSERT INTO `donate_history` (`user_id`, `item_id`, `amount`, `cost`, `char_name`, `server_id`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?)", [
+            auth::get_id(),
+            $donat_info['item_id'],
+            $addToUserItems,
+            $cost_product,
+            $char_name,
+            $server_id,
+            time::mysql(),
+        ]);
+
+        board::alert([
+            'ok' => true,
+            'message' => lang::get_phrase(304),
+            'donate_bonus' => auth::get_donate_point(),
+        ]);
+    }
+
+    //Имлементация отправки на персонажа
+    private static function sending_implementation($server_info, $player_info, $char_name, $player_id, $is_stack, $donat_info, $addToUserItems ){
 
         //Если для выдачи предмета, персонаж должен быть ВНЕ игры
         if ($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
@@ -198,33 +216,13 @@ class donate {
                 0,
             ]);
         }
-
-        self::taking_money($cost_product, auth::get_id());
-        userlog::add("donate", 539, [$donat_info['item_id'], $addToUserItems, $cost_product, $char_name]);
-        auth::set_donate_point(auth::get_donate_point() - $cost_product);
-
-        sql::run("INSERT INTO `donate_history` (`user_id`, `item_id`, `amount`, `cost`, `char_name`, `server_id`, `date`) VALUES (?, ?, ?, ?, ?, ?, ?)", [
-            auth::get_id(),
-            $donat_info['item_id'],
-            $addToUserItems,
-            $cost_product,
-            $char_name,
-            $server_id,
-            time::mysql(),
-        ]);
-
-        board::alert([
-            'ok' => true,
-            'message' => lang::get_phrase(304),
-            'donate_bonus' => auth::get_donate_point(),
-        ]);
-    }
+}
 
     /**
      * Получение информации о предмете из БД
      */
     static private function donate_item_info($item_id, $server_id) {
-        return sql::run("SELECT id, item_id, count, cost FROM donate WHERE id = ? AND server_id = ?", [
+        return sql::run("SELECT * FROM donate WHERE id = ? AND server_id = ?", [
             $item_id,
             $server_id,
         ])->fetch();

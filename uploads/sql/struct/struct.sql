@@ -62,6 +62,14 @@ CREATE TABLE `chat`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
+DROP TABLE IF EXISTS `server_data`;
+CREATE TABLE `server_data`  (
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `val` varchar(6000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `server_id` int(11) NULL DEFAULT NULL,
+  INDEX `key`(`key`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
 
 -- ----------------------------
 -- Table structure for donate
@@ -71,10 +79,13 @@ CREATE TABLE `donate`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NULL DEFAULT NULL,
   `count` int(11) NULL DEFAULT NULL,
-  `cost` int(11) NULL DEFAULT NULL,
+  `cost` float NULL DEFAULT NULL,
   `server_id` int(11) NULL DEFAULT NULL,
+  `is_pack` int(11) NULL DEFAULT NULL,
+  `pack_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
 
 -- ----------------------------
 -- Table structure for donate_history
@@ -89,6 +100,15 @@ CREATE TABLE `donate_history`  (
   `char_name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `server_id` int(11) NULL DEFAULT NULL,
   `date` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+DROP TABLE IF EXISTS `donate_pack`;
+CREATE TABLE `donate_pack`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pack_id` int(11) NULL DEFAULT NULL,
+  `item_id` int(11) NULL DEFAULT NULL,
+  `count` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 

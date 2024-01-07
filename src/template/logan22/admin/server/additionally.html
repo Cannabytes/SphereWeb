@@ -1,0 +1,37 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{{phrase(26)}}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Дополнительные настройки для сервера</h3>
+        </div>
+        <div class="block-content">
+
+                <div class="row push">
+                    <div class="col-lg-3">
+                        <p class="text-muted">
+                            База знаний предметов
+                        </p>
+                    </div>
+
+                    <div class="col-lg-5 col-xl-2">
+                        <div class="mb-4">
+                            <select class="form-select" id="knowledge_base">
+                                {% for dir in items_dir %}
+                                <option value="{{dir}}" {% if get_server_data('knowledge_base', select_server_id ) == dir %}selected{% endif %}>{{dir}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-primary save_data" data-action="/admin/options/server/additionally" data-element-id="knowledge_base" data-server-id="{{select_server_id}}">{{phrase(89)}}</button>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

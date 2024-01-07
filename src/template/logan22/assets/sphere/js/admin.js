@@ -205,17 +205,8 @@ $(document).on('change', '.radio-switch', function (event) {
 });
 
 $(document).on('click', '.removeDonateItem', function (e) {
-    $.ajax({
-        type: "POST",
-        url: baseHref + "/admin/donate/remove",
-        data: {
-            productId: $(this).data("object-id"),
-        },
-        dataType: "json",
-     }).done(function (data) {
-        if (data.ok) {
-            $(this).closest("tr").remove();
-        }
+    AjaxSend(baseHref + "/admin/donate/remove", "POST", {
+        productId: $(this).data("object-id"),
     })
 });
 
@@ -234,8 +225,31 @@ $(document).on('click', '.editDonateButton', function (event) {
     $("#editImgSrc").attr("src", img);
 });
 
+$(document).on('click', '.editPackDonateButton', function (event) {
+    let objectId = $(this).data("object-id");
+    let itemName = $(this).data("item-name");
+    let itemCost = $(this).data("item-cost");
+    let img = $(this).data("img");
+    let elements = $(`.img_${objectId}`);
+    $(".editPackImgSrc").empty();
+    let destinationDiv = $('.editPackImgSrc');
 
-$('#itemIDDonate').on('input', function () {
+    elements.each(function() {
+        imageUrl = $(this).attr('src');
+        imgTag = $('<img>');
+        imgTag.attr('src', imageUrl);
+        imgTag.addClass('img-thumb img-avatar32');
+        imgTag.appendTo(destinationDiv);
+    });
+
+    $("#edit_pack_itemID").val(itemName);
+    $("#edit_pack_id").val(objectId);
+    $("#edit_pack_cost").val(itemCost);
+    $("#editImgSrc").attr("src", img);
+});
+
+
+$(document).on('input','#itemIDDonate',function () {
     var newItemID = $(this).val().toString();
     var dataToSend = {
         itemID: newItemID
@@ -248,6 +262,17 @@ $('#itemIDDonate').on('input', function () {
         success: function (response) {
             $("#AddImgSrc").attr("src", response.icon);
             $("#itemNameDonate").text(response.name);
+            var countInput = $("#count");
+            if (!response.is_stackable) {
+                countInput.val(1);
+                if (!countInput.prop("disabled")) {
+                    countInput.prop("disabled", true);
+                }
+            } else {
+                if (countInput.prop("disabled")) {
+                    countInput.prop("disabled", false);
+                }
+            }
         },
         error: function (xhr, status, error) {
             console.error('Произошла ошибка:', error);
@@ -433,3 +458,56 @@ $(document).on("click", "#topic_move", function () {
     });
 
 });
+
+$(document).on("click", ".save_data", function (){
+    action   = $(this).data('action');
+    element_id   = $(this).data('element-id');
+    select_server_id   = $(this).data('server-id');
+    AjaxSend(baseHref + action, "POST", {
+        element: $(this).data('element-id'),
+        select_server_id : $(this).data('server-id'),
+        data: $("#" + element_id).val(),
+    });
+})
+
+$(document).on("click", "#add_item_to_pack", function () {
+    let class_id = Math.floor(Date.now() / 277);
+    let AddImgSrc = $("#AddImgSrc").attr("src");
+    let itemNameDonate = $("#itemNameDonate").text();
+    let itemIDDonate = $("#itemIDDonate").val();
+    let count = $("#count").val();
+    if (itemIDDonate.trim() === '' || count.trim() === '') {
+        return;
+    }
+    let newRow = `<tr class='${class_id}'><td><img class='img-avatar img-avatar32' src='${AddImgSrc}'></td><td>${itemIDDonate}</td><td>${itemNameDonate}</td><td>${count}</td><td><div class="btn-group"><button type="button" class="btn btn-sm btn-secondary removePackItem" data-element-id='${class_id}'> <i class="fa fa-times"></i> </button> </div></td></tr>`;
+    let add_input = `<input type='hidden' class='packdata ${class_id}' data-item-id='${itemIDDonate}' data-item-count='${count}'>`;
+    $("#inputlist").append(add_input);
+    $("#pack_table").append(newRow);
+});
+
+$(document).on("click", "#create_pack", function(){
+    var itemsArray = [];
+    $('.packdata').each(function() {
+       item_id = $(this).data("item-id")
+       count = $(this).data("item-count")
+       itemsArray.push({ item_id: item_id, item_count: count });
+    });
+    packname = $("#packname").val();
+    packcost = $("#packcost").val();
+
+    AjaxSend(baseHref + "/admin/donate/add/pack", "POST", {
+        name : packname,
+        cost : packcost,
+        items: itemsArray,
+    })
+});
+
+$(document).on("click", ".removePackItem", function () {
+    element_id = $(this).data('element-id');
+    $(`.${element_id}`).remove();
+});
+
+
+
+
+

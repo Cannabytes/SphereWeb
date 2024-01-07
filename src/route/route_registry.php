@@ -161,6 +161,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("donate/currency_exchange_info", '\Ofey\Logan22\controller\donate\pay::currency_exchange_info');
     $route->get("donate/pay", '\Ofey\Logan22\controller\donate\pay::pay')->alias('donate_pay');
     $route->get("donate", '\Ofey\Logan22\controller\donate\pay::shop')->alias('donate');
+    $route->get("donate/(.*)", '\Ofey\Logan22\controller\donate\pay::get_donate_type');
 
     $route->post("donate/transaction", 'Ofey\Logan22\controller\donate\pay::transaction');
 
@@ -233,6 +234,8 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->get("/admin/options/server/list", 'Ofey\Logan22\controller\admin\options::server_list');
     $route->get("/admin/options/server/edit/(\d+)", 'Ofey\Logan22\controller\admin\options::edit_server_show');
+    $route->get("/admin/options/server/additionally/(\d+)", 'Ofey\Logan22\controller\admin\options::additionally_server_show');
+    $route->post("/admin/options/server/additionally", 'Ofey\Logan22\controller\admin\options::additionally_save');
     $route->get("/admin/options/server/description/(\d+)", 'Ofey\Logan22\controller\admin\options::description_create');
     $route->post("/admin/options/server/description", 'Ofey\Logan22\controller\admin\options::description_save');
     $route->post("/admin/options/server/description/default", 'Ofey\Logan22\controller\admin\options::description_default_page_save');
@@ -257,7 +260,9 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->get("/admin/donate", 'Ofey\Logan22\controller\admin\donate::show');
     $route->get("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add');
     $route->post("/admin/donate/add", 'Ofey\Logan22\controller\admin\donate::add_item');
+    $route->post("/admin/donate/add/pack", 'Ofey\Logan22\controller\admin\donate::add_item_pack');
     $route->post("/admin/donate/edit", 'Ofey\Logan22\controller\admin\donate::edit_item');
+    $route->post("/admin/donate/edit/pack", 'Ofey\Logan22\controller\admin\donate::edit_item_pack');
     $route->post("/admin/donate/remove", 'Ofey\Logan22\controller\admin\donate::remove_item');
     $route->post("/admin/donate/get/history/pay", 'Ofey\Logan22\controller\admin\donate::get_history_pay');
 

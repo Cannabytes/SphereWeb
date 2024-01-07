@@ -881,5 +881,19 @@ return [
                         <li>If you try to add an account that is linked to another user.</li>
                     </ol>
                     </span>',
+    557 => "Put for sale",
+    558 => "Add to pack",
+    559 => "Create pack",
+    560 => "Creating a pack",
+    561 => "Pack name",
+    562 => "Pack cost",
+    563 => "No item",
+    564 => "All products",
+    565 => "Weapons",
+    566 => "Armor",
+    567 => "Jewelry",
+    568 => "Miscellaneous",
+    569 => "Sets",
+    570 => "Your discount on the purchase of goods",
 
 ];

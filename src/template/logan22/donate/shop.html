@@ -6,11 +6,64 @@
 
 
 <div class="content">
+
+    <div class="bg-sidebar-dark p-3 rounded-3 push">
+
+        <!-- Navigation -->
+        <div id="horizontal-navigation-hover-normal-dark" class="d-none d-lg-block mt-2 mt-lg-0">
+            <ul class="nav-main nav-main-horizontal nav-main-hover nav-main-dark">
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/bm_week_package.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(564)}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate/weapon">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/weapon_arcana_mace_i01.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(565)}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate/armor">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/armor_t89_ul_i00.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(566)}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate/jewelry">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/accessory_earring_of_zaken_i00.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(567)}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate/other">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/etc_pi_gift_box_i04.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(568)}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-main-item">
+                    <a class="nav-main-link ajaxload" href="/donate/pack">
+                        <img class="img-avatar nav-main-link-icon img-avatar32" src="/uploads/images/icon/ev_2022_winter_box1.webp" alt="">
+                        <span class="nav-main-link-name">{{phrase(569)}}</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- END Navigation -->
+    </div>
+
     {% if DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE %}
     <div class="block block-rounded">
         <div class="block-content text-center">
             <p>
-                Ваша скидка на покупку товаров - <span class="fw-semibold text-success">{{procentProductDiscount}}%</span>
+                {{phrase(570)}} - <span class="fw-semibold text-success">{{procentProductDiscount}}%</span>
             </p>
         </div>
     </div>
@@ -21,10 +74,51 @@
         <div class="col-md-6 col-xl-3">
             <div class="block block-rounded text-center">
                 <div class="block-content block-content-full block-content-sm">
-                    <div class="fw-semibold">{{ grade_img(product['crystal_type'])|raw }} {{product['name']}}</div>
+                    {% if product.is_pack %}
+
+                    <button type="button" class="btn btn-secondary btn-sm"
+                            data-bs-toggle="popover" data-bs-placement="top"
+                            data-bs-html="true"
+                            data-bs-animation="true"
+                            data-bs-custom-class="custom-popover"
+                            data-bs-title="{{product['pack_name']}}"
+                            data-bs-content="
+                    {% if product.is_pack %}
+                        {% for i, pack in product.pack %}
+№{{i+1}} - <a href='#'>{{pack.name}}</a> x{{pack.count}}<br>
+                        {% endfor %}
+                    {% endif %}
+">
+                        {{product['pack_name']}}
+                    </button>
+                    {% else %}
+                    <div class="fw-semibold">{{ grade_img(product['crystal_type'])|raw }} {{product['name']}} {% if product['add_name'] %}- <b class="text-warning">{{product['add_name']}}</b>{% endif %}</div>
+                    {% endif %}
                 </div>
+
+
                 <div class="block-content block-content-full bg-body-light">
-                    <img class="img-avatar img-avatar-thumb img-avatar-rounded " src="{{ product.icon }}" alt="">
+                    {% if product.is_pack %}
+                        {% for pack in product.pack %}
+                             <img src="{{ pack.icon }}"
+                                  class="img-avatar img-avatar-thumb img-avatar-rounded"
+                                  data-bs-toggle="popover" data-bs-placement="top"
+                                  data-bs-html="true"
+                                  data-bs-animation="true"
+                                  data-bs-custom-class="custom-popover"
+                                  data-bs-title="{{pack['name']}} {% if pack['add_name'] %}- <b class='text-warning'>{{pack['add_name']}}</b>{% endif %} x{{pack.count}}"
+                                  data-bs-content="{{pack.description|donate_remove_show_bug}}">
+                        {% endfor %}
+                    {% else %}
+                    <img src="{{ product.icon }}"
+                         class="img-avatar img-avatar-thumb img-avatar-rounded"
+                         data-bs-toggle="popover" data-bs-placement="top"
+                         data-bs-html="true"
+                         data-bs-animation="true"
+                         data-bs-custom-class="custom-popover"
+                         data-bs-title="{{product['name']}} {% if product['add_name'] %}- <b class='text-warning'>{{product['add_name']}}</b>{% endif %} x{{product.count}}"
+                         data-bs-content="{{product.description|donate_remove_show_bug}}">
+                    {% endif %}
                 </div>
                 <div class="block-content block-content-full">
 
@@ -58,13 +152,7 @@
                     </table>
 <hr>
                     {% if user_info('get_is_auth') %}
-                    {% if product['consume_type'] == "consume_type_normal" %}
-                    <div class="d-flex justify-content-center">
-                        <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
-                               data-default_cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-id="{{product.id}}" type="hidden" min="1">
-                        <button data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
-                    </div>
-                   {% else %}
+                    {% if product['is_stackable'] %}
                     <div class="input-group">
                         <div class="form-floating">
                             <input data-item-id="{{product.item_id}}" id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
@@ -74,6 +162,12 @@
                         <button data-item-id="{{product.item_id}}" data-product-name="{{product.name}}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" class="input-group-text openWindowBuy">
                             {{phrase(74)}}
                         </button>
+                    </div>
+                    {% else %}
+                    <div class="d-flex justify-content-center">
+                        <input id="user_value_{{product.id}}" value="1" data-default_count="{{product.count}}"
+                               data-default_cost="{{ product.cost - (product.cost * procentProductDiscount / 100) }}" data-id="{{product.id}}" type="hidden" min="1">
+                        <button data-product-name="{%if product.is_pack %}{{product.pack_name}}{%else%}{{product.name}}{%endif%}" data-product-id="{{product.id}}" data-product-count="{{product.count}}" data-product-cost="{{product.cost}}" data-bs-toggle="modal" data-bs-target="#modal_panel_apply" type="button" class="btn btn-lg input-group-text openWindowBuy">{{phrase(74)}}</button>
                     </div>
                     {% endif%}
                     {% else %}

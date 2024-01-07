@@ -17810,8 +17810,8 @@ a.block.block-themed .btn-block-option:focus,
   height: 128px;
 }
 .img-avatar-thumb {
-  margin: 0.25rem;
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.4);
+  margin: 0px 5px 10px;
+  box-shadow: 0 0 0 0.20rem rgba(255, 255, 255, 0.04);
 }
 .img-avatar.img-avatar-rounded {
   border-radius: 0.25rem;

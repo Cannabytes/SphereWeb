@@ -25,6 +25,7 @@ function preload() {
     Codebase.helpersOnLoad(['bs-tooltip']);
     Codebase.helpersOnLoad(['js-flatpickr']);
     Codebase.helpersOnLoad(['side_overlay_toggle']);
+    Codebase.helpersOnLoad(['bs-popover']);
 
 }
 

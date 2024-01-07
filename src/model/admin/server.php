@@ -291,6 +291,10 @@ class server {
         return sql::run("SELECT * FROM `server_list` WHERE id=?;", [$id])->fetch();
     }
 
+    public static function get_server_data($id){
+        return sql::getRows("SELECT * FROM `server_data` WHERE server_id = ?", [$id]);
+    }
+
     public static function remove_server() {
         $server_id = $_POST['server_id'];
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
@@ -300,5 +304,11 @@ class server {
         sql::run("DELETE FROM `server_list` WHERE `id` = ?", [$server_id]);
         sql::run("DELETE FROM `server_description` WHERE `server_id` = ?", [$server_id]);
         board::notice(true, lang::get_phrase(146));
+    }
+
+    public static function additionally_save($element, $data, $select_server_id){
+        sql::run("DELETE FROM `server_data` WHERE `key` = ? AND server_id = ?", [$element, $select_server_id]);
+        sql::run("INSERT INTO `server_data` (`key`, `val`, `server_id`) VALUES (?, ?, ?)", [$element, $data, $select_server_id]);
+        board::success(lang::get_phrase(217));
     }
 }

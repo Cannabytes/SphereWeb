@@ -41,6 +41,8 @@ class server {
         }
         self::$server_info = sql::run("SELECT * FROM server_list")->fetchAll();
         foreach (self::$server_info as $k => $server) {
+            self::$server_info[$k]['data'] = sql::getRows("SELECT * FROM `server_data` WHERE server_id = ?", [$server['id']]);
+
             self::$server_info[$k]['desc_page_id'] = self::get_default_desc_page_id($server['id']);
         }
 
@@ -211,4 +213,20 @@ class server {
     //TODO: Для записи в базу
     public static function acrossInsert($collection_name, $server_info, $prepare = []) {
     }
+
+    public static function get_data($key) {
+        $server_info = self::get_server_info(auth::get_default_server());
+        if (!$server_info || !isset($server_info['data'])) {
+            return false;
+        }
+
+        foreach ($server_info['data'] as $data) {
+            if ($data['key'] == $key) {
+                return $data['val'];
+            }
+        }
+
+        return false;
+    }
+
 }

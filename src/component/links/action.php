@@ -82,6 +82,7 @@ class action {
         'admin_cache' => '/admin/options/server/cache',
         'admin_template_save' => '/admin/template/save',
         'admin_donate_edit' => '/admin/donate/edit',
+        'admin_donate_pack_edit' => '/admin/donate/edit/pack',
         'admin_forum_category_add' => '/admin/forum/add/category',
         'admin_forum_category_edit' => '/admin/forum/edit/category',
         'admin_forum_category_remove' => '/admin/forum/remove/category',

@@ -246,11 +246,12 @@ class player_account {
         $server_id = auth::get_default_server();
         self::valid_login($login);
         self::valid_password($password);
-        if (self::count_account($server_id) >= 20) {
+        if (self::count_account() >= 20) {
             board::notice(false, lang::get_phrase(206));
         }
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info($server_id);
         $reQuest = self::getQuest($get_server_info['rest_api_enable'], $server_id, $login, $password, $password_hide);
+        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
 
         $content = REGISTRATION_FILE_CONTENT;
         if (ENABLE_REGISTRATION_FILE) {
@@ -287,10 +288,9 @@ class player_account {
     }
 
     public static function add_mass_players($login, $password, $password_hide) {
-        $server_id = auth::get_default_server();
         self::valid_login($login);
         self::valid_password($password);
-        if (self::count_account($server_id) >= 20) {
+        if (self::count_account() >= 20) {
             board::notice(false, lang::get_phrase(206));
         }
         $get_server_info = \Ofey\Logan22\model\server\server::get_server_info();
@@ -298,6 +298,10 @@ class player_account {
         foreach($unique_server_info AS $info){
             $server_id = $info['id'];
             $reQuest = self::getQuest($info['rest_api_enable'], $server_id, $login, $password, $password_hide);
+        }
+        foreach($get_server_info AS $info){
+            $server_id = $info['id'];
+            self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         }
         $content = REGISTRATION_FILE_CONTENT;
         if (ENABLE_REGISTRATION_FILE) {
@@ -316,11 +320,10 @@ class player_account {
 
     }
 
-    static function count_account($server_id) {
+    static function count_account() {
         if (!auth::get_is_auth())
             return;
-        return sql::run("SELECT COUNT(*) as `count` FROM player_accounts WHERE server_id = ? AND email = ?", [
-            $server_id,
+        return sql::run("SELECT COUNT(*) as `count` FROM player_accounts WHERE email = ?", [
             auth::get_email(),
         ])->fetch()["count"];
     }
@@ -476,7 +479,6 @@ class player_account {
                 board::notice(false, $err['message']);
             }
         }
-        self::add_inside_account($login, $password, auth::get_email(), auth::get_ip(), $server_id, $password_hide);
         return $reQuest;
     }
 }

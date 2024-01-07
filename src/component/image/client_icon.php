@@ -11,6 +11,7 @@ use Exception;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\user\auth\auth;
 
 class client_icon {
     private static array $arrItems;
@@ -22,8 +23,10 @@ class client_icon {
      */
     public static function is_stack($item_id): bool {
         $type = self::get_item_info($item_id);
-        if ($type['consume_type'] === "consume_type_asset" || $type['consume_type'] === "consume_type_stackable") {
-            return true;
+        if (isset($type['is_stack'])) {
+            if($type['is_stack']){
+                return true;
+            }
         }
         return false;
     }
@@ -92,6 +95,7 @@ class client_icon {
         $itemArr = require $file;
         if (isset($itemArr[$item_id])) {
             $item = $itemArr[$item_id];
+            unset($item['id']);
             $item['icon'] = self::icon($item['icon']);
             self::$arrItems = $itemArr;
             if ($json) {
@@ -124,11 +128,25 @@ class client_icon {
     }
 
     private static function includeFileByRange($number, $object = "items"): string|false {
+        if($object == "items"){
+            $set = \Ofey\Logan22\model\server\server::get_data("knowledge_base");
+            if(!$set){
+                $set = "classic";
+            }
+            $object = "items/{$set}";
+        }
         $range = floor(($number ) / 100) * 100;
         if ($range < 0) {
             $range = 0;
         }
         $file = "{$range}-" . ($range + 99) . ".php";
+
+        //If custom item is found
+        $custom_file = fileSys::get_dir("/custom/{$object}/{$file}");
+        if(file_exists($custom_file)){
+            return $custom_file;
+        }
+
         $file = fileSys::get_dir("/src/component/image/icon/{$object}/{$file}");
         if (file_exists($file)) {
             return $file;

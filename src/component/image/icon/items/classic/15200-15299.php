@@ -1,0 +1,41 @@
+<?php
+return [
+  15280 => 
+  [
+    'id' => 15280,
+    'type' => 'weapon',
+    'name' => 'Transparent 1HS (NPC]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'etc_ertheia2',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'a',
+    'weight' => 1560,
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_destroyable' => false,
+    'is_sellable' => false,
+  ],
+  15281 => 
+  [
+    'id' => 15281,
+    'type' => 'weapon',
+    'name' => 'Transparent 2HS (NPC]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'etc_ertheia2',
+    'weapon_type' => 'sword',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'a',
+    'weight' => 2180,
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_destroyable' => false,
+    'is_sellable' => false,
+  ],
+];

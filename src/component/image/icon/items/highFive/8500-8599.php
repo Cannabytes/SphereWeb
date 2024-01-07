@@ -1,0 +1,1861 @@
+<?php
+return [
+  8500 => 
+  [
+    'id' => 8500,
+    'type' => 'etcitem',
+    'name' => 'Aden\'s Luminous Lure',
+    'add_name' => '',
+    'description' => 'This luminous fishing lure can be used to catch Aden\'s Big Fish. It is used in Aden Territory by fishermen whose Fishing Mastery level is 19-21.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 4,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8501 => 
+  [
+    'id' => 8501,
+    'type' => 'etcitem',
+    'name' => 'Innadril\'s Luminous Lure',
+    'add_name' => '',
+    'description' => 'This luminous fishing lure can be used to catch Innadril\'s Big Fish. It is used in Innadril Territory by fishermen whose Fishing Mastery level is 13-15.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8502 => 
+  [
+    'id' => 8502,
+    'type' => 'etcitem',
+    'name' => 'Goddard\'s Luminous Lure',
+    'add_name' => '',
+    'description' => 'This luminous fishing lure can be used to catch Goddard\'s Big Fish. It is used in Goddard Territory by fishermen whose Fishing Mastery level is 25-27.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 5,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8503 => 
+  [
+    'id' => 8503,
+    'type' => 'etcitem',
+    'name' => 'Rune\'s Luminous Lure',
+    'add_name' => '',
+    'description' => 'This luminous fishing lure can be used to catch Rune\'s Big Fish. It is used in Rune Territory by fishermen whose Fishing Mastery level is 22-24.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 4,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8504 => 
+  [
+    'id' => 8504,
+    'type' => 'etcitem',
+    'name' => 'Schuttgart\'s Luminous Lure',
+    'add_name' => '',
+    'description' => 'This luminous fishing lure can be used to catch Schuttgart\'s Big Fish. It is used in Schuttgart Territory by fishermen whose Fishing Mastery level is 7-9.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8505 => 
+  [
+    'id' => 8505,
+    'type' => 'etcitem',
+    'name' => 'Green Luminous Lure - Low Grade',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fast low-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 5,
+    'price' => 100,
+    'is_stackable' => true,
+  ],
+  8506 => 
+  [
+    'id' => 8506,
+    'type' => 'etcitem',
+    'name' => 'Green Luminous Lure',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fast fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_bait_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 4,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8507 => 
+  [
+    'id' => 8507,
+    'type' => 'etcitem',
+    'name' => 'Green Colored Lure (High Grade]',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fast high-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 150,
+    'is_stackable' => true,
+  ],
+  8508 => 
+  [
+    'id' => 8508,
+    'type' => 'etcitem',
+    'name' => 'Purple Luminous Lure - Low Grade',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fat low-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 5,
+    'price' => 150,
+    'is_stackable' => true,
+  ],
+  8509 => 
+  [
+    'id' => 8509,
+    'type' => 'etcitem',
+    'name' => 'Purple Luminous Lure',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fat fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_bait_i01',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 4,
+    'price' => 180,
+    'is_stackable' => true,
+  ],
+  8510 => 
+  [
+    'id' => 8510,
+    'type' => 'etcitem',
+    'name' => 'Purple Luminous Lure (High Grade]',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch fat high-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 200,
+    'is_stackable' => true,
+  ],
+  8511 => 
+  [
+    'id' => 8511,
+    'type' => 'etcitem',
+    'name' => 'Yellow Luminous Lure - Low Grade',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch ugly low-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 5,
+    'price' => 120,
+    'is_stackable' => true,
+  ],
+  8512 => 
+  [
+    'id' => 8512,
+    'type' => 'etcitem',
+    'name' => 'Yellow Luminous Lure',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch ugly fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_bait_i02',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 4,
+    'price' => 150,
+    'is_stackable' => true,
+  ],
+  8513 => 
+  [
+    'id' => 8513,
+    'type' => 'etcitem',
+    'name' => 'Yellow Luminous Lure (High Grade]',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch ugly high-grade fish at night. The higher the lure\'S-Grade, the more quickly the fish will take the bait. It cannot be used during the day.',
+    'icon' => 'etc_gludio_fish_lure_i00',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 180,
+    'is_stackable' => true,
+  ],
+  8514 => 
+  [
+    'id' => 8514,
+    'type' => 'etcitem',
+    'name' => 'Remnants of Old Dwarves\' Dreams',
+    'add_name' => '',
+    'description' => 'This strange object may be dropped by the ghosts of ancient Dwarves as they find eternal rest.',
+    'icon' => 'etc_inf_ore_high_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8515 => 
+  [
+    'id' => 8515,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage: No Grade',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-19]. ',
+    'icon' => 'etc_charm_of_courage_i00',
+    'etcitem_type' => 'scroll',
+    'weight' => 10,
+    'price' => 2000,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8516 => 
+  [
+    'id' => 8516,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage (D-Grade]',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-39].',
+    'icon' => 'etc_charm_of_courage_i01',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'd',
+    'weight' => 10,
+    'price' => 6600,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8517 => 
+  [
+    'id' => 8517,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage (C-Grade]',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-51].',
+    'icon' => 'etc_charm_of_courage_i02',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'c',
+    'weight' => 10,
+    'price' => 13200,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8518 => 
+  [
+    'id' => 8518,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage (B-Grade]',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-60].',
+    'icon' => 'etc_charm_of_courage_i03',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'b',
+    'weight' => 10,
+    'price' => 26000,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8519 => 
+  [
+    'id' => 8519,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage (A-Grade]',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-75].',
+    'icon' => 'etc_charm_of_courage_i04',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'a',
+    'weight' => 10,
+    'price' => 54000,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8520 => 
+  [
+    'id' => 8520,
+    'type' => 'etcitem',
+    'name' => 'Charm of Courage (S-Grade]',
+    'add_name' => '',
+    'description' => 'Allows on-the-spot resurrection during a Castle Siege, Clan Hall or Fortress Battle (level 1-85].',
+    'icon' => 'etc_charm_of_courage_i05',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 's',
+    'weight' => 10,
+    'price' => 100000,
+    'is_stackable' => true,
+    'handler' => 'charmofcourage',
+  ],
+  8521 => 
+  [
+    'id' => 8521,
+    'type' => 'etcitem',
+    'name' => 'Seed: Sea Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Sea Coba. For best results, a level 74-84 character must plant it on a level 74-84 monster.',
+    'icon' => 'etc_sea_coba_seed_i00',
+    'etcitem_type' => 'seed',
+    'weight' => 1,
+    'price' => 900,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8522 => 
+  [
+    'id' => 8522,
+    'type' => 'etcitem',
+    'name' => 'Seed: Alternative Sea Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Alternative Sea Coba. For best results, a level 74-84 character must plant it on a level 74-84 monster.',
+    'icon' => 'etc_sea_coba_seed_i00',
+    'etcitem_type' => 'seed2',
+    'weight' => 1,
+    'price' => 900,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8523 => 
+  [
+    'id' => 8523,
+    'type' => 'etcitem',
+    'name' => 'Seed: Twin Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Twin Coba. For best results, a level 77-87 character must plant it on a level 77-87 monster.',
+    'icon' => 'etc_twin_coba_seed_i00',
+    'etcitem_type' => 'seed',
+    'weight' => 1,
+    'price' => 1000,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8524 => 
+  [
+    'id' => 8524,
+    'type' => 'etcitem',
+    'name' => 'Seed: Alternative Twin Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Alternative Twin Coba. For best results, a level 77-87 character must plant it on a level 77-87 monster.',
+    'icon' => 'etc_twin_coba_seed_i00',
+    'etcitem_type' => 'seed2',
+    'weight' => 1,
+    'price' => 1000,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8525 => 
+  [
+    'id' => 8525,
+    'type' => 'etcitem',
+    'name' => 'Seed: Great Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Great Coba. For best results, a level 80-90 character must plant it on a level 80-90 monster.',
+    'icon' => 'etc_great_coba_seed_i00',
+    'etcitem_type' => 'seed',
+    'weight' => 1,
+    'price' => 1200,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8526 => 
+  [
+    'id' => 8526,
+    'type' => 'etcitem',
+    'name' => 'Seed: Alternative Great Coba',
+    'add_name' => '',
+    'description' => 'Plant this seed onto a monster in the Rune area and it will bear the fruit of the Alternative Great Coba. For best results, a level 80-90 character must plant it on a level 80-90 monster.',
+    'icon' => 'etc_great_coba_seed_i00',
+    'etcitem_type' => 'seed2',
+    'weight' => 1,
+    'price' => 1200,
+    'is_stackable' => true,
+    'handler' => 'seed',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2097,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8527 => 
+  [
+    'id' => 8527,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Reinforced Bow]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'bow',
+    'bodypart' => 'lrhand',
+    'crystal_count' => 743,
+    'crystal_type' => 'd',
+    'weight' => 1870,
+    'soulshots' => 6,
+    'spiritshots' => 2,
+    'mp_consume' => 1,
+    'enchant_enabled' => true,
+    'stats' => 
+    [
+      'pAtk' => 82,
+      'mAtk' => 26,
+      'critRate' => 12,
+      'pAtkSpd' => 293,
+    ],
+  ],
+  8528 => 
+  [
+    'id' => 8528,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Doom Hammer]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'crystal_count' => 1170,
+    'crystal_type' => 'd',
+    'weight' => 1200,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'enchant_enabled' => true,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 41,
+      'mAtk' => 43,
+      'critRate' => 4,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8529 => 
+  [
+    'id' => 8529,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Knife]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'dagger',
+    'bodypart' => 'rhand',
+    'weight' => 1140,
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'stats' => 
+    [
+      'pAtk' => 10,
+      'mAtk' => 9,
+      'critRate' => 12,
+      'pAtkSpd' => 433,
+    ],
+  ],
+  8530 => 
+  [
+    'id' => 8530,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Squire\'s Sword]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'weight' => 1600,
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 6,
+      'mAtk' => 5,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8531 => 
+  [
+    'id' => 8531,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Bone Staff]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'lrhand',
+    'crystal_count' => 743,
+    'crystal_type' => 'd',
+    'weight' => 1060,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'enchant_enabled' => true,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 39,
+      'mAtk' => 35,
+      'critRate' => 4,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8532 => 
+  [
+    'id' => 8532,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Spinebone Sword]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'crystal_count' => 1170,
+    'crystal_type' => 'd',
+    'weight' => 1510,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'enchant_enabled' => true,
+    'stats' => 
+    [
+      'pAtk' => 51,
+      'mAtk' => 32,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8533 => 
+  [
+    'id' => 8533,
+    'type' => 'weapon',
+    'name' => 'For Monsters Only (Crimson Sword]',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'weapon_monster_i00',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'crystal_count' => 1758,
+    'crystal_type' => 'd',
+    'weight' => 1490,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'enchant_enabled' => true,
+    'stats' => 
+    [
+      'pAtk' => 64,
+      'mAtk' => 39,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8534 => 
+  [
+    'id' => 8534,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: C-Grade Accessory (Low Grade]',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a C-Grade, low quality accessory.',
+    'icon' => 'etc_box_of_adventure_1_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8535 => 
+  [
+    'id' => 8535,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: C-Grade Accessory (Medium Grade]',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a C-Grade, medium quality accessory.',
+    'icon' => 'etc_box_of_adventure_1_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 2,
+      ],
+    ],
+  ],
+  8536 => 
+  [
+    'id' => 8536,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: C-Grade Accessory (High Grade]',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a C-Grade, high quality accessory.',
+    'icon' => 'etc_box_of_adventure_1_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8537 => 
+  [
+    'id' => 8537,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: B-Grade Accessory (Low Grade]',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a B-Grade, low quality accessory.',
+    'icon' => 'etc_box_of_adventure_2_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 4,
+      ],
+    ],
+  ],
+  8538 => 
+  [
+    'id' => 8538,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: B-Grade Accessory (High Grade]',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a B-Grade, high quality accessory.',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 5,
+      ],
+    ],
+  ],
+  8539 => 
+  [
+    'id' => 8539,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: Hair Accessory',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a Raider\'s Hair Accessory.',
+    'icon' => 'etc_box_of_adventure_4_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 6,
+      ],
+    ],
+  ],
+  8540 => 
+  [
+    'id' => 8540,
+    'type' => 'etcitem',
+    'name' => 'Adventurer\'s Box: Cradle of Creation',
+    'add_name' => '',
+    'description' => 'Has a chance of containing a Cradle of Creation.',
+    'icon' => 'etc_box_of_adventure_5_i00',
+    'weight' => 20,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2270,
+        'level' => 7,
+      ],
+    ],
+  ],
+  8541 => 
+  [
+    'id' => 8541,
+    'type' => 'armor',
+    'name' => 'Little Harness',
+    'add_name' => '',
+    'description' => 'Outfit a baby pet with this harness by double-clicking.',
+    'icon' => 'etc_pet_armor_little_harness_i00',
+    'armor_type' => 'light',
+    'bodypart' => 'chest',
+    'weight' => 160,
+    'price' => 100000,
+    'stats' => 
+    [
+    ],
+  ],
+  8542 => 
+  [
+    'id' => 8542,
+    'type' => 'etcitem',
+    'name' => 'Newbie Travel Token',
+    'add_name' => '',
+    'description' => 'This token is used to help novice travelers move to various places. Characters under level 20 may redeem it at a Newbie Guide for travel between Talking Island Village, Dark Elven Village, Elven Village, Dwarven Village, Orc Village, and Kamael Village.',
+    'icon' => 'etc_coins_gold_i00',
+    'weight' => 10,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+  ],
+  8543 => 
+  [
+    'id' => 8543,
+    'type' => 'etcitem',
+    'name' => 'Bead Parcel',
+    'add_name' => '',
+    'description' => 'Take this parcel of woven beads to Warehouse Chief Yasheni in the Town of Schuttgart.',
+    'icon' => 'accessary_mage_earing_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8544 => 
+  [
+    'id' => 8544,
+    'type' => 'etcitem',
+    'name' => 'Timora Orc\'s Head',
+    'add_name' => '',
+    'description' => 'Severed head of the cowardly Timora Orc who betrayed his own tribe and joined the Ragna Orcs.',
+    'icon' => 'etc_skull_red_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8545 => 
+  [
+    'id' => 8545,
+    'type' => 'etcitem',
+    'name' => 'Kasha Spider\'s Tooth',
+    'add_name' => '',
+    'description' => 'This crooked spider\'s tooth was pulled out by hand during close combat.',
+    'icon' => 'etc_claw_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8546 => 
+  [
+    'id' => 8546,
+    'type' => 'etcitem',
+    'name' => 'Horn of Baar Dre Vanul',
+    'add_name' => '',
+    'description' => 'This smooth, flawless horn comes from Baar Dre Vanul, who inhabits the Immortal Plateau\'s Southern Region.',
+    'icon' => 'etc_horn_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8547 => 
+  [
+    'id' => 8547,
+    'type' => 'etcitem',
+    'name' => 'Old Box',
+    'add_name' => '',
+    'description' => 'An old box that can be caught by fishing in the Hot Springs area. If you double-click it, you can obtain the Certificate for Participation in a Clan Hall war in the Hot Springs at a certain rate of chance.',
+    'icon' => 'etc_box_of_adventure_1_i00',
+    'weight' => 100,
+    'price' => 1500,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2271,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8548 => 
+  [
+    'id' => 8548,
+    'type' => 'etcitem',
+    'name' => 'Hot Springs Lure',
+    'add_name' => '',
+    'description' => 'This fishing lure can be used to catch old box while fishing in the Hot Springs area in Goddard. Only characters with Fishing Mastery Level 20 or higher can haul in the old box.',
+    'icon' => 'etc_bait_i02',
+    'etcitem_type' => 'lure',
+    'bodypart' => 'lhand',
+    'weight' => 3,
+    'price' => 200,
+    'is_stackable' => true,
+  ],
+  8549 => 
+  [
+    'id' => 8549,
+    'type' => 'etcitem',
+    'name' => 'Bruin Lizardman Blood',
+    'add_name' => '',
+    'description' => 'Blood obtained by slaying a Bruin Lizardman.',
+    'icon' => 'etc_lesser_potion_purple_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8550 => 
+  [
+    'id' => 8550,
+    'type' => 'etcitem',
+    'name' => 'Picot Araneid\'s Leg',
+    'add_name' => '',
+    'description' => 'Leg obtained by slaying a Picot Araneid.',
+    'icon' => 'etc_sting_b_i00',
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'is_questitem' => true,
+  ],
+  8551 => 
+  [
+    'id' => 8551,
+    'type' => 'etcitem',
+    'name' => 'Box of Cheerleading Gear Used to encourage victory.',
+    'add_name' => '',
+    'description' => 'Box of Cheerleading Items for Cheering on the Red Devils. If you double-click it, it will randomly change to a different item.',
+    'icon' => 'etc_box_of_adventure_1_i00',
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2273,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8552 => 
+  [
+    'id' => 8552,
+    'type' => 'armor',
+    'name' => 'Mask of Spirits',
+    'add_name' => '',
+    'description' => 'A hair accessory for the 2006 Halloween Event.',
+    'icon' => 'accessory_worldcup_mask_i00',
+    'bodypart' => 'hair',
+    'weight' => 10,
+  ],
+  8553 => 
+  [
+    'id' => 8553,
+    'type' => 'etcitem',
+    'name' => 'Red Mask of Victory, Fabric',
+    'add_name' => '',
+    'description' => 'The essential ingredient needed to make a Mask of the Red Devils. It can be sold at a regular store.',
+    'icon' => 'etc_piece_of_cloth_red_i00',
+    'etcitem_type' => 'material',
+    'weight' => 60,
+    'price' => 5000,
+    'is_stackable' => true,
+  ],
+  8554 => 
+  [
+    'id' => 8554,
+    'type' => 'etcitem',
+    'name' => 'Recipe: Red Mask of Victory (100%]',
+    'add_name' => '',
+    'description' => 'For All Tribes. Recipe for a Mask of the Red Devils. Requires Create Common Item Skill Level 4.',
+    'icon' => 'etc_recipe_green_i00',
+    'etcitem_type' => 'recipe',
+    'weight' => 30,
+    'price' => 100000,
+    'is_stackable' => true,
+  ],
+  8555 => 
+  [
+    'id' => 8555,
+    'type' => 'etcitem',
+    'name' => 'Echo Crystal - Viva Victory Korea',
+    'add_name' => '',
+    'description' => 'Echo Crystal that plays the theme music of the World Cup. It disappears after one use.',
+    'icon' => 'etc_echo_crystal_i00',
+    'weight' => 10,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2272,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8556 => 
+  [
+    'id' => 8556,
+    'type' => 'etcitem',
+    'name' => 'Dewdrop of Destruction',
+    'add_name' => '',
+    'description' => 'Clicking the Dewdrop of Destruction causes the portrait to disappear. It cannot be dropped, but is deleted upon entering the Last Imperial Tomb.',
+    'icon' => 'etc_lesser_potion_red_i00',
+    'weight' => 3,
+    'is_dropable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2276,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8557 => 
+  [
+    'id' => 8557,
+    'type' => 'armor',
+    'name' => 'Blue Party Hat',
+    'add_name' => '',
+    'description' => 'Three year anniversary hair accessory souvenir. Uses two hair accessory slots.',
+    'icon' => 'accessory_party_hat_blue_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+  ],
+  8558 => 
+  [
+    'id' => 8558,
+    'type' => 'armor',
+    'name' => 'Eva\'s Mark (Event]',
+    'add_name' => '',
+    'description' => 'This item is designed for use in events only and cannot be exchanged or dropped.',
+    'icon' => 'accessory_soaring_bird_i00',
+    'bodypart' => 'hair',
+    'weight' => 10,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+  ],
+  8559 => 
+  [
+    'id' => 8559,
+    'type' => 'armor',
+    'name' => 'Diadem',
+    'add_name' => '',
+    'description' => 'Hair accessory worn by a bride at her wedding ceremony. This hair accessory can only be worn by females only. ',
+    'icon' => 'accessory_flower_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+  ],
+  8560 => 
+  [
+    'id' => 8560,
+    'type' => 'armor',
+    'name' => 'Teddy Bear Hat',
+    'add_name' => '',
+    'description' => 'A fun, bear-shaped hair accessory. ',
+    'icon' => 'accessory_bear_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8561 => 
+  [
+    'id' => 8561,
+    'type' => 'armor',
+    'name' => 'Piggy Hat',
+    'add_name' => '',
+    'description' => 'A fun, pig-shaped hair accessory.',
+    'icon' => 'accessory_pig_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8562 => 
+  [
+    'id' => 8562,
+    'type' => 'armor',
+    'name' => 'Jester Hat',
+    'add_name' => '',
+    'description' => 'A festive jester hat with a split top.',
+    'icon' => 'accessory_jester_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8563 => 
+  [
+    'id' => 8563,
+    'type' => 'armor',
+    'name' => 'Wizard Hat',
+    'add_name' => '',
+    'description' => 'A Wizard Hat with a wide brim and bent tip. ',
+    'icon' => 'accessory_magic_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8564 => 
+  [
+    'id' => 8564,
+    'type' => 'armor',
+    'name' => 'Dapper Cap',
+    'add_name' => '',
+    'description' => 'A stylish cap with a visor.',
+    'icon' => 'accessory_dandy_cap_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8565 => 
+  [
+    'id' => 8565,
+    'type' => 'armor',
+    'name' => 'Romantic Chapeau',
+    'add_name' => '',
+    'description' => 'An extravagant chapeau adorned with feathers.',
+    'icon' => 'accessory_romantic_chaperon_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'price' => 2000000,
+  ],
+  8566 => 
+  [
+    'id' => 8566,
+    'type' => 'armor',
+    'name' => 'Iron Circlet',
+    'add_name' => '',
+    'description' => 'Hair accessory for overseas event. Uses 2 hair accessory slots. This event item cannot be exchanged or dropped.',
+    'icon' => 'accessory_iron_circlet_i00',
+    'bodypart' => 'hairall',
+    'weight' => 10,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+  ],
+  8567 => 
+  [
+    'id' => 8567,
+    'type' => 'armor',
+    'name' => 'Valakas Slayer Circlet',
+    'add_name' => '',
+    'description' => 'The circlet presented to a player who has defeated Valakas.',
+    'icon' => 'accessory_valakas_circlet_i00',
+    'bodypart' => 'hair',
+    'weight' => 10,
+    'price' => 500000,
+  ],
+  8568 => 
+  [
+    'id' => 8568,
+    'type' => 'armor',
+    'name' => 'Antharas Slayer Circlet',
+    'add_name' => '',
+    'description' => 'The circlet presented to a player who has defeated Antharas.',
+    'icon' => 'accessory_antaras_circlet_i00',
+    'bodypart' => 'hair',
+    'weight' => 10,
+    'price' => 500000,
+  ],
+  8569 => 
+  [
+    'id' => 8569,
+    'type' => 'armor',
+    'name' => 'Half Face Mask',
+    'add_name' => '',
+    'description' => 'A mysterious costume accessory that covers half of the wearer\'s face.',
+    'icon' => 'accessory_half_face_i00',
+    'bodypart' => 'hair',
+    'weight' => 10,
+    'price' => 500000,
+  ],
+  8570 => 
+  [
+    'id' => 8570,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8571 => 
+  [
+    'id' => 8571,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 2,
+      ],
+    ],
+  ],
+  8572 => 
+  [
+    'id' => 8572,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8573 => 
+  [
+    'id' => 8573,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 4,
+      ],
+    ],
+  ],
+  8574 => 
+  [
+    'id' => 8574,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 5,
+      ],
+    ],
+  ],
+  8575 => 
+  [
+    'id' => 8575,
+    'type' => 'etcitem',
+    'name' => 'Event Gift Box',
+    'add_name' => '',
+    'description' => 'PC cafe coupon event item. When double clicked, it turns to another random item. Cannot be exchanged or dropped. (Can be used when the weight gauge is below 80% and there are more than 10 empty inventory slots.]',
+    'icon' => 'etc_box_of_adventure_3_i00',
+    'weight' => 20,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2277,
+        'level' => 6,
+      ],
+    ],
+  ],
+  8576 => 
+  [
+    'id' => 8576,
+    'type' => 'weapon',
+    'name' => 'Apprentice\'s Staff (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_apprentices_staff_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'lrhand',
+    'weight' => 1070,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 23,
+      'mAtk' => 24,
+      'critRate' => 4,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8577 => 
+  [
+    'id' => 8577,
+    'type' => 'weapon',
+    'name' => 'Bone Club (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_club_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'weight' => 1850,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 24,
+      'mAtk' => 17,
+      'critRate' => 4,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8578 => 
+  [
+    'id' => 8578,
+    'type' => 'weapon',
+    'name' => 'Shining Knife (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_shining_knife_i00',
+    'weapon_type' => 'dagger',
+    'bodypart' => 'rhand',
+    'weight' => 1120,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 21,
+      'mAtk' => 17,
+      'critRate' => 12,
+      'pAtkSpd' => 433,
+    ],
+  ],
+  8579 => 
+  [
+    'id' => 8579,
+    'type' => 'weapon',
+    'name' => 'Cestus (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_vipers_canine_i00',
+    'weapon_type' => 'dualfist',
+    'bodypart' => 'lrhand',
+    'weight' => 1570,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 29,
+      'mAtk' => 17,
+      'critRate' => 4,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8580 => 
+  [
+    'id' => 8580,
+    'type' => 'weapon',
+    'name' => 'Forest Bow (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_short_bow_i00',
+    'weapon_type' => 'bow',
+    'bodypart' => 'lrhand',
+    'weight' => 1900,
+    'soulshots' => 7,
+    'spiritshots' => 2,
+    'mp_consume' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 49,
+      'mAtk' => 17,
+      'critRate' => 12,
+      'pAtkSpd' => 293,
+    ],
+  ],
+  8581 => 
+  [
+    'id' => 8581,
+    'type' => 'weapon',
+    'name' => 'Long Sword (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_long_sword_i00',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'weight' => 1560,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 24,
+      'mAtk' => 17,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8582 => 
+  [
+    'id' => 8582,
+    'type' => 'weapon',
+    'name' => 'Mace of Prayer (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_mace_of_prayer_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'd',
+    'weight' => 1300,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 41,
+      'mAtk' => 43,
+      'critRate' => 4,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8583 => 
+  [
+    'id' => 8583,
+    'type' => 'weapon',
+    'name' => 'Dark Elven Bow (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_dark_elven_bow_i00',
+    'weapon_type' => 'bow',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'd',
+    'weight' => 1830,
+    'soulshots' => 6,
+    'spiritshots' => 2,
+    'mp_consume' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 105,
+      'mAtk' => 32,
+      'critRate' => 12,
+      'pAtkSpd' => 293,
+    ],
+  ],
+  8584 => 
+  [
+    'id' => 8584,
+    'type' => 'weapon',
+    'name' => 'Long Bow (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_strengthening_bow_i00',
+    'weapon_type' => 'bow',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'd',
+    'weight' => 1830,
+    'soulshots' => 6,
+    'spiritshots' => 2,
+    'mp_consume' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 114,
+      'mAtk' => 35,
+      'critRate' => 12,
+      'pAtkSpd' => 227,
+    ],
+  ],
+  8585 => 
+  [
+    'id' => 8585,
+    'type' => 'weapon',
+    'name' => 'Staff of Mana (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_staff_of_mana_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'd',
+    'weight' => 1040,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 50,
+      'mAtk' => 47,
+      'critRate' => 4,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8586 => 
+  [
+    'id' => 8586,
+    'type' => 'weapon',
+    'name' => 'Bastard Sword (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_bastard_sword_i00',
+    'weapon_type' => 'sword',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'd',
+    'weight' => 1510,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 51,
+      'mAtk' => 32,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8587 => 
+  [
+    'id' => 8587,
+    'type' => 'weapon',
+    'name' => 'Divine Tomb (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_divine_tome_i00',
+    'weapon_type' => 'etc',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'd',
+    'weight' => 570,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'stats' => 
+    [
+      'pAtk' => 41,
+      'mAtk' => 43,
+      'critRate' => 8,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8588 => 
+  [
+    'id' => 8588,
+    'type' => 'weapon',
+    'name' => 'Single-Edged Jamadhr (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_baghnakh_i00',
+    'weapon_type' => 'dualfist',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'd',
+    'weight' => 1550,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 62,
+      'mAtk' => 32,
+      'critRate' => 4,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8589 => 
+  [
+    'id' => 8589,
+    'type' => 'weapon',
+    'name' => 'Tomahawk (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_tomahawk_i00',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'd',
+    'weight' => 1780,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 51,
+      'mAtk' => 32,
+      'critRate' => 4,
+      'pAtkSpd' => 379,
+    ],
+  ],
+  8590 => 
+  [
+    'id' => 8590,
+    'type' => 'weapon',
+    'name' => 'Poniard Dagger (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_dirk_i00',
+    'weapon_type' => 'dagger',
+    'bodypart' => 'rhand',
+    'crystal_type' => 'd',
+    'weight' => 1090,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'stats' => 
+    [
+      'pAtk' => 45,
+      'mAtk' => 32,
+      'critRate' => 12,
+      'pAtkSpd' => 433,
+    ],
+  ],
+  8591 => 
+  [
+    'id' => 8591,
+    'type' => 'weapon',
+    'name' => 'Pike (Event]',
+    'add_name' => '',
+    'description' => 'For the PC Café coupon event. This item cannot be exchanged, dropped, crystallized, or enchanted. If one\'s PK count is 1 or more, it cannot be used.',
+    'icon' => 'weapon_pike_i00',
+    'weapon_type' => 'pole',
+    'bodypart' => 'lrhand',
+    'crystal_type' => 'd',
+    'weight' => 2090,
+    'soulshots' => 2,
+    'spiritshots' => 2,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 3599,
+        'level' => 1,
+      ],
+    ],
+    'stats' => 
+    [
+      'pAtk' => 51,
+      'mAtk' => 32,
+      'critRate' => 8,
+      'pAtkSpd' => 325,
+    ],
+  ],
+  8592 => 
+  [
+    'id' => 8592,
+    'type' => 'etcitem',
+    'name' => 'Weapon Exchange Coupon - No Grade',
+    'add_name' => '',
+    'description' => 'An item that is used for the PC Café coupon event. An exchange coupon that can be used to exchange for a no grade weapon at Adventurers\' Guide.',
+    'icon' => 'etc_lottery_card_i00',
+    'etcitem_type' => 'coupon',
+    'weight' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+  ],
+  8593 => 
+  [
+    'id' => 8593,
+    'type' => 'etcitem',
+    'name' => 'Weapon Exchange Coupon (C-Grade]',
+    'add_name' => '',
+    'description' => 'An item that is used for the PC Café coupon event. An exchange coupon that can be used to exchange for a D grade weapon at Adventurers\' Guide.',
+    'icon' => 'etc_lottery_card_i00',
+    'etcitem_type' => 'coupon',
+    'weight' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+  ],
+  8594 => 
+  [
+    'id' => 8594,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (No Grade]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used on self by a character of level 19 or below. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i00',
+    'etcitem_type' => 'scroll',
+    'weight' => 10,
+    'price' => 2000,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 1,
+      ],
+    ],
+  ],
+  8595 => 
+  [
+    'id' => 8595,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (Grade D]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used on self by a character whose level is between 20 and 39. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i01',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'd',
+    'weight' => 10,
+    'price' => 4800,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 2,
+      ],
+    ],
+  ],
+  8596 => 
+  [
+    'id' => 8596,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (Grade C]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used on self by a character whose level is between 40 and 51. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i02',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'c',
+    'weight' => 10,
+    'price' => 14000,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 3,
+      ],
+    ],
+  ],
+  8597 => 
+  [
+    'id' => 8597,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (Grade B]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used on self by a character whose level is between 52 and 60. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i03',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'b',
+    'weight' => 10,
+    'price' => 28000,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 4,
+      ],
+    ],
+  ],
+  8598 => 
+  [
+    'id' => 8598,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (Grade A]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used on self by a character whose level is between 61 and 75. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i04',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 'a',
+    'weight' => 10,
+    'price' => 48000,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 5,
+      ],
+    ],
+  ],
+  8599 => 
+  [
+    'id' => 8599,
+    'type' => 'etcitem',
+    'name' => 'Scroll: Recovery (Grade S]',
+    'add_name' => '',
+    'description' => 'This scroll recovers a character\'s abilities from the effects of death. This item can only be used by a character whose level is 76 or higher. This scroll cannot be used by chaotic characters.',
+    'icon' => 'etc_penalty_recovery_i05',
+    'etcitem_type' => 'scroll',
+    'crystal_type' => 's',
+    'weight' => 10,
+    'price' => 80000,
+    'is_stackable' => true,
+    'handler' => 'itemskills',
+    'item_skill' => 
+    [
+      0 => 
+      [
+        'skill_id' => 2286,
+        'level' => 6,
+      ],
+    ],
+  ],
+];

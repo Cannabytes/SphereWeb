@@ -13,6 +13,7 @@ use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\template\async;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
 
@@ -24,7 +25,6 @@ class donate {
         tpl::addVar([
             'title'       => lang::get_phrase(215),
             'server_list' => server::get_server_info(),
-            ''
         ]);
         tpl::addVar("products", \Ofey\Logan22\model\donate\donate::products());
         tpl::display("/admin/donate/config.html");
@@ -54,16 +54,30 @@ class donate {
         \Ofey\Logan22\model\admin\donate::add_item();
     }
 
+    public static function add_item_pack() {
+        validation::user_protection("admin");
+        \Ofey\Logan22\model\admin\donate::add_item_pack();
+    }
+
     public static function edit_item() {
         validation::user_protection("admin");
         \Ofey\Logan22\model\admin\donate::edit_item();
+    }
+
+    public static function edit_item_pack() {
+        validation::user_protection("admin");
+        \Ofey\Logan22\model\admin\donate::edit_item_pack();
     }
 
     public static function remove_item() {
         validation::user_protection("admin");
         $id = request::setting("productId", new request_config(isNumber: true));
         if(\Ofey\Logan22\model\admin\donate::remove_item($id)){
-            board::notice(true);
+            tpl::addVar("products", \Ofey\Logan22\model\donate\donate::products());
+            $async = new async("admin/donate/donate.html");
+            $async->block("main-container", "content", "update", true);
+            $async->block("title", "title");
+            $async->send();;
         }
         board::notice(false, "error");
     }

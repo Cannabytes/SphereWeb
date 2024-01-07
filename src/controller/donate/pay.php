@@ -15,8 +15,6 @@ use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
-use Ofey\Logan22\model\user\player\character;
-use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 
 class pay {
@@ -61,20 +59,72 @@ class pay {
         tpl::addVar("discount_count_product_table", $donateInfo["discount_count_product"]['table']);
         tpl::addVar("discount_count_product_items", $donateInfo["discount_count_product"]['items']);
         tpl::addVar("procentProductDiscount", $point);
-        tpl::addVar("donate_history", donate::donate_history());
         tpl::addVar("products", donate::products());
         tpl::addVar("title", lang::get_phrase(233));
         tpl::display("/donate/shop.html");
     }
 
+    public static function get_donate_type($type = null) {
+
+        $products = donate::products();
+        if ($type !== null) {
+            $type = mb_strtolower($type);
+            $allow = ["weapon", "armor", "jewelry", "etcitem", "pack"];
+
+            if ($type === "other") {
+                $type = "etcitem";
+            }
+
+            if (!in_array($type, $allow)) {
+                $type = null;
+            }
+
+            foreach ($products as $key => $product) {
+                if($product['is_pack'] AND $type !== 'pack' ){
+                    unset($products[$key]);
+                }
+                if (isset($product['type']) && $product['type'] !== $type) {
+                    unset($products[$key]);
+                } elseif ($type === "armor" && isset($product['bodypart'])) {
+                    if($product['is_pack']){
+                        unset($products[$key]);
+                    }
+                    if (
+                        in_array($product['bodypart'], ["rear;lear", "neck", "rfinger;lfinger"]) ||
+                        $product['type'] === "weapon" ||
+                        $product['type'] === "etcitem"
+                    ) {
+                        unset($products[$key]);
+                    }
+                } elseif ($type === "jewelry" && isset($product['bodypart'])) {
+                    if (!in_array($product['bodypart'], ["rear;lear", "rfinger;lfinger", "neck"])) {
+                        unset($products[$key]);
+                    }
+                    if($product['is_pack']){
+                        unset($products[$key]);
+                    }
+                } elseif ($type !== "weapon" && $type !== "armor" && $type !== "jewelry" && isset($product['bodypart'])) {
+                    if (!in_array($product['bodypart'], ["etcitem"])) {
+                        unset($products[$key]);
+                    }
+                    if($product['is_pack']){
+                        unset($products[$key]);
+                    }
+                }
+            }
+        }
+        tpl::addVar("products", $products);
+        tpl::display("/donate/shop.html");
+    }
+
     public static function transaction(): void {
         validation::user_protection();
-        if(!config::getEnableDonate()) error::error404("Отключено");
-        if(!auth::get_is_auth()) board::notice(false, lang::get_phrase(234));
+        if (!config::getEnableDonate()) error::error404("Отключено");
+        if (!auth::get_is_auth()) board::notice(false, lang::get_phrase(234));
         donate::transaction();
     }
 
-    public static function currency_exchange_info(){
+    public static function currency_exchange_info() {
         echo json_encode(require 'src/config/donate.php');
     }
 }

@@ -206,6 +206,9 @@ class tpl {
         $twig->addFilter(new TwigFilter('file_exists', function ($filePath) {
             return file_exists($filePath);
         }));
+        $twig->addFilter(new TwigFilter('donate_remove_show_bug', function ($text) {
+            return str_replace(["<Soul Crystal Enhancement>"], ["-=Soul Crystal Enhancement=-"], $text);
+        }));
 
 
         $twig->addFunction(new TwigFunction('template', function ($var = null) {
@@ -410,8 +413,8 @@ class tpl {
             return config::get_template();
         }));
 
-        $twig->addFunction(new TwigFunction('format_number_fr', function ($num) {
-            echo number_format($num, 0, ',', ' ');
+        $twig->addFunction(new TwigFunction('format_number_fr', function ($num, $separator = ".") {
+            echo number_format($num, 0, ',', $separator);
         }));
 
 
@@ -588,6 +591,23 @@ class tpl {
             }
             return fileSys::localdir(sprintf("/uploads/tickets/%s", $img));
         }));
+
+        $twig->addFunction(new TwigFunction('get_server_data', function ($key, $server_id = null) {
+            if ($server_id === null) {
+                $server_id = auth::get_default_server();
+            }
+            $data = server::get_server_info($server_id);
+
+            $keys = array_column($data['data'], 'key');
+            $index = array_search($key, $keys, true);
+
+            if ($index !== false) {
+                return $data['data'][$index]['val'];
+            }
+
+            return null;
+        }));
+
 
         $twig->addFunction(new TwigFunction('forum_user_avatar', function ($user_id = 0) {
             return forum::user_avatar($user_id);

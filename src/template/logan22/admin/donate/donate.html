@@ -24,27 +24,75 @@
                     <div class="row">
                         <div class="col-4">
                             <label class="form-label" for="itemIDDonate">ID</label>
-                            <input type="text" class="form-control form-control-lg" id="itemIDDonate" name="itemid">
+                            <input type="number" class="form-control form-control-lg" id="itemIDDonate" name="itemid">
                         </div>
                         <div class="col-4">
                             <label class="form-label" for="count">{{phrase(71)}}</label>
-                            <input type="text" class="form-control form-control-lg" id="count" name="count">
+                            <input type="number" class="form-control form-control-lg" id="count" name="count">
                         </div>
                         <div class="col-4">
                             <label class="form-label" for="cost">{{phrase(72)}}</label>
-                            <input type="text" class="form-control form-control-lg" id="cost" name="cost">
+                            <input type="number" class="form-control form-control-lg" id="cost" name="cost" step="0.1">
                         </div>
 
                     </div>
 
                     <div class="block-content">
+                        <div class="btn btn-lg btn-primary" id="add_item_to_pack"> <i class="fa-solid fa-arrow-down"></i>
+                            {{phrase(558)}}</div>
                         <button class="btn btn-lg btn-primary" type="submit"> <i class="fa fa-plus opacity-50 me-1"></i>
-                            {{phrase(438)}}</button>
+                            {{phrase(557)}}</button>
                     </div>
                 </form>
 
+
+
             </div>
 
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">{{phrase(560)}}</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="mb-5" id="packinfo">
+
+                            <table class="table table-sm table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 50px;"></th>
+                                    <th>ID</th>
+                                    <th>{{phrase(27)}}</th>
+                                    <th>{{phrase(71)}}</th>
+                                    <th class="text-center" style="width: 100px;"></th>
+                                </tr>
+                                </thead>
+                                <tbody id="pack_table">
+                                </tbody>
+                            </table>
+
+                            <hr>
+                            <div id="inputlist"></div>
+                            <div class="row mb-4">
+                                <label class="col-sm-4 col-form-label" for="packname">{{phrase(561)}}</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="packname" name="packname" placeholder="Super Pack">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-sm-4 col-form-label" for="packcost">{{phrase(562)}}</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="packcost" name="packcost" placeholder="25">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-sm-8 ms-auto">
+                                    <button id="create_pack" type="submit" class="btn btn-primary">{{phrase(559)}}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
         </div>
         <div class="col-xl-8">
@@ -58,16 +106,35 @@
                         <tbody>
                         {% for i, product in products %}
                             <tr class="border-bottom">
-                                <td style="width: 1%;">
-                                    <img src="{{ product.icon }}" class="img-thumb">
+                                <td style="">
+                                    {% if product.is_pack %}
+                                        {% for pack in product.pack %}
+                                        <img src="{{ pack.icon }}" class="img-thumb img-avatar32 img_{{product.id}}"
+                                             data-bs-toggle="popover" data-bs-placement="top"
+                                             data-bs-html="true"
+                                             data-bs-animation="true"
+                                             data-bs-custom-class="custom-popover"
+                                             data-bs-title="{{pack['name']}} {% if pack['add_name'] %}- <b class='text-warning'>{{pack['add_name']}}</b>{% endif %} x{{pack.count}}"
+                                             data-bs-content="{{pack.description|donate_remove_show_bug}}"
+                                        >
+                                        {% endfor %}
+                                    {% else %}
+                                    <img src="{{ product.icon }}" class="img-thumb"
+                                         data-bs-toggle="popover" data-bs-placement="top"
+                                         data-bs-html="true"
+                                         data-bs-animation="true"
+                                         data-bs-custom-class="custom-popover"
+                                         data-bs-title="{{product['name']}} {% if product['add_name'] %}- <b class='text-warning'>{{product['add_name']}}</b>{% endif %} x{{product.count}}"
+                                         data-bs-content="{{product.description|donate_remove_show_bug}}">
+                                    {% endif %}
                                 </td>
-                                <td class="" >
-                                        <h4 class="fs-6 mb-1">{{product.name}} x{{product.count}}</h4>
-                                        <h5 class="fs-sm fw-light mb-1">{{product.cost}}</h5>
+                                <td class="text-center" >
+                                        <h4 class="fs-6 mb-1">{% if product.is_pack %}{{product.pack_name}}{% else %}{{product.name}}{% endif %} / {{phrase(71)}}: {{format_number_fr(product.count)}}</h4>
+                                        <h5 class="fs-sm fw-light mb-1">{{phrase(72)}}: {{product.cost}}</h5>
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <button data-img="{{ icon( product.icon ) }}" data-object-id="{{product.id}}" data-item-name="{{product.name}}" data-item-id="{{product.item_id}}" data-item-count="{{product.count}}" data-item-cost="{{product.cost}}"  data-bs-toggle="modal" data-bs-target="#donateEdit" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled editDonateButton" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+                                        <button data-img="{{ icon( product.icon ) }}" data-object-id="{{product.id}}" data-item-name="{% if product.is_pack %}{{product.pack_name}}{% else %}{{product.name}}{% endif %}" data-item-id="{{product.item_id}}" data-item-count="{{product.count}}" data-item-cost="{{product.cost}}"  data-bs-toggle="modal" data-bs-target="#{% if product.is_pack %}donatePackEdit{% else %}donateEdit{%endif%}" type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled {% if product.is_pack %}editPackDonateButton{% else %}editDonateButton{%endif%}" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </button>
                                         <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled removeDonateItem" data-bs-toggle="tooltip" data-object-id="{{product.id}}" aria-label="Delete" data-bs-original-title="Delete">
@@ -105,7 +172,7 @@
                         <div class="push text-center">
                             <img class="img-thumb" id="editImgSrc" src="{{path('uploads/images/icon/NOIMAGE.webp')}}" alt="">
                         </div>
-                        <div class="fw-semibold mb-1 text-center">Нет предмета</div>
+                        <div class="fw-semibold mb-1 text-center">{{phrase(563)}}</div>
                         <input type="hidden" class="form-control form-control-lg" id="edit_id" name="id">
 
                         <div class="row">
@@ -120,6 +187,51 @@
                             <div class="col-4">
                                 <label class="form-label" for="cost">{{phrase(72)}}</label>
                                 <input type="text" class="form-control form-control-lg" id="edit_cost" name="cost">
+                            </div>
+
+                        </div>
+
+                        <div class="block-content text-center">
+                            <button class="btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal"> <i class="fa fa-plus opacity-50 me-1"></i>{{phrase(89)}}</button>
+                        </div>
+                    </form>
+
+                   </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="donatePackEdit" tabindex="-1" role="dialog" aria-labelledby="modal-large" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase(301)}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+
+                    <form action="{{action('admin_donate_pack_edit')}}" method="POST" class="block-content block-content-full">
+                        <div class="push text-center editPackImgSrc">
+
+                        </div>
+                        <div class="fw-semibold mb-1 text-center">{{phrase(562)}}</div>
+                        <input type="hidden" class="form-control form-control-lg" id="edit_pack_id" name="id">
+
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <label class="form-label" for="edit_itemID">{{phrase(27)}}</label>
+                                <input type="text" class="form-control form-control-lg" id="edit_pack_itemID" name="name">
+                            </div>
+                            <div class="col-4">
+                                <label class="form-label" for="cost">{{phrase(72)}}</label>
+                                <input type="text" class="form-control form-control-lg" id="edit_pack_cost" name="cost">
                             </div>
 
                         </div>
