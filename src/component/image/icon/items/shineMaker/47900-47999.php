@@ -1,0 +1,61 @@
+<?php
+return [
+  47927 => 
+  [
+    'id' => 47927,
+    'type' => 'weapon',
+    'name' => 'Magic Fan - Blue',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'ev_kr_13th_present_blue',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'is_freightable' => true,
+    'weight' => 150,
+  ],
+  47928 => 
+  [
+    'id' => 47928,
+    'type' => 'etcitem',
+    'name' => 'Magic Woodpile',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'ev_firewood_seed_solo',
+    'is_stackable' => true,
+  ],
+  47929 => 
+  [
+    'id' => 47929,
+    'type' => 'etcitem',
+    'name' => 'Large Magic Woodpile',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'ev_firewood_seed_party',
+    'is_stackable' => true,
+  ],
+  47945 => 
+  [
+    'id' => 47945,
+    'type' => 'weapon',
+    'name' => 'Magic Fan - Yellow',
+    'add_name' => '',
+    'description' => '',
+    'icon' => 'ev_kr_13th_present_yellow',
+    'weapon_type' => 'blunt',
+    'bodypart' => 'rhand',
+    'soulshots' => 1,
+    'spiritshots' => 1,
+    'is_tradable' => false,
+    'is_dropable' => false,
+    'is_sellable' => false,
+    'is_magic_weapon' => true,
+    'is_freightable' => true,
+    'weight' => 150,
+  ],
+];

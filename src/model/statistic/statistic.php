@@ -279,6 +279,8 @@ class statistic {
                         "name" => "The item does not exist!",
                         "icon" => fileSys::localdir("/uploads/images/icon/NOIMAGE.webp"),
                     ];
+                }else{
+                    $itemInfo['item_id'] = $item['item_id'];
                 }
                 $lex[] = $itemInfo;
             }
