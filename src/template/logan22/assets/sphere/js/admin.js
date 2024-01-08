@@ -52,7 +52,7 @@ $(document).on('click', '#getDBNameLogin', function (event) {
         type: "POST",
         data: {
             "host": $("#db_login_host").val(),
-            "port": $("#db_game_port").val(),
+            "port": $("#db_login_port").val(),
             "login": $("#db_login_user").val(),
             "password": $("#db_login_password").val(),
         },
