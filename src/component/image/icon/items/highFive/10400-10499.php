@@ -201,7 +201,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Full Bottle of Souls - 10 Souls',
     'add_name' => '',
-    'description' => 'A bottle containing 10 Souls. Cannot be exchanged or dropped. Kamael exclusive item. Disappears without effect if used by other races.',
+    'description' => 'A bottle containing 10 Souls. Cannot be exchanged or dropped. Kamael exclusive  Disappears without effect if used by other races.',
     'icon' => 'etc_fruit_juice_glass_bottle_i11',
     'weight' => 2,
     'is_tradable' => false,

@@ -924,7 +924,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Stone of Contract',
     'add_name' => '',
-    'description' => 'In order to obtain the power of darkness, you will first need to secure this item. Take it to Trader Galman in Dragon Valley.',
+    'description' => 'In order to obtain the power of darkness, you will first need to secure this  Take it to Trader Galman in Dragon Valley.',
     'icon' => 'etc_bead_silver_i00',
     'is_tradable' => false,
     'is_dropable' => false,

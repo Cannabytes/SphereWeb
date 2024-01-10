@@ -7,7 +7,7 @@ return [
     'name' => 'Valkyrie Circlet',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_valkyrie_cap_i00',
+    'icon' => 'br_valkyrie_cap_i00',
     'bodypart' => 'hairall',
     'weight' => 10,
     'is_tradable' => false,

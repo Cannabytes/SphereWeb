@@ -582,7 +582,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Odd Doll',
     'add_name' => '',
-    'description' => 'It is a strange looking statue of a living creature that looks like an imp. It is an orc\'s favorite item.',
+    'description' => 'It is a strange looking statue of a living creature that looks like an imp. It is an orc\'s favorite ',
     'icon' => 'etc_ertheia2',
     'weight' => 500,
     'commissionItemType' => 'OTHER_ITEM',

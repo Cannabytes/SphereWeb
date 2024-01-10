@@ -2011,7 +2011,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Freed Soul',
     'add_name' => '',
-    'description' => 'Energy from ghosts that flow through the Seed of Infinity reside within this item. Can be used at Special Product Broker Kirklan.',
+    'description' => 'Energy from ghosts that flow through the Seed of Infinity reside within this  Can be used at Special Product Broker Kirklan.',
     'icon' => 'freed_soul_essense_i00',
     'is_tradable' => false,
     'is_dropable' => false,

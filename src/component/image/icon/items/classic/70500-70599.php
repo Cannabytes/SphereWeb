@@ -1517,7 +1517,7 @@ return [
     'name' => 'Expertise Rune (B-grade]',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_rune_of_feather_i00',
+    'icon' => 'br_cash_rune_of_feather_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_depositable' => false,

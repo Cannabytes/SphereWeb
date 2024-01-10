@@ -605,7 +605,9 @@ class auth {
         foreach($bonusActive AS &$item){
             $itemInfo = client_icon::get_item_info($item['item_id'], false, false);
             if(!$itemInfo){
-                var_dump("ERR", $item);exit;
+                $itemInfo['item_id'] = $item['id'];
+                $itemInfo['name'] = "No Item Name";
+                $itemInfo['icon'] = fileSys::localdir("/uploads/images/icon/NOIMAGE.webp");
             }
             $item['icon'] = $itemInfo['icon'];
             $item['name'] = $itemInfo['name'];

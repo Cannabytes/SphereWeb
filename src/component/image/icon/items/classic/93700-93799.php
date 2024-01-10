@@ -676,7 +676,7 @@ return [
     'name' => 'Reanimated Corpse Mask',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_frankenstein_mask_i00',
+    'icon' => 'br_frankenstein_mask_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

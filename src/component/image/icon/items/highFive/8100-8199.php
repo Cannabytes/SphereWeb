@@ -2057,7 +2057,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Cradle of Creation',
     'add_name' => '',
-    'description' => 'Win this item by gambling and exchange it for an A-Grade item.',
+    'description' => 'Win this item by gambling and exchange it for an A-Grade ',
     'icon' => 'etc_raid_g_i00',
     'price' => 50000,
     'is_stackable' => true,

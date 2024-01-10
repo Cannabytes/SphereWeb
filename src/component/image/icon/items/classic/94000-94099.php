@@ -671,7 +671,7 @@ return [
     'name' => 'Appearance Stone: Dark Assassin Suit',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_scrl_of_ench_wp_d_i00',
+    'icon' => 'br_cash_scrl_of_ench_wp_d_i00',
     'weight' => 120,
     'is_tradable' => false,
     'is_dropable' => false,

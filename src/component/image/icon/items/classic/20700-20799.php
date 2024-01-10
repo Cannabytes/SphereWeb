@@ -7,7 +7,7 @@ return [
     'name' => 'Scroll: Summon Lucky Lamp',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_lamp_orange_i00',
+    'icon' => 'br_lamp_orange_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

@@ -468,7 +468,7 @@ return [
     'name' => 'Infinite Steel Quiver',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_quiver_of_fine_steel_arrows_i00',
+    'icon' => 'br_cash_quiver_of_fine_steel_arrows_i00',
     'etcitem_type' => 'arrow',
     'crystal_type' => 'c',
     'is_tradable' => false,

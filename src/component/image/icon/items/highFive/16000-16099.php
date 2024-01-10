@@ -1314,7 +1314,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Bottle of Freya\'s Soul',
     'add_name' => '',
-    'description' => 'A bottle containing a little bit of Freya\'s Soul. Find and speak to Rafforty to find out the purpose behind this little item.',
+    'description' => 'A bottle containing a little bit of Freya\'s Soul. Find and speak to Rafforty to find out the purpose behind this little ',
     'icon' => 'etc_recovery_set_i00',
     'etcitem_type' => 'material',
     'weight' => 60,

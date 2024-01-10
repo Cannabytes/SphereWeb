@@ -35,7 +35,7 @@ return [
     'name' => 'Uldie\'s Elite Gift',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_ghost_magicalbox_i00',
+    'icon' => 'br_ghost_magicalbox_i00',
     'is_sellable' => false,
     'is_stackable' => true,
     'handler' => 'extractableitems',

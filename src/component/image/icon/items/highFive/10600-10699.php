@@ -820,7 +820,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Feather of Blessing',
     'add_name' => '',
-    'description' => 'Dimensional item. You can resurrect right away at the spot where you get killed if you have the Feather of Blessing. Cannot be exchanged, dropped, or destroyed. Can be stored in a private warehouse. Can be shared between characters within the account through Dimensional Merchant.',
+    'description' => 'Dimensional  You can resurrect right away at the spot where you get killed if you have the Feather of Blessing. Cannot be exchanged, dropped, or destroyed. Can be stored in a private warehouse. Can be shared between characters within the account through Dimensional Merchant.',
     'icon' => 'blessed_feather_i00',
     'is_tradable' => false,
     'is_dropable' => false,

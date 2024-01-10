@@ -885,7 +885,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Odd (looking] Doll',
     'add_name' => '',
-    'description' => 'It is a strange looking statue of a living creature that looks like an imp. It is an orc\'s favorite item.',
+    'description' => 'It is a strange looking statue of a living creature that looks like an imp. It is an orc\'s favorite ',
     'icon' => 'etc_totem_black_i00',
     'weight' => 500,
     'price' => 8000,

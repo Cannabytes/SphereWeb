@@ -959,7 +959,7 @@ return [
     'name' => 'White Day\'s Star Candy (Time-limited]',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_rudolf_food_orange_i00',
+    'icon' => 'br_rudolf_food_orange_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

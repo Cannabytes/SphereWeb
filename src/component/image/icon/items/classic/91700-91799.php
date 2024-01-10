@@ -1268,7 +1268,7 @@ return [
     'name' => 'Lakfi-Lakfi\'s Fortune Box',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_valentine_agathion_pack_i00',
+    'icon' => 'br_valentine_agathion_pack_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_destroyable' => false,

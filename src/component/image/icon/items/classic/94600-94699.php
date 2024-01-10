@@ -161,7 +161,7 @@ return [
     'name' => 'Random Boss\' Weapon Pack (Time-limited]',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_lucky_box_i00',
+    'icon' => 'br_cash_lucky_box_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

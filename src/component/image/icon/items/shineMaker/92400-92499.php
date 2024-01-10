@@ -496,7 +496,7 @@ return [
     'name' => 'Mysterious Talisman Pack',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_four_leaf_clover_box_i00',
+    'icon' => 'br_four_leaf_clover_box_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

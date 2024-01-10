@@ -612,7 +612,7 @@ return [
     'name' => 'PA Blessing',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_flag_of_bookmark_i00',
+    'icon' => 'br_flag_of_bookmark_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

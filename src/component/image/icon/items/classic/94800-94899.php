@@ -1152,7 +1152,7 @@ return [
     'name' => 'Orb',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_quiver_of_bone_arrows_i00',
+    'icon' => 'br_cash_quiver_of_bone_arrows_i00',
     'price' => 1580,
   ],
   94879 => 

@@ -570,7 +570,7 @@ return [
     'name' => 'Watermelon Hat',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_watermelon_cap_a_i00',
+    'icon' => 'br_watermelon_cap_a_i00',
     'armor_type' => 'none',
     'bodypart' => 'hair',
     'crystal_type' => 'none',

@@ -7,7 +7,7 @@ return [
     'name' => 'Christmas Party Herb',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_xmas_present_i00',
+    'icon' => 'br_xmas_present_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

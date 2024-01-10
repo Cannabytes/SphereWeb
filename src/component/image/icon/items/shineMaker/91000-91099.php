@@ -382,7 +382,7 @@ return [
     'name' => 'High-grade Maliss\' HP Recovery Potion',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_vitality_potion_i01',
+    'icon' => 'br_vitality_potion_i01',
     'is_dropable' => false,
     'is_sellable' => false,
     'is_stackable' => true,

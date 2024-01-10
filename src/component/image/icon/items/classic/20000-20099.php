@@ -55,7 +55,7 @@ return [
     'name' => 'My Teleport Flag',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_flag_of_bookmark_i00',
+    'icon' => 'br_flag_of_bookmark_i00',
     'weight' => 5,
     'is_stackable' => true,
     'is_freightable' => true,

@@ -677,7 +677,7 @@ return [
     'name' => 'Sayha\'s Cookie (Time-limited]',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_valentine_cookie_i00',
+    'icon' => 'br_valentine_cookie_i00',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

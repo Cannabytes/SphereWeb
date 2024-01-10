@@ -380,7 +380,7 @@ return [
     'name' => 'Package: Special HP Recovery Potion (1000 pcs.]',
     'add_name' => '',
     'description' => '',
-    'icon' => 'BranchSys.br_vitality_potion_i01',
+    'icon' => 'br_vitality_potion_i01',
     'is_tradable' => false,
     'is_dropable' => false,
     'is_sellable' => false,

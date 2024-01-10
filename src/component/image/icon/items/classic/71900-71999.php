@@ -322,7 +322,7 @@ return [
     'name' => 'XP Bonus Rune',
     'add_name' => '',
     'description' => '',
-    'icon' => 'br_cashtex.item.br_cash_rune_of_exp_i00',
+    'icon' => 'br_cash_rune_of_exp_i00',
     'etcitem_type' => 'encht_attr_rune',
     'is_tradable' => false,
     'is_dropable' => false,
