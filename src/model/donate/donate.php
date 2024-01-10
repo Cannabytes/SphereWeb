@@ -9,6 +9,7 @@ namespace Ofey\Logan22\model\donate;
 
 use Exception;
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\request\request;
@@ -59,6 +60,11 @@ class donate {
                 }
             }else{
                 $item_info = client_icon::get_item_info($item['item_id'], false, false);
+                if(!$item_info){
+                    $item_info['item_id'] = $item['id'];
+                    $item_info['name'] = "No Item Name";
+                    $item_info['icon'] = fileSys::localdir("/uploads/images/icon/NOIMAGE.webp");
+                }
                 $item = array_merge($item, $item_info);
             }
         }

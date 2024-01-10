@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by Logan22
- * Github -> https://github.com/Cannabytes/SphereWeb
- * Date: 17.08.2022 / 17:40:06
- */
 
 namespace Ofey\Logan22\component\time;
 
