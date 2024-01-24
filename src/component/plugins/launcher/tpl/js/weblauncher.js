@@ -1,36 +1,6 @@
 loadWorld()
 HtmlAddProgressBar()
 
-//initWebSocket();
-
-// Создаем функцию для инициализации соединения с сервером
-/*function initWebSocket() {
-    const serverUrl = 'ws://localhost:17580/ws';
-    socket = new WebSocket(serverUrl);
-    function connect() {
-        socket = new WebSocket(serverUrl);
-        socket.onopen = () => {
-            console.log('Соединение установлено по WebSocket');
-            isConnectSocket = true;
-            isConnectSocketed();
-            firstRequest()
-        };
-        socket.onmessage = (event) => {
-            responseMessage(event)
-        };
-        socket.onclose = (event) => {
-            console.log('Соединение закрыто', event);
-            isDisConnectSocketed();
-            setTimeout(connect, 1000);
-        };
-        socket.onerror = (error) => {
-            console.error('Ошибка веб-сокета:', error);
-        };
-    }
-    connect();
-    return socket;
-}*/
-
 const ws = new WebSocketClient({
 	url: 'ws://localhost:17580/ws',
 	maxConnectionAttempts: 5,
@@ -51,16 +21,9 @@ ws.on('close', () => {
 	isDisConnectSocketed() 
 });
 
-//window.addEventListener('load', (e) => {
-    ws.connect()
-//});
-
-/*window.addEventListener('unload', (e) => {
-    ws.disconnect()
-});*/
+ws.connect()
 
 function isConnectSocketed() {
-    // $("#startLauncher").hide()
     $("#block_start_launcher").hide()
     $("#loaderConnect").hide();
     $('#launcherConnectStatusName').removeClass('text-danger')
@@ -70,11 +33,11 @@ function isConnectSocketed() {
 
 function isDisConnectSocketed() {
     $("#block_start_launcher").show();
-    // $("#startLauncher").show();
     $("#loaderConnect").show();
     $('#launcherConnectStatusName').removeClass('text-white')
     $('#launcherConnectStatusName').addClass('text-danger')
     $("#launcherConnectStatusName").text(word_connect);
+    $('#selectClient').empty();
 }
 
 function firstRequest() {
@@ -116,13 +79,10 @@ function getPathDirectoryChronicle() {
         domain: domain,
         serverID: serverID,
     });
-    console.log(getChronicleDirectory)
 }
 
 
-//function responseMessage(event) {
-function responseMessage(data) {	
-    //let response = JSON.parse(event.data);
+function responseMessage(data) {
 	let response = JSON.parse(data);
     console.log(response)
     ResponseStatus(response);
@@ -210,14 +170,20 @@ function ResponseStatus(response) {
             percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
             $('#processRunLevel').text(percentPanel + "%");
             $('#processName').text(word_file_comparison);
-         }
+
+            $('title').text("Launcher" + " " + chronicle + " (" + percentPanel + "%)");
+        }
+
          if (response.status === 3) {
             setUpdateClient(true);
             if (response.boot == null) {
                 return
             }
-            $('#processRunLevel').text(((response.loaded / response.filesTotal) * 100).toFixed(2) + "%");
+            percent = ((response.loaded / response.filesTotal) * 100).toFixed(1)
+            $('#processRunLevel').text( percent + "%");
             $('#processName').text(word_file_upload);
+
+            $('title').text("Launcher" + " " + chronicle + " (" + percent + "%)");
 
             for (let index = 0; index <= countStream-1; index++) {
                 if (typeof response.boot[index] !== 'undefined') {
@@ -239,6 +205,8 @@ function ResponseStatus(response) {
         console.log("Загрузка завершена")
         $('#processRunLevel').text("100%");
         $('#processName').text(word_loading_is_complete);
+        $('title').text("Launcher" + " " + chronicle + " - (" + getPhrase("loading_is_complete") + ")");
+
     } else if (response.status === 5) {
         setUpdateClient(false);
         $('#processRunLevel').text("0%");
@@ -259,22 +227,9 @@ function ResponseEvent(response) {
 
     var date = new Date(response.time);
     var time = date.toLocaleTimeString();
-    let color = "";
-    if (response.level === 0) {
-        color = "light";
-    } else if (response.level === 1) {
-        color = "primary";
-    } else if (response.level === 2) {
-        color = "secondary";
-    } else if (response.level === 3) {
-        color = "danger";
-    } else if (response.level === 4) {
-        color = "info";
-    } else if (response.level === 5) {
-        color = "success";
-    }
+
     $('#eventNotification').prepend(`<tr>
-                        <td class="d-none d-sm-table-cell">` + response.message + `</td>
+                        <td class="d-none d-sm-table-cell">` + getPhrase(response.message, response.param) + `</td>
                         <td class="d-none d-sm-table-cell text-end"><span>` + time + `</span></td>
                       </tr>`);
     console.log(response.message)
@@ -282,12 +237,13 @@ function ResponseEvent(response) {
 
 function ResponseEventsLog(response) {
     if (response.command !== "eventslog") return;
+    $('#eventNotification').empty();
     for (let index = 0; index < response.events.length; ++index) {
         var date = new Date(response.events[index].time);
         var time = date.toLocaleTimeString();
 
         $('#eventNotification').prepend(`<tr>
-                        <td class="d-none d-sm-table-cell">` + response.events[index].message + `</td>
+                        <td class="d-none d-sm-table-cell">` + getPhrase(response.events[index].message, response.events[index].param) + `</td>
                         <td class="d-none d-sm-table-cell text-end"><span>` + time + `</span></td>
                       </tr>`);
     }
@@ -349,7 +305,7 @@ function ResponseGetAllConfig(response) {
     $("#autoUpdateLauncher").prop("checked", response.autoUpdateLauncher ? true : false);
     $("#maxSizeFile").val(response.maxSizeFile);
     $("#countStream").val(response.countStream);
-    $("#countStreamRecommended").html("<a href='#' id='setRecommendedNumCPU'>Recommended : " + numCPU + "</a>");
+    $("#countStreamRecommended").html(numCPU);
     countStream = response.countStream;
     HtmlAddProgressBar()
 }
@@ -396,6 +352,8 @@ function startUpdate() {
                 command: 'start_client_update',
                 uid: domain,
                 dirID: parseInt($("#selectClient").val()),
+                serverID: serverID,
+                tokenApi: tokenApi
             };
             sendToLauncher(obj);
             setUpdateClient(true);

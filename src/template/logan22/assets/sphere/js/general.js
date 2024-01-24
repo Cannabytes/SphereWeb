@@ -51,7 +51,7 @@ $(document).on("click", ".selectItem", function () {
     $("#object_id").val(id);
     $("#bonusNameItem").text(name);
     $("#bonusCount").text(count);
-    $("#bonusIcon").attr("src", baseHref + "/uploads/images/icon/" + icon + ".webp");
+    $("#bonusIcon").attr("src", baseHref + icon);
     $("#bonusPhrase").text(phrase);
 })
 

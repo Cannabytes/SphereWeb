@@ -1,5 +1,4 @@
 var socket;
-var isConnectSocket = false;
 //t/f клиент обновляется сейчас
 var isUpdateClient = false;
 
@@ -10,6 +9,8 @@ var countStream = 5;
 
 var numCPU = 1;
 
+var clickToStartLauncher = false;
+
 $(".chronicle").text(chronicle)
 
 var url = new URL("https://" + domain);
@@ -18,7 +19,7 @@ $('title').text("Launcher" + " " + chronicle);
 
 showButtonStartGame()
 $(document).on('click', '#getClientWay', function () {
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher({
             command: 'getClientWay'
         })
@@ -31,7 +32,7 @@ $(document).on('click', '#getClientWay', function () {
 
 
 $(document).on('click', '#startUpdateGame', function () {
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         startUpdate()
     } else if (isConnectAjax) {
         AJAX_startUpdate()
@@ -54,7 +55,7 @@ function direction(dirname) {
     let obj = {
         command: 'getDirectory', dirname: dirname
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     }
     if (isConnectAjax) {
@@ -71,7 +72,7 @@ $(document).on('click', '.saveDirClient', function () {
         domain: domain,
         serverID: serverID,
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
         getPathDirectoryChronicle()
     } else if (isConnectAjax) {
@@ -88,7 +89,7 @@ $(document).on('click', '.removeClientDir', function () {
         id: dirID,
         chronicle: chronicle,
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -100,18 +101,29 @@ $("#isClientFilesArchive").on("click", function (event) {
     let obj = {
         command: 'setConfig', param: 'isClientFilesArchive', value: $("#isClientFilesArchive").prop("checked"),
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
     }
 });
 
+$("#startLauncher").on("click", function (event) {
+    clickToStartLauncher = true;
+    window.location.href = "web-launcher://open";
+    ws.connect()
+});
+
+function startLauncherButton(){
+    window.location.href = "web-launcher://open";
+    ws.connect()
+}
+
 $("#autoStartLauncher").on("click", function (event) {
     let obj = {
         command: 'setConfig', param: 'autoStartLauncher', value: $("#autoStartLauncher").prop("checked"),
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -122,7 +134,7 @@ $("#autoUpdateLauncher").on("click", function (event) {
     let obj = {
         command: 'setConfig', param: 'autoUpdateLauncher', value: $("#autoUpdateLauncher").prop("checked"),
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -141,7 +153,7 @@ function sendCountStream() {
     let obj = {
         command: 'setConfig', param: 'countStream', value: parseInt($("#countStream").val()),
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -154,7 +166,7 @@ function sendMaxSizePathFile() {
     let obj = {
         command: 'setConfig', param: 'maxSizeFile', value: parseInt($("#maxSizeFile").val()),
     };
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -176,7 +188,7 @@ $(document).on('click', '.startL2', function () {
          player = String(selectedPlayer.data('player'));
     }
 
-    if (isConnectAjax === false && isConnectSocket === false) {
+    if (isConnectAjax === false && ws.isConnected() === false) {
         errorMessage(word_need_start_launcher)
         return;
     }
@@ -194,9 +206,10 @@ $(document).on('click', '.startL2', function () {
         player: player,
         dirID: parseInt($("#selectClient").val()),
         uid: domain,
+        tokenApi: tokenApi
     }
 
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -209,7 +222,7 @@ $('.modal').on('show.bs.modal', function (event) {
     if (targetModal === '#launcherAbout' || targetModal === "#modal-start-launcher") {
         return true;
     }
-    if (isConnectSocket === false && isConnectAjax === false) {
+    if (ws.isConnected() === false && isConnectAjax === false) {
         errorMessage(word_need_start_launcher);
         return false;
     }
@@ -227,14 +240,14 @@ $("#dirlist").on("click", ".direction", function () {
 });
 
 $(document).on( "click", ".launcherUpdateStart", function () {
-    if (isConnectAjax === false && isConnectSocket === false) {
+    if (isConnectAjax === false && ws.isConnected() === false) {
         errorMessage(word_need_start_launcher)
         return;
     }
     obj = {
         command: 'launcherUpdate',
     }
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -244,7 +257,7 @@ $(document).on( "click", ".launcherUpdateStart", function () {
 });
 
 $("#save_file_black_list").on( "click", function () {
-    if (isConnectAjax === false && isConnectSocket === false) {
+    if (isConnectAjax === false && ws.isConnected() === false) {
         errorMessage(word_need_start_launcher)
         return;
     }
@@ -252,7 +265,7 @@ $("#save_file_black_list").on( "click", function () {
         command: 'fileblacklist',
         files: $("#fileslist").val(),
     }
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -260,14 +273,14 @@ $("#save_file_black_list").on( "click", function () {
 });
 
 $(".isCheckUpdate").on( "click", function () {
-    if (isConnectAjax === false && isConnectSocket === false) {
+    if (isConnectAjax === false && ws.isConnected() === false) {
         errorMessage(word_need_start_launcher)
         return;
     }
     obj = {
         command: 'isCheckUpdate',
     }
-    if (isConnectSocket) {
+    if (ws.isConnected()) {
         sendToLauncher(obj)
     } else if (isConnectAjax) {
         AJAX_sendToLauncher(obj)
@@ -295,6 +308,16 @@ function errorMessage(message) {
         type: 'danger',
         icon: 'fa fa-times me-2',
         message: message
+    });
+}
+function successMessage(message, delay) {
+    Codebase.helpers('jq-notify', {
+        align: 'center',
+        from: 'top',
+        type: 'success',
+        icon: 'fa fa-thumbs-up me-2',
+        message: message,
+        delay: delay || 3000
     });
 }
 

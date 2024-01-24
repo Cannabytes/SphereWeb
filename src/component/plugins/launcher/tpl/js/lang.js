@@ -43,6 +43,34 @@ let phrase = {
         "stream": "Потоки",
         "countStream": "Количество потоков",
         "countStream_description": "Укажите кол-во загружаемых одновременно файлов",
+        "word_launcher_is_started": "Лаунчер был запущен",
+
+
+
+        "notify_message": "%s",
+        "its_already_loading": "Уже идет загрузка",
+        "server_does_not_have_permission": "Сервер не имеет разрешения на использование лаунчера",
+        "no_update_required": "Обновление не требуется",
+        "start_of_update": "Начало обновления",
+        "counting_files_for_update": "Подсчет необходимых файлов для обновления",
+        "update_required_for_files": "Необходимо обновить %d файлов",
+        "forced_download_stopped": "Загрузка принудительно остановлена",
+        "update_successful": "Обновление успешно завершено",
+        "update_error": "Ошибка обновления: При попытке скачать файл %s был получен StatusCode %d",
+        "file_download_error": "Произошла ошибка загрузки файла",
+        "game_launched": "Игра была запущена",
+        "folder_not_exists": "Папка %s не существует",
+        "error_checking_folder": "Ошибка при проверке папки %s: %s",
+        "game_and_client_files_different": "Файлы игры и файлы клиента - разные. Необходимо обновиться.",
+        "empty_command_received": "Вы прислали пустую команду",
+        "json_request_read_error": "Ошибка чтения json запроса",
+        "turn_off": "Выключить",
+        "open_website": "Открыть сайт",
+        "update_interrupted": "Обновление было прервано",
+        "unpacking_file_failed": "Не удалось распаковать файл: %s",
+        "you_do_not_have_permissions_to_perform_this_action": "У вас нет прав на выполнение действий",
+        "directory_does_not_exist": "Директория не существует: %s",
+        "error_checking_directory": "Ошибка при проверке директории: %s",
     },
     "en": {
         "registration_account": "Registration account",
@@ -88,142 +116,50 @@ let phrase = {
         "stream": "Streams",
         "countStream": "Number of streams",
         "countStream_description": "Specify the number of files to download simultaneously",
-    },
-    "es": {
-        "registration_account": "Registro de cuenta",
-        "description": "Descripción",
-        "forum": "Foro",
-        "launcher": "Lanzador",
-        "setting": "Configuración",
-        "way_to_game": "Ruta al juego",
-        "updates": "Actualizaciones",
-        "download_launcher": "Descargar Lanzador",
-        "about_launcher": "Acerca del Lanzador",
-        "start_update": "Iniciar actualización",
-        "logs": "Registros",
-        "apply": "Aplicar",
-        "need_select_client_dir": "Seleccionar directorio del cliente para",
-        "setting_launcher": "Configuración del Lanzador",
-        "files": "Archivos",
-        "autoload": "Carga automática",
-        "autoload_desc": "El Lanzador no necesitará ser ejecutado y no consumirá memoria. Después de iniciar Windows, el Lanzador se cargará en memoria y solo se activará cuando se acceda a él.",
-        "autoupdate_launcher": "Actualización automática",
-        "autoupdate_launcher_desc": "El Lanzador verificará periódicamente las actualizaciones y se actualizará si hay una nueva versión disponible.",
-        "is_save_loading_file": "Guardar archivos descargados",
-        "is_save_loading_file_desc": "Si seleccionas \"Sí\", el Lanzador guardará los archivos de parches para no tener que descargarlos nuevamente en el futuro si ya los descargaste antes. Esta opción puede reducir el tiempo de descarga.",
-        "close": "Cerrar",
-        "setting_way_to_game": "Configuración de la ruta al juego",
-        "update": "Actualizar",
-        "launcher_description": "Web-Lanzador es un programa para actualizar y cargar archivos del juego.<br>\n" +
-            "El Lanzador utiliza tecnologías avanzadas para garantizar la máxima velocidad y facilidad de uso.<br>\n" +
-            "<br>",
-        "ok": "Aceptar",
-        "your_need_launcher": "¿No tienes el Lanzador?",
-        "need_start_launcher": "¡Necesitas iniciar el Lanzador!",
-        "start_game": "Iniciar juego",
-        "no_download": "Sin descargas",
-        "loading_is_complete": "Carga completada",
-        "download_canceled": "Descarga cancelada",
-        "error": "Error",
-        "cancel_update": "Cancelar actualización",
-        "connect": "Conectar",
-        "not_dir": "Aquí ya no hay más carpetas.<br>Haz clic en el botón <Guardar> y aquí cargaremos el cliente.",
-        "file_upload": "Carga de archivos",
-        "file_comparison": "Comparación de archivos"
-    },
-    "pt": {
-        "registration_account": "Registro de conta",
-        "description": "Descrição",
-        "forum": "Fórum",
-        "launcher": "Launcher",
-        "setting": "Configurações",
-        "way_to_game": "Caminho para o jogo",
-        "updates": "Atualizações",
-        "download_launcher": "Baixar Launcher",
-        "about_launcher": "Sobre o Launcher",
-        "start_update": "Iniciar atualização",
-        "logs": "Registros",
-        "apply": "Aplicar",
-        "need_select_client_dir": "Selecione o diretório do cliente para",
-        "setting_launcher": "Configurações do Launcher",
-        "files": "Arquivos",
-        "autoload": "Carregamento automático",
-        "autoload_desc": "O Launcher não precisará ser executado e não consumirá memória. Após iniciar o Windows, o Launcher será carregado na memória e só será ativado quando acessado.",
-        "autoupdate_launcher": "Atualização automática",
-        "autoupdate_launcher_desc": "O Launcher verificará periodicamente as atualizações e se atualizará caso haja uma nova versão disponível.",
-        "is_save_loading_file": "Salvar arquivos baixados",
-        "is_save_loading_file_desc": "Se selecionar \"Sim\", o Launcher salvará os arquivos de patches para não precisar baixá-los novamente no futuro, caso já tenha feito o download anteriormente. Essa opção pode reduzir o tempo de download.",
-        "close": "Fechar",
-        "setting_way_to_game": "Configuração do caminho para o jogo",
-        "update": "Atualizar",
-        "launcher_description": "Web-Launcher é um programa para atualizar e carregar arquivos do jogo.<br>\n" +
-            "O Launcher utiliza tecnologias avançadas para garantir a máxima velocidade e facilidade de uso.<br>\n" +
-            "<br>",
-        "ok": "OK",
-        "your_need_launcher": "Você não tem o Launcher?",
-        "need_start_launcher": "É necessário iniciar o Launcher!",
-        "start_game": "Iniciar jogo",
-        "no_download": "Sem downloads",
-        "loading_is_complete": "Carregamento concluído",
-        "download_canceled": "Download cancelado",
-        "error": "Erro",
-        "cancel_update": "Cancelar atualização",
-        "connect": "Conectar",
-        "not_dir": "Aqui não há mais pastas.<br>Clique no botão <Salvar> e carregaremos o cliente aqui.",
-        "file_upload": "Carregar arquivos",
-        "file_comparison": "Comparação de arquivos"
-    },
-    "tr": {
-        "registration_account": "Hesap Kaydı",
-        "description": "Açıklama",
-        "forum": "Forum",
-        "launcher": "Başlatıcı",
-        "setting": "Ayarlar",
-        "way_to_game": "Oyun Yolu",
-        "updates": "Güncellemeler",
-        "download_launcher": "Başlatıcıyı İndir",
-        "about_launcher": "Başlatıcı Hakkında",
-        "start_update": "Güncellemeyi Başlat",
-        "logs": "Kayıtlar",
-        "apply": "Uygula",
-        "need_select_client_dir": "Müşteri klasörünü seçin",
-        "setting_launcher": "Başlatıcı Ayarları",
-        "files": "Dosyalar",
-        "autoload": "Otomatik Yükleme",
-        "autoload_desc": "Başlatıcıyı çalıştırmanıza gerek yok ve bellek kullanımı yapmaz. Windows başlatıldığında, başlatıcı belleğe yüklenecek ve yalnızca ona erişildiğinde etkinleşecektir.",
-        "autoupdate_launcher": "Otomatik Güncelleme",
-        "autoupdate_launcher_desc": "Başlatıcı periyodik olarak güncellemeleri kontrol edecek ve yeni bir sürüm mevcutsa kendisini güncelleyecektir.",
-        "is_save_loading_file": "İndirilen dosyaları kaydet",
-        "is_save_loading_file_desc": "\"Evet\" seçeneğini seçerseniz, başlatıcı yamaları dosyaları, gelecekte tekrar indirmemeniz için kaydedecektir. Bu seçenek indirme süresini azaltabilir.",
-        "close": "Kapat",
-        "setting_way_to_game": "Oyun Yolu Ayarı",
-        "update": "Güncelle",
-        "launcher_description": "Web-Başlatıcı, oyun dosyalarını güncellemek ve yüklemek için bir programdır.<br>\n" +
-            "Başlatıcı, maksimum hız ve kullanım kolaylığı sağlamak için ileri teknolojiler kullanır.<br>\n" +
-            "<br>",
-        "ok": "Tamam",
-        "your_need_launcher": "Başlatıcınız yok mu?",
-        "need_start_launcher": "Başlatıcıyı başlatmanız gerekiyor!",
-        "start_game": "Oyunu Başlat",
-        "no_download": "İndirme yok",
-        "loading_is_complete": "Yükleme tamamlandı",
-        "download_canceled": "İndirme iptal edildi",
-        "error": "Hata",
-        "cancel_update": "Güncellemeyi İptal Et",
-        "connect": "Bağlan",
-        "not_dir": "Burada daha fazla klasör yok.<br>\"Kaydet\" düğmesine tıklayın ve buraya müşteriyi yükleyeceğiz.",
-        "file_upload": "Dosyaları Yükle",
-        "file_comparison": "Dosya Karşılaştırması"
-    }
+        "word_launcher_is_started": "Launcher has been successfully launched",
 
+        "notify_message": "%s",
+        "its_already_loading": "Loading is already in progress",
+        "server_does_not_have_permission": "The server is not authorized to use the launcher",
+        "no_update_required": "No update is needed",
+        "start_of_update": "Starting the update",
+        "counting_files_for_update": "Counting the required update files",
+        "update_required_for_files": "You need to update %d files",
+        "forced_download_stopped": "Forced download stopped",
+        "update_successful": "Update completed successfully",
+        "update_error": "Update error: StatusCode %d received when attempting to download file %s",
+        "file_download_error": "An error occurred during file download",
+        "game_launched": "The game has been launched",
+        "folder_not_exists": "Folder %s does not exist",
+        "error_checking_folder": "Error checking folder %s: %s",
+        "game_and_client_files_different": "Game files and client files are different. An update is required.",
+        "empty_command_received": "You sent an empty command",
+        "json_request_read_error": "Error reading JSON request",
+        "turn_off": "Turn off",
+        "open_website": "Open site",
+        "update_interrupted": "The update was interrupted",
+        "unpacking_file_failed": "Failed to unpack file: %s",
+        "you_do_not_have_permissions_to_perform_this_action": "You do not have permission to perform actions",
+        "directory_does_not_exist": "Directory does not exist: %s",
+        "error_checking_directory": "Error checking directory: %s"
+    },
 
 };
 
-function getPhrase(fphrase, lang) {
+function sprintf(format) {
+    let args = Array.prototype.slice.call(arguments, 1);
+    return format.replace(/%[sd]/g, function(match) {
+        if (args.length === 0) return match;
+        return args.shift();
+    });
+}
+
+function getPhrase(fphrase, ...param) {
+    lang = userLang
     if (phrase && phrase[lang] && phrase[lang][fphrase]) {
-        return phrase[lang][fphrase];
+        return sprintf(phrase[lang][fphrase], ...param);
     } else {
-        return `No Phrase ${fphrase}`;
+        return `No Phrase <${fphrase}>`;
     }
 }
 
@@ -240,6 +176,7 @@ var word_not_dir;
 var word_file_upload;
 var word_file_comparison;
 var word_launcher;
+var word_launcher_is_started;
 
 // loadWorld()
 
@@ -247,20 +184,21 @@ function loadWorld() {
     let elementsWithDataPhrase = $('[data-phrase]');
     elementsWithDataPhrase.each(function (index) {
         let phraseName = $(this).data("phrase");
-        let translatedPhrase = getPhrase(phraseName, userLang);
+        let translatedPhrase = getPhrase(phraseName);
         $(this).html(translatedPhrase);
     });
 
-    word_need_start_launcher = getPhrase("need_start_launcher", userLang);
-    word_no_download = getPhrase("no_download", userLang);
-    word_loading_is_complete = getPhrase("loading_is_complete", userLang);
-    word_download_canceled = getPhrase("download_canceled", userLang);
-    word_error = getPhrase("error", userLang);
-    word_start_update = getPhrase("start_update", userLang);
-    word_cancel_update = getPhrase("cancel_update", userLang);
-    word_connect = getPhrase("connect", userLang);
-    word_not_dir = getPhrase("not_dir", userLang);
-    word_file_upload = getPhrase("file_upload", userLang);
-    word_file_comparison = getPhrase("file_comparison", userLang);
-    word_launcher = getPhrase("launcher", userLang);
+    word_need_start_launcher = getPhrase("need_start_launcher");
+    word_no_download = getPhrase("no_download");
+    word_loading_is_complete = getPhrase("loading_is_complete");
+    word_download_canceled = getPhrase("download_canceled");
+    word_error = getPhrase("error");
+    word_start_update = getPhrase("start_update");
+    word_cancel_update = getPhrase("cancel_update");
+    word_connect = getPhrase("connect");
+    word_not_dir = getPhrase("not_dir");
+    word_file_upload = getPhrase("file_upload");
+    word_file_comparison = getPhrase("file_comparison");
+    word_launcher = getPhrase("launcher");
+    word_launcher_is_started = getPhrase("word_launcher_is_started");
 }

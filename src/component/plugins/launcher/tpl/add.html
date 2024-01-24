@@ -1,0 +1,147 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="content">
+<div class="block block-rounded">
+
+    <div class="block block-rounded" id="block_start_launcher">
+        <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+            <div>
+                <button data-bs-toggle="modal" data-bs-target="#modal-start-launcher" type="button" class="btn btn-secondary me-1 mb-1">
+                    {{phrase("launch_game")}}
+                </button>
+            </div>
+            <div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">{{phrase("dont have a launcher?")}}</a>
+                <a type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
+                    {{phrase("launcher_download")}}
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="block-header block-header-default">
+        <h3 class="block-title">Лаунчера данные</h3>
+    </div>
+    <div class="block-content">
+        <div class="row">
+            <div class="col-lg-4">
+                <p class="text-muted">
+                    Краткие данные лаунчера
+                </p>
+            </div>
+            <div class="col-lg-8 col-xl-5">
+                <!-- Form Labels on top - Default Style -->
+                <div class="mb-5" >
+                    <div class="mb-4">
+                        <label class="form-label" for="server">Сервер</label>
+                        <select class="form-select" id="server" name="server">
+                            {% for server in get_server_info() %}
+                            <option value="{{server.id}}">{{server.name}} x{{server.rate_exp}} - {{server.chronicle}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="autoload">Показывать аккаунты для автозагрузки ?<br>
+                        Если клиент поддерживает автовход в игру, используя аргументы в l2.exe.</label>
+                        <select class="form-select" id="autoload" name="autoload">
+                            <option value="off">Нет</option>
+                            <option value="on">Да</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+    <div class="row text-center">
+        <div class="col-6">
+            <div class="block block-rounded">
+                <div class="block-content">
+                    <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Кнопка запуска игры #1</h3>
+                        </div>
+                        <div class="block-content">
+                            <div class="mb-4">
+                                <label class="form-label" for="l2exe_1">l2exe</label>
+                                <input type="text" class="form-control" id="l2exe_1" name="l2exe_1" placeholder="/system/l2.exe">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="args_1">args</label>
+                                <input type="text" class="form-control" id="args_1" name="arg_1" placeholder="">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label" for="background_1">Изображение кнопки</label>
+                                <input type="text" class="form-control" id="background_1" name="background_1" placeholder="background">
+                            </div>
+
+                            <hr>
+                            <div class="mb-4">
+                                <label class="form-label" for="button_start_ru_1">Название кнопки запуска на русском</label>
+                                <input type="text" class="form-control" id="button_start_ru_1" name="button_start_ru_1" value="Запустить игру" placeholder="Запустить игру">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="button_start_ru_1">Название кнопки запуска на английском</label>
+                                <input type="text" class="form-control" id="button_start_en_1" name="button_start_en_1" value="Start Play" placeholder="Start Play">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="block block-rounded">
+                <div class="block-content">
+                    <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Кнопка запуска игры #2</h3>
+                        </div>
+                        <div class="block-content">
+                            <div class="mb-4">
+                                <label class="form-label" for="l2exe_2">l2exe</label>
+                                <input type="text" class="form-control" id="l2exe_2" name="l2exe_2" placeholder="/system/l2.exe">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="args_2">args</label>
+                                <input type="text" class="form-control" id="args_2" name="args_2" placeholder="args">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label" for="background_2">Изображение кнопки</label>
+                                <input type="text" class="form-control" id="background_2" name="background_2" placeholder="background">
+                            </div>
+                            <hr>
+
+                            <div class="mb-4">
+                                <label class="form-label" for="button_start_ru_2">Название кнопки запуска на русском</label>
+                                <input type="text" class="form-control" id="button_start_ru_2" name="button_start_ru_2" value="Запустить игру" placeholder="Запустить игру">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="button_start_en_2">Название кнопки запуска на английском</label>
+                                <input type="text" class="form-control" id="button_start_en_2" name="button_start_en_2" value="Start Play" placeholder="Start Play">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

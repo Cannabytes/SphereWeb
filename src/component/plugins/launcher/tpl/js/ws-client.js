@@ -32,13 +32,16 @@ class WebSocketClient {
 			return;
 		}
 
-
-
 		try {
 			this.#_connectionAttempts++;
 			this.#_connection = await this.#_connectAsync();
 			this.#_connectionAttempts = 0;
 			console.info('Launcher: %cConnected!', 'color: green');
+			$("#modal-start-launcher").modal('hide');
+			if(clickToStartLauncher){
+				successMessage(word_launcher_is_started, 700)
+				clickToStartLauncher = false;
+			}
 			this.#_events.forEach(e => {
 				if (e.type == 'open') {
 					e.callback();
@@ -57,7 +60,7 @@ class WebSocketClient {
 			};
 		} catch (e) {
 			console.info('Launcher: %cCouldn\'t connect!', 'color: red');
-			
+
 			/*
 			if (this.#_connectionAttempts >= this.#_maxConnectionAttempts) {
 				console.info('Launcher: %cConnection attempts limit reached!', 'color: orange');

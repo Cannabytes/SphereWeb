@@ -12,8 +12,8 @@ use function Ofey\Logan22\component\time\time;
 class chat {
     public static function show() {
         $data = json_decode(file_get_contents('php://input'), true);
-        $last_message_id = $data['last_message_id'];
-        $server_id = $data['server_id'];
+        $last_message_id = $data['last_message_id'] ?? 0;
+        $server_id = $data['server_id'] ?? null;
         if ($server_id === null) {
             $server_id = $_POST['server_id'] ?? \Ofey\Logan22\model\user\auth\auth::get_default_server();
         }
@@ -24,7 +24,7 @@ class chat {
             echo json_encode($actualCache);
             return;
         }
-        $query = sql::run("SELECT *, TIMEDIFF(NOW(), date) AS time_difference FROM chat WHERE server = ? AND type IN (1, 2, 3, 6) ORDER BY id DESC LIMIT 15;", [
+        $query = sql::run("SELECT *, TIMEDIFF(NOW(), date) AS time_difference FROM chat WHERE server = ? AND type IN ('ALL') ORDER BY id DESC LIMIT 15;", [
             $server_id,
         ])->fetchAll();
         foreach ($query as &$item) {

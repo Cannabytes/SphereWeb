@@ -2,8 +2,8 @@
 
 return [
     'server' => [
-        1 => [
-            "chronicle" => "High Five",
+        15 => [
+            "chronicle" => "Interlude",
             "name" => "MyGame",
             "application" => [
                 [
@@ -13,20 +13,15 @@ return [
                     "name" => [
                         "ru" => "Запустить игру",
                         "en" => "Launch game",
-                        "es" => "Abrir juego",
-                        "pt" => "Iniciar jogo",
-                        "tr" => "Oyunu başlat"
                     ],
                     "description" => [
-                        "ru" => "С графическими эффектами",
-                        "en" => null,
-                        "es" => null,
-                        "pt" => null,
-                        "tr" => null
+                        "ru" => "Нажмите для запуска игры",
+                        "en" => "Click for start game",
                     ],
                 ],
             ],
             "show_accounts" => false,
+            "tokenApi" => 'SUd/heYV4KFXODPBzRACXWejXRlb1UCxPntuK5gKojuZKWXdzgQmTgf0F2es4RgRBB0jv+N0Batb9rTYkB71dYMIDHRF1zc+d2qIhC6MooeYxsZoUQGRzUnBmAwYRPcxADtE93E9dOiwZOO9XT3ZQbBj2/9NjKp8r2mMynZsT5E='
         ],
     ],
 ];

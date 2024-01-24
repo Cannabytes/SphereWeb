@@ -1,6 +1,6 @@
 ﻿{% extends 'basic/base.html' %}
 
-{% block title %}{{phrase(238)}}{% endblock %}
+{% block title %}Sphere Launcher{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="/src/component/plugins/launcher/tpl/css/dir.css">
@@ -344,7 +344,7 @@
                                     <p class="fs-sm" data-phrase="countStream_description">
                                         Если у Вас мощный процессор и широкий канал инетернета, можете увеличить.
                                     </p>
-                                    <p class="fs-sm" id="countStreamRecommended"></p>
+                                    <p class="fs-sm" >Recommended: <strong class="text-primary fw-bold cursor-pointer" id="countStreamRecommended">1</strong></p>
                                 </div>
 
                                 <div class="block-content tab-pane" id="btabs-vertical-maxSizeFile" role="tabpanel" aria-labelledby="btabs-vertical-maxSizeFile-tab" tabindex="0">
@@ -477,7 +477,7 @@
 <script>
 
     $(document).ready(function () {
-        var encodedLink = "aHR0cHM6Ly9naXRodWIuY29tL0Nhbm5hYnl0ZXMvY2FubmFieXRlcy5naXRodWIuaW8vcmF3L21haW4vdXBkYXRlci9MYXVuY2hlci5leGU=";
+        var encodedLink = "aHR0cHM6Ly9naXRodWIuY29tL0Nhbm5hYnl0ZXMvY2FubmFieXRlcy5naXRodWIuaW8vcmF3L21haW4vdXBkYXRlci9TcGhlcmUgTGF1bmNoZXIuZXhl";
         $(".launcherLink").on("click", function () {
             var decodedLink = atob(encodedLink);
             window.location.href = decodedLink;
@@ -486,11 +486,11 @@
 
     $("#startLauncher").click(function () {
         window.location.href = "web-launcher://open";
-		
 		ws.connect()
     });
 
     var domain = window.location.hostname;
+    var tokenApi = "{{tokenApi}}";
 
     try {
         var base64String = "{{code}}";
@@ -507,8 +507,6 @@
     var chronicle = serverInfo.chronicle;
     var name = serverInfo.name;
     var application = serverInfo.application;
-    var listPatch = serverInfo.list;
-    var storage = serverInfo.storage;
     var enabledLauncher = Boolean(serverInfo.enable);
     var userLang = `{{userLang}}`;
 

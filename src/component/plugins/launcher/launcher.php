@@ -3,21 +3,31 @@
 namespace Ofey\Logan22\component\plugins\launcher;
 
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\character;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
 
 class launcher {
 
-    public function show() {
+    public function show($server_id = null) {
         if (!server::get_server_info()) {
             tpl::display("page/error.html");
         }
+
         $config = include __DIR__ . "/config.php";
-        $show_accounts = $config['server'][1]['show_accounts'] ?? false;
+        if($server_id==null){
+            $server_id = auth::get_default_server();
+            if(!isset($config['server'][$server_id])){
+                error::error404("Not launcher for server");
+            }
+        }
+        tpl::addVar('tokenApi', $config['server'][$server_id]['tokenApi']);
+        $show_accounts = $config['server'][$server_id]['show_accounts'] ?? false;
         tpl::addVar('show_accounts', $show_accounts);
 
         if ($show_accounts) {
@@ -48,9 +58,8 @@ class launcher {
             tpl::addVar('accounts_list', $accounts);
         }
 
-
         tpl::addVar('userLang', lang::lang_user_default());
-        tpl::addVar("code", base64_encode(json_encode($config['server'][1])));
+        tpl::addVar("code", base64_encode(json_encode($config['server'][$server_id])));
 
         tpl::displayPlugin("/launcher/tpl/show.html");
     }
@@ -60,6 +69,11 @@ class launcher {
         tpl::addVar('userLang', lang::lang_user_default());
         tpl::displayPlugin("/launcher/tpl/patch_create.html");
 
+    }
+
+    public function add() {
+        validation::user_protection("admin");
+        tpl::displayPlugin("/launcher/tpl/add.html");
     }
 
 
