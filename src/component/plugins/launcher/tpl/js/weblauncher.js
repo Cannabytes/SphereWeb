@@ -217,6 +217,9 @@ function ResponseStatus(response) {
         setUpdateClient(false);
         $('#processName').text(word_error);
         console.log("Произошла ошибка при загрузке")
+    } else if (response.status === 6) {
+        $('#processName').text(getPhrase("token_api_error"));
+        setUpdateClient(false);
     }
 
 }
@@ -327,12 +330,12 @@ function ResponseGetVersionLauncher(response) {
 
 function ResponseError(response) {
     if (response.command !== "error") return;
-    errorMessage(response.message)
+    errorMessage(getPhrase(response.message, response.param))
 }
 
 function ResponseNeedClientUpdate(response) {
     if (response.command !== "needClientUpdate") return;
-    errorMessage(response.message)
+    errorMessage(getPhrase(response.message, response.param))
 }
 
 

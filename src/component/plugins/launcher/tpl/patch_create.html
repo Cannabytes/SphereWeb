@@ -2,9 +2,11 @@
 
 {% block title %}{{phrase(238)}}{% endblock %}
 
-{% block content %}
-<link rel="stylesheet" href="/src/component/plugins/launcher/tpl/css/dir.css">
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/css/dir.css">
+{% endblock %}
 
+{% block content %}
 
 <div class="modal fade" id="modal-start-launcher" tabindex="-1" role="dialog" aria-labelledby="modal-start-launcher" aria-hidden="true">
     <div class="modal-dialog modal-dialog-slideright" role="document">
@@ -227,9 +229,5 @@
 
 </script>
 
-
-
-<script src="/src/component/plugins/launcher/tpl/js/patch_create.js"></script>
-
-
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/patch_create.js"></script>
 {% endblock %}

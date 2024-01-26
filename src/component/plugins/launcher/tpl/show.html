@@ -2,8 +2,11 @@
 
 {% block title %}Sphere Launcher{% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/css/dir.css">
+{% endblock %}
+
 {% block content %}
-<link rel="stylesheet" href="/src/component/plugins/launcher/tpl/css/dir.css">
 
 <div class="modal fade" id="modal-start-launcher" tabindex="-1" role="dialog" aria-labelledby="modal-start-launcher" aria-hidden="true">
     <div class="modal-dialog modal-dialog-slideright" role="document">
@@ -512,11 +515,9 @@
 
 </script>
 
-<script src="/src/component/plugins/launcher/tpl/js/lang.js?v2"></script>
-<script src="/src/component/plugins/launcher/tpl/js/general.js?v5"></script>
-<script src="/src/component/plugins/launcher/tpl/js/ws-client.js?v6"></script>
-<script src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v6"></script>
-<!--<script src="/src/component/plugins/launcher/tpl/js/ajaxrequest.js?v5"></script>-->
-
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/lang.js"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/general.js"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/ws-client.js"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/weblauncher.js"></script>
 
 {% endblock %}

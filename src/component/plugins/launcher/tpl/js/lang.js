@@ -71,6 +71,7 @@ let phrase = {
         "you_do_not_have_permissions_to_perform_this_action": "У вас нет прав на выполнение действий",
         "directory_does_not_exist": "Директория не существует: %s",
         "error_checking_directory": "Ошибка при проверке директории: %s",
+        "token_api_error": "Ошибка TokenAPI",
     },
     "en": {
         "registration_account": "Registration account",
@@ -141,7 +142,9 @@ let phrase = {
         "unpacking_file_failed": "Failed to unpack file: %s",
         "you_do_not_have_permissions_to_perform_this_action": "You do not have permission to perform actions",
         "directory_does_not_exist": "Directory does not exist: %s",
-        "error_checking_directory": "Error checking directory: %s"
+        "error_checking_directory": "Error checking directory: %s",
+        "token_api_error": "TokenAPI error",
+
     },
 
 };
