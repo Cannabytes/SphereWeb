@@ -30,6 +30,9 @@ class launcher {
         $show_accounts = $config['server'][$server_id]['show_accounts'] ?? false;
         tpl::addVar('show_accounts', $show_accounts);
 
+        $setting = include_once __DIR__ . "/settings.php";
+        tpl::addVar('PLUGIN', $setting);
+
         if ($show_accounts) {
             $player_accounts = player_account::show_all_account_player();
             $accounts = [];
@@ -67,12 +70,18 @@ class launcher {
     public function admin() {
         validation::user_protection("admin");
         tpl::addVar('userLang', lang::lang_user_default());
+        $setting = include_once __DIR__ . "/settings.php";
+        tpl::addVar('PLUGIN', $setting);
+
         tpl::displayPlugin("/launcher/tpl/patch_create.html");
 
     }
 
     public function add() {
         validation::user_protection("admin");
+        $setting = include_once __DIR__ . "/settings.php";
+        tpl::addVar('PLUGIN', $setting);
+
         tpl::displayPlugin("/launcher/tpl/add.html");
     }
 
