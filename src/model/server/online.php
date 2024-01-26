@@ -25,9 +25,9 @@ class online {
     private static array $server_status = [];
 
     public static function server_online_status() {
-//        $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
-//        if($actualCache)
-//            return $actualCache;
+        $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
+        if($actualCache)
+            return $actualCache;
         foreach (server::get_server_info() as $info) {
 
             $connect_login = false;
