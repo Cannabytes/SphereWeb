@@ -86,6 +86,16 @@ CREATE TABLE `donate`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
+DROP TABLE IF EXISTS `statistic_online`;
+CREATE TABLE `statistic_online`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `server_id` int(11) NULL DEFAULT NULL,
+  `loginserver` int(11) NULL DEFAULT NULL,
+  `gameserver` int(11) NULL DEFAULT NULL,
+  `count_online_player` int(11) NULL DEFAULT NULL,
+  `time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for donate_history

@@ -11,10 +11,13 @@
 
 namespace Ofey\Logan22\model\server;
 
+use DateTime;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sdb;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\player\player_account;
 
 class online {
@@ -22,9 +25,9 @@ class online {
     private static array $server_status = [];
 
     public static function server_online_status() {
-        $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
-        if($actualCache)
-            return $actualCache;
+//        $actualCache = cache::read(dir::server_online_status->show(), second: timeout::server_online_status->time());
+//        if($actualCache)
+//            return $actualCache;
         foreach (server::get_server_info() as $info) {
 
             $connect_login = false;
@@ -48,6 +51,23 @@ class online {
                     }
                 }
             }
+
+            //Сохранение в статистику онлайна
+            if (SAVE_ONLINE_STATISTIC) {
+                $latestTime = sql::getRow("SELECT time AS latest_time FROM statistic_online ORDER BY id DESC LIMIT 1;");
+                if ($latestTime && isset($latestTime['latest_time'])) {
+                    $datetime1 = new DateTime($latestTime['latest_time']);
+                    $datetime2 = new DateTime();
+                    $interval = $datetime1->diff($datetime2);
+                    $minutes = $interval->days * 24 * 60 + $interval->h * 60 + $interval->i;
+                    if ($minutes > PAUSE_TIME) {
+                        self::saveOnlineStatus($info['id'], $connect_login, $connect_game, $player_count_online);
+                    }
+                } else {
+                    self::saveOnlineStatus($info['id'], $connect_login, $connect_game, $player_count_online);
+                }
+            }
+
 
             //Проверка на накрутку онлайна
             if($connect_game===true){
@@ -75,6 +95,16 @@ class online {
         }
         cache::save(dir::server_online_status->show(), self::$server_status);
         return self::$server_status;
+    }
+
+    private static function saveOnlineStatus($server_id, $connect_login, $connect_game, $player_count_online){
+        sql::run("INSERT INTO statistic_online (`server_id`, `loginserver`, `gameserver`, `count_online_player`, `time`) VALUES (?, ?, ?, ?, ?)",[
+            $server_id,
+            (int)$connect_login,
+            (int)$connect_game,
+            $player_count_online,
+            time::mysql(),
+        ]);
     }
 
     //Поиск коэффициента накрутки онлайна

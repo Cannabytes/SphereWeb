@@ -308,6 +308,14 @@ class tpl {
         }));
 
 
+        $twig->addFunction(new TwigFunction('get_statistic_online_week', function ($server_id = 0) {
+            return statistic_model::get_online_last_week($server_id = 0);
+        }));
+
+        $twig->addFunction(new TwigFunction('get_statistic_online_month', function ($server_id = 0) {
+            return statistic_model::get_statistic_online_month($server_id = 0);
+        }));
+
         //TODO: Проверить, так как появились уже функции statistic_get_pvp
         $twig->addFunction(new TwigFunction('get_pvp', function ($count = 10, $server_id = 0) {
             return array_slice(statistic_model::get_pvp($server_id), 0, $count);
@@ -774,7 +782,6 @@ class tpl {
             }
             return "[no phrase to lang: {$userLang}]";
         }));
-
 
         $twig->addFunction(new TwigFunction('server_online_status', function () {
             return array_reverse(online::server_online_status());

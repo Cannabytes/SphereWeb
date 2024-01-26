@@ -57,3 +57,11 @@ Human Fighter, Human Knight, Rogue, Warrior, Human Mystic, Human Wizard, Cleric,
 Открытый мир фэнтезийной вселенной, разнообразие игровых рас: люди, эльфы, тёмные эльфы, орки, дворфы, камаэлы, многообразие профессий и классов персонажей, PvP (игрок против игрока) и PvE (игрок против окружающей среды) контент, захватываемые замки и территории, квесты и задания для развития персонажа, разнообразие монстров и боссов, эпические сражения и рейды, экономическая составляющая игры: торговля, создание предметов, игровая валюта, социальное взаимодействие: кланы, альянсы, гильдии, разнообразие игровых зон и локаций, развитие персонажа через навыки и экипировку,
 Open-world fantasy universe, diverse playable races including Humans, Elves, Dark Elves, Orcs, Dwarves, and Kamael, variety of character professions and classes, PvP and PvE content, capturable castles and territories, quests and tasks for character development, diverse range of monsters and bosses, epic battles and raids, in-game economy involving trading, crafting, and currency, social interaction through clans, alliances, guilds, diverse gaming zones and locations, character progression through skills and equipment,
 Игровые события Lineage 2, Lineage 2 фестивали, Праздничные события Lineage 2, Lineage 2 система торговли, Крафт в Lineage 2, PvP/PvE системы Lineage 2, Lineage 2 форумы, Lineage 2 сообщество, Lineage 2 обсуждения, Lineage 2 обновления, High Five обновление Lineage 2, Lineage 2 последний патч.";
+
+
+//Сохранять ли данные о статистики онлайна
+const SAVE_ONLINE_STATISTIC = true;
+//Минимальное время в минутах, когда будет отправлен следующий запрос на сохранение статистики онлайна
+const PAUSE_TIME = 3;
+//Увеличивать показатели выводимого онлайна (для пользователей, в админке онлайн честный).
+const ONLINE_MUL = 1.72;
