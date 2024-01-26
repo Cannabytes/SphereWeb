@@ -31,13 +31,12 @@
                         </div>
                         <button id="paynext" type="button" class="btn btn-secondary">{{phrase("confirm")}}</button>
                     </div>
-
                     <hr>
                     <div class="mb-0">
                         {% for i, name in donateSysNames %}
                         <div class="space-y-2">
                             <div class="form-check form-check-inline">
-                                <input type="radio" id="{{name}}" name="paysystem" value="{{name}}" {% if i == 0 %}checked{%endif%}/>
+                                <input type="radio" id="{{name}}" name="paysystem" value="{{name}}" {% if pay_system_default == name %}checked{%endif%}/>
                                 <label for="{{name}}">{{name}}</label>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $('input[name="paysystem"]:first').prop('checked', true);
+    if (!$('input[name="paysystem"]:checked').length) {
+        $('input[name="paysystem"]:first').prop('checked', true);
+    }
 });
 $("#countValue").val( ( currency_exchange.min_donate_bonus_coin+currency_exchange.max_donate_bonus_coin)/2 );
 

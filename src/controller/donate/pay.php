@@ -38,6 +38,7 @@ class pay {
         tpl::addVar("donate_history_pay_self", donate::donate_history_pay_self());
         tpl::addVar("title", lang::get_phrase(233));
         tpl::addVar("discount", $donateInfo["discount"]);
+        tpl::addVar("pay_system_default", $donateInfo["pay_system_default"]);
         tpl::addVar("count_all_donate_bonus", sql::run("SELECT SUM(point) AS `count` FROM donate_history_pay WHERE user_id = ?", [auth::get_id()])->fetch()['count'] ?? 0);
         tpl::addVar("procentDiscount", $point);
         tpl::addVar("donateSysNames", $donateSysNames);
