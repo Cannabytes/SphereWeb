@@ -62,6 +62,6 @@ Open-world fantasy universe, diverse playable races including Humans, Elves, Dar
 //Сохранять ли данные о статистики онлайна
 const SAVE_ONLINE_STATISTIC = true;
 //Минимальное время в минутах, когда будет отправлен следующий запрос на сохранение статистики онлайна
-const PAUSE_TIME = 3;
+const PAUSE_TIME = 10;
 //Увеличивать показатели выводимого онлайна (для пользователей, в админке онлайн честный).
 const ONLINE_MUL = 1.72;

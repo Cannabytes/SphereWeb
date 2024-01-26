@@ -18,6 +18,7 @@ use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\image\crest;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
@@ -333,7 +334,7 @@ class statistic {
     }
 
     //Статистика онлайна с указанными датами
-    public static function get_online_date(int $server_id = 0, string $start_date, string $end_date): array {
+    public static function get_online_date(int $server_id = 0, string $start_date = "", string $end_date = ""): array {
         if($server_id==0){
             $server_id = auth::get_default_server();
         }
@@ -348,9 +349,13 @@ class statistic {
     }
 
     //Статистика за последнюю неделю
-    public static function get_online_last_week(int $server_id = 0): array {
+    public static function get_online_last_week(int $server_id = 0, $isMul = true): array {
         if($server_id==0){
             $server_id = auth::get_default_server();
+        }
+        $mul = 1;
+        if($isMul){
+            $mul = ONLINE_MUL;
         }
         $query = 'SELECT 
             DATE(time) AS `date`,
@@ -359,19 +364,32 @@ class statistic {
         WHERE server_id = ? AND time >= DATE_SUB(NOW(), INTERVAL 7 DAY)
         GROUP BY DATE(time)
         ORDER BY date;';
-        return sql::getRows($query, [ONLINE_MUL, $server_id]);
+        return sql::getRows($query, [$mul, $server_id]);
     }
 
     //Статистика онлайна за последний месяц
-    public static function get_statistic_online_month(int $server_id = 0): array {
+    public static function get_statistic_online_month(int $server_id = 0, $isMul = true): array {
         if($server_id==0){
             $server_id = auth::get_default_server();
+        }
+        $mul = 1;
+        if($isMul){
+            $mul = ONLINE_MUL;
         }
         $query = 'SELECT DATE(time) AS `date`, ROUND(AVG(count_online_player) * ?, 0) AS `online`
         FROM statistic_online 
         WHERE server_id = ? AND time >= DATE_SUB(NOW(), INTERVAL 1 MONTH)
         GROUP BY DATE(time) ORDER BY date;';
-        return sql::getRows($query, [ONLINE_MUL, $server_id]);
+        return sql::getRows($query, [$mul, $server_id]);
+    }
+
+    public static function get_statistic_online_all(int $server_id = 0): array {
+        if($server_id==0){
+            $server_id = auth::get_default_server();
+        }
+        $query = 'SELECT DATE (TIME) AS `date`, ROUND(AVG( count_online_player )) AS `online` 
+                  FROM statistic_online WHERE server_id = ? GROUP BY DATE ( TIME ) ORDER BY id;';
+        return sql::getRows($query, [$server_id]);
     }
 
 
