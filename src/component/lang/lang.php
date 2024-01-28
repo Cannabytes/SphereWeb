@@ -110,7 +110,9 @@ class lang {
 
         $string = self::$lang_array[$key];
         $result = sprintf($string, ...$values);
-        self::$cache[$key] = $result;
+        if(empty($values)){
+            self::$cache[$key] = $result;
+        }
         return $result;
     }
 

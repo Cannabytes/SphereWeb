@@ -24,7 +24,7 @@ let phrase = {
         "close": "Закрыть",
         "setting_way_to_game": "Настройка путей",
         "update": "Обновление",
-        "launcher_description":"Web-Launcher - это программа для обновления и загрузки файлов игры.<br>\n" +
+        "launcher_description":"Sphere-Launcher - это программа для обновления и загрузки файлов игры.<br>\n" +
             "Лаунчер использует передовые технологии, для обеспечения максимальной скорости и удобства использования.<br>\n" +
             "<br>",
         "ok":"OK",
@@ -98,7 +98,7 @@ let phrase = {
         "close": "Close",
         "setting_way_to_game": "Setting Ways",
         "update": "Update",
-        "launcher_description":"Web-Launcher is a program to update and download game files.<br>\n" +
+        "launcher_description":"Sphere-Launcher is a program to update and download game files.<br>\n" +
             "Launcher uses cutting-edge technology to ensure maximum speed and ease of use.<br>\n" +
             "<br>",
         "ok":"OK",

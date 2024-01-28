@@ -110,12 +110,12 @@ $("#isClientFilesArchive").on("click", function (event) {
 
 $("#startLauncher").on("click", function (event) {
     clickToStartLauncher = true;
-    window.location.href = "web-launcher://open";
+    window.location.href = "sphere-launcher://open";
     ws.connect()
 });
 
 function startLauncherButton(){
-    window.location.href = "web-launcher://open";
+    window.location.href = "sphere-launcher://open";
     ws.connect()
 }
 

@@ -204,19 +204,64 @@
 
     <div class="row">
         <!-- Row #3 -->
-        <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Лаунчер
+                    </h3>
+                    <div class="block-options">
+                        <div class="block-options-item">
+                            <code id="domainLauncher"></code>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-content">
+                    <table class="table table-sm table-vcenter">
+
+                        <tbody>
+
+                        <tr>
+                            <td>Статус</td>
+                            <td class="d-none d-sm-table-cell text-end">
+                                <span class="badge bg-danger" id="statusLauncher">Ожидание</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Загружено файлов</td>
+                            <td class="d-none d-sm-table-cell text-end" id="loadedFiles">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Всего файлов</td>
+                            <td class="d-none d-sm-table-cell text-end" id="filesTotal">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Скорость загрузки</td>
+                            <td class="d-none d-sm-table-cell text-end"><strong id="totalSpeedDownload">0</strong> MB/s</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
             <div class="block block-rounded block-bordered">
                 <div class="block-header block-header-default border-bottom">
                     <h3 class="block-title" data-phrase="logs">...</h3>
                 </div>
                 <div class="block-content">
-                    <table class="table table-borderless table-striped">
+                    <table class="table table-borderless table-striped table-sm">
                         <tbody id="eventNotification">
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="modal" id="selectDirClient" tabindex="-1" role="dialog" aria-labelledby="selectDirClient" aria-hidden="true">
@@ -452,7 +497,7 @@
                         </div>
                     </div>
                     <div class="block-content fs-sm" data-phrase="launcher_description">
-                        Web-Launcher - это программа для обновления и загрузки файлов игры.<br>
+                        Sphere-Launcher - это программа для обновления и загрузки файлов игры.<br>
                         Лаунчер использует передовые технологии, для обеспечения максимальной скорости и удобства использования.<br>
                         Моя цель - сделать один простой, функциональный лаунчер, на всё комьюнити Lineage 2.<br>
                         Чтоб игроку не приходилось под каждый сервер иметь свою программу для обновления игры.<br>
@@ -485,7 +530,7 @@
     });
 
     $("#startLauncher").click(function () {
-        window.location.href = "web-launcher://open";
+        window.location.href = "Sphere-Launcher://open";
 		ws.connect()
     });
 
@@ -515,6 +560,7 @@
 <script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
 <script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/general.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
 <script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/ws-client.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
-<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/weblauncher.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/weblauncher.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/weblauncher.js"></script>
 
 {% endblock %}

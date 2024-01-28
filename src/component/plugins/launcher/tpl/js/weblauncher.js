@@ -168,6 +168,7 @@ function ResponseStatus(response) {
         if (response.status === 2) {
             setUpdateClient(true);
             percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
+            $("#domainLauncher").text(response.domain)
             $('#processRunLevel').text(percentPanel + "%");
             $('#processName').text(word_file_comparison);
 
@@ -180,11 +181,13 @@ function ResponseStatus(response) {
                 return
             }
             percent = ((response.loaded / response.filesTotal) * 100).toFixed(1)
-            $('#processRunLevel').text( percent + "%");
+            $("#domainLauncher").text(response.domain)
+            $("#statusLauncher").text("Загружается")
+            $("#loadedFiles").text(response.loaded)
+            $("#filesTotal").text(response.filesTotal)
             $('#processName').text(word_file_upload);
-
+            $('#processRunLevel').text( percent + "%");
             $('title').text("Launcher" + " " + chronicle + " (" + percent + "%)");
-
             for (let index = 0; index <= countStream-1; index++) {
                 if (typeof response.boot[index] !== 'undefined') {
                     resp = response.boot[index]
@@ -199,6 +202,7 @@ function ResponseStatus(response) {
                 // console.log(resp)
                 drawProgressBar(index, filename, size, totalSize)
             }
+            $('#totalSpeedDownload').text((response.downloadSpeed).toFixed(1));
         }
     } else if (response.status === 4) {
         setUpdateClient(false);
