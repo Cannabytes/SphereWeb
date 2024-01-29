@@ -126,7 +126,7 @@
                   <br>
                   <div class="form-footer text-center">
                     {% if allow_install %}
-                    <a href="{{action('install_admin')}}" class="btn btn-success"><i class="fa fa-arrow-alt-circle-right opacity-50 me-1"></i>{{phrase("next_install")}}</a>
+                    <a href="{{action('install_db')}}" class="btn btn-success"><i class="fa fa-arrow-alt-circle-right opacity-50 me-1"></i>{{phrase("next_install")}}</a>
                     {% else %}
                     <label href="#" disabled="" class="btn btn-danger">{{phrase("install_cannot_continue")}}</label>
                     {% endif %}

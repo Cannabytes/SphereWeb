@@ -363,7 +363,7 @@ ORDER BY
                     LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
                 WHERE
                     character_subclasses.isBase = 1 AND
-                    characters.char_name = ? clan_subpledges.type = 0;';
+                    characters.char_name = ? AND clan_subpledges.type = 0;';
     }
 
     static public function statistic_player_info_sub_class(): string {

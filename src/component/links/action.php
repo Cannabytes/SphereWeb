@@ -110,6 +110,7 @@ class action {
         'admin_log_user' => '/admin/logs/user',
 
         'install_admin' => '/install/admin',
+        'install_db' => '/install/db',
         'install_connect_test_db' => '/install/db/connect/test',
 
     ];

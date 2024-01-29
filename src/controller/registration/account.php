@@ -76,9 +76,8 @@ class account {
             }
             $email = request::setting("email", new request_config(isEmail: true));
             if($reQuest = player_account::add_account_not_user($login, $password, $password_hide, $email)){
-                $fileDownload = include_once "src/config/registration_download.php";
-                $content = trim($fileDownload['content']) ?? "";
-                if ($fileDownload['enable']) {
+                $content = trim(REGISTRATION_FILE_CONTENT) ?? "";
+                if (ENABLE_REGISTRATION_FILE) {
                     $content = str_replace(["%site_server%", "%server_name%", "%rate_exp%", "%chronicle%", "%email%", "%login%", "%password%"],
                         [$_SERVER['SERVER_NAME'], $reQuest['name'], "x" . $reQuest['rate_exp'], $reQuest['chronicle'], $email, $login, $password], $content);
                 }
@@ -87,7 +86,7 @@ class account {
                     [
                         "ok" => true,
                         "message" => lang::get_phrase(207),
-                        "isDownload" => $fileDownload['enable'],
+                        "isDownload" => ENABLE_REGISTRATION_FILE,
                         "title" => $_SERVER['SERVER_NAME'] . " - " . $login . ".txt",
                         "content" => $content,
                         "redirect" => fileSys::localdir("/accounts"),

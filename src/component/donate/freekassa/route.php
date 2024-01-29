@@ -18,7 +18,7 @@ $routes = [
     ],
 
     [
-        "method"  => "GET",
+        "method"  => "POST",
         "pattern" => "/donate/transfer/freekassa",
         "file"    => "pay.php",
         "call"    => function() {

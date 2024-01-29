@@ -62,96 +62,96 @@ class L2jEmuRT implements structure {
     #[db('game')]
     static public function statistic_top_pvp(): string {
         return 'SELECT
-                    characters.obj_Id AS player_id,
-                    characters.char_name AS player_name,
-                    characters.x,
-                    characters.y,
-                    characters.z,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    characters.clanid AS clan_id,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    characters.sex,
-                    clan_data.crest AS clan_crest,
-                    (SELECT `level` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id LIMIT 1) AS level,
-                    (SELECT `class_id` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id AND isBase = 1 LIMIT 1) AS class_id,
-                    (SELECT `crest` FROM clan_data WHERE clan_data.ally_id = ally_data.ally_id LIMIT 1) AS alliance_crest
-                FROM
-                    characters
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                ORDER BY pvpkills DESC LIMIT 100;';
+	characters.obj_Id AS player_id,
+	characters.char_name AS player_name,
+	characters.x,
+	characters.y,
+	characters.z,
+	characters.pvpkills AS pvp,
+	characters.pkkills AS pk,
+	characters.clanid AS clan_id,
+	characters.`online`,
+	characters.onlinetime AS time_in_game,
+	characters.sex,
+	clan_data.crest AS clan_crest,
+	( SELECT `level` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id LIMIT 1 ) AS `level`,
+	( SELECT `class_id` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id AND isBase = 1 LIMIT 1 ) AS class_id,
+	( SELECT `crest` FROM clan_data WHERE clan_data.ally_id = ally_data.ally_id LIMIT 1 ) AS alliance_crest,
+	clan_subpledges.`name` AS `clan_name`
+FROM
+	characters
+	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+	WHERE (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
+ORDER BY
+	pvpkills DESC 
+	LIMIT 100;';
     }
 
     static public function statistic_top_pk(): string {
         return 'SELECT
-                    characters.obj_Id AS player_id,
-                    characters.char_name AS player_name,
-                    characters.x,
-                    characters.y,
-                    characters.z,
-                    characters.pvpkills AS pvp,
-                    characters.pkkills AS pk,
-                    characters.clanid AS clan_id,
-                    characters.`online`,
-                    characters.onlinetime AS time_in_game,
-                    characters.sex,
-                    clan_data.crest AS clan_crest,
-                    (SELECT `level` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id LIMIT 1) AS level,
-                    (SELECT `class_id` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id AND isBase = 1 LIMIT 1) AS class_id,
-                    (SELECT `crest` FROM clan_data WHERE clan_data.ally_id = ally_data.ally_id LIMIT 1) AS alliance_crest
-                FROM
-                    characters
-                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
-                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-                ORDER BY pkkills DESC LIMIT 100;';
+	characters.obj_Id AS player_id,
+	characters.char_name AS player_name,
+	characters.x,
+	characters.y,
+	characters.z,
+	characters.pvpkills AS pvp,
+	characters.pkkills AS pk,
+	characters.clanid AS clan_id,
+	characters.`online`,
+	characters.onlinetime AS time_in_game,
+	characters.sex,
+	clan_data.crest AS clan_crest,
+	( SELECT `level` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id LIMIT 1 ) AS `level`,
+	( SELECT `class_id` FROM character_subclasses WHERE character_subclasses.char_obj_id = characters.obj_Id AND isBase = 1 LIMIT 1 ) AS class_id,
+	( SELECT `crest` FROM clan_data WHERE clan_data.ally_id = ally_data.ally_id LIMIT 1 ) AS alliance_crest,
+	clan_subpledges.`name` AS `clan_name`
+FROM
+	characters
+	LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+	WHERE (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
+ORDER BY
+	pkkills DESC 
+	LIMIT 100;';
     }
 
     static public function statistic_top_clan(): string {
         return 'SELECT
-	clan_data.clan_id, 
-	clan_data.clan_level, 
-	clan_data.hasCastle, 
-	clan_data.reputation_score, 
-	clan_data.crest AS clan_crest, 
-	clan_subpledges.`name` AS clan_name, 
-	clan_subpledges.leader_id, 
-	characters.obj_Id AS player_id, 
-	characters.char_name AS player_name, 
-	characters.sex, 
-	characters.x, 
-	characters.y, 
-	characters.z, 
-	characters.pvpkills, 
-	characters.pkkills, 
-	characters.clanid, 
-	characters.`online`, 
-	characters.onlinetime, 
-	character_subclasses.class_id, 
-	character_subclasses.`level`, 
+	clan_data.clan_id,
+	clan_data.clan_level,
+	clan_data.hasCastle,
+	clan_data.reputation_score,
+	clan_data.crest AS clan_crest,
+	clan_subpledges.`name` AS clan_name,
+	clan_subpledges.leader_id,
+	characters.obj_Id AS player_id,
+	characters.char_name AS player_name,
+	characters.sex,
+	characters.x,
+	characters.y,
+	characters.z,
+	characters.pvpkills,
+	characters.pkkills,
+	characters.clanid,
+	characters.`online`,
+	characters.onlinetime,
+	character_subclasses.class_id,
+	character_subclasses.`level`,
 	ally_data.crest AS alliance_crest,
 	( SELECT COUNT(*) FROM characters WHERE clanid = clan_data.clan_id ) AS clan_count_members 
 FROM
 	clan_data
-	INNER JOIN
-	clan_subpledges
-	ON 
-		clan_data.clan_id = clan_subpledges.clan_id
-	INNER JOIN
-	characters
-	ON 
-		clan_data.clan_id = characters.clanid
-	INNER JOIN
-	character_subclasses
-	ON 
-		characters.obj_Id = character_subclasses.char_obj_id
-	LEFT JOIN
-	ally_data
-	ON 
-		clan_data.ally_id = ally_data.ally_id
+	LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id
+	LEFT JOIN characters ON clan_data.clan_id = characters.clanid
+	LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id
+	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id 
 WHERE
-	character_subclasses.isBase = 1';
+	character_subclasses.isBase = 1 
+	AND ( clan_subpledges.type = 0 ) 
+	AND clan_subpledges.leader_id = characters.obj_Id';
     }
 
     //TODO: Непонятно где находится записи ID кланов, которые владеют кланхоллами
@@ -230,6 +230,7 @@ WHERE
                     LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     LEFT JOIN clan_subpledges ON characters.clanid = clan_subpledges.clan_id 
+					WHERE (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
                 ORDER BY
                     characters.onlinetime DESC 
                     LIMIT 100';
@@ -237,27 +238,27 @@ WHERE
 
     static public function statistic_top_castle(): string {
         return 'SELECT
-	castle.id AS castle_id,
-	castle.`name`,
-	castle.tax_percent AS tax,
-	castle.last_siege_date AS dataSiege,
-	clan_data.reputation_score AS reputation_score,
-	clan_data.crest AS clan_crest,
-	ally_data.crest AS alliance_crest,
-	clan_subpledges.`name` AS clan_name,
-	clan_data.clan_id,
-	characters.char_name AS player_name,
-	characters.pvpkills AS pvp,
-	characters.pkkills AS pk,
-	characters.`online`,
-	characters.onlinetime AS time_in_game 
-FROM
-	castle
-	LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
-	LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
-	LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
-	AND clan_subpledges.type = 0
-	LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id;';
+                    castle.id AS castle_id,
+                    castle.`name`,
+                    castle.tax_percent AS tax,
+                    castle.last_siege_date AS dataSiege,
+                    clan_data.reputation_score AS reputation_score,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest,
+                    clan_subpledges.`name` AS clan_name,
+                    clan_data.clan_id,
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.`online`,
+                    characters.onlinetime AS time_in_game 
+                FROM
+                    castle
+                    LEFT JOIN clan_data ON castle.id = clan_data.hasCastle
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+                    AND (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
+                    LEFT JOIN characters ON clan_subpledges.leader_id = characters.obj_Id;';
     }
 
     static public function statistic_top_block(): string {
@@ -309,10 +310,10 @@ FROM
                     LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
                     INNER JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
                 WHERE
-                    clan_subpledges.type = 0 
+					(clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
                     AND character_subclasses.isBase = 1 
                 ORDER BY
-                    characters.onlinetime DESC';
+                    characters.onlinetime DESC LIMIT 100';
     }
 
     static public function statistic_player_info(): string {
@@ -339,8 +340,8 @@ FROM
                     LEFT JOIN character_subclasses ON characters.obj_Id = character_subclasses.char_obj_id 
                 WHERE
                     character_subclasses.isBase = 0 
-                    AND characters.char_name = ? 
-                    AND clan_subpledges.type = 0;';
+                    AND characters.char_name = ?
+				AND (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)';
     }
 
     static public function statistic_player_info_sub_class(): string {
@@ -381,7 +382,31 @@ FROM
     }
 
     static public function statistic_top_class(): string {
-        return '';
+        return 'SELECT
+                    characters.char_name AS player_name,
+                    characters.pvpkills AS pvp,
+                    characters.pkkills AS pk,
+                    characters.onlinetime AS time_in_game,
+                    character_subclasses.`level`,
+                    clan_data.crest AS clan_crest,
+                    ally_data.crest AS alliance_crest,
+                    clan_subpledges.`name` AS clan_name 
+                FROM
+                    character_subclasses
+                    LEFT JOIN characters ON character_subclasses.char_obj_id = characters.obj_Id
+                    LEFT JOIN clan_data ON characters.clanid = clan_data.clan_id
+                    LEFT JOIN ally_data ON clan_data.ally_id = ally_data.ally_id
+                    LEFT JOIN clan_subpledges ON clan_data.clan_id = clan_subpledges.clan_id 
+                WHERE
+                    character_subclasses.class_id = ? 
+                    AND character_subclasses.isBase = 1 
+                    AND characters.pvpkills > 0 
+                    AND (clan_subpledges.type = 0 OR clan_subpledges.type IS NULL)
+                ORDER BY
+                    characters.pvpkills DESC,
+                    character_subclasses.`level` DESC,
+                    time_in_game DESC 
+                LIMIT 100;';
     }
 
     static public function is_player(): string {
