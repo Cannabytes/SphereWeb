@@ -154,7 +154,11 @@ class forum {
             board::notice(false, lang::get_phrase(502));
         }
 
-        if($link>=255){
+        if(mb_strlen($topicName)==0){
+            board::notice(false, "Вы не указали название темы");
+        }
+
+        if($link != null AND mb_strlen($link)>=255){
             board::notice(false, "Максимальная длина ссылки: 255 символов.");
         }
 
