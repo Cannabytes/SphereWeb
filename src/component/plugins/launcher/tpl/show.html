@@ -223,12 +223,12 @@
                         <tr>
                             <td>Статус</td>
                             <td class="d-none d-sm-table-cell text-end">
-                                <span class="badge bg-danger" id="statusLauncher">Ожидание</span>
+                                <span class="badge bg-earth" id="statusLauncher">Ожидание</span>
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Загружено файлов</td>
+                            <td id="loadedFileStatusName">Загружено файлов</td>
                             <td class="d-none d-sm-table-cell text-end" id="loadedFiles">0</td>
                         </tr>
 
@@ -242,6 +242,11 @@
                             <td class="d-none d-sm-table-cell text-end"><strong id="totalSpeedDownload">0</strong> MB/s</td>
                         </tr>
 
+                        <tr>
+                            <td>Время загрузки</td>
+                            <td class="d-none d-sm-table-cell text-end"><strong id="elapsedTimeInSeconds">00:00:00</strong></td>
+                        </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -249,9 +254,14 @@
         </div>
 
         <div class="col-md-8">
-            <div class="block block-rounded block-bordered">
+            <div class="block block-rounded">
                 <div class="block-header block-header-default border-bottom">
                     <h3 class="block-title" data-phrase="logs">...</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option btn-sm" id="logClear" >
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="block-content">
                     <table class="table table-borderless table-striped table-sm">
@@ -531,7 +541,6 @@
 
     $("#startLauncher").click(function () {
         window.location.href = "Sphere-Launcher://open";
-		ws.connect()
     });
 
     var domain = window.location.hostname;
@@ -557,10 +566,14 @@
 
 </script>
 
-<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
-<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/general.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
-<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/ws-client.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
+<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/general.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
+<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/ws-client.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
 <!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/weblauncher.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
-<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/weblauncher.js"></script>
+
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/general.js?v{{ 'now'|date('U') }}"></script>
+<!--<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/ws-client.js"></script>-->
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v{{ 'now'|date('U') }}"></script>
 
 {% endblock %}

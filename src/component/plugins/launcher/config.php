@@ -2,9 +2,8 @@
 
 return [
     'server' => [
-        15 => [
-            "chronicle" => "Interlude",
-            "name" => "MyGame",
+        1 => [
+            "chronicle" => "High Five",
             "application" => [
                 [
                     "l2exe" => "/system/l2.exe",
@@ -21,7 +20,7 @@ return [
                 ],
             ],
             "show_accounts" => false,
-            "tokenApi" => 'SUd/heYV4KFXODPBzRACXWejXRlb1UCxPntuK5gKojuZKWXdzgQmTgf0F2es4RgRBB0jv+N0Batb9rTYkB71dYMIDHRF1zc+d2qIhC6MooeYxsZoUQGRzUnBmAwYRPcxADtE93E9dOiwZOO9XT3ZQbBj2/9NjKp8r2mMynZsT5E='
+            "tokenApi" => 'Ayiy0ZCZ79GIIeI28ln8fspezF6+zfjEhp41HHxjvZ3rLedQu/37h3wM3i8ad7eP9s17pvAakQUsSNowMILwLI5OHOaI/b962iYkMD6Lkq3+42x+ZLdYUMO6XcRHcFxZZ8aT7I1wkssGzrhtkoxd3e/Z0BLO5frFZDayzciq+R0HcUUvdAl5lx6nzC3TRhvEyaT/HszA2dWPU+9sqdXJOGVOuQPvCWF3K4P4E8Lov5Gj7smkJKNaFhbvalKRuz8FAtZYY9k/KNF3ZFYivRs/4nUJSoxb8rP7EqcHyYs4InB8koatGJFSguPP3YH64idOa7pyyGpi0gwoiHpC1SZeoTbjBKi/EvEb8gXJU+r6NkNWicN93xEWX3xk86dTSTV79Jj1g756sTVx96edwGby+UNW2OXa8o1tfOlqPBmH+z4='
         ],
     ],
 ];

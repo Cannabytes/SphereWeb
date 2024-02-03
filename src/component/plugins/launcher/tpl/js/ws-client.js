@@ -27,7 +27,9 @@ class WebSocketClient {
 	}
 
 
+
 	async connect() {
+
 		if (this.isConnected() || this.isConnecting()) {
 			return;
 		}
@@ -77,7 +79,10 @@ class WebSocketClient {
 			console.info(`Launcher: %cAttempting to connect... / Разница с последним сообщением: ${timeDifference} секунд`, 'color: orange');
 			setTimeout(() => this.connect(), this.#_timeout);
 		}
+
 	}
+
+
 
 	disconnect() {
 		if (this.#_connection !== null) {

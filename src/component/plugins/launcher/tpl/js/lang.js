@@ -72,6 +72,7 @@ let phrase = {
         "directory_does_not_exist": "Директория не существует: %s",
         "error_checking_directory": "Ошибка при проверке директории: %s",
         "token_api_error": "Ошибка TokenAPI",
+        "find_server": "Выбираю оптимальный сервер загрузки",
     },
     "en": {
         "registration_account": "Registration account",
@@ -144,6 +145,7 @@ let phrase = {
         "directory_does_not_exist": "Directory does not exist: %s",
         "error_checking_directory": "Error checking directory: %s",
         "token_api_error": "TokenAPI error",
+        "find_server    ": "Determining the Best Download Server",
 
     },
 

@@ -6,22 +6,6 @@
 <div class="content">
 <div class="block block-rounded">
 
-    <div class="block block-rounded" id="block_start_launcher">
-        <div class="block-content block-content-full d-flex justify-content-between align-items-center">
-            <div>
-                <button data-bs-toggle="modal" data-bs-target="#modal-start-launcher" type="button" class="btn btn-secondary me-1 mb-1">
-                    {{phrase("launch_game")}}
-                </button>
-            </div>
-            <div>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">{{phrase("dont have a launcher?")}}</a>
-                <a type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
-                    {{phrase("launcher_download")}}
-                </a>
-            </div>
-        </div>
-    </div>
-
 
     <div class="block-header block-header-default">
         <h3 class="block-title">Лаунчера данные</h3>
@@ -44,26 +28,22 @@
                             {% endfor %}
                         </select>
                     </div>
-
                     <div class="mb-4">
                         <label class="form-label" for="autoload">Показывать аккаунты для автозагрузки ?<br>
-                        Если клиент поддерживает автовход в игру, используя аргументы в l2.exe.</label>
+                            Если клиент поддерживает автовход в игру, используя аргументы в l2.exe.</label>
                         <select class="form-select" id="autoload" name="autoload">
                             <option value="off">Нет</option>
                             <option value="on">Да</option>
                         </select>
                     </div>
-
-
+                    <div class="mb-4">
+                        <label class="form-label" for="tokenApi">Token API</label>
+                        <input type="text" class="form-control" id="tokenApi" name="tokenApi" placeholder="Key">
+                    </div>
                 </div>
-
-
             </div>
         </div>
-
     </div>
-
-
 </div>
 
 
@@ -78,7 +58,8 @@
                         <div class="block-content">
                             <div class="mb-4">
                                 <label class="form-label" for="l2exe_1">l2exe</label>
-                                <input type="text" class="form-control" id="l2exe_1" name="l2exe_1" placeholder="/system/l2.exe">
+                                <input type="text" class="form-control" id="l2exe_1" value="/system/l2.exe"
+                                       name="l2exe_1" placeholder="/system/l2.exe">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="args_1">args</label>
@@ -87,7 +68,9 @@
 
                             <div class="mb-4">
                                 <label class="form-label" for="background_1">Изображение кнопки</label>
-                                <input type="text" class="form-control" id="background_1" name="background_1" placeholder="background">
+                                <input type="text" class="form-control"
+                                       value="src/component/plugins/launcher/tpl/img/l2_button.jpg" id="background_1"
+                                       name="background_1" placeholder="background">
                             </div>
 
                             <hr>
@@ -96,7 +79,8 @@
                                 <input type="text" class="form-control" id="button_start_ru_1" name="button_start_ru_1" value="Запустить игру" placeholder="Запустить игру">
                             </div>
                             <div class="mb-4">
-                                <label class="form-label" for="button_start_ru_1">Название кнопки запуска на английском</label>
+                                <label class="form-label" for="button_start_en_1">Название кнопки запуска на
+                                    английском</label>
                                 <input type="text" class="form-control" id="button_start_en_1" name="button_start_en_1" value="Start Play" placeholder="Start Play">
                             </div>
                         </div>
@@ -109,7 +93,7 @@
                 <div class="block-content">
                     <div class="block block-rounded">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Кнопка запуска игры #2</h3>
+                            <h3 class="block-title">Кнопка запуска игры #2 - (Если не нужна, оставьте пустым)</h3>
                         </div>
                         <div class="block-content">
                             <div class="mb-4">
@@ -123,7 +107,7 @@
 
                             <div class="mb-4">
                                 <label class="form-label" for="background_2">Изображение кнопки</label>
-                                <input type="text" class="form-control" id="background_2" name="background_2" placeholder="background">
+                                <input type="text" class="form-control" id="background_2" value="src/component/plugins/launcher/tpl/img/l2_button.jpg" name="background_2" placeholder="background">
                             </div>
                             <hr>
 
@@ -132,16 +116,54 @@
                                 <input type="text" class="form-control" id="button_start_ru_2" name="button_start_ru_2" value="Запустить игру" placeholder="Запустить игру">
                             </div>
                             <div class="mb-4">
-                                <label class="form-label" for="button_start_en_2">Название кнопки запуска на английском</label>
-                                <input type="text" class="form-control" id="button_start_en_2" name="button_start_en_2" value="Start Play" placeholder="Start Play">
+                                <label class="form-label" for="button_start_en_2">Название кнопки запуска на
+                                    английском</label>
+                                <input type="text" class="form-control" id="button_start_en_2" name="button_start_en_2"
+                                       value="Start Play" placeholder="Start Play">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="row text-center">
+        <div class="row mb-4">
+            <div class="col-sm-12 ms-auto">
+                <button type="submit" id="set_config" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
     </div>
 
 </div>
+
+<script>
+
+    $(document).on("click", "#set_config", function () {
+        var formData = {};
+        $('.content :input').each(function() {
+            var element = $(this);
+            var name = element.attr('name');
+            var value = element.val();
+            if (name) {
+                formData[name] = value;
+            }
+        });
+
+        $.ajax({
+            url: "/admin/launcher/add",
+            data: formData,
+            method: "POST",
+            success: function (response) {
+                if (response) {
+                    console.log(response);
+                }
+            },
+            error: function (error) {
+            }
+        });
+    })
+
+
+</script>
 {% endblock %}

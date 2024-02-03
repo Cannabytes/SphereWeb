@@ -1,27 +1,84 @@
 loadWorld()
 HtmlAddProgressBar()
+isDisConnectSocketed()
+isDebug = false;
 
-const ws = new WebSocketClient({
-	url: 'ws://localhost:17580/ws',
-	maxConnectionAttempts: 5,
-	timeout: 1000
-});
+const wsclient = {
+    ws: null,
+    connect() {
+        return new Promise((resolve, reject) => {
+            this.ws = new WebSocket('ws://localhost:17580/ws');
+            this.ws.onopen = () => { resolve() }
+            this.ws.onerror = e => { reject(e) }
+        });
+    },
+    onmessage(callback) {
+        this.ws.onmessage = callback;
+    },
+    onclose(callback) {
+        this.ws.onclose = callback
+    },
+    send(data) {
+        this.ws.send(JSON.stringify(data));
+    },
+    isConnecting() {
+        return this.ws?.readyState === WebSocket.CONNECTING;
+    },
+    isConnected() {
+        return this.ws?.readyState === WebSocket.OPEN;
+    },
+    isClosing() {
+        return this.ws?.readyState === WebSocket.CLOSING;
+    },
+    isClosed() {
+        return this.ws?.readyState === WebSocket.CLOSED;
+    }
+}
 
-ws.on('open', () => {
-	isConnectSocket = true;
-	isConnectSocketed();
-	firstRequest();
-});
 
-ws.on('message', ({data}) => {
-	responseMessage(data)
-});
 
-ws.on('close', () => { 
-	isDisConnectSocketed() 
-});
 
-ws.connect()
+function reconnectionLauncher() {
+    const delay = 1000
+
+    fetch('http://localhost:17580/ajax', { method: 'POST', body: JSON.stringify({ command: 'is_connect' }) })
+        .then((response) => {
+            response.json().then((data) => {
+                wsclient.connect().then(() => {
+                    if(isDebug){
+                        console.log("Connected...")
+                    }
+                    $("#modal-start-launcher").modal('hide')
+                    if(clickToStartLauncher){
+                        successMessage(word_launcher_is_started, 700)
+                        clickToStartLauncher = false
+                    }
+                    isConnectSocket = true
+                    isConnectSocketed()
+                    firstRequest()
+
+                    wsclient.onmessage(({data}) => {
+                        responseMessage(data)
+                    })
+                    wsclient.onclose(({code}) => {
+                        if (code !== 1000) {
+                            isDisConnectSocketed()
+                            setTimeout(() => reconnectionLauncher(), delay)
+                        }
+                    })
+                }).catch(() => {
+                    // не удалось подключится к вебсокету лаунчера
+                })
+            })
+        })
+        .catch(() => {
+            // вебсервер лаунчера не ответил
+            setTimeout(() => reconnectionLauncher(), delay)
+        })
+}
+
+reconnectionLauncher()
+
 
 function isConnectSocketed() {
     $("#block_start_launcher").hide()
@@ -66,10 +123,13 @@ function firstRequest() {
     });
 }
 
-
 function sendToLauncher(obj) {
-    //socket.send(JSON.stringify(obj));
-	ws.send(obj);
+	if (!wsclient.isConnected()) {
+		errorMessage(word_need_start_launcher)
+		return
+	}
+	
+	wsclient.send(obj);
 }
 
 function getPathDirectoryChronicle() {
@@ -83,8 +143,10 @@ function getPathDirectoryChronicle() {
 
 
 function responseMessage(data) {
-	let response = JSON.parse(data);
-    console.log(response)
+    let response = JSON.parse(data);
+    if(isDebug){
+        console.log(response)
+    }
     ResponseStatus(response);
     ResponseEvent(response);
     ResponseEventsLog(response);
@@ -137,7 +199,7 @@ function ResponseGetClientWay(response) {
 
 function ResponseFilesList(response) {
     if (response.command !== "filesList") return;
-	response.files?.forEach((file) => {
+    response.files?.forEach((file) => {
         all = $("#fileslist").val() + "\n"
         if (all.trim() === "") {
             all = ""
@@ -149,12 +211,10 @@ function ResponseFilesList(response) {
 function ResponseStatus(response) {
     if (response.command !== "status") return;
 
+    statusLoad(response.status)
     lastStatusID = response.status
 
-    if (lastStatusID !== response.status && response.status === 0) {
-        $('.chart').data('easyPieChart').update(0);
-        $('.percent').text(0);
-    }
+
     //Если идет загрузка списка, если идет сравнение файлов, если загрузка файлов
     let totalSize;
     let size;
@@ -163,6 +223,7 @@ function ResponseStatus(response) {
         if (response.status === 0) {
             setUpdateClient(false);
         }
+        $("#elapsedTimeInSeconds").text(convertSecondsToTime(response.elapsedTimeInSeconds));
 
         //Если приходит запрос, уведомление что идет сравнение файлов
         if (response.status === 2) {
@@ -171,18 +232,20 @@ function ResponseStatus(response) {
             $("#domainLauncher").text(response.domain)
             $('#processRunLevel').text(percentPanel + "%");
             $('#processName').text(word_file_comparison);
+            $('#loadedFiles').text(response.loaded);
+            $('#filesTotal').text(response.filesTotal);
 
             $('title').text("Launcher" + " " + chronicle + " (" + percentPanel + "%)");
         }
 
-         if (response.status === 3) {
+        if (response.status === 3) {
             setUpdateClient(true);
             if (response.boot == null) {
                 return
             }
             percent = ((response.loaded / response.filesTotal) * 100).toFixed(1)
             $("#domainLauncher").text(response.domain)
-            $("#statusLauncher").text("Загружается")
+            $("#statusLauncher").text("Загружается").addClass("bg-gd-sea");
             $("#loadedFiles").text(response.loaded)
             $("#filesTotal").text(response.filesTotal)
             $('#processName').text(word_file_upload);
@@ -199,15 +262,18 @@ function ResponseStatus(response) {
                     size = 0;
                     totalSize = 0;
                 }
-                // console.log(resp)
                 drawProgressBar(index, filename, size, totalSize)
             }
             $('#totalSpeedDownload').text((response.downloadSpeed).toFixed(1));
         }
     } else if (response.status === 4) {
         setUpdateClient(false);
-        console.log("Загрузка завершена")
+        if(isDebug){
+            console.log("Загрузка завершена")
+        }
         $('#processRunLevel').text("100%");
+        $("#loadedFiles").text(response.loaded)
+        $("#filesTotal").text(response.filesTotal)
         $('#processName').text(word_loading_is_complete);
         $('title').text("Launcher" + " " + chronicle + " - (" + getPhrase("loading_is_complete") + ")");
 
@@ -215,18 +281,26 @@ function ResponseStatus(response) {
         setUpdateClient(false);
         $('#processRunLevel').text("0%");
         $('#processName').text(word_cancel_update);
-        console.log("Загрузка отменена")
+        if(isDebug){
+            console.log("Загрузка отменена")
+        }
         // resetLoadPanel()
     } else if (response.status === 5) {
         setUpdateClient(false);
         $('#processName').text(word_error);
-        console.log("Произошла ошибка при загрузке")
+        if(isDebug){
+            console.log("Произошла ошибка при загрузке")
+        }
     } else if (response.status === 6) {
         $('#processName').text(getPhrase("token_api_error"));
         setUpdateClient(false);
+        if(isDebug){
+            console.log("Ошибка ввода токена")
+        }
     }
 
 }
+
 
 
 function ResponseEvent(response) {
@@ -239,7 +313,6 @@ function ResponseEvent(response) {
                         <td class="d-none d-sm-table-cell">` + getPhrase(response.message, response.param) + `</td>
                         <td class="d-none d-sm-table-cell text-end"><span>` + time + `</span></td>
                       </tr>`);
-    console.log(response.message)
 }
 
 function ResponseEventsLog(response) {
@@ -345,9 +418,8 @@ function ResponseNeedClientUpdate(response) {
 
 //Начать обновление
 function startUpdate() {
-    if (isConnectSocket===false){
-        errorMessage(word_need_start_launcher)
-        return;
+    if (wsclient.isConnected()===false){
+        return errorMessage(word_need_start_launcher)
     }
     if ($("#selectClient").val() !== null) {
         if (getUpdateClient()) {
@@ -395,10 +467,6 @@ function getUpdateClient() {
 
 
 $('#selectClient').change(function () {
-    if (isConnectSocket===false){
-        errorMessage(word_need_start_launcher)
-        return;
-    }
     obj = {
         command: 'setDefaultServer',
         id: parseInt($(this).val()),
@@ -419,10 +487,6 @@ function clientUpdateCancel() {
 
 
 function OpenSelectDir() {
-    if (isConnectSocket===false){
-        errorMessage(word_need_start_launcher)
-        return;
-    }
     $("#selectDirClient").modal("show");
 }
 
@@ -444,10 +508,15 @@ function parsePathToLinks(path) {
     return result.replace(/\\$/g, '');
 }
 
-
-
-
-
-
-
-
+function convertSecondsToTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        console.log("Ошибка введенного времени");
+    }
+    var hours = Math.floor(seconds / 3600);
+    var minutes = Math.floor((seconds % 3600) / 60);
+    var remainingSeconds = Math.floor(seconds % 60);
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    remainingSeconds = (remainingSeconds < 10) ? "0" + remainingSeconds : remainingSeconds;
+    return hours + ":" + minutes + ":" + remainingSeconds;
+}

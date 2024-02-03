@@ -27,6 +27,14 @@ $routes = [
             (new launcher\launcher())->add();
         }
     ],
+    [
+        "method" => "POST",
+        "pattern" => "/admin/launcher/add",
+        "file" => "launcher.php",
+        "call" => function(){
+            (new launcher\launcher())->saveConfig();
+        }
+    ],
 
     [
         "method" => "GET",
