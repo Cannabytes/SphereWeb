@@ -51,7 +51,7 @@
         <div class="block-content block-content-full d-flex justify-content-between align-items-center">
             <div>
                 <button data-bs-toggle="modal" data-bs-target="#modal-start-launcher" type="button" class="btn btn-secondary me-1 mb-1">
-                    {{phrase("launch_game")}}
+                    {{phrase("start_launcher")}}
                 </button>
             </div>
             <div>
@@ -566,14 +566,8 @@
 
 </script>
 
-<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
-<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/general.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
-<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/ws-client.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
-<!--<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/weblauncher.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>-->
-
 <script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
 <script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/general.js?v{{ 'now'|date('U') }}"></script>
-<!--<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/ws-client.js"></script>-->
 <script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v{{ 'now'|date('U') }}"></script>
 
 {% endblock %}
