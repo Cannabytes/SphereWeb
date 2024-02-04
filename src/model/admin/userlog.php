@@ -13,7 +13,7 @@ class userlog {
         $server_id = auth::get_default_server();
         $time = time::mysql();
         $variable = json_encode($variable);
-        $request = json_encode($request);
+        $request = json_encode($_POST);
         $query = "INSERT INTO `logs_all` (`user_id`, `time`, `type`, `phrase`, `variables`, `server_id`, `request`) VALUES (?, ?, ?, ?, ?, ?, ?)";
         sql::run($query, [
             $user_id,

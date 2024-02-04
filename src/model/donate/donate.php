@@ -79,6 +79,10 @@ class donate {
      * Покупка предмета, передача предмета игровому персонажу
      */
     static public function transaction(): void {
+        //Формальная проверка что у пользователя вообще есть ли деньги.
+        if(auth::get_donate_point() < 0){
+            board::notice(false, "Not enough money");
+        }
         $id = $_POST['id'] ?? board::error("Error");
         $server_id = filter_input(INPUT_POST, 'server_id', FILTER_VALIDATE_INT);
         $user_value = filter_input(INPUT_POST, 'user_value', FILTER_VALIDATE_INT);
@@ -119,11 +123,7 @@ class donate {
                 }
             }
         }
-
-        //$cost_product округлить в меньшую сторону
-        $cost_product = floor($cost_product);
-
-        if ($cost_product > auth::get_donate_point()) {
+        if ((auth::get_donate_point() - $cost_product) < 0) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
         $addToUserItems = $donat_info['count'] * $user_value;
@@ -155,6 +155,7 @@ class donate {
 
 
         self::taking_money($cost_product, auth::get_id());
+
         userlog::add("donate", 539, [$donat_info['item_id'], $addToUserItems, $cost_product, $char_name]);
         auth::set_donate_point(auth::get_donate_point() - $cost_product);
 
@@ -248,10 +249,15 @@ class donate {
 
     //Уменьшение коинов
     public static function taking_money($dp, $user_id) {
-        sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
-            $dp,
-            $user_id,
-        ]);
+        if ((auth::get_donate_point() - $dp) > 0) {
+            sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
+                $dp,
+                $user_id,
+            ]);
+            auth::set_donate_point(auth::get_donate_point() - $dp);
+        }else{
+            board::error("Ошибка");
+        }
     }
 
     public static function donate_history_pay_self($user_id = null): array {
