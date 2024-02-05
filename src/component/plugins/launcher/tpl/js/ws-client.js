@@ -41,7 +41,7 @@ class WebSocketClient {
 			console.info('Launcher: %cConnected!', 'color: green');
 			$("#modal-start-launcher").modal('hide');
 			if(clickToStartLauncher){
-				successMessage(word_launcher_is_started, 700)
+				successMessage(getPhrase("launcher_is_started"), 700)
 				clickToStartLauncher = false;
 			}
 			this.#_events.forEach(e => {

@@ -40,7 +40,7 @@ function isConnectSocketed() {
     $("#loaderConnect").hide();
     $('#launcherConnectStatusName').removeClass('text-danger')
     $('#launcherConnectStatusName').addClass('text-white')
-    $("#launcherConnectStatusName").text("word_launcher");
+    $("#launcherConnectStatusName").text(getPhrase("launcher"));
 }
 
 function isDisConnectSocketed() {
@@ -48,7 +48,7 @@ function isDisConnectSocketed() {
     $("#loaderConnect").show();
     $('#launcherConnectStatusName').removeClass('text-white')
     $('#launcherConnectStatusName').addClass('text-danger')
-    $("#launcherConnectStatusName").text("word_connect");
+    $("#launcherConnectStatusName").text(getPhrase("connect"));
 }
 
 
@@ -135,7 +135,7 @@ function ResponseDirection(response) {
             $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/src/component/plugins/launcher/tpl/img/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
         });
     } else {
-        $("#dirlist").html(word_not_dir)
+        $("#dirlist").html(getPhrase("not_dir"))
     }
 }
 

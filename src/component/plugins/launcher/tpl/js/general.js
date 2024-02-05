@@ -113,7 +113,7 @@ function HtmlAddProgressBar() {
     for (let index = 0; index <= countStream - 1; index++) {
         progressBar += `
         <div class="row fs-sm">
-                    <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start" id="download_status_filename_${index}">${word_no_download}</div>
+                    <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start" id="download_status_filename_${index}">${getPhrase("no_download")}</div>
                     <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end" id="download_status_load_procent_${index}">0%</div>
                   </div>
                   <div class="progress push" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -323,7 +323,14 @@ $("#autoUpdateLauncher").on("click", function (event) {
     let obj = {
         command: 'setConfig', param: 'autoUpdateLauncher', value: $("#autoUpdateLauncher").prop("checked"),
     };
-        sendToLauncher(obj)
+    sendToLauncher(obj)
+});
+
+$("#auto_disabled").on("change", function (){
+    let obj = {
+        command: 'setConfig', param: 'autoDisabledTime', value: parseInt($(this).val()),
+    };
+    sendToLauncher(obj)
 });
 
 $("#countStream").on("input", function() {
@@ -349,7 +356,7 @@ $(document).on('click', '.startL2', function () {
     }
 
     if (wsclient.isConnected() === false) {
-        errorMessage(word_need_start_launcher)
+        errorMessage(getPhrase("need_start_launcher"))
         return;
     }
     if ($("#selectClient").val() === null) {
@@ -377,7 +384,7 @@ $('.modal').on('show.bs.modal', function (event) {
         return true;
     }
     if (wsclient.isConnected() === false) {
-        //errorMessage(word_need_start_launcher);
+        //errorMessage(getPhrase("need_start_launcher"));
         return false;
     }
     return true;
@@ -404,7 +411,7 @@ $(document).on( "click", ".launcherUpdateStart", function () {
 
 $("#save_file_black_list").on( "click", function () {
     if (wsclient.isConnected() === false) {
-        errorMessage(word_need_start_launcher)
+        errorMessage(getPhrase("need_start_launcher"))
         return;
     }
     obj = {

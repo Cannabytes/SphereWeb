@@ -155,8 +155,11 @@
             data: formData,
             method: "POST",
             success: function (response) {
-                if (response) {
-                    console.log(response);
+                ResponseNotice(response)
+                if (response.redirect !== undefined){
+                    setTimeout(function() {
+                        window.location.href = response.redirect;
+                    }, 1000);
                 }
             },
             error: function (error) {

@@ -19,6 +19,7 @@ let phrase = {
         "autoload_desc": "Лаунчер не нужно будет запускать, он не потербляет память. После старта Windows, лаунчер будет загружен в память, и срабатывать только при обращении к нему.",
         "autoupdate_launcher": "Автообновление",
         "autoupdate_launcher_desc": "Лаунчер будет периодически проверять обновление, и обновляться если вышла новая версия.",
+        "autooff_launcher_desc": "Автоматически выключение лаунчера в режиме простоя.",
         "is_save_loading_file": "Сохранять загруженные файлы",
         "is_save_loading_file_desc": "Если \"Да\", лаунчер будет сохранять файлы патчей, для того чтоб не загружать их в будущем в случае если когда-то ранее Вы его уже загружали.\nДанная опция может сократить время загрузки.",
         "close": "Закрыть",
@@ -43,9 +44,8 @@ let phrase = {
         "stream": "Потоки",
         "countStream": "Количество потоков",
         "countStream_description": "Укажите кол-во загружаемых одновременно файлов",
-        "word_launcher_is_started": "Лаунчер был запущен",
-
-
+        "launcher_is_started": "Лаунчер был запущен",
+        "auto exit": "Автовыключение",
 
         "notify_message": "%s",
         "its_already_loading": "Уже идет загрузка",
@@ -73,6 +73,16 @@ let phrase = {
         "error_checking_directory": "Ошибка при проверке директории: %s",
         "token_api_error": "Ошибка TokenAPI",
         "find_server": "Выбираю оптимальный сервер загрузки",
+        "auto_off_program_time" : "Отключение через",
+        "min": "мин.",
+        "hour": "ч.",
+        "not_off_launcher": "Не отключать",
+        "5 min": "5 мин.",
+        "10 min": "10 мин.",
+        "30 min": "30 мин.",
+        "1 h": "1 ч.",
+        "3 h": "3 ч.",
+        "the_program_shuts_down_due_to_inactivity" : "Программа выключается из-за отсутствия активности.",
     },
     "en": {
         "registration_account": "Registration account",
@@ -94,6 +104,7 @@ let phrase = {
         "autoload_desc": "The launcher won't need to be started, it won't consume memory. After Windows starts, the launcher will be loaded into memory, and will only fire when accessed.",
         "autoupdate_launcher": "Autoupdate",
         "autoupdate_launcher_desc": "Launcher will periodically check for updates, and update if a new version is available.",
+        "autooff_launcher_desc": "Automatically shutdown the launcher in idle mode.",
         "is_save_loading_file": "Save downloaded files",
         "is_save_loading_file_desc": "If \"Yes\", the launcher will save patch files in order not to download them in the future if you have already downloaded it before.\nThis option may reduce the loading time.",
         "close": "Close",
@@ -118,7 +129,8 @@ let phrase = {
         "stream": "Streams",
         "countStream": "Number of streams",
         "countStream_description": "Specify the number of files to download simultaneously",
-        "word_launcher_is_started": "Launcher has been successfully launched",
+        "launcher_is_started": "Launcher has been successfully launched",
+        "auto exit": "Automatic shutdown",
 
         "notify_message": "%s",
         "its_already_loading": "Loading is already in progress",
@@ -146,6 +158,16 @@ let phrase = {
         "error_checking_directory": "Error checking directory: %s",
         "token_api_error": "TokenAPI error",
         "find_server    ": "Determining the Best Download Server",
+        "auto_off_program_time" : "Disabled time",
+        "min": "min.",
+        "hour": "h.",
+        "not_off_launcher": "Do not turn off",
+        "5 min": "5 min.",
+        "10 min": "10 min.",
+        "30 min": "30 min.",
+        "1 h": "1 h.",
+        "3 h": "3 h.",
+        "the_program_shuts_down_due_to_inactivity" : "Sphere-Launcher отключается из-за отсутствия активности.",
 
     },
 
@@ -168,23 +190,6 @@ function getPhrase(fphrase, ...param) {
     }
 }
 
-
-var word_need_start_launcher;
-var word_no_download;
-var word_loading_is_complete;
-var word_download_canceled;
-var word_error;
-var word_cancel_update;
-var word_start_update;
-var word_connect;
-var word_not_dir;
-var word_file_upload;
-var word_file_comparison;
-var word_launcher;
-var word_launcher_is_started;
-
-// loadWorld()
-
 function loadWorld() {
     let elementsWithDataPhrase = $('[data-phrase]');
     elementsWithDataPhrase.each(function (index) {
@@ -192,18 +197,6 @@ function loadWorld() {
         let translatedPhrase = getPhrase(phraseName);
         $(this).html(translatedPhrase);
     });
-
-    word_need_start_launcher = getPhrase("need_start_launcher");
-    word_no_download = getPhrase("no_download");
-    word_loading_is_complete = getPhrase("loading_is_complete");
-    word_download_canceled = getPhrase("download_canceled");
-    word_error = getPhrase("error");
-    word_start_update = getPhrase("start_update");
-    word_cancel_update = getPhrase("cancel_update");
-    word_connect = getPhrase("connect");
-    word_not_dir = getPhrase("not_dir");
-    word_file_upload = getPhrase("file_upload");
-    word_file_comparison = getPhrase("file_comparison");
-    word_launcher = getPhrase("launcher");
-    word_launcher_is_started = getPhrase("word_launcher_is_started");
 }
+
+loadWorld()

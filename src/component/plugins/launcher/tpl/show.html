@@ -137,7 +137,7 @@
                                             <span class="sr-only">Loading...</span>
                                         </div>
                                         <span class="d-none d-sm-inline-block fw-semibold text-white "
-                                              id="launcherConnectStatusName" data-phrase="launcher">Лаунчер</span>
+                                              id="launcherConnectStatusName" data-phrase="setting">Настройки</span>
                                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
@@ -340,6 +340,11 @@
                                     </button>
                                 </li>
                                 <li class="nav-item d-md-flex flex-md-column">
+                                    <button data-phrase="auto exit" class="nav-link fs-sm text-md-start rounded-0 "  id="btabs-vertical-exit-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-exit" role="tab" aria-controls="btabs-vertical-exit" aria-selected="false">
+                                        !
+                                    </button>
+                                </li>
+                                <li class="nav-item d-md-flex flex-md-column">
                                     <button class="nav-link fs-sm text-md-start rounded-0 " id="btabs-vertical-stream-tab" data-bs-toggle="tab" data-bs-target="#btabs-vertical-stream" role="tab" aria-controls="btabs-vertical-stream" aria-selected="false">
                                         {{phrase("streams")}}
                                     </button>
@@ -381,18 +386,42 @@
                                         Лаунчер не нужно будет запускать, он не потербляет память. После старта Windows, лаунчер будет загружен в память, и срабатывать только при обращении к нему.
                                     </p>
                                 </div>
+
                                 <div class="block-content tab-pane" id="btabs-vertical-settings" role="tabpanel" aria-labelledby="btabs-vertical-settings-tab" tabindex="0">
                                     <h4 class="fw-semibold">
-
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" value="" id="autoUpdateLauncher" name="autoUpdateLauncher">
                                             <label class="form-check-label" for="autoUpdateLauncher" data-phrase="autoupdate_launcher">Автообновление</label>
                                         </div>
-
                                     </h4>
                                     <p class="fs-sm" data-phrase="autoupdate_launcher_desc">
                                         Лаунчер будет периодически проверять обновление, и обновляться если вышла новая версия.
                                     </p>
+                                </div>
+
+                                <div class="block-content tab-pane" id="btabs-vertical-exit" role="tabpanel" aria-labelledby="btabs-vertical-exit-tab" tabindex="0">
+                                    <p class="fs-sm" data-phrase="autooff_launcher_desc">
+                                       Автоматически выключение лаунчера в режиме простоя.
+                                    </p>
+
+                                    <div class="row mb-4">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-text" data-phrase="auto_off_program_time">
+                                                  Отключение через
+                                                </span>
+                                                <select class="form-select form-control-lg" id="auto_disabled" name="auto_disabled">
+                                                    <option value="300" data-phrase="5 min">5 минут</option>
+                                                    <option value="600" data-phrase="10 min">10 минут</option>
+                                                    <option value="180" data-phrase="30 min">30 минут</option>
+                                                    <option value="3600" data-phrase="1 h">1 час</option>
+                                                    <option value="10800" data-phrase="3 h">3 часа</option>
+                                                    <option value="0" data-phrase="not_off_launcher">Не отключать</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="block-content tab-pane" id="btabs-vertical-stream" role="tabpanel" aria-labelledby="btabs-vertical-stream-tab" tabindex="0">

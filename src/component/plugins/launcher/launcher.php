@@ -153,6 +153,12 @@ class launcher {
 ];";
 
         file_put_contents(__DIR__ . "/config_launcher_{$server_id}.php", $txt);
+        board::alert([
+            'type' => 'notice',
+            'ok' => true,
+            'message' => "Success",
+            'redirect' => '/launcher'
+        ]);
     }
 
 

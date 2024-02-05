@@ -1,4 +1,3 @@
-loadWorld()
 HtmlAddProgressBar()
 isDisConnectSocketed()
 isDebug = false;
@@ -50,7 +49,7 @@ function reconnectionLauncher() {
                     }
                     $("#modal-start-launcher").modal('hide')
                     if(clickToStartLauncher){
-                        successMessage(word_launcher_is_started, 700)
+                        successMessage(getPhrase("launcher_is_started"), 700)
                         clickToStartLauncher = false
                     }
                     isConnectSocket = true
@@ -85,7 +84,7 @@ function isConnectSocketed() {
     $("#loaderConnect").hide();
     $('#launcherConnectStatusName').removeClass('text-danger')
     $('#launcherConnectStatusName').addClass('text-white')
-    $("#launcherConnectStatusName").text(word_launcher);
+    $("#launcherConnectStatusName").text(getPhrase("setting"));
 }
 
 function isDisConnectSocketed() {
@@ -93,7 +92,7 @@ function isDisConnectSocketed() {
     $("#loaderConnect").show();
     $('#launcherConnectStatusName').removeClass('text-white')
     $('#launcherConnectStatusName').addClass('text-danger')
-    $("#launcherConnectStatusName").text(word_connect);
+    $("#launcherConnectStatusName").text(getPhrase("setting"));
     $('#selectClient').empty();
 }
 
@@ -125,7 +124,7 @@ function firstRequest() {
 
 function sendToLauncher(obj) {
 	if (!wsclient.isConnected()) {
-		errorMessage(word_need_start_launcher)
+		errorMessage(getPhrase("need_start_launcher"))
 		return
 	}
 	
@@ -231,7 +230,7 @@ function ResponseStatus(response) {
             percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
             $("#domainLauncher").text(response.domain)
             $('#processRunLevel').text(percentPanel + "%");
-            $('#processName').text(word_file_comparison);
+            $('#processName').text(getPhrase("file_comparison"));
             $('#loadedFiles').text(response.loaded);
             $('#filesTotal').text(response.filesTotal);
 
@@ -248,7 +247,7 @@ function ResponseStatus(response) {
             $("#statusLauncher").text("Загружается").addClass("bg-gd-sea");
             $("#loadedFiles").text(response.loaded)
             $("#filesTotal").text(response.filesTotal)
-            $('#processName').text(word_file_upload);
+            $('#processName').text(getPhrase("file_upload"));
             $('#processRunLevel').text( percent + "%");
             $('title').text("Launcher" + " " + chronicle + " (" + percent + "%)");
             for (let index = 0; index <= countStream-1; index++) {
@@ -258,7 +257,7 @@ function ResponseStatus(response) {
                     size = resp.size;
                     totalSize = resp.sizeTotal;
                 } else {
-                    filename = word_no_download;
+                    filename = getPhrase("no_download");
                     size = 0;
                     totalSize = 0;
                 }
@@ -274,20 +273,20 @@ function ResponseStatus(response) {
         $('#processRunLevel').text("100%");
         $("#loadedFiles").text(response.loaded)
         $("#filesTotal").text(response.filesTotal)
-        $('#processName').text(word_loading_is_complete);
+        $('#processName').text(getPhrase("loading_is_complete"));
         $('title').text("Launcher" + " " + chronicle + " - (" + getPhrase("loading_is_complete") + ")");
 
     } else if (response.status === 5) {
         setUpdateClient(false);
         $('#processRunLevel').text("0%");
-        $('#processName').text(word_cancel_update);
+        $('#processName').text(getPhrase("cancel_update"));
         if(isDebug){
             console.log("Загрузка отменена")
         }
         // resetLoadPanel()
     } else if (response.status === 5) {
         setUpdateClient(false);
-        $('#processName').text(word_error);
+        $('#processName').text(getPhrase("error"));
         if(isDebug){
             console.log("Произошла ошибка при загрузке")
         }
@@ -344,7 +343,7 @@ function ResponseDirection(response) {
             $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/src/component/plugins/launcher/tpl/img/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
         });
     } else {
-        $("#dirlist").html(word_not_dir)
+        $("#dirlist").html(getPhrase("not_dir"))
     }
 }
 
@@ -379,13 +378,13 @@ function ResponseGetChronicleDirectory(response) {
 function ResponseGetAllConfig(response) {
     if (response.command !== "getAllConfig") return;
     numCPU = response.numCPU ?? 1
-
     $("#isClientFilesArchive").prop("checked", response.isClientFilesArchive ? true : false);
     $("#autoStartLauncher").prop("checked", response.autoStartLauncher ? true : false);
     $("#autoUpdateLauncher").prop("checked", response.autoUpdateLauncher ? true : false);
     $("#maxSizeFile").val(response.maxSizeFile);
     $("#countStream").val(response.countStream);
     $("#countStreamRecommended").html(numCPU);
+    $("#auto_disabled").val(response.autoDisabledTime ?? 0).prop('selected', true);
     countStream = response.countStream;
     HtmlAddProgressBar()
 }
@@ -419,7 +418,7 @@ function ResponseNeedClientUpdate(response) {
 //Начать обновление
 function startUpdate() {
     if (wsclient.isConnected()===false){
-        return errorMessage(word_need_start_launcher)
+        return errorMessage(getPhrase("need_start_launcher"))
     }
     if ($("#selectClient").val() !== null) {
         if (getUpdateClient()) {
@@ -446,15 +445,15 @@ function setUpdateClient(loadupdate) {
     if (getUpdateClient() === loadupdate) return;
     if (loadupdate) {
         isUpdateClient = true;
-        $("#startUpdateGame").text(word_cancel_update)
+        $("#startUpdateGame").text(getPhrase("cancel_update"))
     } else {
         isUpdateClient = false;
-        $("#startUpdateGame").text(word_start_update)
+        $("#startUpdateGame").text(getPhrase("start_update"))
     }
 
     for (let index = 0; index <= countStream-1; index++) {
         $("#download_status_filename_" + (index)).attr('data-original-title', formatBytes(0));
-        $("#download_status_filename_" + (index)).text(word_no_download)
+        $("#download_status_filename_" + (index)).text(getPhrase("no_download"))
         $("#download_status_load_procent_" + (index)).text("0%")
         $("#download_status_load_procent_csswidth_" + (index)).css("width", "0%");
     }

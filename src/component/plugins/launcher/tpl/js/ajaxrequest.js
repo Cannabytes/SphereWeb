@@ -107,7 +107,7 @@ function parseMultipleJSON(data) {
 
 function AJAX_startUpdate() {
     if (isConnectAjax === false) {
-        errorMessage(word_need_start_launcher)
+        errorMessage(getPhrase("need_start_launcher"))
         return;
     }
     if ($("#selectClient").val() !== null) {
@@ -137,7 +137,7 @@ function isConnectAjaxed() {
     $("#loaderConnect").hide();
     $('#launcherConnectStatusName').removeClass('text-danger')
     $('#launcherConnectStatusName').addClass('text-white')
-    $("#launcherConnectStatusName").text(word_launcher);
+    $("#launcherConnectStatusName").text(getPhrase("launcher"));
 }
 
 function isDisConnectAjaxed() {
@@ -145,7 +145,7 @@ function isDisConnectAjaxed() {
     $("#loaderConnect").show();
     $('#launcherConnectStatusName').removeClass('text-white')
     $('#launcherConnectStatusName').addClass('text-danger')
-    $("#launcherConnectStatusName").text(word_connect);
+    $("#launcherConnectStatusName").text(getPhrase("connect"));
 }
 
 function AJAX_getPathDirectoryChronicle() {
@@ -236,7 +236,7 @@ function AJAX_ResponseStatus(response) {
             AJAX_setUpdateClient(true);
             percentPanel = ((response.loaded / response.filesTotal) * 100).toFixed(0);
             $('#processRunLevel').text(percentPanel + "%");
-            $('#processName').text(word_file_comparison);
+            $('#processName').text(getPhrase("file_comparison"));
         }
 
         if (response.status === 3) {
@@ -245,7 +245,7 @@ function AJAX_ResponseStatus(response) {
                 return;
             }
             $('#processRunLevel').text(((response.loaded / response.filesTotal) * 100).toFixed(2) + "%");
-            $('#processName').text(word_file_upload);
+            $('#processName').text(getPhrase("file_upload"));
 
             for (let index = 0; index <= 4; index++) {
                 if (typeof response.boot[index] !== 'undefined') {
@@ -254,7 +254,7 @@ function AJAX_ResponseStatus(response) {
                     size = resp.size;
                     totalSize = resp.sizeTotal;
                 } else {
-                    filename = word_no_download;
+                    filename = getPhrase("no_download");
                     size = 0;
                     totalSize = 0;
                 }
@@ -272,19 +272,19 @@ function AJAX_ResponseStatus(response) {
             AJAX_setUpdateClient(false);
             console.log("Загрузка завершена");
             $('#processRunLevel').text("100%");
-            $('#processName').text(word_loading_is_complete);
+            $('#processName').text(getPhrase("loading_is_complete"));
         }
     } else if (response.status === 5) {
         if (lastStatusID !== response.status) {
             AJAX_setUpdateClient(false);
             $('#processRunLevel').text("0%");
-            $('#processName').text(word_download_canceled);
+            $('#processName').text(getPhrase("word_download_canceled"));
             console.log("Загрузка отменена");
         }
     } else if (response.status === 6) {
         if (lastStatusID !== response.status) {
             AJAX_setUpdateClient(false);
-            $('#processName').text(word_error);
+            $('#processName').text(getPhrase("error"));
             console.log("Произошла ошибка при загрузке");
         }
     }
@@ -368,7 +368,7 @@ function AJAX_ResponseDirection(response) {
             $('#dirlist').append('<figure data-all-path="' + (elem) + '" class="cursor-pointer highlight direction"><img src="/tpl/assets/media/dir/' + image + '.png" style="width: 80px;" alt="Folder Icon"><figcaption class="name">' + dirname(elem) + '</figcaption></figure>');
         });
     } else {
-        $("#dirlist").html(word_not_dir)
+        $("#dirlist").html(getPhrase("not_dir"))
     }
 }
 
@@ -439,15 +439,15 @@ function AJAX_setUpdateClient(loadupdate) {
     if (getUpdateClient() === loadupdate) return;
     if (loadupdate) {
         isUpdateClient = true;
-        $("#startUpdateGame").text(word_cancel_update)
+        $("#startUpdateGame").text(getPhrase("cancel_update"))
     } else {
         isUpdateClient = false;
-        $("#startUpdateGame").text(word_start_update)
+        $("#startUpdateGame").text(getPhrase("start_update"))
     }
 
     for (let index = 0; index <= 4; index++) {
         $("#download_status_filename_" + (index)).attr('data-original-title', formatBytes(0));
-        $("#download_status_filename_" + (index)).text(word_no_download)
+        $("#download_status_filename_" + (index)).text(getPhrase("no_download"))
         $("#download_status_load_procent_" + (index)).text("0%")
         $("#download_status_load_procent_csswidth_" + (index)).css("width", "0%");
     }
@@ -460,7 +460,7 @@ function getUpdateClient() {
 
 $('#selectClient').change(function () {
     if (isConnectAjax === false) {
-        errorMessage(word_need_start_launcher)
+        errorMessage(getPhrase("need_start_launcher"))
         return;
     }
     obj = {
@@ -482,7 +482,7 @@ function AJAX_clientUpdateCancel() {
 
 function AJAX_OpenSelectDir() {
     if (isConnectAjax === false) {
-        errorMessage(word_need_start_launcher)
+        errorMessage(getPhrase("need_start_launcher"))
         return;
     }
     $("#selectDirClient").modal("show");
