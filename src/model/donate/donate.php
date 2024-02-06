@@ -24,6 +24,8 @@ use Ofey\Logan22\template\tpl;
 
 class donate {
 
+    private static $COOLDOWN_SECONDS = 5; // Время задержки в секундах до последующей попытки купить что-то
+
     /**
      * @return array
      * @throws Exception
@@ -83,6 +85,12 @@ class donate {
         if(auth::get_donate_point() < 0){
             board::notice(false, "Not enough money");
         }
+        $lastUsage = $_SESSION['COOLDOWN_DONATE_TRANSACTION'] ?? 0;
+        if (time() - $lastUsage < self::$COOLDOWN_SECONDS) {
+            board::error("Покупка разрешена только раз в " . self::$COOLDOWN_SECONDS . " сек.");
+        }
+        $_SESSION['COOLDOWN_DONATE_TRANSACTION'] = time();
+
         $id = $_POST['id'] ?? board::error("Error");
         $server_id = filter_input(INPUT_POST, 'server_id', FILTER_VALIDATE_INT);
         $user_value = filter_input(INPUT_POST, 'user_value', FILTER_VALIDATE_INT);
@@ -168,7 +176,6 @@ class donate {
             $server_id,
             time::mysql(),
         ]);
-
         board::alert([
             'ok' => true,
             'message' => lang::get_phrase(304),
