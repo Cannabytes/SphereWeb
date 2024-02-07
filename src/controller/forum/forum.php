@@ -251,7 +251,10 @@ class forum {
         if($topicInfo['link']!=null AND (auth::get_access_level()!="admin" AND auth::get_access_level()!="moderator")){
             redirect::location($topicInfo['link']);
         }
-        $topicInfo['link'] = urldecode($topicInfo['link']);
+
+        if(auth::get_access_level()!="admin" AND auth::get_access_level()!="moderator" and isset($topicInfo['link'])){
+            $topicInfo['link'] = urldecode($topicInfo['link']);
+        }
 
         $section = $topicInfo['section_id'];
         $section = internal::getSectionInfo($section);
