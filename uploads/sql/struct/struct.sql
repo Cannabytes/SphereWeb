@@ -64,11 +64,13 @@ CREATE TABLE `chat`  (
 
 DROP TABLE IF EXISTS `server_data`;
 CREATE TABLE `server_data`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `val` varchar(6000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `server_id` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
   INDEX `key`(`key`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 
 -- ----------------------------
