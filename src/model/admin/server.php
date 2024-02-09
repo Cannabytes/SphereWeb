@@ -8,6 +8,7 @@
 namespace Ofey\Logan22\model\admin;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\install\install;
@@ -127,8 +128,8 @@ class server {
             $rest_api_key,
 
         ], false);
-
-        board::notice(true, 'Добавлено');
+        $server_id = sql::lastInsertId();
+        board::response("notice", ["message" => lang::get_phrase(243), "ok"=>true, "redirect" => fileSys::localdir("/admin/options/server/additionally/" . $server_id)]);
     }
 
     public static function update_server() {
