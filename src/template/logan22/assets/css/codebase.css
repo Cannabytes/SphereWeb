@@ -16392,7 +16392,7 @@ small,
 }
 
 .content-max-width {
-  max-width: 1920px;
+  /*max-width: 1920px;*/
 }
 
 .content-side {
@@ -16700,7 +16700,7 @@ small,
 #page-container > #page-header .content,
 #page-container > #main-container .content,
 #page-container > #page-footer .content {
-  max-width: 1920px;
+  /*max-width: 1920px;*/
 }
 @media (min-width: 1200px) {
   #page-container.main-content-narrow > #page-header .content-header,
