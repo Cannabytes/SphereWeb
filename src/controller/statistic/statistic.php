@@ -9,6 +9,7 @@ namespace Ofey\Logan22\controller\statistic;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\chronicle\race_class;
+use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
@@ -98,8 +99,7 @@ class statistic {
         //Просмотр запрещен другими пользователями, но админу и пользователю можно
         if ($infoForbidden['forbidden']) {
             if ( auth::get_email() != $infoForbidden['email'] and auth::get_access_level() != "admin") {
-                tpl::addVar("player", $get_player_info);
-                tpl::display("statistic/char_denied_access.html");
+                error::error404(lang::get_phrase(321));
             }
         }
         $inventory = statistic_model::get_player_inventory_info($char_name, $get_player_info['player_id']);
