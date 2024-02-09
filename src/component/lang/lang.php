@@ -52,9 +52,19 @@ class lang {
         return null;
     }
 
-    public static function load_package(): void {
+    public static function load_package($dir = null): void {
         $lang = $_SESSION['lang'] ?? 'ru';
-        self::$lang_array = require fileSys::get_dir("/src/component/lang/package/{$lang}.php");
+        if ($dir == null) {
+            self::$lang_array = require fileSys::get_dir("/src/component/lang/package/{$lang}.php");
+        }
+    }
+
+    //Загрузка языковых пакетов плагинов
+    //В функцию load_package_plugin должен передаваться только аргуменет __DIR__
+    public static function load_package_plugin($__DIR__): void {
+        $lang = $_SESSION['lang'] ?? 'ru';
+        $new_lang_array = require "{$__DIR__}/lang/{$lang}.php";
+        self::$lang_array = array_replace_recursive(self::$lang_array, $new_lang_array);
     }
 
     /**
