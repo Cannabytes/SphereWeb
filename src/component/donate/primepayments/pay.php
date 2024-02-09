@@ -6,11 +6,20 @@ use Ofey\Logan22\model\user\auth\auth;
 
 class primepayments {
 
+    private static array $description = [
+        "ru" => "Система primepayments [Россия, Беларусь]",
+        "en" => "Pay system primepayments [Россия, Беларусь]",
+    ];
+
     //Включена/отключена платежная система
     private static bool $enable = true;
 
     public static function isEnable(): bool{
         return self::$enable;
+    }
+
+    public static function getDescription(): ?array {
+        return self::$description ?? null;
     }
 
     /**

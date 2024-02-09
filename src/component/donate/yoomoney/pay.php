@@ -7,8 +7,15 @@ use Ofey\Logan22\model\user\auth\auth;
 
 class yoomoney {
 
+    // Описание платежки на сайте.
+    private static array $description = [
+        "ru" => "Yoomoney [Россия, Беларусь, Казахстан]",
+        "en" => "Yoomoney [Russia, Belarus, Kazakhstan]",
+    ];
+
     //Включена/отключена платежная система
     private static bool $enable = true;
+
     /**
      * Конфигурация
      * $receiver - Номер кошелька ЮMoney, на который нужно зачислять деньги отправителей.
@@ -19,13 +26,18 @@ class yoomoney {
     private $currency_default = 'RUB';
     private array $allowIP = [];
 
+
+    public static function isEnable(): bool{
+        return self::$enable;
+    }
+
+    public static function getDescription(): ?array {
+        return self::$description ?? null;
+    }
+
     /*
      * Список IP адресов, от которых может прити уведомление от платежной системы.
      */
-
-    public static function isEnable(): bool {
-        return self::$enable;
-    }
 
     /**
      * @return void

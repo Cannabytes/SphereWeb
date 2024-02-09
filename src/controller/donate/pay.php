@@ -9,6 +9,7 @@ namespace Ofey\Logan22\controller\donate;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\config\config;
+use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\validation;
@@ -20,13 +21,22 @@ use Ofey\Logan22\template\tpl;
 class pay {
 
     public static function pay(): void {
-        $dir = 'src/component/donate/';
-        $donateSysNames = array_values(array_diff(scandir($dir), array('..', '.')));
-        foreach($donateSysNames AS $i=>$sys){
-            if(!$sys::isEnable()){
-                unset($donateSysNames[$i]);
+        $all_donate_system = fileSys::get_dir_files("src/component/donate", [
+            'basename'        => true,
+            'fetchAll'        => true,
+        ]);
+        $donateSysNames = [];
+        foreach($all_donate_system AS $system){
+            if(!$system::isEnable()){
+                continue;
+            }
+            if(method_exists($system, 'getDescription')){
+                $donateSysNames[] = $system::getDescription()[lang::lang_user_default()];
+            }else{
+                $donateSysNames[] = basename($system);
             }
         }
+
         if(!config::getEnableDonate()) error::error404("Отключено");
         $donateInfo = require 'src/config/donate.php';
         $point = 0;

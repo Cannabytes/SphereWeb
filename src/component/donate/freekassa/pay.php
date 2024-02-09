@@ -7,11 +7,21 @@ use Ofey\Logan22\model\user\auth\auth;
 
 class freekassa {
 
+    // Описание платежки на сайте.
+    private static array $description = [
+        "ru" => "Платежная система freekassa [Россия / Беларусь]",
+        "en" => "Pay system freekass [Russia / Belarus]",
+    ];
+
     //Включена/отключена платежная система
     private static bool $enable = true;
 
     public static function isEnable(): bool{
         return self::$enable;
+    }
+
+    public static function getDescription(): ?array {
+        return self::$description ?? null;
     }
 
     /**
