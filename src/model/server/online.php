@@ -15,6 +15,7 @@ use DateTime;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
 use Ofey\Logan22\component\cache\timeout;
+use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
@@ -41,13 +42,23 @@ class online {
 
                 if(@fsockopen($info['check_gameserver_online_host'], $info['check_gameserver_online_port'], $errno, $errstr, 1)) {
                     $connect_game = true;
-                    $player_count_online = player_account::extracted("count_online_player", $info);
-                    if ($player_count_online === false) {
-                        $player_count_online = 0;
-                    } else if (!sdb::is_error()) {
-                        $player_count_online = $player_count_online->fetch()["count_online_player"];
-                    } else {
-                        $player_count_online = -1;
+                    if ($info['rest_api_enable']) {
+                        $data = restapi::Send(  $info, "count_online_player");
+                        if ($data == "false") {
+                            $player_count_online = 0;
+                        }else{
+                            $sonline = json_decode($data, true);
+                            $player_count_online = $sonline[0]['count_online_player'];
+                        }
+                    }else{
+                        $player_count_online = player_account::extracted("count_online_player", $info);
+                        if ($player_count_online === false) {
+                            $player_count_online = 0;
+                        } else if (!sdb::is_error()) {
+                            $player_count_online = $player_count_online->fetch()["count_online_player"];
+                        } else {
+                            $player_count_online = -1;
+                        }
                     }
                 }
             }
