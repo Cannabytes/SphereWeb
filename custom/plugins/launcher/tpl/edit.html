@@ -1,0 +1,149 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<form method="post" action="/admin/launcher/edit" class="content">
+    <input type="hidden" name="element_id" value="{{launcherInfo.id}}">
+    <div class="block block-rounded">
+
+
+        <div class="block-header block-header-default">
+            <h3 class="block-title" data-phrase="data launcher">Лаунчера данные</h3>
+        </div>
+        <div class="block-content">
+            <div class="row">
+                <div class="col-lg-6 col-xl-6">
+                    <!-- Form Labels on top - Default Style -->
+                    <div class="mb-4">
+                        <label class="form-label" for="server"><strong data-phrase="server">Сервер</strong><label class="text-danger">*</label></label>
+                        <select class="form-select" id="server" name="server">
+                            {% for server in get_server_info() %}
+                            <option {% if server.id == launcherInfo.data.server %}selected{% endif %} value="{{server.id}}">{{server.name}} x{{server.rate_exp}} - {{server.chronicle}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="autoload" data-phrase="autoload_info">Показывать аккаунты для автозагрузки?</label>
+                        <div class="fs-sm fw-medium text-muted mb-0" data-phrase="autoload_info_desc">
+                            Настройка актуальная только если игровой клиент поддерживает функцию автовхода в игру (без
+                            авторизации).
+                        </div>
+                        <div class="col-2">
+                            <select class="form-select mb-4" id="autoload" name="autoload">
+                                <option value="off" {% if launcherInfo.data.autoload == false %}selected{% endif %} data-phrase="no">Нет</option>
+                                <option value="on" {% if launcherInfo.data.autoload == true %}selected{% endif %} data-phrase="yes">Да</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6">
+                    <div class="mb-4">
+                        <label class="form-label" for="server"><strong data-phrase="name">Название</strong><label class="text-danger">*</label></label>
+                        <div class="input-group">
+                        <span class="input-group-text">
+                          https://site.com/launcher/
+                        </span>
+                            <input value="{{launcherInfo.data.name}}" type="text" class="form-control" id="name"
+                                   name="name" placeholder="test">
+                        </div>
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label class="form-label" for="server" data-phrase="launcher_note">Заметка о лаунчере</label>
+                        <div class="fs-sm fw-medium text-muted mb-0" data-phrase="launcher_note_desc">
+                            Для чего хотите использовать этот лаунчер? - Это напоминание только для Вас.
+                        </div>
+                        <input value="{{launcherInfo.data.note}}" type="text" class="form-control" id="note" name="note"
+                               placeholder="">
+                    </div>
+
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="tokenApi">Token API<label class="text-danger">*</label></label>
+                    <div class="fs-sm fw-medium text-muted mb-0" data-phrase="tokenApi_desc">
+                        Ключ необходим для безопастности. Его можно получить после генерации патча.
+                    </div>
+                    <input value="{{launcherInfo.data.tokenApi}}" type="text" class="form-control" id="tokenApi"
+                           name="tokenApi" placeholder="Key">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row text-center">
+        {% for i, app in launcherInfo.data.application %}
+        {% set i = i+1 %}
+        <div class="col-6">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title"><strong data-phrase="button_start_game">Кнопка запуска игры</strong> #1</h3>
+                </div>
+                <div class="block-content">
+                    <div class="mb-4">
+                        <label class="form-label" for="l2exe_{{i}}">l2exe</label>
+                        <input type="text" class="form-control" id="l2exe_{{i}}" value="{{app.l2exe}}"
+                               name="application[l2exe][]" placeholder="/system/l2.exe">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="args_{{i}}">args</label>
+                        <input value="{{app.args}}" type="text" class="form-control" id="args_{{i}}" name="application[args][]" placeholder="">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="background_{{i}}" data-phrase="button_img">Изображение кнопки</label>
+                        <input type="text" class="form-control"
+                               value="{{app.background}}" id="background_{{i}}"
+                               name="application[background][]" placeholder="background">
+                    </div>
+
+                    <hr>
+                    <div class="mb-4">
+                        <label class="form-label" for="button_start_ru_{{i}}" data-phrase="button_name_ru">Название кнопки запуска на русском</label>
+                        <input type="text" class="form-control" id="button_start_ru_{{i}}" name="application[button_start_ru][]"
+                               value="{{app.button_start_ru}}" placeholder="Запустить игру">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="button_start_en_{{i}}" data-phrase="button_name_en">Название кнопки запуска на
+                            английском</label>
+                        <input type="text" class="form-control" id="button_start_en_{{i}}" name="application[button_start_en][]"
+                               value="{{app.button_start_en}}" placeholder="Start Play">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+
+    <div class="row text-center">
+        <div class="row mb-4">
+            <div class="col-sm-12 ms-auto">
+                <button type="submit" id="update_config" class="btn btn-primary" data-phrase="save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+        var userLang = `{{lang_user_default()}}`;
+        $('#name').on('input', function () {
+            // Заменяем пробелы на подчеркивания
+            $(this).val(function (_, value) {
+                return value.replace(/[^a-zA-Z0-9]+/g, '_');
+            });
+
+            var maxLength = 30;
+            var trimmedValue = $(this).val().substring(0, maxLength);
+            $(this).val(trimmedValue);
+        });
+</script>
+<script type="application/javascript" src="{{template_plugin}}/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+
+{% endblock %}

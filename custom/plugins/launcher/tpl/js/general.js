@@ -182,34 +182,27 @@ function statusLoad(status) {
     if (lastStatusID === status) {
         switch (status) {
             case 0:
-                $("#statusLauncher").text("Ожидание действий").addClass("bg-earth");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusWait')).addClass("bg-earth");
                 $('.percent').text(0);
                 break;
             case 1:
-                $("#statusLauncher").text("Загрузка списка").addClass("bg-gd-leaf");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusScroll')).addClass("bg-gd-leaf");
                 break;
             case 2:
-                $("#statusLauncher").text("Сравнение файлов").addClass("bg-gd-sea");
-                $('#loadedFileStatusName').text('Обработано файлов');
+                $("#statusLauncher").text(getPhrase('StatusComparison')).addClass("bg-gd-sea");
                 break;
             case 3:
-                $("#statusLauncher").text("Загрузка файлов").addClass("bg-corporate");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusDownload')).addClass("bg-corporate");
                 break;
             case 4:
-                $("#statusLauncher").text("Загрузка завершена").addClass("bg-success");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusCompleted')).addClass("bg-success");
                 break;
             case 5:
-                $("#statusLauncher").text("Загрузка остановлена").addClass("bg-earth");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusStopped')).addClass("bg-earth");
                 $('.percent').text(0);
                 break;
             case 6:
-                $("#statusLauncher").text("Произошла ошибка").addClass("bg-gd-sun");
-                $('#loadedFileStatusName').text('Загружено файлов');
+                $("#statusLauncher").text(getPhrase('StatusError')).addClass("bg-gd-sun");
                 $('.percent').text(0);
                 break;
         }
@@ -349,9 +342,9 @@ $(document).on('click', '.startL2', function () {
     selectedPlayer = $('.launcherAccountsPlayer:checked');
 
     if (selectedPlayer.length > 0) {
-         login = String(selectedPlayer.data('login'));
-         password = String(selectedPlayer.data('password'));
-         player = String(selectedPlayer.data('player'));
+        login = String(selectedPlayer.data('login'));
+        password = String(selectedPlayer.data('password'));
+        player = String(selectedPlayer.data('player'));
     }
 
     if (wsclient.isConnected() === false) {
@@ -404,7 +397,7 @@ $(document).on( "click", ".launcherUpdateStart", function () {
         command: 'launcherUpdate',
     }
     sendToLauncher(obj)
-    $("#textMsgUpdateLauncher").text("Идет обновление. Ожидайте.")
+    $("#textMsgUpdateLauncher").text(getPhrase('process_update'))
     $(".launcherUpdateStart").hide();
 });
 

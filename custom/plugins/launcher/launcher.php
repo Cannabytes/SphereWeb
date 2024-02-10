@@ -1,6 +1,6 @@
 <?php
 
-namespace Ofey\Logan22\component\plugins\launcher;
+namespace launcher;
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;

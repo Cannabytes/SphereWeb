@@ -1,0 +1,223 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Description{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="block block-rounded">
+
+        <div class="block-header block-header-default">
+            <h3 class="block-title" data-phrase="description">Описание</h3>
+            <div class="block-options">
+                <div class="block-options-item">
+                    <a href="/admin/launcher/create/patch" class="btn btn-alt-warning btn-sm" data-phrase="create patch">Сгенерировать патч</a>
+                    <a href="/admin/launcher/add" class="btn btn-alt-warning btn-sm" data-phrase="add new launcher">Добавить новый лаунчер</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-content">
+            <div id="accordion2" role="tablist" aria-multiselectable="true">
+                <div class="block block-bordered block-rounded mb-2">
+                    <div class="block-header" role="tab" id="accordion2_h0">
+                        <a data-phrase="launcher_tab_description_1" href="#sphereweb" class="fw-semibold collapsed" data-bs-toggle="collapse">О загрузчике
+                            Sphere-Launcher</a>
+                    </div>
+                    <div id="sphereweb" class="collapse" role="tabpanel" style="">
+                        <div class="block-content" data-phrase="launcher_description_1">
+                            Sphere Launcher - это программа для загрузки файлов игры, запуска. С большим набором
+                            функционала.<br>
+                            Главные задачи при разработки лаунчера были:
+                            <ol>
+                                <li>Максимальная скорость работы, выжать из ПК максимальную скорость загрузки,
+                                    обработки.
+                                </li>
+                                <li>Отказ от повторных загрузок файлов, если пользователь их загружал. Так как 87%
+                                    файлов в патчах, это файлы-дубликаты, которые раньше или постоянно игрок загружает.
+                                </li>
+                                <li>Создание универсального лаунчера, который можно использовать игроком для всех
+                                    серверов.
+                                </li>
+                                <li>Поддержка автологина в игру (для патчей, которые это подддерживают).</li>
+                                <li>Кастоматизация и простое изменение интерфейса, достаточно знать базово HTML / CSS.
+                                </li>
+                            </ol>
+                            Думаю в большей мере я справился с задачей, огромное сложности были преодолены и продолжаю
+                            улучшать, расширять возможности и решать выявленные ошибки. По этому лаунчер имеет функцию автообновления.
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-bordered block-rounded mb-2">
+                    <div class="block-header" role="tab" id="accordion2_h1">
+                        <a data-phrase="launcher_tab_description_2" class="fw-semibold collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion2"
+                           href="#accordion2_q1" aria-expanded="true" aria-controls="accordion2_q1">Как добавить свой
+                            лаунчер</a>
+                    </div>
+                    <div id="accordion2_q1" class="collapse" role="tabpanel" aria-labelledby="accordion2_h1" style="">
+                        <div data-phrase="launcher_description_2" class="block-content">
+                            Для того чтоб сделать патч, необходимо выполнить следующие действия.<br>
+                            <ol>
+                                <li><a href="/admin/launcher/create/patch">Сгенерировать патч</a>.</li>
+                                <li>Залить архивы себе на сайт / сервер.</li>
+                                <li>Разработчику лаунчера передать ссылки на файл с архивом и патч листом.</li>
+                                <li>Получить от разработчика <strong>tokenApi</strong>.</li>
+                                <li><a href="/admin/launcher/add">Добавить информацию о Вашем лаунчере</a>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-bordered block-rounded mb-2">
+                    <div  class="block-header" role="tab" id="accordion2_h2">
+                        <a data-phrase="launcher_tab_description_3" class="fw-semibold" data-bs-toggle="collapse" data-bs-parent="#accordion2"
+                           href="#accordion2_q2" aria-expanded="true" aria-controls="accordion2_q2">
+                            Сколько можно создавать лаунчеров?
+                        </a>
+                    </div>
+                    <div  id="accordion2_q2" class="collapse" role="tabpanel" aria-labelledby="accordion2_h2" style="">
+                        <div data-phrase="launcher_description_3" class="block-content">
+                            Вы можете создавать неограниченное кол-во лаунчеров под свой сервер.
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-bordered block-rounded mb-2">
+                    <div class="block-header" role="tab" id="accordion2_h3">
+                        <a data-phrase="launcher_tab_description_4" class="fw-semibold" data-bs-toggle="collapse" data-bs-parent="#accordion2"
+                           href="#accordion2_q3" aria-expanded="true" aria-controls="accordion2_q3">Что такое токен и зачем он нужен</a>
+                    </div>
+                    <div  id="accordion2_q3" class="collapse" role="tabpanel" aria-labelledby="accordion2_h3" style="">
+                        <div class="block-content" data-phrase="launcher_description_4">
+                            <p>Токен это публичный ключ, одна из систем безопасности.<br>Каждый токен, имеет струю
+                                привязку к патчу Вашему серверу.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-bordered block-rounded mb-2">
+                    <div  class="block-header" role="tab" id="accordion2_h4">
+                        <a data-phrase="launcher_tab_description_5" class="fw-semibold" data-bs-toggle="collapse" data-bs-parent="#accordion2"
+                           href="#accordion2_q4" aria-expanded="true" aria-controls="accordion2_q4">Что будет если другой сервер будет использовать мой токен?</a>
+                    </div>
+                    <div id="accordion2_q4" class="collapse" role="tabpanel" aria-labelledby="accordion2_h4">
+                        <div class="block-content" data-phrase="launcher_description_5" >
+                            <p>Если кто-то решит использовать Ваш токен для своего лаунчера, тогда игроки сервера-воришки скачают Ваш патч и
+                                зайдут на Ваш сервер.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block block-bordered block-rounded">
+                    <div class="block-header" role="tab" id="accordion2_h5">
+                        <a data-phrase="launcher_tab_description_6" class="fw-semibold" data-bs-toggle="collapse" data-bs-parent="#accordion2"
+                           href="#accordion2_q5" aria-expanded="true" aria-controls="accordion2_q5">Как работает данный лаунчер</a>
+                    </div>
+                    <div id="accordion2_q5" class="collapse" role="tabpanel" aria-labelledby="accordion2_h5">
+                        <div data-phrase="launcher_description_6" class="block-content">
+                            <p>
+                                Лаунчер работает через веб-браузер, это есть Ваш интерфейс лаунчера.<br>
+                                Посетителю на странице лаунчера, будет предложено скачать или запустить лаунчер.<br>
+                                Если игрок ранее загружал уже лаунчер, вне зависимости с какого источника (всегда
+                                загружается с основного репозитория), тогда он сможет просто запустить лаунчер из
+                                браузера. Игроку нет необходимости искать ярлык лаунчера или загружать повторно.<br>
+                                После запуска лаунчера, пользователь сможет воспользоваться всем функционалом.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% if launchers %}
+    {% for key_server_id, data in launchers %}
+    {% set serverInfo = get_server_info(key_server_id) %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title"><strong data-phrase="project">Проект</strong>: {{serverInfo.name}} x{{serverInfo.rate_exp}}
+                        {{serverInfo.chronicle}}</h3>
+                </div>
+                <div class="block-content">
+                    <table class="table table-vcenter">
+                        <thead>
+                        <tr>
+                            <th data-phrase="default">По умолчанию</th>
+                            <th data-phrase="link">Ссылка</th>
+                            <th data-phrase="note">Заметка</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for launcher in data %}
+                        <tr>
+                            <td style="width: 5%"><input {% if launcher.data.isDefault %}checked{% endif %}
+                                                         class="form-check-input launcher_is_default" type="radio"
+                                                         data-server-id="{{key_server_id}}"
+                                                         data-element-id="{{launcher.id}}"
+                                                         name="launcher_is_default_{{key_server_id}}"></td>
+                            <td><a href="/launcher/{{launcher.data.name}}" data-phrase="to go">Перейти</a></td>
+                            <td>
+                                {{launcher.data.note ?? "-"}}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="/admin/launcher/edit/{{launcher.id}}"
+                                       class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip"
+                                       aria-label="Edit" data-bs-original-title="Edit">
+                                        <i class="fa fa-pencil-alt"></i> <strong data-phrase="change">Изменить</strong>
+                                    </a>
+                                </div>
+
+                                <div class="btn-group">
+                                    <form action="/admin/launcher/remove" method="post">
+                                        <input name="remove" value="{{launcher.id}}" type="hidden">
+                                        <input name="server_id" value="{{launcher.data.server}}" type="hidden">
+                                        <button type="submit" class="btn btn-sm btn-secondary">
+                                            <i class="fa fa-trash-alt "></i> <strong data-phrase="remove">Удалить</strong>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END Row #2 -->
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+
+<script>
+    var userLang = `{{lang_user_default()}}`;
+    $(document).on("click", ".launcher_is_default", function () {
+        var formData = {};
+        formData['serverId'] = $(this).data('server-id');
+        formData['elementId'] = $(this).data('element-id');
+        $.ajax({
+            url: baseHref + "/admin/launcher/set/server/default",
+            data: formData,
+            method: "POST",
+            success: function (response) {
+                ResponseNotice(response)
+            },
+            error: function (error) {
+            }
+        });
+    });
+</script>
+
+<script type="application/javascript" src="{{template_plugin}}/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+
+{% endblock %}

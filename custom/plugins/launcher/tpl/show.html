@@ -3,7 +3,7 @@
 {% block title %}Sphere Launcher{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/css/dir.css?v={{PLUGIN['PLUGIN_VERSION']}}">
+<link rel="stylesheet" href="{{template_plugin}}/tpl/css/dir.css?v={{PLUGIN['PLUGIN_VERSION']}}">
 {% endblock %}
 
 {% block content %}
@@ -111,7 +111,7 @@
     <div class="row">
         <div class="col-xl-12 align-items-stretch">
             <div class="block block-rounded block-themed block-mode-loading-dark block-transparent bg-image w-100"
-                 style="background-image: url('/src/component/plugins/launcher/tpl/img/loadlineage.jpg');">
+                 style="background-image: url('/custom/plugins/launcher/tpl/img/loadlineage.jpg');">
                 <div class="block-header bg-black-50">
                     <h1 class="h1 fw-extrabold mb-1" id="processRunLevel">0<small class="text-white">%</small></h1>
 
@@ -174,9 +174,7 @@
 
                                             <label role="button"
                                                    class="dropdown-item d-flex align-items-center justify-content-between space-x-1">
-                                                <span><a target="_blank"
-                                                         href="https://raw.githubusercontent.com/Cannabytes/cannabytes.github.io/main/updater/Launcher.exe"
-                                                         data-phrase="download_launcher">Скачать Launcher</a></span>
+                                                <span data-phrase="download_launcher" class="launcherLink">Скачать Launcher</span>
                                                 <i class="fa fa-download opacity-25"></i>
                                             </label>
 
@@ -207,7 +205,7 @@
         <div class="col-md-4">
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Лаунчер
+                    <h3 class="block-title" data-phrase="launcher">Лаунчер
                     </h3>
                     <div class="block-options">
                         <div class="block-options-item">
@@ -221,29 +219,29 @@
                         <tbody>
 
                         <tr>
-                            <td>Статус</td>
+                            <td data-phrase="status">Статус</td>
                             <td class="d-none d-sm-table-cell text-end">
-                                <span class="badge bg-earth" id="statusLauncher">Ожидание</span>
+                                <span class="badge bg-earth" id="statusLauncher" data-phrase="StatusWait">Ожидание</span>
                             </td>
                         </tr>
 
                         <tr>
-                            <td id="loadedFileStatusName">Загружено файлов</td>
+                            <td id="loadedFileStatusName" data-phrase="files uploaded">Загружено файлов</td>
                             <td class="d-none d-sm-table-cell text-end" id="loadedFiles">0</td>
                         </tr>
 
                         <tr>
-                            <td>Всего файлов</td>
+                            <td data-phrase="total files">Всего файлов</td>
                             <td class="d-none d-sm-table-cell text-end" id="filesTotal">0</td>
                         </tr>
 
                         <tr>
-                            <td>Скорость загрузки</td>
+                            <td data-phrase="download speed">Скорость загрузки</td>
                             <td class="d-none d-sm-table-cell text-end"><strong id="totalSpeedDownload">0</strong> MB/s</td>
                         </tr>
 
                         <tr>
-                            <td>Время загрузки</td>
+                            <td data-phrase="loading time">Время загрузки</td>
                             <td class="d-none d-sm-table-cell text-end"><strong id="elapsedTimeInSeconds">00:00:00</strong></td>
                         </tr>
 
@@ -506,14 +504,14 @@
                         </div>
                     </div>
                     <div class="block-content fs-sm">
-                        <div id="isNeedUpdateInfo">Обновление не требуется.</div><br>
-                        Ваша версия лаунчера: <strong class="launcherVersion">0.0</strong><br>
-                        Последняя версия лаунчера: <strong class="lastLauncherVersion">0.0</strong>
+                        <div id="isNeedUpdateInfo" data-phrase="no_update_needed">Обновление не требуется.</div><br>
+                        <strong data-phrase="launcher version">Ваша версия лаунчера</strong>: <strong class="launcherVersion">0.0</strong><br>
+                        <strong data-phrase="launcher last version">Последняя версия лаунчера</strong>: <strong class="lastLauncherVersion">0.0</strong>
                         <br>
                         <br>
                     </div>
                     <div class="block-content block-content-full block-content-sm text-end border-top">
-                        <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal" data-phrase="apply">
+                        <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal">
                             OK
                         </button>
                     </div>
@@ -581,8 +579,8 @@
 
 </script>
 
-<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
-<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/general.js?v{{ 'now'|date('U') }}"></script>
-<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/weblauncher.js?v{{ 'now'|date('U') }}"></script>
+<script type="application/javascript" src="{{template_plugin}}/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<script type="application/javascript" src="{{template_plugin}}/tpl/js/general.js?v{{ 'now'|date('U') }}"></script>
+<script type="application/javascript" src="{{template_plugin}}/tpl/js/weblauncher.js?v{{ 'now'|date('U') }}"></script>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 <?php
 return [
-    12 => [
+    1 => [
         [
             'name' => "Basic Pack",
             'cost' => 50,

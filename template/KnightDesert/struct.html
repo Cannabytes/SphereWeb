@@ -311,7 +311,7 @@
 
                             {% for thread in last_forum_thread(5) %}
                             <div class="theme">
-                                <a href="#" class="theme__link"></a>
+                                <a href="{{get_forum_link(thread)}}" class="theme__link"></a>
                                 <div class="theme__img"></div>
                                 <div class="theme__content">
                                     <div class="theme__title">

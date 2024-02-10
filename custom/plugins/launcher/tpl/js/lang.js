@@ -51,6 +51,8 @@ let phrase = {
         "its_already_loading": "Уже идет загрузка",
         "server_does_not_have_permission": "Сервер не имеет разрешения на использование лаунчера",
         "no_update_required": "Обновление не требуется",
+        "need_update" : "Необходимо обновление.",
+        "click_to_update" : "Нажмите для обновления.",
         "start_of_update": "Начало обновления",
         "counting_files_for_update": "Подсчет необходимых файлов для обновления",
         "update_required_for_files": "Необходимо обновить %d файлов",
@@ -83,6 +85,97 @@ let phrase = {
         "1 h": "1 ч.",
         "3 h": "3 ч.",
         "the_program_shuts_down_due_to_inactivity" : "Программа выключается из-за отсутствия активности.",
+        "launcher_tab_description_1": "О загрузчике Sphere-Launcher",
+        "launcher_description_1" : "Sphere Launcher - это программа для загрузки файлов игры, запуска. С большим набором\n" +
+            "                            функционала.<br>\n" +
+            "                            Главные задачи при разработки лаунчера были:\n" +
+            "                            <ol>\n" +
+            "                                <li>Максимальная скорость работы, выжать из ПК максимальную скорость загрузки,\n" +
+            "                                    обработки.\n" +
+            "                                </li>\n" +
+            "                                <li>Отказ от повторных загрузок файлов, если пользователь их загружал. Так как 87%\n" +
+            "                                    файлов в патчах, это файлы-дубликаты, которые раньше или постоянно игрок загружает.\n" +
+            "                                </li>\n" +
+            "                                <li>Создание универсального лаунчера, который можно использовать игроком для всех\n" +
+            "                                    серверов.\n" +
+            "                                </li>\n" +
+            "                                <li>Поддержка автологина в игру (для патчей, которые это подддерживают).</li>\n" +
+            "                                <li>Кастоматизация и простое изменение интерфейса, достаточно знать базово HTML / CSS.\n" +
+            "                                </li>\n" +
+            "                            </ol>\n" +
+            "                            Думаю в большей мере я справился с задачей, огромное сложности были преодолены и продолжаю\n" +
+            "                            улучшать, расширять возможности и решать выявленные ошибки. По этому лаунчер имеет функцию автообновления.",
+        "launcher_tab_description_2" : "Как добавить свой лаунчер",
+        "launcher_description_2" : "Для того чтоб сделать патч, необходимо выполнить следующие действия.<br>\n" +
+            "                            <ol>\n" +
+            "                                <li><a href=\"/admin/launcher/create/patch\">Сгенерировать патч</a>.</li>\n" +
+            "                                <li>Залить архивы себе на сайт / сервер.</li>\n" +
+            "                                <li>Разработчику лаунчера передать ссылки на файл с архивом и патч листом.</li>\n" +
+            "                                <li>Получить от разработчика <strong>tokenApi</strong>.</li>\n" +
+            "                                <li><a href=\"/admin/launcher/add\">Добавить информацию о Вашем лаунчере</a>.</li>\n" +
+            "                            </ol>",
+        "launcher_tab_description_3" : "Сколько можно создавать лаунчеров?",
+        "launcher_description_3" : " Вы можете создавать неограниченное кол-во лаунчеров под свой сервер.",
+
+        "launcher_tab_description_4" : "Что такое токен и зачем он нужен?",
+        "launcher_description_4" : "Токен это публичный ключ, одна из систем безопасности.<br>Каждый токен, имеет струю привязку к патчу Вашему серверу.",
+
+        "launcher_tab_description_5" : "Что будет если другой сервер будет использовать мой токен?",
+        "launcher_description_5" : "Если кто-то решит использовать Ваш токен для своего лаунчера, тогда игроки сервера-воришки скачают Ваш патч и зайдут на Ваш сервер.",
+
+        "launcher_tab_description_6" : "Как работает лаунчер?",
+        "launcher_description_6" : "Лаунчер работает через веб-браузер, это есть Ваш интерфейс лаунчера.<br>\n" +
+            "                                Посетителю на странице лаунчера, будет предложено скачать или запустить лаунчер.<br>\n" +
+            "                                Если игрок ранее загружал уже лаунчер, вне зависимости с какого источника (всегда\n" +
+            "                                загружается с основного репозитория), тогда он сможет просто запустить лаунчер из\n" +
+            "                                браузера. Игроку нет необходимости искать ярлык лаунчера или загружать повторно.<br>\n" +
+            "                                После запуска лаунчера, пользователь сможет воспользоваться всем функционалом",
+        "project" : "Проект",
+        "default" : "По умолчанию",
+        "link" : "Ссылка",
+        "note" : "Заметка",
+        "to go" : "Перейти",
+        "change" : "Изменить",
+        "remove" : "Удалить",
+        "create patch" : "Создать патч",
+        "add new launcher": "Добавить новый лаунчер",
+
+        "data launcher": "Лаунчера данные",
+        "server" : "Сервер",
+        "name" : "Название",
+        "autoload_info" : "Показывать аккаунты для автозагрузки?",
+        "autoload_info_desc" : "Настройка актуальная только если игровой клиент поддерживает функцию автовхода в игру (без авторизации).",
+        "yes" : "Да",
+        "no" : "Нет",
+        "launcher_note" : "Заметка о лаунчере",
+        "launcher_note_desc" : "Для чего хотите использовать этот лаунчер? - Это напоминание только для Вас.",
+        "tokenApi_desc" : "Ключ необходим для безопастности. Его можно получить после генерации патча.",
+        "button_start_game" : "Кнопка запуска игры",
+        "button_img" : "Изображение кнопки",
+        "button_name_ru" : "Название кнопки запуска на русском",
+        "button_name_en" : "Название кнопки запуска на английском",
+        "save" : "Сохранить",
+
+        "status" : "Статус",
+        "files uploaded" : "Загружено файлов",
+        "total files" : "Всего файлов",
+        "download speed" : "Скорость загрузки",
+        "loading time" : "Время загрузки",
+
+        "StatusWait" : "Ожидание действий",
+        "StatusScroll" : "Загрузка списка",
+        "StatusComparison" : "Сравнение файлов",
+        "StatusDownload" : "Загрузка файлов",
+        "StatusCompleted" : "Завершена загрузка",
+        "StatusStopped" : "Загрузка остановлена",
+        "StatusError" : "Произошла ошибка",
+
+        "process_update": "Идет обновление. Ожидайте.",
+        "no_update_needed" : "Обновление не требуется.",
+        "launcher version" : "Последняя версия лаунчера",
+        "launcher last version" : "Последняя версия лаунчера",
+
+
     },
     "en": {
         "registration_account": "Registration account",
@@ -136,7 +229,9 @@ let phrase = {
         "its_already_loading": "Loading is already in progress",
         "server_does_not_have_permission": "The server is not authorized to use the launcher",
         "no_update_required": "No update is needed",
-        "start_of_update": "Starting the update",
+        "need_update": "Update Required.",
+        "click_to_update": "Click to Update.",
+        "start_of_update": "Start of Update",
         "counting_files_for_update": "Counting the required update files",
         "update_required_for_files": "You need to update %d files",
         "forced_download_stopped": "Forced download stopped",
@@ -168,8 +263,64 @@ let phrase = {
         "1 h": "1 h.",
         "3 h": "3 h.",
         "the_program_shuts_down_due_to_inactivity" : "Sphere-Launcher отключается из-за отсутствия активности.",
+        "launcher_tab_description_1": "About the Sphere Launcher",
+        "launcher_description_1": "<p>Sphere Launcher is a program for downloading and launching game files with a wide range of functionality.<br>\nThe main goals in developing the launcher were:\n<ol>\n<li>Maximum speed of operation, extracting the maximum download and processing speed from the PC.</li>\n<li>Avoiding redundant file downloads if the user has already downloaded them, as 87% of files in patches are duplicate files that players have downloaded before or continuously.</li>\n<li>Creating a universal launcher that can be used by players for all servers.</li>\n<li>Support for auto-login in the game (for patches that support it).</li>\n<li>Customization and easy interface modification, requiring basic knowledge of HTML / CSS.</li>\n</ol>\nI believe I have largely succeeded in the task; significant challenges have been overcome, and I continue to improve, expand capabilities, and address identified issues. Therefore, the launcher has an auto-update feature.</p>",
+        "launcher_tab_description_2": "How to Add Your Launcher",
+        "launcher_description_2": "<p>To create a patch, follow these steps:<br>\n<ol>\n<li><a href=\"/admin/launcher/create/patch\">Generate a patch</a>.</li>\n<li>Upload the archives to your website/server.</li>\n<li>Provide the launcher developer with links to the archive file and the patch list.</li>\n<li>Get the <strong>tokenApi</strong> from the developer.</li>\n<li><a href=\"/admin/launcher/add\">Add information about your launcher</a>.</li>\n</ol></p>",
+        "launcher_tab_description_3": "How Many Launchers Can You Create?",
+        "launcher_description_3": "<p>You can create an unlimited number of launchers for your server.</p>",
+        "launcher_tab_description_4": "What is a Token and Why is it Needed?",
+        "launcher_description_4": "<p>A token is a public key, one of the security systems. Each token is tied to the patch for your server.</p>",
+        "launcher_tab_description_5": "What Happens If Another Server Uses My Token?",
+        "launcher_description_5": "<p>If someone decides to use your token for their launcher, then players of the thief server will download your patch and connect to your server.</p>",
+        "launcher_tab_description_6": "How Does the Launcher Work?",
+        "launcher_description_6": "<p>The launcher operates through a web browser, serving as your launcher's interface.<br>\nVisitors to the launcher page will be prompted to download or run the launcher.<br>\nIf a player has previously downloaded the launcher from any source (always downloaded from the main repository), they can simply run the launcher from the browser. There is no need for the player to search for the launcher shortcut or download it again.<br>\nAfter launching the launcher, the user can use all the functionality.</p>",
 
-    },
+        "project": "Project",
+        "default" : "Default",
+        "link" : "Link",
+        "note" : "Note",
+        "to go" : "To Go",
+        "change" : "Change",
+        "remove" : "Delete",
+        "create patch" : "Create patch",
+        "add new launcher": "Add new launcher",
+        "data launcher": "Launcher data",
+        "server" : "Server",
+        "name": "Name",
+        "autoload_info": "Show accounts for autoload?",
+        "autoload_info_desc": "This setting is relevant only if the game client supports the auto-login feature (without authorization).",
+        "yes": "Yes",
+        "no": "No",
+        "launcher_note": "Launcher Note",
+        "launcher_note_desc": "What do you want to use this launcher for? - This reminder is only for you.",
+        "tokenApi_desc": "The key is necessary for security. You can obtain it after generating the patch.",
+        "button_start_game": "Start Game Button",
+        "button_img": "Button Image",
+        "button_name_ru": "Button Name in Russian",
+        "button_name_en": "Button Name in English",
+        "save": "Save",
+
+        "status": "Status",
+        "files uploaded": "Files Uploaded",
+        "total files": "Total Files",
+        "download speed": "Download Speed",
+        "loading time": "Loading Time",
+
+        "StatusWait": "Waiting for Actions",
+        "StatusScroll": "Loading List",
+        "StatusComparison": "Comparing Files",
+        "StatusDownload": "Downloading Files",
+        "StatusCompleted": "Download Completed",
+        "StatusStopped": "Download Stopped",
+        "StatusError": "An Error Occurred",
+
+        "process_update": "Updating in progress. Please wait.",
+        "no_update_needed" : "No update is needed.",
+        "launcher version" : "Your launcher version",
+        "launcher last version" : "The latest version of the launcher",
+
+},
 
 };
 
