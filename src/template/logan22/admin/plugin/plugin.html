@@ -3,6 +3,7 @@
 {% block title %}Плагины{% endblock %}
 
 {% block content %}
+
 <div class="content">
     <div class="block block-rounded">
         <div class="block-header block-header-default">
@@ -18,7 +19,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for plugin in plugins %}
+                    {% for plugin in show_plugins() %}
                     <tr>
                         <td><a href="{{path(plugin['PLUGIN_ADMIN_PAGE'])}}" >{{plugin['PLUGIN_ADMIN_PAGE_NAME']}}</a></td>
                         <td>{{plugin['PLUGIN_DESCRIPTION']}}</td>

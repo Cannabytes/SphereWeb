@@ -573,24 +573,10 @@
     });
 
     var domain = window.location.hostname;
-    var tokenApi = "{{tokenApi}}";
-
-    try {
-        var base64String = "{{code}}";
-        var decodedData = atob(base64String);
-        var textDecoder = new TextDecoder('utf-8');
-        var json = textDecoder.decode(new Uint8Array([...decodedData].map(char => char.charCodeAt(0))));
-        var serverInfo = JSON.parse(json);
-
-    } catch (error) {
-        alert('Ошибка при парсинге JSON:', error);
-    }
-
-    var serverID =  serverInfo.id;
-    var chronicle = serverInfo.chronicle;
-    var name = serverInfo.name;
-    var application = serverInfo.application;
-    var enabledLauncher = Boolean(serverInfo.enable);
+    var tokenApi = `{{tokenApi}}`;
+    var serverID =  {{id}};
+    var chronicle = `{{chronicle}}`;
+    var application = JSON.parse(`{{application|raw}}`);
     var userLang = `{{userLang}}`;
 
 </script>

@@ -156,8 +156,6 @@
 
 
 
-
-
         </div>
 
 
@@ -226,8 +224,9 @@
     $("#startLauncher").click(function () {
         window.location.href = "sphere-launcher://open";
     });
-
+    var userLang = `{{userLang}}`;
 </script>
 
-<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/Cannabytes/SphereWeb/src/component/plugins/launcher/tpl/js/patch_create.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/lang.js?v={{PLUGIN['PLUGIN_VERSION']}}"></script>
+<script type="application/javascript" src="/src/component/plugins/launcher/tpl/js/patch_create.js?v{{ 'now'|date('U') }}"></script>
 {% endblock %}

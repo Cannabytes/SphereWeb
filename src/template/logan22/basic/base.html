@@ -339,10 +339,9 @@
                         {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_6") %}
                         {{ include(include_file) }}
                         {% endfor %}
-
                         {% for plugin in show_plugins() %}
                         {% if user_info('get_access_level') in plugin.PLUGIN_USER_PAGE_ACCESS %}
-                            {% if "MAIN_MENU" in plugin.PLUGIN_USER_PANEL_SHOW %}
+                        {% if "MAIN_MENU" in plugin.PLUGIN_USER_PANEL_SHOW %}
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{path(plugin.PLUGIN_USER_PAGE)}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                     <i class="nav-main-link-icon fa {{plugin.PLUGIN_USER_PAGE_ICON}}"></i>
@@ -352,7 +351,6 @@
                             {% endif %}
                         {% endif %}
                         {% endfor %}
-
 
 
                         {% if user_info('get_access_level') == "admin" %}

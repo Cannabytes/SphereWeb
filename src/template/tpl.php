@@ -58,7 +58,7 @@ class tpl {
     private static bool $ajaxLoad = false;
     private static bool $categoryCabinet = false;
     private static bool|array $get_buffs_registry = false;
-
+    private static ?bool $isPluginCustom = null;
     /**
      * @param        $var
      * @param string $value
@@ -72,6 +72,58 @@ class tpl {
         } else {
             self::$allTplVars[$var] = $value;
         }
+    }
+
+    private static function pluginLoadSetting($pl_dir){
+        $plugins = fileSys::dir_list($pl_dir);
+        foreach ($plugins as $key => $value) {
+            if (!file_exists(fileSys::dir_list("{$pl_dir}/$value/settings.php"))) {
+                unset($plugins[$key]);
+            }
+        }
+        foreach ($plugins as $key => $value) {
+            $setting = include fileSys::dir_list("{$pl_dir}/$value/settings.php");
+            if (isset($setting['PLUGIN_HIDE'])) {
+                if ($setting['PLUGIN_HIDE']) {
+                    unset($plugins[$key]);
+                    continue;
+                }
+            }
+            if (!isset($setting['INCLUDES'])) {
+                unset($plugins[$key]);
+                continue;
+            }
+            return $setting;
+        }
+        return false;
+    }
+
+    public static function pluginsAll(){
+        $plugins = [];
+        $pluginName = [];
+        $processPluginsDir = function ($dir) use (&$plugins, &$pluginName) {
+            $pluginsDir = fileSys::dir_list($dir);
+            foreach ($pluginsDir as $key => $value) {
+                if (in_array($value, $pluginName)) {
+                    continue;
+                }
+                $settingsPath = fileSys::get_dir("$dir/$value/settings.php");
+                if (!file_exists($settingsPath)) {
+                    unset($pluginsDir[$key]);
+                    continue;
+                }
+                $setting = include $settingsPath;
+                if (isset($setting['PLUGIN_HIDE']) && $setting['PLUGIN_HIDE']) {
+                    unset($pluginsDir[$key]);
+                    continue;
+                }
+                $pluginName[] = $value;
+                $plugins[$key] = $setting;
+            }
+        };
+        $processPluginsDir("custom/plugins/");
+        $processPluginsDir("src/component/plugins/");
+        return $plugins;
     }
 
     public static function template_design_route(): ?array {
@@ -118,9 +170,16 @@ class tpl {
             fileSys::get_dir(self::$templatePath),
         ]);
 
-        if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
-            $loader->addPath(fileSys::get_dir("/src/component/plugins"));
+        if(self::$isPluginCustom===true){
+            if (is_dir(fileSys::get_dir("/custom/plugins"))) {
+                $loader->addPath(fileSys::get_dir("/custom/plugins"));
+            }
+        }elseif (self::$isPluginCustom===false){
+            if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
+                $loader->addPath(fileSys::get_dir("/src/component/plugins"));
+            }
         }
+
         $arrTwigConfig = [];
         if (ENABLE_CACHE_TEMPLATE) {
             $arrTwigConfig['cache'] = fileSys::get_dir("/uploads/cache/template");
@@ -160,9 +219,7 @@ class tpl {
                             }
                         }
                     }
-
                 }
-
             }
         }
 
@@ -239,25 +296,10 @@ class tpl {
 
         $twig->addFunction(new TwigFunction('get_plugins_include', function ($includeName) {
             if (self::$pluginsLoad == null) {
-                $plugins = fileSys::dir_list("src/component/plugins");
-                foreach ($plugins as $key => $value) {
-                    if (!file_exists("src/component/plugins/$value/settings.php")) {
-                        unset($plugins[$key]);
-                    }
-                }
-                foreach ($plugins as $key => $value) {
-                    $setting = include "src/component/plugins/$value/settings.php";
-                    if (isset($setting['PLUGIN_HIDE'])) {
-                        if ($setting['PLUGIN_HIDE']) {
-                            unset($plugins[$key]);
-                            continue;
-                        }
-                    }
-                    if (!isset($setting['INCLUDES'])) {
-                        unset($plugins[$key]);
-                        continue;
-                    }
-                    self::$pluginsLoad = $setting;
+                if(self::$isPluginCustom){
+                    self::$pluginsLoad = self::pluginLoadSetting("custom/plugins");
+                }elseif(self::$isPluginCustom === false){
+                    self::$pluginsLoad = self::pluginLoadSetting("src/component/plugins");
                 }
             }
             $templates = [];
@@ -949,24 +991,9 @@ class tpl {
 
         //Список плагинов, которые показываем в меню пользователю
         $twig->addFunction(new TwigFunction("show_plugins", function () {
-            $plugins = fileSys::dir_list("src/component/plugins");
-            foreach ($plugins as $key => $value) {
-                if(!file_exists("src/component/plugins/$value/settings.php")){
-                    unset($plugins[$key]);
-                }
-            }
-            foreach ($plugins as $key => $value) {
-                $setting = include "src/component/plugins/$value/settings.php";
-                if (isset($setting['PLUGIN_HIDE'])){
-                    if ($setting['PLUGIN_HIDE']){
-                        unset($plugins[$key]);
-                        continue;
-                    }
-                }
-                $plugins[$key] = $setting;
-            }
-            return $plugins;
+            return self::pluginsAll();
         }));
+
 
         $twig->addFunction(new TwigFunction("get_plugin_config", function ($plugin_name, $config = "config.php") {
             $pluginsPath = "src/component/plugins";
@@ -1005,6 +1032,15 @@ class tpl {
 
 
     public static function displayPlugin($tplName){
+        $pluginDirName = basename(dirname(dirname($tplName)));
+        $plugin_type = Route::get_plugin_type($pluginDirName);
+        if($plugin_type == "component"){
+            self::$isPluginCustom = false;
+            self::addVar("template_plugin", fileSys::localdir("/src/component/plugins/{$pluginDirName}"));
+        }else if ("custom"){
+            self::$isPluginCustom = true;
+            self::addVar("template_plugin", fileSys::localdir("/custom/plugins/{$pluginDirName}"));
+        }
         $twig = self::preload($tplName);
         if (self::$ajaxLoad) {
             $template = $twig->load($tplName);

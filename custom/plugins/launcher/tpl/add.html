@@ -1,0 +1,193 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<form method="post" action="/admin/launcher/add" class="content">
+<div class="block block-rounded">
+
+
+    <div class="block-header block-header-default">
+        <h3 class="block-title">Лаунчера данные</h3>
+    </div>
+    <div class="block-content">
+        <div class="row">
+            <div class="col-lg-6 col-xl-6">
+                <!-- Form Labels on top - Default Style -->
+                <div class="mb-4">
+                    <label class="form-label" for="server">Сервер<label class="text-danger">*</label></label>
+                    <select class="form-select" id="server" name="server">
+                        {% for server in get_server_info() %}
+                        <option value="{{server.id}}">{{server.name}} x{{server.rate_exp}} - {{server.chronicle}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="autoload">Показывать аккаунты для автозагрузки?</label>
+                    <div class="fs-sm fw-medium text-muted mb-0">
+                        Настройка актуальная только если игровой клиент поддерживает функцию автовхода в игру (без
+                        авторизации).
+                    </div>
+
+                    <div class="col-2">
+                        <select class="form-select mb-4" id="autoload" name="autoload">
+                            <option value="off">Нет</option>
+                            <option value="on">Да</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-6">
+                <div class="mb-4">
+                    <label class="form-label" for="server">Название<label class="text-danger">*</label></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                          https://site.com/launcher/
+                        </span>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="test">
+                    </div>
+                </div>
+
+
+                <div class="mb-4">
+                    <label class="form-label" for="server">Заметка о лаунчере</label>
+                    <div class="fs-sm fw-medium text-muted mb-0">
+                        Для чего хотите использовать этот лаунчер? - Это напоминание только для Вас.
+                    </div>
+                    <input type="text" class="form-control" id="note" name="note" placeholder="">
+                </div>
+
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="tokenApi">Token API<label class="text-danger">*</label></label>
+                <div class="fs-sm fw-medium text-muted mb-0">
+                    Ключ необходим для безопастности. Его можно получить после генерации патча.
+                </div>
+                <input type="text" class="form-control" id="tokenApi" name="tokenApi" placeholder="Key">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row text-center">
+
+            <div class="col-6">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Кнопка запуска игры #1</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="mb-4">
+                            <label class="form-label" for="l2exe_1">l2exe</label>
+                            <input type="text" class="form-control" id="l2exe_1" value="/system/l2.exe"
+                                   name="application[l2exe][]" placeholder="/system/l2.exe">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="args_1">args</label>
+                            <input type="text" class="form-control" id="args_1" name="application[args][]" placeholder="">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="background_1">Изображение кнопки</label>
+                            <input type="text" class="form-control"
+                                   value="src/component/plugins/launcher/tpl/img/l2_button.jpg" id="background_1"
+                                   name="application[background][]" placeholder="background">
+                        </div>
+
+                        <hr>
+                        <div class="mb-4">
+                            <label class="form-label" for="button_start_ru_1">Название кнопки запуска на русском</label>
+                            <input type="text" class="form-control" id="button_start_ru_1" name="application[button_start_ru][]"
+                                   value="Запустить игру" placeholder="Запустить игру">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="button_start_en_1">Название кнопки запуска на
+                                английском</label>
+                            <input type="text" class="form-control" id="button_start_en_1" name="application[button_start_en][]"
+                                   value="Start Play" placeholder="Start Play">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Кнопка запуска игры #2 - (Если не нужна, оставьте пустым)</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="mb-4">
+                            <label class="form-label" for="l2exe_2">l2exe</label>
+                            <input type="text" class="form-control" id="l2exe_2" name="application[l2exe][]"
+                                   placeholder="/system/l2.exe">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="args_2">args</label>
+                            <input type="text" class="form-control" id="args_2" name="application[args][]" placeholder="args">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="background">Изображение кнопки</label>
+                            <input type="text" class="form-control" id="background" value="src/component/plugins/launcher/tpl/img/l2_button.jpg" name="application[background][]" placeholder="background">
+                        </div>
+                        <hr>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="button_start_ru">Название кнопки запуска на русском</label>
+                            <input type="text" class="form-control" id="button_start_ru" name="application[button_start_ru][]" value="Запустить игру" placeholder="Запустить игру">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="button_start_en">Название кнопки запуска на
+                                английском</label>
+                            <input type="text" class="form-control" id="button_start_en" name="application[button_start_en][]"
+                                   value="Start Play" placeholder="Start Play">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <div class="row text-center">
+        <div class="row mb-4">
+            <div class="col-sm-12 ms-auto">
+                <button type="submit" id="set_config" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+
+    $(document).ready(function() {
+        $('#name').on('input', function() {
+            // Заменяем пробелы на подчеркивания
+            $(this).val(function(_, value) {
+                return value.replace(/[^a-zA-Z0-9]+/g, '_');
+            });
+
+            var maxLength = 30;
+            var trimmedValue = $(this).val().substring(0, maxLength);
+            $(this).val(trimmedValue);
+        });
+    });
+
+    $(document).on("click", "#set_config", function () {
+        var formData = {};
+        $('.content :input').each(function() {
+            var element = $(this);
+            var name = element.attr('name');
+            var value = element.val();
+            if (name) {
+                formData[name] = value;
+            }
+        });
+
+    })
+
+
+</script>
+{% endblock %}

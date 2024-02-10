@@ -40,7 +40,7 @@ const wsclient = {
 function reconnectionLauncher() {
     const delay = 1000
 
-    fetch('http://localhost:17580/ajax', { method: 'POST', body: JSON.stringify({ command: 'is_connect' }) })
+    fetch('http://127.0.0.1:17580/ajax', { method: 'POST', body: JSON.stringify({ command: 'is_connect' }) })
         .then((response) => {
             response.json().then((data) => {
                 wsclient.connect().then(() => {

@@ -70,7 +70,6 @@ function parsePathToLinks(path) {
 
 function showButtonStartGame() {
     let col;
-
     switch (application.length) {
         case 2:
             col = 6;
@@ -87,8 +86,8 @@ function showButtonStartGame() {
     }
     if (Array.isArray(application)) {
         application.forEach((element) => {
-            const name = element.name[userLang] ?? "None";
-            const desc = element.description && element.description[userLang] ? element.description[userLang] : "";
+            const name = element.name ?? "None";
+            const desc = element.description ?? "";
             const html = ` 
                   <div class="startL2 col-sm-6 col-xl-${col}" data-exe="${element.l2exe}" data-args="${element.args}">
                     <a class="block block-rounded block-transparent bg-image d-flex align-items-stretch h-100 mb-0" href="javascript:void(0)" style="background-image: url('/${element.background}');">

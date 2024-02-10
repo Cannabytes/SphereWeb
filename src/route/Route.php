@@ -15,9 +15,22 @@ namespace Ofey\Logan22\route;
 use Bramus\Router\Router;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\template\tpl;
-use ReflectionMethod;
 
 class Route extends Router {
+
+    private static array $pluginRegister;
+
+    //Возваращет
+    static public function get_plugin_type($pluginName) {
+        foreach (self::$pluginRegister as $pluginType => $pluginArray) {
+            foreach ($pluginArray as $name) {
+                if ($pluginName == $name) {
+                    return $pluginType;
+                }
+            }
+        }
+        return false;
+    }
 
     function __addingPlugin() {
         $dir = fileSys::get_dir("src/component/donate/");
@@ -38,26 +51,26 @@ class Route extends Router {
             }
         }
 
+        $pluginCustom = fileSys::dir_list("custom/plugins/");
+        $pluginsDir = fileSys::dir_list("src/component/plugins/");
+
         $dir = fileSys::get_dir("src/component/plugins/");
-        if (is_dir($dir)) {
-            $plugins = fileSys::file_list($dir);
-            foreach ($plugins as $plugin) {
-                if (file_exists($dir . $plugin . "/route.php")) {
-                    include_once $dir . $plugin . "/route.php";
-                    foreach ($routes as $route) {
-                        include_once $dir . $plugin . "/" . $route['file'];
-                        $method = "POST";
-                        if ($route['method'] == "GET") {
-                            $method = "GET";
-                        }
-                        $this->$method($route['pattern'], function (...$var) use ($route) {
-                            $route['call'](...$var);
-                        });
-                    }
+        foreach($pluginsDir AS $i => $plugin){
+            if (in_array($plugin, $pluginCustom)) {
+                if (isset($pluginsDir[$i])) {
+                    unset($pluginsDir[$i]);
                 }
+                continue;
             }
+            self::$pluginRegister['component'][] = $plugin;
+            list($route, $method) = $this->addPluginReg($dir, $plugin, $routes);
         }
 
+        $dir = fileSys::get_dir("custom/plugins/");
+        foreach($pluginCustom AS $plugin){
+            self::$pluginRegister['custom'][] = $plugin;
+            list($route, $method) = $this->addPluginReg($dir, $plugin, $routes);
+        }
     }
 
     public function __construct() {
@@ -118,5 +131,28 @@ class Route extends Router {
             }
         }
         return 'No_alias';
+    }
+
+    /**
+     * @param string $dir
+     * @param mixed $plugin
+     * @param $routes
+     * @return array
+     */
+    private function addPluginReg(string $dir, mixed $plugin, $routes): array {
+        if (file_exists($dir . $plugin . "/route.php")) {
+            include_once $dir . $plugin . "/route.php";
+            foreach ($routes as $route) {
+                include_once $dir . $plugin . "/" . $route['file'];
+                $method = "POST";
+                if ($route['method'] == "GET") {
+                    $method = "GET";
+                }
+                $this->$method($route['pattern'], function (...$var) use ($route) {
+                    $route['call'](...$var);
+                });
+            }
+        }
+        return array($route, $method);
     }
 }
