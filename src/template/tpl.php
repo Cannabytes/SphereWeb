@@ -59,6 +59,8 @@ class tpl {
     private static bool $categoryCabinet = false;
     private static bool|array $get_buffs_registry = false;
     private static ?bool $isPluginCustom = null;
+    private static array $pluginNames = [];
+
     /**
      * @param        $var
      * @param string $value
@@ -98,32 +100,37 @@ class tpl {
         return false;
     }
 
+    private static $pluginsAllCustomAndComponents = [];
     public static function pluginsAll(){
-        $plugins = [];
-        $pluginName = [];
-        $processPluginsDir = function ($dir) use (&$plugins, &$pluginName) {
-            $pluginsDir = fileSys::dir_list($dir);
-            foreach ($pluginsDir as $key => $value) {
-                if (in_array($value, $pluginName)) {
-                    continue;
-                }
-                $settingsPath = fileSys::get_dir("$dir/$value/settings.php");
-                if (!file_exists($settingsPath)) {
-                    unset($pluginsDir[$key]);
-                    continue;
-                }
-                $setting = include $settingsPath;
-                if (isset($setting['PLUGIN_HIDE']) && $setting['PLUGIN_HIDE']) {
-                    unset($pluginsDir[$key]);
-                    continue;
-                }
-                $pluginName[] = $value;
-                $plugins[$key] = $setting;
+        if(empty(self::$pluginsAllCustomAndComponents)){
+            $pluginsAllCustom= self::processPluginsDir("custom/plugins/");
+            $pluginsAllComponents = self::processPluginsDir("src/component/plugins/");
+            self::$pluginsAllCustomAndComponents = array_merge($pluginsAllCustom, $pluginsAllComponents);
+        }
+        return self::$pluginsAllCustomAndComponents;
+    }
+
+    private static function processPluginsDir($dir): array {
+        $pluginsAll = [];
+        $pluginsDir = fileSys::dir_list($dir);
+        foreach ($pluginsDir as $key => $value) {
+            if (in_array($value, self::$pluginNames)) {
+                continue;
             }
-        };
-        $processPluginsDir("custom/plugins/");
-        $processPluginsDir("src/component/plugins/");
-        return $plugins;
+            $settingsPath = fileSys::get_dir("$dir/$value/settings.php");
+            if (!file_exists($settingsPath)) {
+                unset($pluginsDir[$key]);
+                continue;
+            }
+            $setting = include $settingsPath;
+            if (isset($setting['PLUGIN_HIDE']) && $setting['PLUGIN_HIDE']) {
+                unset($pluginsDir[$key]);
+                continue;
+            }
+            self::$pluginNames[] = $value;
+            $pluginsAll[$key] = $setting;
+        }
+        return $pluginsAll;
     }
 
     public static function template_design_route(): ?array {
