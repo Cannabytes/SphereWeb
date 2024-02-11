@@ -53,9 +53,9 @@ class character {
             }
             foreach ($players as $player) {
                 if($full_info){
-                    $accounts[$login][] = $player;
-                }else{
                     $accounts[$login][$player["player_name"]] = $player;
+                }else{
+                    $accounts[$login][] = $player["player_name"];
                 }
             }
         }
