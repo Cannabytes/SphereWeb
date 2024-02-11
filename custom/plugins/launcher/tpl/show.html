@@ -97,7 +97,7 @@
                     {% for player in accounts %}
                     <div class="col-md-2">
                         <div class="form-check form-block">
-                            <input class="form-check-input launcherAccountsPlayer" type="radio" value="{{account_name}}" id="{{account_name}}_{{player.player_name}}" name="player_selected">
+                            <input class="form-check-input launcherAccountsPlayer" data-login="{{account_name}}" data-password="{{player.password}}" data-player="{{player.player_name}}" type="radio" value="{{account_name}}" id="{{account_name}}_{{player.player_name}}" name="player_selected">
                             <label class="form-check-label" for="{{account_name}}_{{player.player_name}}">
 								<span class="d-flex align-items-center">
 								 <img class="img-avatar img-avatar48 {% if player.online %}img-avatar-thumb-online{% else %}img-avatar-thumb-offline{% endif %}"
@@ -131,7 +131,7 @@
     <div class="row">
         <div class="col-xl-12 align-items-stretch">
             <div class="block block-rounded block-themed block-mode-loading-dark block-transparent bg-image w-100"
-                 style="background-image: url('/custom/plugins/launcher/tpl/img/loadlineage.jpg');">
+                 style="background-image: url('/custom/plugins/launcher/tpl/img/loadlineage.webp');">
                 <div class="block-header bg-black-50">
                     <h1 class="h1 fw-extrabold mb-1" id="processRunLevel">0<small class="text-white">%</small></h1>
 
