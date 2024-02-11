@@ -110,7 +110,7 @@ class tpl {
         return self::$pluginsAllCustomAndComponents;
     }
 
-    private static function processPluginsDir($dir): array {
+    private static function processPluginsDir($dir, $isCustom = false): array {
         $pluginsAll = [];
         $pluginsDir = fileSys::dir_list($dir);
         foreach ($pluginsDir as $key => $value) {
@@ -126,6 +126,11 @@ class tpl {
             if (isset($setting['PLUGIN_HIDE']) && $setting['PLUGIN_HIDE']) {
                 unset($pluginsDir[$key]);
                 continue;
+            }
+            if($isCustom){
+                $setting['isCustom'] = true;
+            }else{
+                $setting['isCustom'] = false;
             }
             self::$pluginNames[] = $value;
             $pluginsAll[$key] = $setting;
@@ -177,14 +182,11 @@ class tpl {
             fileSys::get_dir(self::$templatePath),
         ]);
 
-        if(self::$isPluginCustom===true){
-            if (is_dir(fileSys::get_dir("/custom/plugins"))) {
-                $loader->addPath(fileSys::get_dir("/custom/plugins"));
-            }
-        }elseif (self::$isPluginCustom===false){
-            if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
-                $loader->addPath(fileSys::get_dir("/src/component/plugins"));
-            }
+        if (is_dir(fileSys::get_dir("/custom/plugins"))) {
+            $loader->addPath(fileSys::get_dir("/custom/plugins"));
+        }
+        if (is_dir(fileSys::get_dir("/src/component/plugins"))) {
+            $loader->addPath(fileSys::get_dir("/src/component/plugins"));
         }
 
         $arrTwigConfig = [];
@@ -302,24 +304,23 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('get_plugins_include', function ($includeName) {
-            if (self::$pluginsLoad == null) {
-                if(self::$isPluginCustom){
-                    self::$pluginsLoad = self::pluginLoadSetting("custom/plugins");
-                }elseif(self::$isPluginCustom === false){
-                    self::$pluginsLoad = self::pluginLoadSetting("src/component/plugins");
-                }
+            if(empty(self::$pluginsAllCustomAndComponents)){
+                $pluginsAllCustom = self::processPluginsDir("custom/plugins/");
+                $pluginsAllComponents = self::processPluginsDir("src/component/plugins/");
+                self::$pluginsAllCustomAndComponents = array_merge($pluginsAllCustom, $pluginsAllComponents);
             }
             $templates = [];
-            if(isset(self::$pluginsLoad['INCLUDES']) && is_array(self::$pluginsLoad['INCLUDES'])) {
-             foreach (self::$pluginsLoad['INCLUDES'] as $key => $value) {
-              if($key == $includeName){
-                 $templates[] = $value;
-              }
+            foreach (self::$pluginsAllCustomAndComponents as $key => $plugin) {
+                if (isset($plugin['INCLUDES'])) {
+                    foreach ($plugin['INCLUDES'] as $name => $file) {
+                        if ($name == $includeName) {
+                           $templates[] = $file;
+                        }
+                    }
+                }
             }
-           }
-        return $templates;
+           return $templates;
         }));
-
 
         $twig->addFunction(new TwigFunction('path', function ($link = "/") {
             $link = sprintf("%s/%s", fileSys::getSubDir(), $link);
@@ -1042,10 +1043,8 @@ class tpl {
         $pluginDirName = basename(dirname(dirname($tplName)));
         $plugin_type = Route::get_plugin_type($pluginDirName);
         if($plugin_type == "component"){
-            self::$isPluginCustom = false;
             self::addVar("template_plugin", fileSys::localdir("/src/component/plugins/{$pluginDirName}"));
-        }else if ("custom"){
-            self::$isPluginCustom = true;
+        }elseif ("custom"){
             self::addVar("template_plugin", fileSys::localdir("/custom/plugins/{$pluginDirName}"));
         }
         $twig = self::preload($tplName);

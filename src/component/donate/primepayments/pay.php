@@ -2,6 +2,8 @@
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\model\admin\userlog;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
 class primepayments {
@@ -105,9 +107,10 @@ class primepayments {
             die('wrong sign');
         $user_id = $_POST['innerID'];
         //Зачисление на пользовательский аккаунт средств
-        $amount = \Ofey\Logan22\model\donate\donate::currency($_POST['sum'], $_POST['currency']);
-        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);
+        $amount = donate::currency($_POST['sum'], $_POST['currency']);
+        userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);
         auth::change_donate_point($user_id, $amount);
+        donate::AddDonateItemBonus($amount);
         echo 'YES';
     }
 

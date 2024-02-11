@@ -17,6 +17,7 @@ use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\userlog;
+use Ofey\Logan22\model\bonus\bonus;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
@@ -374,6 +375,43 @@ class donate {
             }
         }
         return $matchingKey;
+    }
+
+
+
+    /**
+     * @return false
+     * Выдача бонуса предметом, за N сумму доната единоразвым платежем
+     */
+    public static function AddDonateItemBonus($sphereCoin): bool {
+        $item = false;
+        $donateConfig = include fileSys::localdir('src/config/donate.php');
+        if(!$donateConfig['DONATE_BONUS_ITEM_ENABLE']){
+            return $item;
+        }
+        $donateBonusList = $donateConfig['donate_bonus_list'];
+        foreach ($donateBonusList as $bonus) {
+            if ($sphereCoin >= $bonus['sc']) {
+                $item = $bonus;
+            }
+        }
+        if(!$item){
+            return false;
+        }
+        foreach($item['items'] AS $bonus){
+            $item_id = $bonus['id'];
+            $count = $bonus['count'] ?? 1;
+            $enchant = $bonus['enchant'] ?? 0;
+            userlog::add("add_to_inventory", "log_bonus_donate", [$enchant, $item_id, $count] );
+            bonus::addToInventory(
+                auth::get_default_server(),
+                $item_id,
+                $count,
+                $enchant,
+                "add_item_donate_bonus"
+            );
+        }
+        return true;
     }
 
 

@@ -895,5 +895,7 @@ return [
     568 => "Miscellaneous",
     569 => "Sets",
     570 => "Your discount on the purchase of goods",
+    "add_item_donate_bonus" => "The item was given as a donation bonus",
+    "log_bonus_donate" => "Received +%d ID: %d (%d) bonus for donation",
 
 ];

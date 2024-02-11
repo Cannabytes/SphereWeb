@@ -57,7 +57,7 @@ return [
      */
 
     //Включить накопительную систему скидок ?
-    'DONATE_DISCOUNT_TYPE_STORAGE' => true,
+    'DONATE_DISCOUNT_TYPE_STORAGE' => false,
     'discount' => [
         'table' => [
             //от 500 ДБ дает 3% бонус
@@ -87,7 +87,7 @@ return [
      * получает бонус 250 Донат Коинов.
      */
     // Включить/Выключить разовый бонус пополнения
-    'ONE_TIME_REPLENISHMENT_BONUS_ENABLE' => true,
+    'ONE_TIME_REPLENISHMENT_BONUS_ENABLE' => false,
     'one_time_discount' => [
         'table' => [
             //Сумма => процент единоразового бонуса
@@ -112,7 +112,7 @@ return [
      * Система скидок на покупку товара (предмета) в магазине
      */
     //Включить систему скидок на товары ?
-    'DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE' => true,
+    'DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE' => false,
 
     // Таблица скидок на товары
     // И даем ему скидку на покупку исходя из общей суммы Донат Бонусов.
@@ -141,7 +141,7 @@ return [
      * Если пользователь покупает больше N кол-во шт., тогда он получает скидку на покупку.
      */
     //Включить разовые скидки ?
-    'DONATE_DISCOUNT_COUNT_ENABLE' => true,
+    'DONATE_DISCOUNT_COUNT_ENABLE' => false,
     'discount_count_product' => [
         //Если покупаеют 5 штук и больше, тогда скидка 3%
         'table' => [
@@ -158,6 +158,60 @@ return [
         ],
     ],
 
+    //Вкл/Выкл выдачи бонусов за донат
+    'DONATE_BONUS_ITEM_ENABLE' => false,
+    'donate_bonus_list' => [
+
+        [
+            //Если пользователь единоразово задонил свыше 500 SphereCoin
+            'sc' => 500, // Кол-во SphereCoin, которое было зачислено
+            'items' => [
+                [
+                    'id' => 57,  // Выдаваемый ID предмета
+                    'count' => 1000, // Кол-во
+                    'enchant' => 0, // Уровень заточки
+                ],
+                [
+                    'id' => 17,
+                    'count' => 150,
+                    'enchant' => 0,
+                ],
+            ],
+        ],
+
+        [
+            'sc' => 1000,
+            'items' => [
+                [
+                    'id' => 57,
+                    'count' => 2500,
+                    'enchant' => 0,
+                ],
+                [
+                    'id' => 17,
+                    'count' => 400,
+                    'enchant' => 0,
+                ],
+            ],
+        ],
+
+        [
+            'sc' => 3000,
+            'items' => [
+                [
+                    'id' => 57,
+                    'count' => 5000,
+                    'enchant' => 0,
+                ],
+                [
+                    'id' => 17,
+                    'count' => 800,
+                    'enchant' => 0,
+                ],
+            ],
+        ],
+
+    ],
 
 ];
 

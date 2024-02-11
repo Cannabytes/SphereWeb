@@ -2,6 +2,7 @@
 
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
@@ -110,9 +111,10 @@ class yoomoney {
 //            file_put_contents($logFile, $logData, FILE_APPEND | LOCK_EX);
             exit();
         }
-        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$withdraw_amount, $this->currency_default], json_encode($_REQUEST) . PHP_EOL);
+        userlog::add("user_donate", 545, [$withdraw_amount, $this->currency_default], json_encode($_REQUEST) . PHP_EOL);
         $amount = donate::currency($withdraw_amount, $this->currency_default);
         auth::change_donate_point($user_id, $amount);
+        donate::AddDonateItemBonus($amount);
         exit();
     }
 }
