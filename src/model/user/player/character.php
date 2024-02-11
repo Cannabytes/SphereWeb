@@ -32,7 +32,7 @@ class character {
 
 
     //возвращает всех персонажей пользователя
-    public static function get_account_players(): ?array {
+    public static function get_account_players($full_info = false): ?array {
         $get_server_info = server::get_server_info();
         if (!$get_server_info) {
             return null;
@@ -52,7 +52,11 @@ class character {
                 return null;
             }
             foreach ($players as $player) {
-                $accounts[$login][] = $player["player_name"];
+                if($full_info){
+                    $accounts[$login][] = $player;
+                }else{
+                    $accounts[$login][$player["player_name"]] = $player;
+                }
             }
         }
         if (empty($accounts)) {

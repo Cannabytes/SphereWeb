@@ -100,6 +100,7 @@ class launcher {
             $app['name'] = $button_name;
         }
 
+        tpl::addVar("autoload", $launcherInfo['data']['autoload']);
         tpl::addVar("id", $launcherInfo['id']);
         tpl::addVar("chronicle", $launcherInfo['data']['chronicle']);
         tpl::addVar("application", json_encode($launcherInfo['data']['application'], JSON_UNESCAPED_UNICODE));

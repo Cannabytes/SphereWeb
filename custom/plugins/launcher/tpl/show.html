@@ -24,9 +24,9 @@
                     <p>{{phrase("launcher_info")}}</p>
 
                     <p>{{phrase("launcher_info_2")}}
-                    <button id="startLauncher" type="button" class="btn btn-sm btn-secondary me-1 mb-1 text-success">
-                        {{phrase("start_launcher")}}
-                    </button>
+                        <button id="startLauncher" type="button" class="btn btn-sm btn-secondary me-1 mb-1 text-success">
+                            {{phrase("start_launcher")}}
+                        </button>
                     </p>
                     <p>{{phrase("if not launcher")}}
                         <br>
@@ -58,7 +58,7 @@
                 <a href="#" data-bs-toggle="modal" data-bs-target="#launcherAbout">{{phrase("dont have a launcher?")}}</a>
                 <a type="button" class="btn btn-secondary me-1 mb-1 text-success launcherLink">
                     {{phrase("launcher_download")}}
-            </a>
+                </a>
             </div>
         </div>
     </div>
@@ -72,40 +72,60 @@
             <button type="button" class="btn btn-success btn-sm launcherUpdateStart">Обновить лаунчер</button>
         </div>
     </div>
-    {% if (show_accounts) %}
-    <div class="block block-rounded">
-        <div class="block-header block-header-default">
-            <h3 class="block-title">Автовход</h3>
-            <div class="block-options">
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
-             </div>
-        </div>
-        <div class="block-content">
-            {% for account_name, accounts in accounts_list %}
-            <div>{{account_name}}</div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="row items-push text-center">
-                        {% for player in accounts.players %}
-                        <div class="col-md-3">
-                            <div class="form-check form-block">
-                                <input data-login="{{account_name}}" data-player="{{player}}" data-password="{{accounts.password}}" type="radio" class="form-check-input launcherAccountsPlayer" id="example-radio-block1_{{account_name}}_{{player}}"
-                                       name="example-radio-block">
-                                <label class="form-check-label" for="example-radio-block1_{{account_name}}_{{player}}">
-                                    <span class="d-block fw-normal text-center my-0">
-                                      <span class="fs-4 fw-semibold">{{player}}</span>
-                                    </span>
-                                </label>
-                            </div>
+
+
+    {% if (autoload) %}
+
+    <div class="block block-rounded overflow-hidden">
+        <ul class="nav nav-tabs nav-tabs-block" role="tablist">
+
+            {% set acc_num = 1 %}
+            {% for account_name, accounts in get_account_players() %}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link {% if acc_num == 1 %}active{% endif %}" id="show_player_account_{{account_name}}-tab" data-bs-toggle="tab" data-bs-target="#show_player_account_{{account_name}}" role="tab" aria-controls="show_player_account_{{account_name}}" aria-selected="true">{{account_name}}</button>
+            </li>
+            {% set acc_num = acc_num+1 %}
+            {% endfor %}
+        </ul>
+
+        <div class="block-content tab-content overflow-hidden">
+            {% set acc_num = 1 %}
+            {% for account_name, accounts in get_account_players(true) %}
+
+            <div class="tab-pane fade {% if acc_num == 1 %}active show{% endif %}" id="show_player_account_{{account_name}}" role="tabpanel" aria-labelledby="show_player_account_{{account_name}}" tabindex="0">
+                <div class="row items-push">
+                    {% for player in accounts %}
+                    <div class="col-md-2">
+                        <div class="form-check form-block">
+                            <input class="form-check-input launcherAccountsPlayer" type="radio" value="{{account_name}}" id="{{account_name}}_{{player.player_name}}" name="player_selected">
+                            <label class="form-check-label" for="{{account_name}}_{{player.player_name}}">
+								<span class="d-flex align-items-center">
+								 <img class="img-avatar img-avatar48 {% if player.online %}img-avatar-thumb-online{% else %}img-avatar-thumb-offline{% endif %}"
+                                      src="{{ template('/assets/images/race/' ~ sex(player.sex) ~ '/' ~ get_class_race(player.class_id)) ~ '.jpg' }}"
+                                      alt="">
+								  <span class="ms-2">
+									<span class="fw-bold {% if player.online %}text-success{% endif %}">{{clan_icon(player)|raw}} {{player.player_name}}</span>
+									<span class="d-block fs-sm text-muted">{{get_class(player.class_id)}}</span>
+									<span class="d-block fs-sm text-muted">Lv: {{player.level}}</span>
+								  </span>
+								</span>
+                            </label>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+            {% set acc_num = acc_num+1 %}
             {% endfor %}
         </div>
+
     </div>
+
     {% endif %}
+
+
+
+
     <div class="row" id="contentMain"></div>
     <hr>
     <div class="row">
@@ -399,7 +419,7 @@
 
                                 <div class="block-content tab-pane" id="btabs-vertical-exit" role="tabpanel" aria-labelledby="btabs-vertical-exit-tab" tabindex="0">
                                     <p class="fs-sm" data-phrase="autooff_launcher_desc">
-                                       Автоматически выключение лаунчера в режиме простоя.
+                                        Автоматически выключение лаунчера в режиме простоя.
                                     </p>
 
                                     <div class="row mb-4">

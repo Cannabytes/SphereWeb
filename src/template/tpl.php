@@ -353,8 +353,8 @@ class tpl {
             return google::get_client_key();
         }));
 
-        $twig->addFunction(new TwigFunction('get_account_players', function () {
-            return character::get_account_players();
+        $twig->addFunction(new TwigFunction('get_account_players', function ($isPlayersData = false) {
+            return character::get_account_players($isPlayersData);
         }));
 
 
