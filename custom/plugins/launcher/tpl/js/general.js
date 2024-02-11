@@ -419,4 +419,14 @@ $(".isCheckUpdate").on( "click", function () {
     sendToLauncher(obj)
 });
 
+let lastClickedRadio = null;
+$(document).on("click", ".launcherAccountsPlayer", function () {
+    const currentRadio = $(this);
+    if (lastClickedRadio && lastClickedRadio.is(currentRadio) && currentRadio.prop('checked')) {
+        currentRadio.prop('checked', false);
+        lastClickedRadio = null;
+    } else {
+        lastClickedRadio = currentRadio;
+    }
+});
 

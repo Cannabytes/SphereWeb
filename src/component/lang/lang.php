@@ -63,8 +63,11 @@ class lang {
     //В функцию load_package_plugin должен передаваться только аргуменет __DIR__
     public static function load_package_plugin($__DIR__): void {
         $lang = $_SESSION['lang'] ?? 'ru';
-        $new_lang_array = require "{$__DIR__}/lang/{$lang}.php";
-        self::$lang_array = array_replace_recursive(self::$lang_array, $new_lang_array);
+        $fileLang = "{$__DIR__}/lang/{$lang}.php";
+        if(file_exists($fileLang)){
+            $new_lang_array = require $fileLang;
+            self::$lang_array = array_replace_recursive(self::$lang_array, $new_lang_array);
+        }
     }
 
     /**

@@ -3,7 +3,6 @@
 namespace launcher;
 
 use Ofey\Logan22\component\alert\board;
-use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\controller\page\error;
@@ -18,10 +17,6 @@ use Ofey\Logan22\template\tpl;
 
 class launcher {
 
-    public function __construct(){
-         lang::load_package_plugin(__DIR__);
-    }
-
     public function show($launcher_name = null) {
         if (!server::get_server_info()) {
             tpl::display("page/error.html");
@@ -32,7 +27,7 @@ class launcher {
             $getDefault = sql::getRow("SELECT * FROM `server_data` WHERE `key` = ?;", ["sphere-launcher-default-server_{$server_id}"]);
             if ($getDefault) {
                 $launcherInfo = sql::getRow("SELECT * FROM `server_data` WHERE `id` = ?;", [$getDefault['val']]);
-                if($launcherInfo){
+                if ($launcherInfo) {
                     $val = json_decode($launcherInfo['val'], true);
                     unset($launcherInfo['val']);
                     $launcherInfo['data'] = $val;
@@ -140,7 +135,7 @@ class launcher {
             }
         } else {
             $data['autoload'] = false;
-        };
+        }
 
         if ($server = server::get_server_info($server_id)) {
             $data['chronicle'] = $server['chronicle'];
@@ -155,7 +150,7 @@ class launcher {
         $_json = json_encode($data, JSON_UNESCAPED_UNICODE);
         sql::run("INSERT INTO `server_data` (`key`, `val`, `server_id`) VALUES (?, ?, ?)", ['sphere-launcher', $_json, $server_id]);
         $lastId = sql::lastInsertId();
-        if(!sql::getRows("SELECT 1 FROM `server_data` WHERE `key` = ?;", ["sphere-launcher-default-server_{$server_id}"])){
+        if (!sql::getRows("SELECT 1 FROM `server_data` WHERE `key` = ?;", ["sphere-launcher-default-server_{$server_id}"])) {
             sql::run("INSERT INTO `server_data` (`key`, `val`, `server_id`) VALUES (?, ?, ?);", ["sphere-launcher-default-server_{$server_id}", $lastId, $server_id]);
         }
 
@@ -171,7 +166,7 @@ class launcher {
         $countL2exe = count($data['application']['l2exe']);
         $arr = [];
         for ($i = 0; $i < $countL2exe; ++$i) {
-            if(empty($data['application']['l2exe'][$i])){
+            if (empty($data['application']['l2exe'][$i])) {
                 continue;
             }
             $arr[] = [
@@ -185,7 +180,7 @@ class launcher {
         $data['application'] = $arr;
     }
 
-    function desc() {
+    public function desc() {
         validation::user_protection("admin");
         $launchers = sql::getRows("SELECT * FROM `server_data` WHERE `key` = ?", ['sphere-launcher']);
         foreach ($launchers as &$data) {
