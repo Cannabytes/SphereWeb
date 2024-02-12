@@ -91,6 +91,9 @@ class pay {
             }
 
             foreach ($products as $key => $product) {
+                if(!isset($product['type'])){
+                    $product['type'] = "etcitem";
+                }
                 if($product['is_pack'] AND $type !== 'pack' ){
                     unset($products[$key]);
                 }
