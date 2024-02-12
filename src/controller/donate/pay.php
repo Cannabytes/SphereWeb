@@ -124,6 +124,14 @@ class pay {
                 }
             }
         }
+        $donateInfo = require 'src/config/donate.php';
+        $point = 0;
+        if(auth::get_is_auth()){
+            if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
+                $point = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
+            }
+        }
+        tpl::addVar("procentProductDiscount", $point);
         tpl::addVar("products", $products);
         tpl::display("/donate/shop.html");
     }
