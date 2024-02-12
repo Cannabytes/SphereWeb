@@ -114,7 +114,7 @@ class yoomoney {
         userlog::add("user_donate", 545, [$withdraw_amount, $this->currency_default], json_encode($_REQUEST) . PHP_EOL);
         $amount = donate::currency($withdraw_amount, $this->currency_default);
         auth::change_donate_point($user_id, $amount);
-        donate::AddDonateItemBonus($amount);
+        donate::AddDonateItemBonus($user_id, $amount);
         exit();
     }
 }

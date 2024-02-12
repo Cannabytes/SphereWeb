@@ -110,7 +110,7 @@ class primepayments {
         $amount = donate::currency($_POST['sum'], $_POST['currency']);
         userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);
         auth::change_donate_point($user_id, $amount);
-        donate::AddDonateItemBonus($amount);
+        donate::AddDonateItemBonus($user_id, $amount);
         echo 'YES';
     }
 

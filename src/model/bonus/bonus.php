@@ -95,7 +95,7 @@ class bonus {
             board::notice(false, lang::get_phrase("code_dead"));
         }
 
-        self::addToInventory($bonus['server_id'], $bonus['item_id'], $bonus['count'], $bonus['enchant'], $bonus['phrase']);
+        self::addToInventory(auth::get_id(), $bonus['server_id'], $bonus['item_id'], $bonus['count'], $bonus['enchant'], $bonus['phrase']);
         $itemInfo = client_icon::get_item_info($bonus['item_id'], false);
         sql::sql("DELETE FROM bonus_code WHERE id = ?", [$bonus['id']]);
         $name = $bonus['enchant'] ? $itemInfo['name'] . " +" . $bonus['enchant'] : $itemInfo['name'];
@@ -110,9 +110,9 @@ class bonus {
             ]);
     }
 
-    public static function addToInventory($server_id, $item_id, $count, $enchant, $phrase): void {
+    public static function addToInventory($user_id, $server_id, $item_id, $count, $enchant, $phrase): void {
         $ins = sql::run("INSERT INTO `bonus` (`user_id`, `server_id`, `item_id`, `count`, `enchant`, `phrase`) VALUES (?, ?, ?, ?, ?, ?)", [
-            auth::get_id(),
+            $user_id,
             $server_id,
             $item_id,
             $count,

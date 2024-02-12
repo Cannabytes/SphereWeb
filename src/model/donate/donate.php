@@ -383,7 +383,7 @@ class donate {
      * @return false
      * Выдача бонуса предметом, за N сумму доната единоразвым платежем
      */
-    public static function AddDonateItemBonus($sphereCoin): bool {
+    public static function AddDonateItemBonus($user_id, $sphereCoin): bool {
         $item = false;
         $donateConfig = include fileSys::localdir('src/config/donate.php');
         if(!$donateConfig['DONATE_BONUS_ITEM_ENABLE']){
@@ -404,6 +404,7 @@ class donate {
             $enchant = $bonus['enchant'] ?? 0;
             userlog::add("add_to_inventory", "log_bonus_donate", [$enchant, $item_id, $count] );
             bonus::addToInventory(
+                $user_id,
                 auth::get_default_server(),
                 $item_id,
                 $count,
