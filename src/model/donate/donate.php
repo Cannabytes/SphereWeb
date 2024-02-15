@@ -135,8 +135,8 @@ class donate {
         if ((auth::get_donate_point() - $cost_product) < 0) {
             board::notice(false, lang::get_phrase(149, $cost_product, auth::get_donate_point()));
         }
-        $addToUserItems = $donat_info['count'] * $user_value;
 
+        $addToUserItems = $donat_info['count'] * $user_value;
         $server_info = server::server_info($server_id);
         if (!$server_info) {
             board::notice(false, lang::get_phrase(150));
@@ -161,7 +161,6 @@ class donate {
             $is_stack = client_icon::is_stack($donat_info['item_id']);
             self::sending_implementation($server_info, $player_info, $char_name, $player_id, $is_stack, $donat_info, $addToUserItems);
         }
-
 
         self::taking_money($cost_product, auth::get_id());
 
@@ -257,7 +256,10 @@ class donate {
 
     //Уменьшение коинов
     public static function taking_money($dp, $user_id) {
-        if ((auth::get_donate_point() - $dp) > 0) {
+        if(auth::get_donate_point() < 0){
+            board::notice(false, "Not enough money");
+        }
+        if ((auth::get_donate_point() - $dp) >= 0) {
             sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
                 $dp,
                 $user_id,
