@@ -33,11 +33,11 @@
                     </div>
                     <hr>
                     <div class="mb-0">
-                        {% for i, name in donateSysNames %}
+                        {% for i, donate in donateSysNames %}
                         <div class="space-y-2">
                             <div class="form-check form-check-inline">
-                                <input type="radio" id="{{name}}" name="paysystem" value="{{name}}" {% if pay_system_default == name %}checked{%endif%}/>
-                                <label for="{{name}}">{{name}}</label>
+                                <input type="radio" id="{{donate.name}}" name="paysystem" value="{{donate.name}}" {% if pay_system_default == name %}checked{%endif%}/>
+                                <label for="{{donate.name}}">{{donate.desc}}</label>
                             </div>
                         </div>
                         {% endfor %}

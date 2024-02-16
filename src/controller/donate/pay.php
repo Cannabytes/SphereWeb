@@ -31,12 +31,11 @@ class pay {
                 continue;
             }
             if(method_exists($system, 'getDescription')){
-                $donateSysNames[] = $system::getDescription()[lang::lang_user_default()];
+                $donateSysNames[] = ['name' => basename($system), 'desc'=>$system::getDescription()[lang::lang_user_default()]];
             }else{
-                $donateSysNames[] = basename($system);
+                $donateSysNames[] = ['name' => basename($system), 'desc'=>basename($system)];
             }
         }
-
         if(!config::getEnableDonate()) error::error404("Отключено");
         $donateInfo = require 'src/config/donate.php';
         $point = 0;
