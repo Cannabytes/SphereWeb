@@ -1,0 +1,46 @@
+<div class="lang notranslate">
+    {# Выводим список языков. Если передать аргумент true (или
+        ничего) в функцию lang_active(), тогда вернется массив данных, с
+        информацией о активном языке пользователя. Пример возвращаемых
+        данных функцией lang_active() 
+        ["lang"]=> string(2) "en"
+        ["name"]=> string(7) "English" 
+        ["isActive"]=> bool(true) 
+        ======
+        Если передан аргумент false означает что мы будем выводить
+        массив языков (по этому нужно использовать цикл), без языка
+        который у пользователя активный. Пример возвращаемых данных
+        функцией 
+        lang_active(false) array(3) { 
+            [1]=> array(3) {
+                ["lang"]=> string(2) "es" 
+                ["name"]=> string(8) "Español"
+                ["isActive"]=> bool(false) } 
+            [2]=> array(3) { 
+                ["lang"]=> string(2) "ge" 
+                ["name"]=> string(21) "ქართული" 
+                ["isActive"]=> bool(false) } 
+            [3]=> array(3) { 
+                ["lang"]=> string(2) "ru"
+                ["name"]=> string(14) "Русский" 
+                ["isActive"]=> bool(false) 
+            }
+        }
+    #}
+
+    <div class="lang__link lang__link_select" data-lang-active="">
+        <img class="lang__img lang__img_select" src="{{template}}/images/lang/lang__{{lang_active().lang }}.png" alt="{{lang_active().lang }}." />
+        <div class="lang__box">
+            <span class="lang__name lang__name_select">{{lang_active().lang }}</span>
+            <div class="lang__arrow"></div>
+        </div>
+    </div>
+
+    {% for lang in lang_active(false) %}
+    <div class="lang__list" data-lang-list="">
+        <a href="/user/change/lang/{{lang['lang'] }}" class="lang__link lang__link_sub">
+            <img class="lang__img" src="{{template}}/images/lang/lang__{{lang['lang'] }}.png" alt="English" />
+            <span class="lang__name">{{lang['lang'] }}</span></a>
+    </div>
+    {% endfor %}
+</div>

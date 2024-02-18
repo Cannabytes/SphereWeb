@@ -1,7 +1,7 @@
 /**
  * Author: Vitalii P.
  * Site: https://get-web.site
- * Version: 0.1.0
+ * Version: 0.1.1
  * https://github.com/get-web/insertmedia
  */
 
@@ -48,10 +48,10 @@ function insertmedia(config) {
     };
 
     const cfg = extend({
-            delay: 300, // delay. default: 300
-            immediately: true, // performing a delay true/false. Immediately or one at a time every "delay" seconds. default: true
-            attr: 'data-insertmedia', // Processed attribute. default: data-insertmedia
-        },
+        delay: 300, // delay. default: 300
+        immediately: true, // performing a delay true/false. Immediately or one at a time every "delay" seconds. default: true
+        attr: 'data-insertmedia', // Processed attribute. default: data-insertmedia
+    },
         config
     );
 
@@ -65,38 +65,64 @@ function insertmedia(config) {
     // youtube handler
     const youtubeHandler = function (el, options) {
         const settings = extend({
-                src: "",
-                width: "300",
-                height: "200",
-                setting: "",
-            },
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
             options
         );
         el.innerHTML =
-            `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}?${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>`;
+            `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>`;
     };
 
     // twitch handler
     const twitchHandler = function (el, options) {
         const settings = extend({
-                src: "",
-                width: "300",
-                height: "200",
-                setting: "",
-            },
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
             options
         );
-        el.innerHTML = `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}&${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no" ></iframe>`;
+        el.innerHTML = `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no" ></iframe>`;
+    };
+
+    // trovo handler
+    const trovoHandler = function (el, options) {
+        const settings = extend({
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
+            options
+        );
+        el.innerHTML = `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no" ></iframe>`;
+    };
+
+    // frame handler
+    const frameHandler = function (el, options) {
+        const settings = extend({
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
+            options
+        );
+        el.innerHTML = `<iframe width="${settings.width}" height="${settings.height}" src="${settings.src}${settings.setting}" frameborder="0" allowfullscreen="true" scrolling="no" ></iframe>`;
     };
 
     // images handler
     const imagesHandler = function (el, options) {
         const settings = extend({
-                src: "",
-                width: "300",
-                height: "200",
-                setting: "",
-            },
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
             options
         );
         el.innerHTML =
@@ -106,11 +132,11 @@ function insertmedia(config) {
     // html5 handler
     const html5Handler = function (el, options) {
         const settings = extend({
-                src: "",
-                width: "300",
-                height: "200",
-                setting: "",
-            },
+            src: "",
+            width: "300",
+            height: "200",
+            setting: "",
+        },
             options
         );
         el.innerHTML =
@@ -126,6 +152,8 @@ function insertmedia(config) {
             if (!options.type && !options.src) return;
             if (options.type == "youtube") youtubeHandler(el, options);
             if (options.type == "twitch") twitchHandler(el, options);
+            if (options.type == "trovo") trovoHandler(el, options);
+            if (options.type == "frame") frameHandler(el, options);
             if (options.type == "img") imagesHandler(el, options);
             if (options.type == "html5") html5Handler(el, options);
         }, counterHandler());

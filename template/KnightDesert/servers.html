@@ -1,0 +1,42 @@
+{# Максимальный онлайн для каждого сервера по порядку #}
+
+{% set maxOnline = [
+    1000, 
+    1200, 
+    2000,  
+    1500,  
+    ] 
+%}
+
+<div class="sidebar__servers servers">
+    <div class="heading">
+        <h3 class="title mt mb">{{phrase("servers_title")|raw}}</h3>
+    </div>
+    <div class="servers__list">
+        {% for server in server_online_status() %}
+        <a class="servers__server server" data-gw-server>
+            <div class="server__container">
+                <div class="server__row">
+                    <div class="server__title">
+                        {{server.name}}
+                        <span class="color-orange">x{{server.rate_exp}}</span> 
+                        - {{server.chronicle}}
+                    </div>
+                    <div class="server__online">
+                        {% if server.connect_game %}
+                            Online
+                        {% else %}
+                            Offline
+                        {%endif %}:
+                        <span class="color-orange" data-server-percent>0</span><span class="color-orange">%</span>
+                    </div>
+                </div>
+                <div class="server__progress" data-gw-server-online="{{server.player_count_online}}" data-gw-server-online-max="{{maxOnline[loop.index0]}}">
+                    <div class="server__load" data-server-load=""></div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+<!-- END  servers -->

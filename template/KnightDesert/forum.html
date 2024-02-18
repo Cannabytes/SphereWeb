@@ -1,0 +1,23 @@
+<div class="sidebar__forum forum">
+    <div class="heading">
+        <h3 class="title mt mb">{{phrase("forum_title")|raw}}</h3>
+    </div>
+    <div class="forum__themes">
+        {% for thread in last_forum_thread(5) %}
+        <div class="theme">
+            <a href="{{get_forum_link(thread)}}" class="theme__link"></a>
+            <div class="theme__img"></div>
+            <div class="theme__content">
+                <div class="theme__title">{{thread.name}}</div>
+                <div class="theme__info">
+                    <div class="theme__author-wrp">
+                        {{phrase("forum_author")}}:
+                        <span class="theme__author">{{thread.last_post_user_name}}</span>
+                    </div>
+                    <div class="theme__date">{{thread.date_update}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

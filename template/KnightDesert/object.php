@@ -1,7 +1,52 @@
 <?php
 
 return [
-    'FEATURES_LIST' => [
+
+
+    'events' => [
+        "ru" => [
+            [
+                'title' => 'Поймай свою удачу!',
+                'img' => '/images/tmp/events/event-1.jpg',
+                'link' => '#event',
+                'target' => '_self',
+            ],
+            [
+                'title' => 'Специальное предложение',
+                'img' => '/images/tmp/events/event-2.jpg',
+                'link' => '#event',
+                'target' => '_blank',
+            ],
+            [
+                'title' => 'Подарок за голосование',
+                'img' => '/images/tmp/events/event-3.jpg',
+                'link' => '#event',
+                'target' => '_blank',
+            ],
+        ],
+         "en" => [
+            [
+                'title' => 'Catch your luck!',
+                'img' => '/images/tmp/events/event-1.jpg',
+                'link' => '#event',
+                'target' => '_self',
+            ],
+            [
+                'title' => 'Special offer',
+                'img' => '/images/tmp/events/event-2.jpg',
+                'link' => '#event',
+                'target' => '_blank',
+            ],
+            [
+                'title' => 'Gift for voting',
+                'img' => '/images/tmp/events/event-3.jpg',
+                'link' => '#event',
+                'target' => '_blank',
+            ],
+        ],
+    ],
+
+    'example' => [
         "ru" => [
             'Специальные метки',
             'Дополнительные панели',
@@ -18,17 +63,5 @@ return [
             'Overhead, effects',
             'Displaying country flags',
         ]
-    ],
-    'FOOTER_LINKS' => [
-        "ru" => [
-            'title' => 'User agreemen',
-            'href' => '#agreemen',
-            'target' => '_blank',
-        ],
-        "en" => [
-            'title' => 'Private policy',
-            'href' => '#PrivatePolicy',
-            'target' => '_blank',
-        ],
     ],
 ];

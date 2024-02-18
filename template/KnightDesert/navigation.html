@@ -1,0 +1,66 @@
+<section class="section" data-section="navigation">
+    <div class="container">
+        <div class="row navigation">
+            <a href="/" class="navigation__logo logo">
+                <img src="{{template}}/images/logo/logo.png" alt="logo" />
+            </a>
+
+            <div class="navigation__menu menu" data-menu>
+                <div class="gw-burger menu__gw-burger">
+                    <div class="gw-burger__line gw-burger__line_pos_top"></div>
+                    <div class="gw-burger__line gw-burger__line_pos_middle"></div>
+                    <div class="gw-burger__line gw-burger__line_pos_bottom"></div>
+                </div>
+                <ul class="menu__list">
+                    <li class="menu__el">
+                        <a href="/" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_home")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="/about" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_about")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="{{alias('registration_user')}}" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_registration")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="javascript:;" data-open-window="files" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_files")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="/statistic/pvp" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_statistic")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="#" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_forum")}}</div>
+                        </a>
+                    </li>
+                    <li class="menu__el">
+                        <a href="{{alias('donate')}}" class="menu__item">
+                            <div class="menu__content">{{phrase("nav_donate")}}</div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END menu__list -->
+            </div>
+
+            <a href="{{alias('main')}}" class="navigation__lbtn lbtn">
+                <div class="lbtn__content">- {{phrase("nav_account")}} -</div>
+            </a>
+
+            <div class="navigation__language">
+                {% include "lang.html" %}
+            </div>
+        </div>
+        <!-- END  row -->
+    </div>
+    <!-- END  container -->
+</section>
+<!-- END  section -->
