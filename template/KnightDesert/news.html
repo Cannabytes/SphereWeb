@@ -1,0 +1,15 @@
+<section class="content__news news">
+	{% for news in last_news() %}
+	<a href="/read/{{news.id}}" class="news__post post">
+		<!-- Картинка к новости любого размера -->
+		<div
+			class="post__img"
+			style="background-image: url({{news_poster(news.poster)}});"
+		></div>
+		<div class="post__date">{{news.date_create|date("d.m.Y")}}</div>
+		<div class="post__title post__title_mb">{{news.name}}</div>
+		<div class="post__content">{{news.description|raw}}</div>
+	</a>
+	{% endfor %}
+</section>
+<!-- END news -->

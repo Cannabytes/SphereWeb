@@ -1,0 +1,5 @@
+{% if lang_active().lang == 'ru' %}
+    {% include "about-static-page-ru.html" %}
+{% elseif lang_active().lang == 'en' %}
+    {% include "about-static-page-en.html" %}
+{% endif %}

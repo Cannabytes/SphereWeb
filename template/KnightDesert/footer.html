@@ -1,0 +1,88 @@
+<div class="section" data-section="footer">
+    <div class="container">
+        <div class="row footer">
+            <div class="footer__navigation">
+                <div class="footer__site">
+                    <a href="/" class="footer__logo"><img src="{{template}}/images/footer/logo.png" alt="logo" /></a>
+                    <div class="footer__heading heading">
+                        <h3 class="footer__title title">
+                            {{phrase("footer_title")|raw}}
+                        </h3>
+                    </div>
+                    <div class="footer__desc">{{phrase("footer_desc"|raw)}}</div>
+
+                    <div class="footer__contacts">
+                        {% include "social.html" %}
+                    </div>
+                </div>
+                <div class="footer__fnav fnav">
+                    <div class="fnav__box">
+                        <div class="fnav__header">
+                            <div class="fnav__title">{{phrase("fnav_t_1")}}</div>
+                        </div>
+                        <ul class="fnav__list">
+                            <li class="fnav__el">
+                                <a href="/about" class="fnav__link">{{phrase("nav_desc")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="javascript:;" data-open-window="files" class="fnav__link">{{phrase("nav_files")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="#" class="fnav__link">{{phrase("nav_rules")}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END  fnav__box -->
+                    <div class="fnav__box">
+                        <div class="fnav__header">
+                            <div class="fnav__title">{{phrase("fnav_t_2")}}</div>
+                        </div>
+                        <ul class="fnav__list">
+                            <li class="fnav__el">
+                                <a href="{{alias('main')}}" class="fnav__link">{{phrase("nav_auth")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="{{alias('registration_user')}}" class="fnav__link">{{phrase("nav_registration")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="/statistic/pvp" class="fnav__link">{{phrase("nav_statistic")}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END  fnav__box -->
+                    <div class="fnav__box">
+                        <div class="fnav__header">
+                            <div class="fnav__title">{{phrase("fnav_t_3")}}</div>
+                        </div>
+                        <ul class="fnav__list">
+                            <li class="fnav__el">
+                                <a href="#" class="fnav__link">{{phrase("nav_help")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="#" class="fnav__link">{{phrase("nav_forum")}}</a>
+                            </li>
+                            <li class="fnav__el">
+                                <a href="#" class="fnav__link">{{phrase("nav_know")}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END  fnav__box -->
+                </div>
+                <!-- END  fnav -->
+            </div>
+            <!-- END  footer__navigation -->
+            <div class="footer__bnrs">
+                <a href="https://get-web.site" target="_blank" class="bnr">
+                    <img src="{{template}}/images/get-web-logo.png" alt="Front-End: Get-Web.Site" height="38" />
+                </a>
+
+                <a href="https://tplbox.store" target="_blank" class="bnr">
+                    <img src="{{template}}/images/tplbox.store-logo.png" alt="Website Templates : tplbox.store" height="38" />
+                </a>
+            </div>
+        </div>
+        <!-- END  row -->
+    </div>
+    <!-- END  container -->
+</div>
+<!-- END  section -->

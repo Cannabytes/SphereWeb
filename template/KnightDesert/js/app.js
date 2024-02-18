@@ -5,7 +5,7 @@ var WebFontConfig = {
     },
     timeout: __config.gFonts.delay // Set the timeout to two seconds
 };
-(function() {
+(function () {
     var wf = document.createElement('script');
     wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.type = 'text/javascript';
@@ -14,7 +14,7 @@ var WebFontConfig = {
     s.parentNode.insertBefore(wf, s);
 })();
 
-hidePreload(function() {
+hidePreload(function () {
     try {
         Copy();
         // GetWebServers();
@@ -45,7 +45,7 @@ hidePreload(function() {
 /* fancybox */
 $.fancybox.defaults.animationDuration = 300;
 
-$('body').on('click', '[data-open-window]', function(e) {
+$('body').on('click', '[data-open-window]', function (e) {
     e.preventDefault();
     $.fancybox.getInstance('close');
     let target = $(this).attr('data-open-window');
@@ -60,13 +60,13 @@ function fancyCustomOpen(target) {
         selectable: true,
         opts: {
             touch: false,
-            beforeShow: function(instance, current) {
+            beforeShow: function (instance, current) {
 
             },
             btnTpl: {
                 smallBtn: '<div class="gw-modal-close" data-fancybox-close></div>',
             },
-            beforeClose: function() {
+            beforeClose: function () {
                 history.pushState("", document.title, window.location.pathname);
             }
         },
@@ -98,8 +98,8 @@ function AnimatingNumbers(el, start, end, duration) {
 
 /* tabs */
 
-$(function() {
-    $('[data-open-tab]').on("click", function(e) {
+$(function () {
+    $('[data-open-tab]').on("click", function (e) {
         // e.preventDefault();
         var __this = $(this);
         var groups = __this.attr("data-open-tab-group").split('|');
@@ -109,8 +109,8 @@ $(function() {
     });
 });
 
-$(function() {
-    $('[data-tab-select]').on("change", function(e) {
+$(function () {
+    $('[data-tab-select]').on("change", function (e) {
         // e.preventDefault();
         let __this = $(this);
         let option = __this.find('option:selected');
@@ -134,7 +134,7 @@ function gwOpenTab(arr) {
     }
 }
 
-$('#method').on('change', function() {
+$('#method').on('change', function () {
     const __this = $(this);
     console.log(__this.val());
     __this.val();
@@ -144,7 +144,7 @@ $('#method').on('change', function() {
 
 
 /* tippy content */
-let Tip_content = function() {
+let Tip_content = function () {
     tippy('[data-tip]', {
         delay: 0,
         flip: true,
@@ -179,18 +179,18 @@ function hidePreload(fn) {
     $(".preload__progress").animate({
         width: "100%"
     }, __config.preload.time * 1000);
-    setTimeout(function() {
+    setTimeout(function () {
         hidePreloadHandler(fn);
     }, __config.preload.time * 1000);
     if (__config.preload.hideByClick) {
-        $('.preload').on('click', function() {
+        $('.preload').on('click', function () {
             hidePreloadHandler(fn);
         });
     }
 }
 
 function hidePreloadHandler(fn) {
-    $('.preload').addClass('preload__fade').fadeOut(400, function() {
+    $('.preload').addClass('preload__fade').fadeOut(400, function () {
         $('.preload').remove();
         if (typeof fn == 'function') fn();
         document.querySelector('body').dispatchEvent(new Event('PreloadEnd'));
@@ -209,11 +209,11 @@ function Copy() {
 
 /* gw-burger */
 
-$('.gw-burger').on('click', function() {
+$('.gw-burger').on('click', function () {
     $('.gw-burger').toggleClass('gw-burger_active');
 });
 
-$('.navigation__list').on('click', function() {
+$('.navigation__list').on('click', function () {
     if ($(window).width() <= 1050) {
         $('.gw-burger').toggleClass('gw-burger_active');
     }
@@ -228,7 +228,7 @@ function GetWebServers() {
     // L2Banners Scripts
     let servers = $('[data-gw-server]');
     if (servers.length === 0) return;
-    $.each(servers, function(i, el) {
+    $.each(servers, function (i, el) {
         let server = $(el);
         let serverOnline = server.find('[data-gw-server-online]').attr("data-gw-server-online");
         let serverOnlineMax = server.find('[data-gw-server-online-max]').attr("data-gw-server-online-max");
@@ -236,20 +236,10 @@ function GetWebServers() {
             serverOnline / serverOnlineMax * 100
         );
         online = online > 100 ? 100 : online;
-        let load = 0;
-        if (online == 0) {
-            load = 0;
-        } else if (online <= 33) {
-            load = 33;
-        } else if (online <= 66) {
-            load = 66;
-        } else if (online > 66) {
-            load = 100;
-        }
 
         // server.find("[data-server-percent]").html(load);
-        AnimatingNumbers(server.find("[data-server-percent]")[0], 0, load, 2000);
-        server.find("[data-server-load]").css("right", 100 - load + "%");
+        AnimatingNumbers(server.find("[data-server-percent]")[0], 0, online, 2000);
+        server.find("[data-server-load]").css("right", 100 - online + "%");
     });
 }
 
@@ -260,7 +250,7 @@ $('body').on('PreloadEnd', GetWebServers);
 if (typeof __config != "undefined" && typeof __config.sliders != "undefined" && typeof __config.sliders.streams != "undefined" &&
     __config.sliders.streams.init) {
     var streamsSlider = new Swiper('[data-slider-streams="true"]', {
-        autoplay: (function() {
+        autoplay: (function () {
             if (typeof __config.sliders.streams.autoplay != "undefined" && __config.sliders.streams.autoplay && typeof __config.sliders.streams.autoplayDelay != "undefined") {
                 return {
                     disableOnInteraction: true,
@@ -305,9 +295,9 @@ if (typeof __config != "undefined" && typeof __config.sliders != "undefined" && 
         }
     });
     if (typeof __config.sliders.streams.autoplay != "undefined" && __config.sliders.streams.autoplay && __config.sliders.streams.pauseOnHover) {
-        $('[data-slider-streams="true"]').hover(function() {
+        $('[data-slider-streams="true"]').hover(function () {
             streamsSlider.autoplay.stop();
-        }, function() {
+        }, function () {
             streamsSlider.autoplay.start();
         });
     }
@@ -317,9 +307,9 @@ if (typeof __config != "undefined" && typeof __config.sliders != "undefined" && 
 
 /* rating */
 
-$(function() {
+$(function () {
 
-    $('[data-rating-select]').on('click', function() {
+    $('[data-rating-select]').on('click', function () {
         const __this = $(this);
         // Находим родителя нажатой кнопки
         const parent = __this.parent();
@@ -329,7 +319,7 @@ $(function() {
         __this.attr('data-rating-select', 'true');
     });
 
-    $('[data-tab-select-server]').on('change', function() {
+    $('[data-tab-select-server]').on('change', function () {
         const __this = $(this);
         let option = __this.find('option:selected');
         // Записываем название сервера который будет открывать

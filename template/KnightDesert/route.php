@@ -8,4 +8,5 @@
 
 $pages = [
     '/read/(.*)'  => 'static.html',
+    '/about'  => 'about-static-page.html',
 ];

@@ -1,0 +1,30 @@
+<script>
+	const __config = {
+		gFonts: {
+			fonts: [
+				"Roboto:400,700:latin,cyrillic",
+				"Roboto Slab:400,700:latin,cyrillic",
+			],
+			delay: 500,
+		},
+		preload: {
+			/* Время показа прелоадера в секудах */
+			time: 0.8,
+			/* Разрешить скрыть прелоадер кликнув на него */
+			hideByClick: true,
+		},
+		insertmedia: {
+			/* Задержка перед вставкой стримов, ускоряет начальную загрузку сайта и поднимает показатель pageSpeed */
+			delay: 2000,
+		},
+		sliders: {
+			streams: {
+				init: true,
+				autoplay: false,
+				autoplayDelay: 10000,
+				/* Остановить смену слайда если наведен курсор */
+				pauseOnHover: true,
+			},
+		},
+	};
+</script>
