@@ -1,0 +1,112 @@
+<div class="dropdown d-inline-block">
+    <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user d-sm-none"></i>
+        <span class="d-none d-sm-inline-block fw-semibold">{{phrase("send to game")}}</span>
+        <i class="fa fa-angle-down opacity-50 ms-1"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown" style="">
+        <div class="px-2 py-3 bg-body-light rounded-top">
+            <h5 class="h6 text-center mb-0">
+                {{phrase("send to game")}}
+            </h5>
+        </div>
+        <div class="p-2">
+
+            <div class="row row-cols-lg-auto g-1 align-items-center">
+                <div class="col-lg-12 col-xl-12">
+                    <input min="1" type="number" class="form-control" id="coinToPlayerCount" name="code" placeholder="{{phrase(71)}}">
+                </div>
+                <div class="me-1 mb-1 w-100 text-center">
+                    <button
+                            data-coin-phrase="{{phrase('direct transfer of coins to the character')}}" data-coin-id="{{get_plugin_config('coinToGame').item_id}}"
+                            data-bs-toggle="modal" data-bs-target="#coinToPlayer"
+                            type="submit" class="btn btn-sm btn-info mt-2" id="coinToGamePlayer">{{phrase("confirm")}}</button>
+                    <div class="fw-normal fs-xs text-muted">1 SphereCoin = {{get_plugin_config("coinToGame").cost}} Coin of Luck</div>
+                </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item d-flex align-items-center justify-content-between ajaxload" href="/donate/pay">
+                <span>{{phrase("refill")}}</span>
+                <i class="fa fa-fw fa-envelope-open opacity-25"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="coinToPlayer" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-popout" role="document">
+        <div class="modal-content">
+            <form action="/coin/game" method="POST" class="block block-rounded shadow-none mb-0">
+                <input type="hidden" id="coinCountVal" name="count" value="1">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">{{phrase('output to game character')}}</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                     <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <img class="img-thumb" id="coinIcon" src="{{get_item_info(get_plugin_config('coinToGame').item_id).icon}}" alt="">
+                        </div>
+                        <div>
+                            <div class="fw-semibold mb-1"> {{phrase("will be sent")}} <span id="coinCount"></span> (шт.) {{get_item_info(get_plugin_config('coinToGame').item_id).name}}</div>
+                            <div class="fw-semibold mb-1"> {{phrase(72)}} <span id="coinToPlayerPayCount">-</span>
+                                {{phrase("Sphere-Coin")}}</div>
+                            <div class="fs-sm text-muted" id="coinPhrase"></div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="form-group row">
+                        <label for="coinCharName" class="col-sm-4 col-form-label">{{phrase(77)}}</label>
+                        <div class="col-sm-8">
+                            <select name="player_name" id="coinCharName" class="form-control single-select">
+                                {% if get_account_players() is not null %}
+                                {% for account_name, players in get_account_players() %}
+                                <optgroup label="{{phrase(480)}}: {{account_name}}">
+                                    {% for player in players %}
+                                    <option value="{{player}}">{{player}}</option>
+                                    {% endfor %}
+                                </optgroup>
+                                {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        {{phrase(80)}}
+                    </button>
+                    <button type="submit" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        {{phrase(364)}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on("click", "#coinToGamePlayer", function (){
+        var count = $("#coinToPlayerCount").val();
+        let phrase = $(this).data("coin-phrase");
+        let name = $(this).data("coin-name");
+        if(count <= 0){
+            count = 1;
+        }
+        $("#coinToPlayerPayCount").text(count * {{get_plugin_config('coinToGame').cost}});
+        $("#coinNameItem").text(name);
+        $("#coinCount").text(count);
+        $("#coinCountVal").val(count);
+        $("#coinPhrase").text(phrase);
+    });
+</script>

@@ -17,6 +17,8 @@ class lang {
     private static array $lang_array = [];
 
     //Загрузка языкового пакета шаблона
+    private static array $pluginCache = [];
+
     public static function load_template_lang_packet($tpl) {
         $lang_name = self::lang_user_default();
         $langs_array = require $tpl;
@@ -56,17 +58,6 @@ class lang {
         $lang = $_SESSION['lang'] ?? 'ru';
         if ($dir == null) {
             self::$lang_array = require fileSys::get_dir("/src/component/lang/package/{$lang}.php");
-        }
-    }
-
-    //Загрузка языковых пакетов плагинов
-    //В функцию load_package_plugin должен передаваться только аргуменет __DIR__
-    public static function load_package_plugin($__DIR__): void {
-        $lang = $_SESSION['lang'] ?? 'ru';
-        $fileLang = "{$__DIR__}/lang/{$lang}.php";
-        if(file_exists($fileLang)){
-            $new_lang_array = require $fileLang;
-            self::$lang_array = array_replace_recursive(self::$lang_array, $new_lang_array);
         }
     }
 
@@ -114,19 +105,55 @@ class lang {
      * Получение языковой фразы
      */
     public static function get_phrase($key, ...$values): string {
-        if(!array_key_exists($key, self::$lang_array)) {
-            return "[Not phrase «{$key}»]";
+        $is_plugin = false;
+        if (!array_key_exists($key, self::$lang_array)) {
+            $phrase = self::get_phrase_plugin($key);
+            if (!$phrase) {
+                return "[Not phrase «{$key}»]";
+            }
+            $is_plugin = true;
         }
-        if(array_key_exists($key, self::$cache)) {
-            return sprintf(self::$cache[$key], ...$values);
+        if (!$is_plugin) {
+            if (array_key_exists($key, self::$cache)) {
+                return sprintf(self::$cache[$key], ...$values);
+            }
+            $phrase = self::$lang_array[$key];
         }
-
-        $string = self::$lang_array[$key];
-        $result = sprintf($string, ...$values);
-        if(empty($values)){
+        $result = sprintf($phrase, ...$values);
+        if (empty($values)) {
             self::$cache[$key] = $result;
         }
         return $result;
+    }
+
+    public static function get_phrase_plugin($key) {
+        if(!empty(self::$pluginCache)){
+            if (array_key_exists($key, self::$pluginCache)) {
+                return self::$pluginCache[$key];
+            }
+        }
+        $customs = fileSys::dir_list("custom/plugins");
+        foreach ($customs as $custom) {
+            $file = fileSys::localdir("custom/plugins/" . $custom . "/lang/" . self::lang_user_default() . ".php");
+            if (file_exists($file)) {
+                $langArray = include $file;
+                self::$pluginCache = array_merge(self::$pluginCache, $langArray);
+            }
+        }
+        $components = fileSys::dir_list("src/component/plugins");
+        foreach ($components as $component) {
+            $file = fileSys::localdir("src/component/plugins/" . $component . "/lang/" . self::lang_user_default() . ".php");
+            if (file_exists($file)) {
+                $langArray = include $file;
+                self::$pluginCache = array_merge(self::$pluginCache, $langArray);
+            }
+        }
+        if(!empty(self::$pluginCache)){
+            if (array_key_exists($key, self::$pluginCache)) {
+                return self::$pluginCache[$key];
+            }
+        }
+        return false;
     }
 
     //Язык пользователя по умолчанию
@@ -137,6 +164,6 @@ class lang {
     }
 
     public static function show_all_lang_package() {
-        return require "src/component/lang/package/". self::lang_user_default() . ".php";
+        return require "src/component/lang/package/" . self::lang_user_default() . ".php";
     }
 }

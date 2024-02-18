@@ -198,6 +198,7 @@ function ResponseGetClientWay(response) {
 
 function ResponseFilesList(response) {
     if (response.command !== "filesList") return;
+    $("#fileslist").val("");
     response.files?.forEach((file) => {
         all = $("#fileslist").val() + "\n"
         if (all.trim() === "") {

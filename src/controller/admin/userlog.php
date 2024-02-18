@@ -24,7 +24,6 @@ ORDER BY logs_all.id DESC");
             $values = is_array($s) ? array_values($s) : [$s];
             $log['message'] = lang::get_phrase($log['phrase'], ...$values);
         }
-
         tpl::addVar("logs_all", $allLog);
 
         tpl::display("admin/logs/all.html");

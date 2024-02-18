@@ -259,6 +259,9 @@ class donate {
         if(auth::get_donate_point() < 0){
             board::notice(false, "Not enough money");
         }
+        if(auth::get_donate_point() == 0){
+            board::notice(false, "Вам необходимо иметь на балансе {$dp} SphereCoin");
+        }
         if ((auth::get_donate_point() - $dp) >= 0) {
             sql::run("UPDATE `users` SET `donate_point` = `donate_point`-? WHERE `id` = ?", [
                 $dp,

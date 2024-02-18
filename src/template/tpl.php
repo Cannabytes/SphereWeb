@@ -1004,7 +1004,12 @@ class tpl {
 
 
         $twig->addFunction(new TwigFunction("get_plugin_config", function ($plugin_name, $config = "config.php") {
-            $pluginsPath = "src/component/plugins";
+            $plugin_type = Route::get_plugin_type($plugin_name);
+            if($plugin_type == "component"){
+                $pluginsPath = "src/component/plugins";
+            }elseif ("custom"){
+                $pluginsPath = "custom/plugins";
+            }
             $pluginPath = "{$pluginsPath}/{$plugin_name}/{$config}";
             $plugins = fileSys::dir_list($pluginsPath);
             if (in_array($plugin_name, $plugins)) {

@@ -66,33 +66,20 @@
 {% set mode_template = get_user_variables('theme')['val'] %}
 {% endif %}
 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll {% if mode_template == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
-    <!-- Side Overlay-->
     <aside id="side-overlay">
-        <!-- Side Header -->
         <div class="content-header bg-primary-dark">
-            <!-- User Avatar -->
             <a class="img-link me-2" href="#">
                 <img class="img-avatar img-avatar32"
                      src="{{ get_avatar( user_info('get_avatar'), true ) }}" alt="">
             </a>
-            <!-- END User Avatar -->
-
-
-            <!-- User Info -->
             <a class="link-fx text-white fw-semibold fs-sm" href="#">
                 {{ phrase("sphere_inventory") }}
             </a>
-            <!-- END User Info -->
-
-            <!-- Close Side Overlay -->
-            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
             <button type="button" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout"
                     data-action="side_overlay_close">
                 <i class="fa fa-fw fa-times"></i>
             </button>
-            <!-- END Close Side Overlay -->
         </div>
-        <!-- END Side Header -->
 
         {# Инвентарь #}
         {% block inventory %}
@@ -111,7 +98,6 @@
                 </div>
                 <div class="block-content">
                     <ul class="nav-users">
-
                         {% for bonus in user_info('getBonus') %}
                         <li>
                             <a data-bonus-phrase="{{phrase( bonus.phrase )}}" data-bonus-id="{{bonus.id}}"
@@ -130,7 +116,6 @@
                             </a>
                         </li>
                         {% endfor %}
-
                     </ul>
                 </div>
             </div>
@@ -138,13 +123,9 @@
         {% endblock %}
 
     </aside>
-    <!-- END Side Overlay -->
 
-    <!-- Sidebar -->
     <nav id="sidebar">
-        <!-- Sidebar Content -->
         <div class="sidebar-content">
-            <!-- Side Header -->
             <div class="content-header justify-content-lg-center bg-black-10">
                 <div>
               <span class="smini-visible fw-bold tracking-wide fs-lg">
@@ -154,50 +135,15 @@
                 <span class="smini-hidden"> {{LOGO_PROJECT|raw}} </span>
                </a>
                 </div>
-                <!-- END Logo -->
-
-                <!-- Options -->
                 <div>
-                    <!-- Close Sidebar, Visible only on mobile screens -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                     <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout"
                             data-action="sidebar_close">
                         <i class="fa fa-fw fa-times"></i>
                     </button>
-                    <!-- END Close Sidebar -->
                 </div>
-                <!-- END Options -->
             </div>
-            <!-- END Side Header -->
 
-            <!-- Sidebar Scrolling -->
             <div class="js-sidebar-scroll">
-                <!-- Side User
-                <div class="content-side content-side-user px-0 py-0">
-                    <div class="smini-visible-block animated fadeIn px-3">
-                        <img class="img-avatar img-avatar32 user_self_avatar"
-                             src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
-                    </div>
-                    <div class="smini-hidden text-center mx-auto">
-                        <a class="img-link" href="#">
-                            <img class="img-avatar user_self_avatar"
-                                 src="{{template('/assets/images/navatar/' ~ user_info('get_avatar')) }}" alt="">
-                        </a>
-                        <ul class="list-inline mt-3 mb-0">
-                            <li class="list-inline-item">
-
-                                {% if user_info('get_is_auth') %}
-                                <a class="link-fx text-dual fs-sm fw-semibold" href="#">{{ user_info('get_name') }}</a>
-                                {% else %}
-                                Гость
-                                {% endif %}
-                            </li>
-                        </ul>
-                    </div>
-                 </div>
-                  END Side User -->
-
-                <!-- Side Navigation -->
                 <div class="content-side content-side-full">
                     <ul class="nav-main">
                         <li class="nav-main-item">
@@ -409,19 +355,12 @@
                     {% endfor %}
 
                 </div>
-                <!-- END Side Navigation -->
             </div>
-            <!-- END Sidebar Scrolling -->
         </div>
-        <!-- Sidebar Content -->
     </nav>
-    <!-- END Sidebar -->
 
-    <!-- Header -->
     <header id="page-header">
-        <!-- Header Content -->
         <div class="content-header">
-            <!-- Left Section -->
             <div class="d-flex align-items-center space-x-2">
                 <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
                         data-action="sidebar_toggle">
@@ -443,13 +382,7 @@
             </div>
 
             <div class="space-x-1">
-
-
-
-
                 <div class="dropdown d-inline-block">
-
-
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
                          aria-labelledby="page-header-user-dropdown">
                         <div class="px-2 py-3 bg-body-light rounded-top">
@@ -613,6 +546,11 @@
 
                 {% if user_info('get_is_auth') %}
                 <div class="dropdown d-inline-block">
+
+                    {% for include_file in get_plugins_include("PLACE_IN_SPACE_HEADER_1") %}
+                    {{ include(include_file) }}
+                    {% endfor %}
+
                     <button type="button" class="btn btn-sm btn-alt-secondary" id="qqq"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user d-sm-none"></i>
