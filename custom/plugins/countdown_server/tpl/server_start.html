@@ -1,6 +1,6 @@
 {# До старта сервера #}
 {% set dateInfo = different_start_server() %}
-
+{% if dateInfo is not null %}
 <div class="dropdown d-inline-block">
     <div type="button" class="btn btn-sm btn-alt-secondary" id="page-header-themes-dropdown" data-bs-toggle="dropdown"
          data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
@@ -96,3 +96,5 @@
     });
 
 </script>
+
+{% endif %}

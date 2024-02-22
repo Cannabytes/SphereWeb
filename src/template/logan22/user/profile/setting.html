@@ -29,14 +29,14 @@
                         <div class="mb-4">
                             <label class="form-label" for="timezone">{{ phrase(31) }}</label>
                             <select class="form-select" name="timezone" id="timezone">
-                                {% set server_timezone = 'test' %}
+                                {% set timezone = user_info('get_timezone') %}
                                 {% for key, name in timezone_list_default %}
-                                <option {% if name == server_timezone %}selected{% endif %} value="{{ name }}">{{ name }}</option>
+                                <option {% if name == timezone %}selected{% endif %} value="{{ name }}">{{ name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <hr>
-{{get_server(1)}}
+
                         <div class="mb-4">
                             <label class="form-label" for="signature">{{ phrase("signature") }}</label>
                             <textarea class="form-control" id="signature" name="signature" rows="4" placeholder="...">{{ user_info('get_signature') }}</textarea>

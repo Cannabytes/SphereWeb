@@ -12,6 +12,9 @@ class custom_twig {
     public function different_start_server() {
         $server_id = auth::get_default_server();
         $info = server::server_info($server_id);
+        if(empty($info['data_start_server'])){
+            return null;
+        }
         $date1 = new DateTime('now');
         $date2 = new DateTime($info['date_start_server']);
         $interval = $date1->diff($date2);
