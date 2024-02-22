@@ -4,15 +4,15 @@ namespace Ofey\Logan22\custom\plugins\countdown_server;
 
 use DateTime;
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\model\admin\server;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 
 class custom_twig {
 
     public function different_start_server() {
         $server_id = auth::get_default_server();
-        $info = server::server_info($server_id);
-        if(empty($info['data_start_server'])){
+        $info = server::get_server_info($server_id);
+        if(empty($info['date_start_server'])){
             return null;
         }
         $date1 = new DateTime('now');
