@@ -21,7 +21,7 @@
                             data-coin-phrase="{{phrase('direct transfer of coins to the character')}}" data-coin-id="{{get_plugin_config('coinToGame').item_id}}"
                             data-bs-toggle="modal" data-bs-target="#coinToPlayer"
                             type="submit" class="btn btn-sm btn-info mt-2" id="coinToGamePlayer">{{phrase("confirm")}}</button>
-                    <div class="fw-normal fs-xs text-muted">1 SphereCoin = {{get_plugin_config("coinToGame").cost}} Coin of Luck</div>
+                    <div class="fw-normal fs-xs text-muted">1 SphereCoin = {{get_plugin_config("coinToGame").count}} {{get_item_info(get_plugin_config('coinToGame').item_id).name}}</div>
                 </div>
             </div>
 
@@ -55,8 +55,8 @@
                             <img class="img-thumb" id="coinIcon" src="{{get_item_info(get_plugin_config('coinToGame').item_id).icon}}" alt="">
                         </div>
                         <div>
-                            <div class="fw-semibold mb-1"> {{phrase("will be sent")}} <span id="coinCount"></span> (шт.) {{get_item_info(get_plugin_config('coinToGame').item_id).name}}</div>
-                            <div class="fw-semibold mb-1"> {{phrase(72)}} <span id="coinToPlayerPayCount">-</span>
+                            <div class="fw-semibold mb-1"> {{phrase("will be sent")}} <span id="coinToPlayerPayCount"></span> {{get_item_info(get_plugin_config('coinToGame').item_id).name}}</div>
+                            <div class="fw-semibold mb-1"> {{phrase(72)}} <span id="coinCount">-</span>
                                 {{phrase("Sphere-Coin")}}</div>
                             <div class="fs-sm text-muted" id="coinPhrase"></div>
                         </div>
@@ -103,7 +103,7 @@
         if(count <= 0){
             count = 1;
         }
-        $("#coinToPlayerPayCount").text(count * {{get_plugin_config('coinToGame').cost}});
+        $("#coinToPlayerPayCount").text( (count * {{get_plugin_config('coinToGame').count}}).toLocaleString('en-US', { useGrouping: true, minimumFractionDigits: 0, maximumFractionDigits: 0 }) );
         $("#coinNameItem").text(name);
         $("#coinCount").text(count);
         $("#coinCountVal").val(count);

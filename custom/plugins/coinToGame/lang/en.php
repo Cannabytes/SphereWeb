@@ -4,7 +4,7 @@ return [
     'enter a value greater than 0' => 'Enter a value greater than 0',
     'character not found' => 'Character not found',
     'send to player' => 'Sent to character %s',
-    'coinToGamePhrase' => 'User %s forwarded to character %s %d %d',
+    'coinToGamePhrase' => 'Forwarded to character %s %d %s, cost %d sphereCoin',
     'send to game' => 'Send to game',
     'confirm' => 'Confirm',
     'direct transfer of coins to the character' => 'Direct transfer of coins to the character',

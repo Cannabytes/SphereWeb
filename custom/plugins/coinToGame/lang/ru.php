@@ -4,7 +4,7 @@ return [
   'enter a value greater than 0' => 'Введите значение больше чем 0',
   'character not found' => 'Персонаж не найден',
   'send to player' => 'Отправлено на персонажа %s',
-  'coinToGamePhrase' => 'Пользователь %s переслал на персонажа %s донаток %d стоимость: %d',
+  'coinToGamePhrase' => 'Переслал на персонажа %s %d %s, стоимость %d sphereCoin',
   'send to game' => 'Перевести в игру',
   'confirm' => 'Подтвердить',
   'direct transfer of coins to the character' => 'Прямой перевод коинов на персонажа',

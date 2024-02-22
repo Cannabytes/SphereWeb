@@ -51,9 +51,9 @@ class coinToGame {
             board::error(lang::get_phrase('character not found'));
         }
         $config = include __DIR__ . "/config.php";
-        donate::taking_money($count * $config['cost'], auth::get_id());
-        self::addItem(auth::get_default_server(), $config['item_id'], $count, 0, $char_name);
-        userlog::add("coinToGame", "coinToGamePhrase", [auth::get_email(), $char_name, $count, $count * $config['cost']]);
+        donate::taking_money(1 * $count, auth::get_id());
+        self::addItem(auth::get_default_server(), $config['item_id'], $count * $config['count'], 0, $char_name);
+        userlog::add("coinToGame", "coinToGamePhrase", [$char_name, $count * $config['count'], client_icon::get_item_info($config['item_id'])['name'], $count ]);
         board::alert([
             'type'=>'notice',
             'ok' => true,
