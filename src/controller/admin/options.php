@@ -7,6 +7,7 @@
 
 namespace Ofey\Logan22\controller\admin;
 
+use DateTime;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\chronicle\client;
@@ -18,6 +19,7 @@ use Ofey\Logan22\model\admin\patchlist;
 use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\update_cache;
 use Ofey\Logan22\model\admin\validation;
+use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\install\install;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\template\tpl;
@@ -54,10 +56,23 @@ class options {
 
     public static function additionally_save(){
         validation::user_protection("admin");
-        $element = $_POST['element'] ?? board::error("Нет данных элемента");
-        $data = $_POST['data'] ?? board::error("Нет данных дата");
-        $select_server_id = $_POST['select_server_id'] ?? auth::get_default_server();
-        server::additionally_save($element, $data, $select_server_id);
+        $server_id = $_POST['server_id'] ?? auth::get_default_server();
+        $knowledge_base = $_POST['knowledge_base'] ?? board::error("No select DB");
+        $startDate = $_POST['start-date'] ?? board::error("No date");
+        $max_online_server = $_POST['max_online_server'] ?? 250;
+
+        $dateTime = DateTime::createFromFormat('H:i d.m.Y', $startDate);
+        $startDate = $dateTime->format('Y-m-d H:i:s');
+
+        $timeZone = $_POST['timezone'];
+        sql::run("UPDATE `server_list` SET `date_start_server` = ?, `timezone` = ? WHERE `id` = ?;", [$startDate, $timeZone, $server_id]);
+
+        $statusServer = $_POST['status_server_release'] ?? "cbt";
+        server::additionally_save('status_server_release', $statusServer, $server_id);
+        server::additionally_save('knowledge_base', $knowledge_base, $server_id);
+        server::additionally_save('max_online', $max_online_server, $server_id);
+
+        board::success(lang::get_phrase(217));
     }
 
     static public function server_show() {

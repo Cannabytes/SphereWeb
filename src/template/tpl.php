@@ -23,6 +23,7 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\links\action;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
+use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\launcher;
 use Ofey\Logan22\model\forum\forum;
 use Ofey\Logan22\model\forum\internal;
@@ -232,6 +233,32 @@ class tpl {
             }
         }
 
+        $all_plugins_dir = fileSys::get_dir_files(fileSys::get_dir("/custom/plugins"), [
+            'fetchAll' => true,
+        ]);
+        $twigCustomFile = "custom_twig.php";
+        foreach ($all_plugins_dir as $pluginDir) {
+            $filePath = $pluginDir . '/' . $twigCustomFile;
+            if (is_readable($filePath)) {
+                require_once $filePath;
+                $fileContent = file_get_contents($filePath);
+                if (preg_match('/\bnamespace\s+([^\s;]+)/', $fileContent, $matches)) {
+                    $namespace = $matches[1];
+                    $className = pathinfo($filePath, PATHINFO_FILENAME);
+                    $className = $namespace . "\\" .$className;
+                    if (class_exists($className)) {
+                        $customTwig = new $className();
+                        $methods = get_class_methods($customTwig);
+                        foreach ($methods as $method) {
+                            if (is_callable([$customTwig, $method]) && (new ReflectionMethod($customTwig, $method))->isPublic()) {
+                                $twig->addFunction(new \Twig\TwigFunction($method, [$customTwig, $method]));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
         self::$allTplVars['dir'] = fileSys::localdir();
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'? 'https' : 'http';
@@ -312,6 +339,11 @@ class tpl {
             $templates = [];
             foreach (self::$pluginsAllCustomAndComponents as $key => $plugin) {
                 if (isset($plugin['INCLUDES'])) {
+                    if(isset($plugin['PLUGIN_ENABLE'])){
+                        if(!$plugin['PLUGIN_ENABLE']){
+                            continue;
+                        }
+                    }
                     foreach ($plugin['INCLUDES'] as $name => $file) {
                         if ($name == $includeName) {
                            $templates[] = $file;
@@ -559,6 +591,10 @@ class tpl {
         $twig->addFunction(new TwigFunction("get_server_default", function () {
             return server::get_server_info(auth::get_default_server());
         }));
+        //Сокращенный аналог get_server_default()
+        $twig->addFunction(new TwigFunction('get_server', function ($server_id = null) {
+            return server::get_server_info(auth::get_default_server());
+        }));
 
         //Кол-во серверов
         $twig->addFunction(new TwigFunction("get_count_servers", function () {
@@ -569,6 +605,7 @@ class tpl {
         $twig->addFunction(new TwigFunction('get_server_info', function ($server_id = null) {
             return server::get_server_info($server_id);
         }));
+
         $twig->addFunction(new TwigFunction('get_launcher_info', function ($server_id = null) {
             return launcher::get_launcher_info($server_id);
         }));
@@ -929,6 +966,10 @@ class tpl {
         //Проверка на наличие возможности просматривать чужим своего персонажа
         $twig->addFunction(new TwigFunction("is_forbidden", function ($charnames) {
             return character::is_forbidden($charnames);
+        }));
+
+        $twig->addFunction(new TwigFunction("timezone_list", function () {
+            return timezone::all();
         }));
 
         $twig->addFunction(new TwigFunction("timezone", function ($time = null) {

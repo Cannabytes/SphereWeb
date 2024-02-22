@@ -43,8 +43,6 @@
 
     <link rel="stylesheet" id="css-main" href="{{template}}/assets/css/codebase.css">
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
     <style>
         .chat {
             min-height: 30vh; /* Максимальная высота чата */
@@ -55,9 +53,76 @@
 
     {% block css %}{% endblock %}
 
+
+
 </head>
 
 <body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script defer src="{{template}}/assets/js/codebase.app.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/chart.js/chart.umd.js"></script>
+<script defer src="{{template}}/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/slick-carousel/slick.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons/dataTables.buttons.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons-jszip/jszip.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons/buttons.print.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/cleditor/jquery.cleditor.js" type="text/javascript"></script>
+<script defer src="{{template}}/assets/js/pages/be_tables_datatables.min.js"></script>
+<script defer src="{{template}}/assets/js/pages/db_classic.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
+<script defer src="{{template}}/assets/js/plugins/ckeditor/ckeditor.js"></script>
+<script defer src="{{template}}/assets/sphere/js/general.js"></script>
+<script defer src="{{template}}/assets/sphere/js/notice.js"></script>
+<script defer src="{{template}}/assets/sphere/js/account/prefix.js"></script>
+<script defer src="{{template}}/assets/sphere/js/pay.js"></script>
+<script defer src="{{template}}/assets/sphere/js/ticket/ticket.js"></script>
+
+<script defer>
+    const currency_exchange = JSON.parse('{{currency_exchange_info()|raw}}');
+</script>
+
+{% if user_info('get_is_auth') == false %}
+{% if get_captcha_version("google") %}
+<script defer>
+    $(document).ready(function () {
+        google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
+        grecaptcha.execute(google_captcha_key).then(function (token) {
+            $(".captchaToken").val(token);
+        });
+    });
+</script>
+{% else %}
+<script defer src="{{template}}/assets/sphere/js/captcha.js"></script>
+{% endif %}
+{% endif %}
+
+
+{% if user_info('get_is_auth') %}
+{% endif %}
+<script defer src="{{template}}/assets/sphere/js/forum.js"></script>
+
+<script defer src="{{template}}/assets/sphere/js/preload.js"></script>
+<script defer src="{{template}}/assets/sphere/js/ajax.js"></script>
+
+{% if get_enable_game_chat() %}
+<script defer src="{{template}}/assets/sphere/js/chat.js"></script>
+{% endif %}
+
+{% if user_info('get_access_level') == 'admin' %}
+<script defer src="{{template}}/assets/sphere/js/chatself.js"></script>
+<script defer src="{{template}}/assets/sphere/js/admin.js"></script>
+{% endif %}
+
 
 {% set mode_template = 'light' %}
 {% if get_user_variables('theme')['val'] is null %}
@@ -65,6 +130,7 @@
 {% else %}
 {% set mode_template = get_user_variables('theme')['val'] %}
 {% endif %}
+
 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll {% if mode_template == 'dark' %} sidebar-dark page-header-dark dark-mode {% endif  %}">
     <aside id="side-overlay">
         <div class="content-header bg-primary-dark">
@@ -75,7 +141,7 @@
             <a class="link-fx text-white fw-semibold fs-sm" href="#">
                 {{ phrase("sphere_inventory") }}
             </a>
-            <button type="button" class="btn btn-sm btn-alt-danger ms-auto" data-toggle="layout"
+            <button type="button" class="btn btn-sm btn-danger ms-auto" data-toggle="layout"
                     data-action="side_overlay_close">
                 <i class="fa fa-fw fa-times"></i>
             </button>
@@ -123,7 +189,6 @@
         {% endblock %}
 
     </aside>
-
     <nav id="sidebar">
         <div class="sidebar-content">
             <div class="content-header justify-content-lg-center bg-black-10">
@@ -379,7 +444,14 @@
                     </select>
                 {% endif %}
 
+                {% for include_file in get_plugins_include("PLACE_IN_SPACE_HEADER_0") %}
+                {{ include(include_file) }}
+                {% endfor %}
+
             </div>
+
+
+
 
             <div class="space-x-1">
                 <div class="dropdown d-inline-block">
@@ -665,8 +737,8 @@
                 {% endfor %}
 
                 {% if user_info('get_is_auth') %}
-                <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
-                        data-action="side_overlay_toggle">
+                <button type="button" class="{%if user_info('getBonus') %}btn btn-danger{% else %}btn btn-sm btn-alt-secondary{% endif %}" data-toggle="layout"
+                        data-action="side_overlay_toggle" >
                     <i class="fa fa-fw fa-box-open"></i>
                 </button>
                 {% endif %}
@@ -785,86 +857,7 @@
     </div>
 </div>
 
-<script>
-    const currency_exchange = JSON.parse('{{currency_exchange_info()|raw}}');
-</script>
-
-<script src="{{template}}/assets/js/codebase.app.min.js"></script>
-
-<!-- Page JS Plugins -->
-<script src="{{template}}/assets/js/plugins/chart.js/chart.umd.js"></script>
-<script src="{{template}}/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
-<script src="{{template}}/assets/js/plugins/slick-carousel/slick.min.js"></script>
-<script src="{{template}}/assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-<script src="{{template}}/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons/dataTables.buttons.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons-jszip/jszip.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons/buttons.print.min.js"></script>
-<script src="{{template}}/assets/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
-<script src="{{template}}/assets/js/plugins/cleditor/jquery.cleditor.js" type="text/javascript"></script>
-<script src="{{template}}/assets/js/pages/be_tables_datatables.min.js"></script>
-<script src="{{template}}/assets/js/pages/db_classic.min.js"></script>
-
-
-<script src="{{template}}/assets/sphere/js/general.js"></script>
-<script src="{{template}}/assets/sphere/js/notice.js"></script>
-<script src="{{template}}/assets/sphere/js/account/prefix.js"></script>
-<script src="{{template}}/assets/sphere/js/pay.js"></script>
-<script src="{{template}}/assets/sphere/js/ticket/ticket.js"></script>
-<script src="{{template}}/assets/js/plugins/ckeditor/ckeditor.js"></script>
-
-
-{% if user_info('get_is_auth') == false %}
-{% if get_captcha_version("google") %}
-<script>
-    $(document).ready(function () {
-        google_captcha_key = $('meta[name="google_captcha_key"]').attr('content');
-        grecaptcha.execute(google_captcha_key).then(function (token) {
-            $(".captchaToken").val(token);
-        });
-    });
-</script>
-{% else %}
-    <script src="{{template}}/assets/sphere/js/captcha.js"></script>
-{% endif %}
-{% endif %}
-
-
-{% if user_info('get_is_auth') %}
-{% endif %}
-<script src="{{template}}/assets/sphere/js/forum.js"></script>
-
-<script src="{{template}}/assets/sphere/js/preload.js"></script>
-<script src="{{template}}/assets/sphere/js/ajax.js"></script>
-
-{% if get_enable_game_chat() %}
-<script src="{{template}}/assets/sphere/js/chat.js"></script>
-{% endif %}
-
-
-
-{% if user_info('get_access_level') == 'admin' %}
-
-<script src="{{template}}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
-
-<script>Codebase.helpersOnLoad(['js-flatpickr']);</script>
-
-
-<!-- Page JS Helpers (Magnific Popup Plugin) -->
-
-<script src="{{template}}/assets/sphere/js/chatself.js"></script>
-<script src="{{template}}/assets/sphere/js/admin.js"></script>
-{% endif %}
-
 {% block js %}{% endblock %}
-
 
 </body>
 </html>

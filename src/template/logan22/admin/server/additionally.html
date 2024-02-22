@@ -6,32 +6,60 @@
 <div class="content">
     <div class="block block-rounded">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Дополнительные настройки для сервера</h3>
+            <h3 class="block-title">{{phrase(573)}}</h3>
         </div>
-        <div class="block-content">
-
+        <form action="/admin/options/server/additionally" method="post" class="block-content">
+            <input type="hidden" name="server_id" value="{{select_server_id}}">
                 <div class="row push">
-                    <div class="col-lg-3">
-                        <p class="text-muted">
-                            База знаний предметов
-                        </p>
-                    </div>
-
-                    <div class="col-lg-5 col-xl-2">
+                    <div class="col-lg-9 col-xl-5">
                         <div class="mb-4">
-                            <select class="form-select" id="knowledge_base">
+                            <label class="form-label" for="knowledge_base">{{phrase(571)}}</label>
+                            <select name="knowledge_base" class="form-select" id="knowledge_base">
                                 {% for dir in items_dir %}
-                                <option value="{{dir}}" {% if get_server_data('knowledge_base', select_server_id ) == dir %}selected{% endif %}>{{dir}}</option>
+                                <option value="{{dir}}" {% if get_server_data('knowledge_base') == dir %}selected{% endif %}>{{dir}}</option>
                                 {% endfor %}
                             </select>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary save_data" data-action="/admin/options/server/additionally" data-element-id="knowledge_base" data-server-id="{{select_server_id}}">{{phrase(89)}}</button>
+                        <div class="mb-4">
+                            <label class="form-label" for="start-date">{{phrase(28)}}</label>
+                            <input value="{{get_server().date_start_server|date('H:i d.m.Y')}}" type="text" class="js-flatpickr form-control" id="start-date" name="start-date" data-enable-time="true" data-time_24hr="true" data-date-format="H:i d.m.Y">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="timezone">Server TimeZone</label>
+                            <select class="form-select" name="timezone" id="timezone">
+                                {% set timezone = get_server_default().timezone %}
+                                {% for key, name in timezone_list() %}
+                                <option {% if name == timezone %}selected{% endif %} value="{{ name }}">{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% set status_server_release = get_server_data('status_server_release') %}
+                        {% if timezone(get_server().date_start_server)|date('H:i d.m.Y') <= timezone("now"|date("H:i d.m.Y")) %}
+                        {# Если время больше чем старт сервера, тогда ОБТ или ЗБТ меняем на OPEN #}
+                        {% set status_server_release = "server_is_open" %}
+                        {% endif %}
+                        <div class="mb-4">
+                            <label class="form-label" for="status_server_release">Server Status</label>
+                            <select class="form-select" name="status_server_release" id="status_server_release">
+                                <option {% if status_server_release == "cbt" %}selected{% endif %} value="cbt">ЗБТ - (Закрытое бета-тестирование)</option>
+                                <option {% if status_server_release == "obt" %}selected{% endif %} value="obt">ОБТ - (Открытое бета-тестирование</option>
+                                <option {% if status_server_release == "server_is_open" %}selected{% endif %} value="server_is_open">Сервер открыт</option>
+                                <option {% if status_server_release == "status_is_close" %}selected{% endif %} value="status_is_close">Сервер закрыт</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="max_online_server">{{phrase(572)}}</label>
+                            <input value="{{get_server_data('max_online')}}" type="number" class="form-control" id="max_online_server" name="max_online_server" placeholder="250">
+                        </div>
+
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-primary">{{phrase(89)}}</button>
+                        </div>
                     </div>
                 </div>
-
-        </div>
+        </form>
     </div>
 </div>
+
 {% endblock %}

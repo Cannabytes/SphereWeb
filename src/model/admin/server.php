@@ -310,6 +310,5 @@ class server {
     public static function additionally_save($element, $data, $select_server_id){
         sql::run("DELETE FROM `server_data` WHERE `key` = ? AND server_id = ?", [$element, $select_server_id]);
         sql::run("INSERT INTO `server_data` (`key`, `val`, `server_id`) VALUES (?, ?, ?)", [$element, $data, $select_server_id]);
-        board::success(lang::get_phrase(217));
     }
 }

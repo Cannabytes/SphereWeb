@@ -1,0 +1,98 @@
+{# До старта сервера #}
+{% set dateInfo = different_start_server() %}
+
+<div class="dropdown d-inline-block">
+    <div type="button" class="btn btn-sm btn-alt-secondary" id="page-header-themes-dropdown" data-bs-toggle="dropdown"
+         data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+
+        <div class="js-countdown mb-0">
+            <div id="timerlistinfo" class="row items-push push text-center {% if dateInfo.isStartServer == 1 %}text-success{% else %}text-white{% endif %}">
+
+                {% if dateInfo.days_total > 0 %}
+                <div class="col-6 col-md-3">
+                    <div class="fs-0 fw-bold days">{{dateInfo.days_total}}</div>
+                    <div class="fs-sm fw-medium text-white-50">{{getDayWord(dateInfo.days_total)}}</div>
+                </div>
+                {% endif %}
+
+                <div class="col-6 col-md-3">
+                    <div class="fs-0 fw-bold  hours">{{dateInfo.hours}}</div>
+                    <div class="fs-sm fw-medium text-white-50">{{getHourWord(dateInfo.hours)}}</div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="fs-0 fw-bold  minutes">{{dateInfo.minutes}}</div>
+                    <div class="fs-sm fw-medium text-white-50">{{phrase("_min")}}</div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="fs-0 fw-bold  seconds">{{dateInfo.seconds}}</div>
+                    <div class="fs-sm fw-medium text-white-50">{{phrase("_sec")}}</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown-menu dropdown-menu-lg p-0" aria-labelledby="page-header-themes-dropdown" style="">
+    
+        <div class="p-3">
+            <div class="row g-0 ">
+                {{phrase(28)}}: {{timezone(get_server().date_start_server)|date('H:i d.m.Y')}}
+                <br>
+                {% set cssStatusColor = 'text-muted' %}
+                {% set status_server_release = get_server_data('status_server_release') %}
+                {% if status_server_release is null %}
+                    {% set status_server_release = "status_indefined" %}
+                {% else %}
+                    {% if timezone(get_server().date_start_server)|date('H:i d.m.Y') <= timezone("now"|date("H:i d.m.Y")) %}
+                        {# Если время больше чем старт сервера, тогда ОБТ или ЗБТ меняем на OPEN #}
+                        {% set status_server_release = "server_is_open" %}
+                        {% set cssStatusColor = 'text-success' %}
+                    {% endif %}
+                {% endif %}
+                <div>{{phrase("_status")}}: <label class="{{cssStatusColor}}">{{phrase(status_server_release)}}</label></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var timeout = {{dateInfo.timeUntilStart}};
+        var isStartServer = {{dateInfo.isStartServer}};
+        var interval = setInterval(function() {
+            if(isStartServer=== 0 && timeout === 0 ){
+                isStartServer = 1;
+            }
+            if(timeout === 0){
+                $('#timerlistinfo').removeClass('text-white');
+                $('#timerlistinfo').addClass('text-success');
+            }
+           if (isStartServer) {
+               t = Math.abs(timeout)
+               var days = Math.floor((t) / 86400);
+               var hours = Math.floor((t % 86400) / 3600);
+               var minutes = Math.floor((t % 3600) / 60);
+               var seconds = t % 60;
+               $(".js-countdown .days").text(days);
+               $(".js-countdown .hours").text(hours);
+               $(".js-countdown .minutes").text(minutes);
+               $(".js-countdown .seconds").text(seconds);
+               timeout = timeout + 1;
+           }else{
+               t = Math.abs(timeout)
+               var days = Math.floor((t) / 86400);
+               var hours = Math.floor((t % 86400) / 3600);
+               var minutes = Math.floor((t % 3600) / 60);
+               var seconds = t % 60;
+               $(".js-countdown .days").text(days);
+               $(".js-countdown .hours").text(hours);
+               $(".js-countdown .minutes").text(minutes);
+               $(".js-countdown .seconds").text(seconds);
+               timeout = timeout - 1;
+           }
+        }, 1000);
+    });
+
+</script>

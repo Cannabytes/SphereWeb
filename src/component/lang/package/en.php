@@ -239,9 +239,7 @@ return [
     155 => "Admin already exists",
     156 => "No connection to db",
     157 => "Admin profile created",
-    158 => '<p><b>Greetings!</b></p><p>You have installed the Java Server Administration Software.</p><p>What\'s next? - Then log in and go to the admin panel and set your server parameters, site settings and others.</p><p>If you have ideas for improvement, perhaps suggestions for development, refinement for your server - write to me <a href="https://t.me/l2jweb" target="_blank">in telegram</a>.<br></p>',
-    159 => "Web engine installation completed successfully!",
-    160 => "You are already logged in",
+    158 => '<p><b>Greetings!</b></p><p>You have installed software for administering the Java server.</p><p>What next? - Then log in and go to the admin panel and set your server parameters, site settings and others.<br>The full range of settings in SphereWeb is located in the <code>/src/config</code> files. Also familiarize yourself with the plugins: they are located in two directories <code>/src/component/plugin</code> and <code>/custom/plugins</code></p><p>If you have ideas for improvement, possible development proposals, modifications for your server - write to the project chat <a href="https://t.me/shpereweb" target="_blank">telegram</a>.<br></p >',    160 => "You are already logged in",
     161 => "No data",
     162 => "You didn't enter a mailing address",
     163 => "Password cannot be blank",
@@ -897,5 +895,8 @@ return [
     570 => "Your discount on the purchase of goods",
     "add_item_donate_bonus" => "The item was given as a donation bonus",
     "log_bonus_donate" => "Received +%d ID: %d (%d) bonus for donation",
+    571 => "Select knowledge base (item information)",
+    572 => "Maximum online server",
+    573 => "Additional settings for the server",
 
 ];
