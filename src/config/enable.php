@@ -10,3 +10,9 @@ const ENABLE_GALLERY = true;
 
 //Включить систему пожертвований ?
 const ENABLE_DONATE = true;
+
+//Включить в меню раздел - Новости ?
+const ENABLE_NEWS = true;
+
+//Включить форум
+const ENABLE_FORUM = true;

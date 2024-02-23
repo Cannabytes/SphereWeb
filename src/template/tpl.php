@@ -483,7 +483,6 @@ class tpl {
             return auth::get_user_info($user_id);
         }));
 
-
         //Показать слово
         $twig->addFunction(new TwigFunction('get_phrase', function ($key, ...$values) {
             return lang::get_phrase($key, ...$values);
@@ -494,8 +493,8 @@ class tpl {
             return lang::get_phrase($phraseKey, ...$values);
         }));
 
-        //{{ config("getEnableTicket") }}
-        $twig->addFunction(new TwigFunction('config', function ($funcName) {
+        //{{ is_enable("getEnableTicket") }}
+        $twig->addFunction(new TwigFunction('is_enable', function ($funcName) {
             return config::$funcName();
         }));
 
@@ -506,7 +505,6 @@ class tpl {
         $twig->addFunction(new TwigFunction('format_number_fr', function ($num, $separator = ".") {
             echo number_format($num, 0, ',', $separator);
         }));
-
 
         $twig->addFunction(new TwigFunction('ProhloVremya', function ($mysqlTimeFormat) {
             return statistic_model::timeHasPassed(time() - strtotime($mysqlTimeFormat));

@@ -84,12 +84,17 @@
 <script defer src="{{template}}/assets/sphere/js/general.js"></script>
 <script defer src="{{template}}/assets/sphere/js/notice.js"></script>
 <script defer src="{{template}}/assets/sphere/js/account/prefix.js"></script>
+{% if is_enable("getEnableDonate") %}
 <script defer src="{{template}}/assets/sphere/js/pay.js"></script>
+{% endif %}
+{% if is_enable("getEnableTicket") %}
 <script defer src="{{template}}/assets/sphere/js/ticket/ticket.js"></script>
-
+{% endif %}
+{% if is_enable("getEnableDonate") %}
 <script defer>
     const currency_exchange = JSON.parse('{{currency_exchange_info()|raw}}');
 </script>
+{% endif %}
 
 {% if user_info('get_is_auth') == false %}
 {% if get_captcha_version("google") %}
@@ -106,10 +111,9 @@
 {% endif %}
 {% endif %}
 
-
-{% if user_info('get_is_auth') %}
-{% endif %}
+{% if is_enable("getEnableForum") %}
 <script defer src="{{template}}/assets/sphere/js/forum.js"></script>
+{% endif %}
 
 <script defer src="{{template}}/assets/sphere/js/preload.js"></script>
 <script defer src="{{template}}/assets/sphere/js/ajax.js"></script>
@@ -217,12 +221,15 @@
                                 <span class="nav-main-link-name">{{phrase("menu_main")}}</span>
                             </a>
                         </li>
+                        {% if is_enable("getEnableNews") %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="{{action('page')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-newspaper"></i>
                                 <span class="nav-main-link-name">{{phrase("news")}}</span>
                             </a>
                         </li>
+                        {% endif %}
+
                         {% if user_info('get_is_auth') %}
                         <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
@@ -259,7 +266,7 @@
                         </li>
                         {% endif %}
 
-
+                        {% if is_enable("getEnableDonate") %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="{{action('menu_donate_pay')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
@@ -272,6 +279,7 @@
                                 <span class="nav-main-link-name">{{phrase(215)}}</span>
                             </a>
                         </li>
+                        {% endif %}
 
                         <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
@@ -317,14 +325,16 @@
                             </ul>
                         </li>
 
-
+                        {% if is_enable("getEnableTicket") %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="{{action('menu_ticket')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-message"></i>
                                 <span class="nav-main-link-name">{{phrase("menu_ticket")}}</span>
                             </a>
                         </li>
+                        {% endif %}
 
+                        {% if is_enable("getEnableNews") %}
                         {% if user_info('get_is_auth') %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="{{action('menu_referral')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
@@ -333,13 +343,16 @@
                             </a>
                         </li>
                         {% endif %}
+                        {% endif %}
 
+                        {% if is_enable("getEnableForum") %}
                         <li class="nav-main-item">
                             <a class="nav-main-link ajaxload" href="{{action('forum')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-comments"></i>
                                 <span class="nav-main-link-name">{{phrase(62)}}</span>
                             </a>
                         </li>
+                        {% endif %}
 
                         {% for include_file in get_plugins_include("PLACE_IN_SPACE_MAIN_5") %}
                         {{ include(include_file) }}
@@ -449,8 +462,6 @@
                 {% endfor %}
 
             </div>
-
-
 
 
             <div class="space-x-1">

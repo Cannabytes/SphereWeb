@@ -25,6 +25,8 @@ class config
     private static bool $enable_ticket = true;
     private static bool $enable_gallery = true;
     private static bool $enable_donate = true;
+    private static bool $enable_news = true;
+    private static bool $enable_forum = true;
     private static ?string $captcha = null;
     private static bool $show_image_sphere_coin = true;
 
@@ -48,6 +50,8 @@ class config
         self::$enable_ticket = ENABLE_TICKET;
         self::$enable_gallery = ENABLE_GALLERY;
         self::$enable_donate = ENABLE_DONATE;
+        self::$enable_news = ENABLE_NEWS;
+        self::$enable_forum = ENABLE_FORUM;
     }
 
     // Возвращает название используемой капчи
@@ -170,6 +174,19 @@ class config
     public static function getEnableDonate(): bool
     {
         return self::$enable_donate;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function getEnableNews(): bool
+    {
+        return self::$enable_news;
+    }
+
+    public static function getEnableForum(): bool
+    {
+        return self::$enable_forum;
     }
 
     public static function algorithm_hashing_user_password(): string {

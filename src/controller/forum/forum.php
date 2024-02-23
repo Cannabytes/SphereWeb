@@ -8,8 +8,10 @@
 namespace Ofey\Logan22\controller\forum;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
+use Ofey\Logan22\controller\page\error;
 use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
@@ -27,6 +29,7 @@ class forum {
 
     public static function getUserName(): void {
         validation::user_protection();
+        if(!config::getEnableForum()) error::error404("Disabled");
         $name = $_POST['name'];
         $users = user::getUsersByName($name);
         $list = [];
@@ -37,12 +40,14 @@ class forum {
     }
 
     public static function deleteComment(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $post_id = $_POST['post_id'] ?? board::notice(false, lang::get_phrase(491));
         internal::postDelete($post_id);
     }
 
     public static function deleteCommentImage(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $post_id = $_POST['post_id'] ?? board::notice(false, lang::get_phrase(491));
         $file_id = $_POST['file_id'] ?? board::notice(false, lang::get_phrase(491));
@@ -50,6 +55,7 @@ class forum {
     }
 
     public static function editComment(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $post_id = $_POST['post_id'] ?? board::notice(false, lang::get_phrase(491));
         $message = $_POST['message'] ?? board::notice(false, lang::get_phrase(492));
@@ -77,6 +83,7 @@ class forum {
     }
 
     public static function likePost(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $post_id = $_POST['post_id'] ?? board::notice(false, lang::get_phrase(491));
         $type = $_POST['type'] ?? board::notice(false, lang::get_phrase(497));
@@ -114,6 +121,7 @@ class forum {
     }
 
     public static function getLikePost(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $post_id = $_POST['post_id'] ?? board::notice(false, lang::get_phrase(491));
         $buffs = internal::getPostBuffs($post_id);
@@ -136,6 +144,7 @@ class forum {
     }
 
     public static function addTopicRequest(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $section_id = $_POST['sectionID'] ?? board::notice(false, lang::get_phrase(501));
         $topicName = $_POST['topicName'] ?? "";
@@ -231,6 +240,7 @@ class forum {
     }
 
     public static function addTopic($sectionID): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         $section = internal::getSectionInfo($sectionID);
         self::checkCloseTopic($section['is_close']);
@@ -240,10 +250,12 @@ class forum {
     }
 
     public static function getTopic($sectionID, $topicID): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         self::getPosts($sectionID, $topicID, 0);
     }
 
     public static function getPosts($sectionID, $topicID, $currentPage): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         $topicInfo = internal::getTopic($topicID);
         if (!$topicInfo) {
             redirect::location("/forum");
@@ -291,6 +303,7 @@ class forum {
     }
 
     public static function addPost(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         validation::user_protection();
         //TODO: Сделать проверки на топик и сообщение
 
@@ -373,10 +386,12 @@ class forum {
     }
 
     public static function forum(): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         tpl::display("forum/forum.html");
     }
 
     public static function getTopics($sectionID): void {
+        if(!config::getEnableForum()) error::error404("Disabled");
         $section = internal::getSection($sectionID);
         $topicsPin = internal::getTopicsPin($sectionID);
         $topics = internal::getTopics($sectionID);

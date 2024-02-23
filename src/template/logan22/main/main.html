@@ -39,11 +39,13 @@
                     </div>
                 </div>
         </div>
-        {%endif%}
+        {% endif %}
 
     </div>
 
-    {{ block("forum", "forum/forum.html") }}
+    {% if is_enable("getEnableForum") %}
+        {{ block("forum", "forum/forum.html") }}
+    {% endif %}
 
 
 </div>

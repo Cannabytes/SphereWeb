@@ -3,6 +3,7 @@
 namespace Ofey\Logan22\controller\page;
 
 use Ofey\Logan22\component\alert\board;
+use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\model\admin\userlog;
@@ -21,6 +22,7 @@ class page {
      * Комментарий добавляется только в разрешенные страницы
      */
     public static function addComment() {
+        if(!config::getEnableNews()) error::error404("Отключено");
         if(!auth::get_is_auth()) {
             board::notice(false, "Only auth user");
         }
@@ -54,6 +56,7 @@ class page {
     }
 
     public static function show($id) {
+        if(!config::getEnableNews()) error::error404("Отключено");
         if($page = page_model::get_news($id)) {
             tpl::addVar([
                 'page'        => $page,
@@ -68,13 +71,14 @@ class page {
     public static function get_news_ajax() {
         $id = $_POST['news_id'];
         $content = page_model::get_news($id);
-        if($content == false) {
+        if(!$content) {
             board::notice(false, "Not news");
         }
         board::alert(array_merge($content, ['ok' => true]));
     }
 
     public static function lastNews(){
+        if(!config::getEnableNews()) error::error404("Отключено");
         $shorts = \Ofey\Logan22\model\page\page::show_all_pages_short();
         tpl::addVar([
             "shorts" => $shorts,
