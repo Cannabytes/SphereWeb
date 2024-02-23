@@ -677,7 +677,7 @@ return [
     "sex" => "Sex",
     "online" => "Online",
     "warehouse" => "Warehouse",
-    "allow_viewing_characters" => "Allow viewing your character",
+    "deny_viewing_characters" => "Deny viewing your character",
     "visible_to_everyone" => "Visible to everyone",
     "add_news" => "Add news",
     "add_new_server" => "Add a new server",

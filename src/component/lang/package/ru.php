@@ -680,7 +680,7 @@ return [
     "sex" => "Пол",
     "online" => "Онлайн",
     "warehouse" => "Склад",
-    "allow_viewing_characters" => "Разрешить просматривать Вашего персонажа",
+    "deny_viewing_characters" => "Deny viewing of your character",
     "visible_to_everyone" => "Видно всем",
     "add_news" => "Добавить новость",
     "add_new_server" => "Добавить новый сервер",

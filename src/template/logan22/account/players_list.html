@@ -29,7 +29,7 @@
                         <hr>
                         <div class="form-check form-switch">
                             <input id="{{char.player_name}}" {% if char.forbidden == true %}checked{% endif %} data-account="{{account}}" data-player="{{ char.player_name }}" type="checkbox" class="forbiddenToView form-check-input" data-on-color="danger" data-off-color="success" data-on-text="{{phrase(40)}}" data-off-text="{{phrase('visible_to_everyone')}}">
-                            <label class="form-check-label" for="{{char.player_name}}">{{phrase("allow_viewing_characters")}}</label>
+                            <label class="form-check-label" for="{{char.player_name}}">{{phrase("deny_viewing_characters")}}</label>
                         </div>
 
                     </div>
