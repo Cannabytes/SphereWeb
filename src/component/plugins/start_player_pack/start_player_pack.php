@@ -102,10 +102,10 @@ class start_player_pack {
                             $checkPlayerItem['object_id'],
                         ]);
                     } else {
-                        self::add_item_max_val_id($server_info, $player_id, $item_id, $count);
+                        donate::add_item_max_val_id($server_info, $player_id, $item_id, $count);
                     }
                 } else {
-                    self::add_item_max_val_id($server_info, $player_id, $item_id, $count);
+                    donate::add_item_max_val_id($server_info, $player_id, $item_id, $count);
                 }
             } else { //Если персонаж может быть в игре для выдачи предмета
                 player_account::add_item($server_info, [
