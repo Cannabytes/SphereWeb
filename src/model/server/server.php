@@ -7,11 +7,12 @@
 
 namespace Ofey\Logan22\model\server;
 
+use DateTime;
 use Exception;
+use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
 use Ofey\Logan22\component\cache\cache;
 use Ofey\Logan22\component\cache\dir;
-use Ofey\Logan22\component\config\config;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\model\db\sdb;
@@ -21,7 +22,7 @@ use ReflectionMethod;
 
 class server {
 
-    static private ?array $server_info = null;
+    private static ?array $server_info = null;
 
     /**
      * @param $id
@@ -56,6 +57,10 @@ class server {
         }
 
         return self::$server_info;
+    }
+
+    public static function server_info($id = null): bool|array{
+        return self::get_server_info($id);
     }
 
     //Кол-во серверов
@@ -227,6 +232,19 @@ class server {
         }
 
         return false;
+    }
+
+    // $showError - показывать сообщение ошибки, если сервер ещё не запустился.
+    public static function is_start_server($server_info, $showError = true): bool {
+        if(isset($server_info['date_start_server'])){
+            if(new DateTime('now') <= new DateTime($server_info['date_start_server'])){
+                if($showError){
+                    board::error("Покупка будет возможна после запуска сервера");
+                }
+                return false;
+            }
+        }
+        return true;
     }
 
 }

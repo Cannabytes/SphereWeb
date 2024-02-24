@@ -10,17 +10,13 @@
 namespace Ofey\Logan22\model\user\player;
 
 use Ofey\Logan22\component\alert\board;
-use Ofey\Logan22\component\base\base;
-use Ofey\Logan22\component\captcha\captcha;
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\component\request\request;
 use Ofey\Logan22\component\time\time;
-use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
-use SimpleCaptcha\Builder;
 
 class comparison {
 

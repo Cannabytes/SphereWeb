@@ -12,13 +12,11 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
-use Ofey\Logan22\component\request\request;
-use Ofey\Logan22\component\request\request_config;
 use Ofey\Logan22\component\time\time;
-use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\bonus\bonus;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
@@ -81,7 +79,7 @@ class donate {
     /*
      * Покупка предмета, передача предмета игровому персонажу
      */
-    static public function transaction(): void {
+    public static function transaction(): void {
         //Формальная проверка что у пользователя вообще есть ли деньги.
         if(auth::get_donate_point() < 0){
             board::notice(false, "Not enough money");

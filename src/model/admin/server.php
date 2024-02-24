@@ -15,8 +15,6 @@ use Ofey\Logan22\model\install\install;
 
 class server {
 
-    private static $data_list_server = null;
-
     public static function save_server() {
         $name_server = !empty($_POST['name']) ? trim($_POST['name']) : board::notice(false, "Не заполнено название сервера");
         $version_client = !empty($_POST['version_client']) ? trim($_POST['version_client']) : board::notice(false, "Не заполнена версия клиента");

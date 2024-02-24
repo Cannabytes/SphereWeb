@@ -2,15 +2,16 @@
 
 namespace Ofey\Logan22\component\plugins\start_player_pack;
 
+use DateTime;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\controller\page\error;
-use Ofey\Logan22\model\admin\server;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
+use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\player_account;
 use Ofey\Logan22\template\tpl;
@@ -53,7 +54,6 @@ class start_player_pack {
             board::error("Повторное использование функции возможно только один раз в " . self::COOLDOWN_SECONDS . " секунд");
         }
 
-        
         $pack = null;
         foreach($this->start_pack AS $data){
             if ($data['name'] == $packName){
@@ -69,10 +69,11 @@ class start_player_pack {
             board::error("У Вас нехватает денег");
         }
 
-        $server_info = server::server_info(auth::get_default_server());
+        $server_info = server::get_server_info(auth::get_default_server());
         if (!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
+        server::is_start_server($server_info);
 
         $player_info = player_account::is_player($server_info, [$char_name]);
         $player_info = $player_info->fetch();
