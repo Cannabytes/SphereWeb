@@ -24,14 +24,13 @@ class chat {
             echo json_encode($actualCache);
             return;
         }
-        $query = sql::run("SELECT *, TIMEDIFF(NOW(), date) AS time_difference FROM chat WHERE server = ? AND type IN ('ALL') ORDER BY id DESC LIMIT 15;", [
+        $query = sql::run("SELECT *, TIMEDIFF(NOW(), date) AS time_difference FROM chat WHERE server = ? AND type IN ('ALL', 'GLOBAL', 'TRADE') ORDER BY id DESC LIMIT 15;", [
             $server_id,
         ])->fetchAll();
         foreach ($query as &$item) {
             $item['message'] = htmlspecialchars($item['message'], ENT_QUOTES, 'UTF-8');
             $item['timeAgo'] = time::secToHum($item['time_difference']);
         }
-        cache::clear(dir::chat->show_dynamic(server_id: $server_id));
         cache::save(dir::chat->show_dynamic(server_id: $server_id), $query);
         $query = self::getLatestRecords($query, $last_message_id, 20);
         echo json_encode($query);

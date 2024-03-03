@@ -30,11 +30,13 @@ function connectUserChat() {
             clearInterval(intervalId);
             return;
         }
-        if (chatContainer.scrollTop() === chatContainer[0].scrollHeight - chatContainer[0].clientHeight) {
+
+        if (chatContainer.length > 0 && chatContainer.scrollTop() === chatContainer[0].scrollHeight - chatContainer[0].clientHeight) {
             isNeedScroll = true;
         } else {
             isNeedScroll = false;
         }
+
 
         $.ajax({
             url: baseHref + "/chat",

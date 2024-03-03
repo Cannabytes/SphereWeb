@@ -32,8 +32,11 @@ class cache {
      * @param dir        $dir
      * @param bool|array $last_message
      */
-    public static function save(string $dir, bool|array $last_message = []): bool
+    public static function save(string $dir, bool|array $last_message = [], $clear = true): bool
     {
+        if($clear){
+            self::clear($dir);
+        }
         if($last_message && fileSys::put($dir, $last_message)) {
             return true;
         }
