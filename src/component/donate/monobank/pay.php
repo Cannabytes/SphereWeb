@@ -14,10 +14,17 @@ class monobank {
     ];
 
     //Включена/отключена платежная система
-    private static bool $enable = false;
+    private static bool $enable = true;
+
+    //Включить только для администратора
+    private static bool $forAdmin = true;
 
     public static function isEnable(): bool{
         return self::$enable;
+    }
+
+    public static function forAdmin(): bool{
+        return self::$forAdmin;
     }
 
     public static function getDescription(): ?array {
@@ -32,6 +39,8 @@ class monobank {
      */
     function create_link() {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
+        donate::isOnlyAdmin(self::class);
+
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
         $donate = include 'src/config/donate.php';

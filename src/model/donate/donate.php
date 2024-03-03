@@ -418,5 +418,13 @@ class donate {
         return true;
     }
 
+    //Проверка: Если донат система в тестировании, тогда проверяем, что она доступна только для администратора
+    public static function isOnlyAdmin($donateClass): void {
+        if(method_exists($donateClass, 'forAdmin')){
+            if($donateClass::forAdmin() AND auth::get_access_level() != 'admin'){
+                board::error('Only for Admin');
+            }
+        }
+    }
 
 }

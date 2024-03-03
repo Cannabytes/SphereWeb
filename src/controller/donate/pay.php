@@ -30,6 +30,11 @@ class pay {
             if(!$system::isEnable()){
                 continue;
             }
+            if(method_exists($system, 'forAdmin')){
+                if($system::forAdmin() AND auth::get_access_level() != 'admin'){
+                    continue;
+                }
+            }
             if(method_exists($system, 'getDescription')){
                 $donateSysNames[] = ['name' => basename($system), 'desc'=>$system::getDescription()[lang::lang_user_default()]];
             }else{

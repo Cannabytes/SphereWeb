@@ -16,6 +16,7 @@ class yoomoney {
 
     //Включена/отключена платежная система
     private static bool $enable = true;
+    private static bool $forAdmin = false;
 
     /**
      * Конфигурация
@@ -30,6 +31,11 @@ class yoomoney {
 
     public static function isEnable(): bool{
         return self::$enable;
+    }
+
+    //Включить только для администратора
+    public static function forAdmin(): bool{
+        return self::$forAdmin;
     }
 
     public static function getDescription(): ?array {
@@ -56,6 +62,8 @@ class yoomoney {
      */
     function create_link(): void {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
+        donate::isOnlyAdmin(self::class);
+
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
         if(empty($this->receiver)){
