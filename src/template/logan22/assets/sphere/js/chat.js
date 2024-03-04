@@ -31,6 +31,10 @@ function connectUserChat() {
             return;
         }
 
+        if ($('#chat_messages').length === 0) {
+            return;
+        }
+
         if (chatContainer.length > 0 && chatContainer.scrollTop() === chatContainer[0].scrollHeight - chatContainer[0].clientHeight) {
             isNeedScroll = true;
         } else {
@@ -88,7 +92,7 @@ function connectUserChat() {
                 console.log("Произошла ошибка при отправке запроса!");
             }
         });
-    }, 1200);
+    }, 2000);
 }
 
 function typeMessage(msgType) {

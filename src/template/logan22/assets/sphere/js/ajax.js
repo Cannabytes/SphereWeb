@@ -12,10 +12,12 @@ function changeAddress(url) {
 }
 
 $(document).on('click', '.ajaxload', function (event) {
+    last_message_chat_id = 0;
     linkAjax($(this).attr("href"), "GET")
 });
 
 window.addEventListener('popstate', function (event) {
+    last_message_chat_id = 0;
     var newUrl = document.location.href;
     linkAjax(newUrl)
 });

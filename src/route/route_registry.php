@@ -205,10 +205,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
      */
     $route->post("/user/variable/set", 'Ofey\Logan22\controller\user\auth\auth::set_variable');
 
-//лаунчер
-    $route->get("/launcher/(\d+)", 'Ofey\Logan22\controller\launcher\launcher::show');
-    $route->get("/admin/launcher/create", 'Ofey\Logan22\controller\launcher\launcher::create');
-
     /**
      * ===========================================
      * Роутер админ панели
