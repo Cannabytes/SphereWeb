@@ -10,24 +10,24 @@
 
                 {% if dateInfo.days_total > 0 %}
                 <div class="col-6 col-md-3">
-                    <div class="fs-0 fw-bold days">{{dateInfo.days_total}}</div>
-                    <div class="fs-sm fw-medium text-white-50">{{getDayWord(dateInfo.days_total)}}</div>
+                    <div class="fs-0 fw-bold text-info days">{{dateInfo.days_total}}</div>
+                    <div class="fs-sm fw-medium text-info">{{getDayWord(dateInfo.days_total)}}</div>
                 </div>
                 {% endif %}
 
                 <div class="col-6 col-md-3">
-                    <div class="fs-0 fw-bold  hours">{{dateInfo.hours}}</div>
-                    <div class="fs-sm fw-medium text-white-50">{{getHourWord(dateInfo.hours)}}</div>
+                    <div class="fs-0 fw-bold text-info hours">{{dateInfo.hours}}</div>
+                    <div class="fs-sm fw-medium text-info">{{getHourWord(dateInfo.hours)}}</div>
                 </div>
 
                 <div class="col-6 col-md-3">
-                    <div class="fs-0 fw-bold  minutes">{{dateInfo.minutes}}</div>
-                    <div class="fs-sm fw-medium text-white-50">{{phrase("_min")}}</div>
+                    <div class="fs-0 fw-bold text-info minutes">{{dateInfo.minutes}}</div>
+                    <div class="fs-sm fw-medium text-info">{{phrase("_min")}}</div>
                 </div>
 
                 <div class="col-6 col-md-3">
-                    <div class="fs-0 fw-bold  seconds">{{dateInfo.seconds}}</div>
-                    <div class="fs-sm fw-medium text-white-50">{{phrase("_sec")}}</div>
+                    <div class="fs-0 fw-bold text-info seconds">{{dateInfo.seconds}}</div>
+                    <div class="fs-sm fw-medium text-info">{{phrase("_sec")}}</div>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@
                 {% if status_server_release is null %}
                     {% set status_server_release = "status_indefined" %}
                 {% else %}
-                    {% if timezone(get_server().date_start_server)|date('H:i d.m.Y') <= timezone("now"|date("H:i d.m.Y")) %}
+                    {% if timezone(get_server().date_start_server|date('H:i d.m.Y')) <= timezone("now"|date("H:i d.m.Y")) %}
                         {# Если время больше чем старт сервера, тогда ОБТ или ЗБТ меняем на OPEN #}
                         {% set status_server_release = "server_is_open" %}
                         {% set cssStatusColor = 'text-success' %}
@@ -66,7 +66,7 @@
                 isStartServer = 1;
             }
             if(timeout === 0){
-                $('#timerlistinfo').removeClass('text-white');
+                $('#timerlistinfo').removeClass('text-info');
                 $('#timerlistinfo').addClass('text-success');
             }
            if (isStartServer) {

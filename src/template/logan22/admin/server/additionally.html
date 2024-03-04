@@ -34,7 +34,7 @@
                             </select>
                         </div>
                         {% set status_server_release = get_server_data('status_server_release') %}
-                        {% if get_server().date_start_server is not null and timezone(get_server().date_start_server)|date('H:i d.m.Y') <= timezone("now"|date("H:i d.m.Y")) %}
+                        {% if timezone(get_server().date_start_server|date('H:i d.m.Y')) <= timezone("now"|date("H:i d.m.Y")) %}
                         {# Если время больше чем старт сервера, тогда ОБТ или ЗБТ меняем на OPEN #}
                         {% set status_server_release = "server_is_open" %}
                         {% endif %}
