@@ -47,16 +47,16 @@ const TITLE = [
 
 //Описание главной страницы
 const DESCRIPTION = [
-    "ru" => "Публичный сервер Lineage 2",
-    "en" => "Lineage 2 public server",
+    "ru" => "Публичный сервер L2",
+    "en" => "L2 public server",
 ];
 
-const KEYWORDS = "Lineage 2 сервер, Игровой сервер Lineage 2, PvP сервер, Новый сервер, High Five сервер, Бесплатный сервер Lineage 2, Lineage 2 скачать, CMS SphereWeb, MMORPG, Lineage2Clan, Get-Web.Site,
-Lineage2Community, Aden, Giran, Lineage2 Server, L2j, Aden Castle, Dion Castle, Giran Castle, Gludio Castle, Goddard Castle, Innadril Castle, Oren Castle, Rune Castle, Schuttgart Castle, Talking Island Castle,
+const KEYWORDS = "L2 сервер, Игровой сервер L2, PvP сервер, Новый сервер, High Five сервер, Бесплатный сервер L2, L2 скачать, CMS SphereWeb, MMORPG, L22Clan, Get-Web.Site,
+L22Community, Aden, Giran, L22 Server, L2j, Aden Castle, Dion Castle, Giran Castle, Gludio Castle, Goddard Castle, Innadril Castle, Oren Castle, Rune Castle, Schuttgart Castle, Talking Island Castle,
 Human Fighter, Human Knight, Rogue, Warrior, Human Mystic, Human Wizard, Cleric, Elf Fighter, Elven Knight, Scout, Elf Mystic, Elven Wizard, Elven Oracle, Dark Elf Fighter, Palus Knight, Assassin, Dark Elf Mystic, Dark Wizard, Shillien Oracle, Orc Fighter, Orc Raider, Monk, Orc Mystic, Orc Shaman, Overlord, Dwarf Fighter, Scavenger, Artisan, Dwarf Mystic, Warsmith, Bounty Hunter, Kamael Soldier, Trooper, Berserker, Kamael Mystic, Soul Breaker, Soul Breaker,
 Открытый мир фэнтезийной вселенной, разнообразие игровых рас: люди, эльфы, тёмные эльфы, орки, дворфы, камаэлы, многообразие профессий и классов персонажей, PvP (игрок против игрока) и PvE (игрок против окружающей среды) контент, захватываемые замки и территории, квесты и задания для развития персонажа, разнообразие монстров и боссов, эпические сражения и рейды, экономическая составляющая игры: торговля, создание предметов, игровая валюта, социальное взаимодействие: кланы, альянсы, гильдии, разнообразие игровых зон и локаций, развитие персонажа через навыки и экипировку,
 Open-world fantasy universe, diverse playable races including Humans, Elves, Dark Elves, Orcs, Dwarves, and Kamael, variety of character professions and classes, PvP and PvE content, capturable castles and territories, quests and tasks for character development, diverse range of monsters and bosses, epic battles and raids, in-game economy involving trading, crafting, and currency, social interaction through clans, alliances, guilds, diverse gaming zones and locations, character progression through skills and equipment,
-Игровые события Lineage 2, Lineage 2 фестивали, Праздничные события Lineage 2, Lineage 2 система торговли, Крафт в Lineage 2, PvP/PvE системы Lineage 2, Lineage 2 форумы, Lineage 2 сообщество, Lineage 2 обсуждения, Lineage 2 обновления, High Five обновление Lineage 2, Lineage 2 последний патч.";
+Игровые события L2, L2 фестивали, Праздничные события L2, L2 система торговли, Крафт в L2, PvP/PvE системы L2, L2 форумы, L2 сообщество, L2 обсуждения, L2 обновления, High Five обновление L2, L2 последний патч.";
 
 
 //Сохранять ли данные о статистики онлайна

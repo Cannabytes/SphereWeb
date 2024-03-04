@@ -397,9 +397,9 @@ return [
   [
     'id' => 13419,
     'type' => 'etcitem',
-    'name' => 'Lineage II Commemorative Mark',
+    'name' => 'L2 II Commemorative Mark',
     'add_name' => '',
-    'description' => 'Keep this Lineage II Commemorative Mark safe and it will bring you luck. If destroyed, it loses its effect. Cannot be exchanged or dropped. May be stored in a private warehouse.',
+    'description' => 'Keep this L2 II Commemorative Mark safe and it will bring you luck. If destroyed, it loses its effect. Cannot be exchanged or dropped. May be stored in a private warehouse.',
     'icon' => 'etc_scroll_of_memory_i00',
     'weight' => 20,
     'is_tradable' => false,

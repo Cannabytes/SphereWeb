@@ -59,7 +59,7 @@ return [
   [
     'id' => 97303,
     'type' => 'etcitem',
-    'name' => 'Lineage 2 Reward Pack (Time-limited]',
+    'name' => 'L2 Reward Pack (Time-limited]',
     'add_name' => '',
     'description' => '',
     'icon' => 'etc_pi_box_wish_pack',

@@ -300,9 +300,9 @@ return [
   [
     'id' => 13523,
     'type' => 'armor',
-    'name' => 'Event - Lineage Souvenir Circlet',
+    'name' => 'Event - L2 Souvenir Circlet',
     'add_name' => '',
-    'description' => 'Lineage Souvenir Circlet. Uses 2 hair accessory slots. Cannot be exchanged or dropped.',
+    'description' => 'L2 Souvenir Circlet. Uses 2 hair accessory slots. Cannot be exchanged or dropped.',
     'icon' => 'accessory_5th_circlet_i00',
     'bodypart' => 'hairall',
     'weight' => 10,

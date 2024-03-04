@@ -1706,7 +1706,7 @@ return [
     'type' => 'etcitem',
     'name' => 'Festival Adena',
     'add_name' => '',
-    'description' => 'Currency used in the "2005 Lineage II Live" event.',
+    'description' => 'Currency used in the "2005 L2 II Live" event.',
     'icon' => 'etc_coin_of_fair_i00',
     'is_tradable' => false,
     'is_dropable' => false,

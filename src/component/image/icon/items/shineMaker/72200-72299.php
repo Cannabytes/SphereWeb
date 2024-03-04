@@ -311,7 +311,7 @@ return [
   [
     'id' => 72270,
     'type' => 'etcitem',
-    'name' => 'Lineage 2 PA Support Kit (Time-limited]',
+    'name' => 'L2 PA Support Kit (Time-limited]',
     'add_name' => '',
     'description' => '',
     'icon' => 'etc_pi_gift_box_i03',

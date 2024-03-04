@@ -4,7 +4,7 @@ return [
   [
     'id' => 26326,
     'type' => 'armor',
-    'name' => 'Lineage II Baseball Uniform',
+    'name' => 'L2 II Baseball Uniform',
     'add_name' => '',
     'description' => '',
     'icon' => 'london_olympic_bikini',
@@ -17,7 +17,7 @@ return [
   [
     'id' => 26327,
     'type' => 'armor',
-    'name' => 'Lineage II Baseball Cap',
+    'name' => 'L2 II Baseball Cap',
     'add_name' => '',
     'description' => '',
     'icon' => 'accessory_mining_cap_i00',

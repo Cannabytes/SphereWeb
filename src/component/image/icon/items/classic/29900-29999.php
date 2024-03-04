@@ -903,7 +903,7 @@ return [
   [
     'id' => 29986,
     'type' => 'etcitem',
-    'name' => 'Lineage II Chest',
+    'name' => 'L2 II Chest',
     'add_name' => '',
     'description' => '',
     'icon' => 'ev_10th_present2',

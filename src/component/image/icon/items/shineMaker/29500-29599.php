@@ -1116,7 +1116,7 @@ return [
   [
     'id' => 29581,
     'type' => 'etcitem',
-    'name' => 'Lineage II Chest',
+    'name' => 'L2 II Chest',
     'add_name' => '',
     'description' => '',
     'icon' => 'etc_ertheia2',

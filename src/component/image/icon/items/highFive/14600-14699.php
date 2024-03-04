@@ -286,7 +286,7 @@ return [
   [
     'id' => 14614,
     'type' => 'etcitem',
-    'name' => 'Lineage II Devotee Scroll',
+    'name' => 'L2 II Devotee Scroll',
     'add_name' => '',
     'description' => 'Santa\'s buff gift set. When used, can feel yourself becoming stronger by Santa\'s blessing for 1 hour.',
     'icon' => 'etc_level_bustup_ticket_i01',

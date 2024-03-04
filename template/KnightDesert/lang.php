@@ -39,8 +39,8 @@ return [
         
         'events_title' => 'Ближайшие <span class="color-orange">события</span>',
 
-        'footer_title' => 'Игровой сервер <span class="color-orange">Lineage 2</span>',
-        'footer_desc' => 'Данный сервер является тестовым вариантом игры Lineage II и предназначен только для ознакомления игроков.',
+        'footer_title' => 'Игровой сервер <span class="color-orange">L2</span>',
+        'footer_desc' => 'Данный сервер является тестовым вариантом игры L2 II и предназначен только для ознакомления игроков.',
 
         'fnav_t_1' => 'О сервере',
         'fnav_t_2' => 'Аккаунт',
@@ -84,8 +84,8 @@ return [
 
         'events_title' => 'Upcoming <span class="color-orange">events</span>',
 
-        'footer_title' => 'Game server <span class="color-orange">Lineage 2</span>',
-        'footer_desc' => 'This server is a test version of the Lineage II game and is intended for players’ acquaintance only.',
+        'footer_title' => 'Game server <span class="color-orange">L2</span>',
+        'footer_desc' => 'This server is a test version of the L2 II game and is intended for players’ acquaintance only.',
 
         'fnav_t_1' => 'About the server',
         'fnav_t_2' => 'Account',

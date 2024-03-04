@@ -887,7 +887,7 @@ return [
     'type' => 'armor',
     'name' => 'Sayha\'s White Mask',
     'add_name' => '',
-    'description' => '2006 Lineage II Epic Collection Souvenir.',
+    'description' => '2006 L2 II Epic Collection Souvenir.',
     'icon' => 'accessory_full_mask_i00',
     'bodypart' => 'hair',
     'weight' => 10,

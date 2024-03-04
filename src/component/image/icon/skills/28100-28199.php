@@ -604,7 +604,7 @@
     'skill_id' => 28175,
     'level_max' => 1,
     'icon' => 'skill0000',
-    'name_en' => 'Lineage II Baseball Uniform Appearance Stone',
+    'name_en' => 'L2 II Baseball Uniform Appearance Stone',
     'name_ru' => 'Камень Обработки Бейсбольной формы LA2 ',
   ],
   28176 => 
@@ -612,7 +612,7 @@
     'skill_id' => 28176,
     'level_max' => 1,
     'icon' => 'BranchSys3.Icon.g_shape_shifting_hair1',
-    'name_en' => 'Lineage II Baseball Cap Appearance Stone',
+    'name_en' => 'L2 II Baseball Cap Appearance Stone',
     'name_ru' => 'Камень Обработки Бейсболки LA2 ',
   ],
   28177 => 

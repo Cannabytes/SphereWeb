@@ -252,8 +252,8 @@
     'skill_id' => 16032,
     'level_max' => 1,
     'icon' => 'skill0000',
-    'name_en' => 'Gi-Sung Bae\'s Lineage II',
-    'name_ru' => 'Lineage II Пэ Гисона',
+    'name_en' => 'Gi-Sung Bae\'s L2 II',
+    'name_ru' => 'L2 II Пэ Гисона',
   ],
   16033 => 
   [

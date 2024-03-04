@@ -877,7 +877,7 @@ return [
   [
     'id' => 94165,
     'type' => 'etcitem',
-    'name' => 'PA Lineage 2 Festival Box (Time-limited]',
+    'name' => 'PA L2 Festival Box (Time-limited]',
     'add_name' => '',
     'description' => '',
     'icon' => 'etc_pi_gift_box_i04',

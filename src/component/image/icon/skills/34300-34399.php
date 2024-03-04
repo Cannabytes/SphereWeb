@@ -44,16 +44,16 @@
     'skill_id' => 34305,
     'level_max' => 1,
     'icon' => 'skill0000',
-    'name_en' => 'Lineage II 18th Birthday Gift',
-    'name_ru' => 'Подарок к Юбилею Lineage II',
+    'name_en' => 'L2 II 18th Birthday Gift',
+    'name_ru' => 'Подарок к Юбилею L2 II',
   ],
   34306 => 
   [
     'skill_id' => 34306,
     'level_max' => 25,
     'icon' => 's_npc_ev_18th',
-    'name_en' => 'Congratulations! 18th birthday of Lineage II - Level 1',
-    'name_ru' => 'Эффект в Честь Юбилея Lineage II - Ур. 1',
+    'name_en' => 'Congratulations! 18th birthday of L2 II - Level 1',
+    'name_ru' => 'Эффект в Честь Юбилея L2 II - Ур. 1',
   ],
   34307 => 
   [

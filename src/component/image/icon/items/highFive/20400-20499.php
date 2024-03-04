@@ -2740,7 +2740,7 @@ return [
     'type' => 'armor',
     'name' => 'Agathion Seal Bracelet - Live Event Souvenir',
     'add_name' => '',
-    'description' => 'Dimensional  A special thanks for having attended a live Lineage II fan event. Summons the Live Event Souvenir agathion, which contains a surprise inside. Cannot be exchanged, dropped, or sold. Can be shared between characters on the same account through the Dimensional Merchant.',
+    'description' => 'Dimensional  A special thanks for having attended a live L2 II fan event. Summons the Live Event Souvenir agathion, which contains a surprise inside. Cannot be exchanged, dropped, or sold. Can be shared between characters on the same account through the Dimensional Merchant.',
     'icon' => 'br_aga_pomona_i00',
     'bodypart' => 'lbracelet',
     'weight' => 150,

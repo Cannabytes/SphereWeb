@@ -1474,7 +1474,7 @@ return [
   [
     'id' => 97299,
     'type' => 'etcitem',
-    'name' => 'Lineage 2 Reward - Trophy (Time-limited]',
+    'name' => 'L2 Reward - Trophy (Time-limited]',
     'add_name' => '',
     'description' => '',
     'icon' => 'ev_211215_silver_trophy',

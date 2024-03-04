@@ -941,7 +941,7 @@ return [
   [
     'id' => 5249,
     'type' => 'etcitem',
-    'name' => 'Commemorative Item: First Anniversary of Lineage II Service',
+    'name' => 'Commemorative Item: First Anniversary of L2 II Service',
     'add_name' => '',
     'description' => 'After the conclusion of the event, this item is traded for an actual item through a drawing.',
     'icon' => 'etc_l2_i00',

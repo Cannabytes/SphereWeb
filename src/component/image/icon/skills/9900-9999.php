@@ -412,8 +412,8 @@
     'skill_id' => 9951,
     'level_max' => 1,
     'icon' => 'skill0000',
-    'name_en' => 'Letter Collector\'s Pouch: LINEAGE II',
-    'name_ru' => 'Мешок Коллекционера Букв - LINEAGE II',
+    'name_en' => 'Letter Collector\'s Pouch: L2 II',
+    'name_ru' => 'Мешок Коллекционера Букв - L2 II',
   ],
   9952 => 
   [
