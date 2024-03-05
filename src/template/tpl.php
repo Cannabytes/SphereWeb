@@ -21,6 +21,7 @@ use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\links\action;
+use Ofey\Logan22\component\request\url;
 use Ofey\Logan22\component\time\microtime;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\component\time\timezone;
@@ -261,17 +262,8 @@ class tpl {
 
 
         self::$allTplVars['dir'] = fileSys::localdir();
-        $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'? 'https' : 'http';
-        if($_SERVER["SERVER_PORT"] == 443)
-            $protocol = 'https';
-        elseif (isset($_SERVER['HTTPS']) && (($_SERVER['HTTPS'] == 'on') || ($_SERVER['HTTPS'] == '1')))
-            $protocol = 'https';
-        elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on')
-            $protocol = 'https';
-
-        $self = $protocol . "://" . $_SERVER["SERVER_NAME"] . $relativePath . self::$templatePath;
-
-        self::$allTplVars['protocol'] = $protocol;
+        $self = url::host() . $relativePath . self::$templatePath;
+        self::$allTplVars['protocol'] = url::scheme();
         self::$allTplVars['path'] = $relativePath;
         self::$allTplVars['template'] = $self;
         self::$allTplVars['pointTime'] = microtime::pointTime();
@@ -291,8 +283,6 @@ class tpl {
         }
         lang::load_template_lang_packet($tpl);
     }
-
-    private static $pluginsLoad = null;
 
     private static function generalfunc(Environment $twig = null): Environment {
         $twig->addFilter(new TwigFilter('html_entity_decode', 'html_entity_decode'));

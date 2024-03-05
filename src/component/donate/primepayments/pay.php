@@ -6,31 +6,7 @@ use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
-class primepayments {
-
-    private static array $description = [
-        "ru" => "Система primepayments [Россия, Беларусь]",
-        "en" => "Pay system primepayments [Россия, Беларусь]",
-    ];
-
-    //Включена/отключена платежная система
-    private static bool $enable = true;
-
-    //Включить только для администратора
-    private static bool $forAdmin = false;
-
-    public static function isEnable(): bool{
-        return self::$enable;
-    }
-
-    public static function forAdmin(): bool{
-        return self::$forAdmin;
-    }
-
-    public static function getDescription(): ?array {
-        return self::$description ?? null;
-    }
-
+class primepayments extends \Ofey\Logan22\model\donate\pay_abstract {
     /**
      * Конфигурация
      * project_id - ID проекта
@@ -40,24 +16,26 @@ class primepayments {
     private $project_id = 0000;
     private $secret1    = "";
     private $secret2    = "";
+
+    protected static array $description = [
+        "ru" => "Primepayments [Россия, Беларусь]",
+        "en" => "Primepayments [Russia, Belarus]",
+    ];
+
+    //Включена/отключена платежная система
+    protected static bool $enable = false;
+
+    //Включить только для администратора
+    protected static bool $forAdmin = false;
+
     /*
      * Список IP адресов, от которых может прити уведомление от платежной системы.
      */
-    private $allowIP = [
+    private array $allowIP = [
         '136.243.38.108',
         '37.1.217.38',
         '186.2.162.11',
     ];
-
-    /**
-     * @return void
-     * Проверка IP адреса
-     */
-    function allowIP(): void {
-        if(!in_array($_SERVER['REMOTE_ADDR'], $this->allowIP)) {
-            die("Forbidden: Your IP is not in the list of allowed");
-        }
-    }
 
     /**
      * @return void
@@ -110,11 +88,13 @@ class primepayments {
 
     //Получение информации об оплате
     function transfer(): void {
-        $this->allowIP();
+        \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
+
         $hash = md5($this->secret2 . $_POST['orderID'] . $_POST['payWay'] . $_POST['innerID'] . $_POST['sum'] . $_POST['webmaster_profit']);
         if($hash != $_POST['sign'])
             die('wrong sign');
         $user_id = $_POST['innerID'];
+        donate::control_uuid($_POST['orderID'], get_called_class());
         //Зачисление на пользовательский аккаунт средств
         $amount = donate::currency($_POST['sum'], $_POST['currency']);
         userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);

@@ -12,6 +12,7 @@ use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\fileSys\fileSys;
 use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\request\ip;
 use Ofey\Logan22\component\time\time;
 use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\bonus\bonus;
@@ -23,15 +24,54 @@ use Ofey\Logan22\template\tpl;
 
 class donate {
 
-    private static $COOLDOWN_SECONDS = 5; // Время задержки в секундах до последующей попытки купить что-то
+    private static int $COOLDOWN_SECONDS = 5; // Время задержки в секундах до последующей попытки купить что-то
 
     /**
-     * @return array
-     * @throws Exception
-     * История платежей пользователя
-     * TODO: Удалил код, он устарел, требуется сделать историю покупок предметов (из страницы) /donate
+     * @param $uuid
+     * @param $pay_system_name
+     * @return mixed
+     *
+     * Чтение для проверки уже ранее записыванных индификаторов транзакций от платежных системах.
+     *
+     * Это создано с целью безопастности, на тот случай, если платежная система НЕ предоставляет данных
+     * о своих IP и не имеет криптографических ключей для проверки подлинности транзакции
      */
-    static public function donate_history($user_id = null) {
+    public static function get_uuid($uuid, $pay_system_name): mixed {
+        return sql::getRow("SELECT * FROM donate_uuid WHERE uuid = ? AND pay_system = ?", [$uuid, $pay_system_name]);
+    }
+
+    /**
+     * @param $uuid
+     * @param $pay_system_name
+     * @return false|\PDOStatement|null
+     * @throws Exception
+     *
+     * Записываем сюда уникальные ID транзакций от платежных системах.
+     *
+     * Это создано с целью безопастности, на тот случай, если платежная система НЕ предоставляет данных
+     * о своих IP и не имеет криптографических ключей для проверки подлинности транзакции
+     */
+    public static function set_uuid($uuid, $pay_system_name): false|\PDOStatement|null {
+        return sql::sql("INSERT INTO `donate_uuid` (`uuid`, `pay_system`, `ip`, `date`) VALUES (?, ?, ?, ?);", [$uuid, $pay_system_name, ip::getIp(), time::mysql()]);
+    }
+
+    /**
+     * @param $uuid - Индификатор
+     * @param string $pay_system_name - Название платежной системы
+     * @return void
+     * @throws Exception
+     *
+     * Проверяем существование индефикатора и сохраняем его.
+     * Если индификатор уже был в системе, тогда останавливаем зачисление.
+     */
+    public static function control_uuid($uuid = null, string $pay_system_name = 'NoNamePaySystem'): void {
+        if($uuid === null){
+            return;
+        }
+        if(self::get_uuid($uuid, $pay_system_name)){
+            die('This UUID was previously determined');
+        }
+        self::set_uuid($uuid, $pay_system_name);
     }
 
     /**

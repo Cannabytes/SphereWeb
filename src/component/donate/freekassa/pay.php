@@ -5,31 +5,19 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
-class freekassa {
+class freekassa extends \Ofey\Logan22\model\donate\pay_abstract {
 
     // Описание платежки на сайте.
-    private static array $description = [
-        "ru" => "Платежная система freekassa [Россия / Беларусь]",
-        "en" => "Pay system freekass [Russia / Belarus]",
+    protected static array $description = [
+        "ru" => "Freekassa [Россия / Беларусь]",
+        "en" => "Freekassa [Russia / Belarus]",
     ];
 
     //Включена/отключена платежная система
-    private static bool $enable = true;
+    protected static bool $enable = true;
 
     //Включить только для администратора
-    private static bool $forAdmin = true;
-
-    public static function isEnable(): bool{
-        return self::$enable;
-    }
-
-    public static function forAdmin(): bool{
-        return self::$forAdmin;
-    }
-
-    public static function getDescription(): ?array {
-        return self::$description ?? null;
-    }
+    protected static bool $forAdmin = false;
 
     /**
      * Конфигурация
@@ -38,8 +26,8 @@ class freekassa {
      * secret2 - секретный ключ №2
      */
     private $merchant_id      = 12345;
-    private $secret_key_1     = '#######';
-    private $secret_key_2     = '#######';
+    private $secret_key_1     = '';
+    private $secret_key_2     = '';
     private $currency_default = 'RUB';
 
     /*
@@ -60,24 +48,15 @@ class freekassa {
 
     /**
      * @return void
-     * Проверка IP адреса
-     */
-    function allowIP(): void {
-        if(!in_array($_SERVER['REMOTE_ADDR'], $this->allowIP)) {
-            die("Forbidden: Your IP is not in the list of allowed");
-        }
-    }
-
-    /**
-     * @return void
      * Генерируем ссылку для перехода на сайт оплаты
      */
     function create_link(): void {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
         donate::isOnlyAdmin(self::class);
-
+        if(empty($this->secret_key_1) OR empty($this->secret_key_2)){
+            board::error("Freekassa token is empty");
+        }
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
-
 
         $donate = include 'src/config/donate.php';
 
@@ -107,8 +86,10 @@ class freekassa {
 
     //Получение информации об оплате
     function transfer(): void {
-        $this->allowIP();
-
+        \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
+        if(empty($this->secret_key_1) OR empty($this->secret_key_2)){
+            board::error("Freekassa token is empty");
+        }
         $user_id = $_REQUEST['us_userid'];
         $amount = $_REQUEST['AMOUNT'];
         $MERCHANT_ID = $_REQUEST['MERCHANT_ID'];
@@ -119,6 +100,7 @@ class freekassa {
         if($sign != $_REQUEST['SIGN']){
             die('wrong sign');
         }
+        donate::control_uuid($_REQUEST['intid'], get_called_class());
 
         \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
         $amount = donate::currency($amount, $this->currency_default);

@@ -5,33 +5,22 @@ use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\user\auth\auth;
 
-class monobank {
+class monobank extends \Ofey\Logan22\model\donate\pay_abstract {
 
-    // Описание платежки на сайте.
-    private static array $description = [
-        "ru" => "Платежная система MonoBank [Украина]",
-        "en" => "Pay system MonoBank [Ukraine]",
-    ];
+    private string $monobank_token = '';
+    private string $currency_default = 'UAH';
 
     //Включена/отключена платежная система
-    private static bool $enable = true;
+    protected static bool $enable = false;
 
     //Включить только для администратора
-    private static bool $forAdmin = true;
+    protected static bool $forAdmin = false;
 
-    public static function isEnable(): bool{
-        return self::$enable;
-    }
-
-    public static function forAdmin(): bool{
-        return self::$forAdmin;
-    }
-
-    public static function getDescription(): ?array {
-        return self::$description ?? null;
-    }
-
-    private $currency_default = 'UAH';
+    // Описание платежки на сайте.
+    protected static array $description = [
+        "ru" => "MonoBank [Украина]",
+        "en" => "MonoBank [Ukraine]",
+    ];
 
     /**
      * @return mixed
@@ -40,6 +29,9 @@ class monobank {
     function create_link() {
         auth::get_is_auth() ?: board::notice(false, lang::get_phrase(234));
         donate::isOnlyAdmin(self::class);
+        if(empty($this->monobank_token)){
+            board::error("Monobank token is empty");
+        }
 
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
@@ -60,20 +52,20 @@ class monobank {
                 "reference" => auth::get_id(),
                 "comment" => "Помощь проекту",
             ],
-            "redirectUrl" => "https://lk.sphereweb.net/donate/pay",
-            "webHookUrl" => "https://lk.sphereweb.net/donate/webhook/monobank",
+            "redirectUrl" => \Ofey\Logan22\component\request\url::host('/donate/pay'),
+            "webHookUrl" => \Ofey\Logan22\component\request\url::host('/donate/webhook/monobank'),
             "validity" => 3600,
             "paymentType" => "debit",
         ];
         $json = json_encode($jsonData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-        $url = "https://api.monobank.ua/api/merchant/invoice/create";
+        $url = "https://web.monobank.ua/api/merchant/invoice/create";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
-            'X-Token: uwaSNAPIO3pPn5JWbkMO4FAFJe2_uhZRfvGesTa3tdpA',  // Добавьте нужные вам заголовки здесь
+            "X-Token: {$this->monobank_token}",  // Добавьте нужные вам заголовки здесь
         ]);
 
         $result = curl_exec($ch);
@@ -88,21 +80,25 @@ class monobank {
 
     //Получение информации об оплате
     function webhook(): void {
+        if(empty($this->monobank_token)){
+            board::error("Monobank token is empty");
+        }
         // Получаем данные из POST
         $postData = (file_get_contents('php://input'));
 
         $logData = json_decode($postData, true);
-        $status = $logData['status'];
+        $status = $logData['status'] ?? '';
         if($status!='success'){
             return;
         }
         $invoiceId = $logData['invoiceId'];
-        $url = "https://api.monobank.ua/api/merchant/invoice/status?invoiceId={$invoiceId}";
+
+        $url = "https://web.monobank.ua/api/merchant/invoice/status?invoiceId={$invoiceId}";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPGET, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'X-Token: uwaSNAPIO3pPn5JWbkMO4FAFJe2_uhZRfvGesTa3tdpA',  // Добавьте нужные вам заголовки здесь
+            "X-Token: {$this->monobank_token}",  // Добавьте нужные вам заголовки здесь
         ]);
 
         $result = curl_exec($ch);
@@ -115,7 +111,7 @@ class monobank {
         if($status != 'success'){
             return;
         }
-
+        donate::control_uuid($invoiceId, get_called_class());
         \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
         auth::change_donate_point($user_id, $amount);
         donate::AddDonateItemBonus($user_id, $amount);
