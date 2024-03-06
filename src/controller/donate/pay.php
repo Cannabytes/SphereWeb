@@ -82,6 +82,7 @@ class pay {
     public static function get_donate_type($type = null) {
 
         $products = donate::products();
+
         if ($type !== null) {
             $type = mb_strtolower($type);
             $allow = ["weapon", "armor", "jewelry", "etcitem", "pack"];
@@ -89,46 +90,57 @@ class pay {
             if ($type === "other") {
                 $type = "etcitem";
             }
-
+	
             if (!in_array($type, $allow)) {
                 $type = null;
             }
-
-            foreach ($products as $key => $product) {
-                if(!isset($product['type'])){
-                    $product['type'] = "etcitem";
-                }
-                if($product['is_pack'] AND $type !== 'pack' ){
-                    unset($products[$key]);
-                }
-                if (isset($product['type']) && $product['type'] !== $type) {
-                    unset($products[$key]);
-                } elseif ($type === "armor" && isset($product['bodypart'])) {
-                    if($product['is_pack']){
-                        unset($products[$key]);
-                    }
-                    if (
-                        in_array($product['bodypart'], ["rear;lear", "neck", "rfinger;lfinger"]) ||
-                        $product['type'] === "weapon" ||
-                        $product['type'] === "etcitem"
-                    ) {
-                        unset($products[$key]);
-                    }
-                } elseif ($type === "jewelry" && isset($product['bodypart'])) {
-                    if (!in_array($product['bodypart'], ["rear;lear", "rfinger;lfinger", "neck"])) {
-                        unset($products[$key]);
-                    }
-                    if($product['is_pack']){
-                        unset($products[$key]);
-                    }
-                } elseif ($type !== "weapon" && $type !== "armor" && $type !== "jewelry" && isset($product['bodypart'])) {
-                    if (!in_array($product['bodypart'], ["etcitem"])) {
-                        unset($products[$key]);
-                    }
-                    if($product['is_pack']){
-                        unset($products[$key]);
-                    }
-                }
+			
+			if($type == 'pack'){
+				$pack_all = [];
+				foreach ($products as $key => $product) {
+					if($product["is_pack"]){
+						$pack_all[] = $product;
+					}
+				}
+				$products = $pack_all;
+				unset($pack_all);
+			}else{
+				foreach ($products as $key => $product) {
+					if(!isset($product['type'])){
+						$product['type'] = "etcitem";
+					}
+					if($product['is_pack'] AND $type !== 'pack' ){
+						unset($products[$key]);
+					}
+					if (isset($product['type']) && $product['type'] !== $type) {
+						unset($products[$key]);
+					} elseif ($type === "armor" && isset($product['bodypart'])) {
+						if($product['is_pack']){
+							unset($products[$key]);
+						}
+						if (
+							in_array($product['bodypart'], ["rear;lear", "neck", "rfinger;lfinger"]) ||
+							$product['type'] === "weapon" ||
+							$product['type'] === "etcitem"
+						) {
+							unset($products[$key]);
+						}
+					} elseif ($type === "jewelry" && isset($product['bodypart'])) {
+						if (!in_array($product['bodypart'], ["rear;lear", "rfinger;lfinger", "neck"])) {
+							unset($products[$key]);
+						}
+						if($product['is_pack']){
+							unset($products[$key]);
+						}
+					} elseif ($type !== "weapon" && $type !== "armor" && $type !== "jewelry" && isset($product['bodypart'])) {
+						if (!in_array($product['bodypart'], ["etcitem"])) {
+							unset($products[$key]);
+						}
+						if($product['is_pack']){
+							unset($products[$key]);
+						}
+					}
+				}
             }
         }
         $donateInfo = require 'src/config/donate.php';
