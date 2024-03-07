@@ -368,7 +368,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('prefix_info', function () {
-            return require fileSys::get_dir("src/config/prefix_suffix.php");
+            return __config__prefix;
         }));
 
         $twig->addFunction(new TwigFunction('google_secret_key', function () {
@@ -978,7 +978,7 @@ class tpl {
         }));
 
         $twig->addFunction(new TwigFunction('currency_exchange_info', function () {
-            return json_encode(require fileSys::get_dir('src/config/donate.php'));
+            return json_encode(__config__donate);
         }));
 
         $twig->addFunction(new TwigFunction('get_buffs_registry', function () {

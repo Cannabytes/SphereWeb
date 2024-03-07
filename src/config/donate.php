@@ -11,7 +11,7 @@
  *
  */
 
-return [
+const __config__donate = [
 
     //Какая платежная система будет выбрана по умолчанию
     'pay_system_default' => 'freekassa',

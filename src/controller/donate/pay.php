@@ -42,7 +42,7 @@ class pay {
             }
         }
         if(!config::getEnableDonate()) error::error404("Отключено");
-        $donateInfo = require 'src/config/donate.php';
+        $donateInfo = __config__donate;
         $point = 0;
         if(auth::get_is_auth()){
             if($donateInfo['DONATE_DISCOUNT_TYPE_STORAGE']){
@@ -62,7 +62,7 @@ class pay {
     public static function shop(): void {
         if(!config::getEnableDonate()) error::error404("Отключено");
 
-        $donateInfo = require 'src/config/donate.php';
+        $donateInfo = __config__donate;
         $point = 0;
         if(auth::get_is_auth()){
             if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
@@ -143,7 +143,7 @@ class pay {
 				}
             }
         }
-        $donateInfo = require 'src/config/donate.php';
+        $donateInfo = __config__donate;
         $point = 0;
         if(auth::get_is_auth()){
             if($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']){
@@ -163,6 +163,6 @@ class pay {
     }
 
     public static function currency_exchange_info() {
-        echo json_encode(require 'src/config/donate.php');
+        echo json_encode(__config__donate);
     }
 }

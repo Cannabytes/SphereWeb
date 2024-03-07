@@ -36,10 +36,9 @@ class account {
 
     public static function requestNewAccount() {
         $login = request::setting('login', new request_config(min: 4, max: 16, rules: "/^[a-zA-Z0-9_]+$/"));
-        if($_POST['prefix'] != "off_prefix"){
-            $prefixInfo = require "src/config/prefix_suffix.php";
-            if ($prefixInfo['enable']) {
-                if ($prefixInfo['type'] == "prefix") {
+        if(__config__prefix['enable']){
+            if($_POST['prefix'] != "off_prefix"){
+                if (__config__prefix['type'] == "prefix") {
                     $prefix = $_POST['prefix'] ?? "";
                     if ($prefix != "null") {
                         $login = $prefix . $login;

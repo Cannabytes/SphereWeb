@@ -35,7 +35,7 @@ class monobank extends \Ofey\Logan22\model\donate\pay_abstract {
 
         filter_input(INPUT_POST, 'count', FILTER_VALIDATE_INT) ?: board::notice(false, "Введите сумму цифрой");
 
-        $donate = include 'src/config/donate.php';
+        $donate = __config__donate;
         if ($_POST['count'] < $donate['min_donate_bonus_coin']) {
             board::notice(false, "Минимальное пополнение: " . $donate['min_donate_bonus_coin']  );
         }

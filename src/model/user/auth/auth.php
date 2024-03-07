@@ -467,7 +467,7 @@ class auth {
             exit(lang::get_phrase(167));
         }
 
-        $donate = include 'src/config/donate.php';
+        $donate = __config__donate;
         $begin_donate = sql::getRow("SELECT `donate_point` FROM `users` WHERE `id` = ?", [$user_id])['donate_point'];
         $bonus_procent = 0;
         $bonus = 0;

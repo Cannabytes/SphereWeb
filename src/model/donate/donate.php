@@ -52,7 +52,11 @@ class donate {
      * о своих IP и не имеет криптографических ключей для проверки подлинности транзакции
      */
     public static function set_uuid($uuid, $pay_system_name): false|\PDOStatement|null {
-        return sql::sql("INSERT INTO `donate_uuid` (`uuid`, `pay_system`, `ip`, `date`) VALUES (?, ?, ?, ?);", [$uuid, $pay_system_name, ip::getIp(), time::mysql()]);
+        $request = '';
+        if(isset($_REQUEST) && !empty($_REQUEST)) {
+            $request = $_REQUEST;
+        }
+        return sql::sql("INSERT INTO `donate_uuid` (`uuid`, `pay_system`, `ip`, `request`, `date`) VALUES (?, ?, ?, ?);", [$uuid, $pay_system_name, ip::getIp(), $request, time::mysql()]);
     }
 
     /**
@@ -151,7 +155,7 @@ class donate {
         $cost_product = $donat_info_cost * $user_value;
 
         //Проверка на скидку по товару
-        $donateInfo = require 'src/config/donate.php';
+        $donateInfo = __config__donate;
 
         if ($donateInfo['DONATE_DISCOUNT_TYPE_PRODUCT_ENABLE']) {
             $procentDiscount = donate::getBonusDiscount(auth::get_id(), $donateInfo['discount_product']['table']);
@@ -353,7 +357,7 @@ class donate {
 
     //Сумма зачисления денег с учетом курса валют конфига
     public static function currency(int|float $sum, string $currency): float|int {
-        $config = require 'src/config/donate.php';
+        $config = __config__donate;
         return match ($currency) {
             "RUB" => ($sum / $config['coefficient']['RUB']) * $config['quantity'],
             "UAH" => ($sum / $config['coefficient']['UAH']) * $config['quantity'],
@@ -428,7 +432,7 @@ class donate {
      */
     public static function AddDonateItemBonus($user_id, $sphereCoin): bool {
         $item = false;
-        $donateConfig = include fileSys::localdir('src/config/donate.php');
+        $donateConfig = __config__donate;
         if(!$donateConfig['DONATE_BONUS_ITEM_ENABLE']){
             return $item;
         }

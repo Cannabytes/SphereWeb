@@ -42,7 +42,7 @@ class yoomoney extends \Ofey\Logan22\model\donate\pay_abstract {
             board::error("No set token");
         }
 
-        $donate = include 'src/config/donate.php';
+        $donate = __config__donate;
 
         if ($_POST['count'] < $donate['min_donate_bonus_coin']) {
             board::notice(false, "Минимальное пополнение: " . $donate['min_donate_bonus_coin']);
