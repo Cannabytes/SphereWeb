@@ -903,4 +903,5 @@ return [
     576 => 'File',
     577 => 'State',
     578 => 'Help me come up with an account name?',
+    579 => 'Pairing a game account with a profile',
 ];
