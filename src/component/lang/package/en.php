@@ -898,5 +898,8 @@ return [
     571 => "Select knowledge base (item information)",
     572 => "Maximum online server",
     573 => "Additional settings for the server",
-
+    574 => 'The .htaccess file is in the root of the site',
+    575 => 'Required files',
+    576 => 'File',
+    577 => 'State'
 ];

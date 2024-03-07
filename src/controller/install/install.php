@@ -25,12 +25,17 @@ class install {
             redirect::location("/");
             die();
         }
+        $isHtaccess = file_exists(".htaccess");
+        if(!$isHtaccess){
+            self::$allow_install = false;
+        }
         tpl::addVar(["need_min_version_php" => version::MIN_PHP_VERSION(),
                      "dir_permissions" => self::checkFolderPermissions(["/src/config", "/uploads",]),
+                     "htaccess" => $isHtaccess,
                      "isLinux" => "Linux" == php_uname('s'),
                      "php_informations" => [["name" => lang::get_phrase("PHP_VERSION"),
-                                             "get" => version::MIN_PHP_VERSION(),
-                                             "min" => PHP_VERSION,
+                                             "get" => PHP_VERSION,
+                                             "min" => version::MIN_PHP_VERSION(),
                                              "allow" => PHP_VERSION>=version::MIN_PHP_VERSION(),
                                             ],
                                             ["name" => "upload_max_filesize",
@@ -52,6 +57,8 @@ class install {
                                       ["name" => "mbstring",
                                        "allow" => self::isExtension(extension_loaded('mbstring')),
                                       ],
+
+
 //                                      ["name" => "fileinfo",
 //                                       "allow" => self::isExtension(extension_loaded('fileinfo')),
 //                                      ],
