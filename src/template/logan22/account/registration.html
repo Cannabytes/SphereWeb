@@ -35,10 +35,19 @@
 
 
                         <div class="col-9" id="registration_login_div">
-                                <div class="form-floating mb-4">
-                                    <input type="text" class="form-control text-center" value="" id="registration_login" name="login" placeholder="{{phrase(480)}}"  >
-                                    <label class="form-label" for="registration_login">{{phrase(480)}}</label>
+
+                                <div class="mb-4">
+                                    <div class="input-group">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control text-center" value="" id="registration_login" name="login" placeholder="{{phrase(480)}}"  >
+                                            <label for="registration_login">{{phrase(480)}}</label>
+                                        </div>
+                                        <span class="input-group-text new_account_word cursor" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{phrase(578)}}">
+                                         <i class="fa fa-refresh "></i>
+                                        </span>
+                                    </div>
                                 </div>
+
                         </div>
 
                         {% if prefix_info()['type'] == "suffix" %}

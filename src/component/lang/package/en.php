@@ -901,5 +901,6 @@ return [
     574 => 'The .htaccess file is in the root of the site',
     575 => 'Required files',
     576 => 'File',
-    577 => 'State'
+    577 => 'State',
+    578 => 'Help me come up with an account name?',
 ];

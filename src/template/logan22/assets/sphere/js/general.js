@@ -18,7 +18,7 @@ $(document).on("change", "#server_set_default", function () {
     });
 });
 
-$(document).on("new_account_word", 'click', function () {
+$(document).on("click", ".new_account_word", function () {
     $.ajax({
         type: "POST",
         url: baseHref + "/generation/account",
@@ -28,7 +28,7 @@ $(document).on("new_account_word", 'click', function () {
     });
 });
 
-$(document).on('#new_password_word', 'click', function () {
+$(document).on("click", "#new_password_word", function () {
     $.ajax({
         type: "POST",
         url: baseHref + "/generation/password",
