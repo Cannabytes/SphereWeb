@@ -33,7 +33,7 @@ class sql {
                 if(!file_exists('src/config/db.php')) {
                     return null;
                 }
-                self::$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD, $options = [
+                self::$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD, [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_EMULATE_PREPARES   => false,
                     // turn off emulation mode for "real" prepared statements
@@ -75,6 +75,11 @@ class sql {
         return $sql;
     }
 
+    private static ?PDOException $exception;
+
+    public static function exception(): ?PDOException {
+        return self::$exception;
+    }
     /**
      * @throws Exception
       */
@@ -87,6 +92,7 @@ class sql {
             echo 'Not connect to db';
             exit;
         }
+        self::$exception = null;
         try {
             if(!$args) {
                 return self::query($query);
@@ -96,6 +102,7 @@ class sql {
             self::$rowCount = $stmt->rowCount();
             return $stmt;
         } catch(PDOException $e) {
+            self::$exception = $e;
             logs::loggerSQL($query, $args, $e->getMessage());
             if($isBad) {
                 return false;
