@@ -19,7 +19,7 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
 
     //Валюта по-умолчанию
     //Default currency
-    protected string $currency_default = 'RUB';
+    protected string $currency_default = 'USD';
 
     //Описание
     //Description
@@ -28,9 +28,9 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
         "en" => "CryptoCloud [Russia / Belarus]",
     ];
 
-	private string $shopId = '';
-	private string $apiKey = '';
-	private string $secretKey = '';
+    private string $apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiTVRrMk5qST0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiI4ZTY3YmE1ZTRlMmYyNzgzYjc2ZmMwZDE1MmNhZjI1YzhjMjU5NTQ2YzQzMzFmZTA1MTRiOGJlMTUxMjVkYjlkIiwiZXhwIjo4ODEwOTgxMTMxMH0.0G-6J5iQ49OH2XIdd0SN60aENPWellagPVlzMCan8NY';
+    private string $shopId = 'WZFB46VBGs0oiHno';
+	private string $secretKey = '4OJdMFNY6xGxfWiReVMjEe9BWDWTiaThgeqB';
 
     /*
      * Список IP адресов, от которых может прийти уведомление от платежной системы.
@@ -63,7 +63,7 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
             board::notice(false, "Максимальная пополнение: " . $donate['max_donate_bonus_coin']  );
         }
 
-        $order_amount = $_POST['count'];
+        $order_amount = $_POST['count'] * ($donate['coefficient']['USD'] / $donate['quantity']);
 
 		$response = $this->getResponse('https://api.cryptocloud.plus/v2/invoice/create', [
 			'shop_id' => $this->shopId,
@@ -84,6 +84,7 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
 
     //Получение информации об оплате
     function transfer() {
+        file_put_contents( __DIR__ . '/debug.log', '_REQUEST: ' . print_r( $_REQUEST, true ) . PHP_EOL, FILE_APPEND );
         \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
         if(empty($this->shopId) OR empty($this->apiKey) OR empty($this->secretKey)){
             board::error('No set token api');

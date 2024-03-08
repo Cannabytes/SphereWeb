@@ -54,9 +54,9 @@ class donate {
     public static function set_uuid($uuid, $pay_system_name): false|\PDOStatement|null {
         $request = '';
         if(isset($_REQUEST) && !empty($_REQUEST)) {
-            $request = $_REQUEST;
+            $request = json_encode($_REQUEST, JSON_UNESCAPED_UNICODE);
         }
-        return sql::sql("INSERT INTO `donate_uuid` (`uuid`, `pay_system`, `ip`, `request`, `date`) VALUES (?, ?, ?, ?);", [$uuid, $pay_system_name, ip::getIp(), $request, time::mysql()]);
+        return sql::sql("INSERT INTO `donate_uuid` (`uuid`, `pay_system`, `ip`, `request`, `date`) VALUES (?, ?, ?, ?, ?);", [$uuid, $pay_system_name, ip::getIp(), $request, time::mysql()]);
     }
 
     /**
@@ -362,7 +362,7 @@ class donate {
             "RUB" => ($sum / $config['coefficient']['RUB']) * $config['quantity'],
             "UAH" => ($sum / $config['coefficient']['UAH']) * $config['quantity'],
             "EUR" => ($sum / $config['coefficient']['EUR']) * $config['quantity'],
-            default => $sum * $config['quantity'],
+            default => ($sum / $config['coefficient']['USD']) * $config['quantity'],
         };
     }
 
