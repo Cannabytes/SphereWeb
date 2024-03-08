@@ -24,13 +24,13 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
     //Описание
     //Description
     protected static array $description = [
-        "ru" => "CryptoCloud [Россия / Беларусь]",
-        "en" => "CryptoCloud [Russia / Belarus]",
+        "ru" => "CryptoCloud",
+        "en" => "CryptoCloud",
     ];
 
-    private string $apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiTVRrMk5qST0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiI4ZTY3YmE1ZTRlMmYyNzgzYjc2ZmMwZDE1MmNhZjI1YzhjMjU5NTQ2YzQzMzFmZTA1MTRiOGJlMTUxMjVkYjlkIiwiZXhwIjo4ODEwOTgxMTMxMH0.0G-6J5iQ49OH2XIdd0SN60aENPWellagPVlzMCan8NY';
-    private string $shopId = 'WZFB46VBGs0oiHno';
-	private string $secretKey = '4OJdMFNY6xGxfWiReVMjEe9BWDWTiaThgeqB';
+    private string $apiKey = '';
+    private string $shopId = '';
+	private string $secretKey = '';
 
     /*
      * Список IP адресов, от которых может прийти уведомление от платежной системы.
@@ -84,11 +84,22 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
 
     //Получение информации об оплате
     function transfer() {
-        file_put_contents( __DIR__ . '/debug.log', '_REQUEST: ' . print_r( $_REQUEST, true ) . PHP_EOL, FILE_APPEND );
         \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
         if(empty($this->shopId) OR empty($this->apiKey) OR empty($this->secretKey)){
             board::error('No set token api');
         }
+
+        $jwtParts = explode('.', $_REQUEST['token'] ?? '..');
+        $signature = $jwtParts[2];
+
+        $generatedSignature = hash_hmac('sha256', $jwtParts[0] . '.' . $jwtParts[1], $this->secretKey, true);
+        $generatedSignature = strtr(rtrim(base64_encode($generatedSignature), '='), '+/', '-_');
+
+        if ( !hash_equals( $signature, $generatedSignature ) ) {
+            header( 'HTTP/1.1 400 Bad Request', true, 400 );
+            die('Bad sign!');
+        }
+
 		$response = $this->getResponse('https://api.cryptocloud.plus/v2/invoice/merchant/info', [
 			'uuids' => [
 				$_REQUEST['invoice_id'] ?? ''
