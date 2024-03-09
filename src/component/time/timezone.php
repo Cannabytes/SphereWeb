@@ -47,11 +47,6 @@ class timezone {
             return $geo;
         }
 
-        $geo = self::get_ip_info_geoplugin($ip);
-        if($geo) {
-            return $geo;
-        }
-
         $geo = self::get_ip_info_ipSb($ip);
         if($geo) {
             return $geo;
@@ -66,7 +61,7 @@ class timezone {
             return false;
         }
         $json = json_decode($json, true);
-        if(!$json['success']) {
+        if(!isset($json['success'])) {
             return false;
         }
         return [
@@ -82,7 +77,7 @@ class timezone {
         curl_setopt($ch, CURLOPT_HEADER, false);
         $json = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        if(!$json['success']) {
+        if(!isset($json['success'])) {
             return false;
         }
         return [

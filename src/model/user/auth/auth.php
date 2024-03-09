@@ -215,7 +215,6 @@ class auth {
         if (isset($_SESSION['password'])) {
             $auth = self::exist_user($_SESSION['email']);
             if ($auth) {
-
                 if (password_verify($_SESSION['password'], $auth['password'])) {
                     self::set_is_auth(true);
                     self::set_id($auth['id']);
@@ -284,6 +283,19 @@ class auth {
 
         self::set_user_variables();
 
+    }
+
+    public static function log_add_user_auth(){
+        $geo = timezone::get_timezone_ip(self::get_ip());
+        $data = [
+            self::$userInfo['id'],
+            self::get_ip(),
+            $geo['country'] ?? 'No Set',
+            $geo['city'] ?? 'No Set',
+            $_SERVER['HTTP_USER_AGENT'],
+            time::mysql(),
+        ];
+        sql::sql('INSERT INTO `user_auth_log` (`user_id`, `ip`, `country`, `city`, `browser`, `date`) VALUES (?, ?, ?, ?, ?, ?);', $data);
     }
 
     public static function exist_user($email, $nCheck = true) {
@@ -434,6 +446,7 @@ class auth {
             board::notice(false, lang::get_phrase(164));
         }
         if (password_verify($password, $user_info['password'])) {
+            self::log_add_user_auth();
             session::add('id', $user_info['id']);
             session::add('email', $email);
             session::add('password', $password);
