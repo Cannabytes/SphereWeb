@@ -63,13 +63,21 @@ class Route extends Router {
                 continue;
             }
             self::$pluginRegister['component'][] = $plugin;
-            list($route, $method) = $this->addPluginReg($dir, $plugin, $routes);
+            $data = $this->addPluginReg($dir, $plugin, $routes);
+            if($data==null){
+                continue;
+            }
+            list($route, $method) = $data;
         }
 
         $dir = fileSys::get_dir("custom/plugins/");
         foreach($pluginCustom AS $plugin){
             self::$pluginRegister['custom'][] = $plugin;
-            list($route, $method) = $this->addPluginReg($dir, $plugin, $routes);
+            $data = $this->addPluginReg($dir, $plugin, $routes);
+            if($data==null){
+                continue;
+            }
+            list($route, $method) = $data;
         }
     }
 
@@ -139,9 +147,12 @@ class Route extends Router {
      * @param $routes
      * @return array
      */
-    private function addPluginReg(string $dir, mixed $plugin, $routes): array {
+    private function addPluginReg(string $dir, mixed $plugin, $routes): ?array {
         if (file_exists($dir . $plugin . "/route.php")) {
             include_once $dir . $plugin . "/route.php";
+            if(empty($routes)){
+                return null;
+            }
             foreach ($routes as $route) {
                 include_once $dir . $plugin . "/" . $route['file'];
                 $method = "POST";
@@ -152,7 +163,8 @@ class Route extends Router {
                     $route['call'](...$var);
                 });
             }
+            return array($route, $method);
         }
-        return array($route, $method);
+        return null;
     }
 }
