@@ -680,7 +680,7 @@ return [
     "sex" => "Пол",
     "online" => "Онлайн",
     "warehouse" => "Склад",
-    "deny_viewing_characters" => "Deny viewing of your character",
+    "deny_viewing_characters" => "Запретить просмотр вашего персонажа",
     "visible_to_everyone" => "Видно всем",
     "add_news" => "Добавить новость",
     "add_new_server" => "Добавить новый сервер",
@@ -908,4 +908,6 @@ return [
     577 => 'Состояние',
     578 => 'Помочь придумать название аккаунта?',
     579 => 'Сопряжение игрового аккаунта с профилем',
+    "donate_percent_referral" => "Пользователь получил %s за донат реферала %s (%s)"
+
     ];

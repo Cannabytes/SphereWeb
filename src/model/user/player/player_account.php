@@ -41,7 +41,7 @@ class player_account {
 
         $player_info = player_account::is_player($server_info, [$player]);
         $player_info = $player_info->fetch();
-        if ($player_info['login'] != $account) {
+        if (strcasecmp($player_info['login'], $account) != 0) {
             board::notice(false, "Запрещенное действие");
         }
         if (sql::getRow("SELECT `forbidden` FROM `player_forbidden` WHERE server_id = ? AND account = ? AND player = ?", [$server_id, $account, $player])) {
@@ -144,7 +144,7 @@ class player_account {
             $account, $server_id,
         ]);
         foreach ($arrayAcPlayers as &$player) {
-            $player['forbidden'] = false;
+            $player['forbidden'] = null;
             foreach ($allForbiddenInfo as $info) {
                 if ($player['player_name'] == $info['player']) {
                     $player['forbidden'] = $info['forbidden'];

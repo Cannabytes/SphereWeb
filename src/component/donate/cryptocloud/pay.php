@@ -120,10 +120,10 @@ class cryptocloud extends \Ofey\Logan22\model\donate\pay_abstract {
 
         $user_id = $orderId[0];
 
-        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default, 'cryptocloud']);
         $amount = donate::currency($amount, $this->currency_default);
 
-        auth::change_donate_point($user_id, $amount);
+        auth::change_donate_point($user_id, $amount, get_called_class());
 		donate::AddDonateItemBonus($user_id, $amount);
 
     }

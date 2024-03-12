@@ -415,6 +415,7 @@ $(document).on("click", ".get_donate_history", function () {
                 <tr>
                     <td>${item.point}</td>
                     <td>${item.pay_system}</td>
+                    <td>${item.message}</td>
                     <td>${item.date}</td>
                 </tr>
             `);

@@ -321,7 +321,9 @@ class donate {
         }
         $pays = sql::getRows("SELECT
                                 donate_history_pay.point, 
-                                donate_history_pay.pay_system, 
+                                donate_history_pay.message,
+                                donate_history_pay.pay_system,
+                                donate_history_pay.id_admin_pay,
                                 donate_history_pay.date
                             FROM
                                 donate_history_pay
@@ -331,6 +333,12 @@ class donate {
                                 donate_history_pay.id DESC", [
             $user_id,
         ]);
+        foreach ($pays AS &$pay){
+            if(isset($pay['id_admin_pay'])){
+              $admin = auth::get_user_info($pay['id_admin_pay']);
+              $pay['admin_name'] = $admin['name'];
+            }
+        }
         $trs = sql::getRows("SELECT
                                         log_transfer_spherecoin.*, 
                                         sender.`name` AS sender_name,
@@ -449,7 +457,7 @@ class donate {
             $item_id = $bonus['id'];
             $count = $bonus['count'] ?? 1;
             $enchant = $bonus['enchant'] ?? 0;
-            userlog::add("add_to_inventory", "log_bonus_donate", [$enchant, $item_id, $count] );
+            \Ofey\Logan22\model\admin\userlog::expanded($user_id, auth::get_default_server(), "add_to_inventory", "log_bonus_donate", [$enchant, $item_id, $count] );
             bonus::addToInventory(
                 $user_id,
                 auth::get_default_server(),

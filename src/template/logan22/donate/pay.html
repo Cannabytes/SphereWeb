@@ -191,9 +191,9 @@
                         <tbody>
                         {% for history in donate_history_pay_self %}
 
-                        {% if history.pay_system %}
+                        {% if history.message %}
                             <tr>
-                                <td class="">{{history.pay_system}}</td>
+                                <td class="">{{history.pay_system}}: {{history.message}}</td>
                                 <td>+{{history.point}}{%if show_image_sphere_coin()%}<img data-bs-toggle="tooltip" data-bs-placement="top"
                                                            data-bs-original-title="Sphere Coin" class="mb-1"
                                                            src="{{template}}/assets/images/coin/sphere-coin_16.png"></td>{%endif%}

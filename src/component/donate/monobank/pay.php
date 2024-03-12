@@ -112,8 +112,8 @@ class monobank extends \Ofey\Logan22\model\donate\pay_abstract {
             return;
         }
         donate::control_uuid($invoiceId, get_called_class());
-        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
-        auth::change_donate_point($user_id, $amount);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default, get_called_class()]);
+        auth::change_donate_point($user_id, $amount, get_called_class());
         donate::AddDonateItemBonus($user_id, $amount);
 
         echo 'YES';

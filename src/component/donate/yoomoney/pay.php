@@ -84,9 +84,9 @@ class yoomoney extends \Ofey\Logan22\model\donate\pay_abstract {
             exit();
         }
         donate::control_uuid($operation_id, get_called_class());
-        userlog::add("user_donate", 545, [$withdraw_amount, $this->currency_default], json_encode($_REQUEST) . PHP_EOL);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $currency, get_called_class()]);
         $amount = donate::currency($withdraw_amount, $this->currency_default);
-        auth::change_donate_point($user_id, $amount);
+        auth::change_donate_point($user_id, $amount, get_called_class());
         donate::AddDonateItemBonus($user_id, $amount);
         exit();
     }

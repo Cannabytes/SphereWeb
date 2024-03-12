@@ -138,11 +138,11 @@ class unitpay extends \Ofey\Logan22\model\donate\pay_abstract {
 				'error' => [ 'message' => 'Bad request!' ]
 			]));
 		}
-		
-		\Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default]);
+
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default, get_called_class()]);
         $amount = donate::currency($amount, $this->currency_default);
 
-        auth::change_donate_point((int) $userId, $amount);		
+        auth::change_donate_point((int) $userId, $amount, get_called_class());
 		donate::AddDonateItemBonus($userId, $amount);
 		echo json_encode([ 'result' => [ 'message' => 'Запрос успешно обработан' ] ]);
     }

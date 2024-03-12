@@ -750,6 +750,11 @@
                 {% if user_info('get_is_auth') %}
                 <button type="button" class="{%if user_info('getBonus') %}btn btn-danger{% else %}btn btn-sm btn-alt-secondary{% endif %}" data-toggle="layout"
                         data-action="side_overlay_toggle" >
+
+                    {%if user_info('getBonus') %}
+                     <span class="badge btn-danger me-1 animated swing infinite"> <i class="fa fa-fw fa-box"></i> </span>
+                    {% endif %}
+                    
                     <i class="fa fa-fw fa-box-open"></i>
                 </button>
                 {% endif %}

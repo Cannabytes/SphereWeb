@@ -143,7 +143,9 @@ CREATE TABLE `donate_history_pay`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NULL DEFAULT NULL,
   `point` int(11) NULL DEFAULT NULL,
-  `pay_system` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `message` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `pay_system` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `id_admin_pay` int(11) NULL DEFAULT NULL,
   `date` datetime NULL DEFAULT NULL,
   `sphere` int(11) NULL DEFAULT 0 COMMENT '1 если деньги зачислила сфера (к примеру это просто бонус)',
   PRIMARY KEY (`id`) USING BTREE

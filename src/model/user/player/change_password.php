@@ -35,7 +35,7 @@ class change_password {
             }
         } else {
             userlog::add("game_account_change_password", 534, [$login]);
-            board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
+            board::response("notice", [ "ok" => true, "message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
         }
     }
 
@@ -57,7 +57,7 @@ class change_password {
                 board::notice(false, lang::get_phrase(180));
             } else {
                 userlog::add("game_account_change_password", 534, [$login]);
-                board::response("notice", ["message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
+                board::response("notice", [ "ok" => true, "message"=>lang::get_phrase(181), "redirect"=>"/accounts"]);
             }
         }
     }

@@ -1,0 +1,95 @@
+<div class="content animated fadeIn">
+  <div class="row">
+
+
+    <div class="col-md-6 col-xl-2">
+      <a class="block block-rounded text-center ajaxload" href="/statistic/pvp">
+        <div class="block-content block-content-full bg-image" style="background-image: url('/custom/plugins/brief_statistics/tpl/img/pvp.jpg');">
+          <p class="mt-6 mb-2"></p>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light">
+          <div class="row">
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">PvP</div>
+            </div>
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{statistic_top_counter().count_pvpkills}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-6 col-xl-2">
+      <a class="block block-rounded text-center ajaxload" href="/statistic/pk">
+        <div class="block-content block-content-full bg-image" style="background-image: url('/custom/plugins/brief_statistics/tpl/img/pk.jpg');">
+          <p class="mt-6 mb-2"></p>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light">
+          <div class="row">
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">PK</div>
+            </div>
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{statistic_top_counter().count_pkkills}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-2">
+      <a class="block block-rounded text-center ajaxload" href="/statistic/clan">
+        <div class="block-content block-content-full bg-image" style="background-image: url('/custom/plugins/brief_statistics/tpl/img/clans.jpg');">
+          <p class="mt-6 mb-2"></p>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light">
+          <div class="row">
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{phrase(49)}}</div>
+            </div>
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{statistic_top_counter().count_clans}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <a class="block block-rounded text-center ajaxload" href="/statistic/castle">
+        <div class="block-content block-content-full bg-image" style="background-image: url('/custom/plugins/brief_statistics/tpl/img/castle.jpg');">
+          <p class="mt-6 mb-2"></p>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light">
+          <div class="row">
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{phrase('captured castles')}}</div>
+            </div>
+            <div class="col-6">
+              <div class="fs-6 fw-semibold">{{statistic_top_counter().count_clan_has_castle}} / {{statistic_top_counter().count_castle}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <a class="block block-rounded text-center ajaxload" href="/statistic/online/time" data-bs-toggle="tooltip" data-bs-animation="true" data-bs-placement="bottom" data-bs-original-title="{{phrase('man hours')}}">
+        <div class="block-content block-content-full bg-image" style="background-image: url('/custom/plugins/brief_statistics/tpl/img/time.jpg');">
+          <p class="mt-6 mb-2"></p>
+        </div>
+        <div class="block-content block-content-full block-content-sm bg-body-light">
+          <div class="row" >
+            <div class="col-12">
+              <div class="fs-6 fw-semibold">{{timeHasPassed(statistic_top_counter().count_onlinetime)}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+</div>
+</div>

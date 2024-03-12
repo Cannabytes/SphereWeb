@@ -24,6 +24,7 @@ use Ofey\Logan22\component\time\timezone;
 use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\donate\donate;
+use Ofey\Logan22\model\referral\referral;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\route\Route;
 use Ofey\Logan22\template\tpl;
@@ -473,13 +474,16 @@ class auth {
         return false;
     }
 
-    public static function change_donate_point(int $user_id, float|int $amount): false|array {
+    public static function change_donate_point(int $user_id, float|int $amount, $sys_pay_name = '', $isAdminPay = false): false|array {
         $user = self::exist_user_id($user_id);
         if (!$user) {
             //TODO: Тут возможно сделать ошибку с записью в файл
             exit(lang::get_phrase(167));
         }
-
+        $admin_id = 0;
+        if($isAdminPay){
+            $admin_id = auth::get_id();
+        }
         $donate = __config__donate;
         $begin_donate = sql::getRow("SELECT `donate_point` FROM `users` WHERE `id` = ?", [$user_id])['donate_point'];
         $bonus_procent = 0;
@@ -491,10 +495,12 @@ class auth {
         ]);
 
         //Запись в историю
-        sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `pay_system`, `date`) VALUES (?, ?, ?, ?)", [
+        sql::run("INSERT INTO `donate_history_pay` (`user_id`, `point`, `message`, `pay_system`, `id_admin_pay`, `date`) VALUES (?, ?, ?, ?, ?, ?)", [
             $user_id,
             $amount,
             lang::get_phrase(233),
+            $sys_pay_name,
+            $admin_id,
             time::mysql(),
         ]);
 
@@ -533,7 +539,8 @@ class auth {
                 ]);
             }
         }
-        userlog::add("donate_bonus", 546, [$bonus]);
+        \Ofey\Logan22\model\admin\userlog::expanded($user_id, auth::get_default_server(), "user_donate", 545, [$bonus, ""]);
+        referral::add_sphere_coin($user_id, $amount);
         return [
             "begin_donate" => $begin_donate,
             "end_donate" => $begin_donate + $amount + $bonus,

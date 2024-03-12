@@ -113,7 +113,7 @@ class yookassa extends \Ofey\Logan22\model\donate\pay_abstract {
 		}
         donate::control_uuid($id, get_called_class());
 
-		\Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $currency]);
+		\Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $currency, get_called_class()]);
         $amount = donate::currency($amount, $currency);
         auth::change_donate_point((int) $userId, $amount);		
     }

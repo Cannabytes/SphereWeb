@@ -18,6 +18,38 @@ use Ofey\Logan22\model\user\player\character;
 
 class referral {
 
+    /**
+     * Возвращаем ID пользователя, который завлек человека
+     */
+    public static function has_leader($user_id){
+        return sql::getRow('SELECT `leader_id` FROM `referrals` WHERE user_id = ?', [$user_id]);
+    }
+
+    /**
+     * Даем N бобло от доната лидеру реферала
+     */
+    public static function add_sphere_coin($user_id, $amount){
+        if(!REFERRAL_LEADER_BONUS_ENABLE){
+            return;
+        }
+        $leader = self::has_leader($user_id);
+        if(!$leader){
+            return;
+        }
+        $leader_id = $leader['leader_id'];
+        $percent = round($amount * REFERRAL_LEADER_BONUS_VALUE / 100, 2);
+        //Выдаем лидеру бонус от пополняшки пользователя
+        sql::run("UPDATE `users` SET `donate_point` = `donate_point` + ? WHERE `id` = ?", [
+            $percent,
+            $leader_id,
+        ]);
+        $user = auth::get_user_info($user_id);
+        $email = $user['email'];
+        $name = $user['name'];
+        //Создадим лог
+        \Ofey\Logan22\model\admin\userlog::expanded($leader_id, auth::get_default_server(), "donate_referral", "donate_percent_referral", [$percent, $email, $name]);
+    }
+
     //true - вернет только незавершенные рефералы
     public static function add_new_bonus() {
         $players_list = self::player_list(true, false);

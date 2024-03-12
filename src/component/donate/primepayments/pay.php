@@ -97,8 +97,8 @@ class primepayments extends \Ofey\Logan22\model\donate\pay_abstract {
         donate::control_uuid($_POST['orderID'], get_called_class());
         //Зачисление на пользовательский аккаунт средств
         $amount = donate::currency($_POST['sum'], $_POST['currency']);
-        userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency']]);
-        auth::change_donate_point($user_id, $amount);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$_POST['sum'], $_POST['currency'], get_called_class()]);
+        auth::change_donate_point($user_id, $amount, get_called_class());
         donate::AddDonateItemBonus($user_id, $amount);
         echo 'YES';
     }

@@ -44,6 +44,7 @@ class character {
         $accounts = [];
         foreach ($player_accounts as &$account) {
             $login = $account['login'];
+            $password = $account['password'];
             $players = character::all_characters($login);
             if (!$players) {
                 continue;
@@ -53,6 +54,7 @@ class character {
             }
             foreach ($players as $player) {
                 if($full_info){
+					$player['password'] = $password;
                     $accounts[$login][$player["player_name"]] = $player;
                 }else{
                     $accounts[$login][] = $player["player_name"];

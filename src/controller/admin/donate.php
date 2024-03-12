@@ -86,7 +86,7 @@ class donate {
         validation::user_protection("admin");
         $user_id = $_POST['id'];
         $point = $_POST['point'];
-        $info = auth::change_donate_point($user_id, $point);
+        $info = auth::change_donate_point($user_id, $point, 'Administration', true);
         board::alert( [
             "user_id" => $user_id,
             "donate" => $info["end_donate"],
