@@ -16,3 +16,6 @@ const ENABLE_NEWS = true;
 
 //Включить форум
 const ENABLE_FORUM = true;
+
+//Разрешить пользователям пересылать свои SphereCoin другим пользователям
+const ENABLE_SPHERECOIN_TRANSFER = true;

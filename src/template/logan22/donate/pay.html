@@ -83,12 +83,14 @@
                                         aria-selected="true">{{phrase("bonuses")}}
                                 </button>
                             </li>
+                            {% if config('ENABLE_SPHERECOIN_TRANSFER') %}
                             <li class="nav-item">
                                 <button class="nav-link " id="btabs-static-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#btabs-static-profile" role="tab"
                                         aria-controls="btabs-static-profile" aria-selected="false">{{phrase("forward")}} {{phrase("Sphere-Coin")}}
                                 </button>
                             </li>
+                            {% endif %}
                         </ul>
                         <div class="block-content tab-content">
                             <div class="tab-pane active" id="btabs-static-home" role="tabpanel"
@@ -121,6 +123,7 @@
                                     </table>
                                 </div>
                             </div>
+                            {% if config('ENABLE_SPHERECOIN_TRANSFER') %}
                             <div class="tab-pane " id="btabs-static-profile" role="tabpanel"
                                  aria-labelledby="btabs-static-profile-tab" tabindex="0">
                                 <h4 class="fw-normal">{{phrase("forward")}} {{phrase("Sphere-Coin")}} </h4>
@@ -172,6 +175,7 @@
 
 
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -186,6 +190,7 @@
                         {{phrase(303)}}
                     </h3>
                 </div>
+
                 <div class="block-content">
                     <table class="table table-borderless table-vcenter mb-4">
                         <tbody>

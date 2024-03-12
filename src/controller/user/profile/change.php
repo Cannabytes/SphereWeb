@@ -210,6 +210,9 @@ class change {
 
     public static function transfer_money(){
         validation::user_protection();
+        if(!ENABLE_SPHERECOIN_TRANSFER){
+            board::error("Disabled");
+        }
         if(!is_numeric($_POST['count']) || empty($_POST['count']) || str_contains($_POST['count'], '.')){
             board::error("Некорректное значение суммы");
         }
@@ -218,7 +221,7 @@ class change {
         if($moneyCount<=0){
             board::error("Сумма должна быть больше нуля");
         }
-        if ($moneyCount >= auth::get_donate_point()) {
+        if ($moneyCount > auth::get_donate_point()) {
             board::error("У Вас недостаточно денег");
         }
         $userInfo = auth::exist_user_nickname($user);

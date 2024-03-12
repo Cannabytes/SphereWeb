@@ -488,6 +488,15 @@ class tpl {
             return config::$funcName();
         }));
 
+        //Возвращает установленный конфиг config('ENABLE_SPHERECOIN_TRANSFER')
+        $twig->addFunction(new TwigFunction('config', function ($name) {
+            if (defined($name)) {
+                return constant($name);
+            } else {
+                return $name;
+            }
+        }));
+
         $twig->addFunction(new TwigFunction('get_template', function () {
             return config::get_template();
         }));
