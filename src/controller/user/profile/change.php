@@ -215,7 +215,10 @@ class change {
         }
         $moneyCount = $_POST['count'] ?? 0;
         $user = trim($_POST['user']);
-        if ($moneyCount > auth::get_donate_point()) {
+        if($moneyCount<=0){
+            board::error("Сумма должна быть больше нуля");
+        }
+        if ($moneyCount >= auth::get_donate_point()) {
             board::error("У Вас недостаточно денег");
         }
         $userInfo = auth::exist_user_nickname($user);
