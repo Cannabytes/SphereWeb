@@ -119,12 +119,21 @@ class lang {
             }
             $phrase = self::$lang_array[$key];
         }
-        $result = sprintf($phrase, ...$values);
+
+        // Проверяем, достаточно ли аргументов передано
+        $missing_values_count = max(0, substr_count($phrase, '%s') - count($values));
+        $default_values = array_fill(0, $missing_values_count, ''); // Заполняем массив значениями по умолчанию
+
+        // Дополняем массив значений по умолчанию переданными значениями
+        $values = array_merge($values, $default_values);
+
+        $result = vsprintf($phrase, $values);
         if (empty($values)) {
             self::$cache[$key] = $result;
         }
         return $result;
     }
+
 
     public static function get_phrase_plugin($key) {
         if(!empty(self::$pluginCache)){

@@ -271,6 +271,7 @@
                             <a class="nav-main-link ajaxload" href="{{action('menu_donate_pay')}}" {% if MobileDetect() %}data-toggle="layout" data-action="sidebar_toggle"{% endif %}>
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">{{phrase(486)}}</span>
+                                {{phrase('486_1', user_info('get_donate_point'))|raw}}
                             </a>
                         </li>
                         <li class="nav-main-item">

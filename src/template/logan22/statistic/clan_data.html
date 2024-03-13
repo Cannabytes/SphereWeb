@@ -87,7 +87,7 @@
     <div class="row">
         {% for player in clan_players %}
         <div class="col-6 col-md-4 col-xl-2">
-            <a class="block block-rounded block-bordered block-link-shadow text-center {% if player['forbidden']==false %}ajaxload{%endif%}" href="{% if player['forbidden'] == false %}{{action('account_statistic_player', [ plater['player_name']|url_encode ]) }}{%else%}javascript:void(0){%endif%}">
+            <a class="block block-rounded block-bordered block-link-shadow text-center {% if player['forbidden']==false %}ajaxload{%endif%}" href="{% if player['forbidden'] == false %}{{action('account_statistic_player', [ player['player_name']|url_encode ]) }}{%else%}javascript:void(0){%endif%}">
                 <div class="block-content">
                     {% if player['forbidden'] %}
                         <p class="fw-semibold">{{player.player_name}}  {% if player.online %}<span class="text-success">•</span>{% endif %}<br>{{player.pvp}} / {{player.pk}}</p>

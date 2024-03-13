@@ -334,7 +334,7 @@ class donate {
             $user_id,
         ]);
         foreach ($pays AS &$pay){
-            if(isset($pay['id_admin_pay'])){
+            if(!empty($pay['id_admin_pay'])){
               $admin = auth::get_user_info($pay['id_admin_pay']);
               $pay['admin_name'] = $admin['name'];
             }

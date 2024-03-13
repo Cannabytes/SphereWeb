@@ -519,6 +519,7 @@ class auth {
                     time::mysql(),
                     1, //Означает что это зачисление от sphere
                 ]);
+                \Ofey\Logan22\model\admin\userlog::expanded($user_id, auth::get_default_server(), "user_donate", 546_1, [$bonus]);
             }
         }
 
@@ -537,9 +538,9 @@ class auth {
                     time::mysql(),
                     1, //Означает что это зачисление от sphere
                 ]);
+                \Ofey\Logan22\model\admin\userlog::expanded($user_id, auth::get_default_server(), "user_donate", 546, [$bonus]);
             }
         }
-        \Ofey\Logan22\model\admin\userlog::expanded($user_id, auth::get_default_server(), "user_donate", 545, [$bonus, ""]);
         referral::add_sphere_coin($user_id, $amount);
         return [
             "begin_donate" => $begin_donate,
