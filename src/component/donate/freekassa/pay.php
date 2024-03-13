@@ -100,7 +100,7 @@ class freekassa extends \Ofey\Logan22\model\donate\pay_abstract {
         if($sign != $_REQUEST['SIGN']){
             die('wrong sign');
         }
-        donate::control_uuid($_REQUEST['intid'], get_called_class());
+        donate::control_uuid($_REQUEST['SIGN'], get_called_class());
 
         \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default, get_called_class()]);
         $amount = donate::currency($amount, $this->currency_default);

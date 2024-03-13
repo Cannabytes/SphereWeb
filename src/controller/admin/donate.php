@@ -86,6 +86,8 @@ class donate {
         validation::user_protection("admin");
         $user_id = $_POST['id'];
         $point = $_POST['point'];
+        $user = auth::get_user_info($user_id);
+        \Ofey\Logan22\model\admin\userlog::add("user_donate", 545_1, [$point, $user['name'], $user['email']]);
         $info = auth::change_donate_point($user_id, $point, 'Administration', true);
         board::alert( [
             "user_id" => $user_id,
