@@ -86,6 +86,8 @@ class freekassa extends \Ofey\Logan22\model\donate\pay_abstract {
 
     //Получение информации об оплате
     function transfer(): void {
+        file_put_contents( __DIR__ . '/debug.log', '_REQUEST: ' . print_r( $_REQUEST, true ) . PHP_EOL, FILE_APPEND );
+
         \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
         if(empty($this->secret_key_1) OR empty($this->secret_key_2)){
             board::error("Freekassa token is empty");
@@ -100,7 +102,7 @@ class freekassa extends \Ofey\Logan22\model\donate\pay_abstract {
         if($sign != $_REQUEST['SIGN']){
             die('wrong sign');
         }
-        donate::control_uuid($_REQUEST['SIGN'], get_called_class());
+        donate::control_uuid($_REQUEST['SIGN'] . "__" . mt_rand(0, 999999999), get_called_class());
 
         \Ofey\Logan22\model\admin\userlog::add("user_donate", 545, [$amount, $this->currency_default, get_called_class()]);
         $amount = donate::currency($amount, $this->currency_default);
