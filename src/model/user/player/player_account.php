@@ -10,6 +10,7 @@ namespace Ofey\Logan22\model\user\player;
 use Exception as ExceptionAlias;
 use Ofey\Logan22\component\alert\board;
 use Ofey\Logan22\component\base\base;
+use Ofey\Logan22\component\image\client_icon;
 use Ofey\Logan22\component\lang\lang;
 use Ofey\Logan22\component\restapi\restapi;
 use Ofey\Logan22\component\time\time;
@@ -17,6 +18,7 @@ use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\db\sdb;
 use Ofey\Logan22\model\db\sql;
+use Ofey\Logan22\model\donate\donate;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\server\server;
 use Ofey\Logan22\model\user\auth\auth;
@@ -477,5 +479,72 @@ class player_account {
             }
         }
         return $reQuest;
+    }
+
+    private static array $characters = [];
+
+    private static function get_memory_character($char_name, $server_info){
+        if(isset(self::$characters[$char_name])){
+            return self::$characters[$char_name];
+        }
+        $player_info = player_account::is_player($server_info, [$char_name]);
+        $player_info = $player_info->fetch();
+        if (!$player_info) {
+            board::error(lang::get_phrase('character not found'));
+        }
+        $user = player_account::get_show_characters_info($player_info['login']);
+        if ($user == null or $user["email"] != auth::get_email()) {
+            board::notice(lang::get_phrase(490));
+        }
+        self::$characters[$char_name] = $player_info;
+        return $player_info;
+    }
+
+    public static function addItem($server_id, $item_id, $item_count, $item_enchant, $char_name = null) {
+        if ($char_name == null) {
+            board::error(lang::get_phrase('no nickname'));
+        }
+        $server_info = server::server_info($server_id);
+        if (!$server_info) {
+            board::error(lang::get_phrase(150));
+        }
+
+        $player_info = self::get_memory_character($char_name, $server_info);
+        if (!$player_info) board::error(lang::get_phrase(151, $char_name));
+        $player_id = $player_info["player_id"];
+        $is_stack = client_icon::is_stack($item_id);
+        if ($server_info['collection_sql_base_name']::need_logout_player_for_item_add()) {
+            if ($player_info["online"]) {
+                board::error(lang::get_phrase(153, $char_name));
+            }
+            if ($is_stack) {
+                $checkPlayerItem = player_account::check_item_player($server_info, [
+                    $item_id,
+                    $player_id,
+                ]);
+                $checkPlayerItem = $checkPlayerItem->fetch();
+                if ($checkPlayerItem) {
+                    player_account::update_item_count_player($server_info, [
+                        ($checkPlayerItem['count'] + $item_count),
+                        $checkPlayerItem['object_id'],
+                    ]);
+                } else {
+                    donate::add_item_max_val_id($server_info, $player_id, $item_id, $item_count);
+                }
+            } else {
+                donate::add_item_max_val_id($server_info, $player_id, $item_id, $item_count);
+            }
+        } else {
+            $prepare = [
+                $player_id,
+                $item_id,
+                $item_count,
+                $item_enchant,
+            ];
+            $ok = self::extracted('add_item', $server_info, $prepare);
+            if (!$ok) {
+                board::notice(false, lang::get_phrase(lang::get_phrase('sending failed')));
+            }
+        }
     }
 }

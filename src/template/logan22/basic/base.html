@@ -153,20 +153,20 @@
 
         {# Инвентарь #}
         {% block inventory %}
-        <div class="content-side" id="inventory">
+        <div class="" id="inventory">
             <div class="block pull-x">
                 <div class="block-header bg-body-light">
-                    <h3 class="block-title">
-                        <i class="fa fa-fw fa-users opacity-50 me-1"></i> {{phrase("sphere_inventory")}}
+                    {% if user_info('getBonus') is empty %}
+                        No Items
+                    {% else %}
+                    <h3 class="block-title text-center">
+                        <a href="/inventory" class="btn btn-sm btn-secondary ajaxload">
+                            <i class="fa fa-paper-plane opacity-50 me-1"></i>{{phrase(580)}}
+                        </a>
                     </h3>
-                    <div class="block-options">
-                        <button id="inventoryUpdate" type="button" class="btn-block-option" data-toggle="block-option"
-                                data-action="state_toggle" data-action-mode="demo">
-                            <i class="si si-refresh"></i>
-                        </button>
-                    </div>
+                    {% endif %}
                 </div>
-                <div class="block-content">
+                {% if user_info('getBonus') is not empty %}
                     <ul class="nav-users">
                         {% for bonus in user_info('getBonus') %}
                         <li>
@@ -187,12 +187,13 @@
                         </li>
                         {% endfor %}
                     </ul>
-                </div>
+                {% endif %}
             </div>
         </div>
         {% endblock %}
 
     </aside>
+
     <nav id="sidebar">
         <div class="sidebar-content">
             <div class="content-header justify-content-lg-center bg-black-10">
@@ -437,6 +438,7 @@
             </div>
         </div>
     </nav>
+
 
     <header id="page-header">
         <div class="content-header">

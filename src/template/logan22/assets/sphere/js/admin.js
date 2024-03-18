@@ -45,6 +45,10 @@ function basename(str) {
     return base;
 }
 
+$(document).on('change', '#getSort', function (e) {
+    sortName  = $('#getSort').val();
+    document.location.href = baseHref + "/admin/logs/user/sort/" + sortName;
+});
 
 $(document).on('click', '#getDBNameLogin', function (event) {
     $.ajax({

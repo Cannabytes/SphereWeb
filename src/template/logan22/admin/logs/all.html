@@ -7,6 +7,15 @@
 <div class="block block-rounded">
     <div class="block-header block-header-default">
         <h3 class="block-title">Логи действий пользователей</h3>
+
+        <div class="col-md-6 col-xl-3 border-end">
+            <select class="form-select" id="getSort" name="getSort">
+                <option selected="all">All</option>
+                {% for log in logs_type %}
+                <option value="{{ log.type }}" {% if log.type == sort_type %}selected{% endif %}>{{ log.type }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
     <div class="block-content">
         <table class="table table-striped table-vcenter">

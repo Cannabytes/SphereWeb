@@ -204,4 +204,7 @@ class bonus {
         return sql::getRow("SELECT * FROM bonus WHERE id = ?", [$object_id]);
     }
 
+
+
+
 }

@@ -1,0 +1,126 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Start w{% endblock %}
+
+{% block content %}
+
+<main id="inventory_full">
+    <div class="content">
+
+        <!-- Checkable Table (.js-table-checkable class is initialized in Helpers.cbTableToolsCheckable()) -->
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">
+                    Мой инвентарь
+                </h3>
+
+                <div class="block-options">
+
+
+                    <div class="input-group">
+                    <select name="player_name" class="form-control single-select form-select-sm ">
+                        {% if get_account_players() is not null %}
+                        {% for account_name, players in get_account_players() %}
+                        <optgroup label="{{phrase(480)}}: {{account_name}}">
+                            {% for player in players %}
+                            <option value="{{player}}">{{player}}</option>
+                            {% endfor %}
+                        </optgroup>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                    <button id="inventory_send_item_to_game" class="btn btn-sm btn-secondary " > Отправить </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="block-content block-content-full">
+                <!-- If you put a checkbox in thead section, it will automatically toggle all tbody section checkboxes -->
+                <table id="mass_select_item_inventory" class="js-table-checkable table table-hover table-vcenter">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 40px;">
+                            <div class="form-check d-inline-block">
+                                <input class="form-check-input" type="checkbox" value="" id="check-all" name="check-all">
+                                <label class="form-check-label" for="check-all"></label>
+                            </div>
+                        </th>
+                        <th style="width: 32px;"></th>
+                        <th>Item</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for i, bonus in user_info('getBonus') %}
+                    <tr class="">
+                        <td class="text-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" data-object-id="{{bonus.id}}" id="row_{{i+1}}" name="row_{{i+1}}">
+                                <label class="form-check-label" for="row_{{i+1}}"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <img src="{{( bonus.icon )}}">
+                        </td>
+                        <td>
+                            <p class="fw-semibold mb-1">{% if bonus.enchant > 0 %}+{{bonus.enchant}}{% endif %} {{bonus.name}} {% if
+                                bonus.count > 1 %}({{bonus.count}}){% endif %}</p>
+                            <p class="fs-sm text-muted mb-0">
+                                {% if bonus.phrase is not empty%}{{phrase(bonus.phrase)}}{%endif%}
+                            </p>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+</main>
+
+<script>
+    $(document).ready(function() {
+        // Назначаем обработчик события отправки формы
+
+        $(document).on("click", "#inventory_send_item_to_game", function (event) {
+            event.preventDefault();
+            submitForm();
+            event.stopImmediatePropagation();
+        });
+    });
+
+    function submitForm() {
+        let playerName = $('select[name="player_name"]').val();
+        let formData = new FormData();
+        formData.append('player_name', playerName);
+
+        $('#mass_select_item_inventory').find('tbody input[type="checkbox"]:checked').each(function() {
+            let objectId = $(this).data('object-id');
+            if (objectId !== undefined && objectId !== null) {
+                formData.append('object_items[]', objectId);
+            }
+        });
+
+
+        $.ajax({
+            url:  baseHref + '/inventory/send',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                responseAnalysis(response);
+                updateInventory()
+            },
+            error: function(xhr, status, error) {
+            }
+        });
+    }
+
+
+</script>
+{% endblock %}

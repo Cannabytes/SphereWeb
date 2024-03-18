@@ -6,7 +6,7 @@ $routes = [
             "pattern" => "/startpack",
             "file"    => "start_player_pack.php",
             "call"    => function() {
-                (new start_player_pack\start_player_pack())->show();
+                (new start_player_pack\inventory())->show();
             },
        ],
         [
@@ -14,7 +14,7 @@ $routes = [
             "pattern" => "/startpack/buy",
             "file"    => "start_player_pack.php",
             "call"    => function() {
-                (new start_player_pack\start_player_pack())->buy();
+                (new start_player_pack\inventory())->buy();
             },
         ],
 ];

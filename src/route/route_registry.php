@@ -1,9 +1,11 @@
 <?php
 
 use Ofey\Logan22\component\lang\lang;
+use Ofey\Logan22\component\redirect;
 use Ofey\Logan22\component\session\session;
 use Ofey\Logan22\model\admin\validation;
 use Ofey\Logan22\model\donate\donate;
+use Ofey\Logan22\model\user\auth\auth;
 use Ofey\Logan22\model\user\player\character;
 
 session::init();
@@ -12,7 +14,37 @@ date_default_timezone_set(DEFAULT_TIMEZONE);
 $route = new Ofey\Logan22\route\Route();
 $route->get("user/change/lang/{lang}", 'Ofey\Logan22\component\lang\lang::set_lang');
 
-//TODO: сейчас при каждом запросе идет подключение к бд на проверку админа. Нужно пересмотреть.
+/**
+ * @param \Ofey\Logan22\route\Route $route
+ * @return void
+ */
+function IndependentRequests(\Ofey\Logan22\route\Route $route): void {
+    $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
+    $route->get("login", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("login");
+    $route->get("auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
+    $route->post("auth", 'Ofey\Logan22\controller\user\auth\auth::auth_request');
+    $route->get("auth/logout", 'Ofey\Logan22\controller\user\auth\auth::logout');
+    $route->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget')->alias("forget");
+    $route->post("auth/forget/send/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_forget');
+    $route->post("auth/forget/verification/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_verification_forget');
+    $route->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
+    $route->post("/auth/forget/send/password", 'Ofey\Logan22\controller\user\auth\auth::send_password');
+    $route->get("/registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");
+    $route->get("/registration/account/server/(\d+)", 'Ofey\Logan22\controller\registration\account::newAccount');
+    $route->post("/registration/account", 'Ofey\Logan22\controller\registration\account::requestNewAccount');
+    $route->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
+    $route->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
+    $route->get("registration/user/ref/{username}", 'Ofey\Logan22\controller\registration\user::show');
+    $route->post("generation/account", function () {
+        echo \Ofey\Logan22\component\account\generation::word();
+    });
+    $route->post("generation/password", function () {
+        echo \Ofey\Logan22\component\account\generation::password(mt_rand(4, 6), special: false);
+    });
+    $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
+
+}
+
 if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Logan22\component\fileSys\fileSys::get_dir('/src/config/db.php'))) {
     $route->get("/", "Ofey\Logan22\controller\install\install::rules");
     $route->get("/install", "Ofey\Logan22\controller\install\install::rules");
@@ -24,8 +56,16 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
         \Ofey\Logan22\component\redirect::location("/install");
     });
 } else {
+    if(REQUIRE_AUTHORIZATION){
+        if(!auth::get_is_auth()){
+            IndependentRequests($route);
+            $route->get("/(.*)", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
+            $route->run();
+            return;
+        }
+    }
     //Если включен режим выполнения технических работ
-    if(\Ofey\Logan22\model\user\auth\auth::get_access_level()!="admin"){
+    if(auth::get_access_level()!="admin"){
         if(TECHNICAL_WORK){
             $route->get("/auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
             $route->all('/(.*)', function () {
@@ -37,7 +77,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
         }
     }
 
-    $route->get("/", 'Ofey\Logan22\controller\promo\promo::index');
 
     //Новости и страницы
     $route->get("page", '\Ofey\Logan22\controller\page\page::lastNews');
@@ -48,20 +87,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->post("ajax/get/news", '\Ofey\Logan22\controller\page\page::get_news_ajax');
     $route->get("main", 'Ofey\Logan22\controller\main\main::index')->alias("home")->alias("main");
-    $route->get("/registration/account", 'Ofey\Logan22\controller\registration\account::newAccount')->alias("registration_account");
-    $route->get("/registration/account/server/(\d+)", 'Ofey\Logan22\controller\registration\account::newAccount');
-    $route->post("/registration/account", 'Ofey\Logan22\controller\registration\account::requestNewAccount');
-
-    $route->get("registration/user", 'Ofey\Logan22\controller\registration\user::show')->alias("registration_user");
-    $route->post("registration/user", 'Ofey\Logan22\controller\registration\user::add');
-    $route->get("registration/user/ref/{username}", 'Ofey\Logan22\controller\registration\user::show');
-
-    $route->post("generation/account", function () {
-        echo \Ofey\Logan22\component\account\generation::word();
-    });
-    $route->post("generation/password", function () {
-        echo \Ofey\Logan22\component\account\generation::password(mt_rand(4, 6), special: false);
-    });
+    IndependentRequests($route);
 
     $route->get("/forum/topic/add/(\d+)", 'Ofey\Logan22\controller\forum\forum::addTopic');
     $route->get("/forum/", 'Ofey\Logan22\controller\forum\forum::forum');
@@ -88,18 +114,6 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->get("/account/sync", 'Ofey\Logan22\controller\registration\account::sync');
     $route->post("/account/sync", 'Ofey\Logan22\controller\registration\account::sync_add');
 
-    /**
-     * Авторизация
-     */
-    $route->get("login", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("login");
-    $route->get("auth", 'Ofey\Logan22\controller\user\auth\auth::index')->alias("auth");
-    $route->post("auth", 'Ofey\Logan22\controller\user\auth\auth::auth_request');
-    $route->get("auth/logout", 'Ofey\Logan22\controller\user\auth\auth::logout');
-    $route->get("auth/forget", 'Ofey\Logan22\controller\user\auth\auth::forget')->alias("forget");
-    $route->post("auth/forget/send/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_forget');
-    $route->post("auth/forget/verification/code", 'Ofey\Logan22\controller\user\auth\auth::send_email_verification_forget');
-    $route->get("/auth/forget/code/{code}", 'Ofey\Logan22\controller\user\auth\auth::open_forget_page');
-    $route->post("/auth/forget/send/password", 'Ofey\Logan22\controller\user\auth\auth::send_password');
 
     /**
      * Реферальная система
@@ -286,11 +300,10 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
     $route->post("/admin/bonuscode", "\Ofey\Logan22\controller\admin\bonuscode::genereate");
     $route->get("/admin/bonuscode/show", '\Ofey\Logan22\controller\admin\bonuscode::show_code');
     $route->post("/admin/bonuscode/remove", '\Ofey\Logan22\controller\admin\bonuscode::remove');
+    $route->get("/admin/bonuscode/create/pack", "\Ofey\Logan22\controller\admin\bonuscode::create_pack");
 
     $route->get("/admin/logs/user", '\Ofey\Logan22\controller\admin\userlog::all');
-
-
-    $route->post("/captcha", 'Ofey\Logan22\component\captcha\captcha::defence');
+    $route->get("/admin/logs/user/sort/(.*)", '\Ofey\Logan22\controller\admin\userlog::all');
 
     $route->post("/chat", 'Ofey\Logan22\controller\chat\chat::show');
 

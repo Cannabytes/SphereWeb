@@ -18,7 +18,7 @@ class validation {
      * user, admin
      * default: all
      */
-    public static function user_protection($var = ["user", "moderator", "admin"], $need_redirect = true) {
+    public static function user_protection($var = ["user", "moderator", "admin"], $need_redirect = true): bool {
         $user_privilege = auth::get_access_level();
         if(in_array($user_privilege, (array)$var)) {
             return true;

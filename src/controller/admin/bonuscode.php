@@ -11,6 +11,11 @@ use Ofey\Logan22\template\tpl;
 
 class bonuscode {
 
+    public static function create_pack(){
+        validation::user_protection("admin");
+        tpl::display('admin/bonuscode/create_pack.html');
+    }
+
     public static function show() {
         validation::user_protection("admin");
         tpl::display('admin/bonuscode/bonus.html');

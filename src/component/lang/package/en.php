@@ -907,4 +907,7 @@ return [
     577 => 'State',
     578 => 'Help me come up with an account name?',
     579 => 'Pairing a game account with a profile',
+    "donate_percent_referral" => "The user received %s for donating referral %s (%s)",
+    580 => "Mass sending to a character",
+
 ];

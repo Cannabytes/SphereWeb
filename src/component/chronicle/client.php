@@ -113,7 +113,7 @@ class client {
                     152,
                     146,
                 ],
-                'name'     => "Gracia Plus (Epilogue)",
+                'name'     => "Epilogue",
             ],
             [
                 'protocol' => [216],

@@ -65,3 +65,6 @@ const SAVE_ONLINE_STATISTIC = true;
 const PAUSE_TIME = 10;
 //Увеличивать показатели выводимого онлайна (для пользователей, в админке онлайн честный).
 const ONLINE_MUL = 1.72;
+
+//Требовать обязательную авторизацию для просмотра ЛК ?
+const REQUIRE_AUTHORIZATION = true;
