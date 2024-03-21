@@ -505,13 +505,13 @@ class tpl {
             echo number_format($num, 0, ',', $separator);
         }));
 
-        $twig->addFunction(new TwigFunction('ProhloVremya', function ($mysqlTimeFormat) {
-            return statistic_model::timeHasPassed(time() - strtotime($mysqlTimeFormat));
+        $twig->addFunction(new TwigFunction('ProhloVremya', function ($mysqlTimeFormat, $reduce = false) {
+            return statistic_model::timeHasPassed(time() - strtotime($mysqlTimeFormat), $reduce);
         }));
 
         //Время (в секундах) в часы. минуты, сек.
-        $twig->addFunction(new TwigFunction('timeHasPassed', function ($num, $onlyHour = false) {
-            return statistic_model::timeHasPassed($num, $onlyHour);
+        $twig->addFunction(new TwigFunction('timeHasPassed', function ($num, $reduce = false) {
+            return statistic_model::timeHasPassed($num, $reduce);
         }));
 
         $twig->addFunction(new TwigFunction('formatSeconds', function ($secs = 0) {

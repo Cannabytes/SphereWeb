@@ -310,7 +310,7 @@ class statistic {
     }
 
 
-    public static function timeHasPassed($seconds, $onlyHour = false): string {
+    public static function timeHasPassed($seconds, $reduce = false): string {
         $days = floor($seconds / 86400);
         $seconds %= 86400;
         $hours = floor($seconds / 3600);
@@ -320,18 +320,18 @@ class statistic {
 
         $result = '';
         if ($days > 0) {
-            $result .= $days . ' дней, ';
+            $result .= $days . ($reduce ? 'д. ' : 'дней, ');
         }
         if ($hours > 0) {
-            $result .= $hours . ' часов, ';
+            $result .= $hours . ($reduce ? ' ч. ' : ' часов, ');
         }
         if ($minutes > 0) {
-            $result .= $minutes . ' минут, ';
+            $result .= $minutes . ($reduce ? ' м. ' : ' минут, ');
         }
-        $result .= $seconds . ' секунд';
-
+        $result .= $seconds . ($reduce ? ' с.' : ' секунд') ;
         return $result;
     }
+
 
     //Статистика онлайна с указанными датами
     public static function get_online_date(int $server_id = 0, string $start_date = "", string $end_date = ""): array {

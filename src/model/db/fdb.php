@@ -80,7 +80,9 @@ class fdb {
             $stmt->execute($args);
             return $stmt;
         } catch(PDOException $e) {
-            throw new Exception($e->getMessage());
+            self::$error = true;
+            self::$messageError = "Error: {$e->getMessage()}";
+            return false;
         }
         return false;
     }

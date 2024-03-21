@@ -5,41 +5,49 @@
 {% block content %}
 <div class="content">
 <div class="block block-rounded">
-    <div class="block-header block-header-default">
-        <h3 class="block-title">Логи действий пользователей</h3>
 
-        <div class="col-md-6 col-xl-3 border-end">
-            <select class="form-select" id="getSort" name="getSort">
-                <option selected="all">All</option>
-                {% for log in logs_type %}
-                <option value="{{ log.type }}" {% if log.type == sort_type %}selected{% endif %}>{{ log.type }}</option>
-                {% endfor %}
-            </select>
-        </div>
+    <div class="block-header block-header-default border-bottom">
+        <span class="">Логи действий <i id='load_new_logs' class="fa fa-spinner fa-spin"></i></span>
+		
+		<div class="btn-toolbar mb-2" role="toolbar" aria-label="Small Primary Toolbar with button groups">
+ 
+					<div class="btn-group btn-group-sm me-2 mb-2" role="group" aria-label="Small Primary Second group">
+						<select class="form-select form-select-sm" id="getSort" name="getSort">
+							<option selected="all">All</option>
+							{% for log in logs_type %}
+							<option value="{{ log.type }}" {% if log.type == sort_type %}selected{% endif %}>{{ log.type }}</option>
+							{% endfor %}
+						</select>
+					</div>
+				
+		</div>
+				  
+ 
+		
     </div>
     <div class="block-content">
-        <table class="table table-striped table-vcenter">
+        <table class="table table-sm table-vcenter js-animation-section">
             <thead>
             <tr>
                 <th class="text-center" style="width: 100px;"><i class="si si-user"></i></th>
                 <th>User</th>
                 <th>Email</th>
                 <th class="text-center " style="">Событие</th>
-                <th class="text-center" style="width: 100px;">Время</th>
+                <th class="text-center" style="width: 100px;">Прошло</th>
             </tr>
             </thead>
             <tbody>
 
             {% for i, log in logs_all %}
-            <tr>
+            <tr class="log_id" data-object-id="{{log.id}}">
                 <td class="text-center">
-                    <img class="img-avatar img-avatar48" src="{{get_avatar(log.avatar)}}" alt="">
+                    <img class="img-avatar img-avatar48" src="{{get_avatar(log.avatar, true)}}" alt="">
                 </td>
                 <td class="fw-semibold">{{log.name}}</td>
                 <td class="fw-semibold">{{log.email}}</td>
                 <td class="d-none d-sm-table-cell">{{log.message|raw}}</td>
                 <td class="text-center">
-                    {{log.time}}
+                    {{ProhloVremya(log.time, true)}}
                 </td>
             </tr>
             {% endfor %}
@@ -49,4 +57,125 @@
     </div>
 </div>
 </div>
+
+<div id="showmore-triger" data-page="1" data-max="{{total_pages}}">
+    <img src="ajax-loader.gif" alt="">
+</div>
+
+
+<script >
+	$("#load_new_logs").hide();
+
+    $(document).ready(function() {
+        setInterval(function() {
+			$("#load_new_logs").show();
+			setTimeout(async function() {
+				$("#load_new_logs").hide();
+			}, 500);
+            let maxObjectId = 0;
+            $(".log_id").each(function() {
+                var currentObjectId = $(this).data("object-id");
+                if (currentObjectId > maxObjectId) {
+                    maxObjectId = currentObjectId;
+                }
+            });
+            data = {
+                maxObjectId: maxObjectId,
+                getSort : $('#getSort').val(),
+            }
+            AjaxSend('/admin/logs/user/update/message', 'post', data, true).then(function (response) {
+                    if (Array.isArray(response) && response.length > 0) {
+                        $(".log_id.table-warning").removeClass("table-warning");
+                        $(".log_id.table-info").removeClass("table-info").addClass("table-warning");
+                        $(".log_id.table-success").removeClass("table-success").addClass("table-info");
+                        $.each(response, function (index, log) {
+                            let newRow = '<tr class="log_id table-success js-animation-object animated bounceInDown" data-object-id="' + log.id + '">' +
+                                '<td class="text-center">' +
+                                '<img class="img-avatar img-avatar48" src="' + log.avatar + '" alt="">' +
+                                '</td>' +
+                                '<td class="fw-semibold">' + log.name + '</td>' +
+                                '<td class="fw-semibold">' + log.email + '</td>' +
+                                '<td class="d-none d-sm-table-cell">' + log.message + '</td>' +
+                                '<td class="text-center">' + log.time + '</td>' +
+                                '</tr>';
+                            $("tbody").prepend(newRow);
+                        });
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Произошла ошибка:', error);
+                });
+        }, 4000);
+	
+	
+    var block_show = false;
+
+    function scrollMore(){
+        var $target = $('#showmore-triger');
+
+        if (block_show) {
+            return false;
+        }
+
+        var wt = $(window).scrollTop();
+        var wh = $(window).height();
+        var et = $target.offset().top;
+        var eh = $target.outerHeight();
+        var dh = $(document).height();
+
+        if (wt + wh >= et || wh + wt == dh || eh + et < wh){
+            var page = $target.attr('data-page');
+            page++;
+            block_show = true;
+			data = {
+                page: page,
+				getSort : $('#getSort').val(),
+            }
+            AjaxSend(baseHref + '/admin/logs/user/get/message', 'post', data, true).then(function (response) {
+			    if (Array.isArray(response) && response.length > 0) {
+						$.each(response, function (index, log) {
+						if(index == 0){
+							css = 'table-active';
+						}else{
+							css = '';
+						}
+                        let newRow = '<tr class="log_id '+ css +'" data-object-id="' + log.id + '">' +
+                            '<td class="text-center">' +
+                            '<img class="img-avatar img-avatar48" src="' + log.avatar + '" alt="">' +
+                            '</td>' +
+                            '<td class="fw-semibold">' + log.name + '</td>' +
+                            '<td class="fw-semibold">' + log.email + '</td>' +
+                            '<td class="d-none d-sm-table-cell">' + log.message + '</td>' +
+                            '<td class="text-center">' + log.time + '</td>' +
+                            '</tr>';
+                        $("tbody").append(newRow);
+                    });
+				} 
+			});
+  
+            $target.attr('data-page', page);
+            if (page ==  $target.attr('data-max')) {
+                $target.remove();
+            }
+        }
+		block_show = false;
+    }
+	
+	var scrollTimeout;
+
+	$(window).scroll(function(){
+		clearTimeout(scrollTimeout);
+		scrollTimeout = setTimeout(function(){
+			scrollMore();
+		}, 200); // Установите интервал, который считается безопасным
+	});
+
+	$(document).ready(function(){
+		scrollMore();
+	});
+
+    });
+
+
+</script>
 {% endblock %}

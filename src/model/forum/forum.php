@@ -126,7 +126,6 @@ class forum {
     }
 
     public static function get_last_thread(int $n = 10) {
-
         if(!self::forum_enable()) {
             return false;
         }

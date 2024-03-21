@@ -29,18 +29,15 @@ class lang {
 
     //Смена языка
     public static function set_lang($lang): void {
-        $allowLang = include fileSys::get_dir('/src/config/lang.php');
-        if (in_array($lang, $allowLang)) {
+        if (in_array($lang, LANG_USE)) {
             if (self::name($lang)) {
                 session::add("lang", $lang);
             }
         }
-//        $link = $_SERVER['HTTP_REFERER'] ?? "/main";
-//        header("Location: {$link}");
         redirect::location($_SERVER['HTTP_REFERER'] ?? "/main");
     }
 
-    private static function name($lang = 'ru') {
+    private static function name($lang = LANG_DEFAULT) {
         if(empty($lang)) {
             error_log("Language name is empty");
             return null;
@@ -55,7 +52,7 @@ class lang {
     }
 
     public static function load_package($dir = null): void {
-        $lang = $_SESSION['lang'] ?? 'ru';
+        $lang = $_SESSION['lang'] ?? LANG_DEFAULT;
         if ($dir == null) {
             self::$lang_array = require fileSys::get_dir("/src/component/lang/package/{$lang}.php");
         }
@@ -78,8 +75,7 @@ class lang {
         }
         $lang_name = self::lang_user_default();
         $langs = [];
-        $allowLang = include 'src/config/lang.php';
-        foreach(array_intersect($lngs, $allowLang) as $lng) {
+        foreach(array_intersect($lngs, LANG_USE) as $lng) {
             if($lng == $remove_lang) {
                 continue;
             }
@@ -167,7 +163,7 @@ class lang {
 
     //Язык пользователя по умолчанию
     public static function lang_user_default(): string {
-        $lang_name = $_SESSION['lang'] ?? config::get_language_default();
+        $lang_name = $_SESSION['lang'] ?? LANG_DEFAULT;
         $_SESSION['lang'] = mb_strtolower($lang_name);
         return $_SESSION['lang'];
     }

@@ -89,6 +89,7 @@ class donate {
         $user = auth::get_user_info($user_id);
         \Ofey\Logan22\model\admin\userlog::add("user_donate", 545_1, [$point, $user['name'], $user['email']]);
         $info = auth::change_donate_point($user_id, $point, 'Administration', true);
+        \Ofey\Logan22\model\donate\donate::AddDonateItemBonus($user_id, $point);
         board::alert( [
             "user_id" => $user_id,
             "donate" => $info["end_donate"],

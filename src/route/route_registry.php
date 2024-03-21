@@ -304,6 +304,7 @@ if (!\Ofey\Logan22\model\install\install::exist_admin() or !file_exists(\Ofey\Lo
 
     $route->get("/admin/logs/user", '\Ofey\Logan22\controller\admin\userlog::all');
     $route->get("/admin/logs/user/sort/(.*)", '\Ofey\Logan22\controller\admin\userlog::all');
+    $route->post("/admin/logs/user/update/message", '\Ofey\Logan22\controller\admin\userlog::get_new_message');
 
     $route->post("/chat", 'Ofey\Logan22\controller\chat\chat::show');
 

@@ -67,6 +67,17 @@ class bonus {
         $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         $charactersLength = strlen($characters);
 
+        if ($count == 1) {
+            $length = rand($minLength, $maxLength);
+            $randomString = $prefix;
+
+            for ($j = 0; $j < $length; $j++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+
+            return [$randomString];
+        }
+
         while (count($strings) < $count) {
             $length = rand($minLength, $maxLength);
             $randomString = $prefix;
@@ -82,6 +93,7 @@ class bonus {
 
         return $strings;
     }
+
 
 
 
