@@ -14,11 +14,19 @@ use Ofey\Logan22\model\admin\userlog;
 use Ofey\Logan22\model\db\sql;
 use Ofey\Logan22\model\encrypt\encrypt;
 use Ofey\Logan22\model\server\server;
+use Ofey\Logan22\model\user\auth\auth;
 
 class change_password {
 
     static public function change($login, $password, $password_hide, $server_id) {
         player_account::valid_password($password);
+        $info = player_account::get_show_characters_info($login);
+        if(!$info){
+            board::error("Poshel haxyu   ;)   ");
+        }
+        if($info['email'] != $_SESSION['email']){
+            board::error("Poshel haxyu ;)");
+        }
         if(player_account::exist_account_inside($login, $server_id)) {
             $update = sql::run("UPDATE `player_accounts` SET `password` = ?, `password_hide` = ?, `date_update` = ? WHERE `login` = ? AND `server_id` = ?", [
                 $password,
@@ -44,11 +52,8 @@ class change_password {
         if(!$server_info) {
             board::notice(false, lang::get_phrase(150));
         }
-
         $password = $server_info['rest_api_enable'] ? $password : encrypt::server_password($password, $server_info);
-
         $change = player_account::extracted("account_change_password", $server_info, [$password, $login]);
-
         if($server_info['rest_api_enable']){
             board::notice($change['ok'], lang::get_phrase($change['ok'] ? 181 : 180));
         } else {
