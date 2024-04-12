@@ -14,7 +14,7 @@ class sql {
     /**
      * @var PDO
      */
-    static private $db;
+    private static ?PDO $db = null;
     /**
      * @var null
      */
@@ -28,7 +28,7 @@ class sql {
      * @throws Exception
      */
     public static function connect() {
-        if(self::$instance === null) {
+        if(self::$db === null) {
             try {
                 if(!file_exists('src/config/db.php')) {
                     return null;
@@ -36,17 +36,15 @@ class sql {
                 self::$db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD, [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_EMULATE_PREPARES   => false,
-                    // turn off emulation mode for "real" prepared statements
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
                 ]);
-                return self::$db;
             } catch(PDOException $e) {
-                echo "Ошибка соединения с БД - " . $e->getMessage();
+                echo "Ошибка соединения с БД #1 - " . $e->getMessage();
                 exit;
             }
         }
-        return self::$instance;
+        return self::$db;
     }
 
     public static function query($stmt) {
@@ -147,6 +145,7 @@ class sql {
     public static function getRows($query, array $args = []) {
         return self::run($query, $args)->fetchAll();
     }
+
 
     /**
      * @param       $query
