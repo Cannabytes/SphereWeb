@@ -107,6 +107,10 @@ class unitpay extends \Ofey\Logan22\model\donate\pay_abstract {
     //Получение информации об оплате
     function transfer(): void {
         \Ofey\Logan22\component\request\ip::allowIP($this->allowIP);
+		
+        if(empty($this->secretKey)){
+            board::error("Unitpay token is empty");
+        }
 
 		$method = $_REQUEST['method'] ?? '';
 		$userId = $_REQUEST['params']['account'] ?? -1;
