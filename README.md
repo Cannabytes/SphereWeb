@@ -1,5 +1,5 @@
-Разработка данной версии прекращена.
-Теперь более актуальный и продвинутый код будет в [SphereWeb 2](https://github.com/Cannabytes/SphereWeb2)
+# Разработка данной версии *прекращена*.
+## Теперь более актуальный и продвинутый код будет в [SphereWeb 2](https://github.com/Cannabytes/SphereWeb2)
 
 ### Last Version: 1.55.12
 ~~~
